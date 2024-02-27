@@ -139,6 +139,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = cfg.NewRule(ctx, "exampleRule", &cfg.RuleArgs{
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("CUSTOM_LAMBDA"),

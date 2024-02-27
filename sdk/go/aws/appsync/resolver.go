@@ -65,6 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// UNIT type resolver (default)
 //			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
 //				ApiId:      testGraphQLApi.ID(),
 //				Field:      pulumi.String("singlePost"),
@@ -102,6 +103,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// PIPELINE type resolver
 //			_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
 //				Type:             pulumi.String("Mutation"),
 //				ApiId:            testGraphQLApi.ID(),

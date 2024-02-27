@@ -30,73 +30,68 @@ namespace Pulumi.Aws.Route53
     ///         CustomerMasterKeySpec = "ECC_NIST_P256",
     ///         DeletionWindowInDays = 7,
     ///         KeyUsage = "SIGN_VERIFY",
-    ///         Policy = Output.Tuple(current, current).Apply(values =&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var current = values.Item1;
-    ///             var current1 = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "kms:DescribeKey",
-    ///                             "kms:GetPublicKey",
-    ///                             "kms:Sign",
-    ///                         },
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
-    ///                         },
-    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service",
-    ///                         ["Resource"] = "*",
-    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                             },
-    ///                             ["ArnLike"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
-    ///                             },
-    ///                         },
+    ///                         "kms:DescribeKey",
+    ///                         "kms:GetPublicKey",
+    ///                         "kms:Sign",
     ///                     },
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Action"] = "kms:CreateGrant",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
-    ///                         },
-    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
-    ///                         ["Resource"] = "*",
-    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Bool"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["kms:GrantIsForAWSResource"] = "true",
-    ///                             },
-    ///                         },
+    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
     ///                     },
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service",
+    ///                     ["Resource"] = "*",
+    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Action"] = "kms:*",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:aws:iam::{current1.AccountId}:root",
+    ///                             ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
-    ///                         ["Resource"] = "*",
-    ///                         ["Sid"] = "Enable IAM User Permissions",
+    ///                         ["ArnLike"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
+    ///                         },
     ///                     },
     ///                 },
-    ///                 ["Version"] = "2012-10-17",
-    ///             });
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "kms:CreateGrant",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                     },
+    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
+    ///                     ["Resource"] = "*",
+    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Bool"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["kms:GrantIsForAWSResource"] = "true",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

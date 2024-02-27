@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Lambda
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["numeric"] = new[]
+    ///                                     ["numeric"] = new object?[]
     ///                                     {
     ///                                         "&gt;",
     ///                                         0,

@@ -34,6 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example SES Domain Identity
 //			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
 //				Domain: pulumi.String("example.com"),
 //			})
@@ -49,6 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Route53 MX record
 //			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 //				Name:   exampleMailFrom.MailFromDomain,
@@ -61,6 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Route53 TXT record for SPF
 //			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 //				Name:   exampleMailFrom.MailFromDomain,
@@ -92,6 +95,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example SES Email Identity
 //			exampleEmailIdentity, err := ses.NewEmailIdentity(ctx, "exampleEmailIdentity", &ses.EmailIdentityArgs{
 //				Email: pulumi.String("user@example.com"),
 //			})

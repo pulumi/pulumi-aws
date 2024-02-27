@@ -131,6 +131,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
 //				LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
 //					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),

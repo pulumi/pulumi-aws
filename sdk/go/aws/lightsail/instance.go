@@ -33,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new GitLab Lightsail Instance
 //			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),

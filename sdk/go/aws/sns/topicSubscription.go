@@ -235,6 +235,7 @@ import (
 // if err != nil {
 // return err
 // }
+// // provider to manage SNS topics
 // _, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
 // Region: *pulumi.String(sns.Region),
 // AssumeRole: &aws.ProviderAssumeRoleArgs{
@@ -245,6 +246,7 @@ import (
 // if err != nil {
 // return err
 // }
+// // provider to manage SQS queues
 // _, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
 // Region: *pulumi.String(sqs.Region),
 // AssumeRole: &aws.ProviderAssumeRoleArgs{
@@ -255,6 +257,7 @@ import (
 // if err != nil {
 // return err
 // }
+// // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
 // _, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
 // Region: *pulumi.String(sns.Region),
 // AssumeRole: &aws.ProviderAssumeRoleArgs{

@@ -50,6 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Auto enable security hub in organization member accounts
 //			_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
 //				AutoEnable: pulumi.Bool(true),
 //			})

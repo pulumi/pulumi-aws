@@ -383,7 +383,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
+            template_body=pulumi.Output.json_dumps({
                 "Parameters": {
                     "SerialNumber": {
                         "Type": "String",
@@ -401,12 +401,12 @@ class ProvisioningTemplate(pulumi.CustomResource):
                     },
                     "policy": {
                         "Properties": {
-                            "PolicyName": name,
+                            "PolicyName": device_policy_policy.name,
                         },
                         "Type": "AWS::IoT::Policy",
                     },
                 },
-            })))
+            }))
         ```
 
         ## Import
@@ -466,7 +466,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
+            template_body=pulumi.Output.json_dumps({
                 "Parameters": {
                     "SerialNumber": {
                         "Type": "String",
@@ -484,12 +484,12 @@ class ProvisioningTemplate(pulumi.CustomResource):
                     },
                     "policy": {
                         "Properties": {
-                            "PolicyName": name,
+                            "PolicyName": device_policy_policy.name,
                         },
                         "Type": "AWS::IoT::Policy",
                     },
                 },
-            })))
+            }))
         ```
 
         ## Import
