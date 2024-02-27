@@ -730,10 +730,10 @@ class Branch(pulumi.CustomResource):
         # EventBridge Rule for Amplify notifications
         amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
             description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
+            event_pattern=pulumi.Output.json_dumps({
                 "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
+                    "appId": [example.id],
+                    "branchName": [master.branch_name],
                     "jobStatus": [
                         "SUCCEED",
                         "FAILED",
@@ -742,7 +742,7 @@ class Branch(pulumi.CustomResource):
                 },
                 "detail-type": ["Amplify Deployment Status Change"],
                 "source": ["aws.amplify"],
-            })))
+            }))
         amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
         amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
             rule=amplify_app_master_event_rule.name,
@@ -847,10 +847,10 @@ class Branch(pulumi.CustomResource):
         # EventBridge Rule for Amplify notifications
         amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
             description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
+            event_pattern=pulumi.Output.json_dumps({
                 "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
+                    "appId": [example.id],
+                    "branchName": [master.branch_name],
                     "jobStatus": [
                         "SUCCEED",
                         "FAILED",
@@ -859,7 +859,7 @@ class Branch(pulumi.CustomResource):
                 },
                 "detail-type": ["Amplify Deployment Status Change"],
                 "source": ["aws.amplify"],
-            })))
+            }))
         amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
         amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
             rule=amplify_app_master_event_rule.name,

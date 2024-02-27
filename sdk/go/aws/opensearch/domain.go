@@ -193,6 +193,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// .. other configuration ...
 //			_, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
 //				LogPublishingOptions: opensearch.DomainLogPublishingOptionArray{
 //					&opensearch.DomainLogPublishingOptionArgs{
