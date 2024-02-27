@@ -299,7 +299,19 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 	    },
 	    "response": {
 	      "changes": "DIFF_SOME",
-              "hasDetailedDiff": true
+		  "hasDetailedDiff": true,
+		  "detailedDiff": {
+			"tags": {
+			  "kind": "UPDATE"
+			},
+			"tagsAll": {
+			  "kind": "UPDATE"
+			}
+		  },
+		  "diffs":[
+			"tagsAll",
+			"tags"
+		  ]
 	    }
 	  }
 	]`
