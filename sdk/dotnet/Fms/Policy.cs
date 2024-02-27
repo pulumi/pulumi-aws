@@ -38,14 +38,14 @@ namespace Pulumi.Aws.Fms
     ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
     ///         {
     ///             Type = "WAF",
-    ///             ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ManagedServiceData = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["type"] = "WAF",
     ///                 ["ruleGroups"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["id"] = id,
+    ///                         ["id"] = exampleRuleGroup.Id,
     ///                         ["overrideAction"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["type"] = "COUNT",

@@ -31,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
 //				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
 //				Definition: pulumi.String(fmt.Sprintf(`{
@@ -72,6 +73,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
 //				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
 //				Type:    pulumi.String("EXPRESS"),
@@ -114,6 +116,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
 //				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
 //				Publish: pulumi.Bool(true),
@@ -159,6 +162,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
 //				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
 //				Definition: pulumi.String(fmt.Sprintf(`{

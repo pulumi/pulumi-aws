@@ -100,6 +100,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
 // defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
 // PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
 // EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
