@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
     ///         },
     ///     });
     /// 
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.ApiGateway
     ///                 var exampleResourceId = values.Item1;
     ///                 var exampleMethodId = values.Item2;
     ///                 var exampleIntegrationId = values.Item3;
-    ///                 return JsonSerializer.Serialize(new[]
+    ///                 return ComputeSHA1(JsonSerializer.Serialize(new[]
     ///                 {
     ///                     exampleResourceId,
     ///                     exampleMethodId,
     ///                     exampleIntegrationId,
-    ///                 });
-    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                 }));
+    ///             }) },
     ///         },
     ///     });
     /// 

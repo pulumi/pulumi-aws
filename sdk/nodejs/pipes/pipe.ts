@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getCallerIdentity({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: main.then(main => JSON.stringify({
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: {
  *         Effect: "Allow",
@@ -34,15 +34,15 @@ import * as utilities from "../utilities";
  *         },
  *         Condition: {
  *             StringEquals: {
- *                 "aws:SourceAccount": main.accountId,
+ *                 "aws:SourceAccount": main.then(main => main.accountId),
  *             },
  *         },
  *     },
- * }))});
+ * })});
  * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
  * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
  *     role: exampleRole.id,
- *     policy: sourceQueue.arn.apply(arn => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Effect: "Allow",
@@ -51,21 +51,21 @@ import * as utilities from "../utilities";
  *                 "sqs:GetQueueAttributes",
  *                 "sqs:ReceiveMessage",
  *             ],
- *             Resource: [arn],
+ *             Resource: [sourceQueue.arn],
  *         }],
- *     })),
+ *     }),
  * });
  * const targetQueue = new aws.sqs.Queue("targetQueue", {});
  * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
  *     role: exampleRole.id,
- *     policy: targetQueue.arn.apply(arn => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Effect: "Allow",
  *             Action: ["sqs:SendMessage"],
- *             Resource: [arn],
+ *             Resource: [targetQueue.arn],
  *         }],
- *     })),
+ *     }),
  * });
  * const examplePipe = new aws.pipes.Pipe("examplePipe", {
  *     roleArn: exampleRole.arn,

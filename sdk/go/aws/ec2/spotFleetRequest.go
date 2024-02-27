@@ -33,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Request a Spot fleet
 //			_, err := ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
 //				IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
 //				SpotPrice:          pulumi.String("0.03"),

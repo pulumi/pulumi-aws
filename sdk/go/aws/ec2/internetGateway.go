@@ -78,6 +78,7 @@ type InternetGateway struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
+	// 		// ... other arguments ...
 	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 	// 			gw,
 	// 		}))
@@ -151,6 +152,7 @@ type internetGatewayState struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
+	// 		// ... other arguments ...
 	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 	// 			gw,
 	// 		}))
@@ -195,6 +197,7 @@ type InternetGatewayState struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
+	// 		// ... other arguments ...
 	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 	// 			gw,
 	// 		}))
@@ -239,6 +242,7 @@ type internetGatewayArgs struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
+	// 		// ... other arguments ...
 	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 	// 			gw,
 	// 		}))
@@ -276,6 +280,7 @@ type InternetGatewayArgs struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
+	// 		// ... other arguments ...
 	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 	// 			gw,
 	// 		}))
@@ -410,6 +415,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //			if err != nil {
 //				return err
 //			}
+//			// ... other arguments ...
 //			_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
 //				gw,
 //			}))
