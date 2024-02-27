@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iot
     ///         Description = "My provisioning template",
     ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
     ///         Enabled = true,
-    ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         TemplateBody = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Iot
     ///                 {
     ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["PolicyName"] = name,
+    ///                         ["PolicyName"] = devicePolicyPolicy.Name,
     ///                     },
     ///                     ["Type"] = "AWS::IoT::Policy",
     ///                 },

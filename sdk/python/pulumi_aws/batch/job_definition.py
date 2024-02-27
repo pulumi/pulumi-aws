@@ -632,7 +632,7 @@ class JobDefinition(pulumi.CustomResource):
         test = aws.batch.JobDefinition("test",
             type="container",
             platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
+            container_properties=pulumi.Output.json_dumps({
                 "command": [
                     "echo",
                     "test",
@@ -652,8 +652,8 @@ class JobDefinition(pulumi.CustomResource):
                         "value": "512",
                     },
                 ],
-                "executionRoleArn": arn,
-            })))
+                "executionRoleArn": ecs_task_execution_role.arn,
+            }))
         ```
 
         ## Import
@@ -802,7 +802,7 @@ class JobDefinition(pulumi.CustomResource):
         test = aws.batch.JobDefinition("test",
             type="container",
             platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
+            container_properties=pulumi.Output.json_dumps({
                 "command": [
                     "echo",
                     "test",
@@ -822,8 +822,8 @@ class JobDefinition(pulumi.CustomResource):
                         "value": "512",
                     },
                 ],
-                "executionRoleArn": arn,
-            })))
+                "executionRoleArn": ecs_task_execution_role.arn,
+            }))
         ```
 
         ## Import

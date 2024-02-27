@@ -27,9 +27,9 @@ namespace Pulumi.Aws.Sqs
     /// 
     ///     var src = new Aws.Sqs.Queue("src", new()
     ///     {
-    ///         RedrivePolicy = exampleQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RedrivePolicy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = arn,
+    ///             ["deadLetterTargetArn"] = exampleQueue.Arn,
     ///             ["maxReceiveCount"] = 4,
     ///         })),
     ///     });
@@ -37,12 +37,12 @@ namespace Pulumi.Aws.Sqs
     ///     var exampleRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy", new()
     ///     {
     ///         QueueUrl = exampleQueue.Id,
-    ///         RedriveAllowPolicyName = src.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RedriveAllowPolicyName = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 arn,
+    ///                 src.Arn,
     ///             },
     ///         })),
     ///     });

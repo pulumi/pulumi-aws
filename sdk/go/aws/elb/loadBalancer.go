@@ -37,6 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new load balancer
 //			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),

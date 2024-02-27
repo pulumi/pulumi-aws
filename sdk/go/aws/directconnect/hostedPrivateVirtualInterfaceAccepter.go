@@ -39,10 +39,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Accepter's side of the VIF.
 //			vpnGw, err := ec2.NewVpnGateway(ctx, "vpnGw", nil, pulumi.Provider(aws.Accepter))
 //			if err != nil {
 //				return err
 //			}
+//			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "creator", &directconnect.HostedPrivateVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
 //				OwnerAccountId: *pulumi.String(accepterCallerIdentity.AccountId),

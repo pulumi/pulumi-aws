@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }});
- * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", {policy: exampleObjectLambdaAccessPoint.arn.apply(arn => JSON.stringify({
+ * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", {policy: pulumi.jsonStringify({
  *     Version: "2008-10-17",
  *     Statement: [{
  *         Effect: "Allow",
@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  *         Principal: {
  *             AWS: data.aws_caller_identity.current.account_id,
  *         },
- *         Resource: arn,
+ *         Resource: exampleObjectLambdaAccessPoint.arn,
  *     }],
- * }))});
+ * })});
  * ```
  *
  * ## Import
