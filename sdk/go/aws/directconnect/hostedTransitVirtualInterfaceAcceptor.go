@@ -40,12 +40,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Accepter's side of the VIF.
 //			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
 //				AmazonSideAsn: pulumi.String("64512"),
 //			}, pulumi.Provider(aws.Accepter))
 //			if err != nil {
 //				return err
 //			}
+//			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
 //				OwnerAccountId: *pulumi.String(accepterCallerIdentity.AccountId),

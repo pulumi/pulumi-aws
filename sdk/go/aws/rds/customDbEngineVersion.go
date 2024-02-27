@@ -124,6 +124,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// CEV creation requires an AMI owned by the operator
 //			_, err := rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
 //				Engine:        pulumi.String("custom-sqlserver-se"),
 //				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
@@ -160,6 +161,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// CEV creation requires an AMI owned by the operator
 //			_, err = rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
 //				Engine:        pulumi.String("custom-sqlserver-se"),
 //				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
