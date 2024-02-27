@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const exampleResourcePolicy = new aws.codebuild.ResourcePolicy("exampleResourcePolicy", {
  *     resourceArn: exampleReportGroup.arn,
- *     policy: pulumi.all([currentPartition, currentCallerIdentity, exampleReportGroup.arn]).apply(([currentPartition, currentCallerIdentity, arn]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Id: "default",
  *         Statement: [{
  *             Sid: "default",
  *             Effect: "Allow",
  *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
  *             },
  *             Action: [
  *                 "codebuild:BatchGetReportGroups",
@@ -38,9 +38,9 @@ import * as utilities from "../utilities";
  *                 "codebuild:ListReportsForReportGroup",
  *                 "codebuild:DescribeTestCases",
  *             ],
- *             Resource: arn,
+ *             Resource: exampleReportGroup.arn,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
  *

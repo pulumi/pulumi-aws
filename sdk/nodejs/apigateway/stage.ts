@@ -41,7 +41,7 @@ import {Deployment, RestApi} from "./index";
  * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: exampleRestApi.body.apply(body => crypto.createHash('sha1').update(JSON.stringify(body)).digest('hex')),
  *     },
  * });
  * const exampleStage = new aws.apigateway.Stage("exampleStage", {

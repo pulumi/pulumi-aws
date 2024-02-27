@@ -16,18 +16,18 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentRegion = aws.getRegion({});
  * const currentPartition = aws.getPartition({});
- * const example = new aws.ecr.RegistryPolicy("example", {policy: Promise.all([currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity, currentPartition1, currentRegion, currentCallerIdentity1]) => JSON.stringify({
+ * const example = new aws.ecr.RegistryPolicy("example", {policy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Sid: "testpolicy",
  *         Effect: "Allow",
  *         Principal: {
- *             AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ *             AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
  *         },
  *         Action: ["ecr:ReplicateImage"],
- *         Resource: [`arn:${currentPartition1.partition}:ecr:${currentRegion.name}:${currentCallerIdentity1.accountId}:repository/*`],
+ *         Resource: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:ecr:${currentRegion.name}:${currentCallerIdentity.accountId}:repository/*`)],
  *     }],
- * }))});
+ * })});
  * ```
  *
  * ## Import

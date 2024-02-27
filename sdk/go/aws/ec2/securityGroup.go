@@ -149,6 +149,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{

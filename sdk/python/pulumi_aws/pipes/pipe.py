@@ -510,7 +510,7 @@ class Pipe(pulumi.CustomResource):
         source_queue = aws.sqs.Queue("sourceQueue")
         source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
             role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -519,20 +519,20 @@ class Pipe(pulumi.CustomResource):
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [arn],
+                    "Resource": [source_queue.arn],
                 }],
-            })))
+            }))
         target_queue = aws.sqs.Queue("targetQueue")
         target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
             role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
                     "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
+                    "Resource": [target_queue.arn],
                 }],
-            })))
+            }))
         example_pipe = aws.pipes.Pipe("examplePipe",
             role_arn=example_role.arn,
             source=source_queue.arn,
@@ -631,7 +631,7 @@ class Pipe(pulumi.CustomResource):
         source_queue = aws.sqs.Queue("sourceQueue")
         source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
             role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -640,20 +640,20 @@ class Pipe(pulumi.CustomResource):
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [arn],
+                    "Resource": [source_queue.arn],
                 }],
-            })))
+            }))
         target_queue = aws.sqs.Queue("targetQueue")
         target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
             role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
                     "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
+                    "Resource": [target_queue.arn],
                 }],
-            })))
+            }))
         example_pipe = aws.pipes.Pipe("examplePipe",
             role_arn=example_role.arn,
             source=source_queue.arn,
