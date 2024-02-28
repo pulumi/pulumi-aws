@@ -41,10 +41,10 @@ import * as utilities from "../utilities";
  * // EventBridge Rule for Amplify notifications
  * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
  *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
- *     eventPattern: pulumi.all([example.id, master.branchName]).apply(([id, branchName]) => JSON.stringify({
+ *     eventPattern: pulumi.jsonStringify({
  *         detail: {
- *             appId: [id],
- *             branchName: [branchName],
+ *             appId: [example.id],
+ *             branchName: [master.branchName],
  *             jobStatus: [
  *                 "SUCCEED",
  *                 "FAILED",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *         },
  *         "detail-type": ["Amplify Deployment Status Change"],
  *         source: ["aws.amplify"],
- *     })),
+ *     }),
  * });
  * const amplifyAppMasterTopic = new aws.sns.Topic("amplifyAppMasterTopic", {});
  * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget", {

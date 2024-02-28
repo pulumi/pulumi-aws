@@ -39,37 +39,36 @@ namespace Pulumi.Aws.CodeBuild
     ///     var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("exampleResourcePolicy", new()
     ///     {
     ///         ResourceArn = exampleReportGroup.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleReportGroup.Arn).Apply(values =&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var arn = values.Item3;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "default",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Id"] = "default",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "default",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "default",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "codebuild:BatchGetReportGroups",
-    ///                             "codebuild:BatchGetReports",
-    ///                             "codebuild:ListReportsForReportGroup",
-    ///                             "codebuild:DescribeTestCases",
-    ///                         },
-    ///                         ["Resource"] = arn,
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentCallerIdentity = values.Item2;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
     ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "codebuild:BatchGetReportGroups",
+    ///                         "codebuild:BatchGetReports",
+    ///                         "codebuild:ListReportsForReportGroup",
+    ///                         "codebuild:DescribeTestCases",
+    ///                     },
+    ///                     ["Resource"] = exampleReportGroup.Arn,
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///         })),
     ///     });
     /// 
     /// });
