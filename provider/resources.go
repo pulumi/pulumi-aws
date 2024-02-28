@@ -684,7 +684,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		formattedDiag := formatDiags(diag)
 		// Normally it'd query sts.REGION.amazonaws.com
 		// but if we query sts..amazonaws.com, then we don't have a region.
-		if strings.Contains(formattedDiag, "dial tcp: lookup sts..amazonaws.com: no such host") {
+		if strings.Contains(formattedDiag, "endpoint rule error, Invalid Configuration: Missing Region") {
 			return tfbridge.CheckFailureError{
 				Failures: []tfbridge.CheckFailureErrorElement{
 					{
