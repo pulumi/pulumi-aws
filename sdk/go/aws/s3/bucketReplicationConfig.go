@@ -199,6 +199,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			eastBucketV2, err := s3.NewBucketV2(ctx, "eastBucketV2", nil)
 //			if err != nil {
 //				return err

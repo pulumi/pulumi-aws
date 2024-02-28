@@ -37,6 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example CloudWatch log group in us-east-1
 //			_, err := aws.NewProvider(ctx, "us-east-1", &aws.ProviderArgs{
 //				Region: pulumi.String("us-east-1"),
 //			})
