@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
  *     type: "data",
  *     description: "read and write permissions",
- *     policy: current.then(current => JSON.stringify([{
+ *     policy: JSON.stringify([{
  *         Rules: [
  *             {
  *                 ResourceType: "index",
@@ -31,8 +31,8 @@ import * as utilities from "../utilities";
  *                 Permission: ["aoss:*"],
  *             },
  *         ],
- *         Principal: [current.arn],
- *     }])),
+ *         Principal: [current.then(current => current.arn)],
+ *     }]),
  * });
  * ```
  * ### Grant read-only collection and index permissions
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
  *     type: "data",
  *     description: "read-only permissions",
- *     policy: current.then(current => JSON.stringify([{
+ *     policy: JSON.stringify([{
  *         Rules: [
  *             {
  *                 ResourceType: "index",
@@ -61,8 +61,8 @@ import * as utilities from "../utilities";
  *                 Permission: ["aoss:DescribeCollectionItems"],
  *             },
  *         ],
- *         Principal: [current.arn],
- *     }])),
+ *         Principal: [current.then(current => current.arn)],
+ *     }]),
  * });
  * ```
  * ### Grant SAML identity permissions

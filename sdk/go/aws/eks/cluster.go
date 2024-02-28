@@ -101,6 +101,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Optionally, enable Security Groups for Pods
+//			// Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSVPCResourceController", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"),
 //				Role:      example.Name,

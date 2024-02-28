@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Add a header to the email and store it in S3
 //			_, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
 //				AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
 //					&ses.ReceiptRuleAddHeaderActionArgs{

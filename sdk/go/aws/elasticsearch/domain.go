@@ -158,6 +158,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// .. other configuration ...
 //			_, err = elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
 //				LogPublishingOptions: elasticsearch.DomainLogPublishingOptionArray{
 //					&elasticsearch.DomainLogPublishingOptionArgs{
