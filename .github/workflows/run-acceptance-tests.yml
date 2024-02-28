@@ -45,6 +45,11 @@ jobs:
     name: generate_coverage_data
     runs-on: ubuntu-latest
     steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
