@@ -117,6 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
 //			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
 //				Family: *pulumi.String(_default.ParameterGroupFamily),
 //				Parameters: rds.ParameterGroupParameterArray{
@@ -135,6 +136,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create the RDS Db2 instance, use the data sources defined to set attributes
 //			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(100),
 //				BackupRetentionPeriod: pulumi.Int(7),

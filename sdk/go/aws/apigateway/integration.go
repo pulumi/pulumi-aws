@@ -98,6 +98,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			myregion := cfg.RequireObject("myregion")
 //			accountId := cfg.RequireObject("accountId")
+//			// API Gateway
 //			api, err := apigateway.NewRestApi(ctx, "api", nil)
 //			if err != nil {
 //				return err
@@ -166,6 +167,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Lambda
 //			_, err = lambda.NewPermission(ctx, "apigwLambda", &lambda.PermissionArgs{
 //				Action:    pulumi.String("lambda:InvokeFunction"),
 //				Function:  lambda.Name,

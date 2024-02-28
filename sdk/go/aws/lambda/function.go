@@ -202,6 +202,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// EFS file system
 //			efsForLambda, err := efs.NewFileSystem(ctx, "efsForLambda", &efs.FileSystemArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("efs_for_lambda"),
@@ -210,6 +211,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Mount target connects the file system to the subnet
 //			alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
 //				FileSystemId: efsForLambda.ID(),
 //				SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
@@ -220,6 +222,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// EFS access point used by lambda file system
 //			accessPointForLambda, err := efs.NewAccessPoint(ctx, "accessPointForLambda", &efs.AccessPointArgs{
 //				FileSystemId: efsForLambda.ID(),
 //				RootDirectory: &efs.AccessPointRootDirectoryArgs{
@@ -238,6 +241,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// A lambda function connected to an EFS file system
+//			// ... other configuration ...
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
 //				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
 //					Arn:            accessPointForLambda.Arn,
@@ -289,6 +294,8 @@ import (
 //			if param := cfg.Get("lambdaFunctionName"); param != "" {
 //				lambdaFunctionName = param
 //			}
+//			// This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+//			// If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
 //			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
 //				RetentionInDays: pulumi.Int(14),
 //			})

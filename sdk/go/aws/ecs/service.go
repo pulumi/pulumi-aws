@@ -82,6 +82,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configurations ...
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
 //				DesiredCount: pulumi.Int(2),
 //			})
