@@ -35,12 +35,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a route table
 //			rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
 //				VpcId: pulumi.Any(aws_vpc.Foo.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			// Create a route
 //			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
 //				RouteTableId:           rt.ID(),
 //				DestinationCidrBlock:   *pulumi.String(pc.PeerCidrBlock),
