@@ -101,6 +101,7 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource kubernetes 3.17.0
 	.pulumi/bin/pulumi plugin install resource random 4.8.2
 	.pulumi/bin/pulumi plugin install resource github 5.14.0
+	.pulumi/bin/pulumi plugin install converter terraform 1.0.15
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
