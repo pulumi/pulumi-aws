@@ -32,6 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Lightsail Key Pair
 //			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", nil)
 //			if err != nil {
 //				return err

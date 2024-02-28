@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new certificate
 //			_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
 //				CertificateId:  pulumi.String("test-dms-certificate-tf"),
 //				CertificatePem: pulumi.String("..."),
