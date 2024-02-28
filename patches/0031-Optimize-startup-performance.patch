@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Thu, 30 Nov 2023 14:28:37 -0500
-Subject: [PATCH 31/45] Optimize startup performance
+Subject: [PATCH 31/46] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 201a64cf7a..2e129e5d57 100644
+index 80baa2e10f..7a50e272cd 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -307,7 +307,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -312,7 +312,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			interceptors := interceptorItems{}
  
  			if v.Tags != nil {
@@ -17,7 +17,7 @@ index 201a64cf7a..2e129e5d57 100644
  
  				// The data source has opted in to transparent tagging.
  				// Ensure that the schema look OK.
-@@ -384,7 +384,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -389,7 +389,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			interceptors := interceptorItems{}
  
  			if v.Tags != nil {

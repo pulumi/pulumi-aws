@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 6 Nov 2023 11:17:16 -0500
-Subject: [PATCH 28/45] Do not compute tags_all at TF level
+Subject: [PATCH 28/46] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/base.go b/internal/framework/base.go
@@ -22,10 +22,10 @@ index 94dbf5e792..494a2effba 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 6dbe55dfd5..acde512855 100644
+index 963d905424..be3bc32ec2 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -421,8 +421,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -425,8 +425,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {

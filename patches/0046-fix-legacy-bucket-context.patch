@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Wed, 28 Feb 2024 16:06:02 +0000
+Subject: [PATCH 46/46] fix legacy bucket context
+
+
+diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
+index 5f64a814be..803ff33ba2 100644
+--- a/internal/service/s3legacy/bucket_legacy.go
++++ b/internal/service/s3legacy/bucket_legacy.go
+@@ -904,7 +904,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 		d.Set("bucket", d.Id())
+ 	}
+ 
+-	d.Set("bucket_domain_name", meta.(*conns.AWSClient).PartitionHostname(fmt.Sprintf("%s.s3", d.Get("bucket").(string))))
++	d.Set("bucket_domain_name", meta.(*conns.AWSClient).PartitionHostname(ctx, fmt.Sprintf("%s.s3", d.Get("bucket").(string))))
+ 
+ 	// Read the policy
+ 	if _, ok := d.GetOk("policy"); ok {
