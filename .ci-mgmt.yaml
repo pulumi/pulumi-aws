@@ -27,6 +27,8 @@ plugins:
     version: "4.8.2"
   - name: github
     version: "5.14.0"
+  - name: std
+    version: "1.6.2"
   - name: terraform
     version: "1.0.15"
     kind: converter
