@@ -29,11 +29,18 @@ plugins:
     version: "5.14.0"
 team: ecosystem
 goBuildParallelism: 2
-runner:
-  publish: pulumi-ubuntu-8core
-  buildSdk: pulumi-ubuntu-8core
 actions:
   preTest:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
+    - name: Setup DotNet
+      if: ${{ matrix.language == 'dotnet' }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -49,20 +56,13 @@ actions:
       run: |
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
   preBuild:
-    - name: Clear GitHub Actions Ubuntu runner disk space
+    - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
         tool-cache: false
-        dotnet: false
-        android: true
-        haskell: true
-        swap-storage: true
-        # TODO: enable once transient error with azure is resolved
-        #
-        # E: Failed to fetch
-        # http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb
-        # 404 Not Found [IP: 40.81.13.82 80]
-        large-packages: false
+        swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
+
 extraTests:
   go_test_shim:
     name: Run test of provider shim
@@ -103,8 +103,14 @@ extraTests:
     permissions:
       contents: read
       id-token: write
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:

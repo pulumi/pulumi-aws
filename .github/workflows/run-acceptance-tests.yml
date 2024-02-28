@@ -43,7 +43,7 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
     name: build_sdk
     needs: prerequisites
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -195,14 +195,11 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/schema-tools
-    - name: Clear GitHub Actions Ubuntu runner disk space
+    - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
-        android: true
-        dotnet: false
-        haskell: true
-        large-packages: false
-        swap-storage: true
+        dotnet: ${{ matrix.language != 'dotnet' }}
+        swap-storage: false
         tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
@@ -300,7 +297,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -392,6 +389,16 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        swap-storage: false
+        tool-cache: false
+    - if: ${{ matrix.language == 'dotnet' }}
+      name: Setup DotNet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -473,8 +480,14 @@ jobs:
       permissions:
           contents: read
           id-token: write
-      runs-on: pulumi-ubuntu-8core
+      runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              dotnet: ${{ matrix.language != 'dotnet' }}
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
