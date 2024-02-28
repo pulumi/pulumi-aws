@@ -182,6 +182,12 @@ namespace Pulumi.Aws.LB
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// ARNs of the Load Balancers associated with the Target Group.
+        /// </summary>
+        [Output("loadBalancerArns")]
+        public Output<ImmutableArray<string>> LoadBalancerArns { get; private set; } = null!;
+
+        /// <summary>
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
         [Output("loadBalancingAlgorithmType")]
@@ -564,6 +570,18 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
+
+        [Input("loadBalancerArns")]
+        private InputList<string>? _loadBalancerArns;
+
+        /// <summary>
+        /// ARNs of the Load Balancers associated with the Target Group.
+        /// </summary>
+        public InputList<string> LoadBalancerArns
+        {
+            get => _loadBalancerArns ?? (_loadBalancerArns = new InputList<string>());
+            set => _loadBalancerArns = value;
+        }
 
         /// <summary>
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.

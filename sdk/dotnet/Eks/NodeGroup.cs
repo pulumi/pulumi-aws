@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> CapacityType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.NodeGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ReleaseVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Output("remoteAccess")]
         public Output<Outputs.NodeGroupRemoteAccess?> RemoteAccess { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? CapacityType { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessArgs>? RemoteAccess { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? CapacityType { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessGetArgs>? RemoteAccess { get; set; }

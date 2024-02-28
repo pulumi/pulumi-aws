@@ -183,6 +183,12 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    public readonly executionMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the pipeline.
      */
     public readonly name!: pulumi.Output<string>;
@@ -228,6 +234,7 @@ export class Pipeline extends pulumi.CustomResource {
             const state = argsOrState as PipelineState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["artifactStores"] = state ? state.artifactStores : undefined;
+            resourceInputs["executionMode"] = state ? state.executionMode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pipelineType"] = state ? state.pipelineType : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
@@ -247,6 +254,7 @@ export class Pipeline extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stages'");
             }
             resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
+            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -273,6 +281,12 @@ export interface PipelineState {
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    executionMode?: pulumi.Input<string>;
     /**
      * The name of the pipeline.
      */
@@ -313,6 +327,12 @@ export interface PipelineArgs {
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
     artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    executionMode?: pulumi.Input<string>;
     /**
      * The name of the pipeline.
      */

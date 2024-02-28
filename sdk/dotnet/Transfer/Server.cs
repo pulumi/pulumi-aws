@@ -341,7 +341,17 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
@@ -555,7 +565,17 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
@@ -749,7 +769,17 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }

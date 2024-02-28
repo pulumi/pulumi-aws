@@ -32,7 +32,7 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -125,7 +125,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         """
         return pulumi.get(self, "volume_encryption_key")
 
@@ -173,7 +173,7 @@ class _WorkspaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
         if bundle_id is not None:
@@ -331,7 +331,7 @@ class _WorkspaceState:
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         """
         return pulumi.get(self, "volume_encryption_key")
 
@@ -378,13 +378,14 @@ class Workspace(pulumi.CustomResource):
         import pulumi_aws as aws
 
         value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
+        workspaces = aws.kms.get_key(key_id="alias/aws/workspaces")
         example = aws.workspaces.Workspace("example",
             directory_id=aws_workspaces_directory["example"]["id"],
             bundle_id=value_windows10.id,
             user_name="john.doe",
             root_volume_encryption_enabled=True,
             user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
+            volume_encryption_key=workspaces.arn,
             workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
                 compute_type_name="VALUE",
                 user_volume_size_gib=10,
@@ -413,7 +414,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']] workspace_properties: The WorkSpace properties.
         """
         ...
@@ -434,13 +435,14 @@ class Workspace(pulumi.CustomResource):
         import pulumi_aws as aws
 
         value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
+        workspaces = aws.kms.get_key(key_id="alias/aws/workspaces")
         example = aws.workspaces.Workspace("example",
             directory_id=aws_workspaces_directory["example"]["id"],
             bundle_id=value_windows10.id,
             user_name="john.doe",
             root_volume_encryption_enabled=True,
             user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
+            volume_encryption_key=workspaces.arn,
             workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
                 compute_type_name="VALUE",
                 user_volume_size_gib=10,
@@ -550,7 +552,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']] workspace_properties: The WorkSpace properties.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -658,7 +660,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         """
         return pulumi.get(self, "volume_encryption_key")
 

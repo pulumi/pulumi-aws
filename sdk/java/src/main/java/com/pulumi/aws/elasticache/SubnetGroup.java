@@ -156,6 +156,20 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * 
+     */
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
+    private Output<String> vpcId;
+
+    /**
+     * @return The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * 
+     */
+    public Output<String> vpcId() {
+        return this.vpcId;
+    }
 
     /**
      *

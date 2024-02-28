@@ -136,6 +136,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedVpcRouting);
     }
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
+    private Output<Integer> maxCapacity;
+
+    /**
+     * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    public Output<Integer> maxCapacity() {
+        return this.maxCapacity;
+    }
+    /**
      * The name of the namespace.
      * 
      */

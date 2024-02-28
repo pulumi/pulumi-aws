@@ -56,14 +56,14 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      * 
      */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
     /**
-     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the EKS Cluster.
      * 
      */
     public Output<String> clusterName() {
@@ -131,14 +131,14 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with Launch Template settings. See `launch_template` below for details.
+     * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<NodeGroupLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. See `launch_template` below for details.
+     * @return Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     public Optional<Output<NodeGroupLaunchTemplateArgs>> launchTemplate() {
@@ -206,14 +206,14 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with remote access settings. See `remote_access` below for details.
+     * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     @Import(name="remoteAccess")
     private @Nullable Output<NodeGroupRemoteAccessArgs> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. See `remote_access` below for details.
+     * @return Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     public Optional<Output<NodeGroupRemoteAccessArgs>> remoteAccess() {
@@ -399,7 +399,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterName Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param clusterName Name of the EKS Cluster.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterName Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param clusterName Name of the EKS Cluster.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details.
+         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details.
+         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
          * 
          * @return builder
          * 

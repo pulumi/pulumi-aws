@@ -79,6 +79,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    public readonly maxCapacity!: pulumi.Output<number>;
+    /**
      * The name of the namespace.
      */
     public readonly namespaceName!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["configParameters"] = state ? state.configParameters : undefined;
             resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
@@ -157,6 +162,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
             resourceInputs["configParameters"] = args ? args.configParameters : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
@@ -198,6 +204,10 @@ export interface WorkgroupState {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
+    /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The name of the namespace.
      */
@@ -256,6 +266,10 @@ export interface WorkgroupArgs {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
+    /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The name of the namespace.
      */

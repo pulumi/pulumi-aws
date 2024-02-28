@@ -51,6 +51,7 @@ __all__ = [
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
     'GetIdentityPoolCognitoIdentityProviderResult',
+    'GetUserGroupsGroupResult',
     'GetUserPoolClientAnalyticsConfigurationResult',
     'GetUserPoolClientTokenValidityUnitResult',
 ]
@@ -2551,6 +2552,57 @@ class GetIdentityPoolCognitoIdentityProviderResult(dict):
     @pulumi.getter(name="serverSideTokenCheck")
     def server_side_token_check(self) -> bool:
         return pulumi.get(self, "server_side_token_check")
+
+
+@pulumi.output_type
+class GetUserGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 group_name: str,
+                 precedence: int,
+                 role_arn: str):
+        """
+        :param str description: Description of the user group.
+        :param str group_name: Name of the user group.
+        :param int precedence: Precedence of the user group.
+        :param str role_arn: ARN of the IAM role to be associated with the user group.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "precedence", precedence)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the user group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        Name of the user group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def precedence(self) -> int:
+        """
+        Precedence of the user group.
+        """
+        return pulumi.get(self, "precedence")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        ARN of the IAM role to be associated with the user group.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

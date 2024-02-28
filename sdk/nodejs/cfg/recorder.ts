@@ -51,6 +51,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Periodic Recording
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     roleArn: aws_iam_role.r.arn,
+ *     recordingGroup: {
+ *         allSupported: false,
+ *         includeGlobalResourceTypes: false,
+ *         resourceTypes: [
+ *             "AWS::EC2::Instance",
+ *             "AWS::EC2::NetworkInterface",
+ *         ],
+ *     },
+ *     recordingMode: {
+ *         recordingFrequency: "CONTINUOUS",
+ *         recordingModeOverride: {
+ *             description: "Only record EC2 network interfaces daily",
+ *             resourceTypes: ["AWS::EC2::NetworkInterface"],
+ *             recordingFrequency: "DAILY",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -97,6 +123,10 @@ export class Recorder extends pulumi.CustomResource {
      */
     public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
     /**
+     * Recording mode - see below.
+     */
+    public readonly recordingMode!: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -116,6 +146,7 @@ export class Recorder extends pulumi.CustomResource {
             const state = argsOrState as RecorderState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recordingGroup"] = state ? state.recordingGroup : undefined;
+            resourceInputs["recordingMode"] = state ? state.recordingMode : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RecorderArgs | undefined;
@@ -124,6 +155,7 @@ export class Recorder extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
+            resourceInputs["recordingMode"] = args ? args.recordingMode : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -144,6 +176,10 @@ export interface RecorderState {
      */
     recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
     /**
+     * Recording mode - see below.
+     */
+    recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     roleArn?: pulumi.Input<string>;
@@ -161,6 +197,10 @@ export interface RecorderArgs {
      * Recording group - see below.
      */
     recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
+    /**
+     * Recording mode - see below.
+     */
+    recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

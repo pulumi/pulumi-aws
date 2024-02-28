@@ -147,6 +147,8 @@ import (
 type DeploymentConfig struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the deployment config.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The AWS Assigned deployment config id
@@ -189,6 +191,8 @@ func GetDeploymentConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentConfig resources.
 type deploymentConfigState struct {
+	// The ARN of the deployment config.
+	Arn *string `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The AWS Assigned deployment config id
@@ -202,6 +206,8 @@ type deploymentConfigState struct {
 }
 
 type DeploymentConfigState struct {
+	// The ARN of the deployment config.
+	Arn pulumi.StringPtrInput
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The AWS Assigned deployment config id
@@ -326,6 +332,11 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutpu
 
 func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
 	return o
+}
+
+// The ARN of the deployment config.
+func (o DeploymentConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.

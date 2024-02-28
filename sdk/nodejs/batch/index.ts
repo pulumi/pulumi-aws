@@ -15,6 +15,11 @@ export const getComputeEnvironment: typeof import("./getComputeEnvironment").get
 export const getComputeEnvironmentOutput: typeof import("./getComputeEnvironment").getComputeEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getComputeEnvironment","getComputeEnvironmentOutput"], () => require("./getComputeEnvironment"));
 
+export { GetJobDefinitionArgs, GetJobDefinitionResult, GetJobDefinitionOutputArgs } from "./getJobDefinition";
+export const getJobDefinition: typeof import("./getJobDefinition").getJobDefinition = null as any;
+export const getJobDefinitionOutput: typeof import("./getJobDefinition").getJobDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getJobDefinition","getJobDefinitionOutput"], () => require("./getJobDefinition"));
+
 export { GetJobQueueArgs, GetJobQueueResult, GetJobQueueOutputArgs } from "./getJobQueue";
 export const getJobQueue: typeof import("./getJobQueue").getJobQueue = null as any;
 export const getJobQueueOutput: typeof import("./getJobQueue").getJobQueueOutput = null as any;

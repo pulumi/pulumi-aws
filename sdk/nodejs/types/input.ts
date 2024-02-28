@@ -10302,6 +10302,32 @@ export namespace cfg {
         useOnly?: pulumi.Input<string>;
     }
 
+    export interface RecorderRecordingMode {
+        /**
+         * Default reecording frequency. `CONTINUOUS` or `DAILY`.
+         */
+        recordingFrequency?: pulumi.Input<string>;
+        /**
+         * Recording mode overrides. Detailed below.
+         */
+        recordingModeOverride?: pulumi.Input<inputs.cfg.RecorderRecordingModeRecordingModeOverride>;
+    }
+
+    export interface RecorderRecordingModeRecordingModeOverride {
+        /**
+         * A description you provide of the override.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+         */
+        recordingFrequency: pulumi.Input<string>;
+        /**
+         * A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+         */
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface RemediationConfigurationExecutionControls {
         /**
          * Configuration block for SSM controls. See below.
@@ -14113,6 +14139,44 @@ export namespace codestarnotifications {
 }
 
 export namespace cognito {
+    export interface GetUserGroupsGroup {
+        /**
+         * Description of the user group.
+         */
+        description?: string;
+        /**
+         * Name of the user group.
+         */
+        groupName?: string;
+        /**
+         * Precedence of the user group.
+         */
+        precedence?: number;
+        /**
+         * ARN of the IAM role to be associated with the user group.
+         */
+        roleArn?: string;
+    }
+
+    export interface GetUserGroupsGroupArgs {
+        /**
+         * Description of the user group.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name of the user group.
+         */
+        groupName?: pulumi.Input<string>;
+        /**
+         * Precedence of the user group.
+         */
+        precedence?: pulumi.Input<number>;
+        /**
+         * ARN of the IAM role to be associated with the user group.
+         */
+        roleArn?: pulumi.Input<string>;
+    }
+
     export interface IdentityPoolCognitoIdentityProvider {
         /**
          * The client ID for the Amazon Cognito Identity User Pool.

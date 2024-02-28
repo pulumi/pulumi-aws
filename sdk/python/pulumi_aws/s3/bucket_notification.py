@@ -311,6 +311,62 @@ class BucketNotification(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
         ```
+        ### Trigger multiple Lambda functions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        func1 = aws.lambda_.Function("func1",
+            code=pulumi.FileArchive("your-function1.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example",
+            runtime="go1.x")
+        bucket = aws.s3.BucketV2("bucket")
+        allow_bucket1 = aws.lambda_.Permission("allowBucket1",
+            action="lambda:InvokeFunction",
+            function=func1.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        func2 = aws.lambda_.Function("func2",
+            code=pulumi.FileArchive("your-function2.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example")
+        allow_bucket2 = aws.lambda_.Permission("allowBucket2",
+            action="lambda:InvokeFunction",
+            function=func2.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            lambda_functions=[
+                aws.s3.BucketNotificationLambdaFunctionArgs(
+                    lambda_function_arn=func1.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="AWSLogs/",
+                    filter_suffix=".log",
+                ),
+                aws.s3.BucketNotificationLambdaFunctionArgs(
+                    lambda_function_arn=func2.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="OtherLogs/",
+                    filter_suffix=".log",
+                ),
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    allow_bucket1,
+                    allow_bucket2,
+                ]))
+        ```
         ### Add multiple notification configurations to SQS Queue
 
         ```python
@@ -495,6 +551,62 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )],
             opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
+        ```
+        ### Trigger multiple Lambda functions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        func1 = aws.lambda_.Function("func1",
+            code=pulumi.FileArchive("your-function1.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example",
+            runtime="go1.x")
+        bucket = aws.s3.BucketV2("bucket")
+        allow_bucket1 = aws.lambda_.Permission("allowBucket1",
+            action="lambda:InvokeFunction",
+            function=func1.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        func2 = aws.lambda_.Function("func2",
+            code=pulumi.FileArchive("your-function2.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example")
+        allow_bucket2 = aws.lambda_.Permission("allowBucket2",
+            action="lambda:InvokeFunction",
+            function=func2.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            lambda_functions=[
+                aws.s3.BucketNotificationLambdaFunctionArgs(
+                    lambda_function_arn=func1.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="AWSLogs/",
+                    filter_suffix=".log",
+                ),
+                aws.s3.BucketNotificationLambdaFunctionArgs(
+                    lambda_function_arn=func2.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="OtherLogs/",
+                    filter_suffix=".log",
+                ),
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    allow_bucket1,
+                    allow_bucket2,
+                ]))
         ```
         ### Add multiple notification configurations to SQS Queue
 

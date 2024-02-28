@@ -49,6 +49,7 @@ __all__ = [
     'UserPoolUserPoolAddOnsArgs',
     'UserPoolUsernameConfigurationArgs',
     'UserPoolVerificationMessageTemplateArgs',
+    'GetUserGroupsGroupArgs',
 ]
 
 @pulumi.input_type
@@ -2244,5 +2245,72 @@ class UserPoolVerificationMessageTemplateArgs:
     @sms_message.setter
     def sms_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sms_message", value)
+
+
+@pulumi.input_type
+class GetUserGroupsGroupArgs:
+    def __init__(__self__, *,
+                 description: str,
+                 group_name: str,
+                 precedence: int,
+                 role_arn: str):
+        """
+        :param str description: Description of the user group.
+        :param str group_name: Name of the user group.
+        :param int precedence: Precedence of the user group.
+        :param str role_arn: ARN of the IAM role to be associated with the user group.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "precedence", precedence)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the user group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        Name of the user group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: str):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter
+    def precedence(self) -> int:
+        """
+        Precedence of the user group.
+        """
+        return pulumi.get(self, "precedence")
+
+    @precedence.setter
+    def precedence(self, value: int):
+        pulumi.set(self, "precedence", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        ARN of the IAM role to be associated with the user group.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: str):
+        pulumi.set(self, "role_arn", value)
 
 

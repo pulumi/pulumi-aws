@@ -97,6 +97,21 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    @Import(name="maxCapacity")
+    private @Nullable Output<Integer> maxCapacity;
+
+    /**
+     * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    public Optional<Output<Integer>> maxCapacity() {
+        return Optional.ofNullable(this.maxCapacity);
+    }
+
+    /**
      * The name of the namespace.
      * 
      */
@@ -251,6 +266,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         this.configParameters = $.configParameters;
         this.endpoints = $.endpoints;
         this.enhancedVpcRouting = $.enhancedVpcRouting;
+        this.maxCapacity = $.maxCapacity;
         this.namespaceName = $.namespaceName;
         this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
@@ -403,6 +419,27 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enhancedVpcRouting(Boolean enhancedVpcRouting) {
             return enhancedVpcRouting(Output.of(enhancedVpcRouting));
+        }
+
+        /**
+         * @param maxCapacity The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxCapacity(@Nullable Output<Integer> maxCapacity) {
+            $.maxCapacity = maxCapacity;
+            return this;
+        }
+
+        /**
+         * @param maxCapacity The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxCapacity(Integer maxCapacity) {
+            return maxCapacity(Output.of(maxCapacity));
         }
 
         /**

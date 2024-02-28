@@ -73,6 +73,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<bool?> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Output("maxCapacity")]
+        public Output<int> MaxCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Output("namespaceName")]
@@ -199,6 +205,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("maxCapacity")]
+        public Input<int>? MaxCapacity { get; set; }
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -309,6 +321,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("enhancedVpcRouting")]
         public Input<bool>? EnhancedVpcRouting { get; set; }
+
+        /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("maxCapacity")]
+        public Input<int>? MaxCapacity { get; set; }
 
         /// <summary>
         /// The name of the namespace.

@@ -18,14 +18,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterArgs Empty = new GetClusterArgs();
 
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the cluster.
      * 
      */
     public Output<String> name() {
@@ -73,7 +73,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster.
          * 
          * @return builder
          * 

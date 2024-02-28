@@ -89,6 +89,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -109,6 +113,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetGroupArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -120,6 +125,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
@@ -153,6 +159,10 @@ export interface SubnetGroupState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     */
+    vpcId?: pulumi.Input<string>;
 }
 
 /**

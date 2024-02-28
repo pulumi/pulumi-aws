@@ -22,7 +22,7 @@ class AccessEntryArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccessEntry resource.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
@@ -46,7 +46,7 @@ class AccessEntryArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -133,7 +133,7 @@ class _AccessEntryState:
         """
         Input properties used for looking up and filtering AccessEntry resources.
         :param pulumi.Input[str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
@@ -185,7 +185,7 @@ class _AccessEntryState:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -336,7 +336,7 @@ class AccessEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
@@ -450,7 +450,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
@@ -490,7 +490,7 @@ class AccessEntry(pulumi.CustomResource):
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 

@@ -123,6 +123,70 @@ import * as utilities from "../utilities";
  *     dependsOn: [allowBucket],
  * });
  * ```
+ * ### Trigger multiple Lambda functions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const func1 = new aws.lambda.Function("func1", {
+ *     code: new pulumi.asset.FileArchive("your-function1.zip"),
+ *     role: iamForLambda.arn,
+ *     handler: "exports.example",
+ *     runtime: "go1.x",
+ * });
+ * const bucket = new aws.s3.BucketV2("bucket", {});
+ * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": func1.arn,
+ *     principal: "s3.amazonaws.com",
+ *     sourceArn: bucket.arn,
+ * });
+ * const func2 = new aws.lambda.Function("func2", {
+ *     code: new pulumi.asset.FileArchive("your-function2.zip"),
+ *     role: iamForLambda.arn,
+ *     handler: "exports.example",
+ * });
+ * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": func2.arn,
+ *     principal: "s3.amazonaws.com",
+ *     sourceArn: bucket.arn,
+ * });
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ *     bucket: bucket.id,
+ *     lambdaFunctions: [
+ *         {
+ *             lambdaFunctionArn: func1.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "AWSLogs/",
+ *             filterSuffix: ".log",
+ *         },
+ *         {
+ *             lambdaFunctionArn: func2.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "OtherLogs/",
+ *             filterSuffix: ".log",
+ *         },
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         allowBucket1,
+ *         allowBucket2,
+ *     ],
+ * });
+ * ```
  * ### Add multiple notification configurations to SQS Queue
  *
  * ```typescript

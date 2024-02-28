@@ -230,6 +230,24 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.artifactStores;
     }
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    @Export(name="executionMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> executionMode;
+
+    /**
+     * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    public Output<Optional<String>> executionMode() {
+        return Codegen.optional(this.executionMode);
+    }
+    /**
      * The name of the pipeline.
      * 
      */

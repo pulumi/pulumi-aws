@@ -245,6 +245,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int MaximumIpv6AddressesPerInterface;
         /// <summary>
+        /// The maximum number of physical network cards that can be allocated to the instance.
+        /// </summary>
+        public readonly int MaximumNetworkCards;
+        /// <summary>
         /// The maximum number of network interfaces for the instance type.
         /// </summary>
         public readonly int MaximumNetworkInterfaces;
@@ -369,6 +373,8 @@ namespace Pulumi.Aws.Ec2
 
             int maximumIpv6AddressesPerInterface,
 
+            int maximumNetworkCards,
+
             int maximumNetworkInterfaces,
 
             int memorySize,
@@ -430,6 +436,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6Supported = ipv6Supported;
             MaximumIpv4AddressesPerInterface = maximumIpv4AddressesPerInterface;
             MaximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
+            MaximumNetworkCards = maximumNetworkCards;
             MaximumNetworkInterfaces = maximumNetworkInterfaces;
             MemorySize = memorySize;
             NetworkPerformance = networkPerformance;

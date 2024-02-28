@@ -156,6 +156,8 @@ type providerArgs struct {
 	StsRegion *string `pulumi:"stsRegion"`
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token *string `pulumi:"token"`
+	// The capacity of the AWS SDK's token bucket rate limiter.
+	TokenBucketRateLimiterCapacity *int `pulumi:"tokenBucketRateLimiterCapacity"`
 	// Resolve an endpoint with DualStack capability
 	UseDualstackEndpoint *bool `pulumi:"useDualstackEndpoint"`
 	// Resolve an endpoint with FIPS capability
@@ -232,6 +234,8 @@ type ProviderArgs struct {
 	StsRegion pulumi.StringPtrInput
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token pulumi.StringPtrInput
+	// The capacity of the AWS SDK's token bucket rate limiter.
+	TokenBucketRateLimiterCapacity pulumi.IntPtrInput
 	// Resolve an endpoint with DualStack capability
 	UseDualstackEndpoint pulumi.BoolPtrInput
 	// Resolve an endpoint with FIPS capability

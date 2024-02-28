@@ -37,6 +37,25 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    @Import(name="executionMode")
+    private @Nullable Output<String> executionMode;
+
+    /**
+     * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    public Optional<Output<String>> executionMode() {
+        return Optional.ofNullable(this.executionMode);
+    }
+
+    /**
      * The name of the pipeline.
      * 
      */
@@ -130,6 +149,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
 
     private PipelineArgs(PipelineArgs $) {
         this.artifactStores = $.artifactStores;
+        this.executionMode = $.executionMode;
         this.name = $.name;
         this.pipelineType = $.pipelineType;
         this.roleArn = $.roleArn;
@@ -185,6 +205,31 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder artifactStores(PipelineArtifactStoreArgs... artifactStores) {
             return artifactStores(List.of(artifactStores));
+        }
+
+        /**
+         * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionMode(@Nullable Output<String> executionMode) {
+            $.executionMode = executionMode;
+            return this;
+        }
+
+        /**
+         * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionMode(String executionMode) {
+            return executionMode(Output.of(executionMode));
         }
 
         /**

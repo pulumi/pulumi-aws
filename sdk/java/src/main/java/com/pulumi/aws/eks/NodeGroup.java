@@ -220,14 +220,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.capacityType;
     }
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      * 
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
-     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the EKS Cluster.
      * 
      */
     public Output<String> clusterName() {
@@ -290,14 +290,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.labels);
     }
     /**
-     * Configuration block with Launch Template settings. See `launch_template` below for details.
+     * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     @Export(name="launchTemplate", refs={NodeGroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. See `launch_template` below for details.
+     * @return Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     public Output<Optional<NodeGroupLaunchTemplate>> launchTemplate() {
@@ -360,14 +360,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.releaseVersion;
     }
     /**
-     * Configuration block with remote access settings. See `remote_access` below for details.
+     * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     @Export(name="remoteAccess", refs={NodeGroupRemoteAccess.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupRemoteAccess> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. See `remote_access` below for details.
+     * @return Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     public Output<Optional<NodeGroupRemoteAccess>> remoteAccess() {

@@ -135,6 +135,8 @@ type GetInstanceTypeResult struct {
 	MaximumIpv4AddressesPerInterface int `pulumi:"maximumIpv4AddressesPerInterface"`
 	// The maximum number of IPv6 addresses per network interface.
 	MaximumIpv6AddressesPerInterface int `pulumi:"maximumIpv6AddressesPerInterface"`
+	// The maximum number of physical network cards that can be allocated to the instance.
+	MaximumNetworkCards int `pulumi:"maximumNetworkCards"`
 	// The maximum number of network interfaces for the instance type.
 	MaximumNetworkInterfaces int `pulumi:"maximumNetworkInterfaces"`
 	// Size of the instance memory, in MiB.
@@ -379,6 +381,11 @@ func (o GetInstanceTypeResultOutput) MaximumIpv4AddressesPerInterface() pulumi.I
 // The maximum number of IPv6 addresses per network interface.
 func (o GetInstanceTypeResultOutput) MaximumIpv6AddressesPerInterface() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumIpv6AddressesPerInterface }).(pulumi.IntOutput)
+}
+
+// The maximum number of physical network cards that can be allocated to the instance.
+func (o GetInstanceTypeResultOutput) MaximumNetworkCards() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumNetworkCards }).(pulumi.IntOutput)
 }
 
 // The maximum number of network interfaces for the instance type.

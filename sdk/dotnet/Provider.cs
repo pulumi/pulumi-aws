@@ -345,6 +345,12 @@ namespace Pulumi.Aws
         public Input<string>? Token { get; set; }
 
         /// <summary>
+        /// The capacity of the AWS SDK's token bucket rate limiter.
+        /// </summary>
+        [Input("tokenBucketRateLimiterCapacity", json: true)]
+        public Input<int>? TokenBucketRateLimiterCapacity { get; set; }
+
+        /// <summary>
         /// Resolve an endpoint with DualStack capability
         /// </summary>
         [Input("useDualstackEndpoint", json: true)]

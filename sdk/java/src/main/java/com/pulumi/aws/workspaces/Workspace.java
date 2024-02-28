@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.workspaces.WorkspacesFunctions;
  * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+ * import com.pulumi.aws.kms.KmsFunctions;
+ * import com.pulumi.aws.kms.inputs.GetKeyArgs;
  * import com.pulumi.aws.workspaces.Workspace;
  * import com.pulumi.aws.workspaces.WorkspaceArgs;
  * import com.pulumi.aws.workspaces.inputs.WorkspaceWorkspacePropertiesArgs;
@@ -51,13 +53,17 @@ import javax.annotation.Nullable;
  *             .bundleId(&#34;wsb-bh8rsxt14&#34;)
  *             .build());
  * 
+ *         final var workspaces = KmsFunctions.getKey(GetKeyArgs.builder()
+ *             .keyId(&#34;alias/aws/workspaces&#34;)
+ *             .build());
+ * 
  *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
  *             .directoryId(aws_workspaces_directory.example().id())
  *             .bundleId(valueWindows10.applyValue(getBundleResult -&gt; getBundleResult.id()))
  *             .userName(&#34;john.doe&#34;)
  *             .rootVolumeEncryptionEnabled(true)
  *             .userVolumeEncryptionEnabled(true)
- *             .volumeEncryptionKey(&#34;alias/aws/workspaces&#34;)
+ *             .volumeEncryptionKey(workspaces.applyValue(getKeyResult -&gt; getKeyResult.arn()))
  *             .workspaceProperties(WorkspaceWorkspacePropertiesArgs.builder()
  *                 .computeTypeName(&#34;VALUE&#34;)
  *                 .userVolumeSizeGib(10)
@@ -228,14 +234,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userVolumeEncryptionEnabled);
     }
     /**
-     * The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+     * The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
     @Export(name="volumeEncryptionKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeEncryptionKey;
 
     /**
-     * @return The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+     * @return The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
     public Output<Optional<String>> volumeEncryptionKey() {

@@ -146,6 +146,10 @@ namespace Pulumi.Aws.ElastiCache
         /// Map of tags assigned to the subnet group.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// </summary>
+        public readonly string VpcId;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
@@ -159,7 +163,9 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string>? tags,
+
+            string vpcId)
         {
             Arn = arn;
             Description = description;
@@ -167,6 +173,7 @@ namespace Pulumi.Aws.ElastiCache
             Name = name;
             SubnetIds = subnetIds;
             Tags = tags;
+            VpcId = vpcId;
         }
     }
 }

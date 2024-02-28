@@ -6711,6 +6711,130 @@ func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInp
 	}).(GetIdentityPoolCognitoIdentityProviderOutput)
 }
 
+type GetUserGroupsGroup struct {
+	// Description of the user group.
+	Description string `pulumi:"description"`
+	// Name of the user group.
+	GroupName string `pulumi:"groupName"`
+	// Precedence of the user group.
+	Precedence int `pulumi:"precedence"`
+	// ARN of the IAM role to be associated with the user group.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// GetUserGroupsGroupInput is an input type that accepts GetUserGroupsGroupArgs and GetUserGroupsGroupOutput values.
+// You can construct a concrete instance of `GetUserGroupsGroupInput` via:
+//
+//	GetUserGroupsGroupArgs{...}
+type GetUserGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetUserGroupsGroupOutput() GetUserGroupsGroupOutput
+	ToGetUserGroupsGroupOutputWithContext(context.Context) GetUserGroupsGroupOutput
+}
+
+type GetUserGroupsGroupArgs struct {
+	// Description of the user group.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Name of the user group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Precedence of the user group.
+	Precedence pulumi.IntInput `pulumi:"precedence"`
+	// ARN of the IAM role to be associated with the user group.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (GetUserGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserGroupsGroup)(nil)).Elem()
+}
+
+func (i GetUserGroupsGroupArgs) ToGetUserGroupsGroupOutput() GetUserGroupsGroupOutput {
+	return i.ToGetUserGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetUserGroupsGroupArgs) ToGetUserGroupsGroupOutputWithContext(ctx context.Context) GetUserGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserGroupsGroupOutput)
+}
+
+// GetUserGroupsGroupArrayInput is an input type that accepts GetUserGroupsGroupArray and GetUserGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetUserGroupsGroupArrayInput` via:
+//
+//	GetUserGroupsGroupArray{ GetUserGroupsGroupArgs{...} }
+type GetUserGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetUserGroupsGroupArrayOutput() GetUserGroupsGroupArrayOutput
+	ToGetUserGroupsGroupArrayOutputWithContext(context.Context) GetUserGroupsGroupArrayOutput
+}
+
+type GetUserGroupsGroupArray []GetUserGroupsGroupInput
+
+func (GetUserGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserGroupsGroup)(nil)).Elem()
+}
+
+func (i GetUserGroupsGroupArray) ToGetUserGroupsGroupArrayOutput() GetUserGroupsGroupArrayOutput {
+	return i.ToGetUserGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserGroupsGroupArray) ToGetUserGroupsGroupArrayOutputWithContext(ctx context.Context) GetUserGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserGroupsGroupArrayOutput)
+}
+
+type GetUserGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetUserGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserGroupsGroup)(nil)).Elem()
+}
+
+func (o GetUserGroupsGroupOutput) ToGetUserGroupsGroupOutput() GetUserGroupsGroupOutput {
+	return o
+}
+
+func (o GetUserGroupsGroupOutput) ToGetUserGroupsGroupOutputWithContext(ctx context.Context) GetUserGroupsGroupOutput {
+	return o
+}
+
+// Description of the user group.
+func (o GetUserGroupsGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name of the user group.
+func (o GetUserGroupsGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserGroupsGroup) string { return v.GroupName }).(pulumi.StringOutput)
+}
+
+// Precedence of the user group.
+func (o GetUserGroupsGroupOutput) Precedence() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserGroupsGroup) int { return v.Precedence }).(pulumi.IntOutput)
+}
+
+// ARN of the IAM role to be associated with the user group.
+func (o GetUserGroupsGroupOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserGroupsGroup) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type GetUserGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserGroupsGroup)(nil)).Elem()
+}
+
+func (o GetUserGroupsGroupArrayOutput) ToGetUserGroupsGroupArrayOutput() GetUserGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetUserGroupsGroupArrayOutput) ToGetUserGroupsGroupArrayOutputWithContext(ctx context.Context) GetUserGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetUserGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetUserGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserGroupsGroup {
+		return vs[0].([]GetUserGroupsGroup)[vs[1].(int)]
+	}).(GetUserGroupsGroupOutput)
+}
+
 type GetUserPoolClientAnalyticsConfiguration struct {
 	// (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 	ApplicationArn string `pulumi:"applicationArn"`
@@ -7040,6 +7164,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplatePtrInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserGroupsGroupInput)(nil)).Elem(), GetUserGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserGroupsGroupArrayInput)(nil)).Elem(), GetUserGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationArrayInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArgs{})
@@ -7124,6 +7250,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderArrayOutput{})
+	pulumi.RegisterOutputType(GetUserGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetUserGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitOutput{})

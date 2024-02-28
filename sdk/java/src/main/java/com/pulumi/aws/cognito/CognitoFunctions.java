@@ -6,6 +6,10 @@ package com.pulumi.aws.cognito;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
 import com.pulumi.aws.cognito.inputs.GetIdentityPoolPlainArgs;
+import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+import com.pulumi.aws.cognito.inputs.GetUserGroupPlainArgs;
+import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+import com.pulumi.aws.cognito.inputs.GetUserGroupsPlainArgs;
 import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
 import com.pulumi.aws.cognito.inputs.GetUserPoolClientPlainArgs;
 import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
@@ -15,6 +19,8 @@ import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificatePlainArgs;
 import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
 import com.pulumi.aws.cognito.inputs.GetUserPoolsPlainArgs;
 import com.pulumi.aws.cognito.outputs.GetIdentityPoolResult;
+import com.pulumi.aws.cognito.outputs.GetUserGroupResult;
+import com.pulumi.aws.cognito.outputs.GetUserGroupsResult;
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientResult;
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientsResult;
 import com.pulumi.aws.cognito.outputs.GetUserPoolSigningCertificateResult;
@@ -177,6 +183,314 @@ public final class CognitoFunctions {
      */
     public static CompletableFuture<GetIdentityPoolResult> getIdentityPoolPlain(GetIdentityPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cognito/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserGroupResult> getUserGroup(GetUserGroupArgs args) {
+        return getUserGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserGroupResult> getUserGroupPlain(GetUserGroupPlainArgs args) {
+        return getUserGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserGroupResult> getUserGroup(GetUserGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserGroup:getUserGroup", TypeShape.of(GetUserGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserGroupResult> getUserGroupPlain(GetUserGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cognito/getUserGroup:getUserGroup", TypeShape.of(GetUserGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args) {
+        return getUserGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserGroupsResult> getUserGroupsPlain(GetUserGroupsPlainArgs args) {
+        return getUserGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserGroups:getUserGroups", TypeShape.of(GetUserGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
+     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserGroupsResult> getUserGroupsPlain(GetUserGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cognito/getUserGroups:getUserGroups", TypeShape.of(GetUserGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a Cognito User Pool Client resource.

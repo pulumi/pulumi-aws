@@ -88,6 +88,7 @@ class DeploymentConfigArgs:
 @pulumi.input_type
 class _DeploymentConfigState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_id: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
@@ -95,12 +96,15 @@ class _DeploymentConfigState:
                  traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
+        :param pulumi.Input[str] arn: The ARN of the deployment config.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
         if deployment_config_id is not None:
@@ -111,6 +115,18 @@ class _DeploymentConfigState:
             pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
         if traffic_routing_config is not None:
             pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the deployment config.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -386,6 +402,7 @@ class DeploymentConfig(pulumi.CustomResource):
             __props__.__dict__["deployment_config_name"] = deployment_config_name
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
+            __props__.__dict__["arn"] = None
             __props__.__dict__["deployment_config_id"] = None
         super(DeploymentConfig, __self__).__init__(
             'aws:codedeploy/deploymentConfig:DeploymentConfig',
@@ -397,6 +414,7 @@ class DeploymentConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             compute_platform: Optional[pulumi.Input[str]] = None,
             deployment_config_id: Optional[pulumi.Input[str]] = None,
             deployment_config_name: Optional[pulumi.Input[str]] = None,
@@ -409,6 +427,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the deployment config.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
@@ -419,12 +438,21 @@ class DeploymentConfig(pulumi.CustomResource):
 
         __props__ = _DeploymentConfigState.__new__(_DeploymentConfigState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["compute_platform"] = compute_platform
         __props__.__dict__["deployment_config_id"] = deployment_config_id
         __props__.__dict__["deployment_config_name"] = deployment_config_name
         __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
         __props__.__dict__["traffic_routing_config"] = traffic_routing_config
         return DeploymentConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the deployment config.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computePlatform")

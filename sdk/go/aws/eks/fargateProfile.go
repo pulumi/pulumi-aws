@@ -120,7 +120,7 @@ type FargateProfile struct {
 
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
@@ -183,7 +183,7 @@ func GetFargateProfile(ctx *pulumi.Context,
 type fargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn *string `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -208,7 +208,7 @@ type fargateProfileState struct {
 type FargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -235,7 +235,7 @@ func (FargateProfileState) ElementType() reflect.Type {
 }
 
 type fargateProfileArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -253,7 +253,7 @@ type fargateProfileArgs struct {
 
 // The set of arguments for constructing a FargateProfile resource.
 type FargateProfileArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o FargateProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 func (o FargateProfileOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }

@@ -35,6 +35,10 @@ __all__ = [
     'SchedulingPolicyFairSharePolicy',
     'SchedulingPolicyFairSharePolicyShareDistribution',
     'GetComputeEnvironmentUpdatePolicyResult',
+    'GetJobDefinitionEksPropertyResult',
+    'GetJobDefinitionNodePropertyResult',
+    'GetJobDefinitionRetryStrategyResult',
+    'GetJobDefinitionTimeoutResult',
     'GetJobQueueComputeEnvironmentOrderResult',
     'GetSchedulingPolicyFairSharePolicyResult',
     'GetSchedulingPolicyFairSharePolicyShareDistributionResult',
@@ -1453,6 +1457,111 @@ class GetComputeEnvironmentUpdatePolicyResult(dict):
     @pulumi.getter(name="terminateJobsOnUpdate")
     def terminate_jobs_on_update(self) -> bool:
         return pulumi.get(self, "terminate_jobs_on_update")
+
+
+@pulumi.output_type
+class GetJobDefinitionEksPropertyResult(dict):
+    def __init__(__self__, *,
+                 pod_properties: Sequence[Any]):
+        """
+        :param Sequence[Any] pod_properties: The properties for the Kubernetes pod resources of a job.
+        """
+        pulumi.set(__self__, "pod_properties", pod_properties)
+
+    @property
+    @pulumi.getter(name="podProperties")
+    def pod_properties(self) -> Sequence[Any]:
+        """
+        The properties for the Kubernetes pod resources of a job.
+        """
+        return pulumi.get(self, "pod_properties")
+
+
+@pulumi.output_type
+class GetJobDefinitionNodePropertyResult(dict):
+    def __init__(__self__, *,
+                 main_node: int,
+                 node_range_properties: Sequence[Any],
+                 num_nodes: int):
+        """
+        :param int main_node: Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        :param Sequence[Any] node_range_properties: A list of node ranges and their properties that are associated with a multi-node parallel job.
+        :param int num_nodes: The number of nodes that are associated with a multi-node parallel job.
+        """
+        pulumi.set(__self__, "main_node", main_node)
+        pulumi.set(__self__, "node_range_properties", node_range_properties)
+        pulumi.set(__self__, "num_nodes", num_nodes)
+
+    @property
+    @pulumi.getter(name="mainNode")
+    def main_node(self) -> int:
+        """
+        Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        """
+        return pulumi.get(self, "main_node")
+
+    @property
+    @pulumi.getter(name="nodeRangeProperties")
+    def node_range_properties(self) -> Sequence[Any]:
+        """
+        A list of node ranges and their properties that are associated with a multi-node parallel job.
+        """
+        return pulumi.get(self, "node_range_properties")
+
+    @property
+    @pulumi.getter(name="numNodes")
+    def num_nodes(self) -> int:
+        """
+        The number of nodes that are associated with a multi-node parallel job.
+        """
+        return pulumi.get(self, "num_nodes")
+
+
+@pulumi.output_type
+class GetJobDefinitionRetryStrategyResult(dict):
+    def __init__(__self__, *,
+                 attempts: int,
+                 evaluate_on_exits: Sequence[Any]):
+        """
+        :param int attempts: The number of times to move a job to the RUNNABLE status.
+        :param Sequence[Any] evaluate_on_exits: Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        """
+        pulumi.set(__self__, "attempts", attempts)
+        pulumi.set(__self__, "evaluate_on_exits", evaluate_on_exits)
+
+    @property
+    @pulumi.getter
+    def attempts(self) -> int:
+        """
+        The number of times to move a job to the RUNNABLE status.
+        """
+        return pulumi.get(self, "attempts")
+
+    @property
+    @pulumi.getter(name="evaluateOnExits")
+    def evaluate_on_exits(self) -> Sequence[Any]:
+        """
+        Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        """
+        return pulumi.get(self, "evaluate_on_exits")
+
+
+@pulumi.output_type
+class GetJobDefinitionTimeoutResult(dict):
+    def __init__(__self__, *,
+                 attempt_duration_seconds: int):
+        """
+        :param int attempt_duration_seconds: The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+        """
+        pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
+
+    @property
+    @pulumi.getter(name="attemptDurationSeconds")
+    def attempt_duration_seconds(self) -> int:
+        """
+        The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+        """
+        return pulumi.get(self, "attempt_duration_seconds")
 
 
 @pulumi.output_type

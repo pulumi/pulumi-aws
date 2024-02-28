@@ -18,6 +18,21 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     public static final DeploymentConfigState Empty = new DeploymentConfigState();
 
     /**
+     * The ARN of the deployment config.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the deployment config.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 
      */
@@ -95,6 +110,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     private DeploymentConfigState() {}
 
     private DeploymentConfigState(DeploymentConfigState $) {
+        this.arn = $.arn;
         this.computePlatform = $.computePlatform;
         this.deploymentConfigId = $.deploymentConfigId;
         this.deploymentConfigName = $.deploymentConfigName;
@@ -118,6 +134,27 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
 
         public Builder(DeploymentConfigState defaults) {
             $ = new DeploymentConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The ARN of the deployment config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the deployment config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

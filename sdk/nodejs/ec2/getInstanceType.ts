@@ -187,6 +187,10 @@ export interface GetInstanceTypeResult {
      */
     readonly maximumIpv6AddressesPerInterface: number;
     /**
+     * The maximum number of physical network cards that can be allocated to the instance.
+     */
+    readonly maximumNetworkCards: number;
+    /**
      * The maximum number of network interfaces for the instance type.
      */
     readonly maximumNetworkInterfaces: number;

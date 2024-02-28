@@ -52,7 +52,7 @@ func LookupAccessEntry(ctx *pulumi.Context, args *LookupAccessEntryArgs, opts ..
 
 // A collection of arguments for invoking getAccessEntry.
 type LookupAccessEntryArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string            `pulumi:"principalArn"`
@@ -97,7 +97,7 @@ func LookupAccessEntryOutput(ctx *pulumi.Context, args LookupAccessEntryOutputAr
 
 // A collection of arguments for invoking getAccessEntry.
 type LookupAccessEntryOutputArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput    `pulumi:"principalArn"`

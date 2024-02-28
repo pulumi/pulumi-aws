@@ -29,6 +29,11 @@ namespace Pulumi.Aws.Workspaces
     ///         BundleId = "wsb-bh8rsxt14",
     ///     });
     /// 
+    ///     var workspaces = Aws.Kms.GetKey.Invoke(new()
+    ///     {
+    ///         KeyId = "alias/aws/workspaces",
+    ///     });
+    /// 
     ///     var example = new Aws.Workspaces.Workspace("example", new()
     ///     {
     ///         DirectoryId = aws_workspaces_directory.Example.Id,
@@ -36,7 +41,7 @@ namespace Pulumi.Aws.Workspaces
     ///         UserName = "john.doe",
     ///         RootVolumeEncryptionEnabled = true,
     ///         UserVolumeEncryptionEnabled = true,
-    ///         VolumeEncryptionKey = "alias/aws/workspaces",
+    ///         VolumeEncryptionKey = workspaces.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
     ///         {
     ///             ComputeTypeName = "VALUE",
@@ -126,7 +131,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<bool?> UserVolumeEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
         [Output("volumeEncryptionKey")]
         public Output<string?> VolumeEncryptionKey { get; private set; } = null!;
@@ -226,7 +231,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<bool>? UserVolumeEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
         [Input("volumeEncryptionKey")]
         public Input<string>? VolumeEncryptionKey { get; set; }
@@ -319,7 +324,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<bool>? UserVolumeEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
         [Input("volumeEncryptionKey")]
         public Input<string>? VolumeEncryptionKey { get; set; }

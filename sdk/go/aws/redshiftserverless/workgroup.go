@@ -63,6 +63,8 @@ type Workgroup struct {
 	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
@@ -133,6 +135,8 @@ type workgroupState struct {
 	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
@@ -168,6 +172,8 @@ type WorkgroupState struct {
 	Endpoints WorkgroupEndpointArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections.
@@ -203,6 +209,8 @@ type workgroupArgs struct {
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
@@ -229,6 +237,8 @@ type WorkgroupArgs struct {
 	ConfigParameters WorkgroupConfigParameterArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
 	// The port number on which the cluster accepts incoming connections.
@@ -357,6 +367,11 @@ func (o WorkgroupOutput) Endpoints() WorkgroupEndpointArrayOutput {
 // The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+func (o WorkgroupOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.MaxCapacity }).(pulumi.IntOutput)
 }
 
 // The name of the namespace.

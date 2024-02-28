@@ -330,6 +330,16 @@ namespace Pulumi.Aws
             set => _token.Set(value);
         }
 
+        private static readonly __Value<int?> _tokenBucketRateLimiterCapacity = new __Value<int?>(() => __config.GetInt32("tokenBucketRateLimiterCapacity"));
+        /// <summary>
+        /// The capacity of the AWS SDK's token bucket rate limiter.
+        /// </summary>
+        public static int? TokenBucketRateLimiterCapacity
+        {
+            get => _tokenBucketRateLimiterCapacity.Get();
+            set => _tokenBucketRateLimiterCapacity.Set(value);
+        }
+
         private static readonly __Value<bool?> _useDualstackEndpoint = new __Value<bool?>(() => __config.GetBoolean("useDualstackEndpoint"));
         /// <summary>
         /// Resolve an endpoint with DualStack capability

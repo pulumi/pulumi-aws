@@ -190,6 +190,11 @@ func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:token")
 }
 
+// The capacity of the AWS SDK's token bucket rate limiter.
+func GetTokenBucketRateLimiterCapacity(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "aws:tokenBucketRateLimiterCapacity")
+}
+
 // Resolve an endpoint with DualStack capability
 func GetUseDualstackEndpoint(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:useDualstackEndpoint")

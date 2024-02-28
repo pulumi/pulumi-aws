@@ -129,6 +129,21 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    @Import(name="loadBalancerArns")
+    private @Nullable Output<List<String>> loadBalancerArns;
+
+    /**
+     * @return ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    public Optional<Output<List<String>>> loadBalancerArns() {
+        return Optional.ofNullable(this.loadBalancerArns);
+    }
+
+    /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
@@ -442,6 +457,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         this.healthCheck = $.healthCheck;
         this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
+        this.loadBalancerArns = $.loadBalancerArns;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
         this.loadBalancingAnomalyMitigation = $.loadBalancingAnomalyMitigation;
         this.loadBalancingCrossZoneEnabled = $.loadBalancingCrossZoneEnabled;
@@ -625,6 +641,37 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lambdaMultiValueHeadersEnabled(Boolean lambdaMultiValueHeadersEnabled) {
             return lambdaMultiValueHeadersEnabled(Output.of(lambdaMultiValueHeadersEnabled));
+        }
+
+        /**
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(@Nullable Output<List<String>> loadBalancerArns) {
+            $.loadBalancerArns = loadBalancerArns;
+            return this;
+        }
+
+        /**
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(List<String> loadBalancerArns) {
+            return loadBalancerArns(Output.of(loadBalancerArns));
+        }
+
+        /**
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(String... loadBalancerArns) {
+            return loadBalancerArns(List.of(loadBalancerArns));
         }
 
         /**
