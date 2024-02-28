@@ -136,7 +136,7 @@ class AccessPointPolicy(pulumi.CustomResource):
             ))
         example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2008-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -144,9 +144,9 @@ class AccessPointPolicy(pulumi.CustomResource):
                     "Principal": {
                         "AWS": "*",
                     },
-                    "Resource": f"{arn}/object/*",
+                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
-            })))
+            }))
         ```
 
         ## Import
@@ -191,7 +191,7 @@ class AccessPointPolicy(pulumi.CustomResource):
             ))
         example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2008-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -199,9 +199,9 @@ class AccessPointPolicy(pulumi.CustomResource):
                     "Principal": {
                         "AWS": "*",
                     },
-                    "Resource": f"{arn}/object/*",
+                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
-            })))
+            }))
         ```
 
         ## Import

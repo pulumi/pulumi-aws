@@ -37,6 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Use the last snapshot of the dev database before it was destroyed to create
+//			// a new dev database.
 //			auroraCluster, err := rds.NewCluster(ctx, "auroraCluster", &rds.ClusterArgs{
 //				ClusterIdentifier:  pulumi.String("development_cluster"),
 //				SnapshotIdentifier: *pulumi.String(developmentFinalSnapshot.Id),

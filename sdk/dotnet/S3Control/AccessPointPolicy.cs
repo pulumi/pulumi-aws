@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3Control
     ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new()
     ///     {
     ///         AccessPointArn = exampleAccessPoint.Arn,
-    ///         Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2008-10-17",
     ///             ["Statement"] = new[]
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.S3Control
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = $"{arn}/object/*",
+    ///                     ["Resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
     ///                 },
     ///             },
     ///         })),

@@ -31,34 +31,34 @@ namespace Pulumi.Aws.Msk
     ///     var example = new Aws.Msk.ClusterPolicy("example", new()
     ///     {
     ///         ClusterArn = aws_msk_cluster.Example.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "ExampleMskClusterPolicy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "ExampleMskClusterPolicy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "kafka:Describe*",
-    ///                             "kafka:Get*",
-    ///                             "kafka:CreateVpcConnection",
-    ///                             "kafka:GetBootstrapBrokers",
-    ///                         },
-    ///                         ["Resource"] = aws_msk_cluster.Example.Arn,
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentCallerIdentity = values.Item2;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
     ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kafka:Describe*",
+    ///                         "kafka:Get*",
+    ///                         "kafka:CreateVpcConnection",
+    ///                         "kafka:GetBootstrapBrokers",
+    ///                     },
+    ///                     ["Resource"] = aws_msk_cluster.Example.Arn,
     ///                 },
-    ///             });
+    ///             },
     ///         }),
     ///     });
     /// 

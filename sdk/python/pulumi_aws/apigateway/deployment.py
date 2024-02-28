@@ -325,7 +325,7 @@ class Deployment(pulumi.CustomResource):
         example_deployment = aws.apigateway.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": example_rest_api.body.apply(lambda body: hashlib.sha1(json.dumps(body).encode()).hexdigest()),
             })
         example_stage = aws.apigateway.Stage("exampleStage",
             deployment=example_deployment.id,
@@ -358,11 +358,11 @@ class Deployment(pulumi.CustomResource):
         example_deployment = aws.apigateway.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
+                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: hashlib.sha1(json.dumps([
                     example_resource_id,
                     example_method_id,
                     example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                ]).encode()).hexdigest()),
             })
         example_stage = aws.apigateway.Stage("exampleStage",
             deployment=example_deployment.id,
@@ -437,7 +437,7 @@ class Deployment(pulumi.CustomResource):
         example_deployment = aws.apigateway.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": example_rest_api.body.apply(lambda body: hashlib.sha1(json.dumps(body).encode()).hexdigest()),
             })
         example_stage = aws.apigateway.Stage("exampleStage",
             deployment=example_deployment.id,
@@ -470,11 +470,11 @@ class Deployment(pulumi.CustomResource):
         example_deployment = aws.apigateway.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
+                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: hashlib.sha1(json.dumps([
                     example_resource_id,
                     example_method_id,
                     example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                ]).encode()).hexdigest()),
             })
         example_stage = aws.apigateway.Stage("exampleStage",
             deployment=example_deployment.id,
