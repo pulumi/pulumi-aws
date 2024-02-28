@@ -116,7 +116,7 @@ class ResourcePolicy(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
             resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Id": "default",
                 "Statement": [{
@@ -131,9 +131,9 @@ class ResourcePolicy(pulumi.CustomResource):
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "Resource": arn,
+                    "Resource": example_report_group.arn,
                 }],
-            })))
+            }))
         ```
 
         ## Import
@@ -174,7 +174,7 @@ class ResourcePolicy(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
             resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Id": "default",
                 "Statement": [{
@@ -189,9 +189,9 @@ class ResourcePolicy(pulumi.CustomResource):
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "Resource": arn,
+                    "Resource": example_report_group.arn,
                 }],
-            })))
+            }))
         ```
 
         ## Import

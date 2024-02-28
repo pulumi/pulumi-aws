@@ -25,10 +25,10 @@ import * as utilities from "../utilities";
  *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     securityServicePolicyData: {
  *         type: "WAF",
- *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
+ *         managedServiceData: pulumi.jsonStringify({
  *             type: "WAF",
  *             ruleGroups: [{
- *                 id: id,
+ *                 id: exampleRuleGroup.id,
  *                 overrideAction: {
  *                     type: "COUNT",
  *                 },
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *                 type: "BLOCK",
  *             },
  *             overrideCustomerWebACLAssociation: false,
- *         })),
+ *         }),
  *     },
  *     tags: {
  *         Name: "example-fms-policy",

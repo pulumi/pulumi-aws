@@ -68,6 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = backup.NewSelection(ctx, "exampleSelection", &backup.SelectionArgs{
 //				IamRoleArn: exampleRole.Arn,
 //			})
