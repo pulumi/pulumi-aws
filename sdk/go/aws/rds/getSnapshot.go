@@ -48,6 +48,7 @@ import (
 //				DbInstanceIdentifier: prod.Identifier,
 //				MostRecent:           pulumi.Bool(true),
 //			}, nil)
+//			// Use the latest production snapshot to create a dev instance.
 //			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
 //				InstanceClass: pulumi.String("db.t2.micro"),
 //				DbName:        pulumi.String("mydbdev"),
