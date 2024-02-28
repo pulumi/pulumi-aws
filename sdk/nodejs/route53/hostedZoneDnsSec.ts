@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
- *     policy: current.then(current => JSON.stringify({
+ *     policy: JSON.stringify({
  *         Statement: [
  *             {
  *                 Action: [
@@ -42,14 +42,14 @@ import * as utilities from "../utilities";
  *                 Action: "kms:*",
  *                 Effect: "Allow",
  *                 Principal: {
- *                     AWS: `arn:aws:iam::${current.accountId}:root`,
+ *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
  *                 Resource: "*",
  *                 Sid: "Enable IAM User Permissions",
  *             },
  *         ],
  *         Version: "2012-10-17",
- *     })),
+ *     }),
  * });
  * const exampleZone = new aws.route53.Zone("exampleZone", {});
  * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
