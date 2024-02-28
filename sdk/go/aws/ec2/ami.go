@@ -34,6 +34,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create an AMI that will start a machine whose root device is backed by
+//			// an EBS volume populated from a snapshot. We assume that such a snapshot
+//			// already exists with the id "snap-xxxxxxxx".
 //			_, err := ec2.NewAmi(ctx, "example", &ec2.AmiArgs{
 //				EbsBlockDevices: ec2.AmiEbsBlockDeviceArray{
 //					&ec2.AmiEbsBlockDeviceArgs{

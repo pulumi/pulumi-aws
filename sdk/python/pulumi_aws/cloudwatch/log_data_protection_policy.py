@@ -113,7 +113,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
             log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
+            policy_document=pulumi.Output.json_dumps({
                 "Name": "Example",
                 "Version": "2021-06-01",
                 "Statement": [
@@ -124,7 +124,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                             "Audit": {
                                 "FindingsDestination": {
                                     "S3": {
-                                        "Bucket": bucket,
+                                        "Bucket": example_bucket_v2.bucket,
                                     },
                                 },
                             },
@@ -140,7 +140,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                         },
                     },
                 ],
-            })))
+            }))
         ```
 
         ## Import
@@ -178,7 +178,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
             log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
+            policy_document=pulumi.Output.json_dumps({
                 "Name": "Example",
                 "Version": "2021-06-01",
                 "Statement": [
@@ -189,7 +189,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                             "Audit": {
                                 "FindingsDestination": {
                                     "S3": {
-                                        "Bucket": bucket,
+                                        "Bucket": example_bucket_v2.bucket,
                                     },
                                 },
                             },
@@ -205,7 +205,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                         },
                     },
                 ],
-            })))
+            }))
         ```
 
         ## Import

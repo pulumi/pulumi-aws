@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     description: "My provisioning template",
  *     provisioningRoleArn: iotFleetProvisioning.arn,
  *     enabled: true,
- *     templateBody: devicePolicyPolicy.name.apply(name => JSON.stringify({
+ *     templateBody: pulumi.jsonStringify({
  *         Parameters: {
  *             SerialNumber: {
  *                 Type: "String",
@@ -62,12 +62,12 @@ import * as utilities from "../utilities";
  *             },
  *             policy: {
  *                 Properties: {
- *                     PolicyName: name,
+ *                     PolicyName: devicePolicyPolicy.name,
  *                 },
  *                 Type: "AWS::IoT::Policy",
  *             },
  *         },
- *     })),
+ *     }),
  * });
  * ```
  *
