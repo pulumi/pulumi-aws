@@ -81,6 +81,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
 //			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
 //			if err != nil {
 //				return err
