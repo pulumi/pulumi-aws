@@ -9,8 +9,8 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.10
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.1-0.20240229114854-e1756b040e64
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.1-0.20240229114854-e1756b040e64
 	github.com/pulumi/pulumi/pkg/v3 v3.107.0
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0
 	github.com/stretchr/testify v1.8.4
@@ -291,7 +291,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.5.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.6.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
