@@ -141,6 +141,11 @@ jobs:
     needs: prerequisites
     runs-on: ubuntu-latest
     steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-spacev@v1
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -295,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
+      uses: jlumbroso/free-disk-spacev@v1
       with:
         # this might remove tools that are actually needed,
         # if set to "true" but frees about 6 GB
