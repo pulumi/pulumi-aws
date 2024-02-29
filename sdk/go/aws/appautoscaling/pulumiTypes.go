@@ -34,7 +34,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	//
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecs_policy", &appautoscaling.PolicyArgs{
 	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
 	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
@@ -92,7 +92,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	//
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecs_policy", &appautoscaling.PolicyArgs{
 	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
 	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
@@ -229,7 +229,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//			_, err := appautoscaling.NewPolicy(ctx, "ecs_policy", &appautoscaling.PolicyArgs{
 //				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
 //					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
@@ -337,7 +337,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//			_, err := appautoscaling.NewPolicy(ctx, "ecs_policy", &appautoscaling.PolicyArgs{
 //				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
 //					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{

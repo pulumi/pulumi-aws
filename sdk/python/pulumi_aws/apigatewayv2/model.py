@@ -207,8 +207,9 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
             content_type="application/json",
+            name="example",
             schema=json.dumps({
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "title": "ExampleModel",
@@ -255,8 +256,9 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
             content_type="application/json",
+            name="example",
             schema=json.dumps({
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "title": "ExampleModel",

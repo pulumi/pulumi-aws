@@ -297,6 +297,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
+            name="rds-pg",
             family="mysql5.6",
             parameters=[
                 aws.rds.ParameterGroupParameterArgs(
@@ -321,14 +322,15 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+        example = aws.rds.ParameterGroup("example",
+            name="my-pg",
             family="postgres13",
             parameters=[aws.rds.ParameterGroupParameterArgs(
                 name="log_connections",
                 value="1",
             )])
-        example_instance = aws.rds.Instance("exampleInstance",
-            parameter_group_name=example_parameter_group.name,
+        example_instance = aws.rds.Instance("example",
+            parameter_group_name=example.name,
             apply_immediately=True)
         ```
 
@@ -378,6 +380,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
+            name="rds-pg",
             family="mysql5.6",
             parameters=[
                 aws.rds.ParameterGroupParameterArgs(
@@ -402,14 +405,15 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+        example = aws.rds.ParameterGroup("example",
+            name="my-pg",
             family="postgres13",
             parameters=[aws.rds.ParameterGroupParameterArgs(
                 name="log_connections",
                 value="1",
             )])
-        example_instance = aws.rds.Instance("exampleInstance",
-            parameter_group_name=example_parameter_group.name,
+        example_instance = aws.rds.Instance("example",
+            parameter_group_name=example.name,
             apply_immediately=True)
         ```
 

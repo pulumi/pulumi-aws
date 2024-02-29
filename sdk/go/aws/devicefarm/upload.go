@@ -30,12 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
+//			example, err := devicefarm.NewProject(ctx, "example", &devicefarm.ProjectArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devicefarm.NewUpload(ctx, "exampleUpload", &devicefarm.UploadArgs{
-//				ProjectArn: exampleProject.Arn,
+//			_, err = devicefarm.NewUpload(ctx, "example", &devicefarm.UploadArgs{
+//				Name:       pulumi.String("example"),
+//				ProjectArn: example.Arn,
 //				Type:       pulumi.String("APPIUM_JAVA_TESTNG_TEST_SPEC"),
 //			})
 //			if err != nil {

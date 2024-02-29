@@ -140,14 +140,13 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
+        example = aws.directoryservice.SharedDirectory("example",
+            directory_id=example_aws_directory_service_directory["id"],
             notes="example",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=receiver["accountId"],
             ))
-        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
-        opts=pulumi.ResourceOptions(provider="awsalternate"))
+        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 
         ## Import
@@ -179,14 +178,13 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
+        example = aws.directoryservice.SharedDirectory("example",
+            directory_id=example_aws_directory_service_directory["id"],
             notes="example",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=receiver["accountId"],
             ))
-        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
-        opts=pulumi.ResourceOptions(provider="awsalternate"))
+        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 
         ## Import

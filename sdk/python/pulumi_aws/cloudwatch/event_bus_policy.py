@@ -116,7 +116,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="DevAccountAccess",
             effect="Allow",
             actions=["events:PutEvents"],
@@ -126,9 +126,9 @@ class EventBusPolicy(pulumi.CustomResource):
                 identifiers=["123456789012"],
             )],
         )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
         ### Organization Access
 
@@ -136,7 +136,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="OrganizationAccess",
             effect="Allow",
             actions=[
@@ -156,12 +156,12 @@ class EventBusPolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
-                values=[aws_organizations_organization["example"]["id"]],
+                values=[example["id"]],
             )],
         )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
         ### Multiple Statements
 
@@ -169,7 +169,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[
+        test = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="DevAccountAccess",
                 effect="Allow",
@@ -200,13 +200,13 @@ class EventBusPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
-                    values=[aws_organizations_organization["example"]["id"]],
+                    values=[example["id"]],
                 )],
             ),
         ])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
 
         ## Import
@@ -243,7 +243,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="DevAccountAccess",
             effect="Allow",
             actions=["events:PutEvents"],
@@ -253,9 +253,9 @@ class EventBusPolicy(pulumi.CustomResource):
                 identifiers=["123456789012"],
             )],
         )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
         ### Organization Access
 
@@ -263,7 +263,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="OrganizationAccess",
             effect="Allow",
             actions=[
@@ -283,12 +283,12 @@ class EventBusPolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
-                values=[aws_organizations_organization["example"]["id"]],
+                values=[example["id"]],
             )],
         )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
         ### Multiple Statements
 
@@ -296,7 +296,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[
+        test = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="DevAccountAccess",
                 effect="Allow",
@@ -327,13 +327,13 @@ class EventBusPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
-                    values=[aws_organizations_organization["example"]["id"]],
+                    values=[example["id"]],
                 )],
             ),
         ])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
+            policy=test.json,
+            event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
 
         ## Import

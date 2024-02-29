@@ -261,12 +261,12 @@ class Connect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            vpc_id=aws_vpc["example"]["id"])
+            subnet_ids=[example_aws_subnet["id"]],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+            vpc_id=example_aws_vpc["id"])
         attachment = aws.ec2transitgateway.Connect("attachment",
             transport_attachment_id=example.id,
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
 
         ## Import
@@ -302,12 +302,12 @@ class Connect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            vpc_id=aws_vpc["example"]["id"])
+            subnet_ids=[example_aws_subnet["id"]],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+            vpc_id=example_aws_vpc["id"])
         attachment = aws.ec2transitgateway.Connect("attachment",
             transport_attachment_id=example.id,
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
 
         ## Import

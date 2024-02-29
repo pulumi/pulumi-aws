@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.ec2.Eip("example", {domain: "vpc"});
- * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
+ * const eipAssoc = new aws.ec2.EipAssociation("eip_assoc", {
  *     instanceId: web.id,
  *     allocationId: example.id,
  * });

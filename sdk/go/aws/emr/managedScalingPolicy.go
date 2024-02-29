@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
+//				Name:         pulumi.String("emr-sample-cluster"),
 //				ReleaseLabel: pulumi.String("emr-5.30.0"),
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceType: pulumi.String("m4.large"),

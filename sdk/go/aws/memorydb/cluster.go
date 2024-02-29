@@ -32,13 +32,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
 //				AclName:   pulumi.String("open-access"),
+//				Name:      pulumi.String("my-cluster"),
 //				NodeType:  pulumi.String("db.t4g.small"),
 //				NumShards: pulumi.Int(2),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
 //				SnapshotRetentionLimit: pulumi.Int(7),
-//				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
+//				SubnetGroupName:        pulumi.Any(exampleAwsMemorydbSubnetGroup.Id),
 //			})
 //			if err != nil {
 //				return err

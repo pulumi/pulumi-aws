@@ -15,16 +15,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.directconnect.HostedPublicVirtualInterface("foo", {
- *     addressFamily: "ipv4",
- *     amazonAddress: "175.45.176.2/30",
- *     bgpAsn: 65352,
  *     connectionId: "dxcon-zzzzzzzz",
+ *     name: "vif-foo",
+ *     vlan: 4094,
+ *     addressFamily: "ipv4",
+ *     bgpAsn: 65352,
  *     customerAddress: "175.45.176.1/30",
+ *     amazonAddress: "175.45.176.2/30",
  *     routeFilterPrefixes: [
  *         "210.52.109.0/24",
  *         "175.45.176.0/22",
  *     ],
- *     vlan: 4094,
  * });
  * ```
  *

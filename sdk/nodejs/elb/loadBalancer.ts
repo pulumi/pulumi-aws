@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *
  * // Create a new load balancer
  * const bar = new aws.elb.LoadBalancer("bar", {
+ *     name: "foobar-elb",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -59,7 +60,7 @@ import * as utilities from "../utilities";
  *         target: "HTTP:8000/",
  *         interval: 30,
  *     },
- *     instances: [aws_instance.foo.id],
+ *     instances: [foo.id],
  *     crossZoneLoadBalancing: true,
  *     idleTimeout: 400,
  *     connectionDraining: true,

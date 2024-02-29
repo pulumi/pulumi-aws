@@ -28,12 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisOrganization, err := organizations.LookupOrganization(ctx, nil, nil)
+//			this, err := organizations.LookupOrganization(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			thisOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
-//				ParentId: thisOrganization.Roots[0].Id,
+//			thisGetOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
+//				ParentId: this.Roots[0].Id,
 //			}, nil)
 //			if err != nil {
 //				return err

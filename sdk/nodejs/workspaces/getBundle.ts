@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.workspaces.getBundle({
- *     name: "Value with Windows 10 and Office 2016",
  *     owner: "AMAZON",
+ *     name: "Value with Windows 10 and Office 2016",
  * });
  * ```
  */
@@ -120,8 +120,8 @@ export interface GetBundleResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.workspaces.getBundle({
- *     name: "Value with Windows 10 and Office 2016",
  *     owner: "AMAZON",
+ *     name: "Value with Windows 10 and Office 2016",
  * });
  * ```
  */

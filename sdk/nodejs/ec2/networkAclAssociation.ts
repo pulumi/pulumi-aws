@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.NetworkAclAssociation("main", {
- *     networkAclId: aws_network_acl.main.id,
- *     subnetId: aws_subnet.main.id,
+ *     networkAclId: mainAwsNetworkAcl.id,
+ *     subnetId: mainAwsSubnet.id,
  * });
  * ```
  *

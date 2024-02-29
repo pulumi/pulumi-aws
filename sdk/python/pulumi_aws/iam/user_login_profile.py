@@ -223,11 +223,12 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
+        example = aws.iam.User("example",
+            name="example",
             path="/",
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
+        example_user_login_profile = aws.iam.UserLoginProfile("example",
+            user=example.name,
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
@@ -265,11 +266,12 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
+        example = aws.iam.User("example",
+            name="example",
             path="/",
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
+        example_user_login_profile = aws.iam.UserLoginProfile("example",
+            user=example.name,
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CustomDomainAssociation(&#34;example&#34;, CustomDomainAssociationArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
- *             .serviceArn(aws_apprunner_service.example().arn())
+ *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .build());
  * 
  *     }

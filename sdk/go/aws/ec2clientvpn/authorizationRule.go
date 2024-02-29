@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2clientvpn.NewAuthorizationRule(ctx, "example", &ec2clientvpn.AuthorizationRuleArgs{
-//				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
-//				TargetNetworkCidr:   pulumi.Any(aws_subnet.Example.Cidr_block),
+//				ClientVpnEndpointId: pulumi.Any(exampleAwsEc2ClientVpnEndpoint.Id),
+//				TargetNetworkCidr:   pulumi.Any(exampleAwsSubnet.CidrBlock),
 //				AuthorizeAllGroups:  pulumi.Bool(true),
 //			})
 //			if err != nil {

@@ -33,9 +33,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDeviceFleet(ctx, "example", &sagemaker.DeviceFleetArgs{
 //				DeviceFleetName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:         pulumi.Any(test.Arn),
 //				OutputConfig: &sagemaker.DeviceFleetOutputConfigArgs{
-//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", aws_s3_bucket.Example.Bucket)),
+//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {

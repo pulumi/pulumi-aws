@@ -280,9 +280,9 @@ class User(pulumi.CustomResource):
 
         example = aws.appstream.User("example",
             authentication_type="USERPOOL",
+            user_name="EMAIL",
             first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
+            last_name="LAST NAME")
         ```
 
         ## Import
@@ -321,9 +321,9 @@ class User(pulumi.CustomResource):
 
         example = aws.appstream.User("example",
             authentication_type="USERPOOL",
+            user_name="EMAIL",
             first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
+            last_name="LAST NAME")
         ```
 
         ## Import

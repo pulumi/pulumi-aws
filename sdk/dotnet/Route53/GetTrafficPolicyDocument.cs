@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var current = Aws.GetRegion.Invoke();
         /// 
-        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
         ///         RecordType = "A",
         ///         StartRule = "site_switch",
@@ -67,10 +67,11 @@ namespace Pulumi.Aws.Route53
         ///         },
         ///     });
         /// 
-        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
         ///     {
+        ///         Name = "example",
         ///         Comment = "example comment",
-        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///         Document = example.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -89,7 +90,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
         ///         RecordType = "A",
         ///         StartRule = "geoproximity_rule",
@@ -167,10 +168,11 @@ namespace Pulumi.Aws.Route53
         ///         },
         ///     });
         /// 
-        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
         ///     {
+        ///         Name = "example",
         ///         Comment = "example comment",
-        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///         Document = example.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -199,7 +201,7 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var current = Aws.GetRegion.Invoke();
         /// 
-        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
         ///         RecordType = "A",
         ///         StartRule = "site_switch",
@@ -237,10 +239,11 @@ namespace Pulumi.Aws.Route53
         ///         },
         ///     });
         /// 
-        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
         ///     {
+        ///         Name = "example",
         ///         Comment = "example comment",
-        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///         Document = example.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -259,7 +262,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
         ///         RecordType = "A",
         ///         StartRule = "geoproximity_rule",
@@ -337,10 +340,11 @@ namespace Pulumi.Aws.Route53
         ///         },
         ///     });
         /// 
-        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
         ///     {
+        ///         Name = "example",
         ///         Comment = "example comment",
-        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///         Document = example.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

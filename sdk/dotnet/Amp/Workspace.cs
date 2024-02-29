@@ -43,13 +43,16 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Amp.Workspace("example", new()
     ///     {
     ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
     ///         {
-    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///             LogGroupArn = example.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         },
     ///     });
     /// 
@@ -65,13 +68,13 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     var example = new Aws.Amp.Workspace("example", new()
     ///     {
     ///         Alias = "example",
     ///         KmsKeyArn = exampleKey.Arn,

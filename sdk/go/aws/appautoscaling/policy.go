@@ -22,6 +22,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dynamodbTableReadTarget, err := appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
+//			dynamodbTableReadTarget, err := appautoscaling.NewTarget(ctx, "dynamodb_table_read_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(100),
 //				MinCapacity:       pulumi.Int(5),
 //				ResourceId:        pulumi.String("table/tableName"),
@@ -39,7 +41,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appautoscaling.NewPolicy(ctx, "dynamodbTableReadPolicy", &appautoscaling.PolicyArgs{
+//			_, err = appautoscaling.NewPolicy(ctx, "dynamodb_table_read_policy", &appautoscaling.PolicyArgs{
+//				Name: dynamodbTableReadTarget.ResourceId.ApplyT(func(resourceId string) (string, error) {
+//					return fmt.Sprintf("DynamoDBReadCapacityUtilization:%v", resourceId), nil
+//				}).(pulumi.StringOutput),
 //				PolicyType:        pulumi.String("TargetTrackingScaling"),
 //				ResourceId:        dynamodbTableReadTarget.ResourceId,
 //				ScalableDimension: dynamodbTableReadTarget.ScalableDimension,
@@ -73,7 +78,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecs_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(4),
 //				MinCapacity:       pulumi.Int(1),
 //				ResourceId:        pulumi.String("service/clusterName/serviceName"),
@@ -83,7 +88,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//			_, err = appautoscaling.NewPolicy(ctx, "ecs_policy", &appautoscaling.PolicyArgs{
+//				Name:              pulumi.String("scale-down"),
 //				PolicyType:        pulumi.String("StepScaling"),
 //				ResourceId:        ecsTarget.ResourceId,
 //				ScalableDimension: ecsTarget.ScalableDimension,
@@ -122,7 +128,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "ecsService", &ecs.ServiceArgs{
+//			_, err := ecs.NewService(ctx, "ecs_service", &ecs.ServiceArgs{
+//				Name:           pulumi.String("serviceName"),
 //				Cluster:        pulumi.String("clusterName"),
 //				TaskDefinition: pulumi.String("taskDefinitionFamily:1"),
 //				DesiredCount:   pulumi.Int(2),
@@ -151,20 +158,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			replicasTarget, err := appautoscaling.NewTarget(ctx, "replicasTarget", &appautoscaling.TargetArgs{
+//			replicas, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
 //				ServiceNamespace:  pulumi.String("rds"),
 //				ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
-//				ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", aws_rds_cluster.Example.Id)),
+//				ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", example.Id)),
 //				MinCapacity:       pulumi.Int(1),
 //				MaxCapacity:       pulumi.Int(15),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appautoscaling.NewPolicy(ctx, "replicasPolicy", &appautoscaling.PolicyArgs{
-//				ServiceNamespace:  replicasTarget.ServiceNamespace,
-//				ScalableDimension: replicasTarget.ScalableDimension,
-//				ResourceId:        replicasTarget.ResourceId,
+//			_, err = appautoscaling.NewPolicy(ctx, "replicas", &appautoscaling.PolicyArgs{
+//				Name:              pulumi.String("cpu-auto-scaling"),
+//				ServiceNamespace:  replicas.ServiceNamespace,
+//				ScalableDimension: replicas.ScalableDimension,
+//				ResourceId:        replicas.ResourceId,
 //				PolicyType:        pulumi.String("TargetTrackingScaling"),
 //				TargetTrackingScalingPolicyConfiguration: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs{
 //					PredefinedMetricSpecification: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{
@@ -197,7 +205,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecs_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(4),
 //				MinCapacity:       pulumi.Int(1),
 //				ResourceId:        pulumi.String("service/clusterName/serviceName"),
@@ -208,6 +216,7 @@ import (
 //				return err
 //			}
 //			_, err = appautoscaling.NewPolicy(ctx, "example", &appautoscaling.PolicyArgs{
+//				Name:              pulumi.String("foo"),
 //				PolicyType:        pulumi.String("TargetTrackingScaling"),
 //				ResourceId:        ecsTarget.ResourceId,
 //				ScalableDimension: ecsTarget.ScalableDimension,
@@ -288,10 +297,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mskTarget, err := appautoscaling.NewTarget(ctx, "mskTarget", &appautoscaling.TargetArgs{
+//			mskTarget, err := appautoscaling.NewTarget(ctx, "msk_target", &appautoscaling.TargetArgs{
 //				ServiceNamespace:  pulumi.String("kafka"),
 //				ScalableDimension: pulumi.String("kafka:broker-storage:VolumeSize"),
-//				ResourceId:        pulumi.Any(aws_msk_cluster.Example.Arn),
+//				ResourceId:        pulumi.Any(example.Arn),
 //				MinCapacity:       pulumi.Int(1),
 //				MaxCapacity:       pulumi.Int(8),
 //			})
@@ -299,6 +308,7 @@ import (
 //				return err
 //			}
 //			_, err = appautoscaling.NewPolicy(ctx, "targets", &appautoscaling.PolicyArgs{
+//				Name:              pulumi.String("storage-size-auto-scaling"),
 //				ServiceNamespace:  mskTarget.ServiceNamespace,
 //				ScalableDimension: mskTarget.ScalableDimension,
 //				ResourceId:        mskTarget.ResourceId,

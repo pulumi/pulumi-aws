@@ -20,7 +20,7 @@ import {LifecyclePolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecr.Repository("foo", {});
+ * const foo = new aws.ecr.Repository("foo", {name: "bar"});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     repository: foo.name,
  *     policy: `{
@@ -49,7 +49,7 @@ import {LifecyclePolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecr.Repository("foo", {});
+ * const foo = new aws.ecr.Repository("foo", {name: "bar"});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     repository: foo.name,
  *     policy: `{

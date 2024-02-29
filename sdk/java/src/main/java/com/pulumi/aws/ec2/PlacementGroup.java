@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var web = new PlacementGroup(&#34;web&#34;, PlacementGroupArgs.builder()        
+ *             .name(&#34;hunky-dory-pg&#34;)
  *             .strategy(&#34;cluster&#34;)
  *             .build());
  * 

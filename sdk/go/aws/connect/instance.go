@@ -60,7 +60,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Test.Id),
+//				DirectoryId:            pulumi.Any(testAwsDirectoryServiceDirectory.Id),
 //				IdentityManagementType: pulumi.String("EXISTING_DIRECTORY"),
 //				InboundCallsEnabled:    pulumi.Bool(true),
 //				InstanceAlias:          pulumi.String("friendly-name-connect"),

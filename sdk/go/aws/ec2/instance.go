@@ -80,7 +80,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			this, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"amazon",
@@ -103,8 +103,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "thisInstance", &ec2.InstanceArgs{
-//				Ami: *pulumi.String(thisAmi.Id),
+//			_, err = ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
+//				Ami: *pulumi.String(this.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
 //						MaxPrice: pulumi.String("0.0031"),
@@ -137,7 +137,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myVpc, err := ec2.NewVpc(ctx, "myVpc", &ec2.VpcArgs{
+//			myVpc, err := ec2.NewVpc(ctx, "my_vpc", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("172.16.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
@@ -146,7 +146,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mySubnet, err := ec2.NewSubnet(ctx, "mySubnet", &ec2.SubnetArgs{
+//			mySubnet, err := ec2.NewSubnet(ctx, "my_subnet", &ec2.SubnetArgs{
 //				VpcId:            myVpc.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
@@ -157,7 +157,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooNetworkInterface, err := ec2.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2.NetworkInterfaceArgs{
+//			foo, err := ec2.NewNetworkInterface(ctx, "foo", &ec2.NetworkInterfaceArgs{
 //				SubnetId: mySubnet.ID(),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("172.16.10.100"),
@@ -169,12 +169,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "fooInstance", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
 //				InstanceType: pulumi.String("t2.micro"),
 //				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
 //					&ec2.InstanceNetworkInterfaceArgs{
-//						NetworkInterfaceId: fooNetworkInterface.ID(),
+//						NetworkInterfaceId: foo.ID(),
 //						DeviceIndex:        pulumi.Int(0),
 //					},
 //				},
@@ -204,7 +204,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("172.16.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
@@ -213,8 +213,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-east-2a"),
 //				Tags: pulumi.StringMap{
@@ -241,7 +241,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				Ami:          *pulumi.String(amzn_linux_2023_ami.Id),
 //				InstanceType: pulumi.String("c6a.2xlarge"),
 //				SubnetId:     exampleSubnet.ID(),
@@ -281,8 +281,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
 //				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
-//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
 //				InstanceType:         pulumi.String("m5.large"),
+//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
 //				Tenancy:              pulumi.String("host"),
 //			})
 //			if err != nil {

@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
-//				Status: pulumi.String("Active"),
 //				TagKey: pulumi.String("example"),
+//				Status: pulumi.String("Active"),
 //			})
 //			if err != nil {
 //				return err

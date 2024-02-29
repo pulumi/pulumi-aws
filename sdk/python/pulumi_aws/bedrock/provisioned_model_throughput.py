@@ -270,10 +270,10 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.ProvisionedModelThroughput("example",
-            commitment_duration="SixMonths",
+            provisioned_model_name="example-model",
             model_arn="arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
-            model_units=1,
-            provisioned_model_name="example-model")
+            commitment_duration="SixMonths",
+            model_units=1)
         ```
 
         ## Import
@@ -308,10 +308,10 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.ProvisionedModelThroughput("example",
-            commitment_duration="SixMonths",
+            provisioned_model_name="example-model",
             model_arn="arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
-            model_units=1,
-            provisioned_model_name="example-model")
+            commitment_duration="SixMonths",
+            model_units=1)
         ```
 
         ## Import

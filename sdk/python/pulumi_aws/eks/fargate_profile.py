@@ -302,9 +302,10 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            pod_execution_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            fargate_profile_name="example",
+            pod_execution_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             selectors=[aws.eks.FargateProfileSelectorArgs(
                 namespace="example",
             )])
@@ -316,16 +317,18 @@ class FargateProfile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "eks-fargate-pods.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-fargate-profile-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "eks-fargate-pods.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
@@ -366,9 +369,10 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            pod_execution_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            fargate_profile_name="example",
+            pod_execution_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             selectors=[aws.eks.FargateProfileSelectorArgs(
                 namespace="example",
             )])
@@ -380,16 +384,18 @@ class FargateProfile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "eks-fargate-pods.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-fargate-profile-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "eks-fargate-pods.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)

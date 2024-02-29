@@ -32,7 +32,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kubernetes.NewKubernetes_pod(ctx, "agent", &kubernetes.Kubernetes_podArgs{
+//			_, err = kubernetes.NewPod(ctx, "agent", &kubernetes.PodArgs{
 //				Metadata: []map[string]interface{}{
 //					map[string]interface{}{
 //						"name": "my-device",

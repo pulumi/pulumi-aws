@@ -45,6 +45,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAmiFromInstance(ctx, "example", &ec2.AmiFromInstanceArgs{
+//				Name:             pulumi.String("example"),
 //				SourceInstanceId: pulumi.String("i-xxxxxxxx"),
 //			})
 //			if err != nil {

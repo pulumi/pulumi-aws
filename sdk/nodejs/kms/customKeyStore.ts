@@ -13,13 +13,15 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const test = new aws.kms.CustomKeyStore("test", {
- *     cloudHsmClusterId: _var.cloud_hsm_cluster_id,
+ *     cloudHsmClusterId: cloudHsmClusterId,
  *     customKeyStoreName: "kms-custom-key-store-test",
  *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: fs.readFileSync("anchor-certificate.crt", "utf8"),
+ *     trustAnchorCertificate: std.file({
+ *         input: "anchor-certificate.crt",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

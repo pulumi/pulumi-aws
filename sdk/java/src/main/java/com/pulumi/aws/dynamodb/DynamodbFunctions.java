@@ -192,7 +192,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -237,7 +237,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -282,7 +282,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -327,7 +327,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;

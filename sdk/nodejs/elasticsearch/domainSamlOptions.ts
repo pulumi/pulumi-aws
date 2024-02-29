@@ -16,9 +16,10 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {
+ * const example = new aws.elasticsearch.Domain("example", {
+ *     domainName: "example",
  *     elasticsearchVersion: "1.5",
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -30,13 +31,15 @@ import * as utilities from "../utilities";
  *         Domain: "TestDomain",
  *     },
  * });
- * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions", {
- *     domainName: exampleDomain.domainName,
+ * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("example", {
+ *     domainName: example.domainName,
  *     samlOptions: {
  *         enabled: true,
  *         idp: {
  *             entityId: "https://example.com",
- *             metadataContent: fs.readFileSync("./saml-metadata.xml", "utf8"),
+ *             metadataContent: std.file({
+ *                 input: "./saml-metadata.xml",
+ *             }).then(invoke => invoke.result),
  *         },
  *     },
  * });

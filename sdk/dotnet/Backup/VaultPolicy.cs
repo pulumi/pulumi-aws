@@ -22,9 +22,12 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVault = new Aws.Backup.Vault("exampleVault");
+    ///     var exampleVault = new Aws.Backup.Vault("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -61,10 +64,10 @@ namespace Pulumi.Aws.Backup
     ///         },
     ///     });
     /// 
-    ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("exampleVaultPolicy", new()
+    ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("example", new()
     ///     {
     ///         BackupVaultName = exampleVault.Name,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

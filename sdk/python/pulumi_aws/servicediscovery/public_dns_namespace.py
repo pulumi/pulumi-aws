@@ -195,7 +195,9 @@ class PublicDnsNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.PublicDnsNamespace("example", description="example")
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="hoge.example.com",
+            description="example")
         ```
 
         ## Import
@@ -227,7 +229,9 @@ class PublicDnsNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.PublicDnsNamespace("example", description="example")
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="hoge.example.com",
+            description="example")
         ```
 
         ## Import

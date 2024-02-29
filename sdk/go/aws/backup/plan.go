@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
+//				Name: pulumi.String("my_example_backup_plan"),
 //				Rules: backup.PlanRuleArray{
 //					&backup.PlanRuleArgs{
 //						RuleName:        pulumi.String("my_example_backup_rule"),
-//						TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
+//						TargetVaultName: pulumi.Any(test.Name),
 //						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
 //						Lifecycle: &backup.PlanRuleLifecycleArgs{
 //							DeleteAfter: pulumi.Int(14),

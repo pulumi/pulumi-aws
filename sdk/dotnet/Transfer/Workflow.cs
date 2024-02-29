@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Transfer
     ///                 {
     ///                     Name = "example",
     ///                     SourceFileLocation = "${original.file}",
-    ///                     Target = aws_lambda_function.Example.Arn,
+    ///                     Target = exampleAwsLambdaFunction.Arn,
     ///                     TimeoutSeconds = 60,
     ///                 },
     ///                 Type = "CUSTOM",

@@ -18,8 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessVpcEndpoint("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     vpcId: aws_vpc.example.id,
+ *     name: "myendpoint",
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
  *

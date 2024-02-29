@@ -38,23 +38,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			_, err = shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Dev"),

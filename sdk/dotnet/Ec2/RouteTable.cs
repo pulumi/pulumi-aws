@@ -44,18 +44,18 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
     ///                 CidrBlock = "10.0.1.0/24",
-    ///                 GatewayId = aws_internet_gateway.Example.Id,
+    ///                 GatewayId = exampleAwsInternetGateway.Id,
     ///             },
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
     ///                 Ipv6CidrBlock = "::/0",
-    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Routes = new[] {},
     ///         Tags = 
     ///         {
@@ -103,14 +103,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var test = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
@@ -134,30 +134,30 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var test = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testSubnet = new Aws.Ec2.Subnet("testSubnet", new()
+    ///     var testSubnet = new Aws.Ec2.Subnet("test", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///     });
     /// 
-    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("testNetworkInterface", new()
+    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("test", new()
     ///     {
     ///         SubnetId = testSubnet.Id,
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
-    ///                 CidrBlock = testVpc.CidrBlock,
+    ///                 CidrBlock = test.CidrBlock,
     ///                 NetworkInterfaceId = testNetworkInterface.Id,
     ///             },
     ///         },

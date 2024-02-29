@@ -28,12 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+//			example, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//			_, err = networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
+//				GlobalNetworkId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

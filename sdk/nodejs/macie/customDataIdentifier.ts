@@ -13,15 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleCustomDataIdentifier = new aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier", {
+ * const example = new aws.macie2.Account("example", {});
+ * const exampleCustomDataIdentifier = new aws.macie.CustomDataIdentifier("example", {
+ *     name: "NAME OF CUSTOM DATA IDENTIFIER",
  *     regex: "[0-9]{3}-[0-9]{2}-[0-9]{4}",
  *     description: "DESCRIPTION",
  *     maximumMatchDistance: 10,
  *     keywords: ["keyword"],
  *     ignoreWords: ["ignore"],
- * }, {
- *     dependsOn: [aws_macie2_account.test],
  * });
  * ```
  *

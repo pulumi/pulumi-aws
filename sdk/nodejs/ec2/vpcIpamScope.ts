@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("exampleVpcIpamScope", {
- *     ipamId: exampleVpcIpam.id,
+ * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("example", {
+ *     ipamId: example.id,
  *     description: "Another Scope",
  * });
  * ```

@@ -25,19 +25,20 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
     ///     {
+    ///         Name = "MyDemoAPI",
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("MyDemoResource", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ParentId = myDemoAPI.RootResourceId,
     ///         PathPart = "mydemoresource",
     ///     });
     /// 
-    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("MyDemoMethod", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -45,7 +46,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Authorization = "NONE",
     ///     });
     /// 
-    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
+    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("MyDemoIntegration", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -53,7 +54,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Type = "MOCK",
     ///     });
     /// 
-    ///     var response200 = new Aws.ApiGateway.MethodResponse("response200", new()
+    ///     var response200 = new Aws.ApiGateway.MethodResponse("response_200", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -61,7 +62,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         StatusCode = "200",
     ///     });
     /// 
-    ///     var myDemoIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("myDemoIntegrationResponse", new()
+    ///     var myDemoIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("MyDemoIntegrationResponse", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,

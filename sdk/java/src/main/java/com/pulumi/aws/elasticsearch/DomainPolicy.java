@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;tf-test&#34;)
  *             .elasticsearchVersion(&#34;2.3&#34;)
  *             .build());
  * 

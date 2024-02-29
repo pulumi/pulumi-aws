@@ -21,7 +21,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,37 +28,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", nil)
+//			primary, err := guardduty.NewDetector(ctx, "primary", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewProvider(ctx, "member", nil)
+//			memberDetector, err := guardduty.NewDetector(ctx, "member", nil)
 //			if err != nil {
 //				return err
 //			}
-//			primaryDetector, err := guardduty.NewDetector(ctx, "primaryDetector", nil, pulumi.Provider(aws.Primary))
+//			_, err = guardduty.NewInviteAccepter(ctx, "member", &guardduty.InviteAccepterArgs{
+//				DetectorId:      memberDetector.ID(),
+//				MasterAccountId: primary.AccountId,
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", nil, pulumi.Provider(aws.Member))
-//			if err != nil {
-//				return err
-//			}
-//			memberMember, err := guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
+//			_, err = guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
 //				AccountId:  memberDetector.AccountId,
-//				DetectorId: primaryDetector.ID(),
+//				DetectorId: primary.ID(),
 //				Email:      pulumi.String("required@example.com"),
 //				Invite:     pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewInviteAccepter(ctx, "memberInviteAccepter", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
-//				MasterAccountId: primaryDetector.AccountId,
-//			}, pulumi.Provider(aws.Member), pulumi.DependsOn([]pulumi.Resource{
-//				memberMember,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

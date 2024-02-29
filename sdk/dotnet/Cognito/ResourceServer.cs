@@ -23,11 +23,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
     ///     {
     ///         Identifier = "https://example.com",
+    ///         Name = "example",
     ///         UserPoolId = pool.Id,
     ///     });
     /// 
@@ -43,11 +47,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
     ///     {
     ///         Identifier = "https://example.com",
+    ///         Name = "example",
     ///         Scopes = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs

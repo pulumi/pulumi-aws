@@ -31,8 +31,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getUserHierarchyGroup({
- *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */
@@ -124,8 +124,8 @@ export interface GetUserHierarchyGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getUserHierarchyGroup({
- *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */

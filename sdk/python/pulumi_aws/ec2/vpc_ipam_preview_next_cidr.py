@@ -159,21 +159,20 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_preview_next_cidr = aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr",
+        example = aws.ec2.VpcIpamPreviewNextCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            disallowed_cidrs=["172.2.0.0/32"])
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
         ```
 
         :param str resource_name: The name of the resource.
@@ -200,21 +199,20 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_preview_next_cidr = aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr",
+        example = aws.ec2.VpcIpamPreviewNextCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            disallowed_cidrs=["172.2.0.0/32"])
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
         ```
 
         :param str resource_name: The name of the resource.

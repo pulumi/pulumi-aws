@@ -276,26 +276,27 @@ class ProxyTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_proxy = aws.rds.Proxy("exampleProxy",
+        example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",
                 "Key": "value",
             })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
-            db_proxy_name=example_proxy.name,
+        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
+            db_proxy_name=example.name,
             connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
                 connection_borrow_timeout=120,
                 init_query="SET x=1, y=2",
@@ -303,9 +304,9 @@ class ProxyTarget(pulumi.CustomResource):
                 max_idle_connections_percent=50,
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
-        example_proxy_target = aws.rds.ProxyTarget("exampleProxyTarget",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
-            db_proxy_name=example_proxy.name,
+        example_proxy_target = aws.rds.ProxyTarget("example",
+            db_instance_identifier=example_aws_db_instance["identifier"],
+            db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
 
@@ -350,26 +351,27 @@ class ProxyTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_proxy = aws.rds.Proxy("exampleProxy",
+        example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",
                 "Key": "value",
             })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
-            db_proxy_name=example_proxy.name,
+        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
+            db_proxy_name=example.name,
             connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
                 connection_borrow_timeout=120,
                 init_query="SET x=1, y=2",
@@ -377,9 +379,9 @@ class ProxyTarget(pulumi.CustomResource):
                 max_idle_connections_percent=50,
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
-        example_proxy_target = aws.rds.ProxyTarget("exampleProxyTarget",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
-            db_proxy_name=example_proxy.name,
+        example_proxy_target = aws.rds.ProxyTarget("example",
+            db_instance_identifier=example_aws_db_instance["identifier"],
+            db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
 

@@ -88,8 +88,8 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     import pulumi
     import pulumi_aws as aws
 
-    example_network_interfaces = aws.ec2.get_network_interfaces()
-    pulumi.export("example", example_network_interfaces.ids)
+    example = aws.ec2.get_network_interfaces()
+    pulumi.export("example", example.ids)
     ```
 
     The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
@@ -111,11 +111,11 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     import pulumi
     import pulumi_aws as aws
 
-    example_network_interfaces = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
+    example = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
         name="subnet-id",
-        values=[aws_subnet["test"]["id"]],
+        values=[test["id"]],
     )])
-    pulumi.export("example", example_network_interfaces.ids)
+    pulumi.export("example", example.ids)
     ```
 
 
@@ -152,8 +152,8 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi
     import pulumi_aws as aws
 
-    example_network_interfaces = aws.ec2.get_network_interfaces()
-    pulumi.export("example", example_network_interfaces.ids)
+    example = aws.ec2.get_network_interfaces()
+    pulumi.export("example", example.ids)
     ```
 
     The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
@@ -175,11 +175,11 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi
     import pulumi_aws as aws
 
-    example_network_interfaces = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
+    example = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
         name="subnet-id",
-        values=[aws_subnet["test"]["id"]],
+        values=[test["id"]],
     )])
-    pulumi.export("example", example_network_interfaces.ids)
+    pulumi.export("example", example.ids)
     ```
 
 

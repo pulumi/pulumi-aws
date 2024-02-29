@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;wu-tang&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
@@ -117,6 +118,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;wu-tang&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)

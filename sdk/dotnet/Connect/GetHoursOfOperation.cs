@@ -49,8 +49,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
@@ -99,8 +99,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });

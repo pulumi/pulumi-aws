@@ -25,39 +25,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
+ * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
+ *     name: "allow_tls",
  *     description: "Allow TLS inbound traffic and all outbound traffic",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     tags: {
  *         Name: "allow_tls",
  *     },
  * });
- * const allowTlsIpv4 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv4", {
+ * const allowTlsIpv4 = new aws.vpc.SecurityGroupIngressRule("allow_tls_ipv4", {
  *     securityGroupId: allowTls.id,
- *     cidrIpv4: aws_vpc.main.cidr_block,
+ *     cidrIpv4: main.cidrBlock,
  *     fromPort: 443,
  *     ipProtocol: "tcp",
  *     toPort: 443,
  * });
- * const allowTlsIpv6 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv6", {
+ * const allowTlsIpv6 = new aws.vpc.SecurityGroupIngressRule("allow_tls_ipv6", {
  *     securityGroupId: allowTls.id,
- *     cidrIpv6: aws_vpc.main.ipv6_cidr_block,
+ *     cidrIpv6: main.ipv6CidrBlock,
  *     fromPort: 443,
  *     ipProtocol: "tcp",
  *     toPort: 443,
  * });
- * const allowAllTrafficIpv4 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", {
+ * const allowAllTrafficIpv4 = new aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv4: "0.0.0.0/0",
  *     ipProtocol: "-1",
  * });
- * // semantically equivalent to all ports
- * const allowAllTrafficIpv6 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", {
+ * const allowAllTrafficIpv6 = new aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv6: "::/0",
  *     ipProtocol: "-1",
  * });
- * // semantically equivalent to all ports
  * ```
  *
  * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
@@ -67,11 +66,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SecurityGroup("example", {egress: [{
- *     cidrBlocks: ["0.0.0.0/0"],
  *     fromPort: 0,
- *     ipv6CidrBlocks: ["::/0"],
- *     protocol: "-1",
  *     toPort: 0,
+ *     protocol: "-1",
+ *     cidrBlocks: ["0.0.0.0/0"],
+ *     ipv6CidrBlocks: ["::/0"],
  * }]});
  * ```
  * ### Usage With Prefix List IDs
@@ -85,9 +84,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ... other configuration ...
- * // ... other configuration ...
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
  * const example = new aws.ec2.SecurityGroup("example", {egress: [{
  *     fromPort: 0,
  *     toPort: 0,
@@ -106,7 +103,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SecurityGroup("example", {
- *     vpcId: aws_vpc.example.id,
+ *     name: "sg",
+ *     vpcId: exampleAwsVpc.id,
  *     ingress: [],
  *     egress: [],
  * });
@@ -132,7 +130,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2.SecurityGroup("example", {name: "changeable-name"});
  * ```
  * ### `replaceTriggeredBy`
  *
@@ -144,11 +142,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {});
- * // ... other configuration ...
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
+ * const example = new aws.ec2.SecurityGroup("example", {name: "sg"});
+ * const exampleInstance = new aws.ec2.Instance("example", {
  *     instanceType: "t3.small",
- *     vpcSecurityGroupIds: [aws_security_group.test.id],
+ *     vpcSecurityGroupIds: [test.id],
  * });
  * ```
  * ### Shorter timeout
@@ -161,7 +158,50 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2.SecurityGroup("example", {name: "izizavle"});
+ * ```
+ * ### Provisioners
+ *
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ *
+ * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as _null from "@pulumi/null";
+ * import * as aws from "@pulumi/aws";
+ * import * as command from "@pulumi/command";
+ * import * as std from "@pulumi/std";
+ *
+ * const default = aws.ec2.getSecurityGroup({
+ *     name: "default",
+ * });
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     name: "sg",
+ *     tags: {
+ *         workaround1: "tagged-name",
+ *         workaround2: _default.then(_default => _default.id),
+ *     },
+ * });
+ * const exampleProvisioner0 = new command.local.Command("exampleProvisioner0", {
+ *     create: "true",
+ *     update: "true",
+ *     "delete": `            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=${tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
+ * `,
+ * }, {
+ *     dependsOn: [example],
+ * });
+ * const exampleResource = new _null.index.Resource("example", {triggers: {
+ *     rerunUponChangeOf: std.join({
+ *         separator: ",",
+ *         input: exampleAwsVpcEndpoint.securityGroupIds,
+ *     }).result,
+ * }});
+ * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
+ * `}, {
+ *     dependsOn: [exampleResource],
+ * });
  * ```
  *
  * ## Import

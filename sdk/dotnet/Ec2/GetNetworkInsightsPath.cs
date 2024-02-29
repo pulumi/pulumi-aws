@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
         ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
+        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
         ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
+        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
         ///     });
         /// 
         /// });

@@ -28,25 +28,31 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "my-tf-example-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var logBucket = new Aws.S3.BucketV2("logBucket");
+    ///     var logBucket = new Aws.S3.BucketV2("log_bucket", new()
+    ///     {
+    ///         Bucket = "my-tf-log-bucket",
+    ///     });
     /// 
-    ///     var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new()
+    ///     var logBucketAcl = new Aws.S3.BucketAclV2("log_bucket_acl", new()
     ///     {
     ///         Bucket = logBucket.Id,
     ///         Acl = "log-delivery-write",
     ///     });
     /// 
-    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new()
+    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         TargetBucket = logBucket.Id,
     ///         TargetPrefix = "log/",
     ///     });

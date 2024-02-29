@@ -30,10 +30,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("snEc2", new()
+    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("sn_ec2", new()
     ///     {
-    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///         SubnetId = aws_subnet.Sn.Id,
+    ///         VpcEndpointId = ec2.Id,
+    ///         SubnetId = sn.Id,
     ///     });
     /// 
     /// });

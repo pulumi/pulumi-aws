@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetRouteTableAssociations.Invoke(new()
         ///     {
-        ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetRouteTableAssociations.Invoke(new()
         ///     {
-        ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
         ///     });
         /// 
         /// });

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DirectoryService
         /// {
         ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///         DirectoryId = main.Id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DirectoryService
         /// {
         ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///         DirectoryId = main.Id,
         ///     });
         /// 
         /// });

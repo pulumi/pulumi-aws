@@ -30,11 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleMember, err := securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+//			exampleMember, err := securityhub.NewMember(ctx, "example", &securityhub.MemberArgs{
 //				AccountId: pulumi.String("123456789012"),
 //				Email:     pulumi.String("example@example.com"),
 //				Invite:    pulumi.Bool(true),
@@ -42,15 +42,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			inviteeAccount, err := securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
+//			_, err = securityhub.NewAccount(ctx, "invitee", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInviteAccepter(ctx, "inviteeInviteAccepter", &securityhub.InviteAccepterArgs{
+//			_, err = securityhub.NewInviteAccepter(ctx, "invitee", &securityhub.InviteAccepterArgs{
 //				MasterId: exampleMember.MasterId,
-//			}, pulumi.Provider("aws.invitee"), pulumi.DependsOn([]pulumi.Resource{
-//				inviteeAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2clientvpn.Endpoint("example", {
  *     description: "clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate.cert.arn,
+ *     serverCertificateArn: cert.arn,
  *     clientCidrBlock: "10.0.0.0/16",
  *     authenticationOptions: [{
  *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
+ *         rootCertificateChainArn: rootCert.arn,
  *     }],
  *     connectionLogOptions: {
  *         enabled: true,
- *         cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
+ *         cloudwatchLogGroup: lg.name,
+ *         cloudwatchLogStream: ls.name,
  *     },
  * });
  * ```

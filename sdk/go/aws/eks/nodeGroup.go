@@ -28,12 +28,13 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// NodeGroupName: pulumi.String("example"),
+// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // SubnetIds: toPulumiArray(splat0),
 // ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 // DesiredSize: pulumi.Int(1),
@@ -43,11 +44,7 @@ import (
 // UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
 // MaxUnavailable: pulumi.Int(1),
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
-// aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
-// aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
-// }))
+// })
 // if err != nil {
 // return err
 // }
@@ -78,7 +75,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configurations ...
 //			_, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
 //				ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 //					DesiredSize: pulumi.Int(2),
@@ -91,6 +87,61 @@ import (
 //		})
 //	}
 //
+// ```
+// ### Tracking the latest EKS Node Group AMI releases
+//
+// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+// Name: fmt.Sprintf("/aws/service/eks/optimized-ami/%v/amazon-linux-2/recommended/release_version", exampleAwsEksCluster.Version),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Id)
+// }
+// _, err = eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// NodeGroupName: pulumi.String("example"),
+// Version: pulumi.Any(exampleAwsEksCluster.Version),
+// ReleaseVersion: notImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
+// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// SubnetIds: toPulumiArray(splat0),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
 // ```
 // ### Example IAM Role for EKS Node Group
 //
@@ -109,22 +160,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "ec2.amazonaws.com",
 //						},
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-node-group-example"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -137,7 +189,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSCNIPolicy", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKS_CNI_Policy", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
 //				Role:      example.Name,
 //			})
@@ -150,6 +202,55 @@ import (
 //			})
 //			if err != nil {
 //				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Subnets for EKS Node Group
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   exampleAwsVpc.CidrBlock,
+//				Newbits: 8,
+//				Netnum:  val0,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var example []*ec2.Subnet
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+//					AvailabilityZone: available.Names[val0],
+//					CidrBlock:        invokeCidrsubnet.Result,
+//					VpcId:            pulumi.Any(exampleAwsVpc.Id),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				example = append(example, __res)
 //			}
 //			return nil
 //		})

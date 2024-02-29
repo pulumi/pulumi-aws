@@ -26,6 +26,7 @@ namespace Pulumi.Aws.DataExchange
     ///     {
     ///         AssetType = "S3_SNAPSHOT",
     ///         Description = "example",
+    ///         Name = "example",
     ///     });
     /// 
     /// });

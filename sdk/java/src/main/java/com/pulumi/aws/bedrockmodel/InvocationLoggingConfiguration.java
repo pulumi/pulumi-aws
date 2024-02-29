@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfiguration;
  * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,13 +51,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(exampleBucketV2.bucket())
- *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .bucket(example.bucket())
+ *             .policy(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [
@@ -93,13 +93,11 @@ import javax.annotation.Nullable;
  *                 .imageDataDeliveryEnabled(true)
  *                 .textDataDeliveryEnabled(true)
  *                 .s3Config(InvocationLoggingConfigurationLoggingConfigS3ConfigArgs.builder()
- *                     .bucketName(exampleBucketV2.id())
+ *                     .bucketName(example.id())
  *                     .keyPrefix(&#34;bedrock&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

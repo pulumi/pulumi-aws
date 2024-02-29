@@ -175,8 +175,8 @@ class Route(pulumi.CustomResource):
 
         example = aws.ec2transitgateway.Route("example",
             destination_cidr_block="0.0.0.0/0",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
         ### Blackhole route
 
@@ -187,7 +187,7 @@ class Route(pulumi.CustomResource):
         example = aws.ec2transitgateway.Route("example",
             destination_cidr_block="0.0.0.0/0",
             blackhole=True,
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
 
         ## Import
@@ -223,8 +223,8 @@ class Route(pulumi.CustomResource):
 
         example = aws.ec2transitgateway.Route("example",
             destination_cidr_block="0.0.0.0/0",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
         ### Blackhole route
 
@@ -235,7 +235,7 @@ class Route(pulumi.CustomResource):
         example = aws.ec2transitgateway.Route("example",
             destination_cidr_block="0.0.0.0/0",
             blackhole=True,
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
 
         ## Import

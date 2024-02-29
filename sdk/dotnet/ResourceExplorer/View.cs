@@ -22,13 +22,14 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleIndex = new Aws.ResourceExplorer.Index("exampleIndex", new()
+    ///     var example = new Aws.ResourceExplorer.Index("example", new()
     ///     {
     ///         Type = "LOCAL",
     ///     });
     /// 
-    ///     var exampleView = new Aws.ResourceExplorer.View("exampleView", new()
+    ///     var exampleView = new Aws.ResourceExplorer.View("example", new()
     ///     {
+    ///         Name = "exampleview",
     ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
     ///         {
     ///             FilterString = "resourcetype:ec2:instance",
@@ -39,12 +40,6 @@ namespace Pulumi.Aws.ResourceExplorer
     ///             {
     ///                 Name = "tags",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleIndex,
     ///         },
     ///     });
     /// 

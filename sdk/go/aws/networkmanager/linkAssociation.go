@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
-//				DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				LinkId:          pulumi.Any(exampleAwsNetworkmanagerLink.Id),
+//				DeviceId:        pulumi.Any(exampleAwsNetworkmanagerDevice.Id),
 //			})
 //			if err != nil {
 //				return err

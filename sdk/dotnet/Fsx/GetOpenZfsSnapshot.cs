@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Fsx
         /// {
         ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
@@ -40,7 +41,6 @@ namespace Pulumi.Aws.Fsx
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });
@@ -69,6 +69,7 @@ namespace Pulumi.Aws.Fsx
         /// {
         ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
@@ -80,7 +81,6 @@ namespace Pulumi.Aws.Fsx
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });

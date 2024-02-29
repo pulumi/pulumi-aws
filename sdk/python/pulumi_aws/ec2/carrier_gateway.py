@@ -162,7 +162,7 @@ class CarrierGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.CarrierGateway("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example-carrier-gateway",
             })
@@ -197,7 +197,7 @@ class CarrierGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.CarrierGateway("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example-carrier-gateway",
             })

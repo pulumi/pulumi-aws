@@ -26,8 +26,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.GetExport(ctx, &apigateway.GetExportArgs{
-//				RestApiId:  aws_api_gateway_stage.Example.Rest_api_id,
-//				StageName:  aws_api_gateway_stage.Example.Stage_name,
+//				RestApiId:  exampleAwsApiGatewayStage.RestApiId,
+//				StageName:  exampleAwsApiGatewayStage.StageName,
 //				ExportType: "oas30",
 //			}, nil)
 //			if err != nil {

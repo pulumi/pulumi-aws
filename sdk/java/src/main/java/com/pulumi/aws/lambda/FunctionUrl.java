@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testLatest = new FunctionUrl(&#34;testLatest&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
+ *             .functionName(test.functionName())
  *             .authorizationType(&#34;NONE&#34;)
  *             .build());
  * 
  *         var testLive = new FunctionUrl(&#34;testLive&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
+ *             .functionName(test.functionName())
  *             .qualifier(&#34;my_alias&#34;)
  *             .authorizationType(&#34;AWS_IAM&#34;)
  *             .cors(FunctionUrlCorsArgs.builder()

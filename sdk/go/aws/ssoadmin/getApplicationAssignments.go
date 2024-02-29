@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.GetApplicationAssignments(ctx, &ssoadmin.GetApplicationAssignmentsArgs{
-//				ApplicationArn: aws_ssoadmin_application.Example.Application_arn,
+//				ApplicationArn: exampleAwsSsoadminApplication.ApplicationArn,
 //			}, nil)
 //			if err != nil {
 //				return err

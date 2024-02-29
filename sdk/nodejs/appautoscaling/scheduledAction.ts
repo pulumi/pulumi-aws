@@ -17,17 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTarget = new aws.appautoscaling.Target("dynamodbTarget", {
+ * const dynamodb = new aws.appautoscaling.Target("dynamodb", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodbScheduledAction", {
- *     serviceNamespace: dynamodbTarget.serviceNamespace,
- *     resourceId: dynamodbTarget.resourceId,
- *     scalableDimension: dynamodbTarget.scalableDimension,
+ * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodb", {
+ *     name: "dynamodb",
+ *     serviceNamespace: dynamodb.serviceNamespace,
+ *     resourceId: dynamodb.resourceId,
+ *     scalableDimension: dynamodb.scalableDimension,
  *     schedule: "at(2006-01-02T15:04:05)",
  *     scalableTargetAction: {
  *         minCapacity: 1,
@@ -41,17 +42,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecs = new aws.appautoscaling.Target("ecs", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecsScheduledAction", {
- *     serviceNamespace: ecsTarget.serviceNamespace,
- *     resourceId: ecsTarget.resourceId,
- *     scalableDimension: ecsTarget.scalableDimension,
+ * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecs", {
+ *     name: "ecs",
+ *     serviceNamespace: ecs.serviceNamespace,
+ *     resourceId: ecs.resourceId,
+ *     scalableDimension: ecs.scalableDimension,
  *     schedule: "at(2006-01-02T15:04:05)",
  *     scalableTargetAction: {
  *         minCapacity: 1,

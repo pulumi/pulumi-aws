@@ -36,7 +36,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My bucket"),
 //				},
@@ -44,19 +45,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
-//				Bucket: bucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "b_acl", &s3.BucketAclV2Args{
+//				Bucket: b.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			s3OriginId := "myS3Origin"
-//			_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err = cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName:            bucketV2.BucketRegionalDomainName,
-//						OriginAccessControlId: pulumi.Any(aws_cloudfront_origin_access_control.Default.Id),
+//						DomainName:            b.BucketRegionalDomainName,
+//						OriginAccessControlId: pulumi.Any(_default.Id),
 //						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
@@ -196,7 +197,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				OriginGroups: cloudfront.DistributionOriginGroupArray{
 //					&cloudfront.DistributionOriginGroupArgs{
 //						OriginId: pulumi.String("groupS3"),
@@ -220,17 +221,17 @@ import (
 //				},
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("primaryS3"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Failover.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(failover.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("failoverS3"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //				},
@@ -263,13 +264,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			s3OriginId := "myS3Origin"
-//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("myS3Origin"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //				},

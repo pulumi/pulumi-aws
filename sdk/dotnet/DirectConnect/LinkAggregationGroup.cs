@@ -26,9 +26,10 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var hoge = new Aws.DirectConnect.LinkAggregationGroup("hoge", new()
     ///     {
+    ///         Name = "tf-dx-lag",
     ///         ConnectionsBandwidth = "1Gbps",
-    ///         ForceDestroy = true,
     ///         Location = "EqDC2",
+    ///         ForceDestroy = true,
     ///     });
     /// 
     /// });

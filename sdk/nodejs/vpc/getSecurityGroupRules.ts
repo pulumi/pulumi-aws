@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const example = aws.vpc.getSecurityGroupRules({
  *     filters: [{
  *         name: "group-id",
- *         values: [_var.security_group_id],
+ *         values: [securityGroupId],
  *     }],
  * });
  * ```
@@ -76,7 +76,7 @@ export interface GetSecurityGroupRulesResult {
  * const example = aws.vpc.getSecurityGroupRules({
  *     filters: [{
  *         name: "group-id",
- *         values: [_var.security_group_id],
+ *         values: [securityGroupId],
  *     }],
  * });
  * ```

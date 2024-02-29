@@ -32,8 +32,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -60,8 +60,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
@@ -70,7 +70,7 @@ import (
 //							pulumi.String("ALTER"),
 //							pulumi.String("DROP"),
 //						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
+//						Principal: pulumi.Any(test.Arn),
 //					},
 //				},
 //				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
@@ -78,7 +78,7 @@ import (
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("ALL"),
 //						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
+//						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
 //				},
 //			})
@@ -106,8 +106,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
@@ -116,7 +116,7 @@ import (
 //							pulumi.String("ALTER"),
 //							pulumi.String("DROP"),
 //						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
+//						Principal: pulumi.Any(test.Arn),
 //					},
 //				},
 //				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
@@ -124,13 +124,13 @@ import (
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("ALL"),
 //						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
+//						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
 //				},
 //				AllowExternalDataFiltering: pulumi.Bool(true),
 //				ExternalDataFilteringAllowLists: pulumi.StringArray{
-//					data.Aws_caller_identity.Current.Account_id,
-//					data.Aws_caller_identity.Third_party.Account_id,
+//					current.AccountId,
+//					thirdParty.AccountId,
 //				},
 //				AuthorizedSessionTagValueLists: pulumi.StringArray{
 //					pulumi.String("Amazon EMR"),

@@ -80,9 +80,9 @@ import javax.annotation.Nullable;
  *             .domainNameServers(            
  *                 &#34;127.0.0.1&#34;,
  *                 &#34;10.0.0.2&#34;)
+ *             .ntpServers(&#34;127.0.0.1&#34;)
  *             .netbiosNameServers(&#34;127.0.0.1&#34;)
  *             .netbiosNodeType(2)
- *             .ntpServers(&#34;127.0.0.1&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo-name&#34;))
  *             .build());
  * 

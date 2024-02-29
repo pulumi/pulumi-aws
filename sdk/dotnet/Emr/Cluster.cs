@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var cluster = new Aws.Emr.Cluster("cluster", new()
     ///     {
+    ///         Name = "emr-test-arn",
     ///         ReleaseLabel = "emr-4.6.0",
     ///         Applications = new[]
     ///         {
@@ -42,10 +43,10 @@ namespace Pulumi.Aws.Emr
     ///         KeepJobFlowAliveWhenNoSteps = true,
     ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
     ///         {
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///             EmrManagedMasterSecurityGroup = aws_security_group.Sg.Id,
-    ///             EmrManagedSlaveSecurityGroup = aws_security_group.Sg.Id,
-    ///             InstanceProfile = aws_iam_instance_profile.Emr_profile.Arn,
+    ///             SubnetId = main.Id,
+    ///             EmrManagedMasterSecurityGroup = sg.Id,
+    ///             EmrManagedSlaveSecurityGroup = sg.Id,
+    ///             InstanceProfile = emrProfile.Arn,
     ///         },
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
@@ -144,7 +145,7 @@ namespace Pulumi.Aws.Emr
     ///     }
     ///   ]
     /// ",
-    ///         ServiceRole = aws_iam_role.Iam_emr_service_role.Arn,
+    ///         ServiceRole = iamEmrServiceRole.Arn,
     ///     });
     /// 
     /// });
@@ -294,6 +295,7 @@ namespace Pulumi.Aws.Emr
     ///                 },
     ///             },
     ///         },
+    ///         Name = "task fleet",
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,
     ///     });
@@ -312,7 +314,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.Emr.Cluster("example", new()
     ///     {
     ///         Steps = new[]
@@ -350,20 +351,18 @@ namespace Pulumi.Aws.Emr
     ///     // This configuration is for illustrative purposes and highlights
     ///     // only relevant configurations for working with this functionality.
     ///     // Map public IP on launch must be enabled for public (Internet accessible) subnets
-    ///     // ... other configuration ...
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var example = new Aws.Ec2.Subnet("example", new()
     ///     {
     ///         MapPublicIpOnLaunch = true,
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Emr.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Emr.Cluster("example", new()
     ///     {
     ///         ReleaseLabel = "emr-5.24.1",
     ///         TerminationProtection = true,
     ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
     ///         {
-    ///             SubnetId = exampleSubnet.Id,
+    ///             SubnetId = example.Id,
     ///         },
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
@@ -461,7 +460,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
@@ -746,7 +744,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
@@ -1014,7 +1011,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 

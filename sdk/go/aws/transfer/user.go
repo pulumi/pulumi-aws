@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooServer, err := transfer.NewServer(ctx, "fooServer", &transfer.ServerArgs{
+//			fooServer, err := transfer.NewServer(ctx, "foo", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
 //				Tags: pulumi.StringMap{
 //					"NAME": pulumi.String("tf-acc-test-transfer-server"),
@@ -59,13 +59,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooRole, err := iam.NewRole(ctx, "fooRole", &iam.RoleArgs{
+//			fooRole, err := iam.NewRole(ctx, "foo", &iam.RoleArgs{
+//				Name:             pulumi.String("tf-test-transfer-user-iam-role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			foo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowFullAccesstoS3"),
@@ -82,14 +83,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "fooRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "foo", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("tf-test-transfer-user-iam-policy"),
 //				Role:   fooRole.ID(),
-//				Policy: *pulumi.String(fooPolicyDocument.Json),
+//				Policy: *pulumi.String(foo.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewUser(ctx, "fooUser", &transfer.UserArgs{
+//			_, err = transfer.NewUser(ctx, "foo", &transfer.UserArgs{
 //				ServerId:          fooServer.ID(),
 //				UserName:          pulumi.String("tftestuser"),
 //				Role:              fooRole.Arn,

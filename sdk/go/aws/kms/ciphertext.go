@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
+//			oauthConfig, err := kms.NewKey(ctx, "oauth_config", &kms.KeyArgs{
 //				Description: pulumi.String("oauth config"),
 //				IsEnabled:   pulumi.Bool(true),
 //			})

@@ -30,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
 //				Edition:     pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn:     pulumi.Any(aws_iam_role.This.Arn),
+//				RoleArn:     pulumi.Any(this.Arn),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),
 //				},
@@ -60,8 +61,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				Name:    pulumi.String("example"),
 //				Edition: pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				RoleArn: pulumi.Any(this.Arn),
 //				CapacityUnits: &kendra.IndexCapacityUnitsArgs{
 //					QueryCapacityUnits:   pulumi.Int(2),
 //					StorageCapacityUnits: pulumi.Int(2),
@@ -90,9 +92,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(thisAwsIamRole.Arn),
 //				ServerSideEncryptionConfiguration: &kendra.IndexServerSideEncryptionConfigurationArgs{
-//					KmsKeyId: pulumi.Any(data.Aws_kms_key.This.Arn),
+//					KmsKeyId: pulumi.Any(this.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -118,7 +121,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
 //					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
 //				},
@@ -149,7 +153,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_authors"),
@@ -377,7 +382,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_authors"),
@@ -660,7 +666,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				UserTokenConfigurations: &kendra.IndexUserTokenConfigurationsArgs{
 //					JsonTokenTypeConfiguration: &kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{
 //						GroupAttributeField:    pulumi.String("groups"),

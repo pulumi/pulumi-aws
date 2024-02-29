@@ -333,8 +333,9 @@ class ResolverRule(pulumi.CustomResource):
 
         fwd = aws.route53.ResolverRule("fwd",
             domain_name="example.com",
+            name="example",
             rule_type="FORWARD",
-            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
+            resolver_endpoint_id=foo["id"],
             target_ips=[aws.route53.ResolverRuleTargetIpArgs(
                 ip="123.45.67.89",
             )],
@@ -390,8 +391,9 @@ class ResolverRule(pulumi.CustomResource):
 
         fwd = aws.route53.ResolverRule("fwd",
             domain_name="example.com",
+            name="example",
             rule_type="FORWARD",
-            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
+            resolver_endpoint_id=foo["id"],
             target_ips=[aws.route53.ResolverRuleTargetIpArgs(
                 ip="123.45.67.89",
             )],

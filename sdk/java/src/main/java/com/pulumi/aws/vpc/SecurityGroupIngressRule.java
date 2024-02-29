@@ -50,14 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule(&#34;exampleSecurityGroupIngressRule&#34;, SecurityGroupIngressRuleArgs.builder()        
- *             .securityGroupId(exampleSecurityGroup.id())
+ *             .securityGroupId(example.id())
  *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
  *             .fromPort(80)
  *             .ipProtocol(&#34;tcp&#34;)

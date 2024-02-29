@@ -29,15 +29,15 @@ import * as utilities from "../utilities";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const testInstance = new aws.ec2.Instance("testInstance", {
+ * const test = new aws.ec2.Instance("test", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "t3.micro",
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
- * const testInstanceState = new aws.ec2transitgateway.InstanceState("testInstanceState", {
- *     instanceId: testInstance.id,
+ * const testInstanceState = new aws.ec2transitgateway.InstanceState("test", {
+ *     instanceId: test.id,
  *     state: "stopped",
  * });
  * ```

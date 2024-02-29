@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_firewall_policy.example.arn,
+ *     resourceArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
+ *         statement: [{
+ *             action: [
  *                 "network-firewall:ListFirewallPolicies",
  *                 "network-firewall:CreateFirewall",
  *                 "network-firewall:UpdateFirewall",
  *                 "network-firewall:AssociateFirewallPolicy",
  *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_firewall_policy.example.arn,
- *             Principal: {
+ *             effect: "Allow",
+ *             resource: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *             principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```
@@ -41,21 +41,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *     resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
+ *         statement: [{
+ *             action: [
  *                 "network-firewall:ListRuleGroups",
  *                 "network-firewall:CreateFirewallPolicy",
  *                 "network-firewall:UpdateFirewallPolicy",
  *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_rule_group.example.arn,
- *             Principal: {
+ *             effect: "Allow",
+ *             resource: exampleAwsNetworkfirewallRuleGroup.arn,
+ *             principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```

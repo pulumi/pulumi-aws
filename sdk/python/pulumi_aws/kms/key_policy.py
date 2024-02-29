@@ -156,21 +156,21 @@ class KeyPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
-            key_id=example_key.id,
+        example = aws.kms.Key("example", description="example")
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
+                "id": "example",
+                "statement": [{
+                    "action": "kms:*",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    "resource": "*",
+                    "sid": "Enable IAM User Permissions",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
 
@@ -208,21 +208,21 @@ class KeyPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
-            key_id=example_key.id,
+        example = aws.kms.Key("example", description="example")
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
+                "id": "example",
+                "statement": [{
+                    "action": "kms:*",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    "resource": "*",
+                    "sid": "Enable IAM User Permissions",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
 

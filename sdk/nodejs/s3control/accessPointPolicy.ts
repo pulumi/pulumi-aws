@@ -15,9 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: example.id,
+ *     name: "example",
  *     publicAccessBlockConfiguration: {
  *         blockPublicAcls: true,
  *         blockPublicPolicy: false,
@@ -25,17 +26,17 @@ import * as utilities from "../utilities";
  *         restrictPublicBuckets: false,
  *     },
  * });
- * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("exampleAccessPointPolicy", {
+ * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("example", {
  *     accessPointArn: exampleAccessPoint.arn,
  *     policy: pulumi.jsonStringify({
- *         Version: "2008-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "s3:GetObjectTagging",
- *             Principal: {
+ *         version: "2008-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "s3:GetObjectTagging",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
+ *             resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
  *         }],
  *     }),
  * });

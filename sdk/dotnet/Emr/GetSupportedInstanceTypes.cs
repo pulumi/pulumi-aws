@@ -35,6 +35,40 @@ namespace Pulumi.Aws.Emr
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With a Lifecycle Pre-Condition
+        /// 
+        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var instanceType = "r7g.large";
+        /// 
+        ///     var releaseLabel = "emr-6.15.0";
+        /// 
+        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///     });
+        /// 
+        ///     var testCluster = new Aws.Emr.Cluster("test", new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+        ///         {
+        ///             InstanceType = instanceType,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSupportedInstanceTypesResult> InvokeAsync(GetSupportedInstanceTypesArgs args, InvokeOptions? options = null)
@@ -59,6 +93,40 @@ namespace Pulumi.Aws.Emr
         ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
         ///     {
         ///         ReleaseLabel = "ebs-6.15.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With a Lifecycle Pre-Condition
+        /// 
+        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var instanceType = "r7g.large";
+        /// 
+        ///     var releaseLabel = "emr-6.15.0";
+        /// 
+        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///     });
+        /// 
+        ///     var testCluster = new Aws.Emr.Cluster("test", new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+        ///         {
+        ///             InstanceType = instanceType,
+        ///         },
         ///     });
         /// 
         /// });

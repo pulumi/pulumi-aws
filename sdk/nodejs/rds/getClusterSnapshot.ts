@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ * const aurora = new aws.rds.Cluster("aurora", {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
- *     clusterIdentifier: auroraCluster.id,
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ *     clusterIdentifier: aurora.id,
  *     instanceClass: "db.t2.small",
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
@@ -178,13 +178,13 @@ export interface GetClusterSnapshotResult {
  * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ * const aurora = new aws.rds.Cluster("aurora", {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
- *     clusterIdentifier: auroraCluster.id,
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ *     clusterIdentifier: aurora.id,
  *     instanceClass: "db.t2.small",
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });

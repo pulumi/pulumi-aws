@@ -16,7 +16,8 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigateway.RequestValidator("example", {
- *     restApi: aws_api_gateway_rest_api.example.id,
+ *     name: "example",
+ *     restApi: exampleAwsApiGatewayRestApi.id,
  *     validateRequestBody: true,
  *     validateRequestParameters: true,
  * });

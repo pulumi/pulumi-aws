@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EcsClusterLayer(&#34;example&#34;, EcsClusterLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.example().id())
- *             .ecsClusterArn(aws_ecs_cluster.example().arn())
+ *             .stackId(exampleAwsOpsworksStack.id())
+ *             .ecsClusterArn(exampleAwsEcsCluster.arn())
  *             .build());
  * 
  *     }

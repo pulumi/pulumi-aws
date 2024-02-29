@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewPolicyTableAssociation(ctx, "example", &ec2transitgateway.PolicyTableAssociationArgs{
-//				TransitGatewayAttachmentId:  pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Transit_gateway_peering_attachment_id),
-//				TransitGatewayPolicyTableId: pulumi.Any(aws_ec2_transit_gateway_policy_table.Example.Id),
+//				TransitGatewayAttachmentId:  pulumi.Any(exampleAwsNetworkmanagerTransitGatewayPeering.TransitGatewayPeeringAttachmentId),
+//				TransitGatewayPolicyTableId: pulumi.Any(exampleAwsEc2TransitGatewayPolicyTable.Id),
 //			})
 //			if err != nil {
 //				return err

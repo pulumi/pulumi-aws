@@ -369,22 +369,23 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foobar_group = aws.autoscaling.Group("foobarGroup",
+        foobar = aws.autoscaling.Group("foobar",
             availability_zones=["us-west-2a"],
+            name="test-foobar5",
             max_size=1,
             min_size=1,
             health_check_grace_period=300,
             health_check_type="ELB",
             force_delete=True,
             termination_policies=["OldestInstance"])
-        foobar_schedule = aws.autoscaling.Schedule("foobarSchedule",
+        foobar_schedule = aws.autoscaling.Schedule("foobar",
             scheduled_action_name="foobar",
             min_size=0,
             max_size=1,
             desired_capacity=0,
             start_time="2016-12-11T18:00:00Z",
             end_time="2016-12-12T06:00:00Z",
-            autoscaling_group_name=foobar_group.name)
+            autoscaling_group_name=foobar.name)
         ```
 
         ## Import
@@ -426,22 +427,23 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foobar_group = aws.autoscaling.Group("foobarGroup",
+        foobar = aws.autoscaling.Group("foobar",
             availability_zones=["us-west-2a"],
+            name="test-foobar5",
             max_size=1,
             min_size=1,
             health_check_grace_period=300,
             health_check_type="ELB",
             force_delete=True,
             termination_policies=["OldestInstance"])
-        foobar_schedule = aws.autoscaling.Schedule("foobarSchedule",
+        foobar_schedule = aws.autoscaling.Schedule("foobar",
             scheduled_action_name="foobar",
             min_size=0,
             max_size=1,
             desired_capacity=0,
             start_time="2016-12-11T18:00:00Z",
             end_time="2016-12-12T06:00:00Z",
-            autoscaling_group_name=foobar_group.name)
+            autoscaling_group_name=foobar.name)
         ```
 
         ## Import

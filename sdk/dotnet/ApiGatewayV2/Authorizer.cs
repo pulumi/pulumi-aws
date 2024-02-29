@@ -26,13 +26,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         AuthorizerType = "REQUEST",
-    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
+    ///         AuthorizerUri = exampleAwsLambdaFunction.InvokeArn,
     ///         IdentitySources = new[]
     ///         {
     ///             "route.request.header.Auth",
     ///         },
+    ///         Name = "example-authorizer",
     ///     });
     /// 
     /// });
@@ -49,13 +50,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         AuthorizerType = "REQUEST",
-    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
+    ///         AuthorizerUri = exampleAwsLambdaFunction.InvokeArn,
     ///         IdentitySources = new[]
     ///         {
     ///             "$request.header.Authorization",
     ///         },
+    ///         Name = "example-authorizer",
     ///         AuthorizerPayloadFormatVersion = "2.0",
     ///     });
     /// 

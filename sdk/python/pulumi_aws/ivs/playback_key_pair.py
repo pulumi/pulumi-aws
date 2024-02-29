@@ -202,8 +202,9 @@ class PlaybackKeyPair(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
 
         ## Import
@@ -237,8 +238,9 @@ class PlaybackKeyPair(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
 
         ## Import

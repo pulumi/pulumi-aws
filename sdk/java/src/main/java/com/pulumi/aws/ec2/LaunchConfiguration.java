@@ -66,6 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
+ *             .name(&#34;web_config&#34;)
  *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
@@ -128,6 +129,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;asg-example&#34;)
  *             .launchConfiguration(asConf.name())
  *             .minSize(1)
  *             .maxSize(2)
@@ -195,6 +197,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;asg-example&#34;)
  *             .launchConfiguration(asConf.name())
  *             .build());
  * 

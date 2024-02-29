@@ -14,19 +14,25 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
+    ///     var example = new Aws.WorkLink.Fleet("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
     ///     {
-    ///         FleetArn = aws_worklink_fleet.Test.Arn,
-    ///         Certificate = File.ReadAllText("certificate.pem"),
+    ///         FleetArn = testAwsWorklinkFleet.Arn,
+    ///         Certificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

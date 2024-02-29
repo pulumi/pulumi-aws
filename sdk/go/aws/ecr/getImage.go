@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.GetImage(ctx, &ecr.GetImageArgs{
-//				ImageTag:       pulumi.StringRef("latest"),
 //				RepositoryName: "my/service",
+//				ImageTag:       pulumi.StringRef("latest"),
 //			}, nil)
 //			if err != nil {
 //				return err

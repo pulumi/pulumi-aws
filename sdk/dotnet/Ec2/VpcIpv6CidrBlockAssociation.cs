@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var test = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var testVpcIpv6CidrBlockAssociation = new Aws.Ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", new()
+    ///     var testVpcIpv6CidrBlockAssociation = new Aws.Ec2.VpcIpv6CidrBlockAssociation("test", new()
     ///     {
-    ///         Ipv6IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-    ///         VpcId = testVpc.Id,
+    ///         Ipv6IpamPoolId = testAwsVpcIpamPool.Id,
+    ///         VpcId = test.Id,
     ///     });
     /// 
     /// });

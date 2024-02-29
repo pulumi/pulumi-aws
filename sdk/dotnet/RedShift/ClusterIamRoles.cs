@@ -26,10 +26,10 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
     ///         IamRoleArns = new[]
     ///         {
-    ///             aws_iam_role.Example.Arn,
+    ///             exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 

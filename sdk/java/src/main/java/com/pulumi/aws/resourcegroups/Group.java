@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *             .name(&#34;test-group&#34;)
  *             .resourceQuery(GroupResourceQueryArgs.builder()
  *                 .query(&#34;&#34;&#34;
  * {
@@ -58,7 +59,6 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * 
  *                 &#34;&#34;&#34;)
  *                 .build())
  *             .build());

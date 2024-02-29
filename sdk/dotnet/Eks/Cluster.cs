@@ -25,21 +25,15 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
+    ///                 example1.Id,
+    ///                 example2.Id,
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSClusterPolicy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSVPCResourceController,
     ///         },
     ///     });
     /// 
@@ -88,6 +82,7 @@ namespace Pulumi.Aws.Eks
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-cluster-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -123,28 +118,107 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var config = new Config();
     ///     var clusterName = config.Get("clusterName") ?? "example";
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
-    ///     {
-    ///         RetentionInDays = 7,
-    ///     });
-    /// 
-    ///     // ... potentially other configuration ...
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
     ///         EnabledClusterLogTypes = new[]
     ///         {
     ///             "api",
     ///             "audit",
     ///         },
-    ///     }, new CustomResourceOptions
+    ///         Name = clusterName,
+    ///     });
+    /// 
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         DependsOn = new[]
+    ///         Name = $"/aws/eks/{clusterName}/cluster",
+    ///         RetentionInDays = 7,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Enabling IAM Roles for Service Accounts
+    /// 
+    /// Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCluster = new Aws.Eks.Cluster("example");
+    /// 
+    ///     var example = Tls.GetCertificate.Invoke(new()
+    ///     {
+    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
+    ///     {
+    ///         ClientIdLists = new[]
     ///         {
-    ///             exampleLogGroup,
+    ///             "sts.amazonaws.com",
+    ///         },
+    ///         ThumbprintLists = new[]
+    ///         {
+    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
+    ///         },
+    ///         Url = example.Apply(getCertificateResult =&gt; getCertificateResult.Url),
+    ///     });
+    /// 
+    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = $"{Std.Replace.Invoke(new()
+    ///                         {
+    ///                             Text = exampleOpenIdConnectProvider.Url,
+    ///                             Search = "https://",
+    ///                             Replace = "",
+    ///                         }).Result}:sub",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "system:serviceaccount:kube-system:aws-node",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             exampleOpenIdConnectProvider.Arn,
+    ///                         },
+    ///                         Type = "Federated",
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     // ... other configuration ...
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///     });
+    /// 
     /// });
     /// ```
     /// ### EKS Cluster on AWS Outpost
@@ -159,14 +233,16 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-cluster",
+    ///         RoleArn = example.Arn,
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             EndpointPrivateAccess = true,
@@ -177,7 +253,7 @@ namespace Pulumi.Aws.Eks
     ///             ControlPlaneInstanceType = "m5d.large",
     ///             OutpostArns = new[]
     ///             {
-    ///                 data.Aws_outposts_outpost.Example.Arn,
+    ///                 exampleAwsOutpostsOutpost.Arn,
     ///             },
     ///         },
     ///     });
@@ -194,14 +270,16 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-cluster",
+    ///         RoleArn = example.Arn,
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             EndpointPrivateAccess = true,

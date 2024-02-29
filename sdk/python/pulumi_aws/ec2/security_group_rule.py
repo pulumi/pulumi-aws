@@ -454,8 +454,8 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             to_port=65535,
             protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
+            cidr_blocks=[example_aws_vpc["cidrBlock"]],
+            ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
         ```
         ### Usage With Prefix List IDs
@@ -471,9 +471,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
+        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
+        allow_all = aws.ec2.SecurityGroupRule("allow_all",
             type="egress",
             to_port=0,
             protocol="-1",
@@ -491,7 +490,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         current = aws.get_region()
         s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
+        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",
             security_group_id="sg-123456",
@@ -606,8 +605,8 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             to_port=65535,
             protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
+            cidr_blocks=[example_aws_vpc["cidrBlock"]],
+            ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
         ```
         ### Usage With Prefix List IDs
@@ -623,9 +622,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
+        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
+        allow_all = aws.ec2.SecurityGroupRule("allow_all",
             type="egress",
             to_port=0,
             protocol="-1",
@@ -643,7 +641,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         current = aws.get_region()
         s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
+        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",
             security_group_id="sg-123456",

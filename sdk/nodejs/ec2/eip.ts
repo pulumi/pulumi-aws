@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.ec2.Eip("lb", {
- *     instance: aws_instance.web.id,
+ *     instance: web.id,
  *     domain: "vpc",
  * });
  * ```
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
- *     subnetId: aws_subnet.main.id,
+ *     subnetId: main.id,
  *     privateIps: [
  *         "10.0.0.10",
  *         "10.0.0.11",
@@ -58,12 +58,10 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
- * const myTestSubnet = new aws.ec2.Subnet("myTestSubnet", {
+ * const myTestSubnet = new aws.ec2.Subnet("my_test_subnet", {
  *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
- * }, {
- *     dependsOn: [gw],
  * });
  * const foo = new aws.ec2.Instance("foo", {
  *     ami: "ami-5189a661",
@@ -75,8 +73,6 @@ import * as utilities from "../utilities";
  *     domain: "vpc",
  *     instance: foo.id,
  *     associateWithPrivateIp: "10.0.0.12",
- * }, {
- *     dependsOn: [gw],
  * });
  * ```
  * ### Allocating EIP from the BYOIP pool

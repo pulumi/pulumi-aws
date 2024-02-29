@@ -16,6 +16,83 @@ import * as utilities from "../utilities";
  * > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
  *
  * ## Example Usage
+ * ### Self Access-checking Example
+ *
+ * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const s3ObjectAccess = current.then(current => aws.iam.getPrincipalPolicySimulation({
+ *     actionNames: [
+ *         "s3:GetObject",
+ *         "s3:PutObject",
+ *         "s3:DeleteObject",
+ *     ],
+ *     policySourceArn: current.arn,
+ *     resourceArns: ["arn:aws:s3:::my-test-bucket"],
+ * }));
+ * ```
+ *
+ * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
+ * ```
+ * ### Testing the Effect of a Declared Policy
+ *
+ * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const example = new aws.iam.User("example", {name: "example"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "my-test-bucket"});
+ * const s3Access = new aws.iam.UserPolicy("s3_access", {
+ *     name: "example_s3_access",
+ *     user: example.name,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:GetObject",
+ *             effect: "Allow",
+ *             resource: exampleBucketV2.arn,
+ *         }],
+ *     }),
+ * });
+ * const accountAccess = new aws.s3.BucketPolicy("account_access", {
+ *     bucket: exampleBucketV2.bucket,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:*",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: current.then(current => current.accountId),
+ *             },
+ *             resource: [
+ *                 exampleBucketV2.arn,
+ *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *             ],
+ *         }],
+ *     }),
+ * });
+ * const s3ObjectAccess = aws.iam.getPrincipalPolicySimulationOutput({
+ *     actionNames: ["s3:GetObject"],
+ *     policySourceArn: example.arn,
+ *     resourceArns: [exampleBucketV2.arn],
+ *     resourcePolicyJson: accountAccess.policy,
+ * });
+ * ```
+ *
+ * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
 export function getPrincipalPolicySimulation(args: GetPrincipalPolicySimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalPolicySimulationResult> {
 
@@ -127,6 +204,83 @@ export interface GetPrincipalPolicySimulationResult {
  * > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
  *
  * ## Example Usage
+ * ### Self Access-checking Example
+ *
+ * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const s3ObjectAccess = current.then(current => aws.iam.getPrincipalPolicySimulation({
+ *     actionNames: [
+ *         "s3:GetObject",
+ *         "s3:PutObject",
+ *         "s3:DeleteObject",
+ *     ],
+ *     policySourceArn: current.arn,
+ *     resourceArns: ["arn:aws:s3:::my-test-bucket"],
+ * }));
+ * ```
+ *
+ * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
+ * ```
+ * ### Testing the Effect of a Declared Policy
+ *
+ * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const example = new aws.iam.User("example", {name: "example"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "my-test-bucket"});
+ * const s3Access = new aws.iam.UserPolicy("s3_access", {
+ *     name: "example_s3_access",
+ *     user: example.name,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:GetObject",
+ *             effect: "Allow",
+ *             resource: exampleBucketV2.arn,
+ *         }],
+ *     }),
+ * });
+ * const accountAccess = new aws.s3.BucketPolicy("account_access", {
+ *     bucket: exampleBucketV2.bucket,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:*",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: current.then(current => current.accountId),
+ *             },
+ *             resource: [
+ *                 exampleBucketV2.arn,
+ *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *             ],
+ *         }],
+ *     }),
+ * });
+ * const s3ObjectAccess = aws.iam.getPrincipalPolicySimulationOutput({
+ *     actionNames: ["s3:GetObject"],
+ *     policySourceArn: example.arn,
+ *     resourceArns: [exampleBucketV2.arn],
+ *     resourcePolicyJson: accountAccess.policy,
+ * });
+ * ```
+ *
+ * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
 export function getPrincipalPolicySimulationOutput(args: GetPrincipalPolicySimulationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPolicySimulationResult> {
     return pulumi.output(args).apply((a: any) => getPrincipalPolicySimulation(a, opts))

@@ -271,20 +271,22 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser",
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
             path="/system/",
             tags={
                 "tag-key": "tag-value",
             })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
+        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
+        lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
+            policy=lb_ro.json)
         ```
 
         ## Import
@@ -322,20 +324,22 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser",
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
             path="/system/",
             tags={
                 "tag-key": "tag-value",
             })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
+        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
+        lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
+            policy=lb_ro.json)
         ```
 
         ## Import

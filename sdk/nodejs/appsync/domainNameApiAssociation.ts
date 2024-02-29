@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.DomainNameApiAssociation("example", {
- *     apiId: aws_appsync_graphql_api.example.id,
- *     domainName: aws_appsync_domain_name.example.domain_name,
+ *     apiId: exampleAwsAppsyncGraphqlApi.id,
+ *     domainName: exampleAwsAppsyncDomainName.domainName,
  * });
  * ```
  *

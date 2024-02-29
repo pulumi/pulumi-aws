@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: pulumi.Array{
 //					iam.GetPolicyDocumentStatement{
 //						Sid: pulumi.StringRef("1"),
@@ -49,7 +49,7 @@ import (
 //							"s3:ListBucket",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:s3:::%v", _var.S3_bucket_name),
+//							fmt.Sprintf("arn:aws:s3:::%v", s3BucketName),
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
@@ -68,8 +68,8 @@ import (
 //							"s3:*",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}", _var.S3_bucket_name),
-//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}/*", _var.S3_bucket_name),
+//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}", s3BucketName),
+//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}/*", s3BucketName),
 //						},
 //					},
 //				},
@@ -77,93 +77,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+//			_, err = iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:   pulumi.String("example_policy"),
 //				Path:   pulumi.String("/"),
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
+//				Policy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Multiple Condition Keys and Values
-//
-// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"kms:Decrypt",
-//							"kms:GenerateDataKey",
-//						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test: "ForAnyValue:StringEquals",
-//								Values: []string{
-//									"pi",
-//								},
-//								Variable: "kms:EncryptionContext:service",
-//							},
-//							{
-//								Test: "ForAnyValue:StringEquals",
-//								Values: []string{
-//									"rds",
-//								},
-//								Variable: "kms:EncryptionContext:aws:pi:service",
-//							},
-//							{
-//								Test: "ForAnyValue:StringEquals",
-//								Values: []string{
-//									"db-AAAAABBBBBCCCCCDDDDDEEEEE",
-//									"db-EEEEEDDDDDCCCCCBBBBBAAAAA",
-//								},
-//								Variable: "kms:EncryptionContext:aws:rds:db-id",
-//							},
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
 //			return nil
 //		})
 //	}
@@ -202,13 +123,13 @@ import (
 // {
 // Type: "AWS",
 // Identifiers: interface{}{
-// _var.Trusted_role_arn,
+// trustedRoleArn,
 // },
 // },
 // {
 // Type: "Federated",
 // Identifiers: []string{
-// fmt.Sprintf("arn:aws:iam::%v:saml-provider/%v", _var.Account_id, _var.Provider_name),
+// fmt.Sprintf("arn:aws:iam::%v:saml-provider/%v", accountId, providerName),
 // "cognito-identity.amazonaws.com",
 // },
 // },
@@ -222,460 +143,6 @@ import (
 // return nil
 // })
 // }
-// ```
-// ### Example Using A Source Document
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// source.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "arn:aws:s3:::somebucket",
-// "arn:aws:s3:::somebucket/*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using An Override Document
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// OverridePolicyDocuments: interface{}{
-// override.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "arn:aws:s3:::somebucket",
-// "arn:aws:s3:::somebucket/*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example with Both Source and Override Documents
-//
-// You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceholder"),
-// Actions: []string{
-// "ec2:DescribeAccountAttributes",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceholder"),
-// Actions: []string{
-// "s3:GetObject",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// source.Json,
-// },
-// OverridePolicyDocuments: interface{}{
-// override.Json,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// `data.aws_iam_policy_document.politik.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example of Merging Source Documents
-//
-// Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// sourceOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("UniqueSidOne"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// sourceTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: pulumi.Array{
-// iam.GetPolicyDocumentStatement{
-// Sid: pulumi.StringRef("UniqueSidTwo"),
-// Actions: []string{
-// "iam:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// iam.GetPolicyDocumentStatement{
-// Actions: []string{
-// "lambda:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// sourceOne.Json,
-// sourceTwo.Json,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// `data.aws_iam_policy_document.combined.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example of Merging Override Documents
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// policyOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderOne"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// policyTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderTwo"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "iam:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// policyThree, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderOne"),
-// Effect: pulumi.StringRef("Deny"),
-// Actions: []string{
-// "logs:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// OverridePolicyDocuments: interface{}{
-// policyOne.Json,
-// policyTwo.Json,
-// policyThree.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderTwo"),
-// Effect: pulumi.StringRef("Deny"),
-// Actions: []string{
-// "*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// `data.aws_iam_policy_document.combined.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
 // ```
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

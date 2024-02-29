@@ -22,14 +22,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.Product("example", {
+ *     name: "example",
  *     owner: "example-owner",
+ *     type: "CLOUD_FORMATION_TEMPLATE",
  *     provisioningArtifactParameters: {
  *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
  *     },
  *     tags: {
  *         foo: "bar",
  *     },
- *     type: "CLOUD_FORMATION_TEMPLATE",
  * });
  * ```
  *

@@ -204,21 +204,21 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
+        example_endpoint = aws.ec2clientvpn.Endpoint("example",
             description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
+            server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,
             ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
+        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
+            subnet_id=example_aws_subnet["id"])
+        example = aws.ec2clientvpn.Route("example",
             client_vpn_endpoint_id=example_endpoint.id,
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
@@ -255,21 +255,21 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
+        example_endpoint = aws.ec2clientvpn.Endpoint("example",
             description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
+            server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,
             ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
+        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
+            subnet_id=example_aws_subnet["id"])
+        example = aws.ec2clientvpn.Route("example",
             client_vpn_endpoint_id=example_endpoint.id,
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)

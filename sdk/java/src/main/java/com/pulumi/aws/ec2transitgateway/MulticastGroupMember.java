@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new MulticastGroupMember(&#34;example&#34;, MulticastGroupMemberArgs.builder()        
  *             .groupIpAddress(&#34;224.0.0.1&#34;)
- *             .networkInterfaceId(aws_network_interface.example().id())
- *             .transitGatewayMulticastDomainId(aws_ec2_transit_gateway_multicast_domain.example().id())
+ *             .networkInterfaceId(exampleAwsNetworkInterface.id())
+ *             .transitGatewayMulticastDomainId(exampleAwsEc2TransitGatewayMulticastDomain.id())
  *             .build());
  * 
  *     }

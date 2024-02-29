@@ -87,7 +87,7 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
 
     example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
         name="group-id",
-        values=[var["security_group_id"]],
+        values=[security_group_id],
     )])
     ```
 
@@ -127,7 +127,7 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
         name="group-id",
-        values=[var["security_group_id"]],
+        values=[security_group_id],
     )])
     ```
 

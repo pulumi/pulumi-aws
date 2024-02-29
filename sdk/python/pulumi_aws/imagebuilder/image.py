@@ -450,9 +450,9 @@ class Image(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Image("example",
-            distribution_configuration_arn=aws_imagebuilder_distribution_configuration["example"]["arn"],
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"])
+            distribution_configuration_arn=example_aws_imagebuilder_distribution_configuration["arn"],
+            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
+            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"])
         ```
 
         ## Import
@@ -492,9 +492,9 @@ class Image(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Image("example",
-            distribution_configuration_arn=aws_imagebuilder_distribution_configuration["example"]["arn"],
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"])
+            distribution_configuration_arn=example_aws_imagebuilder_distribution_configuration["arn"],
+            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
+            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"])
         ```
 
         ## Import

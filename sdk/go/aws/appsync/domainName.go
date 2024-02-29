@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewDomainName(ctx, "example", &appsync.DomainNameArgs{
 //				DomainName:     pulumi.String("api.example.com"),
-//				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//				CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //			})
 //			if err != nil {
 //				return err

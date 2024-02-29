@@ -29,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
+//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(aws_auditmanager_control.Test.Id),
+//								Id: pulumi.Any(testAwsAuditmanagerControl.Id),
 //							},
 //						},
 //					},

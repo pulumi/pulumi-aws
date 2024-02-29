@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
+//				Name:   pulumi.String("example"),
 //				Domain: pulumi.String("localhost"),
 //			})
 //			if err != nil {

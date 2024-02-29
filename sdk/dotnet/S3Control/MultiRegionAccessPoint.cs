@@ -25,28 +25,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryRegion = new Aws.Provider("primaryRegion", new()
+    ///     var fooBucket = new Aws.S3.BucketV2("foo_bucket", new()
     ///     {
-    ///         Region = "us-east-1",
+    ///         Bucket = "example-bucket-foo",
     ///     });
     /// 
-    ///     var secondaryRegion = new Aws.Provider("secondaryRegion", new()
+    ///     var barBucket = new Aws.S3.BucketV2("bar_bucket", new()
     ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary_region,
-    ///     });
-    /// 
-    ///     var barBucket = new Aws.S3.BucketV2("barBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary_region,
+    ///         Bucket = "example-bucket-bar",
     ///     });
     /// 
     ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()

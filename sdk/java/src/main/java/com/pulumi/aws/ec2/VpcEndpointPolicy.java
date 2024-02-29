@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVpcEndpointService = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+ *         final var example = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
  *             .service(&#34;dynamodb&#34;)
  *             .build());
  * 
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .serviceName(exampleVpcEndpointService.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+ *             .serviceName(example.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 

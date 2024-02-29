@@ -22,14 +22,15 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUser = new Aws.Iam.User("userUser", new()
+    ///     var user = new Aws.Iam.User("user", new()
     ///     {
+    ///         Name = "test-user",
     ///         Path = "/",
     ///     });
     /// 
-    ///     var userSshKey = new Aws.Iam.SshKey("userSshKey", new()
+    ///     var userSshKey = new Aws.Iam.SshKey("user", new()
     ///     {
-    ///         Username = userUser.Name,
+    ///         Username = user.Name,
     ///         Encoding = "SSH",
     ///         PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com",
     ///     });

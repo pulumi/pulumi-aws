@@ -44,22 +44,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResolverFirewallDomainList = new ResolverFirewallDomainList(&#34;exampleResolverFirewallDomainList&#34;, ResolverFirewallDomainListArgs.builder()        
+ *         var example = new ResolverFirewallDomainList(&#34;example&#34;, ResolverFirewallDomainListArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .domains(&#34;example.com&#34;)
  *             .tags()
  *             .build());
  * 
  *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup(&#34;exampleResolverFirewallRuleGroup&#34;, ResolverFirewallRuleGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .tags()
  *             .build());
  * 
  *         var exampleResolverFirewallRule = new ResolverFirewallRule(&#34;exampleResolverFirewallRule&#34;, ResolverFirewallRuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .action(&#34;BLOCK&#34;)
  *             .blockOverrideDnsType(&#34;CNAME&#34;)
  *             .blockOverrideDomain(&#34;example.com&#34;)
  *             .blockOverrideTtl(1)
  *             .blockResponse(&#34;OVERRIDE&#34;)
- *             .firewallDomainListId(exampleResolverFirewallDomainList.id())
+ *             .firewallDomainListId(example.id())
  *             .firewallRuleGroupId(exampleResolverFirewallRuleGroup.id())
  *             .priority(100)
  *             .build());

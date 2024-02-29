@@ -23,10 +23,10 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("awsGlueCatalogTable", new()
+    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("aws_glue_catalog_table", new()
     ///     {
-    ///         DatabaseName = "MyCatalogDatabase",
     ///         Name = "MyCatalogTable",
+    ///         DatabaseName = "MyCatalogDatabase",
     ///     });
     /// 
     /// });
@@ -41,10 +41,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("awsGlueCatalogTable", new()
+    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("aws_glue_catalog_table", new()
     ///     {
-    ///         DatabaseName = "MyCatalogDatabase",
     ///         Name = "MyCatalogTable",
+    ///         DatabaseName = "MyCatalogDatabase",
+    ///         TableType = "EXTERNAL_TABLE",
     ///         Parameters = 
     ///         {
     ///             { "EXTERNAL", "TRUE" },
@@ -52,6 +53,18 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
+    ///             Location = "s3://my-bucket/event-streams/my-stream",
+    ///             InputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+    ///             OutputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
+    ///             {
+    ///                 Name = "my-stream",
+    ///                 SerializationLibrary = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "serialization.format", "1" },
+    ///                 },
+    ///             },
     ///             Columns = new[]
     ///             {
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
@@ -66,37 +79,24 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
     ///                 {
-    ///                     Comment = "",
     ///                     Name = "my_date",
     ///                     Type = "date",
+    ///                     Comment = "",
     ///                 },
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
     ///                 {
-    ///                     Comment = "",
     ///                     Name = "my_bigint",
     ///                     Type = "bigint",
+    ///                     Comment = "",
     ///                 },
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
     ///                 {
-    ///                     Comment = "",
     ///                     Name = "my_struct",
     ///                     Type = "struct&lt;my_nested_string:string&gt;",
+    ///                     Comment = "",
     ///                 },
-    ///             },
-    ///             InputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-    ///             Location = "s3://my-bucket/event-streams/my-stream",
-    ///             OutputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
-    ///             {
-    ///                 Name = "my-stream",
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "serialization.format", "1" },
-    ///                 },
-    ///                 SerializationLibrary = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
     ///             },
     ///         },
-    ///         TableType = "EXTERNAL_TABLE",
     ///     });
     /// 
     /// });

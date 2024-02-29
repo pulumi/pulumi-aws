@@ -519,10 +519,7 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
+            name="stack name",
             description="stack description",
             display_name="stack display name",
             feedback_url="http://your-domain/feedback",
@@ -530,9 +527,6 @@ class Stack(pulumi.CustomResource):
             storage_connectors=[aws.appstream.StackStorageConnectorArgs(
                 connector_type="HOMEFOLDERS",
             )],
-            tags={
-                "TagName": "TagValue",
-            },
             user_settings=[
                 aws.appstream.StackUserSettingArgs(
                     action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
@@ -562,7 +556,14 @@ class Stack(pulumi.CustomResource):
                     action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
-            ])
+            ],
+            application_settings=aws.appstream.StackApplicationSettingsArgs(
+                enabled=True,
+                settings_group="SettingsGroup",
+            ),
+            tags={
+                "TagName": "TagValue",
+            })
         ```
 
         ## Import
@@ -611,10 +612,7 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
+            name="stack name",
             description="stack description",
             display_name="stack display name",
             feedback_url="http://your-domain/feedback",
@@ -622,9 +620,6 @@ class Stack(pulumi.CustomResource):
             storage_connectors=[aws.appstream.StackStorageConnectorArgs(
                 connector_type="HOMEFOLDERS",
             )],
-            tags={
-                "TagName": "TagValue",
-            },
             user_settings=[
                 aws.appstream.StackUserSettingArgs(
                     action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
@@ -654,7 +649,14 @@ class Stack(pulumi.CustomResource):
                     action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
-            ])
+            ],
+            application_settings=aws.appstream.StackApplicationSettingsArgs(
+                enabled=True,
+                settings_group="SettingsGroup",
+            ),
+            tags={
+                "TagName": "TagValue",
+            })
         ```
 
         ## Import

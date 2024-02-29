@@ -49,13 +49,14 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+// Name: pulumi.String("cloudfront-realtime-log-config-example"),
 // AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 // })
 // if err != nil {
 // return err
 // }
-// examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Effect: pulumi.StringRef("Allow"),
@@ -66,7 +67,7 @@ import (
 // "kinesis:PutRecords",
 // },
 // Resources: interface{}{
-// aws_kinesis_stream.Example.Arn,
+// exampleAwsKinesisStream.Arn,
 // },
 // },
 // },
@@ -74,14 +75,16 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleRolePolicy, err := iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+// Name: pulumi.String("cloudfront-realtime-log-config-example"),
 // Role: exampleRole.ID(),
-// Policy: *pulumi.String(examplePolicyDocument.Json),
+// Policy: *pulumi.String(example.Json),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = cloudfront.NewRealtimeLogConfig(ctx, "exampleRealtimeLogConfig", &cloudfront.RealtimeLogConfigArgs{
+// _, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
+// Name: pulumi.String("example"),
 // SamplingRate: pulumi.Int(75),
 // Fields: pulumi.StringArray{
 // pulumi.String("timestamp"),
@@ -91,12 +94,10 @@ import (
 // StreamType: pulumi.String("Kinesis"),
 // KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
 // RoleArn: exampleRole.Arn,
-// StreamArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+// StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 // },
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleRolePolicy,
-// }))
+// })
 // if err != nil {
 // return err
 // }

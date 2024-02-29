@@ -26,16 +26,17 @@ namespace Pulumi.Aws.ServerlessRepository
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
+        ///     var example = Aws.ServerlessRepository.GetApplication.Invoke(new()
         ///     {
         ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
         ///     });
         /// 
-        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
+        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("example", new()
         ///     {
-        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
-        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
-        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
+        ///         Name = "Example",
+        ///         ApplicationId = example.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+        ///         SemanticVersion = example.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
+        ///         Capabilities = example.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
         ///     });
         /// 
         /// });
@@ -61,16 +62,17 @@ namespace Pulumi.Aws.ServerlessRepository
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
+        ///     var example = Aws.ServerlessRepository.GetApplication.Invoke(new()
         ///     {
         ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
         ///     });
         /// 
-        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
+        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("example", new()
         ///     {
-        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
-        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
-        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
+        ///         Name = "Example",
+        ///         ApplicationId = example.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+        ///         SemanticVersion = example.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
+        ///         Capabilities = example.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
         ///     });
         /// 
         /// });

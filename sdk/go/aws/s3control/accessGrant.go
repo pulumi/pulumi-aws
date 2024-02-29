@@ -32,20 +32,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccessGrantsInstance, err := s3control.NewAccessGrantsInstance(ctx, "exampleAccessGrantsInstance", nil)
+//			_, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccessGrantsLocation, err := s3control.NewAccessGrantsLocation(ctx, "exampleAccessGrantsLocation", &s3control.AccessGrantsLocationArgs{
-//				IamRoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
-//				LocationScope: pulumi.String(fmt.Sprintf("s3://%v/prefixA*", aws_s3_bucket.Example.Bucket)),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccessGrantsInstance,
-//			}))
+//			exampleAccessGrantsLocation, err := s3control.NewAccessGrantsLocation(ctx, "example", &s3control.AccessGrantsLocationArgs{
+//				IamRoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
+//				LocationScope: pulumi.String(fmt.Sprintf("s3://%v/prefixA*", exampleAwsS3Bucket.Bucket)),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewAccessGrant(ctx, "exampleAccessGrant", &s3control.AccessGrantArgs{
+//			_, err = s3control.NewAccessGrant(ctx, "example", &s3control.AccessGrantArgs{
 //				AccessGrantsLocationId: exampleAccessGrantsLocation.AccessGrantsLocationId,
 //				Permission:             pulumi.String("READ"),
 //				AccessGrantsLocationConfiguration: &s3control.AccessGrantAccessGrantsLocationConfigurationArgs{
@@ -53,7 +51,7 @@ import (
 //				},
 //				Grantee: &s3control.AccessGrantGranteeArgs{
 //					GranteeType:       pulumi.String("IAM"),
-//					GranteeIdentifier: pulumi.Any(aws_iam_user.Example.Arn),
+//					GranteeIdentifier: pulumi.Any(exampleAwsIamUser.Arn),
 //				},
 //			})
 //			if err != nil {

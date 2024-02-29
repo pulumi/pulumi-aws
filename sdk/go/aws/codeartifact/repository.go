@@ -29,15 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("domain key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
 //				Domain:        pulumi.String("example"),
-//				EncryptionKey: exampleKey.Arn,
+//				EncryptionKey: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -70,14 +70,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			upstream, err := codeartifact.NewRepository(ctx, "upstream", &codeartifact.RepositoryArgs{
 //				Repository: pulumi.String("upstream"),
-//				Domain:     pulumi.Any(aws_codeartifact_domain.Test.Domain),
+//				Domain:     pulumi.Any(testAwsCodeartifactDomain.Domain),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
 //				Repository: pulumi.String("example"),
-//				Domain:     pulumi.Any(aws_codeartifact_domain.Example.Domain),
+//				Domain:     pulumi.Any(example.Domain),
 //				Upstreams: codeartifact.RepositoryUpstreamArray{
 //					&codeartifact.RepositoryUpstreamArgs{
 //						RepositoryName: upstream.Repository,
@@ -108,14 +108,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeartifact.NewRepository(ctx, "upstream", &codeartifact.RepositoryArgs{
 //				Repository: pulumi.String("upstream"),
-//				Domain:     pulumi.Any(aws_codeartifact_domain.Test.Domain),
+//				Domain:     pulumi.Any(testAwsCodeartifactDomain.Domain),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
 //				Repository: pulumi.String("example"),
-//				Domain:     pulumi.Any(aws_codeartifact_domain.Example.Domain),
+//				Domain:     pulumi.Any(example.Domain),
 //				ExternalConnections: &codeartifact.RepositoryExternalConnectionsArgs{
 //					ExternalConnectionName: pulumi.String("public:npmjs"),
 //				},

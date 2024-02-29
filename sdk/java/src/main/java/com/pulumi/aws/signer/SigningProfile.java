@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var prodSp = new SigningProfile(&#34;prodSp&#34;, SigningProfileArgs.builder()        
- *             .namePrefix(&#34;prod_sp_&#34;)
  *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
+ *             .namePrefix(&#34;prod_sp_&#34;)
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
- *                 .type(&#34;YEARS&#34;)
  *                 .value(5)
+ *                 .type(&#34;YEARS&#34;)
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),

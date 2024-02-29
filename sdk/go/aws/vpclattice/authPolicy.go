@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", &vpclattice.ServiceArgs{
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name:             pulumi.String("example-vpclattice-service"),
 //				AuthType:         pulumi.String("AWS_IAM"),
 //				CustomDomainName: pulumi.String("example.com"),
 //			})
@@ -39,15 +40,15 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action":    "*",
-//						"Effect":    "Allow",
-//						"Principal": "*",
-//						"Resource":  "*",
-//						"Condition": map[string]interface{}{
-//							"StringNotEqualsIgnoreCase": map[string]interface{}{
+//						"action":    "*",
+//						"effect":    "Allow",
+//						"principal": "*",
+//						"resource":  "*",
+//						"condition": map[string]interface{}{
+//							"stringNotEqualsIgnoreCase": map[string]interface{}{
 //								"aws:PrincipalType": "anonymous",
 //							},
 //						},
@@ -58,8 +59,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = vpclattice.NewAuthPolicy(ctx, "exampleAuthPolicy", &vpclattice.AuthPolicyArgs{
-//				ResourceIdentifier: exampleService.Arn,
+//			_, err = vpclattice.NewAuthPolicy(ctx, "example", &vpclattice.AuthPolicyArgs{
+//				ResourceIdentifier: example.Arn,
 //				Policy:             pulumi.String(json0),
 //			})
 //			if err != nil {

@@ -12,6 +12,41 @@ import (
 )
 
 // This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+//
+// ## Example Usage
+//
+// # The following returns all managed prefix lists filtered by tags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testEnv, err := ec2.GetManagedPrefixLists(ctx, &ec2.GetManagedPrefixListsArgs{
+//				Tags: map[string]interface{}{
+//					"Env": "test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs, opts ...pulumi.InvokeOption) (*GetManagedPrefixListsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedPrefixListsResult

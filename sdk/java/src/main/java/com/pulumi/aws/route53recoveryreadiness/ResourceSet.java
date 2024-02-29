@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .resourceSetName(my_cw_alarm_set)
  *             .resourceSetType(&#34;AWS::CloudWatch::Alarm&#34;)
  *             .resources(ResourceSetResourceArgs.builder()
- *                 .resourceArn(aws_cloudwatch_metric_alarm.example().arn())
+ *                 .resourceArn(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .build())
  *             .build());
  * 

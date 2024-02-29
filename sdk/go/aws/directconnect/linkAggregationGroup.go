@@ -31,9 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
+//				Name:                 pulumi.String("tf-dx-lag"),
 //				ConnectionsBandwidth: pulumi.String("1Gbps"),
-//				ForceDestroy:         pulumi.Bool(true),
 //				Location:             pulumi.String("EqDC2"),
+//				ForceDestroy:         pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

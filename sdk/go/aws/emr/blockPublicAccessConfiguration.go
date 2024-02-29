@@ -60,8 +60,8 @@ import (
 //				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
 //					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(22),
 //						MinRange: pulumi.Int(22),
+//						MaxRange: pulumi.Int(22),
 //					},
 //				},
 //			})
@@ -95,12 +95,12 @@ import (
 //				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
 //					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(22),
 //						MinRange: pulumi.Int(22),
+//						MaxRange: pulumi.Int(22),
 //					},
 //					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(101),
 //						MinRange: pulumi.Int(100),
+//						MaxRange: pulumi.Int(101),
 //					},
 //				},
 //			})

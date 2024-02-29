@@ -42,10 +42,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
+//			foobar, err := autoscaling.NewGroup(ctx, "foobar", &autoscaling.GroupArgs{
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //				},
+//				Name:            pulumi.String("test-foobar5"),
 //				HealthCheckType: pulumi.String("EC2"),
 //				TerminationPolicies: pulumi.StringArray{
 //					pulumi.String("OldestInstance"),
@@ -68,8 +69,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = autoscaling.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling.LifecycleHookArgs{
-//				AutoscalingGroupName:  foobarGroup.Name,
+//			_, err = autoscaling.NewLifecycleHook(ctx, "foobar", &autoscaling.LifecycleHookArgs{
+//				Name:                  pulumi.String("foobar"),
+//				AutoscalingGroupName:  foobar.Name,
 //				DefaultResult:         pulumi.String("CONTINUE"),
 //				HeartbeatTimeout:      pulumi.Int(2000),
 //				LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),

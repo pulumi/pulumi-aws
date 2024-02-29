@@ -351,13 +351,13 @@ class SigningProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
                 value=5,
+                type="YEARS",
             ),
             tags={
                 "tag1": "value1",
@@ -396,13 +396,13 @@ class SigningProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
                 value=5,
+                type="YEARS",
             ),
             tags={
                 "tag1": "value1",

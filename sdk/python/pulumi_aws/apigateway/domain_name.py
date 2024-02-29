@@ -632,19 +632,19 @@ class DomainName(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            certificate_arn=aws_acm_certificate_validation["example"]["certificate_arn"],
+        example = aws.apigateway.DomainName("example",
+            certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             domain_name="api.example.com")
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
             type="A",
-            zone_id=aws_route53_zone["example"]["id"],
+            zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
-                name=example_domain_name.cloudfront_domain_name,
-                zone_id=example_domain_name.cloudfront_zone_id,
+                name=example.cloudfront_domain_name,
+                zone_id=example.cloudfront_zone_id,
             )])
         ```
         ### Edge Optimized (IAM Certificate)
@@ -652,23 +652,84 @@ class DomainName(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.DomainName("example",
             domain_name="api.example.com",
             certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
-        example_record = aws.route53.Record("exampleRecord",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.domain_name,
             type="A",
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.cloudfront_domain_name,
-                zone_id=example_domain_name.cloudfront_zone_id,
+                name=example.cloudfront_domain_name,
+                zone_id=example.cloudfront_zone_id,
                 evaluate_target_health=True,
+            )])
+        ```
+        ### Regional (ACM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type="A",
+            zone_id=example_aws_route53_zone["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example.regional_domain_name,
+                zone_id=example.regional_zone_id,
+            )])
+        ```
+        ### Regional (IAM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.DomainName("example",
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
+            domain_name="api.example.com",
+            regional_certificate_name="example-api",
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type="A",
+            zone_id=example_aws_route53_zone["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example.regional_domain_name,
+                zone_id=example.regional_zone_id,
             )])
         ```
 
@@ -741,19 +802,19 @@ class DomainName(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            certificate_arn=aws_acm_certificate_validation["example"]["certificate_arn"],
+        example = aws.apigateway.DomainName("example",
+            certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             domain_name="api.example.com")
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
             type="A",
-            zone_id=aws_route53_zone["example"]["id"],
+            zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
-                name=example_domain_name.cloudfront_domain_name,
-                zone_id=example_domain_name.cloudfront_zone_id,
+                name=example.cloudfront_domain_name,
+                zone_id=example.cloudfront_zone_id,
             )])
         ```
         ### Edge Optimized (IAM Certificate)
@@ -761,23 +822,84 @@ class DomainName(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.DomainName("example",
             domain_name="api.example.com",
             certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
-        example_record = aws.route53.Record("exampleRecord",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.domain_name,
             type="A",
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.cloudfront_domain_name,
-                zone_id=example_domain_name.cloudfront_zone_id,
+                name=example.cloudfront_domain_name,
+                zone_id=example.cloudfront_zone_id,
                 evaluate_target_health=True,
+            )])
+        ```
+        ### Regional (ACM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type="A",
+            zone_id=example_aws_route53_zone["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example.regional_domain_name,
+                zone_id=example.regional_zone_id,
+            )])
+        ```
+        ### Regional (IAM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.DomainName("example",
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
+            domain_name="api.example.com",
+            regional_certificate_name="example-api",
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type="A",
+            zone_id=example_aws_route53_zone["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example.regional_domain_name,
+                zone_id=example.regional_zone_id,
             )])
         ```
 

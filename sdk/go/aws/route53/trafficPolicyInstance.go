@@ -29,9 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewTrafficPolicyInstance(ctx, "test", &route53.TrafficPolicyInstanceArgs{
-//				HostedZoneId:         pulumi.String("Z033120931TAQO548OGJC"),
+//				Name:                 pulumi.String("test.example.com"),
 //				TrafficPolicyId:      pulumi.String("b3gb108f-ea6f-45a5-baab-9d112d8b4037"),
 //				TrafficPolicyVersion: pulumi.Int(1),
+//				HostedZoneId:         pulumi.String("Z033120931TAQO548OGJC"),
 //				Ttl:                  pulumi.Int(360),
 //			})
 //			if err != nil {

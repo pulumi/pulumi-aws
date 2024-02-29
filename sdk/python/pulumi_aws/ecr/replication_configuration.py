@@ -94,11 +94,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example_regions.names[0],
+                    region=example.names[0],
                     registry_id=current.account_id,
                 )],
             )],
@@ -111,16 +111,16 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[
                     aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example_regions.names[0],
+                        region=example.names[0],
                         registry_id=current.account_id,
                     ),
                     aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example_regions.names[1],
+                        region=example.names[1],
                         registry_id=current.account_id,
                     ),
                 ],
@@ -135,11 +135,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example_regions.names[0],
+                    region=example.names[0],
                     registry_id=current.account_id,
                 )],
                 repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
@@ -178,11 +178,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example_regions.names[0],
+                    region=example.names[0],
                     registry_id=current.account_id,
                 )],
             )],
@@ -195,16 +195,16 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[
                     aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example_regions.names[0],
+                        region=example.names[0],
                         registry_id=current.account_id,
                     ),
                     aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example_regions.names[1],
+                        region=example.names[1],
                         registry_id=current.account_id,
                     ),
                 ],
@@ -219,11 +219,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_regions = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+        example = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
             rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
                 destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example_regions.names[0],
+                    region=example.names[0],
                     registry_id=current.account_id,
                 )],
                 repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(

@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewProvisionedModelThroughput(ctx, "example", &bedrock.ProvisionedModelThroughputArgs{
-//				CommitmentDuration:   pulumi.String("SixMonths"),
-//				ModelArn:             pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2"),
-//				ModelUnits:           pulumi.Int(1),
 //				ProvisionedModelName: pulumi.String("example-model"),
+//				ModelArn:             pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2"),
+//				CommitmentDuration:   pulumi.String("SixMonths"),
+//				ModelUnits:           pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

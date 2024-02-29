@@ -30,18 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
+//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
+//				StorageCapacity:    pulumi.Int(64),
+//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
+//			_, err = fsx.NewOpenZfsSnapshot(ctx, "example", &fsx.OpenZfsSnapshotArgs{
+//				Name:     pulumi.String("example"),
 //				VolumeId: exampleOpenZfsFileSystem.RootVolumeId,
 //			})
 //			if err != nil {
@@ -66,24 +65,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
+//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
+//				StorageCapacity:    pulumi.Int(64),
+//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleOpenZfsVolume, err := fsx.NewOpenZfsVolume(ctx, "exampleOpenZfsVolume", &fsx.OpenZfsVolumeArgs{
+//			exampleOpenZfsVolume, err := fsx.NewOpenZfsVolume(ctx, "example", &fsx.OpenZfsVolumeArgs{
+//				Name:           pulumi.String("example"),
 //				ParentVolumeId: exampleOpenZfsFileSystem.RootVolumeId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
+//			_, err = fsx.NewOpenZfsSnapshot(ctx, "example", &fsx.OpenZfsSnapshotArgs{
+//				Name:     pulumi.String("example"),
 //				VolumeId: exampleOpenZfsVolume.ID(),
 //			})
 //			if err != nil {

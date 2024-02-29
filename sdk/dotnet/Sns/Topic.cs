@@ -22,7 +22,10 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
+    ///     {
+    ///         Name = "user-updates-topic",
+    ///     });
     /// 
     /// });
     /// ```
@@ -36,8 +39,9 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
+    ///         Name = "user-updates-topic",
     ///         DeliveryPolicy = @"{
     ///   ""http"": {
     ///     ""defaultHealthyRetryPolicy"": {
@@ -55,7 +59,6 @@ namespace Pulumi.Aws.Sns
     ///     }
     ///   }
     /// }
-    /// 
     /// ",
     ///     });
     /// 
@@ -72,8 +75,9 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
+    ///         Name = "user-updates-topic",
     ///         KmsMasterKeyId = "alias/aws/sns",
     ///     });
     /// 
@@ -90,10 +94,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
-    ///         ContentBasedDeduplication = true,
+    ///         Name = "user-updates-topic.fifo",
     ///         FifoTopic = true,
+    ///         ContentBasedDeduplication = true,
     ///     });
     /// 
     /// });

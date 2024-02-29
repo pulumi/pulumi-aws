@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .languageCode(&#34;en&#34;)
  *             .type(&#34;CUSTOM&#34;)
@@ -80,13 +81,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .schedule(&#34;cron(9 10 1 * ? *)&#34;)
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -120,14 +122,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
- *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, aws_s3_bucket.example().id()))
+ *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, exampleAwsS3Bucket.id()))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -162,12 +165,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .exclusionPatterns(&#34;example&#34;)
  *                     .inclusionPatterns(&#34;hello&#34;)
  *                     .inclusionPrefixes(&#34;world&#34;)
@@ -209,9 +213,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
@@ -253,9 +258,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
@@ -297,9 +303,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
@@ -329,7 +336,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -344,14 +350,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .authenticationConfiguration(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.builder()
  *                         .basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs.builder()
- *                             .credentials(aws_secretsmanager_secret.example().arn())
+ *                             .credentials(exampleAwsSecretsmanagerSecret.arn())
  *                             .host(&#34;a.example.com&#34;)
  *                             .port(&#34;443&#34;)
  *                             .build())
@@ -363,9 +370,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_secretsmanager_secret_version.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -397,9 +402,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .crawlDepth(3)
@@ -442,9 +448,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .maxLinksPerPage(100)
@@ -487,9 +494,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .maxUrlsPerMinuteCrawlRate(300)
@@ -519,7 +527,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -534,13 +541,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .proxyConfiguration(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs.builder()
- *                         .credentials(aws_secretsmanager_secret.example().arn())
+ *                         .credentials(exampleAwsSecretsmanagerSecret.arn())
  *                         .host(&#34;a.example.com&#34;)
  *                         .port(&#34;443&#34;)
  *                         .build())
@@ -551,9 +559,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_secretsmanager_secret_version.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -585,9 +591,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;example&#34;)
  *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urlExclusionPatterns(&#34;example&#34;)

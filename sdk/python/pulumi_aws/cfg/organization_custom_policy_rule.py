@@ -496,21 +496,21 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.OrganizationCustomPolicyRule("example",
+            name="example_rule_name",
             policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+            policy_text=\"\"\"let status = ['ACTIVE']
 
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
+        rule tableisactive when
+            resourceType == "AWS::DynamoDB::Table" {
+            configuration.tableStatus == %status
+        }
 
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
+        rule checkcompliance when
+            resourceType == "AWS::DynamoDB::Table"
+            tableisactive {
+                let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+                %pitr == "ENABLED"
+            }
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```
@@ -560,21 +560,21 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.OrganizationCustomPolicyRule("example",
+            name="example_rule_name",
             policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+            policy_text=\"\"\"let status = ['ACTIVE']
 
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
+        rule tableisactive when
+            resourceType == "AWS::DynamoDB::Table" {
+            configuration.tableStatus == %status
+        }
 
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
+        rule checkcompliance when
+            resourceType == "AWS::DynamoDB::Table"
+            tableisactive {
+                let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+                %pitr == "ENABLED"
+            }
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```

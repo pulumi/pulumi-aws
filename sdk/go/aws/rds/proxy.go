@@ -29,23 +29,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+//				Name:              pulumi.String("example"),
 //				DebugLogging:      pulumi.Bool(false),
 //				EngineFamily:      pulumi.String("MYSQL"),
 //				IdleClientTimeout: pulumi.Int(1800),
 //				RequireTls:        pulumi.Bool(true),
-//				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:           pulumi.Any(exampleAwsIamRole.Arn),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
 //				VpcSubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				Auths: rds.ProxyAuthArray{
 //					&rds.ProxyAuthArgs{
 //						AuthScheme:  pulumi.String("SECRETS"),
 //						Description: pulumi.String("example"),
 //						IamAuth:     pulumi.String("DISABLED"),
-//						SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
+//						SecretArn:   pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

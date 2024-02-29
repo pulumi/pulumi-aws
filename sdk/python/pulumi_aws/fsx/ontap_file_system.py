@@ -757,12 +757,12 @@ class OntapFileSystem(pulumi.CustomResource):
         test = aws.fsx.OntapFileSystem("test",
             storage_capacity=1024,
             subnet_ids=[
-                aws_subnet["test1"]["id"],
-                aws_subnet["test2"]["id"],
+                test1["id"],
+                test2["id"],
             ],
             deployment_type="MULTI_AZ_1",
             throughput_capacity=512,
-            preferred_subnet_id=aws_subnet["test1"]["id"])
+            preferred_subnet_id=test1["id"])
         ```
 
         ## Import
@@ -814,12 +814,12 @@ class OntapFileSystem(pulumi.CustomResource):
         test = aws.fsx.OntapFileSystem("test",
             storage_capacity=1024,
             subnet_ids=[
-                aws_subnet["test1"]["id"],
-                aws_subnet["test2"]["id"],
+                test1["id"],
+                test2["id"],
             ],
             deployment_type="MULTI_AZ_1",
             throughput_capacity=512,
-            preferred_subnet_id=aws_subnet["test1"]["id"])
+            preferred_subnet_id=test1["id"])
         ```
 
         ## Import

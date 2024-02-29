@@ -28,8 +28,8 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
         ///     {
-        ///         ExcludeNumbers = true,
         ///         PasswordLength = 50,
+        ///         ExcludeNumbers = true,
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
         ///     {
-        ///         ExcludeNumbers = true,
         ///         PasswordLength = 50,
+        ///         ExcludeNumbers = true,
         ///     });
         /// 
         /// });

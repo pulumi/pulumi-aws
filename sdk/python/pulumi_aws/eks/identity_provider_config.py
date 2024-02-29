@@ -196,7 +196,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             oidc=aws.eks.IdentityProviderConfigOidcArgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",
@@ -234,7 +234,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             oidc=aws.eks.IdentityProviderConfigOidcArgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",

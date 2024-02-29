@@ -42,12 +42,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IpSet(&#34;example&#34;, IpSetArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .description(&#34;Example IP set&#34;)
+ *             .scope(&#34;REGIONAL&#34;)
+ *             .ipAddressVersion(&#34;IPV4&#34;)
  *             .addresses(            
  *                 &#34;1.2.3.4/32&#34;,
  *                 &#34;5.6.7.8/32&#34;)
- *             .description(&#34;Example IP set&#34;)
- *             .ipAddressVersion(&#34;IPV4&#34;)
- *             .scope(&#34;REGIONAL&#34;)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)

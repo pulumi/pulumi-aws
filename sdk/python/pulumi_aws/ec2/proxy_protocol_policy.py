@@ -115,6 +115,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[
                 aws.elb.LoadBalancerListenerArgs(
@@ -161,6 +162,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[
                 aws.elb.LoadBalancerListenerArgs(

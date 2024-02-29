@@ -23,23 +23,24 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "example-vocab-123",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var @object = new Aws.S3.BucketObjectv2("object", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         Key = "transcribe/test1.txt",
     ///         Source = new FileAsset("test.txt"),
     ///     });
     /// 
-    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new()
+    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("example", new()
     ///     {
     ///         VocabularyName = "example",
     ///         LanguageCode = "en-US",
-    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
+    ///         VocabularyFileUri = Output.Tuple(example.Id, @object.Key).Apply(values =&gt;
     ///         {
     ///             var id = values.Item1;
     ///             var key = values.Item2;
@@ -49,12 +50,6 @@ namespace Pulumi.Aws.Transcribe
     ///         {
     ///             { "tag1", "value1" },
     ///             { "tag2", "value3" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             @object,
     ///         },
     ///     });
     /// 

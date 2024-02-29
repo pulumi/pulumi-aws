@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.0.0.0/16"),
 //				EnableDnsSupport:   pulumi.Bool(true),
 //				EnableDnsHostnames: pulumi.Bool(true),
@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewResolverDnsSecConfig(ctx, "exampleResolverDnsSecConfig", &route53.ResolverDnsSecConfigArgs{
-//				ResourceId: exampleVpc.ID(),
+//			_, err = route53.NewResolverDnsSecConfig(ctx, "example", &route53.ResolverDnsSecConfigArgs{
+//				ResourceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -34,15 +34,15 @@ import (
 //			_, err := dms.NewReplicationTask(ctx, "test", &dms.ReplicationTaskArgs{
 //				CdcStartTime:            pulumi.String("1993-05-21T05:50:00Z"),
 //				MigrationType:           pulumi.String("full-load"),
-//				ReplicationInstanceArn:  pulumi.Any(aws_dms_replication_instance.TestDmsReplicationInstanceTf.Replication_instance_arn),
+//				ReplicationInstanceArn:  pulumi.Any(test_dms_replication_instance_tf.ReplicationInstanceArn),
 //				ReplicationTaskId:       pulumi.String("test-dms-replication-task-tf"),
 //				ReplicationTaskSettings: pulumi.String("..."),
-//				SourceEndpointArn:       pulumi.Any(aws_dms_endpoint.TestDmsSourceEndpointTf.Endpoint_arn),
+//				SourceEndpointArn:       pulumi.Any(test_dms_source_endpoint_tf.EndpointArn),
 //				TableMappings:           pulumi.String("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test"),
 //				},
-//				TargetEndpointArn: pulumi.Any(aws_dms_endpoint.TestDmsTargetEndpointTf.Endpoint_arn),
+//				TargetEndpointArn: pulumi.Any(test_dms_target_endpoint_tf.EndpointArn),
 //			})
 //			if err != nil {
 //				return err

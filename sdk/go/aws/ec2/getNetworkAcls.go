@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetworkAcls, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//			example, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(vpcId),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleNetworkAcls.Ids)
+//			ctx.Export("example", example.Ids)
 //			return nil
 //		})
 //	}
@@ -56,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//				VpcId: pulumi.StringRef(vpcId),
 //				Tags: map[string]interface{}{
 //					"Tier": "Private",
 //				},
@@ -85,12 +85,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-// VpcId: pulumi.StringRef(_var.Vpc_id),
+// VpcId: pulumi.StringRef(vpcId),
 // Filters: []ec2.GetNetworkAclsFilter{
 // {
 // Name: "association.subnet-id",
 // Values: interface{}{
-// aws_subnet.Test.Id,
+// test.Id,
 // },
 // },
 // },

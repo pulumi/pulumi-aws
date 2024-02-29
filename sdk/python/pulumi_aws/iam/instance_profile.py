@@ -286,9 +286,12 @@ class InstanceProfile(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         role = aws.iam.Role("role",
+            name="test_role",
             path="/",
             assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
+        test_profile = aws.iam.InstanceProfile("test_profile",
+            name="test_profile",
+            role=role.name)
         ```
 
         ## Import
@@ -331,9 +334,12 @@ class InstanceProfile(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         role = aws.iam.Role("role",
+            name="test_role",
             path="/",
             assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
+        test_profile = aws.iam.InstanceProfile("test_profile",
+            name="test_profile",
+            role=role.name)
         ```
 
         ## Import

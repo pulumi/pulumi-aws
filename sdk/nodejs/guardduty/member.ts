@@ -14,11 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const memberDetector = new aws.guardduty.Detector("memberDetector", {enable: true}, {
- *     provider: aws.dev,
- * });
- * const memberMember = new aws.guardduty.Member("memberMember", {
- *     accountId: memberDetector.accountId,
+ * const member = new aws.guardduty.Detector("member", {enable: true});
+ * const memberMember = new aws.guardduty.Member("member", {
+ *     accountId: member.accountId,
  *     detectorId: primary.id,
  *     email: "required@example.com",
  *     invite: true,

@@ -27,11 +27,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
+    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodb_table_read_target", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
-    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}",
+    ///         ResourceId = $"table/{example.Name}",
     ///         ScalableDimension = "dynamodb:table:ReadCapacityUnits",
     ///         ServiceNamespace = "dynamodb",
     ///     });
@@ -48,11 +48,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new()
+    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodb_index_read_target", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
-    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}/index/{@var.Index_name}",
+    ///         ResourceId = $"table/{example.Name}/index/{indexName}",
     ///         ScalableDimension = "dynamodb:index:ReadCapacityUnits",
     ///         ServiceNamespace = "dynamodb",
     ///     });
@@ -69,11 +69,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
-    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ResourceId = $"service/{example.Name}/{exampleAwsEcsService.Name}",
     ///         ScalableDimension = "ecs:service:DesiredCount",
     ///         ServiceNamespace = "ecs",
     ///     });
@@ -92,11 +92,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// {
     ///     var replicas = new Aws.AppAutoScaling.Target("replicas", new()
     ///     {
-    ///         MaxCapacity = 15,
-    ///         MinCapacity = 1,
-    ///         ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
-    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
     ///         ServiceNamespace = "rds",
+    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///         ResourceId = $"cluster:{example.Id}",
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 15,
     ///     });
     /// 
     /// });
@@ -111,11 +111,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
-    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ResourceId = $"service/{example.Name}/{exampleAwsEcsService.Name}",
     ///         ScalableDimension = "ecs:service:DesiredCount",
     ///         ServiceNamespace = "ecs",
     ///     });
@@ -132,13 +132,13 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
+    ///     var mskTarget = new Aws.AppAutoScaling.Target("msk_target", new()
     ///     {
-    ///         MaxCapacity = 8,
-    ///         MinCapacity = 1,
-    ///         ResourceId = aws_msk_cluster.Example.Arn,
-    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
     ///         ServiceNamespace = "kafka",
+    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///         ResourceId = example.Arn,
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 8,
     ///     });
     /// 
     /// });

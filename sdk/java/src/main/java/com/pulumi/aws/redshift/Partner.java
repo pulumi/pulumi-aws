@@ -39,9 +39,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Partner(&#34;example&#34;, PartnerArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .accountId(1234567910)
- *             .databaseName(aws_redshift_cluster.example().database_name())
+ *             .databaseName(exampleAwsRedshiftCluster.databaseName())
  *             .partnerName(&#34;example&#34;)
  *             .build());
  * 

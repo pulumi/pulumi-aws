@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.LookupCatalogTable(ctx, &glue.LookupCatalogTableArgs{
-//				DatabaseName: "MyCatalogDatabase",
 //				Name:         "MyCatalogTable",
+//				DatabaseName: "MyCatalogDatabase",
 //			}, nil)
 //			if err != nil {
 //				return err

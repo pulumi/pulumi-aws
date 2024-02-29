@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxVolume(ctx, "example", &finspace.KxVolumeArgs{
-//				EnvironmentId:     pulumi.Any(aws_finspace_kx_environment.Example.Id),
+//				Name:              pulumi.String("my-tf-kx-volume"),
+//				EnvironmentId:     pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
 //				AvailabilityZones: pulumi.StringArray("use1-az2"),
 //				AzMode:            pulumi.String("SINGLE"),
 //				Type:              pulumi.String("NAS_1"),

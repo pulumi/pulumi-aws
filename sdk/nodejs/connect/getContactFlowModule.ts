@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getContactFlowModule({
- *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */
@@ -126,8 +126,8 @@ export interface GetContactFlowModuleResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getContactFlowModule({
- *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */

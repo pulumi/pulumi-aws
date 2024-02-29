@@ -15,6 +15,51 @@ import (
 // Resource for managing an AWS SSO Admin Application Access Scope.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplication, err := ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
+//				Name:                   pulumi.String("example"),
+//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
+//				InstanceArn:            notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewApplicationAccessScope(ctx, "example", &ssoadmin.ApplicationAccessScopeArgs{
+//				ApplicationArn: exampleApplication.ApplicationArn,
+//				AuthorizedTargets: pulumi.StringArray{
+//					pulumi.String("arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"),
+//				},
+//				Scope: pulumi.String("sso:account:access"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

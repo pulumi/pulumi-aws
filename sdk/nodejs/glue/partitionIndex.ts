@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "example"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const example = new aws.glue.CatalogDatabase("example", {name: "example"});
+ * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
  *     name: "example",
- *     databaseName: exampleCatalogDatabase.name,
+ *     databaseName: example.name,
  *     owner: "my_owner",
  *     retention: 1,
  *     tableType: "VIRTUAL_VIEW",
@@ -81,8 +81,8 @@ import * as utilities from "../utilities";
  *         param1: "param1_val",
  *     },
  * });
- * const examplePartitionIndex = new aws.glue.PartitionIndex("examplePartitionIndex", {
- *     databaseName: exampleCatalogDatabase.name,
+ * const examplePartitionIndex = new aws.glue.PartitionIndex("example", {
+ *     databaseName: example.name,
  *     tableName: exampleCatalogTable.name,
  *     partitionIndex: {
  *         indexName: "example",

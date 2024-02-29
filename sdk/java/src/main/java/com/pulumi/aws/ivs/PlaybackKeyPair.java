@@ -42,7 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PlaybackKeyPair(&#34;example&#34;, PlaybackKeyPairArgs.builder()        
- *             .publicKey(Files.readString(Paths.get(&#34;./public-key.pem&#34;)))
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;./public-key.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

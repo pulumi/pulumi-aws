@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftserverless.NewSnapshot(ctx, "example", &redshiftserverless.SnapshotArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Namespace_name),
+//				NamespaceName: pulumi.Any(exampleAwsRedshiftserverlessWorkgroup.NamespaceName),
 //				SnapshotName:  pulumi.String("example"),
 //			})
 //			if err != nil {

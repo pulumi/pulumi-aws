@@ -27,13 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &wafregional.SqlInjectionMatchSetArgs{
+//			_, err := wafregional.NewSqlInjectionMatchSet(ctx, "sql_injection_match_set", &wafregional.SqlInjectionMatchSetArgs{
+//				Name: pulumi.String("tf-sql_injection_match_set"),
 //				SqlInjectionMatchTuples: wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
 //					&wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
+//						TextTransformation: pulumi.String("URL_DECODE"),
 //						FieldToMatch: &wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
-//						TextTransformation: pulumi.String("URL_DECODE"),
 //					},
 //				},
 //			})

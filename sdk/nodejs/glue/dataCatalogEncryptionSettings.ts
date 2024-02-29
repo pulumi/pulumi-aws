@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.DataCatalogEncryptionSettings("example", {dataCatalogEncryptionSettings: {
  *     connectionPasswordEncryption: {
- *         awsKmsKeyId: aws_kms_key.test.arn,
+ *         awsKmsKeyId: test.arn,
  *         returnConnectionPasswordEncrypted: true,
  *     },
  *     encryptionAtRest: {
  *         catalogEncryptionMode: "SSE-KMS",
- *         sseAwsKmsKeyId: aws_kms_key.test.arn,
+ *         sseAwsKmsKeyId: test.arn,
  *     },
  * }});
  * ```

@@ -27,11 +27,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleRole = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const test = aws.sagemaker.getPrebuiltEcrImage({
  *     repositoryName: "kmeans",
  * });
- * const exampleModel = new aws.sagemaker.Model("exampleModel", {
+ * const example = new aws.sagemaker.Model("example", {
+ *     name: "my-model",
  *     executionRoleArn: exampleRole.arn,
  *     primaryContainer: {
  *         image: test.then(test => test.registryPath),

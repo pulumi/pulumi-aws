@@ -32,13 +32,13 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
-    ///         ApplyImmediately = true,
-    ///         BackupRetentionPeriod = 5,
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
-    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///         SkipFinalSnapshot = true,
+    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });

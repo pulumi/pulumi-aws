@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Parameter(&#34;foo&#34;, ParameterArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .type(&#34;String&#34;)
  *             .value(&#34;bar&#34;)
  *             .build());
@@ -86,15 +87,16 @@ import javax.annotation.Nullable;
  *             .instanceClass(&#34;db.t2.micro&#34;)
  *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
- *             .password(var_.database_master_password())
+ *             .password(databaseMasterPassword)
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
  *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .build());
  * 
  *         var secret = new Parameter(&#34;secret&#34;, ParameterArgs.builder()        
+ *             .name(&#34;/production/database/password/master&#34;)
  *             .description(&#34;The parameter description&#34;)
  *             .type(&#34;SecureString&#34;)
- *             .value(var_.database_master_password())
+ *             .value(databaseMasterPassword)
  *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
  *             .build());
  * 

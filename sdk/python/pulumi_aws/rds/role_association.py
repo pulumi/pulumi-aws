@@ -144,9 +144,9 @@ class RoleAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.RoleAssociation("example",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
+            db_instance_identifier=example_aws_db_instance["identifier"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -184,9 +184,9 @@ class RoleAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.RoleAssociation("example",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
+            db_instance_identifier=example_aws_db_instance["identifier"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

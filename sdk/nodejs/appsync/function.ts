@@ -16,8 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {
+ * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
+ *     name: "example",
  *     schema: `type Mutation {
  *   putPost(id: ID!, title: String!): Post
  * }
@@ -37,16 +38,16 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
- *     apiId: exampleGraphQLApi.id,
+ * const exampleDataSource = new aws.appsync.DataSource("example", {
+ *     apiId: example.id,
  *     name: "example",
  *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
  * });
- * const exampleFunction = new aws.appsync.Function("exampleFunction", {
- *     apiId: exampleGraphQLApi.id,
+ * const exampleFunction = new aws.appsync.Function("example", {
+ *     apiId: example.id,
  *     dataSource: exampleDataSource.name,
  *     name: "example",
  *     requestMappingTemplate: `{
@@ -71,13 +72,15 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.appsync.Function("example", {
- *     apiId: aws_appsync_graphql_api.example.id,
- *     dataSource: aws_appsync_datasource.example.name,
+ *     apiId: exampleAwsAppsyncGraphqlApi.id,
+ *     dataSource: exampleAwsAppsyncDatasource.name,
  *     name: "example",
- *     code: fs.readFileSync("some-code-dir", "utf8"),
+ *     code: std.file({
+ *         input: "some-code-dir",
+ *     }).then(invoke => invoke.result),
  *     runtime: {
  *         name: "APPSYNC_JS",
  *         runtimeVersion: "1.0.0",

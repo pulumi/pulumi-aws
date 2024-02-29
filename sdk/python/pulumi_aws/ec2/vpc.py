@@ -647,20 +647,19 @@ class Vpc(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        test = aws.ec2.VpcIpam("test", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
+        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=test.private_default_scope_id,
             locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
+        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
+        test_vpc = aws.ec2.Vpc("test",
             ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+            ipv4_netmask_length=28)
         ```
 
         ## Import
@@ -728,20 +727,19 @@ class Vpc(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        test = aws.ec2.VpcIpam("test", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
+        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=test.private_default_scope_id,
             locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
+        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
+        test_vpc = aws.ec2.Vpc("test",
             ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+            ipv4_netmask_length=28)
         ```
 
         ## Import

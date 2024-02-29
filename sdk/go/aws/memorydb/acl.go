@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewAcl(ctx, "example", &memorydb.AclArgs{
+//				Name: pulumi.String("my-acl"),
 //				UserNames: pulumi.StringArray{
 //					pulumi.String("my-user-1"),
 //					pulumi.String("my-user-2"),

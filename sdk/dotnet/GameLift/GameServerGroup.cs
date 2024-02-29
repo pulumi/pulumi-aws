@@ -38,17 +38,11 @@ namespace Pulumi.Aws.GameLift
     ///         },
     ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
     ///         {
-    ///             Id = aws_launch_template.Example.Id,
+    ///             Id = exampleAwsLaunchTemplate.Id,
     ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example,
-    ///         },
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -92,12 +86,12 @@ namespace Pulumi.Aws.GameLift
     ///         },
     ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
     ///         {
-    ///             Id = aws_launch_template.Example.Id,
+    ///             Id = exampleAwsLaunchTemplate.Id,
     ///             Version = "1",
     ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -106,12 +100,6 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             "subnet-12345678",
     ///             "subnet-23456789",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example,
     ///         },
     ///     });
     /// 
@@ -156,15 +144,16 @@ namespace Pulumi.Aws.GameLift
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "gamelift-game-server-group-example",
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-    ///         Role = exampleRole.Name,
+    ///         Role = example.Name,
     ///     });
     /// 
     /// });

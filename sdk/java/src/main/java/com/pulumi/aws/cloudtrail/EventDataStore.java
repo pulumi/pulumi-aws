@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudtrail.EventDataStore;
+ * import com.pulumi.aws.cloudtrail.EventDataStoreArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,7 +51,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventDataStore(&#34;example&#34;);
+ *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
+ *             .name(&#34;example-event-data-store&#34;)
+ *             .build());
  * 
  *     }
  * }

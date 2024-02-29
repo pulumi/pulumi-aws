@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewApp(ctx, "example", &sagemaker.AppArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Example.Id),
-//				UserProfileName: pulumi.Any(aws_sagemaker_user_profile.Example.User_profile_name),
+//				DomainId:        pulumi.Any(exampleAwsSagemakerDomain.Id),
+//				UserProfileName: pulumi.Any(exampleAwsSagemakerUserProfile.UserProfileName),
 //				AppName:         pulumi.String("example"),
 //				AppType:         pulumi.String("JupyterServer"),
 //			})

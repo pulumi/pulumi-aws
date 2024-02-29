@@ -17,10 +17,10 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -29,8 +29,14 @@ namespace Pulumi.Aws.Pinpoint
     ///     var apns = new Aws.Pinpoint.ApnsChannel("apns", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = File.ReadAllText("./certificate.pem"),
-    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///         Certificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./private_key.key",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

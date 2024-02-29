@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewServiceSetting(ctx, "testSetting", &ssm.ServiceSettingArgs{
+//			_, err := ssm.NewServiceSetting(ctx, "test_setting", &ssm.ServiceSettingArgs{
 //				SettingId:    pulumi.String("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled"),
 //				SettingValue: pulumi.String("true"),
 //			})

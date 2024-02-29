@@ -296,7 +296,7 @@ class UserProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
+            domain_id=test["id"],
             user_profile_name="example")
         ```
 
@@ -334,7 +334,7 @@ class UserProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
+            domain_id=test["id"],
             user_profile_name="example")
         ```
 

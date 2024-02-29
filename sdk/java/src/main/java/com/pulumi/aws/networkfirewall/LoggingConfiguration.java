@@ -42,11 +42,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.ofEntries(
- *                         Map.entry(&#34;bucketName&#34;, aws_s3_bucket.example().bucket()),
+ *                         Map.entry(&#34;bucketName&#34;, exampleAwsS3Bucket.bucket()),
  *                         Map.entry(&#34;prefix&#34;, &#34;/example&#34;)
  *                     ))
  *                     .logDestinationType(&#34;S3&#34;)
@@ -82,10 +82,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;logGroup&#34;, aws_cloudwatch_log_group.example().name()))
+ *                     .logDestination(Map.of(&#34;logGroup&#34;, exampleAwsCloudwatchLogGroup.name()))
  *                     .logDestinationType(&#34;CloudWatchLogs&#34;)
  *                     .logType(&#34;ALERT&#34;)
  *                     .build())
@@ -119,10 +119,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;deliveryStream&#34;, aws_kinesis_firehose_delivery_stream.example().name()))
+ *                     .logDestination(Map.of(&#34;deliveryStream&#34;, exampleAwsKinesisFirehoseDeliveryStream.name()))
  *                     .logDestinationType(&#34;KinesisDataFirehose&#34;)
  *                     .logType(&#34;ALERT&#34;)
  *                     .build())

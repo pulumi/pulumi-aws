@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.random.RandomPassword;
- * import com.pulumi.random.RandomPasswordArgs;
+ * import com.pulumi.random.password;
+ * import com.pulumi.random.PasswordArgs;
  * import com.pulumi.aws.memorydb.User;
  * import com.pulumi.aws.memorydb.UserArgs;
  * import com.pulumi.aws.memorydb.inputs.UserAuthenticationModeArgs;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRandomPassword = new RandomPassword(&#34;exampleRandomPassword&#34;, RandomPasswordArgs.builder()        
+ *         var example = new Password(&#34;example&#34;, PasswordArgs.builder()        
  *             .length(16)
  *             .build());
  * 
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .accessString(&#34;on ~* &amp;* +@all&#34;)
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type(&#34;password&#34;)
- *                 .passwords(exampleRandomPassword.result())
+ *                 .passwords(example.result())
  *                 .build())
  *             .build());
  * 

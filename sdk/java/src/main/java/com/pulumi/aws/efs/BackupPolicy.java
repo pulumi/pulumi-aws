@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.efs.FileSystem;
+ * import com.pulumi.aws.efs.FileSystemArgs;
  * import com.pulumi.aws.efs.BackupPolicy;
  * import com.pulumi.aws.efs.BackupPolicyArgs;
  * import com.pulumi.aws.efs.inputs.BackupPolicyBackupPolicyArgs;
@@ -42,7 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem(&#34;fs&#34;);
+ *         var fs = new FileSystem(&#34;fs&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
+ *             .build());
  * 
  *         var policy = new BackupPolicy(&#34;policy&#34;, BackupPolicyArgs.builder()        
  *             .fileSystemId(fs.id())

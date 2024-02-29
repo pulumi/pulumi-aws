@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Vpc
         /// {
         ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
         ///     {
-        ///         SecurityGroupRuleId = @var.Security_group_rule_id,
+        ///         SecurityGroupRuleId = securityGroupRuleId,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Vpc
         /// {
         ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
         ///     {
-        ///         SecurityGroupRuleId = @var.Security_group_rule_id,
+        ///         SecurityGroupRuleId = securityGroupRuleId,
         ///     });
         /// 
         /// });

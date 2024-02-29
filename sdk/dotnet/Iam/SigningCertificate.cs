@@ -19,17 +19,20 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.SigningCertificate("test_cert", new()
     ///     {
     ///         Username = "some_test_cert",
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -45,14 +48,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.SigningCertificate("test_cert_alt", new()
     ///     {
+    ///         Username = "some_test_cert",
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
     /// -----END CERTIFICATE-----
-    /// 
     /// ",
-    ///         Username = "some_test_cert",
     ///     });
     /// 
     /// });

@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Response;
  * import com.pulumi.aws.apigateway.ResponseArgs;
  * import java.util.List;
@@ -41,7 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new RestApi(&#34;main&#34;);
+ *         var main = new RestApi(&#34;main&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
+ *             .build());
  * 
  *         var test = new Response(&#34;test&#34;, ResponseArgs.builder()        
  *             .restApiId(main.id())

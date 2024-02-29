@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *         var test = new OntapFileSystem(&#34;test&#34;, OntapFileSystemArgs.builder()        
  *             .storageCapacity(1024)
  *             .subnetIds(            
- *                 aws_subnet.test1().id(),
- *                 aws_subnet.test2().id())
+ *                 test1.id(),
+ *                 test2.id())
  *             .deploymentType(&#34;MULTI_AZ_1&#34;)
  *             .throughputCapacity(512)
- *             .preferredSubnetId(aws_subnet.test1().id())
+ *             .preferredSubnetId(test1.id())
  *             .build());
  * 
  *     }

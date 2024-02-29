@@ -44,9 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var iot = new DomainConfiguration(&#34;iot&#34;, DomainConfigurationArgs.builder()        
+ *             .name(&#34;iot-&#34;)
  *             .domainName(&#34;iot.example.com&#34;)
  *             .serviceType(&#34;DATA&#34;)
- *             .serverCertificateArns(aws_acm_certificate.cert().arn())
+ *             .serverCertificateArns(cert.arn())
  *             .build());
  * 
  *     }

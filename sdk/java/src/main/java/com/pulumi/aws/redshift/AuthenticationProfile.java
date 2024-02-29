@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  *             .authenticationProfileName(&#34;example&#34;)
  *             .authenticationProfileContent(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;AllowDBUserOverride&#34;, &#34;1&#34;),
- *                     jsonProperty(&#34;Client_ID&#34;, &#34;ExampleClientID&#34;),
- *                     jsonProperty(&#34;App_ID&#34;, &#34;example&#34;)
+ *                     jsonProperty(&#34;allowDBUserOverride&#34;, &#34;1&#34;),
+ *                     jsonProperty(&#34;clientID&#34;, &#34;ExampleClientID&#34;),
+ *                     jsonProperty(&#34;appID&#34;, &#34;example&#34;)
  *                 )))
  *             .build());
  * 

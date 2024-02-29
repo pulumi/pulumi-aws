@@ -306,7 +306,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_id=example_aws_lexv2models_bot["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
@@ -318,7 +318,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_id=example_aws_lexv2models_bot["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,
@@ -365,7 +365,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_id=example_aws_lexv2models_bot["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
@@ -377,7 +377,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_id=example_aws_lexv2models_bot["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,

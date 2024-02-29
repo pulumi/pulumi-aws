@@ -33,7 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Lightsail Key Pair
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", nil)
+//			_, err := lightsail.NewKeyPair(ctx, "lg_key_pair", &lightsail.KeyPairArgs{
+//				Name: pulumi.String("lg_key_pair"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -56,7 +58,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", &lightsail.KeyPairArgs{
+//			_, err := lightsail.NewKeyPair(ctx, "lg_key_pair", &lightsail.KeyPairArgs{
+//				Name:   pulumi.String("lg_key_pair"),
 //				PgpKey: pulumi.String("keybase:keybaseusername"),
 //			})
 //			if err != nil {
@@ -74,25 +77,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", &lightsail.KeyPairArgs{
-//				PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lightsail.NewKeyPair(ctx, "lg_key_pair", &lightsail.KeyPairArgs{
+//				Name:      pulumi.String("importing"),
+//				PublicKey: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

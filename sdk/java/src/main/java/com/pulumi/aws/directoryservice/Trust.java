@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;MicrosoftAD&#34;)
  *             .build());
  * 
- *         var oneTrust = new Trust(&#34;oneTrust&#34;, TrustArgs.builder()        
+ *         var one = new Trust(&#34;one&#34;, TrustArgs.builder()        
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
  *             .trustDirection(&#34;Two-Way&#34;)
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var twoTrust = new Trust(&#34;twoTrust&#34;, TrustArgs.builder()        
+ *         var two = new Trust(&#34;two&#34;, TrustArgs.builder()        
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
  *             .trustDirection(&#34;Two-Way&#34;)
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;MicrosoftAD&#34;)
  *             .build());
  * 
- *         var oneTrust = new Trust(&#34;oneTrust&#34;, TrustArgs.builder()        
+ *         var one = new Trust(&#34;one&#34;, TrustArgs.builder()        
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
  *             .trustDirection(&#34;One-Way: Incoming&#34;)
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var twoTrust = new Trust(&#34;twoTrust&#34;, TrustArgs.builder()        
+ *         var two = new Trust(&#34;two&#34;, TrustArgs.builder()        
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
  *             .trustDirection(&#34;One-Way: Outgoing&#34;)

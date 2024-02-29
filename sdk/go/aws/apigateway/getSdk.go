@@ -26,8 +26,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.GetSdk(ctx, &apigateway.GetSdkArgs{
-//				RestApiId: aws_api_gateway_stage.Example.Rest_api_id,
-//				StageName: aws_api_gateway_stage.Example.Stage_name,
+//				RestApiId: exampleAwsApiGatewayStage.RestApiId,
+//				StageName: exampleAwsApiGatewayStage.StageName,
 //				SdkType:   "android",
 //				Parameters: map[string]interface{}{
 //					"groupId":         "example",

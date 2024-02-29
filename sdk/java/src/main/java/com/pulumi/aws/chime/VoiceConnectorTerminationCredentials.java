@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentials;
  * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentialsArgs;
  * import com.pulumi.aws.chime.inputs.VoiceConnectorTerminationCredentialsCredentialArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .requireEncryption(true)
  *             .build());
  * 
@@ -59,18 +59,16 @@ import javax.annotation.Nullable;
  *             .callingRegions(            
  *                 &#34;US&#34;,
  *                 &#34;CA&#34;)
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .build());
  * 
  *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials(&#34;defaultVoiceConnectorTerminationCredentials&#34;, VoiceConnectorTerminationCredentialsArgs.builder()        
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .credentials(VoiceConnectorTerminationCredentialsCredentialArgs.builder()
  *                 .username(&#34;test&#34;)
  *                 .password(&#34;test!&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(defaultVoiceConnectorTermination)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

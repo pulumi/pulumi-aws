@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.VpcLink("example", {
- *     securityGroupIds: [data.aws_security_group.example.id],
- *     subnetIds: data.aws_subnets.example.ids,
+ *     name: "example",
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     subnetIds: exampleAwsSubnets.ids,
  *     tags: {
  *         Usage: "example",
  *     },

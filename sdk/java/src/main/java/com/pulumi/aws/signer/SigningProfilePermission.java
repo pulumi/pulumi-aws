@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *         var spPermission1 = new SigningProfilePermission(&#34;spPermission1&#34;, SigningProfilePermissionArgs.builder()        
  *             .profileName(prodSp.name())
  *             .action(&#34;signer:StartSigningJob&#34;)
- *             .principal(var_.aws_account())
+ *             .principal(awsAccount)
  *             .build());
  * 
  *         var spPermission2 = new SigningProfilePermission(&#34;spPermission2&#34;, SigningProfilePermissionArgs.builder()        
  *             .profileName(prodSp.name())
  *             .action(&#34;signer:GetSigningProfile&#34;)
- *             .principal(var_.aws_team_role_arn())
+ *             .principal(awsTeamRoleArn)
  *             .statementId(&#34;ProdAccountStartSigningJob_StatementId&#34;)
  *             .build());
  * 

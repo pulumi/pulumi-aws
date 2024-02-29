@@ -32,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRegistry, err := schemas.NewRegistry(ctx, "testRegistry", nil)
+//			test, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
+//				Name: pulumi.String("my_own_registry"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -60,8 +62,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = schemas.NewSchema(ctx, "testSchema", &schemas.SchemaArgs{
-//				RegistryName: testRegistry.Name,
+//			_, err = schemas.NewSchema(ctx, "test", &schemas.SchemaArgs{
+//				Name:         pulumi.String("my_schema"),
+//				RegistryName: test.Name,
 //				Type:         pulumi.String("OpenApi3"),
 //				Description:  pulumi.String("The schema definition for my event"),
 //				Content:      pulumi.String(json0),

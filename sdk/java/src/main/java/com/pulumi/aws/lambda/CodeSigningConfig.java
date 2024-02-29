@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *         var newCsc = new CodeSigningConfig(&#34;newCsc&#34;, CodeSigningConfigArgs.builder()        
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
- *                     aws_signer_signing_profile.example1().arn(),
- *                     aws_signer_signing_profile.example2().arn())
+ *                     example1.arn(),
+ *                     example2.arn())
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment(&#34;Warn&#34;)

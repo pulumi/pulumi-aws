@@ -11,6 +11,140 @@ import * as utilities from "../utilities";
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
  *
  * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["dlm.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
+ *     name: "dlm-lifecycle-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const dlmLifecycle = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: [
+ *                 "ec2:CreateSnapshot",
+ *                 "ec2:CreateSnapshots",
+ *                 "ec2:DeleteSnapshot",
+ *                 "ec2:DescribeInstances",
+ *                 "ec2:DescribeVolumes",
+ *                 "ec2:DescribeSnapshots",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["ec2:CreateTags"],
+ *             resources: ["arn:aws:ec2:*::snapshot/*"],
+ *         },
+ *     ],
+ * });
+ * const dlmLifecycleRolePolicy = new aws.iam.RolePolicy("dlm_lifecycle", {
+ *     name: "dlm-lifecycle-policy",
+ *     role: dlmLifecycleRole.id,
+ *     policy: dlmLifecycle.then(dlmLifecycle => dlmLifecycle.json),
+ * });
+ * const example = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
+ *     policyDetails: {
+ *         resourceTypes: "VOLUME",
+ *         schedules: [{
+ *             name: "2 weeks of daily snapshots",
+ *             createRule: {
+ *                 interval: 24,
+ *                 intervalUnit: "HOURS",
+ *                 times: "23:45",
+ *             },
+ *             retainRule: {
+ *                 count: 14,
+ *             },
+ *             tagsToAdd: {
+ *                 SnapshotCreator: "DLM",
+ *             },
+ *             copyTags: false,
+ *         }],
+ *         targetTags: {
+ *             Snapshot: "true",
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Example Cross-Region Snapshot Copy Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...other configuration...
+ * const current = aws.getCallerIdentity({});
+ * const key = current.then(current => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "Enable IAM User Permissions",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
+ *         }],
+ *         actions: ["kms:*"],
+ *         resources: ["*"],
+ *     }],
+ * }));
+ * const dlmCrossRegionCopyCmk = new aws.kms.Key("dlm_cross_region_copy_cmk", {
+ *     description: "Example Alternate Region KMS Key",
+ *     policy: key.then(key => key.json),
+ * });
+ * const example = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
+ *     policyDetails: {
+ *         resourceTypes: "VOLUME",
+ *         schedules: [{
+ *             name: "2 weeks of daily snapshots",
+ *             createRule: {
+ *                 interval: 24,
+ *                 intervalUnit: "HOURS",
+ *                 times: "23:45",
+ *             },
+ *             retainRule: {
+ *                 count: 14,
+ *             },
+ *             tagsToAdd: {
+ *                 SnapshotCreator: "DLM",
+ *             },
+ *             copyTags: false,
+ *             crossRegionCopyRules: [{
+ *                 target: "us-west-2",
+ *                 encrypted: true,
+ *                 cmkArn: dlmCrossRegionCopyCmk.arn,
+ *                 copyTags: true,
+ *                 retainRule: {
+ *                     interval: 30,
+ *                     intervalUnit: "DAYS",
+ *                 },
+ *             }],
+ *         }],
+ *         targetTags: {
+ *             Snapshot: "true",
+ *         },
+ *     },
+ * });
+ * ```
  * ### Example Event Based Policy Usage
  *
  * ```typescript
@@ -18,9 +152,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("exampleLifecyclePolicy", {
+ * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("example", {
  *     description: "tf-acc-basic",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
  *     policyDetails: {
  *         policyType: "EVENT_BASED_POLICY",
  *         action: {
@@ -44,12 +178,12 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const examplePolicy = aws.iam.getPolicy({
+ * const example = aws.iam.getPolicy({
  *     name: "AWSDataLifecycleManagerServiceRole",
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: aws_iam_role.example.id,
- *     policyArn: examplePolicy.then(examplePolicy => examplePolicy.arn),
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     role: exampleAwsIamRole.id,
+ *     policyArn: example.then(example => example.arn),
  * });
  * ```
  *

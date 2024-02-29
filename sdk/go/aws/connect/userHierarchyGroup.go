@@ -34,6 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
 //				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:       pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group"),
 //				},
@@ -62,6 +63,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
 //				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:       pulumi.String("parent"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group Parent"),
 //				},
@@ -71,6 +73,7 @@ import (
 //			}
 //			_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
 //				InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:          pulumi.String("child"),
 //				ParentGroupId: parent.HierarchyGroupId,
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group Child"),

@@ -174,10 +174,10 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.0.0.0/16")
-        test_vpc_ipv6_cidr_block_association = aws.ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation",
-            ipv6_ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-            vpc_id=test_vpc.id)
+        test = aws.ec2.Vpc("test", cidr_block="10.0.0.0/16")
+        test_vpc_ipv6_cidr_block_association = aws.ec2.VpcIpv6CidrBlockAssociation("test",
+            ipv6_ipam_pool_id=test_aws_vpc_ipam_pool["id"],
+            vpc_id=test.id)
         ```
 
         ## Import
@@ -212,10 +212,10 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.0.0.0/16")
-        test_vpc_ipv6_cidr_block_association = aws.ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation",
-            ipv6_ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-            vpc_id=test_vpc.id)
+        test = aws.ec2.Vpc("test", cidr_block="10.0.0.0/16")
+        test_vpc_ipv6_cidr_block_association = aws.ec2.VpcIpv6CidrBlockAssociation("test",
+            ipv6_ipam_pool_id=test_aws_vpc_ipam_pool["id"],
+            vpc_id=test.id)
         ```
 
         ## Import

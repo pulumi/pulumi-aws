@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const vpn = new aws.ec2.VpnGateway("vpn", {tags: {
  *     Name: "example-vpn-gateway",
  * }});
- * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpnAttachment", {
+ * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpn_attachment", {
  *     vpcId: network.id,
  *     vpnGatewayId: vpn.id,
  * });

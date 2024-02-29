@@ -48,9 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(exampleAwsSsmDocument.name())
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 
@@ -83,6 +84,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
  *                 .values(&#34;*&#34;)
@@ -118,6 +120,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;tag:Environment&#34;)
  *                 .values(&#34;Development&#34;)
@@ -153,10 +156,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(exampleAwsSsmDocument.name())
  *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 

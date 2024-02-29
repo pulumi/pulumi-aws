@@ -733,6 +733,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -765,7 +766,7 @@ class LoadBalancer(pulumi.CustomResource):
                 target="HTTP:8000/",
                 interval=30,
             ),
-            instances=[aws_instance["foo"]["id"]],
+            instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
             connection_draining=True,
@@ -843,6 +844,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -875,7 +877,7 @@ class LoadBalancer(pulumi.CustomResource):
                 target="HTTP:8000/",
                 interval=30,
             ),
-            instances=[aws_instance["foo"]["id"]],
+            instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
             connection_draining=True,

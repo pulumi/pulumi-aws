@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.OriginRequestPolicy("example", {
+ *     name: "example-policy",
  *     comment: "example comment",
  *     cookiesConfig: {
  *         cookieBehavior: "whitelist",

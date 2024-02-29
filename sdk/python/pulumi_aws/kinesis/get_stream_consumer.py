@@ -111,7 +111,7 @@ def get_stream_consumer(arn: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=aws_kinesis_stream["example"]["arn"])
+        stream_arn=example_aws_kinesis_stream["arn"])
     ```
 
 
@@ -152,7 +152,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     import pulumi_aws as aws
 
     example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=aws_kinesis_stream["example"]["arn"])
+        stream_arn=example_aws_kinesis_stream["arn"])
     ```
 
 

@@ -28,6 +28,11 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
@@ -46,11 +51,6 @@ namespace Pulumi.Aws.Ebs
         ///                     "Example",
         ///                 },
         ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
         ///         },
         ///     });
         /// 
@@ -79,6 +79,11 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
@@ -97,11 +102,6 @@ namespace Pulumi.Aws.Ebs
         ///                     "Example",
         ///                 },
         ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
         ///         },
         ///     });
         /// 

@@ -62,17 +62,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "Customer Profiles SQS policy",
-//						"Effect": "Allow",
-//						"Action": []string{
+//						"sid":    "Customer Profiles SQS policy",
+//						"effect": "Allow",
+//						"action": []string{
 //							"sqs:SendMessage",
 //						},
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"Service": "profile.amazonaws.com",
+//						"resource": "*",
+//						"principal": map[string]interface{}{
+//							"service": "profile.amazonaws.com",
 //						},
 //					},
 //				},
@@ -81,48 +81,50 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", &sqs.QueueArgs{
+//			example, err := sqs.NewQueue(ctx, "example", &sqs.QueueArgs{
+//				Name:   pulumi.String("example"),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("example"),
 //				DeletionWindowInDays: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
 //				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleBucketV2Arn := _args[0].(string)
 //					exampleBucketV2Arn1 := _args[1].(string)
 //					var _zero string
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Sid":    "Customer Profiles S3 policy",
-//								"Effect": "Allow",
-//								"Action": []string{
+//								"sid":    "Customer Profiles S3 policy",
+//								"effect": "Allow",
+//								"action": []string{
 //									"s3:GetObject",
 //									"s3:PutObject",
 //									"s3:ListBucket",
 //								},
-//								"Resource": []string{
+//								"resource": []string{
 //									exampleBucketV2Arn,
 //									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
 //								},
-//								"Principal": map[string]interface{}{
-//									"Service": "profile.amazonaws.com",
+//								"principal": map[string]interface{}{
+//									"service": "profile.amazonaws.com",
 //								},
 //							},
 //						},
@@ -138,8 +140,8 @@ import (
 //				return err
 //			}
 //			_, err = customerprofiles.NewDomain(ctx, "test", &customerprofiles.DomainArgs{
-//				DomainName:            pulumi.Any(example),
-//				DeadLetterQueueUrl:    exampleQueue.ID(),
+//				DomainName:            example,
+//				DeadLetterQueueUrl:    example.ID(),
 //				DefaultEncryptionKey:  exampleKey.Arn,
 //				DefaultExpirationDays: pulumi.Int(365),
 //			})

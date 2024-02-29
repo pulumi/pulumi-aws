@@ -19,11 +19,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -43,11 +44,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -59,7 +61,7 @@ import * as utilities from "../utilities";
  *     }],
  *     columnLevelPermissionRules: [{
  *         columnNames: ["Column1"],
- *         principals: [aws_quicksight_user.example.arn],
+ *         principals: [exampleAwsQuicksightUser.arn],
  *     }],
  * });
  * ```
@@ -71,11 +73,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -100,11 +103,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -122,7 +126,7 @@ import * as utilities from "../utilities";
  *             "quicksight:DescribeIngestion",
  *             "quicksight:ListIngestions",
  *         ],
- *         principal: aws_quicksight_user.example.arn,
+ *         principal: exampleAwsQuicksightUser.arn,
  *     }],
  * });
  * ```
@@ -134,11 +138,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",

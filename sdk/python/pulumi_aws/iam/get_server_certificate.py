@@ -168,13 +168,15 @@ def get_server_certificate(latest: Optional[bool] = None,
 
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
-        instance_port=8000,
-        instance_protocol="https",
-        lb_port=443,
-        lb_protocol="https",
-        ssl_certificate_id=my_domain.arn,
-    )])
+    elb = aws.elb.LoadBalancer("elb",
+        name="my-domain-elb",
+        listeners=[aws.elb.LoadBalancerListenerArgs(
+            instance_port=8000,
+            instance_protocol="https",
+            lb_port=443,
+            lb_protocol="https",
+            ssl_certificate_id=my_domain.arn,
+        )])
     ```
 
 
@@ -222,13 +224,15 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
 
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
-        instance_port=8000,
-        instance_protocol="https",
-        lb_port=443,
-        lb_protocol="https",
-        ssl_certificate_id=my_domain.arn,
-    )])
+    elb = aws.elb.LoadBalancer("elb",
+        name="my-domain-elb",
+        listeners=[aws.elb.LoadBalancerListenerArgs(
+            instance_port=8000,
+            instance_protocol="https",
+            lb_port=443,
+            lb_protocol="https",
+            ssl_certificate_id=my_domain.arn,
+        )])
     ```
 
 

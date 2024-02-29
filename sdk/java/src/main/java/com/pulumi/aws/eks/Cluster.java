@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
  * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,17 +51,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .subnetIds(                
- *                     aws_subnet.example1().id(),
- *                     aws_subnet.example2().id())
+ *                     example1.id(),
+ *                     example2.id())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy(),
- *                     aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController())
- *                 .build());
+ *             .build());
  * 
  *         ctx.export(&#34;endpoint&#34;, example.endpoint());
  *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthority().applyValue(certificateAuthority -&gt; certificateAuthority.data()));
@@ -107,6 +103,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;eks-cluster-example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -134,11 +131,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -154,17 +150,84 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var clusterName = config.get(&#34;clusterName&#34;).orElse(&#34;example&#34;);
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(7)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .enabledClusterLogTypes(            
  *                 &#34;api&#34;,
  *                 &#34;audit&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleLogGroup)
- *                 .build());
+ *             .name(clusterName)
+ *             .build());
+ * 
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(String.format(&#34;/aws/eks/%s/cluster&#34;, clusterName))
+ *             .retentionInDays(7)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Enabling IAM Roles for Service Accounts
+ * 
+ * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.tls.TlsFunctions;
+ * import com.pulumi.tls.inputs.GetCertificateArgs;
+ * import com.pulumi.aws.iam.OpenIdConnectProvider;
+ * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ * 
+ *         final var example = TlsFunctions.getCertificate(GetCertificateArgs.builder()
+ *             .url(exampleCluster.identities().applyValue(identities -&gt; identities[0].oidcs()[0].issuer()))
+ *             .build());
+ * 
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider(&#34;exampleOpenIdConnectProvider&#34;, OpenIdConnectProviderArgs.builder()        
+ *             .clientIdLists(&#34;sts.amazonaws.com&#34;)
+ *             .thumbprintLists(example.applyValue(getCertificateResult -&gt; getCertificateResult).applyValue(example -&gt; example.applyValue(getCertificateResult -&gt; getCertificateResult.certificates()[0].sha1Fingerprint())))
+ *             .url(example.applyValue(getCertificateResult -&gt; getCertificateResult).applyValue(example -&gt; example.applyValue(getCertificateResult -&gt; getCertificateResult.url())))
+ *             .build());
+ * 
+ *         final var exampleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRoleWithWebIdentity&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;StringEquals&#34;)
+ *                     .variable(StdFunctions.replace().applyValue(invoke -&gt; String.format(&#34;%s:sub&#34;, invoke.result())))
+ *                     .values(&#34;system:serviceaccount:kube-system:aws-node&#34;)
+ *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers(exampleOpenIdConnectProvider.arn())
+ *                     .type(&#34;Federated&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -&gt; exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -197,19 +260,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().example_assume_role_policy().json())
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .roleArn(exampleRole.arn())
+ *             .name(&#34;example-cluster&#34;)
+ *             .roleArn(example.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(false)
  *                 .build())
  *             .outpostConfig(ClusterOutpostConfigArgs.builder()
  *                 .controlPlaneInstanceType(&#34;m5d.large&#34;)
- *                 .outpostArns(data.aws_outposts_outpost().example().arn())
+ *                 .outpostArns(exampleAwsOutpostsOutpost.arn())
  *                 .build())
  *             .build());
  * 
@@ -242,12 +307,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().example_assume_role_policy().json())
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .roleArn(exampleRole.arn())
+ *             .name(&#34;example-cluster&#34;)
+ *             .roleArn(example.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(false)

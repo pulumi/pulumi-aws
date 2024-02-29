@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNetworkInsightsAnalysis(ctx, &ec2.LookupNetworkInsightsAnalysisArgs{
-//				NetworkInsightsAnalysisId: pulumi.StringRef(aws_ec2_network_insights_analysis.Example.Id),
+//				NetworkInsightsAnalysisId: pulumi.StringRef(exampleAwsEc2NetworkInsightsAnalysis.Id),
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
@@ -68,6 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
@@ -79,7 +81,7 @@ import (
 //							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
 //								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
 //									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//										CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//										CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //									},
 //								},
 //								Mode: pulumi.String("STRICT"),

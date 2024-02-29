@@ -43,15 +43,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VocabularyFilter(&#34;example&#34;, VocabularyFilterArgs.builder()        
+ *             .vocabularyFilterName(&#34;example&#34;)
  *             .languageCode(&#34;en-US&#34;)
+ *             .words(            
+ *                 &#34;cars&#34;,
+ *                 &#34;bucket&#34;)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
  *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
  *             ))
- *             .vocabularyFilterName(&#34;example&#34;)
- *             .words(            
- *                 &#34;cars&#34;,
- *                 &#34;bucket&#34;)
  *             .build());
  * 
  *     }

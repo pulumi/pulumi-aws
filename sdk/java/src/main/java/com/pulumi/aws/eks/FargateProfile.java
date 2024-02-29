@@ -44,9 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FargateProfile(&#34;example&#34;, FargateProfileArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
- *             .podExecutionRoleArn(aws_iam_role.example().arn())
- *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .fargateProfileName(&#34;example&#34;)
+ *             .podExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .selectors(FargateProfileSelectorArgs.builder()
  *                 .namespace(&#34;example&#34;)
  *                 .build())
@@ -81,16 +82,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;eks-fargate-profile-example&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;eks-fargate-pods.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;eks-fargate-pods.amazonaws.com&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 

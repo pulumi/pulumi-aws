@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.Vocabulary("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         Content = @"Phrase	IPA	SoundsLike	DisplayAs
     /// Los-Angeles			Los Angeles
     /// F.B.I.	ɛ f b i aɪ		FBI
-    /// Etienne		eh-tee-en	
-    /// ",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    /// Etienne		eh-tee-en	",
     ///         LanguageCode = "en-US",
     ///         Tags = 
     ///         {

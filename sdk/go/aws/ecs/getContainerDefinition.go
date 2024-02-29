@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.GetContainerDefinition(ctx, &ecs.GetContainerDefinitionArgs{
-//				TaskDefinition: aws_ecs_task_definition.Mongo.Id,
+//				TaskDefinition: mongo.Id,
 //				ContainerName:  "mongodb",
 //			}, nil)
 //			if err != nil {

@@ -32,13 +32,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String(fmt.Sprintf("/aws/directoryservice/%v", exampleAwsDirectoryServiceDirectory.Id)),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ad_log_policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			ad_log_policy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Actions: pulumi.StringArray{
@@ -54,7 +55,7 @@ import (
 //							},
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//							example.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v:*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -62,18 +63,18 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: ad_log_policyPolicyDocument.ApplyT(func(ad_log_policyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &ad_log_policyPolicyDocument.Json, nil
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: ad_log_policy.ApplyT(func(ad_log_policy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &ad_log_policy.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //				PolicyName: pulumi.String("ad-log-policy"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewLogService(ctx, "exampleLogService", &directoryservice.LogServiceArgs{
-//				DirectoryId:  pulumi.Any(aws_directory_service_directory.Example.Id),
-//				LogGroupName: exampleLogGroup.Name,
+//			_, err = directoryservice.NewLogService(ctx, "example", &directoryservice.LogServiceArgs{
+//				DirectoryId:  pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
+//				LogGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

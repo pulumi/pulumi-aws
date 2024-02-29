@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudFront
     ///                 {
     ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
     ///                     {
-    ///                         ProfileId = aws_cloudfront_field_level_encryption_profile.Test.Id,
+    ///                         ProfileId = testAwsCloudfrontFieldLevelEncryptionProfile.Id,
     ///                         QueryArg = "Arg1",
     ///                     },
     ///                 },

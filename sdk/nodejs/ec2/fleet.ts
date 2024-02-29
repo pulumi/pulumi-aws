@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.Fleet("example", {
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
- *             launchTemplateId: aws_launch_template.example.id,
- *             version: aws_launch_template.example.latest_version,
+ *             launchTemplateId: exampleAwsLaunchTemplate.id,
+ *             version: exampleAwsLaunchTemplate.latestVersion,
  *         },
  *     }],
  *     targetCapacitySpecification: {

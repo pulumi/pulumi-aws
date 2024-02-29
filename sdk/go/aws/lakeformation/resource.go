@@ -34,14 +34,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			example, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "an-example-bucket",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lakeformation.NewResource(ctx, "exampleResource", &lakeformation.ResourceArgs{
-//				Arn: *pulumi.String(exampleBucket.Arn),
+//			_, err = lakeformation.NewResource(ctx, "example", &lakeformation.ResourceArgs{
+//				Arn: *pulumi.String(example.Arn),
 //			})
 //			if err != nil {
 //				return err

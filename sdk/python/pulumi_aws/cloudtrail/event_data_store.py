@@ -353,7 +353,7 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
         ### Data Event Logging
 
@@ -367,7 +367,6 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
             name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             field_selectors=[
@@ -432,7 +431,7 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
         ### Data Event Logging
 
@@ -446,7 +445,6 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
             name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             field_selectors=[

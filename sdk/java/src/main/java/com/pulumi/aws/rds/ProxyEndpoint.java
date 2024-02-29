@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProxyEndpoint(&#34;example&#34;, ProxyEndpointArgs.builder()        
- *             .dbProxyName(aws_db_proxy.test().name())
+ *             .dbProxyName(test.name())
  *             .dbProxyEndpointName(&#34;example&#34;)
- *             .vpcSubnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .vpcSubnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .targetRole(&#34;READ_ONLY&#34;)
  *             .build());
  * 

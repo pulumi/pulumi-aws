@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticsearch.NewVpcEndpoint(ctx, "foo", &elasticsearch.VpcEndpointArgs{
-//				DomainArn: pulumi.Any(aws_elasticsearch_domain.Domain_1.Arn),
+//				DomainArn: pulumi.Any(domain1.Arn),
 //				VpcOptions: &elasticsearch.VpcEndpointVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Test.Id,
-//						aws_security_group.Test2.Id,
+//						test.Id,
+//						test2.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Test.Id,
-//						aws_subnet.Test2.Id,
+//						testAwsSubnet.Id,
+//						test2AwsSubnet.Id,
 //					},
 //				},
 //			})

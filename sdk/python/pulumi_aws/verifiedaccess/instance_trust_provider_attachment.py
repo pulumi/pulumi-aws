@@ -106,16 +106,16 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.verifiedaccess.Instance("exampleInstance")
-        example_trust_provider = aws.verifiedaccess.TrustProvider("exampleTrustProvider",
+        example = aws.verifiedaccess.Instance("example")
+        example_trust_provider = aws.verifiedaccess.TrustProvider("example",
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
             device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
                 tenant_id="example",
             ))
-        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment",
-            verifiedaccess_instance_id=example_instance.id,
+        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
+            verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
         ```
 
@@ -147,16 +147,16 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.verifiedaccess.Instance("exampleInstance")
-        example_trust_provider = aws.verifiedaccess.TrustProvider("exampleTrustProvider",
+        example = aws.verifiedaccess.Instance("example")
+        example_trust_provider = aws.verifiedaccess.TrustProvider("example",
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
             device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
                 tenant_id="example",
             ))
-        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment",
-            verifiedaccess_instance_id=example_instance.id,
+        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
+            verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
         ```
 

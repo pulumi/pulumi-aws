@@ -30,16 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("KMS Key for Voice Profile Domain"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "exampleSdkvoiceVoiceProfileDomain", &chime.SdkvoiceVoiceProfileDomainArgs{
+//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "example", &chime.SdkvoiceVoiceProfileDomainArgs{
+//				Name: pulumi.String("ExampleVoiceProfileDomain"),
 //				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
-//					KmsKeyArn: exampleKey.Arn,
+//					KmsKeyArn: example.Arn,
 //				},
 //				Description: pulumi.String("My Voice Profile Domain"),
 //				Tags: pulumi.StringMap{

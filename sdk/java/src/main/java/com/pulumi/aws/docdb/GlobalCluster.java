@@ -30,15 +30,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.docdb.GlobalCluster;
  * import com.pulumi.aws.docdb.GlobalClusterArgs;
  * import com.pulumi.aws.docdb.Cluster;
  * import com.pulumi.aws.docdb.ClusterArgs;
  * import com.pulumi.aws.docdb.ClusterInstance;
  * import com.pulumi.aws.docdb.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,21 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Provider(&#34;primary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-2&#34;)
- *             .build());
- * 
- *         var secondary = new Provider(&#34;secondary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
  *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
  *             .globalClusterIdentifier(&#34;global-test&#34;)
  *             .engine(&#34;docdb&#34;)
  *             .engineVersion(&#34;4.0.0&#34;)
  *             .build());
  * 
- *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
@@ -74,39 +63,29 @@ import javax.annotation.Nullable;
  *             .masterPassword(&#34;somepass123&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
  *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .identifier(&#34;test-primary-cluster-instance&#34;)
- *             .clusterIdentifier(primaryCluster.id())
+ *             .clusterIdentifier(primary.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
- *         var secondaryCluster = new Cluster(&#34;secondaryCluster&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .dependsOn(primaryCluster)
- *                 .build());
+ *             .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .identifier(&#34;test-secondary-cluster-instance&#34;)
- *             .clusterIdentifier(secondaryCluster.id())
+ *             .clusterIdentifier(secondary.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -134,11 +113,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ *         var example = new Cluster(&#34;example&#34;);
  * 
  *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
  *             .globalClusterIdentifier(&#34;example&#34;)
- *             .sourceDbClusterIdentifier(exampleCluster.arn())
+ *             .sourceDbClusterIdentifier(example.arn())
  *             .build());
  * 
  *     }

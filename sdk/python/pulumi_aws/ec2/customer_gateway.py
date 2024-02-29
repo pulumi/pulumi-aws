@@ -283,10 +283,10 @@ class CustomerGateway(pulumi.CustomResource):
         main = aws.ec2.CustomerGateway("main",
             bgp_asn="65000",
             ip_address="172.83.124.10",
+            type="ipsec.1",
             tags={
                 "Name": "main-customer-gateway",
-            },
-            type="ipsec.1")
+            })
         ```
 
         ## Import
@@ -325,10 +325,10 @@ class CustomerGateway(pulumi.CustomResource):
         main = aws.ec2.CustomerGateway("main",
             bgp_asn="65000",
             ip_address="172.83.124.10",
+            type="ipsec.1",
             tags={
                 "Name": "main-customer-gateway",
-            },
-            type="ipsec.1")
+            })
         ```
 
         ## Import

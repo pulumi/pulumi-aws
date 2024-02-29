@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.GetRouteTableAssociations(ctx, &ec2transitgateway.GetRouteTableAssociationsArgs{
-//				TransitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.Example.Id,
+//				TransitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

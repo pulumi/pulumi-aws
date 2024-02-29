@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
+ *     replicationInstanceId: testAwsDmsReplicationInstance.replicationInstanceId,
  * });
  * ```
  */
@@ -119,7 +119,7 @@ export interface GetReplicationInstanceResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
+ *     replicationInstanceId: testAwsDmsReplicationInstance.replicationInstanceId,
  * });
  * ```
  */

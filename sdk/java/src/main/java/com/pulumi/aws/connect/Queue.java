@@ -46,9 +46,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue&#34;))
  *             .build());
  * 
@@ -78,9 +79,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .quickConnectIds(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Quick Connect IDs&#34;))
  *             .build());
@@ -112,9 +114,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .outboundCallerConfig(QueueOutboundCallerConfigArgs.builder()
  *                 .outboundCallerIdName(&#34;example&#34;)
  *                 .outboundCallerIdNumberId(&#34;12345678-abcd-1234-abcd-123456789012&#34;)

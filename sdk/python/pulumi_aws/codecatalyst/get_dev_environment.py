@@ -222,7 +222,7 @@ def get_dev_environment(alias: Optional[str] = None,
 
     example = aws.codecatalyst.get_dev_environment(space_name="myspace",
         project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
+        env_id=example_aws_codecatalyst_dev_environment["id"])
     ```
 
 
@@ -283,7 +283,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
 
     example = aws.codecatalyst.get_dev_environment(space_name="myspace",
         project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
+        env_id=example_aws_codecatalyst_dev_environment["id"])
     ```
 
 

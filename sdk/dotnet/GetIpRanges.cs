@@ -39,8 +39,9 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
+        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -95,8 +96,9 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
+        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs

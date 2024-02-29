@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import com.pulumi.aws.schemas.Discoverer;
  * import com.pulumi.aws.schemas.DiscovererArgs;
  * import java.util.List;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;);
+ *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
+ *             .name(&#34;chat-messages&#34;)
+ *             .build());
  * 
  *         var test = new Discoverer(&#34;test&#34;, DiscovererArgs.builder()        
  *             .sourceArn(messenger.arn())

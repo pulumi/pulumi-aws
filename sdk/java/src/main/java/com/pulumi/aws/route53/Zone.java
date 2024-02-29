@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Zone(&#34;primary&#34;);
+ *         var primary = new Zone(&#34;primary&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -76,9 +79,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Zone(&#34;main&#34;);
+ *         var main = new Zone(&#34;main&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
+ *             .build());
  * 
  *         var dev = new Zone(&#34;dev&#34;, ZoneArgs.builder()        
+ *             .name(&#34;dev.example.com&#34;)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
  *             .build());
  * 
@@ -121,8 +127,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var private_ = new Zone(&#34;private&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
  *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
+ *                 .vpcId(example.id())
  *                 .build())
  *             .build());
  * 

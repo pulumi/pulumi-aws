@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {globalNetworkId: aws_networkmanager_global_network.example.id});
- * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
- *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: data.aws_networkmanager_core_network_policy_document.example.json,
+ * const example = new aws.networkmanager.CoreNetwork("example", {globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id});
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
+ *     coreNetworkId: example.id,
+ *     policyDocument: exampleAwsNetworkmanagerCoreNetworkPolicyDocument.json,
  * });
  * ```
  * ### With VPC Attachment (Single Region)
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
  * const base = aws.networkmanager.getCoreNetworkPolicyDocument({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
@@ -47,17 +47,17 @@ import * as utilities from "../utilities";
  *         name: "segment",
  *     }],
  * });
- * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("example", {
  *     globalNetworkId: exampleGlobalNetwork.id,
  *     basePolicyDocument: base.then(base => base.json),
  *     createBasePolicy: true,
  * });
- * const exampleVpcAttachment = new aws.networkmanager.VpcAttachment("exampleVpcAttachment", {
+ * const exampleVpcAttachment = new aws.networkmanager.VpcAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example.arn,
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleAwsVpc.arn,
  * });
- * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
  *         edgeLocations: [{
@@ -75,9 +75,9 @@ import * as utilities from "../utilities";
  *         destinations: [exampleVpcAttachment.id],
  *     }],
  * });
- * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
+ *     policyDocument: example.apply(example => example.json),
  * });
  * ```
  * ### Option 2 - createBasePolicy only
@@ -86,17 +86,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
- * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("example", {
  *     globalNetworkId: exampleGlobalNetwork.id,
  *     createBasePolicy: true,
  * });
- * const exampleVpcAttachment = new aws.networkmanager.VpcAttachment("exampleVpcAttachment", {
+ * const exampleVpcAttachment = new aws.networkmanager.VpcAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example.arn,
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleAwsVpc.arn,
  * });
- * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
  *         edgeLocations: [{
@@ -113,9 +113,9 @@ import * as utilities from "../utilities";
  *         destinations: [exampleVpcAttachment.id],
  *     }],
  * });
- * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
+ *     policyDocument: example.apply(example => example.json),
  * });
  * ```
  * ### With VPC Attachment (Multi-Region)
@@ -130,7 +130,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
  * const base = aws.networkmanager.getCoreNetworkPolicyDocument({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
@@ -149,24 +149,22 @@ import * as utilities from "../utilities";
  *         name: "segment",
  *     }],
  * });
- * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("example", {
  *     globalNetworkId: exampleGlobalNetwork.id,
  *     basePolicyDocument: base.then(base => base.json),
  *     createBasePolicy: true,
  * });
- * const exampleUsWest2 = new aws.networkmanager.VpcAttachment("exampleUsWest2", {
+ * const exampleUsWest2 = new aws.networkmanager.VpcAttachment("example_us_west_2", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example_us_west_2.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example_us_west_2.arn,
+ *     subnetArns: exampleUsWest2AwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleUsWest2AwsVpc.arn,
  * });
- * const exampleUsEast1 = new aws.networkmanager.VpcAttachment("exampleUsEast1", {
+ * const exampleUsEast1 = new aws.networkmanager.VpcAttachment("example_us_east_1", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example_us_east_1.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example_us_east_1.arn,
- * }, {
- *     provider: "alternate",
+ *     subnetArns: exampleUsEast1AwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleUsEast1AwsVpc.arn,
  * });
- * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
  *         edgeLocations: [
@@ -203,9 +201,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
+ *     policyDocument: example.apply(example => example.json),
  * });
  * ```
  * ### Option 2 - using basePolicyRegions
@@ -214,8 +212,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
- * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("example", {
  *     globalNetworkId: exampleGlobalNetwork.id,
  *     basePolicyRegions: [
  *         "us-west-2",
@@ -223,19 +221,17 @@ import * as utilities from "../utilities";
  *     ],
  *     createBasePolicy: true,
  * });
- * const exampleUsWest2 = new aws.networkmanager.VpcAttachment("exampleUsWest2", {
+ * const exampleUsWest2 = new aws.networkmanager.VpcAttachment("example_us_west_2", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example_us_west_2.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example_us_west_2.arn,
+ *     subnetArns: exampleUsWest2AwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleUsWest2AwsVpc.arn,
  * });
- * const exampleUsEast1 = new aws.networkmanager.VpcAttachment("exampleUsEast1", {
+ * const exampleUsEast1 = new aws.networkmanager.VpcAttachment("example_us_east_1", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     subnetArns: aws_subnet.example_us_east_1.map(__item => __item.arn),
- *     vpcArn: aws_vpc.example_us_east_1.arn,
- * }, {
- *     provider: "alternate",
+ *     subnetArns: exampleUsEast1AwsSubnet.map(__item => __item.arn),
+ *     vpcArn: exampleUsEast1AwsVpc.arn,
  * });
- * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
  *         asnRanges: ["65022-65534"],
  *         edgeLocations: [
@@ -270,9 +266,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
+ *     policyDocument: example.apply(example => example.json),
  * });
  * ```
  *

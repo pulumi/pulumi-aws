@@ -14,14 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleModel = aws.bedrockfoundation.getModel({
+ * const example = aws.bedrockfoundation.getModel({
  *     modelId: "amazon.titan-text-express-v1",
  * });
- * const exampleCustomModel = new aws.bedrock.CustomModel("exampleCustomModel", {
+ * const exampleCustomModel = new aws.bedrock.CustomModel("example", {
  *     customModelName: "example-model",
  *     jobName: "example-job-1",
- *     baseModelIdentifier: exampleModel.then(exampleModel => exampleModel.modelArn),
- *     roleArn: aws_iam_role.example.arn,
+ *     baseModelIdentifier: example.then(example => example.modelArn),
+ *     roleArn: exampleAwsIamRole.arn,
  *     hyperparameters: {
  *         epochCount: "1",
  *         batchSize: "1",
@@ -29,10 +29,10 @@ import * as utilities from "../utilities";
  *         learningRateWarmupSteps: "0",
  *     },
  *     outputDataConfig: {
- *         s3Uri: `s3://${aws_s3_bucket.output.id}/data/`,
+ *         s3Uri: `s3://${output.id}/data/`,
  *     },
  *     trainingDataConfig: {
- *         s3Uri: `s3://${aws_s3_bucket.training.id}/data/train.jsonl`,
+ *         s3Uri: `s3://${training.id}/data/train.jsonl`,
  *     },
  * });
  * ```

@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrafficPolicy(&#34;example&#34;, TrafficPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .comment(&#34;example comment&#34;)
  *             .document(&#34;&#34;&#34;
  * {
@@ -54,7 +55,6 @@ import javax.annotation.Nullable;
  *   },
  *   &#34;StartEndpoint&#34;: &#34;endpoint-start-NkPh&#34;
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 

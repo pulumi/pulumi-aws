@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
+//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
 //					Region: pulumi.String("eu-west-1"),
 //					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
@@ -77,7 +77,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
+//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
 //					Region: pulumi.String("eu-west-1"),
 //					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{

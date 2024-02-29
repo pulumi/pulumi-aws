@@ -16,23 +16,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.Fleet("testFleet", {
+ * const testFleet = new aws.appstream.Fleet("test_fleet", {
+ *     name: "test-fleet",
  *     computeCapacity: {
  *         desiredInstances: 1,
  *     },
  *     description: "test fleet",
+ *     idleDisconnectTimeoutInSeconds: 60,
  *     displayName: "test-fleet",
  *     enableDefaultInternetAccess: false,
  *     fleetType: "ON_DEMAND",
- *     idleDisconnectTimeoutInSeconds: 60,
  *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.large",
  *     maxUserDurationInSeconds: 600,
- *     tags: {
- *         TagName: "tag-value",
- *     },
  *     vpcConfig: {
  *         subnetIds: ["subnet-06e9b13400c225127"],
+ *     },
+ *     tags: {
+ *         TagName: "tag-value",
  *     },
  * });
  * ```

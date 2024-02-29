@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudwatchRole = new Role(&#34;cloudwatchRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;api_gateway_cloudwatch_global&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -68,7 +69,7 @@ import javax.annotation.Nullable;
  *             .cloudwatchRoleArn(cloudwatchRole.arn())
  *             .build());
  * 
- *         final var cloudwatchPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var cloudwatch = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -84,8 +85,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudwatchRolePolicy = new RolePolicy(&#34;cloudwatchRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .role(cloudwatchRole.id())
- *             .policy(cloudwatchPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(cloudwatch.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

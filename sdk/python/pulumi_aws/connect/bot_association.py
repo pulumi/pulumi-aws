@@ -113,7 +113,7 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region="us-west-2",
                 name="Test",
@@ -126,14 +126,14 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
+        example = aws.lex.Intent("example",
             create_version=True,
             name="connect_lex_intent",
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
+        example_bot = aws.lex.Bot("example",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time.",
@@ -148,14 +148,14 @@ class BotAssociation(pulumi.CustomResource):
                 )],
             ),
             intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
+                intent_name=example.name,
                 intent_version="1",
             )],
             child_directed=False,
             name="connect_lex_bot",
             process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
+        example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region=current.name,
                 name=example_bot.name,
@@ -195,7 +195,7 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region="us-west-2",
                 name="Test",
@@ -208,14 +208,14 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
+        example = aws.lex.Intent("example",
             create_version=True,
             name="connect_lex_intent",
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
+        example_bot = aws.lex.Bot("example",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time.",
@@ -230,14 +230,14 @@ class BotAssociation(pulumi.CustomResource):
                 )],
             ),
             intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
+                intent_name=example.name,
                 intent_version="1",
             )],
             child_directed=False,
             name="connect_lex_bot",
             process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
+        example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region=current.name,
                 name=example_bot.name,

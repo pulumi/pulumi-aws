@@ -453,7 +453,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
+            keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
             schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
                 columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
@@ -508,7 +508,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
+            keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
             schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
                 columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(

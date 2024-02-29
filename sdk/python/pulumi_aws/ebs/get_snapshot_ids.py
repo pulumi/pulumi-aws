@@ -99,7 +99,8 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
+    ebs_volumes = aws.ebs.get_snapshot_ids(owners=["self"],
+        filters=[
             aws.ebs.GetSnapshotIdsFilterArgs(
                 name="volume-size",
                 values=["40"],
@@ -108,8 +109,7 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
                 name="tag:Name",
                 values=["Example"],
             ),
-        ],
-        owners=["self"])
+        ])
     ```
 
 
@@ -149,7 +149,8 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
+    ebs_volumes = aws.ebs.get_snapshot_ids(owners=["self"],
+        filters=[
             aws.ebs.GetSnapshotIdsFilterArgs(
                 name="volume-size",
                 values=["40"],
@@ -158,8 +159,7 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
                 name="tag:Name",
                 values=["Example"],
             ),
-        ],
-        owners=["self"])
+        ])
     ```
 
 

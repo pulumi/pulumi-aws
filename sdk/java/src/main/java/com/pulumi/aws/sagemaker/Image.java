@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
  *             .imageName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(test.arn())
  *             .build());
  * 
  *     }

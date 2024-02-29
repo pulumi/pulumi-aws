@@ -25,6 +25,7 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var example = new Aws.DocDB.ElasticCluster("example", new()
     ///     {
+    ///         Name = "my-docdb-cluster",
     ///         AdminUserName = "foo",
     ///         AdminUserPassword = "mustbeeightchars",
     ///         AuthType = "PLAIN_TEXT",

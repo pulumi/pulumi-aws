@@ -24,40 +24,43 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
-    ///     var exampleServiceNetwork = new Aws.VpcLattice.ServiceNetwork("exampleServiceNetwork");
-    /// 
-    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("exampleResourcePolicy", new()
+    ///     var example = new Aws.VpcLattice.ServiceNetwork("example", new()
     ///     {
-    ///         ResourceArn = exampleServiceNetwork.Arn,
+    ///         Name = "example-vpclattice-service-network",
+    ///     });
+    /// 
+    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("example", new()
+    ///     {
+    ///         ResourceArn = example.Arn,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "test-pol-principals-6",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "test-pol-principals-6",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
-    ///                             var currentPartition = values.Item1;
-    ///                             var currentCallerIdentity = values.Item2;
-    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
     ///                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
     ///                         "vpc-lattice:GetServiceNetwork",
     ///                     },
-    ///                     ["Resource"] = exampleServiceNetwork.Arn,
+    ///                     ["resource"] = example.Arn,
     ///                 },
     ///             },
     ///         })),

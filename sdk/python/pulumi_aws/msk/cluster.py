@@ -706,23 +706,23 @@ class Cluster(pulumi.CustomResource):
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
         azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
+        subnet_az1 = aws.ec2.Subnet("subnet_az1",
             availability_zone=azs.names[0],
             cidr_block="192.168.0.0/24",
             vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
+        subnet_az2 = aws.ec2.Subnet("subnet_az2",
             availability_zone=azs.names[1],
             cidr_block="192.168.1.0/24",
             vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
+        subnet_az3 = aws.ec2.Subnet("subnet_az3",
             availability_zone=azs.names[2],
             cidr_block="192.168.2.0/24",
             vpc_id=vpc.id)
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
+        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -733,8 +733,11 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+        firehose_role = aws.iam.Role("firehose_role",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_role.arn,
@@ -744,6 +747,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
@@ -803,14 +807,15 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.4xlarge",
                 client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
                 ],
                 storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
                     ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
@@ -821,7 +826,7 @@ class Cluster(pulumi.CustomResource):
                         volume_size=1000,
                     ),
                 ),
-                security_groups=[aws_security_group["sg"]["id"]],
+                security_groups=[sg["id"]],
             ))
         ```
 
@@ -868,23 +873,23 @@ class Cluster(pulumi.CustomResource):
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
         azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
+        subnet_az1 = aws.ec2.Subnet("subnet_az1",
             availability_zone=azs.names[0],
             cidr_block="192.168.0.0/24",
             vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
+        subnet_az2 = aws.ec2.Subnet("subnet_az2",
             availability_zone=azs.names[1],
             cidr_block="192.168.1.0/24",
             vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
+        subnet_az3 = aws.ec2.Subnet("subnet_az3",
             availability_zone=azs.names[2],
             cidr_block="192.168.2.0/24",
             vpc_id=vpc.id)
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
+        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -895,8 +900,11 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+        firehose_role = aws.iam.Role("firehose_role",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_role.arn,
@@ -906,6 +914,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
@@ -965,14 +974,15 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.4xlarge",
                 client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
                 ],
                 storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
                     ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
@@ -983,7 +993,7 @@ class Cluster(pulumi.CustomResource):
                         volume_size=1000,
                     ),
                 ),
-                security_groups=[aws_security_group["sg"]["id"]],
+                security_groups=[sg["id"]],
             ))
         ```
 

@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .domain(&#34;example.com&#34;)
  *             .build());
  * 
- *         final var rolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var rolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -88,8 +88,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var rolePolicyRolePolicy = new RolePolicy(&#34;rolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;role_policy&#34;)
  *             .role(role.id())
- *             .policy(rolePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

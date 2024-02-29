@@ -27,6 +27,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.OriginAccessControl("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "Example Policy",
     ///         OriginAccessControlOriginType = "s3",
     ///         SigningBehavior = "always",

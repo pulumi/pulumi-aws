@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverRuleAssociation(ctx, "example", &route53.ResolverRuleAssociationArgs{
-//				ResolverRuleId: pulumi.Any(aws_route53_resolver_rule.Sys.Id),
-//				VpcId:          pulumi.Any(aws_vpc.Foo.Id),
+//				ResolverRuleId: pulumi.Any(sys.Id),
+//				VpcId:          pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err

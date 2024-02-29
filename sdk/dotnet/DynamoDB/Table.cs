@@ -40,6 +40,12 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
     ///     {
+    ///         Name = "GameScores",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -58,37 +64,32 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "N",
     ///             },
     ///         },
-    ///         BillingMode = "PROVISIONED",
-    ///         GlobalSecondaryIndexes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
-    ///             {
-    ///                 HashKey = "GameTitle",
-    ///                 Name = "GameTitleIndex",
-    ///                 NonKeyAttributes = new[]
-    ///                 {
-    ///                     "UserId",
-    ///                 },
-    ///                 ProjectionType = "INCLUDE",
-    ///                 RangeKey = "TopScore",
-    ///                 ReadCapacity = 10,
-    ///                 WriteCapacity = 10,
-    ///             },
-    ///         },
-    ///         HashKey = "UserId",
-    ///         RangeKey = "GameTitle",
-    ///         ReadCapacity = 20,
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Name", "dynamodb-table-1" },
-    ///         },
     ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
     ///         {
     ///             AttributeName = "TimeToExist",
     ///             Enabled = false,
     ///         },
-    ///         WriteCapacity = 20,
+    ///         GlobalSecondaryIndexes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "GameTitleIndex",
+    ///                 HashKey = "GameTitle",
+    ///                 RangeKey = "TopScore",
+    ///                 WriteCapacity = 10,
+    ///                 ReadCapacity = 10,
+    ///                 ProjectionType = "INCLUDE",
+    ///                 NonKeyAttributes = new[]
+    ///                 {
+    ///                     "UserId",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "dynamodb-table-1" },
+    ///             { "Environment", "production" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -109,6 +110,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -117,8 +123,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         HashKey = "TestTableHashKey",
     ///         Replicas = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
@@ -130,8 +134,79 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Replica Tagging
+    /// 
+    /// You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var alternate = Aws.GetRegion.Invoke();
+    /// 
+    ///     var third = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         HashKey = "TestTableHashKey",
+    ///         Name = "example-13281",
     ///         StreamEnabled = true,
     ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = third.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 PropagateTags = true,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Architect", "Eleanor" },
+    ///             { "Zone", "SW" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTag = new Aws.DynamoDB.Tag("example", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(example.Arn, current, alternate).Apply(values =&gt;
+    ///         {
+    ///             var arn = values.Item1;
+    ///             var current = values.Item2;
+    ///             var alternate = values.Item3;
+    ///             return Std.Replace.Invoke(new()
+    ///             {
+    ///                 Text = arn,
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Replace = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             });
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Key = "Architect",
+    ///         Value = "Gigi",
     ///     });
     /// 
     /// });

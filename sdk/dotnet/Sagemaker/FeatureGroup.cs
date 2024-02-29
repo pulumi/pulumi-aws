@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         FeatureGroupName = "example",
     ///         RecordIdentifierFeatureName = "example",
     ///         EventTimeFeatureName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         RoleArn = test.Arn,
     ///         FeatureDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs

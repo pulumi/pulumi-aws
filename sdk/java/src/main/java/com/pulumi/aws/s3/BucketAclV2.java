@@ -31,12 +31,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,21 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
@@ -87,7 +88,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,17 +101,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock(&#34;exampleBucketPublicAccessBlock&#34;, BucketPublicAccessBlockArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .blockPublicAcls(false)
  *             .blockPublicPolicy(false)
  *             .ignorePublicAcls(false)
@@ -119,13 +121,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;public-read&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleBucketOwnershipControls,
- *                     exampleBucketPublicAccessBlock)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -139,6 +137,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.S3Functions;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
@@ -146,7 +145,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,17 +160,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = S3Functions.getCanonicalUserId();
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
  *                 .grants(                
  *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -193,9 +193,7 @@ import javax.annotation.Nullable;
  *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

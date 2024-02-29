@@ -24,14 +24,17 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("testCollaboration", new()
+    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("test_collaboration", new()
     ///     {
-    ///         CreatorDisplayName = "Creator ",
+    ///         Name = "pulumi-example-collaboration",
     ///         CreatorMemberAbilities = new[]
     ///         {
     ///             "CAN_QUERY",
     ///             "CAN_RECEIVE_RESULTS",
     ///         },
+    ///         CreatorDisplayName = "Creator ",
+    ///         Description = "I made this collaboration with Pulumi!",
+    ///         QueryLogStatus = "DISABLED",
     ///         DataEncryptionMetadata = new Aws.CleanRooms.Inputs.CollaborationDataEncryptionMetadataArgs
     ///         {
     ///             AllowClearText = true,
@@ -39,7 +42,6 @@ namespace Pulumi.Aws.CleanRooms
     ///             AllowJoinsOnColumnsWithDifferentNames = true,
     ///             PreserveNulls = false,
     ///         },
-    ///         Description = "I made this collaboration with Pulumi!",
     ///         Members = new[]
     ///         {
     ///             new Aws.CleanRooms.Inputs.CollaborationMemberArgs
@@ -49,7 +51,6 @@ namespace Pulumi.Aws.CleanRooms
     ///                 MemberAbilities = new() { },
     ///             },
     ///         },
-    ///         QueryLogStatus = "DISABLED",
     ///         Tags = 
     ///         {
     ///             { "Project", "Pulumi" },

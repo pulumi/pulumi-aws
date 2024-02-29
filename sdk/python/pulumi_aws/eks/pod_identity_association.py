@@ -285,15 +285,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
                 "sts:TagSession",
             ],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_s3 = aws.iam.RolePolicyAttachment("exampleS3",
+        example = aws.iam.Role("example",
+            name="eks-pod-identity-example",
+            assume_role_policy=assume_role.json)
+        example_s3 = aws.iam.RolePolicyAttachment("example_s3",
             policy_arn="arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-            role=example_role.name)
-        example_pod_identity_association = aws.eks.PodIdentityAssociation("examplePodIdentityAssociation",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            role=example.name)
+        example_pod_identity_association = aws.eks.PodIdentityAssociation("example",
+            cluster_name=example_aws_eks_cluster["name"],
             namespace="example",
             service_account="example-sa",
-            role_arn=example_role.arn)
+            role_arn=example.arn)
         ```
 
         ## Import
@@ -349,15 +351,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
                 "sts:TagSession",
             ],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_s3 = aws.iam.RolePolicyAttachment("exampleS3",
+        example = aws.iam.Role("example",
+            name="eks-pod-identity-example",
+            assume_role_policy=assume_role.json)
+        example_s3 = aws.iam.RolePolicyAttachment("example_s3",
             policy_arn="arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-            role=example_role.name)
-        example_pod_identity_association = aws.eks.PodIdentityAssociation("examplePodIdentityAssociation",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            role=example.name)
+        example_pod_identity_association = aws.eks.PodIdentityAssociation("example",
+            cluster_name=example_aws_eks_cluster["name"],
             namespace="example",
             service_account="example-sa",
-            role_arn=example_role.arn)
+            role_arn=example.arn)
         ```
 
         ## Import

@@ -32,7 +32,7 @@ namespace Pulumi.Aws.DataSync
     ///         Password = "ANotGreatPassword",
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///     });
     /// 

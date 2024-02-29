@@ -16,25 +16,28 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
  *     type: "MOCK",
  * });
- * const response200 = new aws.apigateway.MethodResponse("response200", {
+ * const response200 = new aws.apigateway.MethodResponse("response_200", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
@@ -47,26 +50,30 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
  *     type: "MOCK",
  * });
- * const myDemoResponseModel = new aws.apigateway.Model("myDemoResponseModel", {
+ * const myDemoResponseModel = new aws.apigateway.Model("MyDemoResponseModel", {
  *     restApi: myDemoAPI.id,
+ *     name: "MyDemoResponseModel",
  *     description: "API response for MyDemoMethod",
  *     contentType: "application/json",
  *     schema: JSON.stringify({
@@ -74,13 +81,13 @@ import {RestApi} from "./index";
  *         title: "MyDemoResponse",
  *         type: "object",
  *         properties: {
- *             Message: {
+ *             message: {
  *                 type: "string",
  *             },
  *         },
  *     }),
  * });
- * const response200 = new aws.apigateway.MethodResponse("response200", {
+ * const response200 = new aws.apigateway.MethodResponse("response_200", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,

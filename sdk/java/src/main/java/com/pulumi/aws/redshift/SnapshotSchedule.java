@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SnapshotSchedule(&#34;default&#34;, SnapshotScheduleArgs.builder()        
- *             .definitions(&#34;rate(12 hours)&#34;)
  *             .identifier(&#34;tf-redshift-snapshot-schedule&#34;)
+ *             .definitions(&#34;rate(12 hours)&#34;)
  *             .build());
  * 
  *     }

@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.synthetics.GroupAssociation("example", {
- *     groupName: aws_synthetics_group.example.name,
- *     canaryArn: aws_synthetics_canary.example.arn,
+ *     groupName: exampleAwsSyntheticsGroup.name,
+ *     canaryArn: exampleAwsSyntheticsCanary.arn,
  * });
  * ```
  *

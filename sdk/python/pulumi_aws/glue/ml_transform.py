@@ -507,8 +507,8 @@ class MLTransform(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
+        test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
+        test_catalog_table = aws.glue.CatalogTable("test",
             name="example",
             database_name=test_catalog_database.name,
             owner="my_owner",
@@ -573,8 +573,9 @@ class MLTransform(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
+        test = aws.glue.MLTransform("test",
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
@@ -584,8 +585,7 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
+            ))
         ```
 
         ## Import
@@ -626,8 +626,8 @@ class MLTransform(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
+        test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
+        test_catalog_table = aws.glue.CatalogTable("test",
             name="example",
             database_name=test_catalog_database.name,
             owner="my_owner",
@@ -692,8 +692,9 @@ class MLTransform(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
+        test = aws.glue.MLTransform("test",
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
@@ -703,8 +704,7 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
+            ))
         ```
 
         ## Import

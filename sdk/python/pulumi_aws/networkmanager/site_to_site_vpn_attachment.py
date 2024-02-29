@@ -315,8 +315,79 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.SiteToSiteVpnAttachment("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpn_connection_arn=aws_vpn_connection["example"]["arn"])
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpn_connection_arn=example_aws_vpn_connection["arn"])
+        ```
+        ### Full Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_awscc as awscc
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        test_customer_gateway = aws.ec2.CustomerGateway("test",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        test_vpn_connection = aws.ec2.VpnConnection("test",
+            customer_gateway_id=test_customer_gateway.id,
+            type="ipsec.1",
+            tags={
+                "Name": "test",
+            })
+        test_global_network = aws.networkmanager.GlobalNetwork("test", tags={
+            "Name": "test",
+        })
+        test_networkmanager_core_network = awscc.index.NetworkmanagerCoreNetwork("test",
+            global_network_id=test_global_network.id,
+            policy_document=json.dumps(not_implemented(jsondecode(data.aws_networkmanager_core_network_policy_document.test.json))))
+        test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+                vpn_ecmp_support=False,
+                asn_ranges=["64512-64555"],
+                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location=current["name"],
+                    asn="64512",
+                )],
+            )],
+            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="shared",
+                description="SegmentForSharedServices",
+                require_attachment_acceptance=True,
+            )],
+            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
+                action="share",
+                mode="attachment-route",
+                segment="shared",
+                share_withs=["*"],
+            )],
+            attachment_policies=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=1,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="shared",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="shared",
+                ),
+            )])
+        test_site_to_site_vpn_attachment = aws.networkmanager.SiteToSiteVpnAttachment("test",
+            core_network_id=test_networkmanager_core_network["id"],
+            vpn_connection_arn=test_vpn_connection.arn,
+            tags={
+                "segment": "shared",
+            })
+        test_attachment_accepter = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=test_site_to_site_vpn_attachment.id,
+            attachment_type=test_site_to_site_vpn_attachment.attachment_type)
         ```
 
         ## Import
@@ -352,8 +423,79 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.SiteToSiteVpnAttachment("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpn_connection_arn=aws_vpn_connection["example"]["arn"])
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpn_connection_arn=example_aws_vpn_connection["arn"])
+        ```
+        ### Full Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_awscc as awscc
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        test_customer_gateway = aws.ec2.CustomerGateway("test",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        test_vpn_connection = aws.ec2.VpnConnection("test",
+            customer_gateway_id=test_customer_gateway.id,
+            type="ipsec.1",
+            tags={
+                "Name": "test",
+            })
+        test_global_network = aws.networkmanager.GlobalNetwork("test", tags={
+            "Name": "test",
+        })
+        test_networkmanager_core_network = awscc.index.NetworkmanagerCoreNetwork("test",
+            global_network_id=test_global_network.id,
+            policy_document=json.dumps(not_implemented(jsondecode(data.aws_networkmanager_core_network_policy_document.test.json))))
+        test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+                vpn_ecmp_support=False,
+                asn_ranges=["64512-64555"],
+                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location=current["name"],
+                    asn="64512",
+                )],
+            )],
+            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="shared",
+                description="SegmentForSharedServices",
+                require_attachment_acceptance=True,
+            )],
+            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
+                action="share",
+                mode="attachment-route",
+                segment="shared",
+                share_withs=["*"],
+            )],
+            attachment_policies=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=1,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="shared",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="shared",
+                ),
+            )])
+        test_site_to_site_vpn_attachment = aws.networkmanager.SiteToSiteVpnAttachment("test",
+            core_network_id=test_networkmanager_core_network["id"],
+            vpn_connection_arn=test_vpn_connection.arn,
+            tags={
+                "segment": "shared",
+            })
+        test_attachment_accepter = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=test_site_to_site_vpn_attachment.id,
+            attachment_type=test_site_to_site_vpn_attachment.attachment_type)
         ```
 
         ## Import

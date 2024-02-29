@@ -47,7 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SamlProvider(&#34;default&#34;, SamlProviderArgs.builder()        
- *             .samlMetadataDocument(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
+ *             .name(&#34;my-saml-provider&#34;)
+ *             .samlMetadataDocument(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;saml-metadata.xml&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var main = new IdentityPool(&#34;main&#34;, IdentityPoolArgs.builder()        

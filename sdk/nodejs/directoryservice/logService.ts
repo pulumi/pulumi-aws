@@ -13,8 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
- * const ad-log-policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/directoryservice/${exampleAwsDirectoryServiceDirectory.id}`,
+ *     retentionInDays: 14,
+ * });
+ * const ad-log-policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -24,17 +27,17 @@ import * as utilities from "../utilities";
  *             identifiers: ["ds.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *         resources: [pulumi.interpolate`${example.arn}:*`],
  *         effect: "Allow",
  *     }],
  * });
- * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", {
- *     policyDocument: ad_log_policyPolicyDocument.apply(ad_log_policyPolicyDocument => ad_log_policyPolicyDocument.json),
+ * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policy", {
+ *     policyDocument: ad_log_policy.apply(ad_log_policy => ad_log_policy.json),
  *     policyName: "ad-log-policy",
  * });
- * const exampleLogService = new aws.directoryservice.LogService("exampleLogService", {
- *     directoryId: aws_directory_service_directory.example.id,
- *     logGroupName: exampleLogGroup.name,
+ * const exampleLogService = new aws.directoryservice.LogService("example", {
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
+ *     logGroupName: example.name,
  * });
  * ```
  *

@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation", {
- *     vpcId: aws_vpc.foo.id,
- *     routeTableId: aws_route_table.bar.id,
+ * const a = new aws.ec2.MainRouteTableAssociation("a", {
+ *     vpcId: foo.id,
+ *     routeTableId: bar.id,
  * });
  * ```
  * ## Notes

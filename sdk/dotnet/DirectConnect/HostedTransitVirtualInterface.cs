@@ -26,7 +26,8 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var example = new Aws.DirectConnect.HostedTransitVirtualInterface("example", new()
     ///     {
-    ///         ConnectionId = aws_dx_connection.Example.Id,
+    ///         ConnectionId = exampleAwsDxConnection.Id,
+    ///         Name = "tf-transit-vif-example",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,

@@ -17,7 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OpenZfsVolume("test", {parentVolumeId: aws_fsx_openzfs_file_system.test.root_volume_id});
+ * const test = new aws.fsx.OpenZfsVolume("test", {
+ *     name: "testvolume",
+ *     parentVolumeId: testAwsFsxOpenzfsFileSystem.rootVolumeId,
+ * });
  * ```
  *
  * ## Import

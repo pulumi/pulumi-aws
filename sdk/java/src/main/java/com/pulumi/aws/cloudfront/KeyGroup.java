@@ -42,14 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePublicKey = new PublicKey(&#34;examplePublicKey&#34;, PublicKeyArgs.builder()        
+ *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;example public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .encodedKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;public_key.pem&#34;)
+ *                 .build()).result())
+ *             .name(&#34;example-key&#34;)
  *             .build());
  * 
  *         var exampleKeyGroup = new KeyGroup(&#34;exampleKeyGroup&#34;, KeyGroupArgs.builder()        
  *             .comment(&#34;example key group&#34;)
- *             .items(examplePublicKey.id())
+ *             .items(example.id())
+ *             .name(&#34;example-key-group&#34;)
  *             .build());
  * 
  *     }

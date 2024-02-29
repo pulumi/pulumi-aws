@@ -31,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewSnapshot(ctx, "example", &memorydb.SnapshotArgs{
-//				ClusterName: pulumi.Any(aws_memorydb_cluster.Example.Name),
+//				ClusterName: pulumi.Any(exampleAwsMemorydbCluster.Name),
+//				Name:        pulumi.String("my-snapshot"),
 //			})
 //			if err != nil {
 //				return err

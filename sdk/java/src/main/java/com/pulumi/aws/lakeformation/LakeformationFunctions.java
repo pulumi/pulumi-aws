@@ -272,9 +272,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
@@ -305,9 +305,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -339,7 +339,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -394,9 +394,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
@@ -427,9 +427,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -461,7 +461,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -516,9 +516,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
@@ -549,9 +549,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -583,7 +583,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -638,9 +638,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
@@ -671,9 +671,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -705,7 +705,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewSourceRepository(ctx, "example", &codecatalyst.SourceRepositoryArgs{
+//				Name:        pulumi.String("example-repo"),
 //				ProjectName: pulumi.String("example-project"),
 //				SpaceName:   pulumi.String("example-space"),
 //			})

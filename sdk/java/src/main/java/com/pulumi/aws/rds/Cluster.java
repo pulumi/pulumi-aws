@@ -65,17 +65,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *             .engine(&#34;aurora-mysql&#34;)
+ *             .engineVersion(&#34;5.7.mysql_aurora.2.03.2&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
  *                 &#34;us-west-2c&#34;)
- *             .backupRetentionPeriod(5)
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .engine(&#34;aurora-mysql&#34;)
- *             .engineVersion(&#34;5.7.mysql_aurora.2.03.2&#34;)
- *             .masterPassword(&#34;bar&#34;)
  *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;bar&#34;)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .build());
  * 
@@ -105,15 +105,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
  *                 &#34;us-west-2c&#34;)
- *             .backupRetentionPeriod(5)
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .masterPassword(&#34;bar&#34;)
  *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;bar&#34;)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .build());
  * 
@@ -143,16 +143,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var postgresql = new Cluster(&#34;postgresql&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *             .engine(&#34;aurora-postgresql&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
  *                 &#34;us-west-2c&#34;)
- *             .backupRetentionPeriod(5)
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .engine(&#34;aurora-postgresql&#34;)
- *             .masterPassword(&#34;bar&#34;)
  *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;bar&#34;)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .build());
  * 
@@ -186,18 +186,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .allocatedStorage(100)
+ *             .clusterIdentifier(&#34;example&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
  *                 &#34;us-west-2c&#34;)
- *             .clusterIdentifier(&#34;example&#34;)
- *             .dbClusterInstanceClass(&#34;db.r6gd.xlarge&#34;)
  *             .engine(&#34;mysql&#34;)
- *             .iops(1000)
- *             .masterPassword(&#34;mustbeeightcharaters&#34;)
- *             .masterUsername(&#34;test&#34;)
+ *             .dbClusterInstanceClass(&#34;db.r6gd.xlarge&#34;)
  *             .storageType(&#34;io1&#34;)
+ *             .allocatedStorage(100)
+ *             .iops(1000)
+ *             .masterUsername(&#34;test&#34;)
+ *             .masterPassword(&#34;mustbeeightcharaters&#34;)
  *             .build());
  * 
  *     }
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;example&#34;)
  *             .engine(&#34;aurora-postgresql&#34;)
  *             .engineMode(&#34;provisioned&#34;)
@@ -251,10 +251,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleClusterInstance = new ClusterInstance(&#34;exampleClusterInstance&#34;, ClusterInstanceArgs.builder()        
- *             .clusterIdentifier(exampleCluster.id())
+ *             .clusterIdentifier(example.id())
  *             .instanceClass(&#34;db.serverless&#34;)
- *             .engine(exampleCluster.engine())
- *             .engineVersion(exampleCluster.engineVersion())
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
  *             .build());
  * 
  *     }
@@ -365,7 +365,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClusterSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+ *         final var example = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
  *             .dbClusterIdentifier(&#34;example-original-cluster&#34;)
  *             .mostRecent(true)
  *             .build());
@@ -374,7 +374,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;aurora&#34;)
  *             .engineVersion(&#34;5.6.mysql_aurora.1.22.4&#34;)
  *             .clusterIdentifier(&#34;example&#34;)
- *             .snapshotIdentifier(exampleClusterSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+ *             .snapshotIdentifier(example.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
  *             .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        

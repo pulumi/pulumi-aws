@@ -33,8 +33,8 @@ import * as utilities from "../utilities";
  *     fromPort: 0,
  *     toPort: 65535,
  *     protocol: "tcp",
- *     cidrBlocks: [aws_vpc.example.cidr_block],
- *     ipv6CidrBlocks: [aws_vpc.example.ipv6_cidr_block],
+ *     cidrBlocks: [exampleAwsVpc.cidrBlock],
+ *     ipv6CidrBlocks: [exampleAwsVpc.ipv6CidrBlock],
  *     securityGroupId: "sg-123456",
  * });
  * ```
@@ -51,9 +51,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ...
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
  *     type: "egress",
  *     toPort: 0,
  *     protocol: "-1",
@@ -74,7 +73,7 @@ import * as utilities from "../utilities";
  * const s3 = current.then(current => aws.ec2.getPrefixList({
  *     name: `com.amazonaws.${current.name}.s3`,
  * }));
- * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3GatewayEgress", {
+ * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3_gateway_egress", {
  *     description: "S3 Gateway Egress",
  *     type: "egress",
  *     securityGroupId: "sg-123456",

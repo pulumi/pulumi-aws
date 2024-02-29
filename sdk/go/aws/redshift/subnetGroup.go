@@ -29,16 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
+//			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
-//				VpcId:            fooVpc.ID(),
+//				VpcId:            foo.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-dbsubnet-test-1"),
 //				},
@@ -49,7 +49,7 @@ import (
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				CidrBlock:        pulumi.String("10.1.2.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
-//				VpcId:            fooVpc.ID(),
+//				VpcId:            foo.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-dbsubnet-test-2"),
 //				},
@@ -57,7 +57,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewSubnetGroup(ctx, "fooSubnetGroup", &redshift.SubnetGroupArgs{
+//			_, err = redshift.NewSubnetGroup(ctx, "foo", &redshift.SubnetGroupArgs{
+//				Name: pulumi.String("foo"),
 //				SubnetIds: pulumi.StringArray{
 //					fooSubnet.ID(),
 //					bar.ID(),

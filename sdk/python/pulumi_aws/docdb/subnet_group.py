@@ -249,9 +249,10 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.docdb.SubnetGroup("default",
+            name="main",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                frontend["id"],
+                backend["id"],
             ],
             tags={
                 "Name": "My docdb subnet group",
@@ -290,9 +291,10 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.docdb.SubnetGroup("default",
+            name="main",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                frontend["id"],
+                backend["id"],
             ],
             tags={
                 "Name": "My docdb subnet group",

@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("userUpdatesSqsTarget", new()
+    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
     ///     {
-    ///         Endpoint = "arn:aws:sqs:us-west-2:432981146916:queue-too",
-    ///         Protocol = "sqs",
     ///         Topic = "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
+    ///         Protocol = "sqs",
+    ///         Endpoint = "arn:aws:sqs:us-west-2:432981146916:queue-too",
     ///     });
     /// 
     /// });
@@ -54,11 +54,17 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
+    ///     {
+    ///         Name = "user-updates-topic",
+    ///     });
     /// 
-    ///     var userUpdatesQueue = new Aws.Sqs.Queue("userUpdatesQueue");
+    ///     var userUpdatesQueue = new Aws.Sqs.Queue("user_updates_queue", new()
+    ///     {
+    ///         Name = "user-updates-queue",
+    ///     });
     /// 
-    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("userUpdatesSqsTarget", new()
+    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
     ///     {
     ///         Topic = userUpdates.Arn,
     ///         Protocol = "sqs",
@@ -79,20 +85,20 @@ namespace Pulumi.Aws.Sns
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var sns = config.GetObject&lt;Sns&gt;("sns") ?? 
+    ///     var sns = config.GetObject&lt;dynamic&gt;("sns") ?? 
     ///     {
     ///         { "account-id", "111111111111" },
-    ///         { "role-name", "service/service" },
+    ///         { "displayName", "example" },
     ///         { "name", "example-sns-topic" },
-    ///         { "display_name", "example" },
     ///         { "region", "us-west-1" },
+    ///         { "role-name", "service/service" },
     ///     };
-    ///     var sqs = config.GetObject&lt;Sqs&gt;("sqs") ?? 
+    ///     var sqs = config.GetObject&lt;dynamic&gt;("sqs") ?? 
     ///     {
     ///         { "account-id", "222222222222" },
-    ///         { "role-name", "service/service" },
     ///         { "name", "example-sqs-queue" },
     ///         { "region", "us-east-1" },
+    ///         { "role-name", "service/service" },
     ///     };
     ///     var sns_topic_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -226,84 +232,27 @@ namespace Pulumi.Aws.Sns
     ///         },
     ///     });
     /// 
-    ///     // provider to manage SNS topics
-    ///     var awsSns = new Aws.Provider("awsSns", new()
+    ///     var sns_topic = new Aws.Sns.Topic("sns-topic", new()
     ///     {
-    ///         Region = sns.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sns.Account_id}:role/{sns.Role_name}",
-    ///             SessionName = $"sns-{sns.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     // provider to manage SQS queues
-    ///     var awsSqs = new Aws.Provider("awsSqs", new()
-    ///     {
-    ///         Region = sqs.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sqs.Account_id}:role/{sqs.Role_name}",
-    ///             SessionName = $"sqs-{sqs.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-    ///     var sns2sqs = new Aws.Provider("sns2sqs", new()
-    ///     {
-    ///         Region = sns.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sqs.Account_id}:role/{sqs.Role_name}",
-    ///             SessionName = $"sns2sqs-{sns.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     var sns_topicTopic = new Aws.Sns.Topic("sns-topicTopic", new()
-    ///     {
+    ///         Name = sns.Name,
     ///         DisplayName = sns.Display_name,
     ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sns,
     ///     });
     /// 
     ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
     ///     {
+    ///         Name = sqs.Name,
     ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sqs,
     ///     });
     /// 
-    ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topicTopicSubscription", new()
+    ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topic", new()
     ///     {
-    ///         Topic = sns_topicTopic.Arn,
+    ///         Topic = sns_topic.Arn,
     ///         Protocol = "sqs",
     ///         Endpoint = sqs_queue.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sns2sqs,
     ///     });
     /// 
     /// });
-    /// 
-    /// public class Sns
-    /// {
-    ///     public string account-id { get; set; }
-    ///     public string display_name { get; set; }
-    ///     public string name { get; set; }
-    ///     public string region { get; set; }
-    ///     public string role-name { get; set; }
-    /// }
-    /// 
-    /// public class Sqs
-    /// {
-    ///     public string account-id { get; set; }
-    ///     public string name { get; set; }
-    ///     public string region { get; set; }
-    ///     public string role-name { get; set; }
-    /// }
     /// ```
     /// 
     /// ## Import

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     keyName: "test-key",
  *     keyRole: "VIEWER",
  *     secondsToLive: 3600,
- *     workspaceId: aws_grafana_workspace.test.id,
+ *     workspaceId: test.id,
  * });
  * ```
  */

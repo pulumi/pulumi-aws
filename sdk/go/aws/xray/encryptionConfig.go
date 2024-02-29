@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
@@ -89,15 +89,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Some Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               *pulumi.String(examplePolicyDocument.Json),
+//				Policy:               *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = xray.NewEncryptionConfig(ctx, "exampleEncryptionConfig", &xray.EncryptionConfigArgs{
+//			_, err = xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
 //				Type:  pulumi.String("KMS"),
 //				KeyId: exampleKey.Arn,
 //			})

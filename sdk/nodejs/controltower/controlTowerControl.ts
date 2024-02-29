@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleOrganization = aws.organizations.getOrganization({});
- * const exampleOrganizationalUnits = exampleOrganization.then(exampleOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: exampleOrganization.roots?.[0]?.id,
+ * const example = aws.organizations.getOrganization({});
+ * const exampleGetOrganizationalUnits = example.then(example => aws.organizations.getOrganizationalUnits({
+ *     parentId: example.roots?.[0]?.id,
  * }));
- * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("exampleControlTowerControl", {
+ * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("example", {
  *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
- *     targetIdentifier: exampleOrganizationalUnits.then(exampleOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
+ *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
  * });
  * ```
  *

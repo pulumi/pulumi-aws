@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SecurityLake
     ///         {
     ///             CrawlerConfiguration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs
     ///             {
-    ///                 RoleArn = aws_iam_role.Custom_log.Arn,
+    ///                 RoleArn = customLog.Arn,
     ///             },
     ///             ProviderIdentity = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationProviderIdentityArgs
     ///             {

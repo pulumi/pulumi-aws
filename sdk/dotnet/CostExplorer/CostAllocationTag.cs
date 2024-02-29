@@ -24,8 +24,8 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
     ///     {
-    ///         Status = "Active",
     ///         TagKey = "example",
+    ///         Status = "Active",
     ///     });
     /// 
     /// });

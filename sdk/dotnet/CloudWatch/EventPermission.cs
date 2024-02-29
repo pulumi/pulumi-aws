@@ -27,7 +27,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var devAccountAccess = new Aws.CloudWatch.EventPermission("devAccountAccess", new()
+    ///     var devAccountAccess = new Aws.CloudWatch.EventPermission("DevAccountAccess", new()
     ///     {
     ///         Principal = "123456789012",
     ///         StatementId = "DevAccountAccess",
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new()
+    ///     var organizationAccess = new Aws.CloudWatch.EventPermission("OrganizationAccess", new()
     ///     {
     ///         Principal = "*",
     ///         StatementId = "OrganizationAccess",
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             Key = "aws:PrincipalOrgID",
     ///             Type = "StringEquals",
-    ///             Value = aws_organizations_organization.Example.Id,
+    ///             Value = example.Id,
     ///         },
     ///     });
     /// 

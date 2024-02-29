@@ -204,9 +204,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.GatewayAssociationProposal("example",
-            dx_gateway_id=aws_dx_gateway["example"]["id"],
-            dx_gateway_owner_account_id=aws_dx_gateway["example"]["owner_account_id"],
-            associated_gateway_id=aws_vpn_gateway["example"]["id"])
+            dx_gateway_id=example_aws_dx_gateway["id"],
+            dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
+            associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
 
         ## Import
@@ -250,9 +250,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.GatewayAssociationProposal("example",
-            dx_gateway_id=aws_dx_gateway["example"]["id"],
-            dx_gateway_owner_account_id=aws_dx_gateway["example"]["owner_account_id"],
-            associated_gateway_id=aws_vpn_gateway["example"]["id"])
+            dx_gateway_id=example_aws_dx_gateway["id"],
+            dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
+            associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
 
         ## Import

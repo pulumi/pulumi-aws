@@ -120,25 +120,25 @@ class ClusterPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
+            cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "ExampleMskClusterPolicy",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
+                    "resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```
@@ -173,25 +173,25 @@ class ClusterPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
+            cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "ExampleMskClusterPolicy",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
+                    "resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```

@@ -13,13 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = aws.serverlessrepository.getApplication({
+ * const example = aws.serverlessrepository.getApplication({
  *     applicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
  * });
- * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack", {
- *     applicationId: exampleApplication.then(exampleApplication => exampleApplication.applicationId),
- *     semanticVersion: exampleApplication.then(exampleApplication => exampleApplication.semanticVersion),
- *     capabilities: exampleApplication.then(exampleApplication => exampleApplication.requiredCapabilities),
+ * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("example", {
+ *     name: "Example",
+ *     applicationId: example.then(example => example.applicationId),
+ *     semanticVersion: example.then(example => example.semanticVersion),
+ *     capabilities: example.then(example => example.requiredCapabilities),
  * });
  * ```
  */
@@ -85,13 +86,14 @@ export interface GetApplicationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = aws.serverlessrepository.getApplication({
+ * const example = aws.serverlessrepository.getApplication({
  *     applicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
  * });
- * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack", {
- *     applicationId: exampleApplication.then(exampleApplication => exampleApplication.applicationId),
- *     semanticVersion: exampleApplication.then(exampleApplication => exampleApplication.semanticVersion),
- *     capabilities: exampleApplication.then(exampleApplication => exampleApplication.requiredCapabilities),
+ * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("example", {
+ *     name: "Example",
+ *     applicationId: example.then(example => example.applicationId),
+ *     semanticVersion: example.then(example => example.semanticVersion),
+ *     capabilities: example.then(example => example.requiredCapabilities),
  * });
  * ```
  */

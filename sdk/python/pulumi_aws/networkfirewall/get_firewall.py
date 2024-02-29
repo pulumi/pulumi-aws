@@ -215,7 +215,7 @@ def get_firewall(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=arn)
     ```
     ### Find firewall policy by Name
 
@@ -231,7 +231,7 @@ def get_firewall(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
 
@@ -279,7 +279,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=arn)
     ```
     ### Find firewall policy by Name
 
@@ -295,7 +295,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
 

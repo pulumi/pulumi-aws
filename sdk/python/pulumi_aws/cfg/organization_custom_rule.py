@@ -423,20 +423,18 @@ class OrganizationCustomRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_permission = aws.lambda_.Permission("examplePermission",
+        example = aws.lambda_.Permission("example",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["arn"],
-            principal="config.amazonaws.com")
-        example_organization = aws.organizations.Organization("exampleOrganization",
+            function=example_aws_lambda_function["arn"],
+            principal="config.amazonaws.com",
+            statement_id="AllowExecutionFromConfig")
+        example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_organization_custom_rule = aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule",
-            lambda_function_arn=aws_lambda_function["example"]["arn"],
-            trigger_types=["ConfigurationItemChangeNotification"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_permission,
-                    example_organization,
-                ]))
+        example_organization_custom_rule = aws.cfg.OrganizationCustomRule("example",
+            lambda_function_arn=example_aws_lambda_function["arn"],
+            name="example",
+            trigger_types=["ConfigurationItemChangeNotification"])
         ```
 
         ## Import
@@ -480,20 +478,18 @@ class OrganizationCustomRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_permission = aws.lambda_.Permission("examplePermission",
+        example = aws.lambda_.Permission("example",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["arn"],
-            principal="config.amazonaws.com")
-        example_organization = aws.organizations.Organization("exampleOrganization",
+            function=example_aws_lambda_function["arn"],
+            principal="config.amazonaws.com",
+            statement_id="AllowExecutionFromConfig")
+        example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_organization_custom_rule = aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule",
-            lambda_function_arn=aws_lambda_function["example"]["arn"],
-            trigger_types=["ConfigurationItemChangeNotification"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_permission,
-                    example_organization,
-                ]))
+        example_organization_custom_rule = aws.cfg.OrganizationCustomRule("example",
+            lambda_function_arn=example_aws_lambda_function["arn"],
+            name="example",
+            trigger_types=["ConfigurationItemChangeNotification"])
         ```
 
         ## Import

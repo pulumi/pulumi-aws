@@ -141,7 +141,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         account = aws.organizations.PolicyAttachment("account",
-            policy_id=aws_organizations_policy["example"]["id"],
+            policy_id=example["id"],
             target_id="123456789012")
         ```
         ### Organization Root
@@ -151,8 +151,8 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         root = aws.organizations.PolicyAttachment("root",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+            policy_id=example["id"],
+            target_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
         ### Organization Unit
 
@@ -161,8 +161,8 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         unit = aws.organizations.PolicyAttachment("unit",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organizational_unit["example"]["id"])
+            policy_id=example["id"],
+            target_id=example_aws_organizations_organizational_unit["id"])
         ```
 
         ## Import
@@ -198,7 +198,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         account = aws.organizations.PolicyAttachment("account",
-            policy_id=aws_organizations_policy["example"]["id"],
+            policy_id=example["id"],
             target_id="123456789012")
         ```
         ### Organization Root
@@ -208,8 +208,8 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         root = aws.organizations.PolicyAttachment("root",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+            policy_id=example["id"],
+            target_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
         ### Organization Unit
 
@@ -218,8 +218,8 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         unit = aws.organizations.PolicyAttachment("unit",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organizational_unit["example"]["id"])
+            policy_id=example["id"],
+            target_id=example_aws_organizations_organizational_unit["id"])
         ```
 
         ## Import

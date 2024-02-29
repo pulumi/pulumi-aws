@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_dynamodb_table.Example.Stream_arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsDynamodbTable.StreamArn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         StartingPosition = "LATEST",
     ///     });
     /// 
@@ -47,8 +47,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_kinesis_stream.Example.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsKinesisStream.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         StartingPosition = "LATEST",
     ///     });
     /// 
@@ -66,8 +66,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_msk_cluster.Example.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsMskCluster.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         Topics = new[]
     ///         {
     ///             "Example",
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         Topics = new[]
     ///         {
     ///             "Example",
@@ -136,8 +136,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = sqsQueueTest.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
@@ -155,8 +155,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = sqsQueueTest.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         FilterCriteria = new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaArgs
     ///         {
     ///             Filters = new[]
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Lambda
     ///                     {
     ///                         ["body"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Temperature"] = new[]
+    ///                             ["temperature"] = new[]
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
@@ -180,13 +180,76 @@ namespace Pulumi.Aws.Lambda
     ///                                     },
     ///                                 },
     ///                             },
-    ///                             ["Location"] = new[]
+    ///                             ["location"] = new[]
     ///                             {
     ///                                 "New York",
     ///                             },
     ///                         },
     ///                     }),
     ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Amazon MQ (ActiveMQ)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 10,
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "example",
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "BASIC_AUTH",
+    ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Amazon MQ (RabbitMQ)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 1,
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "example",
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "VIRTUAL_HOST",
+    ///                 Uri = "/example",
+    ///             },
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "BASIC_AUTH",
+    ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
     ///             },
     ///         },
     ///     });

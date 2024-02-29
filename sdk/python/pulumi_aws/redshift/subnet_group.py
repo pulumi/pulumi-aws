@@ -215,22 +215,23 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("foo",
             cidr_block="10.1.1.0/24",
             availability_zone="us-west-2a",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-1",
             })
         bar = aws.ec2.Subnet("bar",
             cidr_block="10.1.2.0/24",
             availability_zone="us-west-2b",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-2",
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.SubnetGroup("foo",
+            name="foo",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,
@@ -270,22 +271,23 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("foo",
             cidr_block="10.1.1.0/24",
             availability_zone="us-west-2a",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-1",
             })
         bar = aws.ec2.Subnet("bar",
             cidr_block="10.1.2.0/24",
             availability_zone="us-west-2b",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-2",
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.SubnetGroup("foo",
+            name="foo",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,

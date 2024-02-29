@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+//				Name:         pulumi.String("emr-test-arn"),
 //				ReleaseLabel: pulumi.String("emr-4.6.0"),
 //				Applications: pulumi.StringArray{
 //					pulumi.String("Spark"),
@@ -47,10 +48,10 @@ import (
 //	TerminationProtection:       pulumi.Bool(false),
 //	KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
 //	Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//		SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
-//		EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
-//		EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
-//		InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
+//		SubnetId:                      pulumi.Any(main.Id),
+//		EmrManagedMasterSecurityGroup: pulumi.Any(sg.Id),
+//		EmrManagedSlaveSecurityGroup:  pulumi.Any(sg.Id),
+//		InstanceProfile:               pulumi.Any(emrProfile.Arn),
 //	},
 //	MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //		InstanceType: pulumi.String("m4.large"),
@@ -148,7 +149,7 @@ import (
 //
 // `),
 //
-//				ServiceRole: pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+//				ServiceRole: pulumi.Any(iamEmrServiceRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -280,6 +281,7 @@ import (
 //						},
 //					},
 //				},
+//				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
 //			})
@@ -307,7 +309,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration ...
 //			_, err := emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				Steps: emr.ClusterStepArray{
 //					&emr.ClusterStepArgs{
@@ -350,19 +351,17 @@ import (
 //			// This configuration is for illustrative purposes and highlights
 //			// only relevant configurations for working with this functionality.
 //			// Map public IP on launch must be enabled for public (Internet accessible) subnets
-//			// ... other configuration ...
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
+//			example, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// ... other configuration ...
-//			_, err = emr.NewCluster(ctx, "exampleCluster", &emr.ClusterArgs{
+//			_, err = emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				ReleaseLabel:          pulumi.String("emr-5.24.1"),
 //				TerminationProtection: pulumi.Bool(true),
 //				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId: exampleSubnet.ID(),
+//					SubnetId: example.ID(),
 //				},
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),
@@ -436,7 +435,6 @@ type Cluster struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -583,7 +581,6 @@ type clusterState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -695,7 +692,6 @@ type ClusterState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -808,7 +804,6 @@ type clusterArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -912,7 +907,6 @@ type ClusterArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -1131,7 +1125,6 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 // "Properties": {}
 // }
 // ]
-//
 // `),
 //
 //			})

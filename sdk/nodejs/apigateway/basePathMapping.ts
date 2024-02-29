@@ -16,23 +16,33 @@ import {RestApi} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: aws_api_gateway_deployment.example.id,
- *     restApi: aws_api_gateway_rest_api.example.id,
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = new aws.apigateway.Stage("example", {
+ *     deployment: exampleAwsApiGatewayDeployment.id,
+ *     restApi: exampleAwsApiGatewayRestApi.id,
  *     stageName: "example",
  * });
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ * const exampleDomainName = new aws.apigateway.DomainName("example", {
  *     domainName: "example.com",
  *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
+ *     certificateBody: std.file({
+ *         input: `${notImplemented("path.module")}/example.com/example.crt`,
+ *     }).then(invoke => invoke.result),
+ *     certificateChain: std.file({
+ *         input: `${notImplemented("path.module")}/example.com/ca.crt`,
+ *     }).then(invoke => invoke.result),
+ *     certificatePrivateKey: std.file({
+ *         input: `${notImplemented("path.module")}/example.com/example.key`,
+ *     }).then(invoke => invoke.result),
  * });
- * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("exampleBasePathMapping", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: exampleStage.stageName,
+ * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
+ *     stageName: example.stageName,
  *     domainName: exampleDomainName.domainName,
  * });
  * ```

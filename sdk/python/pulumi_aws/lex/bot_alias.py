@@ -272,7 +272,7 @@ class BotAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_prod = aws.lex.BotAlias("orderFlowersProd",
+        order_flowers_prod = aws.lex.BotAlias("order_flowers_prod",
             bot_name="OrderFlowers",
             bot_version="1",
             description="Production Version of the OrderFlowers Bot.",
@@ -311,7 +311,7 @@ class BotAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_prod = aws.lex.BotAlias("orderFlowersProd",
+        order_flowers_prod = aws.lex.BotAlias("order_flowers_prod",
             bot_name="OrderFlowers",
             bot_version="1",
             description="Production Version of the OrderFlowers Bot.",

@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.ResolverFirewallRuleGroup;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroupArgs;
  * import com.pulumi.aws.route53.ResolverFirewallRuleGroupAssociation;
  * import com.pulumi.aws.route53.ResolverFirewallRuleGroupAssociationArgs;
  * import java.util.List;
@@ -42,12 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup(&#34;exampleResolverFirewallRuleGroup&#34;);
+ *         var example = new ResolverFirewallRuleGroup(&#34;example&#34;, ResolverFirewallRuleGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleResolverFirewallRuleGroupAssociation = new ResolverFirewallRuleGroupAssociation(&#34;exampleResolverFirewallRuleGroupAssociation&#34;, ResolverFirewallRuleGroupAssociationArgs.builder()        
- *             .firewallRuleGroupId(exampleResolverFirewallRuleGroup.id())
+ *             .name(&#34;example&#34;)
+ *             .firewallRuleGroupId(example.id())
  *             .priority(100)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }

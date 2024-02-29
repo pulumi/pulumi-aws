@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.oam.Sink;
+ * import com.pulumi.aws.oam.SinkArgs;
  * import com.pulumi.aws.oam.SinkPolicy;
  * import com.pulumi.aws.oam.SinkPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -41,27 +42,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSink = new Sink(&#34;exampleSink&#34;);
+ *         var example = new Sink(&#34;example&#34;, SinkArgs.builder()        
+ *             .name(&#34;ExampleSink&#34;)
+ *             .build());
  * 
  *         var exampleSinkPolicy = new SinkPolicy(&#34;exampleSinkPolicy&#34;, SinkPolicyArgs.builder()        
- *             .sinkIdentifier(exampleSink.id())
+ *             .sinkIdentifier(example.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;oam:CreateLink&#34;, 
  *                             &#34;oam:UpdateLink&#34;
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, jsonArray(
  *                                 &#34;1111111111111&#34;, 
  *                                 &#34;222222222222&#34;
  *                             ))
  *                         )),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
+ *                         jsonProperty(&#34;condition&#34;, jsonObject(
  *                             jsonProperty(&#34;ForAllValues:StringEquals&#34;, jsonObject(
  *                                 jsonProperty(&#34;oam:ResourceTypes&#34;, jsonArray(
  *                                     &#34;AWS::CloudWatch::Metric&#34;, 

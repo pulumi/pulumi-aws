@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.amp.Workspace;
  * import com.pulumi.aws.amp.WorkspaceArgs;
  * import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
@@ -73,11 +74,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
  *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
- *                 .logGroupArn(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .logGroupArn(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                 .build())
  *             .build());
  * 
@@ -113,7 +116,7 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
  *             .alias(&#34;example&#34;)
  *             .kmsKeyArn(exampleKey.arn())
  *             .build());

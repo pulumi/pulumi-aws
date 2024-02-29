@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingType(ctx, "foo", nil)
+//			_, err := iot.NewThingType(ctx, "foo", &iot.ThingTypeArgs{
+//				Name: pulumi.String("my_iot_thing"),
+//			})
 //			if err != nil {
 //				return err
 //			}

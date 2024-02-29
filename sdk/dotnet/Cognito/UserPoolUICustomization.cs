@@ -18,39 +18,39 @@ namespace Pulumi.Aws.Cognito
     /// ### UI customization settings for a single client
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var example = new Aws.Cognito.UserPool("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("example", new()
     ///     {
     ///         Domain = "example",
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new()
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         Name = "example",
+    ///         UserPoolId = example.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("example", new()
     ///     {
     ///         ClientId = exampleUserPoolClient.Id,
     ///         Css = ".label-customizable {font-weight: 400;}",
-    ///         ImageFile = ReadFileBase64("logo.png"),
+    ///         ImageFile = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "logo.png",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         UserPoolId = exampleUserPoolDomain.UserPoolId,
     ///     });
     /// 
@@ -59,33 +59,32 @@ namespace Pulumi.Aws.Cognito
     /// ### UI customization settings for all clients
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
-    /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         Domain = "example",
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("example", new()
+    ///     {
+    ///         Domain = "example",
+    ///         UserPoolId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("example", new()
     ///     {
     ///         Css = ".label-customizable {font-weight: 400;}",
-    ///         ImageFile = ReadFileBase64("logo.png"),
+    ///         ImageFile = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "logo.png",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         UserPoolId = exampleUserPoolDomain.UserPoolId,
     ///     });
     /// 

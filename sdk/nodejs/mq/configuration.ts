@@ -17,6 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Configuration("example", {
+ *     description: "Example Configuration",
+ *     name: "example",
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.17.6",
  *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  * <broker xmlns="http://activemq.apache.org/schema/core">
  *   <plugins>
@@ -25,11 +29,7 @@ import * as utilities from "../utilities";
  *     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
  *   </plugins>
  * </broker>
- *
  * `,
- *     description: "Example Configuration",
- *     engineType: "ActiveMQ",
- *     engineVersion: "5.17.6",
  * });
  * ```
  * ### RabbitMQ
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Configuration("example", {
- *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
- * consumer_timeout = 1800000
- *
- * `,
  *     description: "Example Configuration",
+ *     name: "example",
  *     engineType: "RabbitMQ",
  *     engineVersion: "3.11.20",
+ *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+ * consumer_timeout = 1800000
+ * `,
  * });
  * ```
  *

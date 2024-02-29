@@ -136,13 +136,13 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
+        escalation_plan = aws.ssmcontacts.Contact("escalation_plan",
             alias="escalation-plan-alias",
             type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
+        contact_one = aws.ssmcontacts.Contact("contact_one",
             alias="alias",
             type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
+        contact_two = aws.ssmcontacts.Contact("contact_two",
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
@@ -165,7 +165,7 @@ class Plan(pulumi.CustomResource):
                     aws.ssmcontacts.PlanStageTargetArgs(
                         channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
                             retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
+                            contact_channel_id=channel["arn"],
                         ),
                     ),
                 ],
@@ -228,13 +228,13 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
+        escalation_plan = aws.ssmcontacts.Contact("escalation_plan",
             alias="escalation-plan-alias",
             type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
+        contact_one = aws.ssmcontacts.Contact("contact_one",
             alias="alias",
             type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
+        contact_two = aws.ssmcontacts.Contact("contact_two",
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
@@ -257,7 +257,7 @@ class Plan(pulumi.CustomResource):
                     aws.ssmcontacts.PlanStageTargetArgs(
                         channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
                             retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
+                            contact_channel_id=channel["arn"],
                         ),
                     ),
                 ],

@@ -258,6 +258,7 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,
@@ -317,6 +318,7 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,

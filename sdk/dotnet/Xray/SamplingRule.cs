@@ -24,21 +24,21 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var example = new Aws.Xray.SamplingRule("example", new()
     ///     {
+    ///         RuleName = "example",
+    ///         Priority = 9999,
+    ///         Version = 1,
+    ///         ReservoirSize = 1,
+    ///         FixedRate = 0.05,
+    ///         UrlPath = "*",
+    ///         Host = "*",
+    ///         HttpMethod = "*",
+    ///         ServiceType = "*",
+    ///         ServiceName = "*",
+    ///         ResourceArn = "*",
     ///         Attributes = 
     ///         {
     ///             { "Hello", "Tris" },
     ///         },
-    ///         FixedRate = 0.05,
-    ///         Host = "*",
-    ///         HttpMethod = "*",
-    ///         Priority = 9999,
-    ///         ReservoirSize = 1,
-    ///         ResourceArn = "*",
-    ///         RuleName = "example",
-    ///         ServiceName = "*",
-    ///         ServiceType = "*",
-    ///         UrlPath = "*",
-    ///         Version = 1,
     ///     });
     /// 
     /// });

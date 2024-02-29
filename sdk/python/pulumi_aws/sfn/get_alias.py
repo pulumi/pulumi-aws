@@ -126,7 +126,7 @@ def get_alias(description: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=aws_sfn_state_machine["sfn_test"]["arn"])
+        statemachine_arn=sfn_test["arn"])
     ```
 
 
@@ -167,7 +167,7 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_aws as aws
 
     example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=aws_sfn_state_machine["sfn_test"]["arn"])
+        statemachine_arn=sfn_test["arn"])
     ```
 
 

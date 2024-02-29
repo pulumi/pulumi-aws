@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .definition(&#34;&#34;&#34;
  * {
  *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
@@ -58,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
@@ -87,7 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .type(&#34;EXPRESS&#34;)
  *             .definition(&#34;&#34;&#34;
  * {
@@ -101,7 +103,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
@@ -130,7 +132,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .publish(true)
  *             .type(&#34;EXPRESS&#34;)
  *             .definition(&#34;&#34;&#34;
@@ -145,7 +148,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
@@ -177,7 +180,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .definition(&#34;&#34;&#34;
  * {
  *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
@@ -190,9 +194,9 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format(&#34;%s:*&#34;, aws_cloudwatch_log_group.log_group_for_sfn().arn()))
+ *                 .logDestination(String.format(&#34;%s:*&#34;, logGroupForSfn.arn()))
  *                 .includeExecutionData(true)
  *                 .level(&#34;ERROR&#34;)
  *                 .build())

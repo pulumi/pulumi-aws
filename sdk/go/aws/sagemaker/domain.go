@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -50,19 +50,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//				AssumeRolePolicy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: exampleRole.Arn,
@@ -90,14 +91,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleImage, err := sagemaker.NewImage(ctx, "exampleImage", &sagemaker.ImageArgs{
+//			example, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
 //				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "exampleAppImageConfig", &sagemaker.AppImageConfigArgs{
+//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "example", &sagemaker.AppImageConfigArgs{
 //				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
 //					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
@@ -108,22 +109,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "exampleImageVersion", &sagemaker.ImageVersionArgs{
-//				ImageName: exampleImage.ID(),
+//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "example", &sagemaker.ImageVersionArgs{
+//				ImageName: example.ID(),
 //				BaseImage: pulumi.String("base-image"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+//					ExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //					KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
 //						CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
 //							&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{

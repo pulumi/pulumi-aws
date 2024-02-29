@@ -177,8 +177,9 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
             additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",
@@ -211,8 +212,9 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
             additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",

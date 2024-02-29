@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .build())
@@ -90,18 +90,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(                    
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                             .build(),
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[1]))
+ *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[1]))
  *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                             .build())
  *                     .build())
@@ -140,13 +140,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.builder()

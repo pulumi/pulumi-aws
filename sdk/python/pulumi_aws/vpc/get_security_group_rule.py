@@ -217,7 +217,7 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
     ```
 
 
@@ -261,7 +261,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
     ```
 
 

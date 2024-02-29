@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,7 +28,10 @@ namespace Pulumi.Aws.Sagemaker
     ///         HumanTaskUiName = "example",
     ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
     ///         {
-    ///             Content = File.ReadAllText("sagemaker-human-task-ui-template.html"),
+    ///             Content = Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "sagemaker-human-task-ui-template.html",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
     ///     });
     /// 

@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := oam.NewSink(ctx, "example", &oam.SinkArgs{
+//				Name: pulumi.String("ExampleSink"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},

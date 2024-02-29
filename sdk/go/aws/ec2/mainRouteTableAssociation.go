@@ -31,9 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2.MainRouteTableAssociationArgs{
-//				VpcId:        pulumi.Any(aws_vpc.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
+//			_, err := ec2.NewMainRouteTableAssociation(ctx, "a", &ec2.MainRouteTableAssociationArgs{
+//				VpcId:        pulumi.Any(foo.Id),
+//				RouteTableId: pulumi.Any(bar.Id),
 //			})
 //			if err != nil {
 //				return err

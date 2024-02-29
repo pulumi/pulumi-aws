@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Vpc
         ///                 Name = "group-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Security_group_id,
+        ///                     securityGroupId,
         ///                 },
         ///             },
         ///         },
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Vpc
         ///                 Name = "group-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Security_group_id,
+        ///                     securityGroupId,
         ///                 },
         ///             },
         ///         },

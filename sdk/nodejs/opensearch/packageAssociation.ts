@@ -14,22 +14,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDomain = new aws.opensearch.Domain("myDomain", {
+ * const myDomain = new aws.opensearch.Domain("my_domain", {
+ *     domainName: "my-opensearch-domain",
  *     engineVersion: "Elasticsearch_7.10",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
  *     },
  * });
- * const examplePackage = new aws.opensearch.Package("examplePackage", {
+ * const example = new aws.opensearch.Package("example", {
  *     packageName: "example-txt",
  *     packageSource: {
- *         s3BucketName: aws_s3_bucket.my_opensearch_packages.bucket,
- *         s3Key: aws_s3_object.example.key,
+ *         s3BucketName: myOpensearchPackages.bucket,
+ *         s3Key: exampleAwsS3Object.key,
  *     },
  *     packageType: "TXT-DICTIONARY",
  * });
- * const examplePackageAssociation = new aws.opensearch.PackageAssociation("examplePackageAssociation", {
- *     packageId: examplePackage.id,
+ * const examplePackageAssociation = new aws.opensearch.PackageAssociation("example", {
+ *     packageId: example.id,
  *     domainName: myDomain.domainName,
  * });
  * ```

@@ -30,6 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("ECS"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,6 +56,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("Lambda"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,6 +82,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("Server"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

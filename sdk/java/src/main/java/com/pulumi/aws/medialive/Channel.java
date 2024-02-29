@@ -56,8 +56,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Channel(&#34;example&#34;, ChannelArgs.builder()        
+ *             .name(&#34;example-channel&#34;)
  *             .channelClass(&#34;STANDARD&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .inputSpecification(ChannelInputSpecificationArgs.builder()
  *                 .codec(&#34;AVC&#34;)
  *                 .inputResolution(&#34;HD&#34;)
@@ -65,16 +66,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .inputAttachments(ChannelInputAttachmentArgs.builder()
  *                 .inputAttachmentName(&#34;example-input&#34;)
- *                 .inputId(aws_medialive_input.example().id())
+ *                 .inputId(exampleAwsMedialiveInput.id())
  *                 .build())
  *             .destinations(ChannelDestinationArgs.builder()
  *                 .id(&#34;destination&#34;)
  *                 .settings(                
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test1&#34;, aws_s3_bucket.main().id()))
+ *                         .url(String.format(&#34;s3://%s/test1&#34;, main.id()))
  *                         .build(),
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test2&#34;, aws_s3_bucket.main2().id()))
+ *                         .url(String.format(&#34;s3://%s/test2&#34;, main2.id()))
  *                         .build())
  *                 .build())
  *             .encoderSettings(ChannelEncoderSettingsArgs.builder()

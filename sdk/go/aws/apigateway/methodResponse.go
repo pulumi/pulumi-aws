@@ -29,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -43,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -52,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -61,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
+//			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -91,13 +92,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -105,7 +107,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -114,7 +116,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -128,7 +130,7 @@ import (
 //				"title":   "MyDemoResponse",
 //				"type":    "object",
 //				"properties": map[string]interface{}{
-//					"Message": map[string]interface{}{
+//					"message": map[string]interface{}{
 //						"type": "string",
 //					},
 //				},
@@ -137,8 +139,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewModel(ctx, "myDemoResponseModel", &apigateway.ModelArgs{
+//			_, err = apigateway.NewModel(ctx, "MyDemoResponseModel", &apigateway.ModelArgs{
 //				RestApi:     myDemoAPI.ID(),
+//				Name:        pulumi.String("MyDemoResponseModel"),
 //				Description: pulumi.String("API response for MyDemoMethod"),
 //				ContentType: pulumi.String("application/json"),
 //				Schema:      pulumi.String(json0),
@@ -146,7 +149,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
+//			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,

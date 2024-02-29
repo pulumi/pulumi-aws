@@ -25,7 +25,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "bucketName", aws_s3_bucket.Example.Bucket },
+    ///                         { "bucketName", exampleAwsS3Bucket.Bucket },
     ///                         { "prefix", "/example" },
     ///                     },
     ///                     LogDestinationType = "S3",
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "logGroup", aws_cloudwatch_log_group.Example.Name },
+    ///                         { "logGroup", exampleAwsCloudwatchLogGroup.Name },
     ///                     },
     ///                     LogDestinationType = "CloudWatchLogs",
     ///                     LogType = "ALERT",
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
+    ///                         { "deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.Name },
     ///                     },
     ///                     LogDestinationType = "KinesisDataFirehose",
     ///                     LogType = "ALERT",

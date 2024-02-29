@@ -181,15 +181,18 @@ class GroupPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.Group("my_developers",
+            name="developers",
+            path="/users/")
+        my_developer_policy = aws.iam.GroupPolicy("my_developer_policy",
+            name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
@@ -227,15 +230,18 @@ class GroupPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.Group("my_developers",
+            name="developers",
+            path="/users/")
+        my_developer_policy = aws.iam.GroupPolicy("my_developer_policy",
+            name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```

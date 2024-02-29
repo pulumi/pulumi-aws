@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv4&#34;)
- *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
+ *             .ipamScopeId(example.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ipv6TestPublicVpcIpamPool = new VpcIpamPool(&#34;ipv6TestPublicVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
+ *         var ipv6TestPublic = new VpcIpamPool(&#34;ipv6TestPublic&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv6&#34;)
  *             .ipamScopeId(example.publicDefaultScopeId())
  *             .locale(&#34;us-east-1&#34;)
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ipv6TestPublicVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;ipv6TestPublicVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
- *             .ipamPoolId(ipv6TestPublicVpcIpamPool.id())
+ *             .ipamPoolId(ipv6TestPublic.id())
  *             .netmaskLength(52)
  *             .build());
  * 

@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
 //				ResourceType: pulumi.String("CONTACT_TRACE_RECORDS"),
 //				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
 //					KinesisFirehoseConfig: &connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs{
-//						FirehoseArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//						FirehoseArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					},
 //					StorageType: pulumi.String("KINESIS_FIREHOSE"),
 //				},
@@ -63,11 +63,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
 //				ResourceType: pulumi.String("CONTACT_TRACE_RECORDS"),
 //				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
 //					KinesisStreamConfig: &connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs{
-//						StreamArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 //					},
 //					StorageType: pulumi.String("KINESIS_STREAM"),
 //				},
@@ -95,7 +95,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
 //				ResourceType: pulumi.String("MEDIA_STREAMS"),
 //				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
 //					KinesisVideoStreamConfig: &connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs{
@@ -103,7 +103,7 @@ import (
 //						RetentionPeriodHours: pulumi.Int(3),
 //						EncryptionConfig: &connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs{
 //							EncryptionType: pulumi.String("KMS"),
-//							KeyId:          pulumi.Any(aws_kms_key.Example.Arn),
+//							KeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
 //						},
 //					},
 //					StorageType: pulumi.String("KINESIS_VIDEO_STREAM"),
@@ -132,11 +132,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
 //				ResourceType: pulumi.String("CHAT_TRANSCRIPTS"),
 //				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
 //					S3Config: &connect.InstanceStorageConfigStorageConfigS3ConfigArgs{
-//						BucketName:   pulumi.Any(aws_s3_bucket.Example.Id),
+//						BucketName:   pulumi.Any(exampleAwsS3Bucket.Id),
 //						BucketPrefix: pulumi.String("example"),
 //					},
 //					StorageType: pulumi.String("S3"),
@@ -165,15 +165,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
 //				ResourceType: pulumi.String("CHAT_TRANSCRIPTS"),
 //				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
 //					S3Config: &connect.InstanceStorageConfigStorageConfigS3ConfigArgs{
-//						BucketName:   pulumi.Any(aws_s3_bucket.Example.Id),
+//						BucketName:   pulumi.Any(exampleAwsS3Bucket.Id),
 //						BucketPrefix: pulumi.String("example"),
 //						EncryptionConfig: &connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs{
 //							EncryptionType: pulumi.String("KMS"),
-//							KeyId:          pulumi.Any(aws_kms_key.Example.Arn),
+//							KeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
 //						},
 //					},
 //					StorageType: pulumi.String("S3"),

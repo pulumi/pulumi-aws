@@ -571,17 +571,14 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Cluster("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 subnet_ids=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
+                    example1["id"],
+                    example2["id"],
                 ],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
-                ]))
+            ))
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
@@ -599,7 +596,9 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example = aws.iam.Role("example", assume_role_policy=assume_role.json)
+        example = aws.iam.Role("example",
+            name="eks-cluster-example",
+            assume_role_policy=assume_role.json)
         example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=example.name)
@@ -623,14 +622,50 @@ class Cluster(pulumi.CustomResource):
         cluster_name = config.get("clusterName")
         if cluster_name is None:
             cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
-            "api",
-            "audit",
-        ],
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
+        example = aws.eks.Cluster("example",
+            enabled_cluster_log_types=[
+                "api",
+                "audit",
+            ],
+            name=cluster_name)
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/eks/{cluster_name}/cluster",
+            retention_in_days=7)
+        ```
+        ### Enabling IAM Roles for Service Accounts
+
+        Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example.url)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example")
         ```
         ### EKS Cluster on AWS Outpost
 
@@ -640,16 +675,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
+        example = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy["json"],
+            name="example")
+        example_cluster = aws.eks.Cluster("example",
+            name="example-cluster",
+            role_arn=example.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 endpoint_private_access=True,
                 endpoint_public_access=False,
             ),
             outpost_config=aws.eks.ClusterOutpostConfigArgs(
                 control_plane_instance_type="m5d.large",
-                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
+                outpost_arns=[example_aws_outposts_outpost["arn"]],
             ))
         ```
         ### EKS Cluster with Access Config
@@ -658,9 +696,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
+        example = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy["json"],
+            name="example")
+        example_cluster = aws.eks.Cluster("example",
+            name="example-cluster",
+            role_arn=example.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 endpoint_private_access=True,
                 endpoint_public_access=False,
@@ -713,17 +754,14 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Cluster("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 subnet_ids=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
+                    example1["id"],
+                    example2["id"],
                 ],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
-                ]))
+            ))
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
@@ -741,7 +779,9 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example = aws.iam.Role("example", assume_role_policy=assume_role.json)
+        example = aws.iam.Role("example",
+            name="eks-cluster-example",
+            assume_role_policy=assume_role.json)
         example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=example.name)
@@ -765,14 +805,50 @@ class Cluster(pulumi.CustomResource):
         cluster_name = config.get("clusterName")
         if cluster_name is None:
             cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
-            "api",
-            "audit",
-        ],
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
+        example = aws.eks.Cluster("example",
+            enabled_cluster_log_types=[
+                "api",
+                "audit",
+            ],
+            name=cluster_name)
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/eks/{cluster_name}/cluster",
+            retention_in_days=7)
+        ```
+        ### Enabling IAM Roles for Service Accounts
+
+        Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example.url)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example")
         ```
         ### EKS Cluster on AWS Outpost
 
@@ -782,16 +858,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
+        example = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy["json"],
+            name="example")
+        example_cluster = aws.eks.Cluster("example",
+            name="example-cluster",
+            role_arn=example.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 endpoint_private_access=True,
                 endpoint_public_access=False,
             ),
             outpost_config=aws.eks.ClusterOutpostConfigArgs(
                 control_plane_instance_type="m5d.large",
-                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
+                outpost_arns=[example_aws_outposts_outpost["arn"]],
             ))
         ```
         ### EKS Cluster with Access Config
@@ -800,9 +879,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
+        example = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy["json"],
+            name="example")
+        example_cluster = aws.eks.Cluster("example",
+            name="example-cluster",
+            role_arn=example.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(
                 endpoint_private_access=True,
                 endpoint_public_access=False,

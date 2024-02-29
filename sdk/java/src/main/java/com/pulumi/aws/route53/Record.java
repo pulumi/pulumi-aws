@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www.example.com&#34;)
  *             .type(&#34;A&#34;)
  *             .ttl(300)
- *             .records(aws_eip.lb().public_ip())
+ *             .records(lb.publicIp())
  *             .build());
  * 
  *     }
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www_dev = new Record(&#34;www-dev&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www_live = new Record(&#34;www-live&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www.example.com&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(300)
@@ -187,6 +187,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new LoadBalancer(&#34;main&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;foobar-elb&#34;)
  *             .availabilityZones(&#34;us-east-1c&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(80)
@@ -197,7 +198,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;example.com&#34;)
  *             .type(&#34;A&#34;)
  *             .aliases(RecordAliasArgs.builder()
@@ -220,6 +221,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
  * import java.util.List;
@@ -235,19 +237,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleZone = new Zone(&#34;exampleZone&#34;);
+ *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .name(&#34;test.example.com&#34;)
+ *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .allowOverwrite(true)
  *             .name(&#34;test.example.com&#34;)
  *             .ttl(172800)
  *             .type(&#34;NS&#34;)
- *             .zoneId(exampleZone.zoneId())
+ *             .zoneId(example.zoneId())
  *             .records(            
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[0]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[1]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[2]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[3]))
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[0]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[1]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[2]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[3]))
  *             .build());
  * 
  *     }

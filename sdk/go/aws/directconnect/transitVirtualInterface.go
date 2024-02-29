@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("tf-dxg-example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
-//				DxGatewayId:   exampleGateway.ID(),
+//			_, err = directconnect.NewTransitVirtualInterface(ctx, "example", &directconnect.TransitVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.Any(exampleAwsDxConnection.Id),
+//				DxGatewayId:   example.ID(),
+//				Name:          pulumi.String("tf-transit-vif-example"),
 //				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),
 //				BgpAsn:        pulumi.Int(65352),

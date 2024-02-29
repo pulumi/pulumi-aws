@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNodeGroups, err := eks.GetNodeGroups(ctx, &eks.GetNodeGroupsArgs{
+//			example, err := eks.GetNodeGroups(ctx, &eks.GetNodeGroupsArgs{
 //				ClusterName: "example",
 //			}, nil)
 //			if err != nil {

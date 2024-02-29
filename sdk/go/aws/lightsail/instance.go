@@ -34,7 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new GitLab Lightsail Instance
-//			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
+//			_, err := lightsail.NewInstance(ctx, "gitlab_test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("custom_gitlab"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
@@ -68,6 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewInstance(ctx, "custom", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("custom"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
@@ -96,14 +98,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
-//				AddOn: &lightsail.InstanceAddOnArgs{
-//					SnapshotTime: pulumi.String("06:00"),
-//					Status:       pulumi.String("Enabled"),
-//					Type:         pulumi.String("AutoSnapshot"),
-//				},
+//				Name:             pulumi.String("custom_instance"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
+//				AddOn: &lightsail.InstanceAddOnArgs{
+//					Type:         pulumi.String("AutoSnapshot"),
+//					SnapshotTime: pulumi.String("06:00"),
+//					Status:       pulumi.String("Enabled"),
+//				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

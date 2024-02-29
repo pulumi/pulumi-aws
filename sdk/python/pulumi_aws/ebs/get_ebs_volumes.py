@@ -93,14 +93,14 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
     import pulumi
     import pulumi_aws as aws
 
-    example_ebs_volumes = aws.ebs.get_ebs_volumes(tags={
+    example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_volume = [aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
+    example_get_volume = {__key: aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
         name="volume-id",
-        values=[each["value"]],
-    )]) for __key, __value in example_ebs_volumes.ids]
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_volume})
+        values=[__value],
+    )]) for __key, __value in example.ids}
+    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
 
 
@@ -141,14 +141,14 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    example_ebs_volumes = aws.ebs.get_ebs_volumes(tags={
+    example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_volume = [aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
+    example_get_volume = {__key: aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
         name="volume-id",
-        values=[each["value"]],
-    )]) for __key, __value in example_ebs_volumes.ids]
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_volume})
+        values=[__value],
+    )]) for __key, __value in example.ids}
+    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
 
 

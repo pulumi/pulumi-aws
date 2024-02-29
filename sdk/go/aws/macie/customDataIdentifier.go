@@ -28,11 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie.CustomDataIdentifierArgs{
+//			_, err = macie.NewCustomDataIdentifier(ctx, "example", &macie.CustomDataIdentifierArgs{
+//				Name:                 pulumi.String("NAME OF CUSTOM DATA IDENTIFIER"),
 //				Regex:                pulumi.String("[0-9]{3}-[0-9]{2}-[0-9]{4}"),
 //				Description:          pulumi.String("DESCRIPTION"),
 //				MaximumMatchDistance: pulumi.Int(10),
@@ -42,9 +43,7 @@ import (
 //				IgnoreWords: pulumi.StringArray{
 //					pulumi.String("ignore"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

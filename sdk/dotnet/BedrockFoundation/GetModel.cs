@@ -27,11 +27,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testModels = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
-        ///     var testModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
         ///     {
-        ///         ModelId = testModels.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -58,11 +58,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testModels = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
-        ///     var testModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
         ///     {
-        ///         ModelId = testModels.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });

@@ -19,14 +19,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Example CloudWatch log group in us-east-1
- * const us_east_1 = new aws.Provider("us-east-1", {region: "us-east-1"});
- * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("awsRoute53ExampleCom", {retentionInDays: 30}, {
- *     provider: aws["us-east-1"],
+ * // Example Route53 zone with query logging
+ * const exampleCom = new aws.route53.Zone("example_com", {name: "example.com"});
+ * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("aws_route53_example_com", {
+ *     name: pulumi.interpolate`/aws/route53/${exampleCom.name}`,
+ *     retentionInDays: 30,
  * });
  * // Example CloudWatch log resource policy to allow Route53 to write logs
  * // to any log group under /aws/route53/*
- * const route53-query-logging-policyPolicyDocument = aws.iam.getPolicyDocument({
+ * const route53-query-logging-policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -39,19 +40,13 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.then(route53_query_logging_policyPolicyDocument => route53_query_logging_policyPolicyDocument.json),
+ * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
+ *     policyDocument: route53_query_logging_policy.then(route53_query_logging_policy => route53_query_logging_policy.json),
  *     policyName: "route53-query-logging-policy",
- * }, {
- *     provider: aws["us-east-1"],
  * });
- * // Example Route53 zone with query logging
- * const exampleComZone = new aws.route53.Zone("exampleComZone", {});
- * const exampleComQueryLog = new aws.route53.QueryLog("exampleComQueryLog", {
+ * const exampleComQueryLog = new aws.route53.QueryLog("example_com", {
  *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
- *     zoneId: exampleComZone.zoneId,
- * }, {
- *     dependsOn: [route53_query_logging_policyLogResourcePolicy],
+ *     zoneId: exampleCom.zoneId,
  * });
  * ```
  *

@@ -458,13 +458,15 @@ class EventRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-aws-sign-in",
             description="Capture each AWS Console Sign In",
             event_pattern=json.dumps({
                 "detail-type": ["AWS Console Sign In via CloudTrail"],
             }))
-        aws_logins = aws.sns.Topic("awsLogins")
+        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,
+            target_id="SendToSNS",
             arn=aws_logins.arn)
         sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
@@ -528,13 +530,15 @@ class EventRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-aws-sign-in",
             description="Capture each AWS Console Sign In",
             event_pattern=json.dumps({
                 "detail-type": ["AWS Console Sign In via CloudTrail"],
             }))
-        aws_logins = aws.sns.Topic("awsLogins")
+        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,
+            target_id="SendToSNS",
             arn=aws_logins.arn)
         sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",

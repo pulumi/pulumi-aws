@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.organizations.getOrganization({});
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -47,9 +47,9 @@ import * as utilities from "../utilities";
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument => snsTopicPolicyPolicyDocument.json),
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  */
@@ -129,8 +129,8 @@ export interface GetOrganizationResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.organizations.getOrganization({});
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -149,9 +149,9 @@ export interface GetOrganizationResult {
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument => snsTopicPolicyPolicyDocument.json),
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  */

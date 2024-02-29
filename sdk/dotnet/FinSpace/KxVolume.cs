@@ -25,7 +25,8 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxVolume("example", new()
     ///     {
-    ///         EnvironmentId = aws_finspace_kx_environment.Example.Id,
+    ///         Name = "my-tf-kx-volume",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
     ///         AvailabilityZones = "use1-az2",
     ///         AzMode = "SINGLE",
     ///         Type = "NAS_1",

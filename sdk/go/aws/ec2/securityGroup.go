@@ -37,9 +37,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			allowTls, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
+//			allowTls, err := ec2.NewSecurityGroup(ctx, "allow_tls", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.String("allow_tls"),
 //				Description: pulumi.String("Allow TLS inbound traffic and all outbound traffic"),
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:       pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("allow_tls"),
 //				},
@@ -47,9 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allowTlsIpv4", &vpc.SecurityGroupIngressRuleArgs{
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv4", &vpc.SecurityGroupIngressRuleArgs{
 //				SecurityGroupId: allowTls.ID(),
-//				CidrIpv4:        pulumi.Any(aws_vpc.Main.Cidr_block),
+//				CidrIpv4:        pulumi.Any(main.CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				IpProtocol:      pulumi.String("tcp"),
 //				ToPort:          pulumi.Int(443),
@@ -57,9 +58,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allowTlsIpv6", &vpc.SecurityGroupIngressRuleArgs{
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv6", &vpc.SecurityGroupIngressRuleArgs{
 //				SecurityGroupId: allowTls.ID(),
-//				CidrIpv6:        pulumi.Any(aws_vpc.Main.Ipv6_cidr_block),
+//				CidrIpv6:        pulumi.Any(main.Ipv6CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				IpProtocol:      pulumi.String("tcp"),
 //				ToPort:          pulumi.Int(443),
@@ -67,7 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allowAllTrafficIpv4", &vpc.SecurityGroupEgressRuleArgs{
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv4", &vpc.SecurityGroupEgressRuleArgs{
 //				SecurityGroupId: allowTls.ID(),
 //				CidrIpv4:        pulumi.String("0.0.0.0/0"),
 //				IpProtocol:      pulumi.String("-1"),
@@ -75,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allowAllTrafficIpv6", &vpc.SecurityGroupEgressRuleArgs{
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv6", &vpc.SecurityGroupEgressRuleArgs{
 //				SecurityGroupId: allowTls.ID(),
 //				CidrIpv6:        pulumi.String("::/0"),
 //				IpProtocol:      pulumi.String("-1"),
@@ -106,15 +107,15 @@ import (
 //			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//						Protocol: pulumi.String("-1"),
 //						CidrBlocks: pulumi.StringArray{
 //							pulumi.String("0.0.0.0/0"),
 //						},
-//						FromPort: pulumi.Int(0),
 //						Ipv6CidrBlocks: pulumi.StringArray{
 //							pulumi.String("::/0"),
 //						},
-//						Protocol: pulumi.String("-1"),
-//						ToPort:   pulumi.Int(0),
 //					},
 //				},
 //			})
@@ -145,11 +146,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "my_endpoint", nil)
 //			if err != nil {
 //				return err
 //			}
-//			// ... other configuration ...
 //			_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
@@ -189,7 +189,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-//				VpcId:   pulumi.Any(aws_vpc.Example.Id),
+//				Name:    pulumi.String("sg"),
+//				VpcId:   pulumi.Any(exampleAwsVpc.Id),
 //				Ingress: ec2.SecurityGroupIngressArray{},
 //				Egress:  ec2.SecurityGroupEgressArray{},
 //			})
@@ -230,7 +231,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "example", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("changeable-name"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -257,14 +260,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("sg"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				InstanceType: pulumi.String("t3.small"),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					test.Id,
 //				},
 //			})
 //			if err != nil {
@@ -293,7 +298,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "example", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("izizavle"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -301,6 +308,81 @@ import (
 //		})
 //	}
 //
+// ```
+// ### Provisioners
+//
+// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+//
+// **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-command/sdk/v1/go/command/local"
+//	"github.com/pulumi/pulumi-null/sdk/v1/go/null"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _default, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
+// Name: pulumi.StringRef("default"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// Name: pulumi.String("sg"),
+// Tags: pulumi.StringMap{
+// "workaround1": pulumi.String("tagged-name"),
+// "workaround2": *pulumi.String(_default.Id),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
+// Create: "true",
+// Update: "true",
+// Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%v\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// example,
+// }))
+// if err != nil {
+// return err
+// }
+// exampleResource, err := index.NewResource(ctx, "example", &index.ResourceArgs{
+// Triggers: invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+// Separator: ",",
+// Input: exampleAwsVpcEndpoint.SecurityGroupIds,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// map[string]interface{}{
+// "rerunUponChangeOf": invokeJoin.Result,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = local.NewCommand(ctx, "exampleResourceProvisioner0", &local.CommandArgs{
+// Create: fmt.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleResource,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

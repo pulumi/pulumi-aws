@@ -314,14 +314,15 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            name="pulumi-example-table",
+            description="I made this table with Pulumi!",
+            analysis_method="DIRECT_QUERY",
             allowed_columns=[
                 "column1",
                 "column2",
                 "column3",
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",
@@ -366,14 +367,15 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            name="pulumi-example-table",
+            description="I made this table with Pulumi!",
+            analysis_method="DIRECT_QUERY",
             allowed_columns=[
                 "column1",
                 "column2",
                 "column3",
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",

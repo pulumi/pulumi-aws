@@ -12,6 +12,30 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Bucket("test", new()
+    ///     {
+    ///         Name = "mytestbucket",
+    ///         BundleId = "small_1_0",
+    ///     });
+    /// 
+    ///     var testLightsailBucketAccessKeyAccessKey = new Aws.Index.LightsailBucketAccessKeyAccessKey("test", new()
+    ///     {
+    ///         BucketName = testAwsLightsailBucketAccessKey.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:

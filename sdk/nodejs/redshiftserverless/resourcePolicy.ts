@@ -14,16 +14,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftserverless.ResourcePolicy("example", {
- *     resourceArn: aws_redshiftserverless_snapshot.example.arn,
+ *     resourceArn: exampleAwsRedshiftserverlessSnapshot.arn,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: ["12345678901"],
  *             },
- *             Action: ["redshift-serverless:RestoreFromSnapshot"],
- *             Sid: "",
+ *             action: ["redshift-serverless:RestoreFromSnapshot"],
+ *             sid: "",
  *         }],
  *     }),
  * });

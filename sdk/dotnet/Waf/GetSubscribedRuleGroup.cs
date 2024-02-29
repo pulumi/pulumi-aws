@@ -36,7 +36,6 @@ namespace Pulumi.Aws.Waf
         ///         MetricName = "F5BotDetectionSignatures",
         ///     });
         /// 
-        ///     // ...
         ///     var acl = new Aws.Waf.WebAcl("acl", new()
         ///     {
         ///         Rules = new[]
@@ -89,7 +88,6 @@ namespace Pulumi.Aws.Waf
         ///         MetricName = "F5BotDetectionSignatures",
         ///     });
         /// 
-        ///     // ...
         ///     var acl = new Aws.Waf.WebAcl("acl", new()
         ///     {
         ///         Rules = new[]

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccount;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccountArgs;
- * import com.pulumi.aws.Provider;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,8 +47,6 @@ import javax.annotation.Nullable;
  *         var example = new VpcIpamOrganizationAdminAccount(&#34;example&#34;, VpcIpamOrganizationAdminAccountArgs.builder()        
  *             .delegatedAdminAccountId(delegated.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .build());
- * 
- *         var ipamDelegateAccount = new Provider(&#34;ipamDelegateAccount&#34;);
  * 
  *     }
  * }

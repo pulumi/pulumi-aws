@@ -45,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
+ *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .build());
  * 
  *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .vpcId(fooVpc.id())
+ *             .vpcId(foo.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-1&#34;))
  *             .build());
  * 
  *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
  *             .cidrBlock(&#34;10.1.2.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2b&#34;)
- *             .vpcId(fooVpc.id())
+ *             .vpcId(foo.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-2&#34;))
  *             .build());
  * 
  *         var fooSubnetGroup = new SubnetGroup(&#34;fooSubnetGroup&#34;, SubnetGroupArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .subnetIds(            
  *                 fooSubnet.id(),
  *                 bar.id())

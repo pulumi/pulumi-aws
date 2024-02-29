@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AmiCopy(&#34;example&#34;, AmiCopyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;A copy of ami-xxxxxxxx&#34;)
  *             .sourceAmiId(&#34;ami-xxxxxxxx&#34;)
  *             .sourceAmiRegion(&#34;us-west-1&#34;)

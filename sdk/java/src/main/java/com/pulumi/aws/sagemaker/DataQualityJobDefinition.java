@@ -58,18 +58,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DataQualityJobDefinition(&#34;test&#34;, DataQualityJobDefinitionArgs.builder()        
+ *             .name(&#34;my-data-quality-job-definition&#34;)
  *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
- *                 .imageUri(data.aws_sagemaker_prebuilt_ecr_image().monitor().registry_path())
+ *                 .imageUri(monitor.registryPath())
  *                 .build())
  *             .dataQualityJobInput(DataQualityJobDefinitionDataQualityJobInputArgs.builder()
  *                 .endpointInput(DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.builder()
- *                     .endpointName(aws_sagemaker_endpoint.my_endpoint().name())
+ *                     .endpointName(myEndpoint.name())
  *                     .build())
  *                 .build())
  *             .dataQualityJobOutputConfig(DataQualityJobDefinitionDataQualityJobOutputConfigArgs.builder()
  *                 .monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.builder()
  *                     .s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.builder()
- *                         .s3Uri(String.format(&#34;https://%s/output&#34;, aws_s3_bucket.my_bucket().bucket_regional_domain_name()))
+ *                         .s3Uri(String.format(&#34;https://%s/output&#34;, myBucket.bucketRegionalDomainName()))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  *                     .volumeSizeInGb(20)
  *                     .build())
  *                 .build())
- *             .roleArn(aws_iam_role.my_role().arn())
+ *             .roleArn(myRole.arn())
  *             .build());
  * 
  *     }

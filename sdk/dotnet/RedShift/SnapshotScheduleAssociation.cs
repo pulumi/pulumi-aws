@@ -20,7 +20,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.RedShift.Cluster("defaultCluster", new()
+    ///     var @default = new Aws.RedShift.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
     ///         DatabaseName = "mydb",
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.RedShift
     ///         ClusterType = "single-node",
     ///     });
     /// 
-    ///     var defaultSnapshotSchedule = new Aws.RedShift.SnapshotSchedule("defaultSnapshotSchedule", new()
+    ///     var defaultSnapshotSchedule = new Aws.RedShift.SnapshotSchedule("default", new()
     ///     {
     ///         Identifier = "tf-redshift-snapshot-schedule",
     ///         Definitions = new[]
@@ -39,9 +39,9 @@ namespace Pulumi.Aws.RedShift
     ///         },
     ///     });
     /// 
-    ///     var defaultSnapshotScheduleAssociation = new Aws.RedShift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", new()
+    ///     var defaultSnapshotScheduleAssociation = new Aws.RedShift.SnapshotScheduleAssociation("default", new()
     ///     {
-    ///         ClusterIdentifier = defaultCluster.Id,
+    ///         ClusterIdentifier = @default.Id,
     ///         ScheduleIdentifier = defaultSnapshotSchedule.Id,
     ///     });
     /// 

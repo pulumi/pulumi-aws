@@ -243,33 +243,38 @@ class LanguageModel(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["transcribe.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        test_policy = aws.iam.RolePolicy("testPolicy",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=example.json)
+        test_policy = aws.iam.RolePolicy("test_policy",
+            name="example",
             role=example_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "s3:GetObject",
                         "s3:ListBucket",
                     ],
-                    "Effect": "Allow",
-                    "Resource": ["*"],
+                    "effect": "Allow",
+                    "resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example-transcribe",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
             bucket=example_bucket_v2.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
-        example_language_model = aws.transcribe.LanguageModel("exampleLanguageModel",
+        example_language_model = aws.transcribe.LanguageModel("example",
             model_name="example",
             base_model_name="NarrowBand",
             input_data_config=aws.transcribe.LanguageModelInputDataConfigArgs(
@@ -317,33 +322,38 @@ class LanguageModel(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["transcribe.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        test_policy = aws.iam.RolePolicy("testPolicy",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=example.json)
+        test_policy = aws.iam.RolePolicy("test_policy",
+            name="example",
             role=example_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "s3:GetObject",
                         "s3:ListBucket",
                     ],
-                    "Effect": "Allow",
-                    "Resource": ["*"],
+                    "effect": "Allow",
+                    "resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example-transcribe",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
             bucket=example_bucket_v2.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
-        example_language_model = aws.transcribe.LanguageModel("exampleLanguageModel",
+        example_language_model = aws.transcribe.LanguageModel("example",
             model_name="example",
             base_model_name="NarrowBand",
             input_data_config=aws.transcribe.LanguageModelInputDataConfigArgs(

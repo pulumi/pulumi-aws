@@ -174,6 +174,7 @@ class ListenerPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -213,6 +214,7 @@ class ListenerPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -264,6 +266,7 @@ class ListenerPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -303,6 +306,7 @@ class ListenerPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,

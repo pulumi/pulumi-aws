@@ -158,8 +158,8 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_contact_flow(contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 
@@ -218,8 +218,8 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_contact_flow(contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 

@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.GetResolverFirewallRules(ctx, &route53.GetResolverFirewallRulesArgs{
-//				FirewallRuleGroupId: aws_route53_resolver_firewall_rule_group.Example.Id,
+//				FirewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

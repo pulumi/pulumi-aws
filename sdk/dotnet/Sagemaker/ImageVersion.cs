@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
     ///     {
-    ///         ImageName = aws_sagemaker_image.Test.Id,
+    ///         ImageName = testAwsSagemakerImage.Id,
     ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
     ///     });
     /// 

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codecatalyst.SourceRepository("example", {
+ *     name: "example-repo",
  *     projectName: "example-project",
  *     spaceName: "example-space",
  * });

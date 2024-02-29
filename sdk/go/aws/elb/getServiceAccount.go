@@ -37,18 +37,20 @@ import (
 // if err != nil {
 // return err
 // }
-// elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", nil)
+// elbLogs, err := s3.NewBucketV2(ctx, "elb_logs", &s3.BucketV2Args{
+// Bucket: pulumi.String("my-elb-tf-test-bucket"),
+// })
 // if err != nil {
 // return err
 // }
-// _, err = s3.NewBucketAclV2(ctx, "elbLogsAcl", &s3.BucketAclV2Args{
+// _, err = s3.NewBucketAclV2(ctx, "elb_logs_acl", &s3.BucketAclV2Args{
 // Bucket: elbLogs.ID(),
 // Acl: pulumi.String("private"),
 // })
 // if err != nil {
 // return err
 // }
-// allowElbLoggingPolicyDocument := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// allowElbLogging := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -71,16 +73,17 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allowElbLoggingBucketPolicy", &s3.BucketPolicyArgs{
+// _, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
 // Bucket: elbLogs.ID(),
-// Policy: allowElbLoggingPolicyDocument.ApplyT(func(allowElbLoggingPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowElbLoggingPolicyDocument.Json, nil
+// Policy: allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowElbLogging.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
 // return err
 // }
 // _, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+// Name: pulumi.String("my-foobar-elb"),
 // AvailabilityZones: pulumi.StringArray{
 // pulumi.String("us-west-2a"),
 // },

@@ -22,9 +22,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const task = new aws.emr.InstanceGroup("task", {
- *     clusterId: aws_emr_cluster["tf-test-cluster"].id,
+ *     clusterId: tf_test_cluster.id,
  *     instanceCount: 1,
  *     instanceType: "m5.xlarge",
+ *     name: "my little instance group",
  * });
  * ```
  *
@@ -97,7 +98,6 @@ export class InstanceGroup extends pulumi.CustomResource {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */
@@ -217,7 +217,6 @@ export interface InstanceGroupState {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */
@@ -289,7 +288,6 @@ export interface InstanceGroupArgs {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */

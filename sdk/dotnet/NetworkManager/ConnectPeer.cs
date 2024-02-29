@@ -13,6 +13,147 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS Network Manager Connect Peer.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///     });
+    /// 
+    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
+    ///     {
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
+    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
+    ///         {
+    ///             Protocol = "GRE",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
+    ///     {
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
+    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
+    ///         {
+    ///             PeerAsn = 65000,
+    ///         },
+    ///         InsideCidrBlocks = new[]
+    ///         {
+    ///             "172.16.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Usage with attachment accepter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///     });
+    /// 
+    ///     var exampleAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("example", new()
+    ///     {
+    ///         AttachmentId = example.Id,
+    ///         AttachmentType = example.AttachmentType,
+    ///     });
+    /// 
+    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
+    ///     {
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
+    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
+    ///         {
+    ///             Protocol = "GRE",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()
+    ///     {
+    ///         AttachmentId = exampleConnectAttachment.Id,
+    ///         AttachmentType = exampleConnectAttachment.AttachmentType,
+    ///     });
+    /// 
+    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
+    ///     {
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
+    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
+    ///         {
+    ///             PeerAsn = 65500,
+    ///         },
+    ///         InsideCidrBlocks = new[]
+    ///         {
+    ///             "172.16.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Usage with a Tunnel-less Connect attachment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///     });
+    /// 
+    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
+    ///     {
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
+    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
+    ///         {
+    ///             Protocol = "NO_ENCAP",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
+    ///     {
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
+    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
+    ///         {
+    ///             PeerAsn = 65000,
+    ///         },
+    ///         SubnetArn = test2.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

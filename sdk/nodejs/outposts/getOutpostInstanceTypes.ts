@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getOutpostInstanceTypes({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
  */
@@ -60,7 +60,7 @@ export interface GetOutpostInstanceTypesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getOutpostInstanceTypes({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
  */

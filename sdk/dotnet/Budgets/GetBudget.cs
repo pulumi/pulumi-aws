@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Budgets
         /// {
         ///     var test = Aws.Budgets.GetBudget.Invoke(new()
         ///     {
-        ///         Name = aws_budgets_budget.Test.Name,
+        ///         Name = testAwsBudgetsBudget.Name,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Budgets
         /// {
         ///     var test = Aws.Budgets.GetBudget.Invoke(new()
         ///     {
-        ///         Name = aws_budgets_budget.Test.Name,
+        ///         Name = testAwsBudgetsBudget.Name,
         ///     });
         /// 
         /// });

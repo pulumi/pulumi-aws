@@ -76,7 +76,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -87,11 +87,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -169,7 +170,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -180,11 +181,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -262,7 +264,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -273,11 +275,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -355,7 +358,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -366,11 +369,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -416,8 +420,8 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
@@ -455,8 +459,8 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
@@ -494,8 +498,8 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
@@ -533,8 +537,8 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }

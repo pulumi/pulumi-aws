@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ebs.FastSnapshotRestore("example", {
  *     availabilityZone: "us-west-2a",
- *     snapshotId: aws_ebs_snapshot.example.id,
+ *     snapshotId: exampleAwsEbsSnapshot.id,
  * });
  * ```
  *

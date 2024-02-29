@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NfsFileShare(&#34;example&#34;, NfsFileShareArgs.builder()        
  *             .clientLists(&#34;0.0.0.0/0&#34;)
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_s3_bucket.example().arn())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .locationArn(exampleAwsS3Bucket.arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

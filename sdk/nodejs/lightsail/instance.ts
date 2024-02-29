@@ -22,7 +22,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new GitLab Lightsail Instance
- * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
+ * const gitlabTest = new aws.lightsail.Instance("gitlab_test", {
+ *     name: "custom_gitlab",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
@@ -41,6 +42,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const custom = new aws.lightsail.Instance("custom", {
+ *     name: "custom",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
@@ -54,14 +56,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Instance("test", {
- *     addOn: {
- *         snapshotTime: "06:00",
- *         status: "Enabled",
- *         type: "AutoSnapshot",
- *     },
+ *     name: "custom_instance",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
+ *     addOn: {
+ *         type: "AutoSnapshot",
+ *         snapshotTime: "06:00",
+ *         status: "Enabled",
+ *     },
  *     tags: {
  *         foo: "bar",
  *     },

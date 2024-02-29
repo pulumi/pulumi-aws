@@ -141,9 +141,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 cloud_watch_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs(
@@ -163,14 +163,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                    iam_role_arn=aws_iam_role["example"]["arn"],
+                    delivery_stream_arn=example_aws_kinesis_firehose_delivery_stream["arn"],
+                    iam_role_arn=example_aws_iam_role["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -182,13 +182,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=aws_pinpoint_app["example"]["arn"],
+                    application_arn=example_aws_pinpoint_app["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -200,13 +200,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=aws_sns_topic["example"]["arn"],
+                    topic_arn=example_aws_sns_topic["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -243,9 +243,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 cloud_watch_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs(
@@ -265,14 +265,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                    iam_role_arn=aws_iam_role["example"]["arn"],
+                    delivery_stream_arn=example_aws_kinesis_firehose_delivery_stream["arn"],
+                    iam_role_arn=example_aws_iam_role["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -284,13 +284,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=aws_pinpoint_app["example"]["arn"],
+                    application_arn=example_aws_pinpoint_app["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -302,13 +302,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
-            configuration_set_name=example_configuration_set.configuration_set_name,
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=aws_sns_topic["example"]["arn"],
+                    topic_arn=example_aws_sns_topic["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],

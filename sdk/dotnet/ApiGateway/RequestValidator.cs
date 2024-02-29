@@ -24,7 +24,8 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         Name = "example",
+    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
     ///         ValidateRequestBody = true,
     ///         ValidateRequestParameters = true,
     ///     });

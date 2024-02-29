@@ -25,22 +25,14 @@ namespace Pulumi.Aws.ApiGateway
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeSHA1(string input) 
-    /// {
-    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
-    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -67,21 +59,25 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
@@ -92,70 +88,62 @@ namespace Pulumi.Aws.ApiGateway
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeSHA1(string input) 
-    /// {
-    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
-    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
-    /// 
-    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
-    ///         ParentId = exampleRestApi.RootResourceId,
-    ///         PathPart = "example",
-    ///         RestApi = exampleRestApi.Id,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     var exampleResource = new Aws.ApiGateway.Resource("example", new()
+    ///     {
+    ///         ParentId = example.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("example", new()
     ///     {
     ///         Authorization = "NONE",
     ///         HttpMethod = "GET",
     ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
     ///     {
     ///         HttpMethod = exampleMethod.HttpMethod,
     ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Type = "MOCK",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             { "redeployment", Std.Sha1.Invoke(new()
     ///             {
-    ///                 var exampleResourceId = values.Item1;
-    ///                 var exampleMethodId = values.Item2;
-    ///                 var exampleIntegrationId = values.Item3;
-    ///                 return ComputeSHA1(JsonSerializer.Serialize(new[]
+    ///                 Input = Output.JsonSerialize(Output.Create(new[]
     ///                 {
-    ///                     exampleResourceId,
-    ///                     exampleMethodId,
-    ///                     exampleIntegrationId,
-    ///                 }));
-    ///             }) },
+    ///                     exampleResource.Id,
+    ///                     exampleMethod.Id,
+    ///                     exampleIntegration.Id,
+    ///                 })),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 

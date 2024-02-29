@@ -192,8 +192,8 @@ class SecretRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretRotation("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
-            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
+            secret_id=example_aws_secretsmanager_secret["id"],
+            rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules=aws.secretsmanager.SecretRotationRotationRulesArgs(
                 automatically_after_days=30,
             ))
@@ -238,8 +238,8 @@ class SecretRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretRotation("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
-            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
+            secret_id=example_aws_secretsmanager_secret["id"],
+            rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules=aws.secretsmanager.SecretRotationRotationRulesArgs(
                 automatically_after_days=30,
             ))

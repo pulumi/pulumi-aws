@@ -34,10 +34,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const example = new aws.cloudfront.Distribution("example", {origins: [{
  *     s3OriginConfig: {
- *         originAccessIdentity: aws_cloudfront_origin_access_identity.example.cloudfront_access_identity_path,
+ *         originAccessIdentity: exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath,
  *     },
  * }]});
  * ```
@@ -56,15 +55,15 @@ import * as utilities from "../utilities";
  * const s3Policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:GetObject"],
- *         resources: [`${aws_s3_bucket.example.arn}/*`],
+ *         resources: [`${exampleAwsS3Bucket.arn}/*`],
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [aws_cloudfront_origin_access_identity.example.iam_arn],
+ *             identifiers: [exampleAwsCloudfrontOriginAccessIdentity.iamArn],
  *         }],
  *     }],
  * });
  * const example = new aws.s3.BucketPolicy("example", {
- *     bucket: aws_s3_bucket.example.id,
+ *     bucket: exampleAwsS3Bucket.id,
  *     policy: s3Policy.then(s3Policy => s3Policy.json),
  * });
  * ```

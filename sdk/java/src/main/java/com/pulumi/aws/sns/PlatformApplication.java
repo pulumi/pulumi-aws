@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var apnsApplication = new PlatformApplication(&#34;apnsApplication&#34;, PlatformApplicationArgs.builder()        
+ *             .name(&#34;apns_application&#34;)
  *             .platform(&#34;APNS&#34;)
  *             .platformCredential(&#34;&lt;APNS PRIVATE KEY&gt;&#34;)
  *             .platformPrincipal(&#34;&lt;APNS CERTIFICATE&gt;&#34;)
@@ -73,11 +74,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var apnsApplication = new PlatformApplication(&#34;apnsApplication&#34;, PlatformApplicationArgs.builder()        
- *             .applePlatformBundleId(&#34;&lt;APPLE BUNDLE ID&gt;&#34;)
- *             .applePlatformTeamId(&#34;&lt;APPLE TEAM ID&gt;&#34;)
+ *             .name(&#34;apns_application&#34;)
  *             .platform(&#34;APNS&#34;)
  *             .platformCredential(&#34;&lt;APNS SIGNING KEY&gt;&#34;)
  *             .platformPrincipal(&#34;&lt;APNS SIGNING KEY ID&gt;&#34;)
+ *             .applePlatformTeamId(&#34;&lt;APPLE TEAM ID&gt;&#34;)
+ *             .applePlatformBundleId(&#34;&lt;APPLE BUNDLE ID&gt;&#34;)
  *             .build());
  * 
  *     }
@@ -106,6 +108,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var gcmApplication = new PlatformApplication(&#34;gcmApplication&#34;, PlatformApplicationArgs.builder()        
+ *             .name(&#34;gcm_application&#34;)
  *             .platform(&#34;GCM&#34;)
  *             .platformCredential(&#34;&lt;GCM API KEY&gt;&#34;)
  *             .build());

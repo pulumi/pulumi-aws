@@ -27,8 +27,8 @@ namespace Pulumi.Aws.ServiceQuotas
     /// {
     ///     var example = new Aws.ServiceQuotas.Template("example", new()
     ///     {
-    ///         QuotaCode = "L-2ACBD22F",
     ///         Region = "us-east-1",
+    ///         QuotaCode = "L-2ACBD22F",
     ///         ServiceCode = "lambda",
     ///         Value = 80,
     ///     });

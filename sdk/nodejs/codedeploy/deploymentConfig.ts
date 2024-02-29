@@ -17,18 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const foo = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
  *         type: "HOST_COUNT",
  *         value: 2,
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
- *     appName: aws_codedeploy_app.foo_app.name,
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
+ *     appName: fooApp.name,
  *     deploymentGroupName: "bar",
- *     serviceRoleArn: aws_iam_role.foo_role.arn,
- *     deploymentConfigName: fooDeploymentConfig.id,
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     ec2TagFilters: [{
  *         key: "filterkey",
  *         type: "KEY_AND_VALUE",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const foo = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     computePlatform: "Lambda",
  *     trafficRoutingConfig: {
@@ -66,11 +66,11 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
- *     appName: aws_codedeploy_app.foo_app.name,
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
+ *     appName: fooApp.name,
  *     deploymentGroupName: "bar",
- *     serviceRoleArn: aws_iam_role.foo_role.arn,
- *     deploymentConfigName: fooDeploymentConfig.id,
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     autoRollbackConfiguration: {
  *         enabled: true,
  *         events: ["DEPLOYMENT_STOP_ON_ALARM"],

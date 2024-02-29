@@ -44,11 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Faq&#34;))
  *             .build());
@@ -80,12 +81,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
  *             .fileFormat(&#34;CSV&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .build());
  * 
@@ -116,12 +118,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
  *             .languageCode(&#34;en&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .build());
  * 

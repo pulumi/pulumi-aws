@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.guardduty.getFindingIds({
- *     detectorId: aws_guardduty_detector.example.id,
+ *     detectorId: exampleAwsGuarddutyDetector.id,
  * });
  * ```
  */
@@ -63,7 +63,7 @@ export interface GetFindingIdsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.guardduty.getFindingIds({
- *     detectorId: aws_guardduty_detector.example.id,
+ *     detectorId: exampleAwsGuarddutyDetector.id,
  * });
  * ```
  */

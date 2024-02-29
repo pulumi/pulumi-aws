@@ -22,19 +22,13 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.SecurityHub.Member("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         Email = "example@example.com",
     ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });

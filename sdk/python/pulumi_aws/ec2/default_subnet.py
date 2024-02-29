@@ -543,7 +543,7 @@ class DefaultSubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_az1 = aws.ec2.DefaultSubnet("defaultAz1",
+        default_az1 = aws.ec2.DefaultSubnet("default_az1",
             availability_zone="us-west-2a",
             tags={
                 "Name": "Default subnet for us-west-2a",
@@ -589,7 +589,7 @@ class DefaultSubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_az1 = aws.ec2.DefaultSubnet("defaultAz1",
+        default_az1 = aws.ec2.DefaultSubnet("default_az1",
             availability_zone="us-west-2a",
             tags={
                 "Name": "Default subnet for us-west-2a",

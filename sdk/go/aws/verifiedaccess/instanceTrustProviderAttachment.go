@@ -28,11 +28,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := verifiedaccess.NewInstance(ctx, "exampleInstance", nil)
+//			example, err := verifiedaccess.NewInstance(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "exampleTrustProvider", &verifiedaccess.TrustProviderArgs{
+//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "example", &verifiedaccess.TrustProviderArgs{
 //				DeviceTrustProviderType: pulumi.String("jamf"),
 //				PolicyReferenceName:     pulumi.String("example"),
 //				TrustProviderType:       pulumi.String("device"),
@@ -43,8 +43,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "exampleInstanceTrustProviderAttachment", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
-//				VerifiedaccessInstanceId:      exampleInstance.ID(),
+//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "example", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
+//				VerifiedaccessInstanceId:      example.ID(),
 //				VerifiedaccessTrustProviderId: exampleTrustProvider.ID(),
 //			})
 //			if err != nil {

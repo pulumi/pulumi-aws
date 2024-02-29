@@ -277,8 +277,8 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=aws_fsx_openzfs_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]],
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]],
             protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
                 nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
                     mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(
@@ -320,8 +320,8 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=aws_fsx_openzfs_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]],
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]],
             protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
                 nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
                     mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(

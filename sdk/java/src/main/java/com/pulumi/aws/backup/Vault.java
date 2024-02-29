@@ -43,7 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Vault(&#34;example&#34;, VaultArgs.builder()        
- *             .kmsKeyArn(aws_kms_key.example().arn())
+ *             .name(&#34;example_backup_vault&#34;)
+ *             .kmsKeyArn(exampleAwsKmsKey.arn())
  *             .build());
  * 
  *     }

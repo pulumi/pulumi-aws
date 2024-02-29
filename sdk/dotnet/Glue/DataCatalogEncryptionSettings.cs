@@ -28,13 +28,13 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
     ///             {
-    ///                 AwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 AwsKmsKeyId = test.Arn,
     ///                 ReturnConnectionPasswordEncrypted = true,
     ///             },
     ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
     ///             {
     ///                 CatalogEncryptionMode = "SSE-KMS",
-    ///                 SseAwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 SseAwsKmsKeyId = test.Arn,
     ///             },
     ///         },
     ///     });

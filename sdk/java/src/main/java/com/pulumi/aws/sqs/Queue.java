@@ -42,13 +42,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;example-queue&#34;)
  *             .delaySeconds(90)
  *             .maxMessageSize(2048)
  *             .messageRetentionSeconds(86400)
  *             .receiveWaitTimeSeconds(10)
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
  *                 )))
  *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
@@ -80,8 +81,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .contentBasedDeduplication(true)
+ *             .name(&#34;example-queue.fifo&#34;)
  *             .fifoQueue(true)
+ *             .contentBasedDeduplication(true)
  *             .build());
  * 
  *     }
@@ -111,8 +113,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .deduplicationScope(&#34;messageGroup&#34;)
+ *             .name(&#34;pulumi-example-queue.fifo&#34;)
  *             .fifoQueue(true)
+ *             .deduplicationScope(&#34;messageGroup&#34;)
  *             .fifoThroughputLimit(&#34;perMessageGroupId&#34;)
  *             .build());
  * 
@@ -146,21 +149,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-queue&#34;)
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
  *                 )))
  *             .build());
  * 
- *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;);
+ *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-deadletter-queue&#34;)
+ *             .build());
  * 
  *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
  *             .queueUrl(exampleQueueDeadletter.id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.example_queue().arn()))
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(exampleQueue.arn()))
  *                 )))
  *             .build());
  * 
@@ -193,6 +199,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-queue&#34;)
  *             .sqsManagedSseEnabled(true)
  *             .build());
  * 
@@ -223,8 +230,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .kmsDataKeyReusePeriodSeconds(300)
+ *             .name(&#34;example-queue&#34;)
  *             .kmsMasterKeyId(&#34;alias/aws/sqs&#34;)
+ *             .kmsDataKeyReusePeriodSeconds(300)
  *             .build());
  * 
  *     }

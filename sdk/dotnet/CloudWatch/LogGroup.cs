@@ -24,10 +24,11 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
     ///     {
+    ///         Name = "Yada",
     ///         Tags = 
     ///         {
-    ///             { "Application", "serviceA" },
     ///             { "Environment", "production" },
+    ///             { "Application", "serviceA" },
     ///         },
     ///     });
     /// 

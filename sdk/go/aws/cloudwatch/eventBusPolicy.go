@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("DevAccountAccess"),
@@ -59,9 +59,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       *pulumi.String(testPolicyDocument.Json),
-//				EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+//			_, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+//				Policy:       *pulumi.String(test.Json),
+//				EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +85,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: pulumi.StringRef("OrganizationAccess"),
@@ -113,7 +113,7 @@ import (
 // Test: "StringEquals",
 // Variable: "aws:PrincipalOrgID",
 // Values: interface{}{
-// aws_organizations_organization.Example.Id,
+// example.Id,
 // },
 // },
 // },
@@ -123,9 +123,9 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(testPolicyDocument.Json),
-// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+// Policy: *pulumi.String(test.Json),
+// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
 // return err
@@ -148,7 +148,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: pulumi.StringRef("DevAccountAccess"),
@@ -194,7 +194,7 @@ import (
 // Test: "StringEquals",
 // Variable: "aws:PrincipalOrgID",
 // Values: interface{}{
-// aws_organizations_organization.Example.Id,
+// example.Id,
 // },
 // },
 // },
@@ -204,9 +204,9 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(testPolicyDocument.Json),
-// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+// Policy: *pulumi.String(test.Json),
+// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
 // return err

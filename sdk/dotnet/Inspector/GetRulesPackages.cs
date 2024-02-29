@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -39,14 +40,16 @@ namespace Pulumi.Aws.Inspector
         ///         },
         ///     });
         /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
+        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
         ///     {
+        ///         Name = "test",
         ///         ResourceGroupArn = @group.Arn,
         ///     });
         /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
+        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
         ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
+        ///         Name = "Test",
+        ///         TargetArn = assessment.Arn,
         ///         Duration = 60,
         ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
         ///     });
@@ -76,6 +79,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -87,14 +91,16 @@ namespace Pulumi.Aws.Inspector
         ///         },
         ///     });
         /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
+        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
         ///     {
+        ///         Name = "test",
         ///         ResourceGroupArn = @group.Arn,
         ///     });
         /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
+        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
         ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
+        ///         Name = "Test",
+        ///         TargetArn = assessment.Arn,
         ///         Duration = 60,
         ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
         ///     });

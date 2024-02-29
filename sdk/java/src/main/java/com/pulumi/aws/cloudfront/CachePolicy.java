@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachePolicy(&#34;example&#34;, CachePolicyArgs.builder()        
+ *             .name(&#34;example-policy&#34;)
  *             .comment(&#34;test comment&#34;)
  *             .defaultTtl(50)
  *             .maxTtl(100)

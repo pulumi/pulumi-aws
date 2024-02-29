@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.RouteResponse("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     routeId: aws_apigatewayv2_route.example.id,
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     routeId: exampleAwsApigatewayv2Route.id,
  *     routeResponseKey: "$default",
  * });
  * ```

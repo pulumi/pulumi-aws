@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewCertificate(ctx, "test", &lightsail.CertificateArgs{
+//				Name:       pulumi.String("test"),
 //				DomainName: pulumi.String("testdomain.com"),
 //				SubjectAlternativeNames: pulumi.StringArray{
 //					pulumi.String("www.testdomain.com"),

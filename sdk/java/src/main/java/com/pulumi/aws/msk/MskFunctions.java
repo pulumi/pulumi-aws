@@ -56,7 +56,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -94,7 +94,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -132,7 +132,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -170,7 +170,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -207,7 +207,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -244,7 +244,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -281,7 +281,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -318,7 +318,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
@@ -923,7 +923,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
@@ -960,7 +960,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
@@ -997,7 +997,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
@@ -1034,7 +1034,7 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }

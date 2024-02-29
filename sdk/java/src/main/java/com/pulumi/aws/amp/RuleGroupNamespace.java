@@ -39,10 +39,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoWorkspace = new Workspace(&#34;demoWorkspace&#34;);
+ *         var demo = new Workspace(&#34;demo&#34;);
  * 
  *         var demoRuleGroupNamespace = new RuleGroupNamespace(&#34;demoRuleGroupNamespace&#34;, RuleGroupNamespaceArgs.builder()        
- *             .workspaceId(demoWorkspace.id())
+ *             .name(&#34;rules&#34;)
+ *             .workspaceId(demo.id())
  *             .data(&#34;&#34;&#34;
  * groups:
  *   - name: test

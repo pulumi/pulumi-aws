@@ -677,24 +677,25 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.Fleet("testFleet",
+        test_fleet = aws.appstream.Fleet("test_fleet",
+            name="test-fleet",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,
             ),
             description="test fleet",
+            idle_disconnect_timeout_in_seconds=60,
             display_name="test-fleet",
             enable_default_internet_access=False,
             fleet_type="ON_DEMAND",
-            idle_disconnect_timeout_in_seconds=60,
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
-            tags={
-                "TagName": "tag-value",
-            },
             vpc_config=aws.appstream.FleetVpcConfigArgs(
                 subnet_ids=["subnet-06e9b13400c225127"],
-            ))
+            ),
+            tags={
+                "TagName": "tag-value",
+            })
         ```
 
         ## Import
@@ -742,24 +743,25 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.Fleet("testFleet",
+        test_fleet = aws.appstream.Fleet("test_fleet",
+            name="test-fleet",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,
             ),
             description="test fleet",
+            idle_disconnect_timeout_in_seconds=60,
             display_name="test-fleet",
             enable_default_internet_access=False,
             fleet_type="ON_DEMAND",
-            idle_disconnect_timeout_in_seconds=60,
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
-            tags={
-                "TagName": "tag-value",
-            },
             vpc_config=aws.appstream.FleetVpcConfigArgs(
                 subnet_ids=["subnet-06e9b13400c225127"],
-            ))
+            ),
+            tags={
+                "TagName": "tag-value",
+            })
         ```
 
         ## Import

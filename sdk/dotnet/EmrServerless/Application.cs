@@ -25,6 +25,7 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
     ///         ReleaseLabel = "emr-6.6.0",
     ///         Type = "hive",
     ///     });
@@ -43,24 +44,25 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///         InitialCapacities = new[]
     ///         {
     ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
     ///             {
+    ///                 InitialCapacityType = "HiveDriver",
     ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
     ///                 {
+    ///                     WorkerCount = 1,
     ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
     ///                     {
     ///                         Cpu = "2 vCPU",
     ///                         Memory = "10 GB",
     ///                     },
-    ///                     WorkerCount = 1,
     ///                 },
-    ///                 InitialCapacityType = "HiveDriver",
     ///             },
     ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///     });
     /// 
     /// });
@@ -77,13 +79,14 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
     ///         {
     ///             Cpu = "2 vCPU",
     ///             Memory = "10 GB",
     ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///     });
     /// 
     /// });

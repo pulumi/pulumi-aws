@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
+ *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .build());
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
- *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(data.aws_networkmanager_core_network_policy_document().example().json())
+ *             .coreNetworkId(example.id())
+ *             .policyDocument(exampleAwsNetworkmanagerCoreNetworkPolicyDocument.json())
  *             .build());
  * 
  *     }
@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -182,11 +182,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -234,7 +234,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -276,19 +275,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_west_2().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_west_2().arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_east_1().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_east_1().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;alternate&#34;)
- *                 .build());
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(                
@@ -325,7 +322,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -347,7 +344,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -373,19 +369,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_west_2().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_west_2().arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_east_1().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_east_1().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;alternate&#34;)
- *                 .build());
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(                
@@ -420,7 +414,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

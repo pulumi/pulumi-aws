@@ -16,10 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
- * });
- * export const example = exampleNetworkAcls.then(exampleNetworkAcls => exampleNetworkAcls.ids);
+ * export = async () => {
+ *     const example = await aws.ec2.getNetworkAcls({
+ *         vpcId: vpcId,
+ *     });
+ *     return {
+ *         example: example.ids,
+ *     };
+ * }
  * ```
  *
  * The following example retrieves a list of all network ACL ids in a VPC with a custom
@@ -30,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
+ *     vpcId: vpcId,
  *     tags: {
  *         Tier: "Private",
  *     },
@@ -45,10 +49,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
+ *     vpcId: vpcId,
  *     filters: [{
  *         name: "association.subnet-id",
- *         values: [aws_subnet.test.id],
+ *         values: [test.id],
  *     }],
  * });
  * ```
@@ -111,10 +115,14 @@ export interface GetNetworkAclsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
- * });
- * export const example = exampleNetworkAcls.then(exampleNetworkAcls => exampleNetworkAcls.ids);
+ * export = async () => {
+ *     const example = await aws.ec2.getNetworkAcls({
+ *         vpcId: vpcId,
+ *     });
+ *     return {
+ *         example: example.ids,
+ *     };
+ * }
  * ```
  *
  * The following example retrieves a list of all network ACL ids in a VPC with a custom
@@ -125,7 +133,7 @@ export interface GetNetworkAclsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
+ *     vpcId: vpcId,
  *     tags: {
  *         Tier: "Private",
  *     },
@@ -140,10 +148,10 @@ export interface GetNetworkAclsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
+ *     vpcId: vpcId,
  *     filters: [{
  *         name: "association.subnet-id",
- *         values: [aws_subnet.test.id],
+ *         values: [test.id],
  *     }],
  * });
  * ```

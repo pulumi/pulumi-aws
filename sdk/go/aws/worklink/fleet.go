@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := worklink.NewFleet(ctx, "example", nil)
+//			_, err := worklink.NewFleet(ctx, "example", &worklink.FleetArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -51,13 +53,14 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := worklink.NewFleet(ctx, "example", &worklink.FleetArgs{
+// Name: pulumi.String("example"),
 // Network: &worklink.FleetNetworkArgs{
-// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// VpcId: pulumi.Any(testAwsVpc.Id),
 // SubnetIds: pulumi.StringArray{
-// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:worklink-fleet:Fleet.pp:3,26-47),
+// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,25-44),
 // },
 // SecurityGroupIds: pulumi.StringArray{
-// aws_security_group.Test.Id,
+// test.Id,
 // },
 // },
 // })
@@ -76,27 +79,25 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "saml-metadata.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
+//				Name: pulumi.String("tf-worklink-fleet"),
 //				IdentityProvider: &worklink.FleetIdentityProviderArgs{
 //					Type:         pulumi.String("SAML"),
-//					SamlMetadata: readFileOrPanic("saml-metadata.xml"),
+//					SamlMetadata: invokeFile.Result,
 //				},
 //			})
 //			if err != nil {

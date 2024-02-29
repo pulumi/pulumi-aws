@@ -31,12 +31,12 @@ import (
 //				Engine:        "mysql",
 //				EngineVersion: pulumi.StringRef("5.7.22"),
 //				LicenseModel:  pulumi.StringRef("general-public-license"),
+//				StorageType:   pulumi.StringRef("standard"),
 //				PreferredInstanceClasses: []string{
 //					"db.r6.xlarge",
 //					"db.m4.large",
 //					"db.t3.small",
 //				},
-//				StorageType: pulumi.StringRef("standard"),
 //			}, nil)
 //			if err != nil {
 //				return err

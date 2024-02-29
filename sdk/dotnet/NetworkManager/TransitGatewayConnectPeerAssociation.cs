@@ -25,9 +25,9 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         DeviceId = aws_networkmanager_device.Example.Id,
-    ///         TransitGatewayConnectPeerArn = aws_ec2_transit_gateway_connect_peer.Example.Arn,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
+    ///         DeviceId = exampleAwsNetworkmanagerDevice.Id,
+    ///         TransitGatewayConnectPeerArn = exampleAwsEc2TransitGatewayConnectPeer.Arn,
     ///     });
     /// 
     /// });

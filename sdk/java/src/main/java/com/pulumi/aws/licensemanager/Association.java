@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(GetAmiFilterArgs.builder()
@@ -56,11 +56,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .ami(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
  *         var exampleLicenseConfiguration = new LicenseConfiguration(&#34;exampleLicenseConfiguration&#34;, LicenseConfigurationArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .licenseCountingType(&#34;Instance&#34;)
  *             .build());
  * 

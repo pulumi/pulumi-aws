@@ -25,7 +25,8 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Role.Arn,
+    ///         Name = "my-notebook-instance",
+    ///         RoleArn = role.Arn,
     ///         InstanceType = "ml.t2.medium",
     ///         Tags = 
     ///         {
@@ -56,7 +57,8 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Role.Arn,
+    ///         Name = "my-notebook-instance",
+    ///         RoleArn = role.Arn,
     ///         InstanceType = "ml.t2.medium",
     ///         DefaultCodeRepository = example.CodeRepositoryName,
     ///         Tags = 

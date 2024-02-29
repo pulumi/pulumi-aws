@@ -128,7 +128,9 @@ class AssessmentTarget(pulumi.CustomResource):
             "Name": "foo",
             "Env": "bar",
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.AssessmentTarget("foo",
+            name="assessment target",
+            resource_group_arn=bar.arn)
         ```
 
         ## Import
@@ -163,7 +165,9 @@ class AssessmentTarget(pulumi.CustomResource):
             "Name": "foo",
             "Env": "bar",
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.AssessmentTarget("foo",
+            name="assessment target",
+            resource_group_arn=bar.arn)
         ```
 
         ## Import

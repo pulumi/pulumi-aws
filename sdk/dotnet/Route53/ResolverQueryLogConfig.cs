@@ -24,7 +24,8 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.ResolverQueryLogConfig("example", new()
     ///     {
-    ///         DestinationArn = aws_s3_bucket.Example.Arn,
+    ///         Name = "example",
+    ///         DestinationArn = exampleAwsS3Bucket.Arn,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Prod" },

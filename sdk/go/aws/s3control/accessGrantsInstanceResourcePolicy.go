@@ -31,12 +31,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccessGrantsInstance, err := s3control.NewAccessGrantsInstance(ctx, "exampleAccessGrantsInstance", nil)
+//			example, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "exampleAccessGrantsInstanceResourcePolicy", &s3control.AccessGrantsInstanceResourcePolicyArgs{
-//				Policy: exampleAccessGrantsInstance.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
+//			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "example", &s3control.AccessGrantsInstanceResourcePolicyArgs{
+//				Policy: example.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
 //					return fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Id": "S3AccessGrantsPolicy",

@@ -141,8 +141,8 @@ class MulticastGroupSource(pulumi.CustomResource):
 
         example = aws.ec2transitgateway.MulticastGroupSource("example",
             group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
+            network_interface_id=example_aws_network_interface["id"],
+            transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,8 +169,8 @@ class MulticastGroupSource(pulumi.CustomResource):
 
         example = aws.ec2transitgateway.MulticastGroupSource("example",
             group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
+            network_interface_id=example_aws_network_interface["id"],
+            transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
 
         :param str resource_name: The name of the resource.

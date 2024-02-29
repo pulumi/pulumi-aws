@@ -850,10 +850,10 @@ class WindowsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=aws_directory_service_directory["example"]["id"],
-            kms_key_id=aws_kms_key["example"]["arn"],
+            active_directory_id=example_aws_directory_service_directory["id"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
         ### Using a Self-Managed Microsoft Active Directory
@@ -865,9 +865,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory=aws.fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs(
                 dns_ips=[
@@ -935,10 +935,10 @@ class WindowsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=aws_directory_service_directory["example"]["id"],
-            kms_key_id=aws_kms_key["example"]["arn"],
+            active_directory_id=example_aws_directory_service_directory["id"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
         ### Using a Self-Managed Microsoft Active Directory
@@ -950,9 +950,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory=aws.fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs(
                 dns_ips=[

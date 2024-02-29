@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datapipeline.Pipeline;
+ * import com.pulumi.aws.datapipeline.PipelineArgs;
  * import com.pulumi.aws.datapipeline.PipelineDefinition;
  * import com.pulumi.aws.datapipeline.PipelineDefinitionArgs;
  * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
@@ -45,7 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline(&#34;default&#34;);
+ *         var default_ = new Pipeline(&#34;default&#34;, PipelineArgs.builder()        
+ *             .name(&#34;tf-pipeline-default&#34;)
+ *             .build());
  * 
  *         var example = new PipelineDefinition(&#34;example&#34;, PipelineDefinitionArgs.builder()        
  *             .pipelineId(default_.id())

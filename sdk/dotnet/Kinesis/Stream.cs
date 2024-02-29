@@ -25,10 +25,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
-    ///         RetentionPeriod = 48,
+    ///         Name = "kinesis-test",
     ///         ShardCount = 1,
+    ///         RetentionPeriod = 48,
     ///         ShardLevelMetrics = new[]
     ///         {
     ///             "IncomingBytes",

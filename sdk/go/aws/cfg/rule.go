@@ -34,6 +34,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewRule(ctx, "r", &cfg.RuleArgs{
+//				Name: pulumi.String("example"),
+//				Source: &cfg.RuleSourceArgs{
+//					Owner:            pulumi.String("AWS"),
+//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -55,30 +65,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//			rRole, err := iam.NewRole(ctx, "r", &iam.RoleArgs{
+//				Name:             pulumi.String("my-awsconfig-role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
+//			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: rRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
-//				Source: &cfg.RuleSourceArgs{
-//					Owner:            pulumi.String("AWS"),
-//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				foo,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			policyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			p, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -94,9 +95,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-//				Role:   role.ID(),
-//				Policy: *pulumi.String(policyDocument.Json),
+//			_, err = iam.NewRolePolicy(ctx, "p", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("my-awsconfig-policy"),
+//				Role:   rRole.ID(),
+//				Policy: *pulumi.String(p.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -123,32 +125,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRecorder, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
+//			_, err := cfg.NewRecorder(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", nil)
+//			exampleFunction, err := lambda.NewFunction(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  exampleFunction.Arn,
-//				Principal: pulumi.String("config.amazonaws.com"),
+//			_, err = lambda.NewPermission(ctx, "example", &lambda.PermissionArgs{
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    exampleFunction.Arn,
+//				Principal:   pulumi.String("config.amazonaws.com"),
+//				StatementId: pulumi.String("AllowExecutionFromConfig"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// ... other configuration ...
-//			_, err = cfg.NewRule(ctx, "exampleRule", &cfg.RuleArgs{
+//			_, err = cfg.NewRule(ctx, "example", &cfg.RuleArgs{
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("CUSTOM_LAMBDA"),
 //					SourceIdentifier: exampleFunction.Arn,
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRecorder,
-//				examplePermission,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -172,6 +171,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
+//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner: pulumi.String("CUSTOM_POLICY"),
 //					SourceDetails: cfg.RuleSourceSourceDetailArray{

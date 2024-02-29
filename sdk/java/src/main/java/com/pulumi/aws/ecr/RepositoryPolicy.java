@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.Repository;
+ * import com.pulumi.aws.ecr.RepositoryArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.ecr.RepositoryPolicy;
@@ -43,9 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
+ *             .build());
  * 
- *         final var foopolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var foopolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;new policy&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -73,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var foopolicyRepositoryPolicy = new RepositoryPolicy(&#34;foopolicyRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
  *             .repository(foo.name())
- *             .policy(foopolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(foopolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

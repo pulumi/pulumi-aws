@@ -16,16 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleIndex = new aws.resourceexplorer.Index("exampleIndex", {type: "LOCAL"});
- * const exampleView = new aws.resourceexplorer.View("exampleView", {
+ * const example = new aws.resourceexplorer.Index("example", {type: "LOCAL"});
+ * const exampleView = new aws.resourceexplorer.View("example", {
+ *     name: "exampleview",
  *     filters: {
  *         filterString: "resourcetype:ec2:instance",
  *     },
  *     includedProperties: [{
  *         name: "tags",
  *     }],
- * }, {
- *     dependsOn: [exampleIndex],
  * });
  * ```
  *

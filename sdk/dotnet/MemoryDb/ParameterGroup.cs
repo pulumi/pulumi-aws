@@ -26,6 +26,7 @@ namespace Pulumi.Aws.MemoryDb
     /// {
     ///     var example = new Aws.MemoryDb.ParameterGroup("example", new()
     ///     {
+    ///         Name = "my-parameter-group",
     ///         Family = "memorydb_redis6",
     ///         Parameters = new[]
     ///         {

@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
-//				ApiId:      pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				DomainName: pulumi.Any(aws_apigatewayv2_domain_name.Example.Id),
-//				Stage:      pulumi.Any(aws_apigatewayv2_stage.Example.Id),
+//				ApiId:      pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				DomainName: pulumi.Any(exampleAwsApigatewayv2DomainName.Id),
+//				Stage:      pulumi.Any(exampleAwsApigatewayv2Stage.Id),
 //			})
 //			if err != nil {
 //				return err

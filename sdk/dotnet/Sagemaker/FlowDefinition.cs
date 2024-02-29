@@ -26,19 +26,19 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///             WorkteamArn = exampleAwsSagemakerWorkteam.Arn,
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 
@@ -57,15 +57,15 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = $"arn:aws:sagemaker:{data.Aws_region.Current.Name}:394669845002:workteam/public-crowd/default",
+    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Name}:394669845002:workteam/public-crowd/default",
     ///             PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
     ///             {
     ///                 AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 
@@ -96,15 +96,15 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///             WorkteamArn = exampleAwsSagemakerWorkteam.Arn,
     ///         },
     ///         HumanLoopRequestSource = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopRequestSourceArgs
     ///         {
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 

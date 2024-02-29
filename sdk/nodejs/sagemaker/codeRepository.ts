@@ -30,22 +30,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
- *     secretId: exampleSecret.id,
+ * const example = new aws.secretsmanager.Secret("example", {name: "example"});
+ * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
+ *     secretId: example.id,
  *     secretString: JSON.stringify({
  *         username: "example",
  *         password: "example",
  *     }),
  * });
- * const exampleCodeRepository = new aws.sagemaker.CodeRepository("exampleCodeRepository", {
+ * const exampleCodeRepository = new aws.sagemaker.CodeRepository("example", {
  *     codeRepositoryName: "example",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
- *         secretArn: exampleSecret.arn,
+ *         secretArn: example.arn,
  *     },
- * }, {
- *     dependsOn: [exampleSecretVersion],
  * });
  * ```
  *

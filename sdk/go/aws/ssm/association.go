@@ -29,11 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.Any(exampleAwsSsmDocument.Name),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
+//							exampleAwsInstance.Id,
 //						},
 //					},
 //				},
@@ -63,6 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
@@ -97,6 +99,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("tag:Environment"),
@@ -131,12 +134,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name:               pulumi.Any(exampleAwsSsmDocument.Name),
 //				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
+//							exampleAwsInstance.Id,
 //						},
 //					},
 //				},

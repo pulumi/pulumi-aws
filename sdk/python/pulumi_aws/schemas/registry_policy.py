@@ -107,7 +107,7 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="example",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -120,9 +120,9 @@ class RegistryPolicy(pulumi.CustomResource):
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
         )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+        example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import
@@ -154,7 +154,7 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="example",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -167,9 +167,9 @@ class RegistryPolicy(pulumi.CustomResource):
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
         )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+        example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import

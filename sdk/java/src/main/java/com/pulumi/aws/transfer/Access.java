@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Access(&#34;example&#34;, AccessArgs.builder()        
  *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
- *             .serverId(aws_transfer_server.example().id())
- *             .role(aws_iam_role.example().arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, aws_s3_bucket.example().id()))
+ *             .serverId(exampleAwsTransferServer.id())
+ *             .role(exampleAwsIamRole.arn())
+ *             .homeDirectory(String.format(&#34;/%s/&#34;, exampleAwsS3Bucket.id()))
  *             .build());
  * 
  *     }
@@ -78,9 +78,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Access(&#34;test&#34;, AccessArgs.builder()        
  *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
- *             .serverId(aws_transfer_server.test().id())
- *             .role(aws_iam_role.test().arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, aws_efs_file_system.test().id()))
+ *             .serverId(testAwsTransferServer.id())
+ *             .role(testAwsIamRole.arn())
+ *             .homeDirectory(String.format(&#34;/%s/&#34;, testAwsEfsFileSystem.id()))
  *             .posixProfile(AccessPosixProfileArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)

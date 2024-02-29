@@ -24,6 +24,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.OriginRequestPolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         Comment = "example comment",
     ///         CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
     ///         {

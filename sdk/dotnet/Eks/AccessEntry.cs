@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.AccessEntry("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         PrincipalArn = aws_iam_role.Example.Arn,
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         PrincipalArn = exampleAwsIamRole.Arn,
     ///         KubernetesGroups = new[]
     ///         {
     ///             "group-1",

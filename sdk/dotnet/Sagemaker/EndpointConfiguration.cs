@@ -26,12 +26,13 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
     ///     {
+    ///         Name = "my-endpoint-config",
     ///         ProductionVariants = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
     ///             {
     ///                 VariantName = "variant-1",
-    ///                 ModelName = aws_sagemaker_model.M.Name,
+    ///                 ModelName = m.Name,
     ///                 InitialInstanceCount = 1,
     ///                 InstanceType = "ml.t2.medium",
     ///             },

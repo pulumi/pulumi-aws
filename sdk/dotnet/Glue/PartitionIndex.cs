@@ -20,15 +20,15 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "example",
-    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         DatabaseName = example.Name,
     ///         Owner = "my_owner",
     ///         Retention = 1,
     ///         TableType = "VIRTUAL_VIEW",
@@ -119,9 +119,9 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("examplePartitionIndex", new()
+    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("example", new()
     ///     {
-    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         DatabaseName = example.Name,
     ///         TableName = exampleCatalogTable.Name,
     ///         PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
     ///         {

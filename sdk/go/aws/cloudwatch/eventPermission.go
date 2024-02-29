@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
+//			_, err := cloudwatch.NewEventPermission(ctx, "DevAccountAccess", &cloudwatch.EventPermissionArgs{
 //				Principal:   pulumi.String("123456789012"),
 //				StatementId: pulumi.String("DevAccountAccess"),
 //			})
@@ -59,13 +59,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
+//			_, err := cloudwatch.NewEventPermission(ctx, "OrganizationAccess", &cloudwatch.EventPermissionArgs{
 //				Principal:   pulumi.String("*"),
 //				StatementId: pulumi.String("OrganizationAccess"),
 //				Condition: &cloudwatch.EventPermissionConditionArgs{
 //					Key:   pulumi.String("aws:PrincipalOrgID"),
 //					Type:  pulumi.String("StringEquals"),
-//					Value: pulumi.Any(aws_organizations_organization.Example.Id),
+//					Value: pulumi.Any(example.Id),
 //				},
 //			})
 //			if err != nil {

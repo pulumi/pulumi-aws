@@ -41,10 +41,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewProvider(ctx, "ipamDelegateAccount", nil)
-//			if err != nil {
-//				return err
-//			}
 //			return nil
 //		})
 //	}

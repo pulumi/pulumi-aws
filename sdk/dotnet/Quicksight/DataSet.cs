@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
+    ///         Name = "example-name",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
@@ -34,7 +35,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 PhysicalTableMapId = "example-id",
     ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
-    ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
     ///                     InputColumns = new[]
     ///                     {
     ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
@@ -67,6 +68,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
+    ///         Name = "example-name",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
@@ -75,7 +77,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 PhysicalTableMapId = "example-id",
     ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
-    ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
     ///                     InputColumns = new[]
     ///                     {
     ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
@@ -101,7 +103,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 },
     ///                 Principals = new[]
     ///                 {
-    ///                     aws_quicksight_user.Example.Arn,
+    ///                     exampleAwsQuicksightUser.Arn,
     ///                 },
     ///             },
     ///         },
@@ -122,6 +124,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
+    ///         Name = "example-name",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
@@ -130,7 +133,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 PhysicalTableMapId = "example-id",
     ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
-    ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
     ///                     InputColumns = new[]
     ///                     {
     ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
@@ -175,6 +178,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
+    ///         Name = "example-name",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
@@ -183,7 +187,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 PhysicalTableMapId = "example-id",
     ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
-    ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
     ///                     InputColumns = new[]
     ///                     {
     ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
@@ -211,7 +215,7 @@ namespace Pulumi.Aws.Quicksight
     ///                     "quicksight:DescribeIngestion",
     ///                     "quicksight:ListIngestions",
     ///                 },
-    ///                 Principal = aws_quicksight_user.Example.Arn,
+    ///                 Principal = exampleAwsQuicksightUser.Arn,
     ///             },
     ///         },
     ///     });
@@ -231,6 +235,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
+    ///         Name = "example-name",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
@@ -239,7 +244,7 @@ namespace Pulumi.Aws.Quicksight
     ///                 PhysicalTableMapId = "example-id",
     ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
-    ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
     ///                     InputColumns = new[]
     ///                     {
     ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs

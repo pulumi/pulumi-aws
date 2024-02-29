@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "cloudfront-realtime-log-config-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -36,14 +39,16 @@ import * as utilities from "../utilities";
  *             "kinesis:PutRecord",
  *             "kinesis:PutRecords",
  *         ],
- *         resources: [aws_kinesis_stream.example.arn],
+ *         resources: [exampleAwsKinesisStream.arn],
  *     }],
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "cloudfront-realtime-log-config-example",
  *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig", {
+ * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
+ *     name: "example",
  *     samplingRate: 75,
  *     fields: [
  *         "timestamp",
@@ -53,11 +58,9 @@ import * as utilities from "../utilities";
  *         streamType: "Kinesis",
  *         kinesisStreamConfig: {
  *             roleArn: exampleRole.arn,
- *             streamArn: aws_kinesis_stream.example.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleRolePolicy],
  * });
  * ```
  *

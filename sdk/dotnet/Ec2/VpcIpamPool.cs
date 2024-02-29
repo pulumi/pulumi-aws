@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -37,10 +37,10 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("example", new()
     ///     {
     ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ec2
     ///         IpamScopeId = example.PrivateDefaultScopeId,
     ///     });
     /// 
-    ///     var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parentTest", new()
+    ///     var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parent_test", new()
     ///     {
     ///         IpamPoolId = parent.Id,
     ///         Cidr = "172.20.0.0/16",
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
     ///         SourceIpamPoolId = parent.Id,
     ///     });
     /// 
-    ///     var childTest = new Aws.Ec2.VpcIpamPoolCidr("childTest", new()
+    ///     var childTest = new Aws.Ec2.VpcIpamPoolCidr("child_test", new()
     ///     {
     ///         IpamPoolId = child.Id,
     ///         Cidr = "172.20.0.0/24",

@@ -19,51 +19,40 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
  * const example = new aws.neptune.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "neptune",
  *     engineVersion: "1.2.0.0",
  * });
- * const primaryCluster = new aws.neptune.Cluster("primaryCluster", {
+ * const primary = new aws.neptune.Cluster("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
  *     globalClusterIdentifier: example.id,
  *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.neptune.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.neptune.ClusterInstance("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
+ *     clusterIdentifier: primary.id,
  *     instanceClass: "db.r5.large",
  *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.neptune.Cluster("secondaryCluster", {
+ * const secondary = new aws.neptune.Cluster("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
  * });
- * const secondaryClusterInstance = new aws.neptune.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.neptune.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
+ *     clusterIdentifier: secondary.id,
  *     instanceClass: "db.r5.large",
  *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
  * });
  * ```
  * ### New Global Cluster From Existing DB Cluster
@@ -72,11 +61,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
- * const exampleCluster = new aws.neptune.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.neptune.GlobalCluster("exampleGlobalCluster", {
+ * const example = new aws.neptune.Cluster("example", {});
+ * const exampleGlobalCluster = new aws.neptune.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
+ *     sourceDbClusterIdentifier: example.arn,
  * });
  * ```
  *

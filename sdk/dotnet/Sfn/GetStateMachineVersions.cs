@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Sfn
         /// {
         ///     var test = Aws.Sfn.GetStateMachineVersions.Invoke(new()
         ///     {
-        ///         StatemachineArn = aws_sfn_state_machine.Test.Arn,
+        ///         StatemachineArn = testAwsSfnStateMachine.Arn,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sfn
         /// {
         ///     var test = Aws.Sfn.GetStateMachineVersions.Invoke(new()
         ///     {
-        ///         StatemachineArn = aws_sfn_state_machine.Test.Arn,
+        ///         StatemachineArn = testAwsSfnStateMachine.Arn,
         ///     });
         /// 
         /// });

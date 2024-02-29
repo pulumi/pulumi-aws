@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ssm.Document("foo", {
+ *     name: "test_document",
+ *     documentType: "Command",
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Check ip configuration of a Linux instance.",
@@ -38,9 +40,7 @@ import * as utilities from "../utilities";
  *       }
  *     }
  *   }
- *
  * `,
- *     documentType: "Command",
  * });
  * ```
  * ### Create an ssm document in YAML format
@@ -50,6 +50,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ssm.Document("foo", {
+ *     name: "test_document",
+ *     documentFormat: "YAML",
+ *     documentType: "Command",
  *     content: `schemaVersion: '1.2'
  * description: Check ip configuration of a Linux instance.
  * parameters: {}
@@ -59,10 +62,7 @@ import * as utilities from "../utilities";
  *       - id: '0.aws:runShellScript'
  *         runCommand:
  *           - ifconfig
- *
  * `,
- *     documentFormat: "YAML",
- *     documentType: "Command",
  * });
  * ```
  * ## Permissions

@@ -28,8 +28,47 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Deployment("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         Description = "Example deployment",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Redeployment Triggers
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGatewayV2.Deployment("example", new()
+    ///     {
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         Description = "Example deployment",
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = NotImplemented(@"tolist([
+    /// jsonencode(aws_apigatewayv2_integration.example),
+    /// jsonencode(aws_apigatewayv2_route.example),
+    /// ])"),
+    ///             }).Apply(invoke =&gt; Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = invoke.Result,
+    ///             })).Apply(invoke =&gt; invoke.Result) },
+    ///         },
     ///     });
     /// 
     /// });

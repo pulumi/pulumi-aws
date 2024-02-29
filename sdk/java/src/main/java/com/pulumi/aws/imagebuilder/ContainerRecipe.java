@@ -48,15 +48,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerRecipe(&#34;example&#34;, ContainerRecipeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .version(&#34;1.0.0&#34;)
  *             .containerType(&#34;DOCKER&#34;)
  *             .parentImage(&#34;arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x&#34;)
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
- *                 .repositoryName(aws_ecr_repository.example().name())
+ *                 .repositoryName(exampleAwsEcrRepository.name())
  *                 .service(&#34;ECR&#34;)
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
- *                 .componentArn(aws_imagebuilder_component.example().arn())
+ *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ContainerRecipeComponentParameterArgs.builder()
  *                         .name(&#34;Parameter1&#34;)

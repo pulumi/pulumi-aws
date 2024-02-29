@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteResponse(&#34;example&#34;, RouteResponseArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .routeId(aws_apigatewayv2_route.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .routeId(exampleAwsApigatewayv2Route.id())
  *             .routeResponseKey(&#34;$default&#34;)
  *             .build());
  * 

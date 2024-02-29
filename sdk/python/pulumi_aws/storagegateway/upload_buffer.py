@@ -143,11 +143,11 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_upload_buffer = aws.storagegateway.UploadBuffer("test",
+            disk_path=test.disk_path,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
         ### Stored Gateway Type
 
@@ -155,11 +155,11 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+            disk_id=example_aws_storagegateway_local_disk["id"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
 
         ## Import
@@ -194,11 +194,11 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_upload_buffer = aws.storagegateway.UploadBuffer("test",
+            disk_path=test.disk_path,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
         ### Stored Gateway Type
 
@@ -206,11 +206,11 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+            disk_id=example_aws_storagegateway_local_disk["id"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
 
         ## Import

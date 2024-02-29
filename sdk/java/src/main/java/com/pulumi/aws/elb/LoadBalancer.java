@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;foobar-elb&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
@@ -90,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .target(&#34;HTTP:8000/&#34;)
  *                 .interval(30)
  *                 .build())
- *             .instances(aws_instance.foo().id())
+ *             .instances(foo.id())
  *             .crossZoneLoadBalancing(true)
  *             .idleTimeout(400)
  *             .connectionDraining(true)

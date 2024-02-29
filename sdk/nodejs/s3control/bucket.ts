@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3control.Bucket("example", {
  *     bucket: "example",
- *     outpostId: data.aws_outposts_outpost.example.id,
+ *     outpostId: exampleAwsOutpostsOutpost.id,
  * });
  * ```
  *

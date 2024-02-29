@@ -42,15 +42,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new HostedPublicVirtualInterface(&#34;foo&#34;, HostedPublicVirtualInterfaceArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
- *             .bgpAsn(65352)
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
+ *             .name(&#34;vif-foo&#34;)
+ *             .vlan(4094)
+ *             .addressFamily(&#34;ipv4&#34;)
+ *             .bgpAsn(65352)
  *             .customerAddress(&#34;175.45.176.1/30&#34;)
+ *             .amazonAddress(&#34;175.45.176.2/30&#34;)
  *             .routeFilterPrefixes(            
  *                 &#34;210.52.109.0/24&#34;,
  *                 &#34;175.45.176.0/22&#34;)
- *             .vlan(4094)
  *             .build());
  * 
  *     }

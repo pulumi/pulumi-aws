@@ -146,8 +146,8 @@ def get_random_password(exclude_characters: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
+    test = aws.secretsmanager.get_random_password(password_length=50,
+        exclude_numbers=True)
     ```
 
 
@@ -204,8 +204,8 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
+    test = aws.secretsmanager.get_random_password(password_length=50,
+        exclude_numbers=True)
     ```
 
 

@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IntegrationResponse(&#34;example&#34;, IntegrationResponseArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .integrationId(aws_apigatewayv2_integration.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .integrationId(exampleAwsApigatewayv2Integration.id())
  *             .integrationResponseKey(&#34;/200/&#34;)
  *             .build());
  * 

@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.swf.Domain("foo", {
+ *     name: "foo",
  *     description: "SWF Domain",
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });

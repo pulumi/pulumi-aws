@@ -477,11 +477,10 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
             volume_size_in_bytes=5368709120)
-        # 5 GB
         ```
         ### Create Cached iSCSI Volume From Snapshot
 
@@ -490,11 +489,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=aws_ebs_snapshot["example"]["volume_size"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
         ### Create Cached iSCSI Volume From Source Volume
 
@@ -503,11 +502,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            source_volume_arn=aws_storagegateway_cached_iscsi_volume["existing"]["arn"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=aws_storagegateway_cached_iscsi_volume["existing"]["volume_size_in_bytes"])
+            volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
 
         ## Import
@@ -553,11 +552,10 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
             volume_size_in_bytes=5368709120)
-        # 5 GB
         ```
         ### Create Cached iSCSI Volume From Snapshot
 
@@ -566,11 +564,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=aws_ebs_snapshot["example"]["volume_size"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
         ### Create Cached iSCSI Volume From Source Volume
 
@@ -579,11 +577,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.CachesIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            source_volume_arn=aws_storagegateway_cached_iscsi_volume["existing"]["arn"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=aws_storagegateway_cached_iscsi_volume["existing"]["volume_size_in_bytes"])
+            volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
 
         ## Import

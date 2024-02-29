@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {description: "example"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration", {
- *     globalNetworkId: exampleGlobalNetwork.id,
+ * const example = new aws.networkmanager.GlobalNetwork("example", {description: "example"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("example", {
+ *     globalNetworkId: example.id,
  *     transitGatewayArn: exampleTransitGateway.arn,
  * });
  * ```

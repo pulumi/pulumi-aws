@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				Description:    pulumi.String("This is the Sample App Repository"),
 //				RepositoryName: pulumi.String("MyTestRepository"),
+//				Description:    pulumi.String("This is the Sample App Repository"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,14 +55,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testKey, err := kms.NewKey(ctx, "testKey", &kms.KeyArgs{
+//			testKey, err := kms.NewKey(ctx, "test", &kms.KeyArgs{
 //				Description:          pulumi.String("test"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
+//			_, err = codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
 //				RepositoryName: pulumi.String("MyTestRepository"),
 //				Description:    pulumi.String("This is the Sample App Repository"),
 //				KmsKeyId:       testKey.Arn,

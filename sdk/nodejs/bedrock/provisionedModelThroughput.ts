@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.ProvisionedModelThroughput("example", {
- *     commitmentDuration: "SixMonths",
- *     modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
- *     modelUnits: 1,
  *     provisionedModelName: "example-model",
+ *     modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
+ *     commitmentDuration: "SixMonths",
+ *     modelUnits: 1,
  * });
  * ```
  *

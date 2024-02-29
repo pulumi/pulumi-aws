@@ -27,9 +27,9 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var example = new Aws.Ecr.PullThroughCacheRule("example", new()
     ///     {
-    ///         CredentialArn = "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
     ///         EcrRepositoryPrefix = "ecr-public",
     ///         UpstreamRegistryUrl = "public.ecr.aws",
+    ///         CredentialArn = "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
     ///     });
     /// 
     /// });

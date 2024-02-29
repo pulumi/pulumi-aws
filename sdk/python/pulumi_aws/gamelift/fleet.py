@@ -604,9 +604,10 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
+            build_id=example_aws_gamelift_build["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
+            name="example-fleet-name",
             runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
                 server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
                     concurrent_executions=1,
@@ -656,9 +657,10 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
+            build_id=example_aws_gamelift_build["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
+            name="example-fleet-name",
             runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
                 server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
                     concurrent_executions=1,

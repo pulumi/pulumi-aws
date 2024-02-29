@@ -31,21 +31,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = memorydb.NewSubnetGroup(ctx, "exampleSubnetGroup", &memorydb.SubnetGroupArgs{
+//			_, err = memorydb.NewSubnetGroup(ctx, "example", &memorydb.SubnetGroupArgs{
+//				Name: pulumi.String("my-subnet-group"),
 //				SubnetIds: pulumi.StringArray{
 //					exampleSubnet.ID(),
 //				},

@@ -31,16 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": "arn:aws:iam::12345678901:root",
 //						},
-//						"Action":   "redshift:CreateInboundIntegration",
-//						"Resource": aws_redshift_cluster.Example.Cluster_namespace_arn,
-//						"Sid":      "",
+//						"action":   "redshift:CreateInboundIntegration",
+//						"resource": exampleAwsRedshiftCluster.ClusterNamespaceArn,
+//						"sid":      "",
 //					},
 //				},
 //			})
@@ -49,7 +49,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = redshift.NewResourcePolicy(ctx, "example", &redshift.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_redshift_cluster.Example.Cluster_namespace_arn),
+//				ResourceArn: pulumi.Any(exampleAwsRedshiftCluster.ClusterNamespaceArn),
 //				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {

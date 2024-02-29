@@ -30,11 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
+//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hoge", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tf-test-bucket-1234"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			hogePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			hoge, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("SSMBucketPermissionsCheck"),
@@ -86,14 +88,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "hoge", &s3.BucketPolicyArgs{
 //				Bucket: hogeBucketV2.ID(),
-//				Policy: *pulumi.String(hogePolicyDocument.Json),
+//				Policy: *pulumi.String(hoge.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
+//				Name: pulumi.String("foo"),
 //				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
 //					BucketName: hogeBucketV2.Bucket,
 //					Region:     hogeBucketV2.Region,

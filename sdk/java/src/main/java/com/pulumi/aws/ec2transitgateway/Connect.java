@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetIds(aws_subnet.example().id())
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
- *             .vpcId(aws_vpc.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *         var attachment = new Connect(&#34;attachment&#34;, ConnectArgs.builder()        
  *             .transportAttachmentId(example.id())
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
  *     }

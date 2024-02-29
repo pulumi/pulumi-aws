@@ -22,9 +22,19 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example_api",
+    ///     });
     /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     var example = new Aws.ApiGateway.DocumentationVersion("example", new()
+    ///     {
+    ///         Version = "example_version",
+    ///         RestApiId = exampleRestApi.Id,
+    ///         Description = "Example description",
+    ///     });
+    /// 
+    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("example", new()
     ///     {
     ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
     ///         {
@@ -32,19 +42,6 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///         Properties = "{\"description\":\"Example\"}",
     ///         RestApiId = exampleRestApi.Id,
-    ///     });
-    /// 
-    ///     var exampleDocumentationVersion = new Aws.ApiGateway.DocumentationVersion("exampleDocumentationVersion", new()
-    ///     {
-    ///         Version = "example_version",
-    ///         RestApiId = exampleRestApi.Id,
-    ///         Description = "Example description",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleDocumentationPart,
-    ///         },
     ///     });
     /// 
     /// });

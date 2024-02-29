@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", {resourceId: exampleVpc.id});
+ * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("example", {resourceId: example.id});
  * ```
  *
  * ## Import

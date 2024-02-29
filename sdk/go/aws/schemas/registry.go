@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
+//				Name:        pulumi.String("my_own_registry"),
 //				Description: pulumi.String("A custom schema registry"),
 //			})
 //			if err != nil {

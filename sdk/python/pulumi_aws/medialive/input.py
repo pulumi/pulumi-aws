@@ -480,15 +480,16 @@ class Input(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
+        example = aws.medialive.InputSecurityGroup("example",
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
             )],
             tags={
                 "ENVIRONMENT": "prod",
             })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
+        example_input = aws.medialive.Input("example",
+            name="example-input",
+            input_security_groups=[example.id],
             type="UDP_PUSH",
             tags={
                 "ENVIRONMENT": "prod",
@@ -534,15 +535,16 @@ class Input(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
+        example = aws.medialive.InputSecurityGroup("example",
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
             )],
             tags={
                 "ENVIRONMENT": "prod",
             })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
+        example_input = aws.medialive.Input("example",
+            name="example-input",
+            input_security_groups=[example.id],
             type="UDP_PUSH",
             tags={
                 "ENVIRONMENT": "prod",

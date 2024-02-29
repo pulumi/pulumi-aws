@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
+//				Name:    pulumi.String("example-policy"),
 //				Comment: pulumi.String("example comment"),
 //				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
 //					CookieBehavior: pulumi.String("whitelist"),

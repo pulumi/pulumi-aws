@@ -41,10 +41,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var key = new Key(&#34;key&#34;);
+ *         var a = new Key(&#34;a&#34;);
  * 
- *         var alias = new Alias(&#34;alias&#34;, AliasArgs.builder()        
- *             .targetKeyId(key.keyId())
+ *         var aAlias = new Alias(&#34;aAlias&#34;, AliasArgs.builder()        
+ *             .name(&#34;alias/my-key-alias&#34;)
+ *             .targetKeyId(a.keyId())
  *             .build());
  * 
  *     }

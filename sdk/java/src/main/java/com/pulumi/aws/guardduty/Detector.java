@@ -32,12 +32,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesArgs;
+ * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesAuditLogsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,7 +52,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDetector = new Detector(&#34;myDetector&#34;, DetectorArgs.builder()        
+ *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
+ *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
+ *                     .enable(true)
+ *                     .build())
  *                 .kubernetes(DetectorDatasourcesKubernetesArgs.builder()
  *                     .auditLogs(DetectorDatasourcesKubernetesAuditLogsArgs.builder()
  *                         .enable(false)
@@ -65,11 +69,7 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .build())
- *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
- *                     .enable(true)
- *                     .build())
  *                 .build())
- *             .enable(true)
  *             .build());
  * 
  *     }

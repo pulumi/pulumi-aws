@@ -23,9 +23,12 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -56,10 +59,10 @@ namespace Pulumi.Aws.SecretsManager
     ///         },
     ///     });
     /// 
-    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("example", new()
     ///     {
     ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

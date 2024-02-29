@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iot
     ///     var example = new Aws.Iot.LoggingOptions("example", new()
     ///     {
     ///         DefaultLogLevel = "WARN",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

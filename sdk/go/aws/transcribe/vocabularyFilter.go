@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
 //				VocabularyFilterName: pulumi.String("example"),
+//				LanguageCode:         pulumi.String("en-US"),
 //				Words: pulumi.StringArray{
 //					pulumi.String("cars"),
 //					pulumi.String("bucket"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
 //				},
 //			})
 //			if err != nil {

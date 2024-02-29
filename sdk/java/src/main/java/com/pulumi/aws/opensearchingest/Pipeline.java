@@ -55,16 +55,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;osis-pipelines.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;osis-pipelines.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
  *             .pipelineName(&#34;example&#34;)
- *             .pipelineConfigurationBody(exampleRole.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .pipelineConfigurationBody(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * version: &#34;2&#34;
  * example-pipeline:
  *   source:
@@ -120,7 +120,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Pipeline(&#34;example&#34;, PipelineArgs.builder()        
  *             .pipelineName(&#34;example&#34;)
- *             .pipelineConfigurationBody(Files.readString(Paths.get(&#34;example.yaml&#34;)))
+ *             .pipelineConfigurationBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;example.yaml&#34;)
+ *                 .build()).result())
  *             .maxUnits(1)
  *             .minUnits(1)
  *             .build());

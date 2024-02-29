@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewPolicyTable(ctx, "example", &ec2transitgateway.PolicyTableArgs{
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Policy Table"),
 //				},

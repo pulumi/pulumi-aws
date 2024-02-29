@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var path = new NetworkInsightsPath(&#34;path&#34;, NetworkInsightsPathArgs.builder()        
- *             .source(aws_network_interface.source().id())
- *             .destination(aws_network_interface.destination().id())
+ *             .source(source.id())
+ *             .destination(destination.id())
  *             .protocol(&#34;tcp&#34;)
  *             .build());
  * 

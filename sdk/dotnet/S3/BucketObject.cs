@@ -13,6 +13,30 @@ namespace Pulumi.Aws.S3
     /// Provides an S3 object resource.
     /// 
     /// ## Example Usage
+    /// ### Uploading a file to a bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @object = new Aws.S3.BucketObject("object", new()
+    ///     {
+    ///         Bucket = "your_bucket_name",
+    ///         Key = "new_object_key",
+    ///         Source = new FileAsset("path/to/file"),
+    ///         Etag = Std.Filemd5.Invoke(new()
+    ///         {
+    ///             Input = "path/to/file",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Encrypting with KMS Key
     /// 
     /// ```csharp
@@ -29,15 +53,18 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new()
+    ///     var exampleBucketObject = new Aws.S3.BucketObject("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -57,15 +84,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new()
+    ///     var exampleBucketObject = new Aws.S3.BucketObject("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -85,15 +115,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new()
+    ///     var exampleBucketObject = new Aws.S3.BucketObject("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -115,16 +148,17 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
     ///     {
+    ///         Bucket = "examplebuckettftest",
     ///         ObjectLockEnabled = true,
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
@@ -133,7 +167,7 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new()
+    ///     var exampleBucketObject = new Aws.S3.BucketObject("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -142,12 +176,6 @@ namespace Pulumi.Aws.S3
     ///         ObjectLockMode = "GOVERNANCE",
     ///         ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
     ///         ForceDestroy = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketVersioningV2,
-    ///         },
     ///     });
     /// 
     /// });

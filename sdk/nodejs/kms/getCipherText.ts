@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
+ * const oauthConfig = new aws.kms.Key("oauth_config", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });
@@ -86,7 +86,7 @@ export interface GetCipherTextResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
+ * const oauthConfig = new aws.kms.Key("oauth_config", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });

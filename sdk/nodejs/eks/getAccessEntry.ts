@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getAccessEntry({
- *     clusterName: aws_eks_cluster.example.name,
- *     principalArn: aws_iam_role.example.arn,
+ *     clusterName: exampleAwsEksCluster.name,
+ *     principalArn: exampleAwsIamRole.arn,
  * });
- * export const eksAccessEntryOutputs = aws_eks_access_entry.example;
+ * export const eksAccessEntryOutputs = exampleAwsEksAccessEntry;
  * ```
  */
 export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessEntryResult> {
@@ -95,10 +95,10 @@ export interface GetAccessEntryResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getAccessEntry({
- *     clusterName: aws_eks_cluster.example.name,
- *     principalArn: aws_iam_role.example.arn,
+ *     clusterName: exampleAwsEksCluster.name,
+ *     principalArn: exampleAwsIamRole.arn,
  * });
- * export const eksAccessEntryOutputs = aws_eks_access_entry.example;
+ * export const eksAccessEntryOutputs = exampleAwsEksAccessEntry;
  * ```
  */
 export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {

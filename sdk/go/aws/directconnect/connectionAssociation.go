@@ -28,22 +28,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
+//			example, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
+//				Name:      pulumi.String("example"),
 //				Bandwidth: pulumi.String("1Gbps"),
 //				Location:  pulumi.String("EqSe2-EQ"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
+//			exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "example", &directconnect.LinkAggregationGroupArgs{
+//				Name:                 pulumi.String("example"),
 //				ConnectionsBandwidth: pulumi.String("1Gbps"),
 //				Location:             pulumi.String("EqSe2-EQ"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect.ConnectionAssociationArgs{
-//				ConnectionId: exampleConnection.ID(),
+//			_, err = directconnect.NewConnectionAssociation(ctx, "example", &directconnect.ConnectionAssociationArgs{
+//				ConnectionId: example.ID(),
 //				LagId:        exampleLinkAggregationGroup.ID(),
 //			})
 //			if err != nil {

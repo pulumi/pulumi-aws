@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 //					KeyAlgorithm:     pulumi.String("RSA_4096"),
 //					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewPermission(ctx, "examplePermission", &acmpca.PermissionArgs{
+//			_, err = acmpca.NewPermission(ctx, "example", &acmpca.PermissionArgs{
 //				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
 //				Actions: pulumi.StringArray{
 //					pulumi.String("IssueCertificate"),

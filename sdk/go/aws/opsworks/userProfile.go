@@ -28,8 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewUserProfile(ctx, "myProfile", &opsworks.UserProfileArgs{
-//				UserArn:     pulumi.Any(aws_iam_user.User.Arn),
+//			_, err := opsworks.NewUserProfile(ctx, "my_profile", &opsworks.UserProfileArgs{
+//				UserArn:     pulumi.Any(user.Arn),
 //				SshUsername: pulumi.String("my_user"),
 //			})
 //			if err != nil {

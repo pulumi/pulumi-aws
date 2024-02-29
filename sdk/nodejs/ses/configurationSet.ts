@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.ConfigurationSet("test", {});
+ * const test = new aws.ses.ConfigurationSet("test", {name: "some-configuration-set-test"});
  * ```
  * ### Require TLS Connections
  *
@@ -25,9 +25,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.ConfigurationSet("test", {deliveryOptions: {
- *     tlsPolicy: "Require",
- * }});
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     name: "some-configuration-set-test",
+ *     deliveryOptions: {
+ *         tlsPolicy: "Require",
+ *     },
+ * });
  * ```
  * ### Tracking Options
  *
@@ -35,9 +38,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.ConfigurationSet("test", {trackingOptions: {
- *     customRedirectDomain: "sub.example.com",
- * }});
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     name: "some-configuration-set-test",
+ *     trackingOptions: {
+ *         customRedirectDomain: "sub.example.com",
+ *     },
+ * });
  * ```
  *
  * ## Import

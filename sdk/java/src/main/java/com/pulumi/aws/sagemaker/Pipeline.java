@@ -47,15 +47,15 @@ import javax.annotation.Nullable;
  *         var example = new Pipeline(&#34;example&#34;, PipelineArgs.builder()        
  *             .pipelineName(&#34;example&#34;)
  *             .pipelineDisplayName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .pipelineDefinition(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2020-12-01&#34;),
- *                     jsonProperty(&#34;Steps&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Name&#34;, &#34;Test&#34;),
- *                         jsonProperty(&#34;Type&#34;, &#34;Fail&#34;),
- *                         jsonProperty(&#34;Arguments&#34;, jsonObject(
- *                             jsonProperty(&#34;ErrorMessage&#34;, &#34;test&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2020-12-01&#34;),
+ *                     jsonProperty(&#34;steps&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;name&#34;, &#34;Test&#34;),
+ *                         jsonProperty(&#34;type&#34;, &#34;Fail&#34;),
+ *                         jsonProperty(&#34;arguments&#34;, jsonObject(
+ *                             jsonProperty(&#34;errorMessage&#34;, &#34;test&#34;)
  *                         ))
  *                     )))
  *                 )))

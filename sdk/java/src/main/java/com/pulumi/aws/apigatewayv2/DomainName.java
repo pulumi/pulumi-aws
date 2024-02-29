@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;ws-api.example.com&#34;)
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType(&#34;REGIONAL&#34;)
  *                 .securityPolicy(&#34;TLS_1_2&#34;)
  *                 .build())
@@ -86,22 +86,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
+ *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;http-api.example.com&#34;)
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType(&#34;REGIONAL&#34;)
  *                 .securityPolicy(&#34;TLS_1_2&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
+ *             .name(example.domainName())
  *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().zone_id())
+ *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
- *                 .zoneId(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
+ *                 .name(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
+ *                 .zoneId(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)
  *                 .build())
  *             .build());

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const peer = new aws.directconnect.BgpPeer("peer", {
- *     virtualInterfaceId: aws_dx_private_virtual_interface.foo.id,
+ *     virtualInterfaceId: foo.id,
  *     addressFamily: "ipv6",
  *     bgpAsn: 65351,
  * });

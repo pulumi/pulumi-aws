@@ -102,7 +102,7 @@ def get_secret_rotation(secret_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.secretsmanager.get_secret_rotation(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    example = aws.secretsmanager.get_secret_rotation(secret_id=example_aws_secretsmanager_secret["id"])
     ```
 
 
@@ -134,7 +134,7 @@ def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.secretsmanager.get_secret_rotation(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    example = aws.secretsmanager.get_secret_rotation(secret_id=example_aws_secretsmanager_secret["id"])
     ```
 
 

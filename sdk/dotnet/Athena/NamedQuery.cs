@@ -22,16 +22,20 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
+    ///     var hoge = new Aws.S3.BucketV2("hoge", new()
+    ///     {
+    ///         Bucket = "tf-test",
+    ///     });
     /// 
-    ///     var testKey = new Aws.Kms.Key("testKey", new()
+    ///     var test = new Aws.Kms.Key("test", new()
     ///     {
     ///         DeletionWindowInDays = 7,
     ///         Description = "Athena KMS Key",
     ///     });
     /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup", new()
+    ///     var testWorkgroup = new Aws.Athena.Workgroup("test", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
     ///         {
     ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
@@ -39,20 +43,21 @@ namespace Pulumi.Aws.Athena
     ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
     ///                 {
     ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = testKey.Arn,
+    ///                     KmsKeyArn = test.Arn,
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new()
+    ///     var hogeDatabase = new Aws.Athena.Database("hoge", new()
     ///     {
     ///         Name = "users",
-    ///         Bucket = hogeBucketV2.Id,
+    ///         Bucket = hoge.Id,
     ///     });
     /// 
     ///     var foo = new Aws.Athena.NamedQuery("foo", new()
     ///     {
+    ///         Name = "bar",
     ///         Workgroup = testWorkgroup.Id,
     ///         Database = hogeDatabase.Name,
     ///         Query = hogeDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} limit 10;"),

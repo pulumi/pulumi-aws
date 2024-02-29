@@ -26,6 +26,7 @@ namespace Pulumi.Aws.LicenseManager
     /// {
     ///     var example = new Aws.LicenseManager.LicenseConfiguration("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "Example",
     ///         LicenseCount = 10,
     ///         LicenseCountHardLimit = true,

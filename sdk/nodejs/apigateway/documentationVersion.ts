@@ -13,20 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
+ * const exampleRestApi = new aws.apigateway.RestApi("example", {name: "example_api"});
+ * const example = new aws.apigateway.DocumentationVersion("example", {
+ *     version: "example_version",
+ *     restApiId: exampleRestApi.id,
+ *     description: "Example description",
+ * });
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
  *     location: {
  *         type: "API",
  *     },
  *     properties: "{\"description\":\"Example\"}",
  *     restApiId: exampleRestApi.id,
- * });
- * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("exampleDocumentationVersion", {
- *     version: "example_version",
- *     restApiId: exampleRestApi.id,
- *     description: "Example description",
- * }, {
- *     dependsOn: [exampleDocumentationPart],
  * });
  * ```
  *

@@ -23,14 +23,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.Member;
- * import com.pulumi.aws.guardduty.MemberArgs;
  * import com.pulumi.aws.guardduty.InviteAccepter;
  * import com.pulumi.aws.guardduty.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.guardduty.Member;
+ * import com.pulumi.aws.guardduty.MemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,34 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Provider(&#34;primary&#34;);
+ *         var primary = new Detector(&#34;primary&#34;);
  * 
- *         var member = new Provider(&#34;member&#34;);
+ *         var memberDetector = new Detector(&#34;memberDetector&#34;);
  * 
- *         var primaryDetector = new Detector(&#34;primaryDetector&#34;, DetectorArgs.Empty, CustomResourceOptions.builder()
- *             .provider(aws.primary())
- *             .build());
- * 
- *         var memberDetector = new Detector(&#34;memberDetector&#34;, DetectorArgs.Empty, CustomResourceOptions.builder()
- *             .provider(aws.member())
+ *         var member = new InviteAccepter(&#34;member&#34;, InviteAccepterArgs.builder()        
+ *             .detectorId(memberDetector.id())
+ *             .masterAccountId(primary.accountId())
  *             .build());
  * 
  *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
  *             .accountId(memberDetector.accountId())
- *             .detectorId(primaryDetector.id())
+ *             .detectorId(primary.id())
  *             .email(&#34;required@example.com&#34;)
  *             .invite(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
- * 
- *         var memberInviteAccepter = new InviteAccepter(&#34;memberInviteAccepter&#34;, InviteAccepterArgs.builder()        
- *             .detectorId(memberDetector.id())
- *             .masterAccountId(primaryDetector.accountId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.member())
- *                 .dependsOn(memberMember)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

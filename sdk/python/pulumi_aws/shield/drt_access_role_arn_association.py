@@ -103,21 +103,23 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "drt.shield.amazonaws.com",
-                },
-                "Action": "sts:AssumeRole",
-            }],
-        }))
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("testRolePolicyAttachment",
-            role=test_role.name,
+        test = aws.iam.Role("test",
+            name=aws_shield_drt_access_role_arn,
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "drt.shield.amazonaws.com",
+                    },
+                    "Action": "sts:AssumeRole",
+                }],
+            }))
+        test_role_policy_attachment = aws.iam.RolePolicyAttachment("test",
+            role=test.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=test_role.arn)
+        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,21 +143,23 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "drt.shield.amazonaws.com",
-                },
-                "Action": "sts:AssumeRole",
-            }],
-        }))
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("testRolePolicyAttachment",
-            role=test_role.name,
+        test = aws.iam.Role("test",
+            name=aws_shield_drt_access_role_arn,
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "drt.shield.amazonaws.com",
+                    },
+                    "Action": "sts:AssumeRole",
+                }],
+            }))
+        test_role_policy_attachment = aws.iam.RolePolicyAttachment("test",
+            role=test.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=test_role.arn)
+        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
 
         :param str resource_name: The name of the resource.

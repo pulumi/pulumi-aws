@@ -30,9 +30,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
 //				AlternateContactType: pulumi.String("OPERATIONS"),
+//				Name:                 pulumi.String("Example"),
+//				Title:                pulumi.String("Example"),
 //				EmailAddress:         pulumi.String("test@example.com"),
 //				PhoneNumber:          pulumi.String("+1234567890"),
-//				Title:                pulumi.String("Example"),
 //			})
 //			if err != nil {
 //				return err

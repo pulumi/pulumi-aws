@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
     ///     {
+    ///         Name = "maintenance-window-webapp",
     ///         Schedule = "cron(0 16 ? * TUE *)",
     ///         Duration = 3,
     ///         Cutoff = 1,
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Ssm
     ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
     ///     {
     ///         WindowId = window.Id,
+    ///         Name = "maintenance-window-target",
     ///         Description = "This is a maintenance window target",
     ///         ResourceType = "INSTANCE",
     ///         Targets = new[]
@@ -62,6 +64,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
     ///     {
+    ///         Name = "maintenance-window-webapp",
     ///         Schedule = "cron(0 16 ? * TUE *)",
     ///         Duration = 3,
     ///         Cutoff = 1,
@@ -70,6 +73,7 @@ namespace Pulumi.Aws.Ssm
     ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
     ///     {
     ///         WindowId = window.Id,
+    ///         Name = "maintenance-window-target",
     ///         Description = "This is a maintenance window target",
     ///         ResourceType = "RESOURCE_GROUP",
     ///         Targets = new[]

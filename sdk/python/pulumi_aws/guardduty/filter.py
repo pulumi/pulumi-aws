@@ -309,9 +309,10 @@ class Filter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_filter = aws.guardduty.Filter("myFilter",
+        my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
             action="ARCHIVE",
-            detector_id=aws_guardduty_detector["example"]["id"],
+            detector_id=example["id"],
             rank=1,
             finding_criteria=aws.guardduty.FilterFindingCriteriaArgs(
                 criterions=[
@@ -372,9 +373,10 @@ class Filter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_filter = aws.guardduty.Filter("myFilter",
+        my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
             action="ARCHIVE",
-            detector_id=aws_guardduty_detector["example"]["id"],
+            detector_id=example["id"],
             rank=1,
             finding_criteria=aws.guardduty.FilterFindingCriteriaArgs(
                 criterions=[

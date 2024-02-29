@@ -22,7 +22,10 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sfnActivity = new Aws.Sfn.Activity("sfnActivity");
+    ///     var sfnActivity = new Aws.Sfn.Activity("sfn_activity", new()
+    ///     {
+    ///         Name = "my-activity",
+    ///     });
     /// 
     /// });
     /// ```

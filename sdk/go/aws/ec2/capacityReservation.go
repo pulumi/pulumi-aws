@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
+//				InstanceType:     pulumi.String("t2.micro"),
+//				InstancePlatform: pulumi.String("Linux/UNIX"),
 //				AvailabilityZone: pulumi.String("eu-west-1a"),
 //				InstanceCount:    pulumi.Int(1),
-//				InstancePlatform: pulumi.String("Linux/UNIX"),
-//				InstanceType:     pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
 //				return err

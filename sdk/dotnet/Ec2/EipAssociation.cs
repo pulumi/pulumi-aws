@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     ///         Domain = "vpc",
     ///     });
     /// 
-    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
+    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eip_assoc", new()
     ///     {
     ///         InstanceId = web.Id,
     ///         AllocationId = example.Id,

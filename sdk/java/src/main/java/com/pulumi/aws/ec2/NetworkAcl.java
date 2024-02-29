@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAcl(&#34;main&#34;, NetworkAclArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(mainAwsVpc.id())
  *             .egress(NetworkAclEgressArgs.builder()
  *                 .protocol(&#34;tcp&#34;)
  *                 .ruleNo(200)

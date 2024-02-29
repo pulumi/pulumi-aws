@@ -254,7 +254,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
+    test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
     ```
 
 
@@ -300,7 +300,7 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
+    test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
     ```
 
 

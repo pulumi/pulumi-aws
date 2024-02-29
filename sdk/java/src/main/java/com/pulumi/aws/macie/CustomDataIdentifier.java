@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie.CustomDataIdentifier;
  * import com.pulumi.aws.macie.CustomDataIdentifierArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,17 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleCustomDataIdentifier = new CustomDataIdentifier(&#34;exampleCustomDataIdentifier&#34;, CustomDataIdentifierArgs.builder()        
+ *             .name(&#34;NAME OF CUSTOM DATA IDENTIFIER&#34;)
  *             .regex(&#34;[0-9]{3}-[0-9]{2}-[0-9]{4}&#34;)
  *             .description(&#34;DESCRIPTION&#34;)
  *             .maximumMatchDistance(10)
  *             .keywords(&#34;keyword&#34;)
  *             .ignoreWords(&#34;ignore&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_macie2_account.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

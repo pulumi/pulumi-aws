@@ -20,10 +20,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const group = new aws.iam.Group("group", {});
- * const userOne = new aws.iam.User("userOne", {});
- * const userTwo = new aws.iam.User("userTwo", {});
+ * const group = new aws.iam.Group("group", {name: "test-group"});
+ * const userOne = new aws.iam.User("user_one", {name: "test-user"});
+ * const userTwo = new aws.iam.User("user_two", {name: "test-user-two"});
  * const team = new aws.iam.GroupMembership("team", {
+ *     name: "tf-testing-group-membership",
  *     users: [
  *         userOne.name,
  *         userTwo.name,

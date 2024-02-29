@@ -24,16 +24,17 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -54,9 +55,10 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
@@ -64,7 +66,7 @@ namespace Pulumi.Aws.Sfn
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -85,9 +87,10 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Publish = true,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
@@ -96,7 +99,7 @@ namespace Pulumi.Aws.Sfn
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -119,16 +122,17 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -136,7 +140,7 @@ namespace Pulumi.Aws.Sfn
     /// ",
     ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
+    ///             LogDestination = $"{logGroupForSfn.Arn}:*",
     ///             IncludeExecutionData = true,
     ///             Level = "ERROR",
     ///         },

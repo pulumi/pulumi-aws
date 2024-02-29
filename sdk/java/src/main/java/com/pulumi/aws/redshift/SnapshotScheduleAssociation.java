@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
  *             .databaseName(&#34;mydb&#34;)
  *             .masterUsername(&#34;foo&#34;)
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation(&#34;defaultSnapshotScheduleAssociation&#34;, SnapshotScheduleAssociationArgs.builder()        
- *             .clusterIdentifier(defaultCluster.id())
+ *             .clusterIdentifier(default_.id())
  *             .scheduleIdentifier(defaultSnapshotSchedule.id())
  *             .build());
  * 

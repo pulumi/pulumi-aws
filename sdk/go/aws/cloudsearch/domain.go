@@ -30,28 +30,29 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-//				IndexFields: cloudsearch.DomainIndexFieldArray{
-//					&cloudsearch.DomainIndexFieldArgs{
-//						AnalysisScheme: pulumi.String("_en_default_"),
-//						Highlight:      pulumi.Bool(false),
-//						Name:           pulumi.String("headline"),
-//						Return:         pulumi.Bool(true),
-//						Search:         pulumi.Bool(true),
-//						Sort:           pulumi.Bool(true),
-//						Type:           pulumi.String("text"),
-//					},
-//					&cloudsearch.DomainIndexFieldArgs{
-//						Facet:        pulumi.Bool(true),
-//						Name:         pulumi.String("price"),
-//						Return:       pulumi.Bool(true),
-//						Search:       pulumi.Bool(true),
-//						Sort:         pulumi.Bool(true),
-//						SourceFields: pulumi.String("headline"),
-//						Type:         pulumi.String("double"),
-//					},
-//				},
+//				Name: pulumi.String("example-domain"),
 //				ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
 //					DesiredInstanceType: pulumi.String("search.medium"),
+//				},
+//				IndexFields: cloudsearch.DomainIndexFieldArray{
+//					&cloudsearch.DomainIndexFieldArgs{
+//						Name:           pulumi.String("headline"),
+//						Type:           pulumi.String("text"),
+//						Search:         pulumi.Bool(true),
+//						Return:         pulumi.Bool(true),
+//						Sort:           pulumi.Bool(true),
+//						Highlight:      pulumi.Bool(false),
+//						AnalysisScheme: pulumi.String("_en_default_"),
+//					},
+//					&cloudsearch.DomainIndexFieldArgs{
+//						Name:         pulumi.String("price"),
+//						Type:         pulumi.String("double"),
+//						Search:       pulumi.Bool(true),
+//						Facet:        pulumi.Bool(true),
+//						Return:       pulumi.Bool(true),
+//						Sort:         pulumi.Bool(true),
+//						SourceFields: pulumi.String("headline"),
+//					},
 //				},
 //			})
 //			if err != nil {

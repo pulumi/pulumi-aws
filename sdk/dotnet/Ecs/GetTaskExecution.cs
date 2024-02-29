@@ -18,6 +18,37 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
+        ///     {
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
+        ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
+        ///         {
+        ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+        ///             SecurityGroups = new[]
+        ///             {
+        ///                 exampleAwsSecurityGroup.Id,
+        ///             },
+        ///             AssignPublicIp = false,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTaskExecutionResult> InvokeAsync(GetTaskExecutionArgs args, InvokeOptions? options = null)
@@ -30,6 +61,37 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
+        ///     {
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
+        ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
+        ///         {
+        ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+        ///             SecurityGroups = new[]
+        ///             {
+        ///                 exampleAwsSecurityGroup.Id,
+        ///             },
+        ///             AssignPublicIp = false,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTaskExecutionResult> Invoke(GetTaskExecutionInvokeArgs args, InvokeOptions? options = null)

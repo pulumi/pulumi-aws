@@ -33,9 +33,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
 //				Authentication: pulumi.String("ActiveDirectory"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//				GatewayArn:     pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
+//				LocationArn:    pulumi.Any(exampleAwsS3Bucket.Arn),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -63,9 +63,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
 //				Authentication: pulumi.String("GuestAccess"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//				GatewayArn:     pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
+//				LocationArn:    pulumi.Any(exampleAwsS3Bucket.Arn),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

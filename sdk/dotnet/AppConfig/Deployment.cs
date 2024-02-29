@@ -24,13 +24,13 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.Deployment("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///         ConfigurationVersion = aws_appconfig_hosted_configuration_version.Example.Version_number,
-    ///         DeploymentStrategyId = aws_appconfig_deployment_strategy.Example.Id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
+    ///         ConfigurationVersion = exampleAwsAppconfigHostedConfigurationVersion.VersionNumber,
+    ///         DeploymentStrategyId = exampleAwsAppconfigDeploymentStrategy.Id,
     ///         Description = "My example deployment",
-    ///         EnvironmentId = aws_appconfig_environment.Example.Environment_id,
-    ///         KmsKeyIdentifier = aws_kms_key.Example.Arn,
+    ///         EnvironmentId = exampleAwsAppconfigEnvironment.EnvironmentId,
+    ///         KmsKeyIdentifier = exampleAwsKmsKey.Arn,
     ///         Tags = 
     ///         {
     ///             { "Type", "AppConfig Deployment" },

@@ -43,13 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTrustStore = new TrustStore(&#34;testTrustStore&#34;, TrustStoreArgs.builder()        
+ *         var test = new TrustStore(&#34;test&#34;, TrustStoreArgs.builder()        
+ *             .name(&#34;tf-example-lb-ts&#34;)
  *             .caCertificatesBundleS3Bucket(&#34;...&#34;)
  *             .caCertificatesBundleS3Key(&#34;...&#34;)
  *             .build());
  * 
  *         var testTrustStoreRevocation = new TrustStoreRevocation(&#34;testTrustStoreRevocation&#34;, TrustStoreRevocationArgs.builder()        
- *             .trustStoreArn(testTrustStore.arn())
+ *             .trustStoreArn(test.arn())
  *             .revocationsS3Bucket(&#34;...&#34;)
  *             .revocationsS3Key(&#34;...&#34;)
  *             .build());

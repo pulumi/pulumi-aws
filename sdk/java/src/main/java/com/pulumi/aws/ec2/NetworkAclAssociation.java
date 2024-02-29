@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAclAssociation(&#34;main&#34;, NetworkAclAssociationArgs.builder()        
- *             .networkAclId(aws_network_acl.main().id())
- *             .subnetId(aws_subnet.main().id())
+ *             .networkAclId(mainAwsNetworkAcl.id())
+ *             .subnetId(mainAwsSubnet.id())
  *             .build());
  * 
  *     }

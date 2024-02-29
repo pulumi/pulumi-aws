@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicequotas.NewTemplate(ctx, "example", &servicequotas.TemplateArgs{
-//				QuotaCode:   pulumi.String("L-2ACBD22F"),
 //				Region:      pulumi.String("us-east-1"),
+//				QuotaCode:   pulumi.String("L-2ACBD22F"),
 //				ServiceCode: pulumi.String("lambda"),
 //				Value:       pulumi.Float64(80),
 //			})

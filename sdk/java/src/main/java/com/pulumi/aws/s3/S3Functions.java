@@ -728,7 +728,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -827,7 +828,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -926,7 +928,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -1025,7 +1028,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -1758,7 +1762,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -1855,7 +1860,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -1952,7 +1958,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 
@@ -2049,7 +2056,8 @@ public final class S3Functions {
      *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .role(aws_iam_role.iam_for_lambda().arn())
+     *             .name(&#34;lambda_function_name&#34;)
+     *             .role(iamForLambda.arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
      * 

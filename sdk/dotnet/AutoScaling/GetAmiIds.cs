@@ -50,7 +50,7 @@ namespace Pulumi.Aws.AutoScaling
         ///         },
         ///     });
         /// 
-        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
+        ///     var slackNotifications = new Aws.AutoScaling.Notification("slack_notifications", new()
         ///     {
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.AutoScaling
         ///         },
         ///     });
         /// 
-        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
+        ///     var slackNotifications = new Aws.AutoScaling.Notification("slack_notifications", new()
         ///     {
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]

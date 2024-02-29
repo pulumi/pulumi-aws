@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Device("example", {
- *     deviceFleetName: aws_sagemaker_device_fleet.example.device_fleet_name,
+ *     deviceFleetName: exampleAwsSagemakerDeviceFleet.deviceFleetName,
  *     device: {
  *         deviceName: "example",
  *     },

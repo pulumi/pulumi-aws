@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
  * import com.pulumi.aws.amplify.BackendEnvironment;
  * import com.pulumi.aws.amplify.BackendEnvironmentArgs;
  * import java.util.List;
@@ -39,10 +40,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApp = new App(&#34;exampleApp&#34;);
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBackendEnvironment = new BackendEnvironment(&#34;exampleBackendEnvironment&#34;, BackendEnvironmentArgs.builder()        
- *             .appId(exampleApp.id())
+ *             .appId(example.id())
  *             .environmentName(&#34;example&#34;)
  *             .deploymentArtifacts(&#34;app-example-deployment&#34;)
  *             .stackName(&#34;amplify-app-example&#34;)

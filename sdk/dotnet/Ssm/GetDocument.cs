@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var test = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         Name = aws_ssm_document.Test.Name,
+        ///         Name = testAwsSsmDocument.Name,
         ///         DocumentFormat = "JSON",
         ///     });
         /// 
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var test = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         Name = aws_ssm_document.Test.Name,
+        ///         Name = testAwsSsmDocument.Name,
         ///         DocumentFormat = "JSON",
         ///     });
         /// 

@@ -40,23 +40,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const testVpcIpam = new aws.ec2.VpcIpam("testVpcIpam", {operatingRegions: [{
+ * const test = new aws.ec2.VpcIpam("test", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const testVpcIpamPool = new aws.ec2.VpcIpamPool("testVpcIpamPool", {
+ * const testVpcIpamPool = new aws.ec2.VpcIpamPool("test", {
  *     addressFamily: "ipv4",
- *     ipamScopeId: testVpcIpam.privateDefaultScopeId,
+ *     ipamScopeId: test.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", {
+ * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("test", {
  *     ipamPoolId: testVpcIpamPool.id,
  *     cidr: "172.20.0.0/16",
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
+ * const testVpc = new aws.ec2.Vpc("test", {
  *     ipv4IpamPoolId: testVpcIpamPool.id,
  *     ipv4NetmaskLength: 28,
- * }, {
- *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * ```
  *

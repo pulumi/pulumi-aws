@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var developers = new Group(&#34;developers&#34;, GroupArgs.builder()        
+ *             .name(&#34;developers&#34;)
  *             .path(&#34;/users/&#34;)
  *             .build());
  * 

@@ -278,7 +278,8 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+            name="example",
+            target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
             rules_package_arns=[
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -288,7 +289,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
 
@@ -325,7 +326,8 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+            name="example",
+            target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
             rules_package_arns=[
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -335,7 +337,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
 

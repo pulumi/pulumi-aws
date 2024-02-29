@@ -180,6 +180,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
@@ -216,6 +217,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",

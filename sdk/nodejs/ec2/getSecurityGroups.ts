@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [_var.vpc_id],
+ *             values: [vpcId],
  *         },
  *     ],
  * });
@@ -118,7 +118,7 @@ export interface GetSecurityGroupsResult {
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [_var.vpc_id],
+ *             values: [vpcId],
  *         },
  *     ],
  * });

@@ -44,8 +44,9 @@ namespace Pulumi.Aws.Route53
     ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
     ///     {
     ///         DomainName = "example.com",
+    ///         Name = "example",
     ///         RuleType = "FORWARD",
-    ///         ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
+    ///         ResolverEndpointId = foo.Id,
     ///         TargetIps = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs

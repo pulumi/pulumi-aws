@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Request a Spot fleet
- * const cheapCompute = new aws.ec2.SpotFleetRequest("cheapCompute", {
+ * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     spotPrice: "0.03",
  *     allocationStrategy: "diversified",
@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *             ami: "ami-1234",
  *             spotPrice: "2.793",
  *             placementTenancy: "dedicated",
- *             iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+ *             iamInstanceProfileArn: example.arn,
  *         },
  *         {
  *             instanceType: "m4.4xlarge",
  *             ami: "ami-5678",
  *             keyName: "my-key",
  *             spotPrice: "1.117",
- *             iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+ *             iamInstanceProfileArn: example.arn,
  *             availabilityZone: "us-west-1a",
  *             subnetId: "subnet-1234",
  *             weightedCapacity: "35",
@@ -62,29 +62,91 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
+ * const foo = new aws.ec2.LaunchTemplate("foo", {
+ *     name: "launch-template",
  *     imageId: "ami-516b9131",
  *     instanceType: "m1.small",
  *     keyName: "some-key",
  * });
- * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
+ * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("foo", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     spotPrice: "0.005",
  *     targetCapacity: 2,
  *     validUntil: "2019-11-04T20:44:20Z",
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
- *             id: fooLaunchTemplate.id,
- *             version: fooLaunchTemplate.latestVersion,
+ *             id: foo.id,
+ *             version: foo.latestVersion,
  *         },
  *     }],
- * }, {
- *     dependsOn: [aws_iam_policy_attachment["test-attach"]],
  * });
  * ```
  *
  * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
  * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+ * ### Using multiple launch specifications
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.SpotFleetRequest("foo", {
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
+ *     launchSpecifications: [
+ *         {
+ *             instanceType: "m1.small",
+ *             ami: "ami-d06a90b0",
+ *             keyName: "my-key",
+ *             availabilityZone: "us-west-2a",
+ *         },
+ *         {
+ *             instanceType: "m5.large",
+ *             ami: "ami-d06a90b0",
+ *             keyName: "my-key",
+ *             availabilityZone: "us-west-2a",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const subnets = config.requireObject("subnets");
+ * const example = new aws.ec2.SpotFleetRequest("example", {
+ *     launchSpecifications: .map(s => ({
+ *         subnetId: s[1],
+ *     })).map((v, k) => ({key: k, value: v})).map(entry => ({
+ *         ami: "ami-1234",
+ *         instanceType: "m4.4xlarge",
+ *         subnetId: entry.value.subnetId,
+ *         vpcSecurityGroupIds: "sg-123456",
+ *         rootBlockDevices: [{
+ *             volumeSize: 8,
+ *             volumeType: "gp2",
+ *             deleteOnTermination: true,
+ *         }],
+ *         tags: {
+ *             Name: "Spot Node",
+ *             tag_builder: "builder",
+ *         },
+ *     })),
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     targetCapacity: 3,
+ *     validUntil: "2019-11-04T20:44:20Z",
+ *     allocationStrategy: "lowestPrice",
+ *     fleetType: "request",
+ *     waitForFulfillment: true,
+ *     terminateInstancesWithExpiration: true,
+ * });
+ * ```
  * ### Using multiple launch configurations
  *
  * ```typescript
@@ -94,23 +156,24 @@ import * as utilities from "../utilities";
  * const example = aws.ec2.getSubnets({
  *     filters: [{
  *         name: "vpc-id",
- *         values: [_var.vpc_id],
+ *         values: [vpcId],
  *     }],
  * });
- * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
+ * const foo = new aws.ec2.LaunchTemplate("foo", {
+ *     name: "launch-template",
  *     imageId: "ami-516b9131",
  *     instanceType: "m1.small",
  *     keyName: "some-key",
  * });
- * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
+ * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("foo", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     spotPrice: "0.005",
  *     targetCapacity: 2,
  *     validUntil: "2019-11-04T20:44:20Z",
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
- *             id: fooLaunchTemplate.id,
- *             version: fooLaunchTemplate.latestVersion,
+ *             id: foo.id,
+ *             version: foo.latestVersion,
  *         },
  *         overrides: [
  *             {
@@ -124,8 +187,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- * }, {
- *     dependsOn: [aws_iam_policy_attachment["test-attach"]],
  * });
  * ```
  *

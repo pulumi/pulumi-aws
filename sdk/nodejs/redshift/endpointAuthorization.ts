@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.redshift.EndpointAuthorization("example", {
  *     account: "01234567910",
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  * });
  * ```
  *

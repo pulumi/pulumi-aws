@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dnsResolver", {
- *     vpcId: aws_vpc.foo.id,
- *     dhcpOptionsId: aws_vpc_dhcp_options.foo.id,
+ * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dns_resolver", {
+ *     vpcId: fooAwsVpc.id,
+ *     dhcpOptionsId: foo.id,
  * });
  * ```
  * ## Remarks

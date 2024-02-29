@@ -25,9 +25,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
     ///         Edition = "DEVELOPER_EDITION",
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         RoleArn = @this.Arn,
     ///         Tags = 
     ///         {
     ///             { "Key1", "Value1" },
@@ -48,8 +49,9 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
     ///         Edition = "DEVELOPER_EDITION",
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         RoleArn = @this.Arn,
     ///         CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
     ///         {
     ///             QueryCapacityUnits = 2,
@@ -71,10 +73,11 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = thisAwsIamRole.Arn,
     ///         ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
     ///         {
-    ///             KmsKeyId = data.Aws_kms_key.This.Arn,
+    ///             KmsKeyId = @this.Arn,
     ///         },
     ///     });
     /// 
@@ -92,7 +95,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserGroupResolutionConfiguration = new Aws.Kendra.Inputs.IndexUserGroupResolutionConfigurationArgs
     ///         {
     ///             UserGroupResolutionMode = "AWS_SSO",
@@ -116,7 +120,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -379,7 +384,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -709,7 +715,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
     ///         {
     ///             JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs

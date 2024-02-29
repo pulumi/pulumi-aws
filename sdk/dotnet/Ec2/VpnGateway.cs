@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new()
+    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpn_gw", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },

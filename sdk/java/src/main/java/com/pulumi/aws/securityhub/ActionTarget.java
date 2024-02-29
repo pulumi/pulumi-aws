@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.ActionTarget;
  * import com.pulumi.aws.securityhub.ActionTargetArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -40,14 +39,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleActionTarget = new ActionTarget(&#34;exampleActionTarget&#34;, ActionTargetArgs.builder()        
+ *             .name(&#34;Send notification to chat&#34;)
  *             .identifier(&#34;SendToChat&#34;)
  *             .description(&#34;This is custom action sends selected findings to chat&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

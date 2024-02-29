@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Fis
     ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
     ///     {
     ///         Description = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         StopConditions = new[]
     ///         {
     ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs

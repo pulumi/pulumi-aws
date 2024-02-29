@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.finspace.KxScalingGroup("example", {
- *     environmentId: aws_finspace_kx_environment.example.id,
+ *     name: "my-tf-kx-scalinggroup",
+ *     environmentId: exampleAwsFinspaceKxEnvironment.id,
  *     availabilityZoneId: "use1-az2",
  *     hostType: "kx.sg.4xlarge",
  * });

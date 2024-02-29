@@ -29,6 +29,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         Comment = "test comment",
     ///         CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
     ///         {
@@ -73,6 +74,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]
@@ -108,6 +110,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]

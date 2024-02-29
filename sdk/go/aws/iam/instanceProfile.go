@@ -49,13 +49,15 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Name:             pulumi.String("test_role"),
 //				Path:             pulumi.String("/"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewInstanceProfile(ctx, "testProfile", &iam.InstanceProfileArgs{
+//			_, err = iam.NewInstanceProfile(ctx, "test_profile", &iam.InstanceProfileArgs{
+//				Name: pulumi.String("test_profile"),
 //				Role: role.Name,
 //			})
 //			if err != nil {

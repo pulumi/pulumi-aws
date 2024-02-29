@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Eks
         ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = exampleAwsEksCluster.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///         ["eksAddonOutputs"] = exampleAwsEksAddon,
         ///     };
         /// });
         /// ```
@@ -62,12 +62,12 @@ namespace Pulumi.Aws.Eks
         ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = exampleAwsEksCluster.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///         ["eksAddonOutputs"] = exampleAwsEksAddon,
         ///     };
         /// });
         /// ```

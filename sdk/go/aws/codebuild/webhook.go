@@ -36,7 +36,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
+//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
 //				BuildType:   pulumi.String("BUILD"),
 //				FilterGroups: codebuild.WebhookFilterGroupArray{
 //					&codebuild.WebhookFilterGroupArgs{
@@ -51,52 +51,6 @@ import (
 //							},
 //						},
 //					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### GitHub Enterprise
-//
-// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
-//
-// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWebhook, err := codebuild.NewWebhook(ctx, "exampleWebhook", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
-//				Active: pulumi.Bool(true),
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//				Repository: pulumi.Any(github_repository.Example.Name),
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         exampleWebhook.PayloadUrl,
-//					Secret:      exampleWebhook.Secret,
-//					ContentType: pulumi.String("json"),
-//					InsecureSsl: pulumi.Bool(false),
 //				},
 //			})
 //			if err != nil {

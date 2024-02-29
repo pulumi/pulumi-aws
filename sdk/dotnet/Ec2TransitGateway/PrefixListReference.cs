@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
-    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });
@@ -45,8 +45,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
     ///         Blackhole = true,
-    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });

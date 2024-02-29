@@ -612,15 +612,16 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
             version="1.0.0",
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=example_aws_ecr_repository["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -681,15 +682,16 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
             version="1.0.0",
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=example_aws_ecr_repository["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",

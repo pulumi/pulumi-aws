@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", nil)
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -50,7 +52,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
 //				DeliveryPolicy: pulumi.String(`{
 //	  "http": {
 //	    "defaultHealthyRetryPolicy": {
@@ -95,7 +98,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name:           pulumi.String("user-updates-topic"),
 //				KmsMasterKeyId: pulumi.String("alias/aws/sns"),
 //			})
 //			if err != nil {
@@ -121,9 +125,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				ContentBasedDeduplication: pulumi.Bool(true),
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name:                      pulumi.String("user-updates-topic.fifo"),
 //				FifoTopic:                 pulumi.Bool(true),
+//				ContentBasedDeduplication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

@@ -317,8 +317,9 @@ class LifecycleHook(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        foobar_group = aws.autoscaling.Group("foobarGroup",
+        foobar = aws.autoscaling.Group("foobar",
             availability_zones=["us-west-2a"],
+            name="test-foobar5",
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
             tags=[aws.autoscaling.GroupTagArgs(
@@ -326,8 +327,9 @@ class LifecycleHook(pulumi.CustomResource):
                 value="foo-bar",
                 propagate_at_launch=True,
             )])
-        foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobarLifecycleHook",
-            autoscaling_group_name=foobar_group.name,
+        foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
+            name="foobar",
+            autoscaling_group_name=foobar.name,
             default_result="CONTINUE",
             heartbeat_timeout=2000,
             lifecycle_transition="autoscaling:EC2_INSTANCE_LAUNCHING",
@@ -385,8 +387,9 @@ class LifecycleHook(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        foobar_group = aws.autoscaling.Group("foobarGroup",
+        foobar = aws.autoscaling.Group("foobar",
             availability_zones=["us-west-2a"],
+            name="test-foobar5",
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
             tags=[aws.autoscaling.GroupTagArgs(
@@ -394,8 +397,9 @@ class LifecycleHook(pulumi.CustomResource):
                 value="foo-bar",
                 propagate_at_launch=True,
             )])
-        foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobarLifecycleHook",
-            autoscaling_group_name=foobar_group.name,
+        foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
+            name="foobar",
+            autoscaling_group_name=foobar.name,
             default_result="CONTINUE",
             heartbeat_timeout=2000,
             lifecycle_transition="autoscaling:EC2_INSTANCE_LAUNCHING",

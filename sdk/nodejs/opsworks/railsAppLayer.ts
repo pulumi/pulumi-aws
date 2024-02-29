@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const app = new aws.opsworks.RailsAppLayer("app", {stackId: aws_opsworks_stack.main.id});
+ * const app = new aws.opsworks.RailsAppLayer("app", {stackId: main.id});
  * ```
  */
 export class RailsAppLayer extends pulumi.CustomResource {

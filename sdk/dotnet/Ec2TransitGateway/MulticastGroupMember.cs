@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var example = new Aws.Ec2TransitGateway.MulticastGroupMember("example", new()
     ///     {
     ///         GroupIpAddress = "224.0.0.1",
-    ///         NetworkInterfaceId = aws_network_interface.Example.Id,
-    ///         TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
+    ///         NetworkInterfaceId = exampleAwsNetworkInterface.Id,
+    ///         TransitGatewayMulticastDomainId = exampleAwsEc2TransitGatewayMulticastDomain.Id,
     ///     });
     /// 
     /// });

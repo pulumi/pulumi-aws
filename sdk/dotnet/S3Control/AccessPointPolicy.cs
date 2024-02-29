@@ -25,11 +25,15 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example",
     ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
     ///         {
     ///             BlockPublicAcls = true,
@@ -39,23 +43,23 @@ namespace Pulumi.Aws.S3Control
     ///         },
     ///     });
     /// 
-    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new()
+    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("example", new()
     ///     {
     ///         AccessPointArn = exampleAccessPoint.Arn,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2008-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3:GetObjectTagging",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = "s3:GetObjectTagging",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
+    ///                     ["resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
     ///                 },
     ///             },
     ///         })),

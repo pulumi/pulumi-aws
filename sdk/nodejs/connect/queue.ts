@@ -19,9 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
  *         Name: "Example Queue",
  *     },
@@ -34,9 +35,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     quickConnectIds: ["12345678-abcd-1234-abcd-123456789012"],
  *     tags: {
  *         Name: "Example Queue with Quick Connect IDs",
@@ -50,9 +52,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     outboundCallerConfig: {
  *         outboundCallerIdName: "example",
  *         outboundCallerIdNumberId: "12345678-abcd-1234-abcd-123456789012",

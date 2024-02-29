@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCustomRoutingAccelerator, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "exampleCustomRoutingAccelerator", &globalaccelerator.CustomRoutingAcceleratorArgs{
+//			example, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator.CustomRoutingAcceleratorArgs{
+//				Name:          pulumi.String("Example"),
 //				IpAddressType: pulumi.String("IPV4"),
 //				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
@@ -40,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "exampleCustomRoutingListener", &globalaccelerator.CustomRoutingListenerArgs{
-//				AcceleratorArn: exampleCustomRoutingAccelerator.ID(),
+//			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "example", &globalaccelerator.CustomRoutingListenerArgs{
+//				AcceleratorArn: example.ID(),
 //				PortRanges: globalaccelerator.CustomRoutingListenerPortRangeArray{
 //					&globalaccelerator.CustomRoutingListenerPortRangeArgs{
 //						FromPort: pulumi.Int(80),

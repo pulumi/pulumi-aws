@@ -172,12 +172,11 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invite=True)
         ```
 
         ## Import
@@ -209,12 +208,11 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invite=True)
         ```
 
         ## Import

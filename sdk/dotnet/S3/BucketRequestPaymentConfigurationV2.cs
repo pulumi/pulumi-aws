@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         Payer = "Requester",
     ///     });
     /// 

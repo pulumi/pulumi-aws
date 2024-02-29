@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnect = new aws.ec2transitgateway.Connect("exampleConnect", {
- *     transportAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ * const example = new aws.ec2transitgateway.Connect("example", {
+ *     transportAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  * });
- * const exampleConnectPeer = new aws.ec2transitgateway.ConnectPeer("exampleConnectPeer", {
+ * const exampleConnectPeer = new aws.ec2transitgateway.ConnectPeer("example", {
  *     peerAddress: "10.1.2.3",
  *     insideCidrBlocks: ["169.254.100.0/29"],
- *     transitGatewayAttachmentId: exampleConnect.id,
+ *     transitGatewayAttachmentId: example.id,
  * });
  * ```
  *

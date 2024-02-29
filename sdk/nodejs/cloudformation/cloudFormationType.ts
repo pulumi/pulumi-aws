@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudformation.CloudFormationType("example", {
- *     schemaHandlerPackage: `s3://${aws_s3_object.example.bucket}/${aws_s3_object.example.key}`,
+ *     schemaHandlerPackage: `s3://${exampleAwsS3Object.bucket}/${exampleAwsS3Object.key}`,
  *     type: "RESOURCE",
  *     typeName: "ExampleCompany::ExampleService::ExampleResource",
  *     loggingConfig: {
- *         logGroupName: aws_cloudwatch_log_group.example.name,
- *         logRoleArn: aws_iam_role.example.arn,
+ *         logGroupName: exampleAwsCloudwatchLogGroup.name,
+ *         logRoleArn: exampleAwsIamRole.arn,
  *     },
  * });
  * ```

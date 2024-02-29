@@ -24,9 +24,7 @@ import * as utilities from "../utilities";
  *     endpointId: "donnedtipi",
  *     endpointType: "target",
  *     bucketName: "beckut_name",
- *     serviceAccessRoleArn: aws_iam_role.example.arn,
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
+ *     serviceAccessRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  * ### Complete Configuration
@@ -69,7 +67,7 @@ import * as utilities from "../utilities";
  *     enableStatistics: false,
  *     encodingType: "plain",
  *     encryptionMode: "SSE_S3",
- *     expectedBucketOwner: data.aws_caller_identity.current.account_id,
+ *     expectedBucketOwner: current.accountId,
  *     externalTableDefinition: "etd",
  *     ignoreHeaderRows: 1,
  *     includeOpForFullLoad: true,
@@ -79,14 +77,12 @@ import * as utilities from "../utilities";
  *     preserveTransactions: false,
  *     rfc4180: false,
  *     rowGroupLength: 11000,
- *     serverSideEncryptionKmsKeyId: aws_kms_key.example.arn,
- *     serviceAccessRoleArn: aws_iam_role.example.arn,
+ *     serverSideEncryptionKmsKeyId: exampleAwsKmsKey.arn,
+ *     serviceAccessRoleArn: exampleAwsIamRole.arn,
  *     timestampColumnName: "tx_commit_time",
  *     useCsvNoSupValue: false,
  *     useTaskStartTimeForFullLoadTimestamp: true,
  *     glueCatalogGeneration: true,
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * ```
  *

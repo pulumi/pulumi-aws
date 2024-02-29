@@ -148,7 +148,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         mykey = aws.kms.Key("mykey",
             description="This key is used to encrypt bucket objects",
             deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket")
+        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
             rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
@@ -204,7 +204,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         mykey = aws.kms.Key("mykey",
             description="This key is used to encrypt bucket objects",
             deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket")
+        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
             rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(

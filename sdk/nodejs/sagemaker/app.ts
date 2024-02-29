@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.App("example", {
- *     domainId: aws_sagemaker_domain.example.id,
- *     userProfileName: aws_sagemaker_user_profile.example.user_profile_name,
+ *     domainId: exampleAwsSagemakerDomain.id,
+ *     userProfileName: exampleAwsSagemakerUserProfile.userProfileName,
  *     appName: "example",
  *     appType: "JupyterServer",
  * });

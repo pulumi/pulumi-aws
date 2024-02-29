@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisArgs;
@@ -49,12 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
- *         var analytics = new BucketV2(&#34;analytics&#34;);
+ *         var analytics = new BucketV2(&#34;analytics&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;analytics destination&#34;)
+ *             .build());
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration(&#34;example-entire-bucket&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;EntireBucket&#34;)
  *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
  *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
  *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
@@ -77,6 +83,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationFilterArgs;
@@ -93,10 +100,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_filtered = new AnalyticsConfiguration(&#34;example-filtered&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
  *             .filter(AnalyticsConfigurationFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(

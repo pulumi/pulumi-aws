@@ -52,15 +52,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
- *                     .allocationId(aws_eip.example1().id())
+ *                     .subnetId(example1AwsSubnet.id())
+ *                     .allocationId(example1.id())
  *                     .build(),
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
- *                     .allocationId(aws_eip.example2().id())
+ *                     .subnetId(example2AwsSubnet.id())
+ *                     .allocationId(example2.id())
  *                     .build())
  *             .build());
  * 
@@ -91,14 +92,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
+ *                     .subnetId(example1.id())
  *                     .privateIpv4Address(&#34;10.0.1.15&#34;)
  *                     .build(),
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
+ *                     .subnetId(example2.id())
  *                     .privateIpv4Address(&#34;10.0.2.15&#34;)
  *                     .build())
  *             .build());

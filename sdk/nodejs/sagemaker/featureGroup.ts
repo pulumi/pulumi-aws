@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     featureGroupName: "example",
  *     recordIdentifierFeatureName: "example",
  *     eventTimeFeatureName: "example",
- *     roleArn: aws_iam_role.test.arn,
+ *     roleArn: test.arn,
  *     featureDefinitions: [{
  *         featureName: "example",
  *         featureType: "String",

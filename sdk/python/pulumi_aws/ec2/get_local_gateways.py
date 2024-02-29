@@ -90,10 +90,10 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+    foo = aws.ec2.get_local_gateways(tags={
         "service": "production",
     })
-    pulumi.export("foo", foo_local_gateways.ids)
+    pulumi.export("foo", foo.ids)
     ```
 
 
@@ -132,10 +132,10 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+    foo = aws.ec2.get_local_gateways(tags={
         "service": "production",
     })
-    pulumi.export("foo", foo_local_gateways.ids)
+    pulumi.export("foo", foo.ids)
     ```
 
 

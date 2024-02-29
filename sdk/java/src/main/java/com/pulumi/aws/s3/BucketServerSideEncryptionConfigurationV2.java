@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2;
  * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2Args;
  * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleArgs;
@@ -55,7 +56,9 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new BucketV2(&#34;mybucket&#34;);
+ *         var mybucket = new BucketV2(&#34;mybucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;mybucket&#34;)
+ *             .build());
  * 
  *         var example = new BucketServerSideEncryptionConfigurationV2(&#34;example&#34;, BucketServerSideEncryptionConfigurationV2Args.builder()        
  *             .bucket(mybucket.id())

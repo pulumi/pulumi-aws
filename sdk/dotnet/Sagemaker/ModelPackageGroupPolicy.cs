@@ -13,6 +13,69 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Model Package Group Policy resource.
     /// 
     /// ## Example Usage
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleModelPackageGroup = new Aws.Sagemaker.ModelPackageGroup("example", new()
+    ///     {
+    ///         ModelPackageGroupName = "example",
+    ///     });
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AddPermModelPackageGroup",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sagemaker:DescribeModelPackage",
+    ///                     "sagemaker:ListModelPackages",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleModelPackageGroup.Arn,
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Type = "AWS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleModelPackageGroupPolicy = new Aws.Sagemaker.ModelPackageGroupPolicy("example", new()
+    ///     {
+    ///         ModelPackageGroupName = exampleModelPackageGroup.ModelPackageGroupName,
+    ///         ResourcePolicy = JsonSerializer.Serialize(NotImplemented("jsondecode(data.aws_iam_policy_document.example.json)")),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

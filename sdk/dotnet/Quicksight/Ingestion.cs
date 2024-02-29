@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Ingestion("example", new()
     ///     {
-    ///         DataSetId = aws_quicksight_data_set.Example.Data_set_id,
+    ///         DataSetId = exampleAwsQuicksightDataSet.DataSetId,
     ///         IngestionId = "example-id",
     ///         IngestionType = "FULL_REFRESH",
     ///     });

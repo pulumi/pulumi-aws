@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooLocalGateways, err := ec2.GetLocalGateways(ctx, &ec2.GetLocalGatewaysArgs{
+//			foo, err := ec2.GetLocalGateways(ctx, &ec2.GetLocalGatewaysArgs{
 //				Tags: map[string]interface{}{
 //					"service": "production",
 //				},
@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("foo", fooLocalGateways.Ids)
+//			ctx.Export("foo", foo.Ids)
 //			return nil
 //		})
 //	}

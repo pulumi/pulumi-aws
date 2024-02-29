@@ -18,10 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.ServiceAction("example", {
+ *     description: "Motor generator unit",
+ *     name: "MGU",
  *     definition: {
  *         name: "AWS-RestartEC2Instance",
  *     },
- *     description: "Motor generator unit",
  * });
  * ```
  *

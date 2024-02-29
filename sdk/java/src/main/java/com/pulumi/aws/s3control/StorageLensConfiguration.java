@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.builder()
  *                         .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                         .arn(aws_s3_bucket.target().arn())
+ *                         .arn(target.arn())
  *                         .format(&#34;CSV&#34;)
  *                         .outputSchemaVersion(&#34;V_1&#34;)
  *                         .encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.builder()
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .exclude(StorageLensConfigurationStorageLensConfigurationExcludeArgs.builder()
  *                     .buckets(                    
- *                         aws_s3_bucket.b1().arn(),
- *                         aws_s3_bucket.b2().arn())
+ *                         b1.arn(),
+ *                         b2.arn())
  *                     .regions(&#34;us-east-2&#34;)
  *                     .build())
  *                 .build())

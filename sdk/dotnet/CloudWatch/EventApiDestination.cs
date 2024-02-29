@@ -26,11 +26,12 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventApiDestination("test", new()
     ///     {
+    ///         Name = "api-destination",
     ///         Description = "An API Destination",
     ///         InvocationEndpoint = "https://api.destination.com/endpoint",
     ///         HttpMethod = "POST",
     ///         InvocationRateLimitPerSecond = 20,
-    ///         ConnectionArn = aws_cloudwatch_event_connection.Test.Arn,
+    ///         ConnectionArn = testAwsCloudwatchEventConnection.Arn,
     ///     });
     /// 
     /// });

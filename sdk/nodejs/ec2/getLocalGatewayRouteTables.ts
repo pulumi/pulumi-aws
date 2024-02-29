@@ -18,8 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGatewayRouteTables = aws.ec2.getLocalGatewayRouteTables({});
- * export const foo = fooLocalGatewayRouteTables.then(fooLocalGatewayRouteTables => fooLocalGatewayRouteTables.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGatewayRouteTables({});
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
@@ -76,8 +80,12 @@ export interface GetLocalGatewayRouteTablesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGatewayRouteTables = aws.ec2.getLocalGatewayRouteTables({});
- * export const foo = fooLocalGatewayRouteTables.then(fooLocalGatewayRouteTables => fooLocalGatewayRouteTables.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGatewayRouteTables({});
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
  */
 export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTablesResult> {

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .serviceName(&#34;example&#34;)
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
- *                     .connectionArn(aws_apprunner_connection.example().arn())
+ *                     .connectionArn(exampleAwsApprunnerConnection.arn())
  *                     .build())
  *                 .codeRepository(ServiceSourceConfigurationCodeRepositoryArgs.builder()
  *                     .codeConfiguration(ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.builder()
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .networkConfiguration(ServiceNetworkConfigurationArgs.builder()
  *                 .egressConfiguration(ServiceNetworkConfigurationEgressConfigurationArgs.builder()
  *                     .egressType(&#34;VPC&#34;)
- *                     .vpcConnectorArn(aws_apprunner_vpc_connector.connector().arn())
+ *                     .vpcConnectorArn(connector.arn())
  *                     .build())
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
@@ -118,7 +118,6 @@ import javax.annotation.Nullable;
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .autoDeploymentsEnabled(false)
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
  *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
  *                         .port(&#34;8000&#34;)
@@ -126,6 +125,7 @@ import javax.annotation.Nullable;
  *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
  *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
  *                     .build())
+ *                 .autoDeploymentsEnabled(false)
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
  *             .build());
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
  *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
  *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())

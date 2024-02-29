@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizers({
- *     restApiId: aws_api_gateway_rest_api.example.id,
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
  * });
  * ```
  */
@@ -60,7 +60,7 @@ export interface GetAuthorizersResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizers({
- *     restApiId: aws_api_gateway_rest_api.example.id,
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
  * });
  * ```
  */

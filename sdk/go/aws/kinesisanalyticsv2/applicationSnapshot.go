@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
-//				ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
+//				ApplicationName: pulumi.Any(exampleAwsKinesisanalyticsv2Application.Name),
 //				SnapshotName:    pulumi.String("example-snapshot"),
 //			})
 //			if err != nil {

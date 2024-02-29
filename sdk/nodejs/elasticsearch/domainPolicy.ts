@@ -15,7 +15,10 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticsearch.Domain("example", {elasticsearchVersion: "2.3"});
+ * const example = new aws.elasticsearch.Domain("example", {
+ *     domainName: "tf-test",
+ *     elasticsearchVersion: "2.3",
+ * });
  * const main = new aws.elasticsearch.DomainPolicy("main", {
  *     domainName: example.domainName,
  *     accessPolicies: pulumi.interpolate`{

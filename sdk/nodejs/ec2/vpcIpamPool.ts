@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
+ *     ipamScopeId: example.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
  * ```
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
  * });
- * const parentTest = new aws.ec2.VpcIpamPoolCidr("parentTest", {
+ * const parentTest = new aws.ec2.VpcIpamPoolCidr("parent_test", {
  *     ipamPoolId: parent.id,
  *     cidr: "172.20.0.0/16",
  * });
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     locale: current.then(current => current.name),
  *     sourceIpamPoolId: parent.id,
  * });
- * const childTest = new aws.ec2.VpcIpamPoolCidr("childTest", {
+ * const childTest = new aws.ec2.VpcIpamPoolCidr("child_test", {
  *     ipamPoolId: child.id,
  *     cidr: "172.20.0.0/24",
  * });

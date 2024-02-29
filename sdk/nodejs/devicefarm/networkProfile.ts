@@ -15,8 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
- * const exampleNetworkProfile = new aws.devicefarm.NetworkProfile("exampleNetworkProfile", {projectArn: exampleProject.arn});
+ * const example = new aws.devicefarm.Project("example", {name: "example"});
+ * const exampleNetworkProfile = new aws.devicefarm.NetworkProfile("example", {
+ *     name: "example",
+ *     projectArn: example.arn,
+ * });
  * ```
  *
  * ## Import

@@ -223,6 +223,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
+            name="example-policy",
             comment="example comment",
             cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
                 cookie_behavior="whitelist",
@@ -276,6 +277,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
+            name="example-policy",
             comment="example comment",
             cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
                 cookie_behavior="whitelist",

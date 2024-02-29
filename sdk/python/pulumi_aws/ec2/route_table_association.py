@@ -141,18 +141,18 @@ class RouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            subnet_id=aws_subnet["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        a = aws.ec2.RouteTableAssociation("a",
+            subnet_id=foo["id"],
+            route_table_id=bar["id"])
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            gateway_id=aws_internet_gateway["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        b = aws.ec2.RouteTableAssociation("b",
+            gateway_id=foo["id"],
+            route_table_id=bar["id"])
         ```
 
         ## Import
@@ -194,18 +194,18 @@ class RouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            subnet_id=aws_subnet["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        a = aws.ec2.RouteTableAssociation("a",
+            subnet_id=foo["id"],
+            route_table_id=bar["id"])
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            gateway_id=aws_internet_gateway["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        b = aws.ec2.RouteTableAssociation("b",
+            gateway_id=foo["id"],
+            route_table_id=bar["id"])
         ```
 
         ## Import

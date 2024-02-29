@@ -46,14 +46,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Accelerator(&#34;example&#34;, AcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .ipAddressType(&#34;IPV4&#34;)
+ *             .ipAddresses(&#34;1.2.3.4&#34;)
+ *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
  *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
  *                 .build())
- *             .enabled(true)
- *             .ipAddressType(&#34;IPV4&#34;)
- *             .ipAddresses(&#34;1.2.3.4&#34;)
  *             .build());
  * 
  *     }

@@ -102,7 +102,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,7 +117,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var testVpcIpam = new VpcIpam(&#34;testVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var test = new VpcIpam(&#34;test&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
@@ -126,7 +125,7 @@ import javax.annotation.Nullable;
  * 
  *         var testVpcIpamPool = new VpcIpamPool(&#34;testVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv4&#34;)
- *             .ipamScopeId(testVpcIpam.privateDefaultScopeId())
+ *             .ipamScopeId(test.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 
@@ -138,9 +137,7 @@ import javax.annotation.Nullable;
  *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
  *             .ipv4IpamPoolId(testVpcIpamPool.id())
  *             .ipv4NetmaskLength(28)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testVpcIpamPoolCidr)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

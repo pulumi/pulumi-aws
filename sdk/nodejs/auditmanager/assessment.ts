@@ -18,18 +18,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.auditmanager.Assessment("test", {
+ *     name: "example",
  *     assessmentReportsDestination: {
- *         destination: `s3://${aws_s3_bucket.test.id}`,
+ *         destination: `s3://${testAwsS3Bucket.id}`,
  *         destinationType: "S3",
  *     },
- *     frameworkId: aws_auditmanager_framework.test.id,
+ *     frameworkId: testAwsAuditmanagerFramework.id,
  *     roles: [{
- *         roleArn: aws_iam_role.test.arn,
+ *         roleArn: testAwsIamRole.arn,
  *         roleType: "PROCESS_OWNER",
  *     }],
  *     scope: {
  *         awsAccounts: [{
- *             id: data.aws_caller_identity.current.account_id,
+ *             id: current.accountId,
  *         }],
  *         awsServices: [{
  *             serviceName: "S3",

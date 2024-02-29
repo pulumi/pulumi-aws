@@ -23,22 +23,23 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.ResourceGroups.Group("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["ResourceTypeFilters"] = new[]
+    ///                 ["resourceTypeFilters"] = new[]
     ///                 {
     ///                     "AWS::EC2::Instance",
     ///                 },
-    ///                 ["TagFilters"] = new[]
+    ///                 ["tagFilters"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Key"] = "Stage",
-    ///                         ["Values"] = new[]
+    ///                         ["key"] = "Stage",
+    ///                         ["values"] = new[]
     ///                         {
     ///                             "Test",
     ///                         },
@@ -48,7 +49,7 @@ namespace Pulumi.Aws.ApplicationInsights
     ///         },
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.ApplicationInsights.Application("exampleApplication", new()
+    ///     var example = new Aws.ApplicationInsights.Application("example", new()
     ///     {
     ///         ResourceGroupName = exampleGroup.Name,
     ///     });

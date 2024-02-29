@@ -23,18 +23,18 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("example", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
     ///         Engine = "custom-oracle-ee-cdb",
     ///         EngineVersion = "19.cdb_cev1",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         Manifest = @"  {
     /// 	""databaseInstallationFileNames"":[""V982063-01.zip""]
     ///   }
@@ -51,39 +51,31 @@ namespace Pulumi.Aws.Rds
     /// ### RDS Custom for Oracle External Manifest Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeFileBase64Sha256(string path) 
-    /// {
-    ///     var fileData = Encoding.UTF8.GetBytes(File.ReadAllText(path));
-    ///     var hashData = SHA256.Create().ComputeHash(fileData);
-    ///     return Convert.ToBase64String(hashData);
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("example", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
     ///         Engine = "custom-oracle-ee-cdb",
     ///         EngineVersion = "19.cdb_cev1",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         Filename = "manifest_1915_GI.json",
-    ///         ManifestHash = ComputeFileBase64Sha256(manifest_1915_GI.Json),
+    ///         ManifestHash = Std.Filebase64sha256.Invoke(new()
+    ///         {
+    ///             Input = json,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -125,6 +117,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Ec2.AmiCopy("example", new()
     ///     {
+    ///         Name = "sqlserver-se-2019-15.00.4249.2",
     ///         Description = "A copy of ami-xxxxxxxx",
     ///         SourceAmiId = "ami-xxxxxxxx",
     ///         SourceAmiRegion = "us-east-1",

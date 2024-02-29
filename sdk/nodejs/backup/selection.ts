@@ -31,13 +31,15 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
- *     role: exampleRole.name,
+ * const example = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * // ... other configuration ...
- * const exampleSelection = new aws.backup.Selection("exampleSelection", {iamRoleArn: exampleRole.arn});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
+ *     role: example.name,
+ * });
+ * const exampleSelection = new aws.backup.Selection("example", {iamRoleArn: example.arn});
  * ```
  * ### Selecting Backups By Tag
  *
@@ -46,8 +48,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role.example.arn,
- *     planId: aws_backup_plan.example.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  *     selectionTags: [{
  *         type: "STRINGEQUALS",
  *         key: "foo",
@@ -62,8 +65,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role.example.arn,
- *     planId: aws_backup_plan.example.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  *     resources: ["*"],
  *     conditions: [{
  *         stringEquals: [{
@@ -92,12 +96,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role.example.arn,
- *     planId: aws_backup_plan.example.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  *     resources: [
- *         aws_db_instance.example.arn,
- *         aws_ebs_volume.example.arn,
- *         aws_efs_file_system.example.arn,
+ *         exampleAwsDbInstance.arn,
+ *         exampleAwsEbsVolume.arn,
+ *         exampleAwsEfsFileSystem.arn,
  *     ],
  * });
  * ```
@@ -108,12 +113,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role.example.arn,
- *     planId: aws_backup_plan.example.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  *     notResources: [
- *         aws_db_instance.example.arn,
- *         aws_ebs_volume.example.arn,
- *         aws_efs_file_system.example.arn,
+ *         exampleAwsDbInstance.arn,
+ *         exampleAwsEbsVolume.arn,
+ *         exampleAwsEfsFileSystem.arn,
  *     ],
  * });
  * ```

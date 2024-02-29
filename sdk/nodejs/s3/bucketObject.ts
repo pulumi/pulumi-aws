@@ -10,6 +10,22 @@ import {Bucket} from "./index";
  * Provides an S3 object resource.
  *
  * ## Example Usage
+ * ### Uploading a file to a bucket
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const object = new aws.s3.BucketObject("object", {
+ *     bucket: "your_bucket_name",
+ *     key: "new_object_key",
+ *     source: new pulumi.asset.FileAsset("path/to/file"),
+ *     etag: std.filemd5({
+ *         input: "path/to/file",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
  * ### Encrypting with KMS Key
  *
  * ```typescript
@@ -20,12 +36,12 @@ import {Bucket} from "./index";
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -38,12 +54,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -56,12 +72,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -74,18 +90,21 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockEnabled: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {
+ *     bucket: "examplebuckettftest",
+ *     objectLockEnabled: true,
+ * });
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
+ * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
  *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("important.txt"),
@@ -93,8 +112,6 @@ import {Bucket} from "./index";
  *     objectLockMode: "GOVERNANCE",
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
  *     forceDestroy: true,
- * }, {
- *     dependsOn: [exampleBucketVersioningV2],
  * });
  * ```
  *

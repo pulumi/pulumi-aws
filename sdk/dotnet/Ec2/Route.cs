@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var r = new Aws.Ec2.Route("r", new()
     ///     {
-    ///         RouteTableId = aws_route_table.Testing.Id,
+    ///         RouteTableId = testing.Id,
     ///         DestinationCidrBlock = "10.0.1.0/22",
     ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
     ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var r = new Aws.Ec2.Route("r", new()
     ///     {
     ///         RouteTableId = "rtb-4fbb3ac4",
     ///         DestinationIpv6CidrBlock = "::/0",

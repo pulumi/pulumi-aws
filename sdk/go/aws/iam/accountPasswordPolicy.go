@@ -32,12 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
-//				AllowUsersToChangePassword: pulumi.Bool(true),
 //				MinimumPasswordLength:      pulumi.Int(8),
 //				RequireLowercaseCharacters: pulumi.Bool(true),
 //				RequireNumbers:             pulumi.Bool(true),
-//				RequireSymbols:             pulumi.Bool(true),
 //				RequireUppercaseCharacters: pulumi.Bool(true),
+//				RequireSymbols:             pulumi.Bool(true),
+//				AllowUsersToChangePassword: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

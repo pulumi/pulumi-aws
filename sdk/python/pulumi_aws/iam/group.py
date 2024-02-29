@@ -142,7 +142,9 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        developers = aws.iam.Group("developers", path="/users/")
+        developers = aws.iam.Group("developers",
+            name="developers",
+            path="/users/")
         ```
 
         ## Import
@@ -175,7 +177,9 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        developers = aws.iam.Group("developers", path="/users/")
+        developers = aws.iam.Group("developers",
+            name="developers",
+            path="/users/")
         ```
 
         ## Import

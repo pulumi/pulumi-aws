@@ -118,15 +118,17 @@ class ByteMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        byte_set = aws.waf.ByteMatchSet("byteSet", byte_match_tuples=[aws.waf.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.waf.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
+        byte_set = aws.waf.ByteMatchSet("byte_set",
+            name="my_waf_byte_match_set",
+            byte_match_tuples=[aws.waf.ByteMatchSetByteMatchTupleArgs(
+                text_transformation="NONE",
+                target_string="badrefer1",
+                positional_constraint="CONTAINS",
+                field_to_match=aws.waf.ByteMatchSetByteMatchTupleFieldToMatchArgs(
+                    type="HEADER",
+                    data="referer",
+                ),
+            )])
         ```
 
         ## Import
@@ -159,15 +161,17 @@ class ByteMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        byte_set = aws.waf.ByteMatchSet("byteSet", byte_match_tuples=[aws.waf.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.waf.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
+        byte_set = aws.waf.ByteMatchSet("byte_set",
+            name="my_waf_byte_match_set",
+            byte_match_tuples=[aws.waf.ByteMatchSetByteMatchTupleArgs(
+                text_transformation="NONE",
+                target_string="badrefer1",
+                positional_constraint="CONTAINS",
+                field_to_match=aws.waf.ByteMatchSetByteMatchTupleFieldToMatchArgs(
+                    type="HEADER",
+                    data="referer",
+                ),
+            )])
         ```
 
         ## Import

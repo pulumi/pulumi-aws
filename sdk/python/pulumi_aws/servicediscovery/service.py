@@ -379,14 +379,16 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.mydomain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -404,10 +406,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="example.mydomain.com",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
+                namespace_id=example.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
                     ttl=10,
                     type="A",
@@ -455,14 +460,16 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.mydomain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -480,10 +487,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="example.mydomain.com",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
+                namespace_id=example.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
                     ttl=10,
                     type="A",

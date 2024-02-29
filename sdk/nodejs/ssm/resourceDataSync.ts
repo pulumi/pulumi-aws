@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const hogePolicyDocument = aws.iam.getPolicyDocument({
+ * const hogeBucketV2 = new aws.s3.BucketV2("hoge", {bucket: "tf-test-bucket-1234"});
+ * const hoge = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "SSMBucketPermissionsCheck",
@@ -46,14 +46,17 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
+ * const hogeBucketPolicy = new aws.s3.BucketPolicy("hoge", {
  *     bucket: hogeBucketV2.id,
- *     policy: hogePolicyDocument.then(hogePolicyDocument => hogePolicyDocument.json),
+ *     policy: hoge.then(hoge => hoge.json),
  * });
- * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
- *     bucketName: hogeBucketV2.bucket,
- *     region: hogeBucketV2.region,
- * }});
+ * const foo = new aws.ssm.ResourceDataSync("foo", {
+ *     name: "foo",
+ *     s3Destination: {
+ *         bucketName: hogeBucketV2.bucket,
+ *         region: hogeBucketV2.region,
+ *     },
+ * });
  * ```
  *
  * ## Import

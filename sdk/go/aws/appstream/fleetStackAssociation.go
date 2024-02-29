@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
+//			example, err := appstream.NewFleet(ctx, "example", &appstream.FleetArgs{
+//				Name:         pulumi.String("NAME"),
 //				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
 //				InstanceType: pulumi.String("stream.standard.small"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
@@ -38,12 +39,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
+//			exampleStack, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
+//				Name: pulumi.String("STACK NAME"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
-//				FleetName: exampleFleet.Name,
+//			_, err = appstream.NewFleetStackAssociation(ctx, "example", &appstream.FleetStackAssociationArgs{
+//				FleetName: example.Name,
 //				StackName: exampleStack.Name,
 //			})
 //			if err != nil {

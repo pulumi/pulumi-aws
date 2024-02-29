@@ -214,6 +214,7 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Alias("example",
+            name="example-alias",
             description="Example Description",
             routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
                 message="Example Message",
@@ -252,6 +253,7 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Alias("example",
+            name="example-alias",
             description="Example Description",
             routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
                 message="Example Message",

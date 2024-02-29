@@ -77,7 +77,7 @@ def get_user_hierarchy_structure(instance_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
+    test = aws.connect.get_user_hierarchy_structure(instance_id=test_aws_connect_instance["id"])
     ```
 
 
@@ -106,7 +106,7 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
+    test = aws.connect.get_user_hierarchy_structure(instance_id=test_aws_connect_instance["id"])
     ```
 
 

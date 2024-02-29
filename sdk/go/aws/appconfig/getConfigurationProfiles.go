@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationProfiles, err := appconfig.GetConfigurationProfiles(ctx, &appconfig.GetConfigurationProfilesArgs{
+//			example, err := appconfig.GetConfigurationProfiles(ctx, &appconfig.GetConfigurationProfilesArgs{
 //				ApplicationId: "a1d3rpe",
 //			}, nil)
 //			if err != nil {

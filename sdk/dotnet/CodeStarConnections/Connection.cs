@@ -24,14 +24,14 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new()
+    ///     var example = new Aws.CodeStarConnections.Connection("example", new()
     ///     {
+    ///         Name = "example-connection",
     ///         ProviderType = "Bitbucket",
     ///     });
     /// 
-    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new()
+    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
     ///         ArtifactStores = new[]
     ///         {
     ///             null,
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                         },
     ///                         Configuration = 
     ///                         {
-    ///                             { "ConnectionArn", exampleConnection.Arn },
+    ///                             { "ConnectionArn", example.Arn },
     ///                             { "FullRepositoryId", "my-organization/test" },
     ///                             { "BranchName", "main" },
     ///                         },
@@ -65,21 +65,23 @@ namespace Pulumi.Aws.CodeStarConnections
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Build",
     ///                 Actions = new[]
     ///                 {
     ///                     null,
     ///                 },
+    ///                 Name = "Build",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Deploy",
     ///                 Actions = new[]
     ///                 {
     ///                     null,
     ///                 },
+    ///                 Name = "Deploy",
     ///             },
     ///         },
+    ///         Name = "tf-test-pipeline",
+    ///         RoleArn = codepipelineRole.Arn,
     ///     });
     /// 
     /// });

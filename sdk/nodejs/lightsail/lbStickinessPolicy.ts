@@ -13,15 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy", {
- *     lbName: testLb.name,
+ * const testLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("test", {
+ *     lbName: test.name,
  *     cookieDuration: 900,
  *     enabled: true,
  * });

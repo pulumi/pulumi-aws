@@ -110,7 +110,7 @@ def get_selection(plan_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
+    example = aws.backup.get_selection(plan_id=example_aws_backup_plan["id"],
         selection_id="selection-id-example")
     ```
 
@@ -146,7 +146,7 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
+    example = aws.backup.get_selection(plan_id=example_aws_backup_plan["id"],
         selection_id="selection-id-example")
     ```
 

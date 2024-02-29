@@ -24,9 +24,9 @@ namespace Pulumi.Aws.S3Outposts
     /// {
     ///     var example = new Aws.S3Outposts.Endpoint("example", new()
     ///     {
-    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
-    ///         SecurityGroupId = aws_security_group.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         OutpostId = exampleAwsOutpostsOutpost.Id,
+    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });

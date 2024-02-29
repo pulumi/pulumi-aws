@@ -16,16 +16,20 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
-    ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///         Name = "my-saml-provider",
+    ///         SamlMetadataDocument = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "saml-metadata.xml",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var main = new Aws.Cognito.IdentityPool("main", new()

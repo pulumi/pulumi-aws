@@ -66,7 +66,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
                    step_adjustments=[
                        aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
                            metric_interval_lower_bound="1",
@@ -135,7 +135,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
             step_adjustments=[
                 aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
                     metric_interval_lower_bound="1",

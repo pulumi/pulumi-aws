@@ -64,7 +64,7 @@ import (
 // {
 // Name: "vpc-id",
 // Values: interface{}{
-// _var.Vpc_id,
+// vpcId,
 // },
 // },
 // },

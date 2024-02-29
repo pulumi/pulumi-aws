@@ -199,6 +199,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessLifecyclePolicy("example",
+            name="example",
             type="retention",
             policy=json.dumps({
                 "Rules": [
@@ -251,6 +252,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessLifecyclePolicy("example",
+            name="example",
             type="retention",
             policy=json.dumps({
                 "Rules": [

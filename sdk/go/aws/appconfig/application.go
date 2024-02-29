@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
+//				Name:        pulumi.String("example-application-tf"),
 //				Description: pulumi.String("Example AppConfig Application"),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Application"),

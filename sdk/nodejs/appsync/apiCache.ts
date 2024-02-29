@@ -13,9 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiCache = new aws.appsync.ApiCache("exampleApiCache", {
- *     apiId: exampleGraphQLApi.id,
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleApiCache = new aws.appsync.ApiCache("example", {
+ *     apiId: example.id,
  *     apiCachingBehavior: "FULL_REQUEST_CACHING",
  *     type: "LARGE",
  *     ttl: 900,

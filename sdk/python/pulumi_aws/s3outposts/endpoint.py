@@ -271,9 +271,9 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3outposts.Endpoint("example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"],
-            security_group_id=aws_security_group["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"],
+            security_group_id=example_aws_security_group["id"],
+            subnet_id=example_aws_subnet["id"])
         ```
 
         ## Import
@@ -308,9 +308,9 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3outposts.Endpoint("example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"],
-            security_group_id=aws_security_group["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"],
+            security_group_id=example_aws_security_group["id"],
+            subnet_id=example_aws_subnet["id"])
         ```
 
         ## Import

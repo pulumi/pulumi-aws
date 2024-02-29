@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rum.NewMetricsDestination(ctx, "example", &rum.MetricsDestinationArgs{
-//				AppMonitorName: pulumi.Any(aws_rum_app_monitor.Example.Name),
+//				AppMonitorName: pulumi.Any(exampleAwsRumAppMonitor.Name),
 //				Destination:    pulumi.String("CloudWatch"),
 //			})
 //			if err != nil {

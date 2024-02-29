@@ -39,26 +39,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version":     "2019-10-30",
-//				"StartAction": "12345678-1234-1234-1234-123456789012",
-//				"Actions": []interface{}{
+//				"version":     "2019-10-30",
+//				"startAction": "12345678-1234-1234-1234-123456789012",
+//				"actions": []interface{}{
 //					map[string]interface{}{
-//						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Type":       "MessageParticipant",
-//						"Transitions": map[string]interface{}{
-//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"Errors":     []interface{}{},
-//							"Conditions": []interface{}{},
+//						"identifier": "12345678-1234-1234-1234-123456789012",
+//						"type":       "MessageParticipant",
+//						"transitions": map[string]interface{}{
+//							"nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"errors":     []interface{}{},
+//							"conditions": []interface{}{},
 //						},
-//						"Parameters": map[string]interface{}{
-//							"Text": "Thanks for calling the sample flow!",
+//						"parameters": map[string]interface{}{
+//							"text": "Thanks for calling the sample flow!",
 //						},
 //					},
 //					map[string]interface{}{
-//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Type":        "DisconnectParticipant",
-//						"Transitions": nil,
-//						"Parameters":  nil,
+//						"identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"type":        "DisconnectParticipant",
+//						"transitions": nil,
+//						"parameters":  nil,
 //					},
 //				},
 //			})
@@ -68,6 +68,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Test"),
 //				Description: pulumi.String("Test Contact Flow Description"),
 //				Type:        pulumi.String("CONTACT_FLOW"),
 //				Content:     pulumi.String(json0),

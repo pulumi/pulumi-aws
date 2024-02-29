@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const testTopic = new aws.sns.Topic("test", {name: "test"});
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -26,8 +26,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json)});
- * const testExtension = new aws.appconfig.Extension("testExtension", {
+ * const testRole = new aws.iam.Role("test", {
+ *     name: "test",
+ *     assumeRolePolicy: test.then(test => test.json),
+ * });
+ * const testExtension = new aws.appconfig.Extension("test", {
+ *     name: "test",
  *     description: "test description",
  *     actionPoints: [{
  *         point: "ON_DEPLOYMENT_COMPLETE",

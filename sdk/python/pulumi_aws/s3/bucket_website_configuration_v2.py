@@ -314,7 +314,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -337,7 +337,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -402,7 +402,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -425,7 +425,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),

@@ -18,13 +18,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Experience("example", {
- *     indexId: aws_kendra_index.example.id,
+ *     indexId: exampleAwsKendraIndex.id,
  *     description: "My Kendra Experience",
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     configuration: {
  *         contentSourceConfiguration: {
  *             directPutContent: true,
- *             faqIds: [aws_kendra_faq.example.faq_id],
+ *             faqIds: [exampleAwsKendraFaq.faqId],
  *         },
  *         userIdentityConfiguration: {
  *             identityAttributeName: "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",

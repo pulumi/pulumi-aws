@@ -26,15 +26,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			example, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
+//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:             pulumi.String("example"),
-//				DatabaseName:     exampleCatalogDatabase.Name,
+//				DatabaseName:     example.Name,
 //				Owner:            pulumi.String("my_owner"),
 //				Retention:        pulumi.Int(1),
 //				TableType:        pulumi.String("VIRTUAL_VIEW"),
@@ -109,8 +109,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewPartitionIndex(ctx, "examplePartitionIndex", &glue.PartitionIndexArgs{
-//				DatabaseName: exampleCatalogDatabase.Name,
+//			_, err = glue.NewPartitionIndex(ctx, "example", &glue.PartitionIndexArgs{
+//				DatabaseName: example.Name,
 //				TableName:    exampleCatalogTable.Name,
 //				PartitionIndex: &glue.PartitionIndexPartitionIndexArgs{
 //					IndexName: pulumi.String("example"),

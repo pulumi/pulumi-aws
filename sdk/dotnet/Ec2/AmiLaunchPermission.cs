@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         AccountId = "123456789012",
     ///         ImageId = "ami-12345678",
+    ///         AccountId = "123456789012",
     ///     });
     /// 
     /// });
@@ -43,8 +43,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         Group = "all",
     ///         ImageId = "ami-12345678",
+    ///         Group = "all",
     ///     });
     /// 
     /// });

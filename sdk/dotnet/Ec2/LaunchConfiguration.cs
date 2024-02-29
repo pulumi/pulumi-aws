@@ -54,8 +54,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("as_conf", new()
     ///     {
+    ///         Name = "web_config",
     ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = "t2.micro",
     ///     });
@@ -108,7 +109,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("as_conf", new()
     ///     {
     ///         NamePrefix = "lc-example-",
     ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
@@ -117,6 +118,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var bar = new Aws.AutoScaling.Group("bar", new()
     ///     {
+    ///         Name = "asg-example",
     ///         LaunchConfiguration = asConf.Name,
     ///         MinSize = 1,
     ///         MaxSize = 2,
@@ -174,7 +176,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("as_conf", new()
     ///     {
     ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = "m4.large",
@@ -183,6 +185,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var bar = new Aws.AutoScaling.Group("bar", new()
     ///     {
+    ///         Name = "asg-example",
     ///         LaunchConfiguration = asConf.Name,
     ///     });
     /// 

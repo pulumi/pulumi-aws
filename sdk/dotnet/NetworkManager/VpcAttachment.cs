@@ -27,10 +27,10 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         SubnetArns = new[]
     ///         {
-    ///             aws_subnet.Example.Arn,
+    ///             exampleAwsSubnet.Arn,
     ///         },
-    ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
-    ///         VpcArn = aws_vpc.Example.Arn,
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
     ///     });
     /// 
     /// });

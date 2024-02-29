@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraph = new aws.detective.Graph("exampleGraph", {});
- * const exampleMember = new aws.detective.Member("exampleMember", {
+ * const example = new aws.detective.Graph("example", {});
+ * const exampleMember = new aws.detective.Member("example", {
  *     accountId: "AWS ACCOUNT ID",
  *     emailAddress: "EMAIL",
- *     graphArn: exampleGraph.id,
+ *     graphArn: example.id,
  *     message: "Message of the invitation",
  *     disableEmailNotification: true,
  * });

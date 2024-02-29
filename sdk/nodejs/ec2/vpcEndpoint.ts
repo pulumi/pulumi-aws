@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
  * ```
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     tags: {
  *         Environment: "test",
@@ -51,10 +51,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.ec2",
  *     vpcEndpointType: "Interface",
- *     securityGroupIds: [aws_security_group.sg1.id],
+ *     securityGroupIds: [sg1.id],
  *     privateDnsEnabled: true,
  * });
  * ```
@@ -65,16 +65,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
+ * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
  *     allowedPrincipals: [current.then(current => current.arn)],
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
+ *     gatewayLoadBalancerArns: [exampleAwsLb.arn],
  * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     serviceName: exampleVpcEndpointService.serviceName,
- *     subnetIds: [aws_subnet.example.id],
- *     vpcEndpointType: exampleVpcEndpointService.serviceType,
- *     vpcId: aws_vpc.example.id,
+ * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
+ *     serviceName: example.serviceName,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: example.serviceType,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
  *

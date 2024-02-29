@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataExchange
     /// {
     ///     var example = new Aws.DataExchange.Revision("example", new()
     ///     {
-    ///         DataSetId = aws_dataexchange_data_set.Example.Id,
+    ///         DataSetId = exampleAwsDataexchangeDataSet.Id,
     ///     });
     /// 
     /// });

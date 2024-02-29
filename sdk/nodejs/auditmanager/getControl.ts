@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleControl = aws.auditmanager.getControl({
+ * const example = aws.auditmanager.getControl({
  *     name: "1. Risk Management",
  *     type: "Standard",
  * });
@@ -36,20 +36,23 @@ import * as utilities from "../utilities";
  *     name: "2. Personnel",
  *     type: "Standard",
  * });
- * const exampleFramework = new aws.auditmanager.Framework("exampleFramework", {controlSets: [
- *     {
- *         name: "example",
- *         controls: [{
- *             id: exampleControl.then(exampleControl => exampleControl.id),
- *         }],
- *     },
- *     {
- *         name: "example2",
- *         controls: [{
- *             id: example2.then(example2 => example2.id),
- *         }],
- *     },
- * ]});
+ * const exampleFramework = new aws.auditmanager.Framework("example", {
+ *     name: "example",
+ *     controlSets: [
+ *         {
+ *             name: "example",
+ *             controls: [{
+ *                 id: example.then(example => example.id),
+ *             }],
+ *         },
+ *         {
+ *             name: "example2",
+ *             controls: [{
+ *                 id: example2.then(example2 => example2.id),
+ *             }],
+ *         },
+ *     ],
+ * });
  * ```
  */
 export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): Promise<GetControlResult> {
@@ -113,7 +116,7 @@ export interface GetControlResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleControl = aws.auditmanager.getControl({
+ * const example = aws.auditmanager.getControl({
  *     name: "1. Risk Management",
  *     type: "Standard",
  * });
@@ -121,20 +124,23 @@ export interface GetControlResult {
  *     name: "2. Personnel",
  *     type: "Standard",
  * });
- * const exampleFramework = new aws.auditmanager.Framework("exampleFramework", {controlSets: [
- *     {
- *         name: "example",
- *         controls: [{
- *             id: exampleControl.then(exampleControl => exampleControl.id),
- *         }],
- *     },
- *     {
- *         name: "example2",
- *         controls: [{
- *             id: example2.then(example2 => example2.id),
- *         }],
- *     },
- * ]});
+ * const exampleFramework = new aws.auditmanager.Framework("example", {
+ *     name: "example",
+ *     controlSets: [
+ *         {
+ *             name: "example",
+ *             controls: [{
+ *                 id: example.then(example => example.id),
+ *             }],
+ *         },
+ *         {
+ *             name: "example2",
+ *             controls: [{
+ *                 id: example2.then(example2 => example2.id),
+ *             }],
+ *         },
+ *     ],
+ * });
  * ```
  */
 export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlResult> {

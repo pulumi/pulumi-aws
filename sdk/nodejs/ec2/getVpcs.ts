@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  * This resource can be useful for getting back a list of VPC Ids for a region.
  *
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all VPC Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
+ *
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({});
+ *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *         id: notImplemented("tolist(data.aws_vpcs.foo.ids)")[__index],
+ *     })));
+ *     const testFlowLog: aws.ec2.FlowLog[] = [];
+ *     for (const range = {value: 0}; range.value < foo.ids.length; range.value++) {
+ *         testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc[range.value].id}));
+ *     }
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
@@ -59,6 +104,51 @@ export interface GetVpcsResult {
  * This resource can be useful for getting back a list of VPC Ids for a region.
  *
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all VPC Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
+ *
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({});
+ *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *         id: notImplemented("tolist(data.aws_vpcs.foo.ids)")[__index],
+ *     })));
+ *     const testFlowLog: aws.ec2.FlowLog[] = [];
+ *     for (const range = {value: 0}; range.value < foo.ids.length; range.value++) {
+ *         testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc[range.value].id}));
+ *     }
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
     return pulumi.output(args).apply((a: any) => getVpcs(a, opts))

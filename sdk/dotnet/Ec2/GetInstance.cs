@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var foo = Aws.Ec2.GetInstance.Invoke(new()
         ///     {
+        ///         InstanceId = "i-instanceid",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
@@ -47,7 +48,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceId = "i-instanceid",
         ///     });
         /// 
         /// });
@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var foo = Aws.Ec2.GetInstance.Invoke(new()
         ///     {
+        ///         InstanceId = "i-instanceid",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
@@ -94,7 +95,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceId = "i-instanceid",
         ///     });
         /// 
         /// });

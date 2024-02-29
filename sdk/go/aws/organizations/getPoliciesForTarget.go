@@ -14,6 +14,41 @@ import (
 // Data source for managing an AWS Organizations Policies For Target.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := organizations.LookupOrganization(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = organizations.GetPoliciesForTarget(ctx, &organizations.GetPoliciesForTargetArgs{
+//				TargetId: example.Roots[0].Id,
+//				Filter:   "SERVICE_CONTROL_POLICY",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, opts ...pulumi.InvokeOption) (*GetPoliciesForTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoliciesForTargetResult

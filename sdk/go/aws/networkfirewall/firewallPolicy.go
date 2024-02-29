@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
 //					StatelessDefaultActions: pulumi.StringArray{
 //						pulumi.String("aws:pass"),
@@ -39,7 +40,7 @@ import (
 //					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
 //						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
 //							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
 //						},
 //					},
 //					TlsInspectionConfigurationArn: pulumi.String("arn:aws:network-firewall:REGION:ACCT:tls-configuration/example"),
@@ -72,6 +73,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
 //					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
 //						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
@@ -95,13 +97,62 @@ import (
 //					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
 //						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
 //							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
 //						},
 //					},
 //				},
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Policy with a Custom Action for Stateless Inspection
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "test", &networkfirewall.FirewallPolicyArgs{
+//				Name: pulumi.String("example"),
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//						pulumi.String("ExampleCustomAction"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessCustomActions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs{
+//							ActionDefinition: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{
+//								PublishMetricAction: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{
+//									Dimensions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray{
+//										&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs{
+//											Value: pulumi.String("1"),
+//										},
+//									},
+//								},
+//							},
+//							ActionName: pulumi.String("ExampleCustomAction"),
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {

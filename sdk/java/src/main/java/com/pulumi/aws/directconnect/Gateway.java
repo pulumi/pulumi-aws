@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .name(&#34;tf-dxg-example&#34;)
  *             .amazonSideAsn(&#34;64512&#34;)
  *             .build());
  * 

@@ -70,10 +70,148 @@ import (
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.7"),
 //				InstanceClass:      pulumi.String("db.t3.micro"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//				Password:           pulumi.String("foobarbaz"),
-//				SkipFinalSnapshot:  pulumi.Bool(true),
 //				Username:           pulumi.String("foo"),
+//				Password:           pulumi.String("foobarbaz"),
+//				ParameterGroupName: pulumi.String("default.mysql5.7"),
+//				SkipFinalSnapshot:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### RDS Custom for Oracle Usage with Replica
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Lookup the available instance classes for the custom engine for the region being operated in
+//			custom_oracle, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//				Engine:        "custom-oracle-ee",
+//				EngineVersion: pulumi.StringRef("19.c.ee.002"),
+//				LicenseModel:  pulumi.StringRef("bring-your-own-license"),
+//				StorageType:   pulumi.StringRef("gp3"),
+//				PreferredInstanceClasses: []string{
+//					"db.r5.xlarge",
+//					"db.r5.2xlarge",
+//					"db.r5.4xlarge",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+//			byId, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
+//				KeyId: "example-ef278353ceba4a5a97de6784565b9f78",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//				AllocatedStorage:         pulumi.Int(50),
+//				AutoMinorVersionUpgrade:  pulumi.Bool(false),
+//				CustomIamInstanceProfile: pulumi.String("AWSRDSCustomInstanceProfile"),
+//				BackupRetentionPeriod:    pulumi.Int(7),
+//				DbSubnetGroupName:        pulumi.Any(dbSubnetGroupName),
+//				Engine:                   *pulumi.String(custom_oracle.Engine),
+//				EngineVersion:            *pulumi.String(custom_oracle.EngineVersion),
+//				Identifier:               pulumi.String("ee-instance-demo"),
+//				InstanceClass:            custom_oracle.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				KmsKeyId:                 *pulumi.String(byId.Arn),
+//				LicenseModel:             *pulumi.String(custom_oracle.LicenseModel),
+//				MultiAz:                  pulumi.Bool(false),
+//				Password:                 pulumi.String("avoid-plaintext-passwords"),
+//				Username:                 pulumi.String("test"),
+//				StorageEncrypted:         pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstance(ctx, "test-replica", &rds.InstanceArgs{
+//				ReplicateSourceDb:        _default.Identifier,
+//				ReplicaMode:              pulumi.String("mounted"),
+//				AutoMinorVersionUpgrade:  pulumi.Bool(false),
+//				CustomIamInstanceProfile: pulumi.String("AWSRDSCustomInstanceProfile"),
+//				BackupRetentionPeriod:    pulumi.Int(7),
+//				Identifier:               pulumi.String("ee-instance-replica"),
+//				InstanceClass:            custom_oracle.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				KmsKeyId:                 *pulumi.String(byId.Arn),
+//				MultiAz:                  pulumi.Bool(false),
+//				SkipFinalSnapshot:        pulumi.Bool(true),
+//				StorageEncrypted:         pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### RDS Custom for SQL Server
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Lookup the available instance classes for the custom engine for the region being operated in
+//			custom_sqlserver, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//				Engine:        "custom-sqlserver-se",
+//				EngineVersion: pulumi.StringRef("15.00.4249.2.v1"),
+//				StorageType:   pulumi.StringRef("gp3"),
+//				PreferredInstanceClasses: []string{
+//					"db.r5.xlarge",
+//					"db.r5.2xlarge",
+//					"db.r5.4xlarge",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+//			byId, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
+//				KeyId: "example-ef278353ceba4a5a97de6784565b9f78",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
+//				AllocatedStorage:         pulumi.Int(500),
+//				AutoMinorVersionUpgrade:  pulumi.Bool(false),
+//				CustomIamInstanceProfile: pulumi.String("AWSRDSCustomSQLServerInstanceProfile"),
+//				BackupRetentionPeriod:    pulumi.Int(7),
+//				DbSubnetGroupName:        pulumi.Any(dbSubnetGroupName),
+//				Engine:                   *pulumi.String(custom_sqlserver.Engine),
+//				EngineVersion:            *pulumi.String(custom_sqlserver.EngineVersion),
+//				Identifier:               pulumi.String("sql-instance-demo"),
+//				InstanceClass:            custom_sqlserver.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				KmsKeyId:                 *pulumi.String(byId.Arn),
+//				MultiAz:                  pulumi.Bool(false),
+//				Password:                 pulumi.String("avoid-plaintext-passwords"),
+//				StorageEncrypted:         pulumi.Bool(true),
+//				Username:                 pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -97,13 +235,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
 //			_default, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
 //				Engine: "db2-se",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleOrderableDbInstance, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//			// Lookup the available instance classes for the engine in the region being operated in
+//			example, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
 //				Engine:        _default.Engine,
 //				EngineVersion: pulumi.StringRef(_default.Version),
 //				LicenseModel:  pulumi.StringRef("bring-your-own-license"),
@@ -118,7 +258,8 @@ import (
 //				return err
 //			}
 //			// The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
+//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "example", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("db-db2-params"),
 //				Family: *pulumi.String(_default.ParameterGroupFamily),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
@@ -137,14 +278,14 @@ import (
 //				return err
 //			}
 //			// Create the RDS Db2 instance, use the data sources defined to set attributes
-//			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+//			_, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(100),
 //				BackupRetentionPeriod: pulumi.Int(7),
 //				DbName:                pulumi.String("test"),
-//				Engine:                *pulumi.String(exampleOrderableDbInstance.Engine),
-//				EngineVersion:         *pulumi.String(exampleOrderableDbInstance.EngineVersion),
+//				Engine:                *pulumi.String(example.Engine),
+//				EngineVersion:         *pulumi.String(example.EngineVersion),
 //				Identifier:            pulumi.String("db2-instance-demo"),
-//				InstanceClass:         exampleOrderableDbInstance.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				InstanceClass:         example.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
 //				ParameterGroupName:    exampleParameterGroup.Name,
 //				Password:              pulumi.String("avoid-plaintext-passwords"),
 //				Username:              pulumi.String("test"),
@@ -210,8 +351,8 @@ import (
 //				EngineVersion:            pulumi.String("5.7"),
 //				InstanceClass:            pulumi.String("db.t3.micro"),
 //				ManageMasterUserPassword: pulumi.Bool(true),
-//				ParameterGroupName:       pulumi.String("default.mysql5.7"),
 //				Username:                 pulumi.String("foo"),
+//				ParameterGroupName:       pulumi.String("default.mysql5.7"),
 //			})
 //			if err != nil {
 //				return err

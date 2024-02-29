@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * const example = new aws.quicksight.IamPolicyAssignment("example", {
  *     assignmentName: "example",
  *     assignmentStatus: "ENABLED",
- *     policyArn: aws_iam_policy.example.arn,
+ *     policyArn: exampleAwsIamPolicy.arn,
  *     identities: {
- *         users: [aws_quicksight_user.example.user_name],
+ *         users: [exampleAwsQuicksightUser.userName],
  *     },
  * });
  * ```

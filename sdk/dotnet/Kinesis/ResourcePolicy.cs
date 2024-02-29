@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var example = new Aws.Kinesis.ResourcePolicy("example", new()
     ///     {
-    ///         ResourceArn = aws_kinesis_stream.Example.Arn,
+    ///         ResourceArn = exampleAwsKinesisStream.Arn,
     ///         Policy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""writePolicy"",
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Kinesis
     ///       ""kinesis:PutRecord"",
     ///       ""kinesis:PutRecords""
     ///     ],
-    ///     ""Resource"": ""{aws_kinesis_stream.Example.Arn}""
+    ///     ""Resource"": ""{exampleAwsKinesisStream.Arn}""
     ///   }}]
     /// }}
     /// ",

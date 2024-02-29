@@ -54,7 +54,6 @@ namespace Pulumi.Aws.Organizations
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///     });
     /// 

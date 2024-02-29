@@ -22,8 +22,9 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
     ///         ReadCapacity = 1,
     ///         WriteCapacity = 1,
     ///         HashKey = "UserId",
@@ -63,12 +64,13 @@ namespace Pulumi.Aws.AppSync
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -87,18 +89,20 @@ namespace Pulumi.Aws.AppSync
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "my_appsync_example",
     ///     });
     /// 
-    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
+    ///     var exampleDataSource = new Aws.AppSync.DataSource("example", new()
     ///     {
     ///         ApiId = exampleGraphQLApi.Id,
     ///         Name = "my_appsync_example",

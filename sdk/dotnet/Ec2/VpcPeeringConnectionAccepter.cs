@@ -29,33 +29,24 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     // Accepter's credentials.
     ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var peerVpc = new Aws.Ec2.Vpc("peerVpc", new()
+    ///     var peerVpc = new Aws.Ec2.Vpc("peer", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
-    ///     var peerCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var peer = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Requester's side of the connection.
-    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new()
+    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()
     ///     {
     ///         VpcId = main.Id,
     ///         PeerVpcId = peerVpc.Id,
-    ///         PeerOwnerId = peerCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         PeerOwnerId = peer.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///         PeerRegion = "us-west-2",
     ///         AutoAccept = false,
     ///         Tags = 
@@ -65,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     ///     });
     /// 
     ///     // Accepter's side of the connection.
-    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new()
+    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peer", new()
     ///     {
     ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
     ///         AutoAccept = true,
@@ -73,9 +64,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             { "Side", "Accepter" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
     /// });

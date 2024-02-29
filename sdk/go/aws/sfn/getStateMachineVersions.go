@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.GetStateMachineVersions(ctx, &sfn.GetStateMachineVersionsArgs{
-//				StatemachineArn: aws_sfn_state_machine.Test.Arn,
+//				StatemachineArn: testAwsSfnStateMachine.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err

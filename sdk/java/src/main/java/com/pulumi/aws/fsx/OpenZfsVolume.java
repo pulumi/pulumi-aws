@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OpenZfsVolume(&#34;test&#34;, OpenZfsVolumeArgs.builder()        
- *             .parentVolumeId(aws_fsx_openzfs_file_system.test().root_volume_id())
+ *             .name(&#34;testvolume&#34;)
+ *             .parentVolumeId(testAwsFsxOpenzfsFileSystem.rootVolumeId())
  *             .build());
  * 
  *     }

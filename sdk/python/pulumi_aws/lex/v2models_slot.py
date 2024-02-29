@@ -421,10 +421,11 @@ class V2modelsSlot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlot("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
-            bot_version=aws_lexv2models_bot_version["example"]["bot_version"],
-            intent_id=aws_lexv2models_intent["example"]["id"],
-            locale_id=aws_lexv2models_bot_locale["example"]["locale_id"])
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_version["botVersion"],
+            intent_id=example_aws_lexv2models_intent["id"],
+            locale_id=example_aws_lexv2models_bot_locale["localeId"],
+            name="example")
         ```
 
         ## Import
@@ -467,10 +468,11 @@ class V2modelsSlot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlot("example",
-            bot_id=aws_lexv2models_bot["example"]["id"],
-            bot_version=aws_lexv2models_bot_version["example"]["bot_version"],
-            intent_id=aws_lexv2models_intent["example"]["id"],
-            locale_id=aws_lexv2models_bot_locale["example"]["locale_id"])
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_version["botVersion"],
+            intent_id=example_aws_lexv2models_intent["id"],
+            locale_id=example_aws_lexv2models_bot_locale["localeId"],
+            name="example")
         ```
 
         ## Import

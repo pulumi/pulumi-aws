@@ -24,9 +24,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.Image("example", new()
     ///     {
-    ///         DistributionConfigurationArn = aws_imagebuilder_distribution_configuration.Example.Arn,
-    ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
-    ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
+    ///         DistributionConfigurationArn = exampleAwsImagebuilderDistributionConfiguration.Arn,
+    ///         ImageRecipeArn = exampleAwsImagebuilderImageRecipe.Arn,
+    ///         InfrastructureConfigurationArn = exampleAwsImagebuilderInfrastructureConfiguration.Arn,
     ///     });
     /// 
     /// });

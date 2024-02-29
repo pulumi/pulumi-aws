@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewResourcePolicy(ctx, "example", &kinesis.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//				ResourceArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 //				Policy: pulumi.String(fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Id": "writePolicy",
@@ -52,7 +52,7 @@ import (
 //	  }]
 //	}
 //
-// `, aws_kinesis_stream.Example.Arn)),
+// `, exampleAwsKinesisStream.Arn)),
 //
 //			})
 //			if err != nil {

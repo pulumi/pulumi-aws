@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dnsResolver = new aws.ec2.VpcDhcpOptions("dnsResolver", {domainNameServers: [
+ * const dnsResolver = new aws.ec2.VpcDhcpOptions("dns_resolver", {domainNameServers: [
  *     "8.8.8.8",
  *     "8.8.4.4",
  * ]});
@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *         "127.0.0.1",
  *         "10.0.0.2",
  *     ],
+ *     ntpServers: ["127.0.0.1"],
  *     netbiosNameServers: ["127.0.0.1"],
  *     netbiosNodeType: "2",
- *     ntpServers: ["127.0.0.1"],
  *     tags: {
  *         Name: "foo-name",
  *     },

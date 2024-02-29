@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
+ * const example = new aws.cognito.UserPool("example", {name: "MyExamplePool"});
+ * const exampleUser = new aws.cognito.User("example", {
+ *     userPoolId: example.id,
  *     username: "example",
  * });
  * ```
@@ -26,25 +26,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {schemas: [
- *     {
- *         name: "example",
- *         attributeDataType: "Boolean",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *     },
- *     {
- *         name: "foo",
- *         attributeDataType: "String",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *         stringAttributeConstraints: {},
- *     },
- * ]});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "mypool",
+ *     schemas: [
+ *         {
+ *             name: "example",
+ *             attributeDataType: "Boolean",
+ *             mutable: false,
+ *             required: false,
+ *             developerOnlyAttribute: false,
+ *         },
+ *         {
+ *             name: "foo",
+ *             attributeDataType: "String",
+ *             mutable: false,
+ *             required: false,
+ *             developerOnlyAttribute: false,
+ *             stringAttributeConstraints: {},
+ *         },
+ *     ],
+ * });
+ * const exampleUser = new aws.cognito.User("example", {
+ *     userPoolId: example.id,
  *     username: "example",
  *     attributes: {
  *         example: "true",

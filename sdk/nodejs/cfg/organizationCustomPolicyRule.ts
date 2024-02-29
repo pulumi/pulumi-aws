@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.OrganizationCustomPolicyRule("example", {
+ *     name: "example_rule_name",
  *     policyRuntime: "guard-2.x.x",
- *     policyText: `  let status = ['ACTIVE']
+ *     policyText: `let status = ['ACTIVE']
  *
- *   rule tableisactive when
- *       resourceType == "AWS::DynamoDB::Table" {
- *       configuration.tableStatus == %status
- *   }
+ * rule tableisactive when
+ *     resourceType == "AWS::DynamoDB::Table" {
+ *     configuration.tableStatus == %status
+ * }
  *
- *   rule checkcompliance when
- *       resourceType == "AWS::DynamoDB::Table"
- *       tableisactive {
- *           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
- *           %pitr == "ENABLED"
- *       }
- *
+ * rule checkcompliance when
+ *     resourceType == "AWS::DynamoDB::Table"
+ *     tableisactive {
+ *         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+ *         %pitr == "ENABLED"
+ *     }
  * `,
  *     resourceTypesScopes: ["AWS::DynamoDB::Table"],
  * });

@@ -24,11 +24,12 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var iot = new Aws.Iot.DomainConfiguration("iot", new()
     ///     {
+    ///         Name = "iot-",
     ///         DomainName = "iot.example.com",
     ///         ServiceType = "DATA",
     ///         ServerCertificateArns = new[]
     ///         {
-    ///             aws_acm_certificate.Cert.Arn,
+    ///             cert.Arn,
     ///         },
     ///     });
     /// 

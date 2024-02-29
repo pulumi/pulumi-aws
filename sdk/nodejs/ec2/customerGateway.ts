@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.CustomerGateway("main", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
+ *     type: "ipsec.1",
  *     tags: {
  *         Name: "main-customer-gateway",
  *     },
- *     type: "ipsec.1",
  * });
  * ```
  *

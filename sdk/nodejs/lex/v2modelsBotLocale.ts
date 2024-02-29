@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBotLocale("example", {
- *     botId: aws_lexv2models_bot.example.id,
+ *     botId: exampleAwsLexv2modelsBot.id,
  *     botVersion: "DRAFT",
  *     localeId: "en_US",
  *     nLuIntentConfidenceThreshold: 0.7,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBotLocale("example", {
- *     botId: aws_lexv2models_bot.example.id,
+ *     botId: exampleAwsLexv2modelsBot.id,
  *     botVersion: "DRAFT",
  *     localeId: "en_US",
  *     nLuIntentConfidenceThreshold: 0.7,

@@ -28,8 +28,8 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     var example = Aws.RedShift.GetClusterCredentials.Invoke(new()
         ///     {
-        ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-        ///         DbUser = aws_redshift_cluster.Example.Master_username,
+        ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
+        ///         DbUser = exampleAwsRedshiftCluster.MasterUsername,
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     var example = Aws.RedShift.GetClusterCredentials.Invoke(new()
         ///     {
-        ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-        ///         DbUser = aws_redshift_cluster.Example.Master_username,
+        ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
+        ///         DbUser = exampleAwsRedshiftCluster.MasterUsername,
         ///     });
         /// 
         /// });

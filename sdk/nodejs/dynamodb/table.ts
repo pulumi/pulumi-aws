@@ -33,6 +33,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
+ *     name: "GameScores",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "UserId",
+ *     rangeKey: "GameTitle",
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -47,28 +53,23 @@ import * as utilities from "../utilities";
  *             type: "N",
  *         },
  *     ],
- *     billingMode: "PROVISIONED",
- *     globalSecondaryIndexes: [{
- *         hashKey: "GameTitle",
- *         name: "GameTitleIndex",
- *         nonKeyAttributes: ["UserId"],
- *         projectionType: "INCLUDE",
- *         rangeKey: "TopScore",
- *         readCapacity: 10,
- *         writeCapacity: 10,
- *     }],
- *     hashKey: "UserId",
- *     rangeKey: "GameTitle",
- *     readCapacity: 20,
- *     tags: {
- *         Environment: "production",
- *         Name: "dynamodb-table-1",
- *     },
  *     ttl: {
  *         attributeName: "TimeToExist",
  *         enabled: false,
  *     },
- *     writeCapacity: 20,
+ *     globalSecondaryIndexes: [{
+ *         name: "GameTitleIndex",
+ *         hashKey: "GameTitle",
+ *         rangeKey: "TopScore",
+ *         writeCapacity: 10,
+ *         readCapacity: 10,
+ *         projectionType: "INCLUDE",
+ *         nonKeyAttributes: ["UserId"],
+ *     }],
+ *     tags: {
+ *         Name: "dynamodb-table-1",
+ *         Environment: "production",
+ *     },
  * });
  * ```
  * ### Global Tables
@@ -82,12 +83,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",
  *     }],
- *     billingMode: "PAY_PER_REQUEST",
- *     hashKey: "TestTableHashKey",
  *     replicas: [
  *         {
  *             regionName: "us-east-2",
@@ -96,8 +100,52 @@ import * as utilities from "../utilities";
  *             regionName: "us-west-2",
  *         },
  *     ],
+ * });
+ * ```
+ * ### Replica Tagging
+ *
+ * You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = aws.getRegion({});
+ * const alternate = aws.getRegion({});
+ * const third = aws.getRegion({});
+ * const example = new aws.dynamodb.Table("example", {
+ *     billingMode: "PAY_PER_REQUEST",
+ *     hashKey: "TestTableHashKey",
+ *     name: "example-13281",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     attributes: [{
+ *         name: "TestTableHashKey",
+ *         type: "S",
+ *     }],
+ *     replicas: [
+ *         {
+ *             regionName: alternate.then(alternate => alternate.name),
+ *         },
+ *         {
+ *             regionName: third.then(third => third.name),
+ *             propagateTags: true,
+ *         },
+ *     ],
+ *     tags: {
+ *         Architect: "Eleanor",
+ *         Zone: "SW",
+ *     },
+ * });
+ * const exampleTag = new aws.dynamodb.Tag("example", {
+ *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
+ *         text: arn,
+ *         search: current.name,
+ *         replace: alternate.name,
+ *     })).apply(invoke => invoke.result),
+ *     key: "Architect",
+ *     value: "Gigi",
  * });
  * ```
  *

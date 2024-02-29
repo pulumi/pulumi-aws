@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
  *             .name(&#34;example&#34;)
- *             .databaseName(exampleCatalogDatabase.name())
+ *             .databaseName(example.name())
  *             .owner(&#34;my_owner&#34;)
  *             .retention(1)
  *             .tableType(&#34;VIRTUAL_VIEW&#34;)
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePartitionIndex = new PartitionIndex(&#34;examplePartitionIndex&#34;, PartitionIndexArgs.builder()        
- *             .databaseName(exampleCatalogDatabase.name())
+ *             .databaseName(example.name())
  *             .tableName(exampleCatalogTable.name())
  *             .partitionIndex(PartitionIndexPartitionIndexArgs.builder()
  *                 .indexName(&#34;example&#34;)

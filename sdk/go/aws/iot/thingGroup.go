@@ -27,11 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := iot.NewThingGroup(ctx, "parent", nil)
+//			parent, err := iot.NewThingGroup(ctx, "parent", &iot.ThingGroupArgs{
+//				Name: pulumi.String("parent"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iot.NewThingGroup(ctx, "example", &iot.ThingGroupArgs{
+//				Name:            pulumi.String("example"),
 //				ParentGroupName: parent.Name,
 //				Properties: &iot.ThingGroupPropertiesArgs{
 //					AttributePayload: &iot.ThingGroupPropertiesAttributePayloadArgs{

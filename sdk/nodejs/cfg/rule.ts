@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const r = new aws.cfg.Rule("r", {
+ *     name: "example",
+ *     source: {
+ *         owner: "AWS",
+ *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ *     },
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -31,24 +38,25 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * const rule = new aws.cfg.Rule("rule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }}, {
- *     dependsOn: [foo],
+ * const rRole = new aws.iam.Role("r", {
+ *     name: "my-awsconfig-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const policyDocument = aws.iam.getPolicyDocument({
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: rRole.arn,
+ * });
+ * const p = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["config:Put*"],
  *         resources: ["*"],
  *     }],
  * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.then(policyDocument => policyDocument.json),
+ * const pRolePolicy = new aws.iam.RolePolicy("p", {
+ *     name: "my-awsconfig-policy",
+ *     role: rRole.id,
+ *     policy: p.then(p => p.json),
  * });
  * ```
  * ### Custom Rules
@@ -59,25 +67,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
- * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
- * // ... other configuration ...
- * const examplePermission = new aws.lambda.Permission("examplePermission", {
+ * const example = new aws.cfg.Recorder("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {});
+ * const examplePermission = new aws.lambda.Permission("example", {
  *     action: "lambda:InvokeFunction",
  *     "function": exampleFunction.arn,
  *     principal: "config.amazonaws.com",
+ *     statementId: "AllowExecutionFromConfig",
  * });
- * // ... other configuration ...
- * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
+ * const exampleRule = new aws.cfg.Rule("example", {source: {
  *     owner: "CUSTOM_LAMBDA",
  *     sourceIdentifier: exampleFunction.arn,
- * }}, {
- *     dependsOn: [
- *         exampleRecorder,
- *         examplePermission,
- *     ],
- * });
+ * }});
  * ```
  * ### Custom Policies
  *
@@ -85,14 +86,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cfg.Rule("example", {source: {
- *     owner: "CUSTOM_POLICY",
- *     sourceDetails: [{
- *         messageType: "ConfigurationItemChangeNotification",
- *     }],
- *     customPolicyDetails: {
- *         policyRuntime: "guard-2.x.x",
- *         policyText: `	  rule tableisactive when
+ * const example = new aws.cfg.Rule("example", {
+ *     name: "example",
+ *     source: {
+ *         owner: "CUSTOM_POLICY",
+ *         sourceDetails: [{
+ *             messageType: "ConfigurationItemChangeNotification",
+ *         }],
+ *         customPolicyDetails: {
+ *             policyRuntime: "guard-2.x.x",
+ *             policyText: `	  rule tableisactive when
  * 		  resourceType == "AWS::DynamoDB::Table" {
  * 		  configuration.tableStatus == ['ACTIVE']
  * 	  }
@@ -103,8 +106,9 @@ import * as utilities from "../utilities";
  * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
  * 	  }
  * `,
+ *         },
  *     },
- * }});
+ * });
  * ```
  *
  * ## Import

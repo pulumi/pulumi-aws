@@ -31,10 +31,10 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///             Arn = testAwsLakeformationResource.Arn,
         ///         },
         ///     });
         /// 
@@ -54,10 +54,10 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             Name = testAwsGlueCatalogDatabase.Name,
         ///             CatalogId = "110376042874",
         ///         },
         ///     });
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
         ///             ResourceType = "DATABASE",
@@ -133,10 +133,10 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///             Arn = testAwsLakeformationResource.Arn,
         ///         },
         ///     });
         /// 
@@ -156,10 +156,10 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             Name = testAwsGlueCatalogDatabase.Name,
         ///             CatalogId = "110376042874",
         ///         },
         ///     });
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
         ///             ResourceType = "DATABASE",

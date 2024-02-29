@@ -22,12 +22,15 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Aws.Athena.Database("example", new()
     ///     {
     ///         Name = "database_name",
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });

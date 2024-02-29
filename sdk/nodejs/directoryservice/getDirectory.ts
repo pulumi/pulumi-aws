@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.directoryservice.getDirectory({
- *     directoryId: aws_directory_service_directory.main.id,
+ *     directoryId: main.id,
  * });
  * ```
  */
@@ -115,7 +115,7 @@ export interface GetDirectoryResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.directoryservice.getDirectory({
- *     directoryId: aws_directory_service_directory.main.id,
+ *     directoryId: main.id,
  * });
  * ```
  */

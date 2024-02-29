@@ -29,7 +29,7 @@ namespace Pulumi.Aws.GuardDuty
         /// {
         ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
         ///     {
-        ///         DetectorId = aws_guardduty_detector.Example.Id,
+        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.GuardDuty
         /// {
         ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
         ///     {
-        ///         DetectorId = aws_guardduty_detector.Example.Id,
+        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
         ///     });
         /// 
         /// });

@@ -24,14 +24,15 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.IpSet("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "Example IP set",
+    ///         Scope = "REGIONAL",
+    ///         IpAddressVersion = "IPV4",
     ///         Addresses = new[]
     ///         {
     ///             "1.2.3.4/32",
     ///             "5.6.7.8/32",
     ///         },
-    ///         Description = "Example IP set",
-    ///         IpAddressVersion = "IPV4",
-    ///         Scope = "REGIONAL",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },

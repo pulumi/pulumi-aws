@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codecommit.Repository("test", {
- *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
+ *     description: "This is the Sample App Repository",
  * });
  * ```
  * ### AWS KMS Customer Managed Keys (CMK)
@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testKey = new aws.kms.Key("testKey", {
+ * const testKey = new aws.kms.Key("test", {
  *     description: "test",
  *     deletionWindowInDays: 7,
  * });
- * const testRepository = new aws.codecommit.Repository("testRepository", {
+ * const test = new aws.codecommit.Repository("test", {
  *     repositoryName: "MyTestRepository",
  *     description: "This is the Sample App Repository",
  *     kmsKeyId: testKey.arn,

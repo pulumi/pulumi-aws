@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -62,10 +61,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new PlacementGroup(&#34;test&#34;, PlacementGroupArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .strategy(&#34;cluster&#34;)
  *             .build());
  * 
  *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;foobar3-test&#34;)
  *             .maxSize(5)
  *             .minSize(2)
  *             .healthCheckGracePeriod(300)
@@ -73,10 +74,10 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(4)
  *             .forceDelete(true)
  *             .placementGroup(test.id())
- *             .launchConfiguration(aws_launch_configuration.foobar().name())
+ *             .launchConfiguration(foobar.name())
  *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
+ *                 example1.id(),
+ *                 example2.id())
  *             .instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs.builder()
  *                 .minHealthyPercentage(90)
  *                 .maxHealthyPercentage(120)
@@ -104,7 +105,6 @@ import javax.annotation.Nullable;
  *                     .value(&#34;ipsum&#34;)
  *                     .propagateAtLaunch(false)
  *                     .build())
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -182,9 +182,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -196,7 +196,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -242,9 +242,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -254,8 +254,8 @@ import javax.annotation.Nullable;
  *             .maxSize(15)
  *             .minSize(12)
  *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
+ *                 example1.id(),
+ *                 example2.id())
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
  *                     .onDemandBaseCapacity(0)
@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -311,15 +311,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
  *         var example2 = new LaunchTemplate(&#34;example2&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example2&#34;)
- *             .imageId(data.aws_ami().example2().id())
+ *             .imageId(example2AwsAmi.id())
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
@@ -330,7 +330,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -380,9 +380,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -394,7 +394,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
  *                         .instanceRequirements(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.builder()
@@ -414,7 +414,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Dynamic tagging
- * 
  * ```java
  * package generated_program;
  * 
@@ -442,12 +441,6 @@ import javax.annotation.Nullable;
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
  *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .maxSize(5)
- *             .minSize(2)
- *             .launchConfiguration(aws_launch_configuration.foobar().name())
- *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
  *             .tags(            
  *                 GroupTagArgs.builder()
  *                     .key(&#34;explicit1&#34;)
@@ -459,7 +452,13 @@ import javax.annotation.Nullable;
  *                     .value(&#34;value2&#34;)
  *                     .propagateAtLaunch(true)
  *                     .build())
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .name(&#34;foobar3-test&#34;)
+ *             .maxSize(5)
+ *             .minSize(2)
+ *             .launchConfiguration(foobar.name())
+ *             .vpcZoneIdentifiers(            
+ *                 example1.id(),
+ *                 example2.id())
  *             .build());
  * 
  *     }
@@ -495,7 +494,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(GetAmiFilterArgs.builder()
@@ -505,7 +504,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.nano&#34;)
  *             .build());
  * 
@@ -561,9 +560,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -580,40 +579,6 @@ import javax.annotation.Nullable;
  *                     .reuseOnScaleIn(true)
  *                     .build())
  *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Auto Scaling group with Traffic Sources
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .vpcZoneIdentifiers(aws_subnet.test().id())
- *             .maxSize(1)
- *             .minSize(1)
- *             .forceDelete(true)
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

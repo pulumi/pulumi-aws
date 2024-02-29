@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CloudFormationType(&#34;example&#34;, CloudFormationTypeArgs.builder()        
- *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, aws_s3_object.example().bucket(),aws_s3_object.example().key()))
+ *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
  *             .type(&#34;RESOURCE&#34;)
  *             .typeName(&#34;ExampleCompany::ExampleService::ExampleResource&#34;)
  *             .loggingConfig(CloudFormationTypeLoggingConfigArgs.builder()
- *                 .logGroupName(aws_cloudwatch_log_group.example().name())
- *                 .logRoleArn(aws_iam_role.example().arn())
+ *                 .logGroupName(exampleAwsCloudwatchLogGroup.name())
+ *                 .logRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 

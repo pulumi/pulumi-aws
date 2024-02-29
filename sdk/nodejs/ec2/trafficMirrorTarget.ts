@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  *
  * const nlb = new aws.ec2.TrafficMirrorTarget("nlb", {
  *     description: "NLB target",
- *     networkLoadBalancerArn: aws_lb.lb.arn,
+ *     networkLoadBalancerArn: lb.arn,
  * });
  * const eni = new aws.ec2.TrafficMirrorTarget("eni", {
  *     description: "ENI target",
- *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
+ *     networkInterfaceId: test.primaryNetworkInterfaceId,
  * });
  * const gwlb = new aws.ec2.TrafficMirrorTarget("gwlb", {
  *     description: "GWLB target",
- *     gatewayLoadBalancerEndpointId: aws_vpc_endpoint.example.id,
+ *     gatewayLoadBalancerEndpointId: example.id,
  * });
  * ```
  *

@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.Vpc("foo", {cidrBlock: "10.0.0.0/16"});
- * const alphaSubnet = new aws.ec2.Subnet("alphaSubnet", {
+ * const alphaSubnet = new aws.ec2.Subnet("alpha", {
  *     vpcId: foo.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const alphaMountTarget = new aws.efs.MountTarget("alphaMountTarget", {
- *     fileSystemId: aws_efs_file_system.foo.id,
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: fooAwsEfsFileSystem.id,
  *     subnetId: alphaSubnet.id,
  * });
  * ```

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",

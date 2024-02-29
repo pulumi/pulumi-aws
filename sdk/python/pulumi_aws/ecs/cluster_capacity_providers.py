@@ -144,9 +144,9 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
-            cluster_name=example_cluster.name,
+        example = aws.ecs.Cluster("example", name="my-cluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
+            cluster_name=example.name,
             capacity_providers=["FARGATE"],
             default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
                 base=1,
@@ -186,9 +186,9 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
-            cluster_name=example_cluster.name,
+        example = aws.ecs.Cluster("example", name="my-cluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
+            cluster_name=example.name,
             capacity_providers=["FARGATE"],
             default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
                 base=1,

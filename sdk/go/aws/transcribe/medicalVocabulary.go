@@ -32,24 +32,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example-medical-vocab-123"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: example.ID(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test.txt"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transcribe.NewMedicalVocabulary(ctx, "exampleMedicalVocabulary", &transcribe.MedicalVocabularyArgs{
+//			_, err = transcribe.NewMedicalVocabulary(ctx, "example", &transcribe.MedicalVocabularyArgs{
 //				VocabularyName: pulumi.String("example"),
 //				LanguageCode:   pulumi.String("en-US"),
-//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
+//				VocabularyFileUri: pulumi.All(example.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", id, key), nil
@@ -58,9 +59,7 @@ import (
 //					"tag1": pulumi.String("value1"),
 //					"tag2": pulumi.String("value3"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				object,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

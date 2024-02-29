@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.ec2.CapacityReservation("default", {
+ *     instanceType: "t2.micro",
+ *     instancePlatform: "Linux/UNIX",
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
- *     instancePlatform: "Linux/UNIX",
- *     instanceType: "t2.micro",
  * });
  * ```
  *

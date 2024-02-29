@@ -58,11 +58,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .importMode(&#34;SPICE&#34;)
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
  *                 .physicalTableMapId(&#34;example-id&#34;)
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name(&#34;Column1&#34;)
  *                         .type(&#34;STRING&#34;)
@@ -105,11 +106,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .importMode(&#34;SPICE&#34;)
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
  *                 .physicalTableMapId(&#34;example-id&#34;)
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name(&#34;Column1&#34;)
  *                         .type(&#34;STRING&#34;)
@@ -121,7 +123,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .columnLevelPermissionRules(DataSetColumnLevelPermissionRuleArgs.builder()
  *                 .columnNames(&#34;Column1&#34;)
- *                 .principals(aws_quicksight_user.example().arn())
+ *                 .principals(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
@@ -156,11 +158,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .importMode(&#34;SPICE&#34;)
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
  *                 .physicalTableMapId(&#34;example-id&#34;)
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name(&#34;Column1&#34;)
  *                         .type(&#34;STRING&#34;)
@@ -208,11 +211,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .importMode(&#34;SPICE&#34;)
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
  *                 .physicalTableMapId(&#34;example-id&#34;)
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name(&#34;Column1&#34;)
  *                         .type(&#34;STRING&#34;)
@@ -229,7 +233,7 @@ import javax.annotation.Nullable;
  *                     &#34;quicksight:PassDataSet&#34;,
  *                     &#34;quicksight:DescribeIngestion&#34;,
  *                     &#34;quicksight:ListIngestions&#34;)
- *                 .principal(aws_quicksight_user.example().arn())
+ *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
@@ -264,11 +268,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .importMode(&#34;SPICE&#34;)
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
  *                 .physicalTableMapId(&#34;example-id&#34;)
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name(&#34;Column1&#34;)
  *                         .type(&#34;STRING&#34;)

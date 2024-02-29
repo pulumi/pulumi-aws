@@ -23,11 +23,14 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleDataProtectionPolicy = new Aws.Sns.DataProtectionPolicy("exampleDataProtectionPolicy", new()
+    ///     var example = new Aws.Sns.Topic("example", new()
     ///     {
-    ///         Arn = exampleTopic.Arn,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleDataProtectionPolicy = new Aws.Sns.DataProtectionPolicy("example", new()
+    ///     {
+    ///         Arn = example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Description"] = "Example data protection policy",

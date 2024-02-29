@@ -29,7 +29,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///     });
         /// 
         /// });
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///         Name = "Test",
         ///     });
         /// 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///     });
         /// 
         /// });
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///         Name = "Test",
         ///     });
         /// 

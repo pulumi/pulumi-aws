@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Request a Spot fleet
-    ///     var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheapCompute", new()
+    ///     var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheap_compute", new()
     ///     {
     ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
     ///         SpotPrice = "0.03",
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///                 Ami = "ami-1234",
     ///                 SpotPrice = "2.793",
     ///                 PlacementTenancy = "dedicated",
-    ///                 IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                 IamInstanceProfileArn = example.Arn,
     ///             },
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
     ///             {
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     ///                 Ami = "ami-5678",
     ///                 KeyName = "my-key",
     ///                 SpotPrice = "1.117",
-    ///                 IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                 IamInstanceProfileArn = example.Arn,
     ///                 AvailabilityZone = "us-west-1a",
     ///                 SubnetId = "subnet-1234",
     ///                 WeightedCapacity = "35",
@@ -83,14 +83,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
+    ///     var foo = new Aws.Ec2.LaunchTemplate("foo", new()
     ///     {
+    ///         Name = "launch-template",
     ///         ImageId = "ami-516b9131",
     ///         InstanceType = "m1.small",
     ///         KeyName = "some-key",
     ///     });
     /// 
-    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new()
+    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("foo", new()
     ///     {
     ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
     ///         SpotPrice = "0.005",
@@ -102,16 +103,10 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     Id = fooLaunchTemplate.Id,
-    ///                     Version = fooLaunchTemplate.LatestVersion,
+    ///                     Id = foo.Id,
+    ///                     Version = foo.LatestVersion,
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_policy_attachment.Test_attach,
     ///         },
     ///     });
     /// 
@@ -120,6 +115,99 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
     /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+    /// ### Using multiple launch specifications
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Aws.Ec2.SpotFleetRequest("foo", new()
+    ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///         LaunchSpecifications = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 InstanceType = "m1.small",
+    ///                 Ami = "ami-d06a90b0",
+    ///                 KeyName = "my-key",
+    ///                 AvailabilityZone = "us-west-2a",
+    ///             },
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 InstanceType = "m5.large",
+    ///                 Ami = "ami-d06a90b0",
+    ///                 KeyName = "my-key",
+    ///                 AvailabilityZone = "us-west-2a",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var subnets = config.RequireObject&lt;dynamic&gt;("subnets");
+    ///     var example = new Aws.Ec2.SpotFleetRequest("example", new()
+    ///     {
+    ///         LaunchSpecifications = .Select(s =&gt; 
+    ///         {
+    ///             return 
+    ///             {
+    ///                 { "subnetId", s[1] },
+    ///             };
+    ///         }).ToList().Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///         {
+    ///             return new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 Ami = "ami-1234",
+    ///                 InstanceType = "m4.4xlarge",
+    ///                 SubnetId = entry.Value.SubnetId,
+    ///                 VpcSecurityGroupIds = "sg-123456",
+    ///                 RootBlockDevices = new[]
+    ///                 {
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
+    ///                     {
+    ///                         VolumeSize = 8,
+    ///                         VolumeType = "gp2",
+    ///                         DeleteOnTermination = true,
+    ///                     },
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     { "Name", "Spot Node" },
+    ///                     { "tag_builder", "builder" },
+    ///                 },
+    ///             };
+    ///         }).ToList(),
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         TargetCapacity = 3,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///         AllocationStrategy = "lowestPrice",
+    ///         FleetType = "request",
+    ///         WaitForFulfillment = true,
+    ///         TerminateInstancesWithExpiration = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Using multiple launch configurations
     /// 
     /// ```csharp
@@ -139,20 +227,21 @@ namespace Pulumi.Aws.Ec2
     ///                 Name = "vpc-id",
     ///                 Values = new[]
     ///                 {
-    ///                     @var.Vpc_id,
+    ///                     vpcId,
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
+    ///     var foo = new Aws.Ec2.LaunchTemplate("foo", new()
     ///     {
+    ///         Name = "launch-template",
     ///         ImageId = "ami-516b9131",
     ///         InstanceType = "m1.small",
     ///         KeyName = "some-key",
     ///     });
     /// 
-    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new()
+    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("foo", new()
     ///     {
     ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
     ///         SpotPrice = "0.005",
@@ -164,8 +253,8 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     Id = fooLaunchTemplate.Id,
-    ///                     Version = fooLaunchTemplate.LatestVersion,
+    ///                     Id = foo.Id,
+    ///                     Version = foo.LatestVersion,
     ///                 },
     ///                 Overrides = new[]
     ///                 {
@@ -183,12 +272,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_policy_attachment.Test_attach,
     ///         },
     ///     });
     /// 

@@ -15,23 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {
+ * const lb = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
  *     path: "/system/",
  *     tags: {
  *         "tag-key": "tag-value",
  *     },
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
- * const lbRoPolicyDocument = aws.iam.getPolicyDocument({
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {user: lb.name});
+ * const lbRo = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const lbRoUserPolicy = new aws.iam.UserPolicy("lbRoUserPolicy", {
- *     user: lbUser.name,
- *     policy: lbRoPolicyDocument.then(lbRoPolicyDocument => lbRoPolicyDocument.json),
+ * const lbRoUserPolicy = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
+ *     user: lb.name,
+ *     policy: lbRo.then(lbRo => lbRo.json),
  * });
  * ```
  *

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;DevAccountAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;OrganizationAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test(&#34;StringEquals&#34;)
  *                     .variable(&#34;aws:PrincipalOrgID&#34;)
- *                     .values(aws_organizations_organization.example().id())
+ *                     .values(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;DevAccountAccess&#34;)
@@ -177,14 +177,14 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;StringEquals&#34;)
  *                         .variable(&#34;aws:PrincipalOrgID&#34;)
- *                         .values(aws_organizations_organization.example().id())
+ *                         .values(example.id())
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }

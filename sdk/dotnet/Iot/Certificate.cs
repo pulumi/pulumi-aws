@@ -17,16 +17,19 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         Csr = File.ReadAllText("/my/csr.pem"),
+    ///         Csr = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "/my/csr.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Active = true,
     ///     });
     /// 
@@ -53,16 +56,19 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         CertificatePem = File.ReadAllText("/my/cert.pem"),
+    ///         CertificatePem = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "/my/cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Active = true,
     ///     });
     /// 

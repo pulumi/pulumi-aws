@@ -46,18 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
+ *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
  *                 .action(RuleGroupActivatedRuleActionArgs.builder()
  *                     .type(&#34;COUNT&#34;)
  *                     .build())
  *                 .priority(50)
- *                 .ruleId(exampleRule.id())
+ *                 .ruleId(example.id())
  *                 .build())
  *             .build());
  * 

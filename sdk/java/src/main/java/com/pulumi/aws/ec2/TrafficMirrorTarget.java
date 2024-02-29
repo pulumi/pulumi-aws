@@ -45,17 +45,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var nlb = new TrafficMirrorTarget(&#34;nlb&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;NLB target&#34;)
- *             .networkLoadBalancerArn(aws_lb.lb().arn())
+ *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
  *         var eni = new TrafficMirrorTarget(&#34;eni&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;ENI target&#34;)
- *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
+ *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .build());
  * 
  *         var gwlb = new TrafficMirrorTarget(&#34;gwlb&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;GWLB target&#34;)
- *             .gatewayLoadBalancerEndpointId(aws_vpc_endpoint.example().id())
+ *             .gatewayLoadBalancerEndpointId(example.id())
  *             .build());
  * 
  *     }

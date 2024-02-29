@@ -29,12 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
+//			_, err := batch.NewJobQueue(ctx, "test_queue", &batch.JobQueueArgs{
+//				Name:     pulumi.String("tf-test-batch-job-queue"),
 //				State:    pulumi.String("ENABLED"),
 //				Priority: pulumi.Int(1),
 //				ComputeEnvironments: pulumi.StringArray{
-//					aws_batch_compute_environment.Test_environment_1.Arn,
-//					aws_batch_compute_environment.Test_environment_2.Arn,
+//					testEnvironment1.Arn,
+//					testEnvironment2.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -59,7 +60,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSchedulingPolicy, err := batch.NewSchedulingPolicy(ctx, "exampleSchedulingPolicy", &batch.SchedulingPolicyArgs{
+//			example, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
+//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
 //					ComputeReservation: pulumi.Int(1),
 //					ShareDecaySeconds:  pulumi.Int(3600),
@@ -74,13 +76,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewJobQueue(ctx, "exampleJobQueue", &batch.JobQueueArgs{
-//				SchedulingPolicyArn: exampleSchedulingPolicy.Arn,
+//			_, err = batch.NewJobQueue(ctx, "example", &batch.JobQueueArgs{
+//				Name:                pulumi.String("tf-test-batch-job-queue"),
+//				SchedulingPolicyArn: example.Arn,
 //				State:               pulumi.String("ENABLED"),
 //				Priority:            pulumi.Int(1),
 //				ComputeEnvironments: pulumi.StringArray{
-//					aws_batch_compute_environment.Test_environment_1.Arn,
-//					aws_batch_compute_environment.Test_environment_2.Arn,
+//					testEnvironment1.Arn,
+//					testEnvironment2.Arn,
 //				},
 //			})
 //			if err != nil {

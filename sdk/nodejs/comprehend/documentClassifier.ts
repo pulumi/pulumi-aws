@@ -18,18 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
  * const example = new aws.comprehend.DocumentClassifier("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
- *         s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.test.bucket}/${documents.id}`,
+ *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.id}`,
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
  * ```
  *
  * ## Import

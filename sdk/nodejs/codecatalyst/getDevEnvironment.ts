@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = aws.codecatalyst.getDevEnvironment({
  *     spaceName: "myspace",
  *     projectName: "myproject",
- *     envId: aws_codecatalyst_dev_environment.example.id,
+ *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
  */
@@ -135,7 +135,7 @@ export interface GetDevEnvironmentResult {
  * const example = aws.codecatalyst.getDevEnvironment({
  *     spaceName: "myspace",
  *     projectName: "myproject",
- *     envId: aws_codecatalyst_dev_environment.example.id,
+ *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
  */

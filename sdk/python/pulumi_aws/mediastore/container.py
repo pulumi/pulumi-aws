@@ -162,7 +162,7 @@ class Container(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mediastore.Container("example")
+        example = aws.mediastore.Container("example", name="example")
         ```
 
         ## Import
@@ -193,7 +193,7 @@ class Container(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mediastore.Container("example")
+        example = aws.mediastore.Container("example", name="example")
         ```
 
         ## Import

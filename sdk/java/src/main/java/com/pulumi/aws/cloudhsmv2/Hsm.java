@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
- *             .clusterId(var_.cloudhsm_cluster_id())
+ *             .clusterId(cloudhsmClusterId)
  *             .build());
  * 
  *         var cloudhsmV2Hsm = new Hsm(&#34;cloudhsmV2Hsm&#34;, HsmArgs.builder()        

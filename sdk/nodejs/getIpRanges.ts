@@ -20,7 +20,8 @@ import * as utilities from "./utilities";
  *     ],
  *     services: ["ec2"],
  * });
- * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
+ * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
+ *     name: "from_europe",
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
@@ -116,7 +117,8 @@ export interface GetIpRangesResult {
  *     ],
  *     services: ["ec2"],
  * });
- * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
+ * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
+ *     name: "from_europe",
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,

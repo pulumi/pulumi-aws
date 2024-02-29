@@ -152,13 +152,13 @@ class AccountVdmAttributes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.AccountVdmAttributes("example",
+            vdm_enabled="ENABLED",
             dashboard_attributes=aws.sesv2.AccountVdmAttributesDashboardAttributesArgs(
                 engagement_metrics="ENABLED",
             ),
             guardian_attributes=aws.sesv2.AccountVdmAttributesGuardianAttributesArgs(
                 optimized_shared_delivery="ENABLED",
-            ),
-            vdm_enabled="ENABLED")
+            ))
         ```
 
         ## Import
@@ -194,13 +194,13 @@ class AccountVdmAttributes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.AccountVdmAttributes("example",
+            vdm_enabled="ENABLED",
             dashboard_attributes=aws.sesv2.AccountVdmAttributesDashboardAttributesArgs(
                 engagement_metrics="ENABLED",
             ),
             guardian_attributes=aws.sesv2.AccountVdmAttributesGuardianAttributesArgs(
                 optimized_shared_delivery="ENABLED",
-            ),
-            vdm_enabled="ENABLED")
+            ))
         ```
 
         ## Import

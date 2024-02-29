@@ -24,10 +24,14 @@ namespace Pulumi.Aws.CodePipeline
     /// {
     ///     var example = new Aws.CodeStarConnections.Connection("example", new()
     ///     {
+    ///         Name = "example-connection",
     ///         ProviderType = "GitHub",
     ///     });
     /// 
-    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipelineBucket");
+    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipeline_bucket", new()
+    ///     {
+    ///         Bucket = "test-bucket",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -55,8 +59,9 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelineRole = new Aws.Iam.Role("codepipelineRole", new()
+    ///     var codepipelineRole = new Aws.Iam.Role("codepipeline_role", new()
     ///     {
+    ///         Name = "test-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -67,6 +72,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     ///     var codepipeline = new Aws.CodePipeline.Pipeline("codepipeline", new()
     ///     {
+    ///         Name = "tf-test-pipeline",
     ///         RoleArn = codepipelineRole.Arn,
     ///         ArtifactStores = new[]
     ///         {
@@ -165,7 +171,7 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelineBucketPab = new Aws.S3.BucketPublicAccessBlock("codepipelineBucketPab", new()
+    ///     var codepipelineBucketPab = new Aws.S3.BucketPublicAccessBlock("codepipeline_bucket_pab", new()
     ///     {
     ///         Bucket = codepipelineBucket.Id,
     ///         BlockPublicAcls = true,
@@ -174,7 +180,7 @@ namespace Pulumi.Aws.CodePipeline
     ///         RestrictPublicBuckets = true,
     ///     });
     /// 
-    ///     var codepipelinePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var codepipelinePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -223,10 +229,11 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelinePolicyRolePolicy = new Aws.Iam.RolePolicy("codepipelinePolicyRolePolicy", new()
+    ///     var codepipelinePolicyRolePolicy = new Aws.Iam.RolePolicy("codepipeline_policy", new()
     ///     {
+    ///         Name = "codepipeline_policy",
     ///         Role = codepipelineRole.Id,
-    ///         Policy = codepipelinePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = codepipelinePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

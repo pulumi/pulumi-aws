@@ -29,15 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTrustStore, err := lb.NewTrustStore(ctx, "testTrustStore", &lb.TrustStoreArgs{
+//			test, err := lb.NewTrustStore(ctx, "test", &lb.TrustStoreArgs{
+//				Name:                         pulumi.String("tf-example-lb-ts"),
 //				CaCertificatesBundleS3Bucket: pulumi.String("..."),
 //				CaCertificatesBundleS3Key:    pulumi.String("..."),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewTrustStoreRevocation(ctx, "testTrustStoreRevocation", &lb.TrustStoreRevocationArgs{
-//				TrustStoreArn:       testTrustStore.Arn,
+//			_, err = lb.NewTrustStoreRevocation(ctx, "test", &lb.TrustStoreRevocationArgs{
+//				TrustStoreArn:       test.Arn,
 //				RevocationsS3Bucket: pulumi.String("..."),
 //				RevocationsS3Key:    pulumi.String("..."),
 //			})

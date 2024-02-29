@@ -182,7 +182,7 @@ class PipelineDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
@@ -273,7 +273,7 @@ class PipelineDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[

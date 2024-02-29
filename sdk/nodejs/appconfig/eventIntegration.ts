@@ -17,11 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.EventIntegration("example", {
+ *     name: "example-name",
  *     description: "Example Description",
+ *     eventbridgeBus: "default",
  *     eventFilter: {
  *         source: "aws.partner/examplepartner.com",
  *     },
- *     eventbridgeBus: "default",
  *     tags: {
  *         Name: "Example Event Integration",
  *     },

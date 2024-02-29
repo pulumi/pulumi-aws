@@ -74,7 +74,7 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
     ```
 
 
@@ -103,7 +103,7 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
     ```
 
 

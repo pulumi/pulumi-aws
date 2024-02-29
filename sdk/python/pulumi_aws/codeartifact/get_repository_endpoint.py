@@ -106,8 +106,8 @@ def get_repository_endpoint(domain: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_repository_endpoint(domain=aws_codeartifact_domain["test"]["domain"],
-        repository=aws_codeartifact_repository["test"]["repository"],
+    test = aws.codeartifact.get_repository_endpoint(domain=test_aws_codeartifact_domain["domain"],
+        repository=test_aws_codeartifact_repository["repository"],
         format="npm")
     ```
 
@@ -149,8 +149,8 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_repository_endpoint(domain=aws_codeartifact_domain["test"]["domain"],
-        repository=aws_codeartifact_repository["test"]["repository"],
+    test = aws.codeartifact.get_repository_endpoint(domain=test_aws_codeartifact_domain["domain"],
+        repository=test_aws_codeartifact_repository["repository"],
         format="npm")
     ```
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
+    ///     var oauthConfig = new Aws.Kms.Key("oauth_config", new()
     ///     {
     ///         Description = "oauth config",
     ///         IsEnabled = true,

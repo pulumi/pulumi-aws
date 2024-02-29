@@ -24,9 +24,12 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.CloudSearch.Domain("exampleDomain");
+    ///     var exampleDomain = new Aws.CloudSearch.Domain("example", new()
+    ///     {
+    ///         Name = "example-domain",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -66,10 +69,10 @@ namespace Pulumi.Aws.CloudSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", new()
+    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("example", new()
     ///     {
     ///         DomainName = exampleDomain.Id,
-    ///         AccessPolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

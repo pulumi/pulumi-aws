@@ -29,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", &docdb.ClusterArgs{
+//			example, err := docdb.NewCluster(ctx, "example", &docdb.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("example"),
 //				AvailabilityZones: pulumi.StringArray{
-//					data.Aws_availability_zones.Available.Names[0],
-//					data.Aws_availability_zones.Available.Names[1],
-//					data.Aws_availability_zones.Available.Names[2],
+//					available.Names[0],
+//					available.Names[1],
+//					available.Names[2],
 //				},
 //				MasterUsername:    pulumi.String("foo"),
 //				MasterPassword:    pulumi.String("mustbeeightcharaters"),
@@ -43,11 +43,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			exampleTopic, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
+//				Name: pulumi.String("example-events"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = docdb.NewEventSubscription(ctx, "exampleEventSubscription", &docdb.EventSubscriptionArgs{
+//			_, err = docdb.NewEventSubscription(ctx, "example", &docdb.EventSubscriptionArgs{
+//				Name:    pulumi.String("example"),
 //				Enabled: pulumi.Bool(true),
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("creation"),
@@ -55,7 +58,7 @@ import (
 //				},
 //				SourceType: pulumi.String("db-cluster"),
 //				SourceIds: pulumi.StringArray{
-//					exampleCluster.ID(),
+//					example.ID(),
 //				},
 //				SnsTopicArn: exampleTopic.Arn,
 //			})

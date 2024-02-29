@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.docdb.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_docdb_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsDocdbCluster.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```

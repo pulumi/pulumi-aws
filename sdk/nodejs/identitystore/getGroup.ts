@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get an Identity Store Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const exampleGetGroup = aws.identitystore.getGroup({
+ *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+ *     alternateIdentifier: {
+ *         uniqueAttribute: {
+ *             attributePath: "DisplayName",
+ *             attributeValue: "ExampleGroup",
+ *         },
+ *     },
+ * });
+ * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
+ * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -79,6 +102,29 @@ export interface GetGroupResult {
 }
 /**
  * Use this data source to get an Identity Store Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const exampleGetGroup = aws.identitystore.getGroup({
+ *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+ *     alternateIdentifier: {
+ *         uniqueAttribute: {
+ *             attributePath: "DisplayName",
+ *             attributeValue: "ExampleGroup",
+ *         },
+ *     },
+ * });
+ * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
+ * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

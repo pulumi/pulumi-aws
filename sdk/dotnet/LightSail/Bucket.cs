@@ -24,6 +24,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Bucket("test", new()
     ///     {
+    ///         Name = "mytestbucket",
     ///         BundleId = "small_1_0",
     ///     });
     /// 

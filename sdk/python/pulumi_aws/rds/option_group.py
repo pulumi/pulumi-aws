@@ -321,6 +321,7 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
             option_group_description="Option Group",
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
@@ -336,7 +337,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=example_aws_iam_role["arn"],
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(
@@ -394,6 +395,7 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
             option_group_description="Option Group",
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
@@ -409,7 +411,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=example_aws_iam_role["arn"],
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(

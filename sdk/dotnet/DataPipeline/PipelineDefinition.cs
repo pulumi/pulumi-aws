@@ -22,7 +22,10 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.DataPipeline.Pipeline("default");
+    ///     var @default = new Aws.DataPipeline.Pipeline("default", new()
+    ///     {
+    ///         Name = "tf-pipeline-default",
+    ///     });
     /// 
     ///     var example = new Aws.DataPipeline.PipelineDefinition("example", new()
     ///     {

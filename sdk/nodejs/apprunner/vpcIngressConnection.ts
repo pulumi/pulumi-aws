@@ -17,10 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.VpcIngressConnection("example", {
- *     serviceArn: aws_apprunner_service.example.arn,
+ *     name: "example",
+ *     serviceArn: exampleAwsApprunnerService.arn,
  *     ingressVpcConfiguration: {
- *         vpcId: aws_default_vpc["default"].id,
- *         vpcEndpointId: aws_vpc_endpoint.apprunner.id,
+ *         vpcId: _default.id,
+ *         vpcEndpointId: apprunner.id,
  *     },
  *     tags: {
  *         foo: "bar",

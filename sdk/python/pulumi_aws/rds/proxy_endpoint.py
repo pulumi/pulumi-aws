@@ -320,9 +320,9 @@ class ProxyEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=aws_db_proxy["test"]["name"],
+            db_proxy_name=test["name"],
             db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in aws_subnet["test"]],
+            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
 
@@ -359,9 +359,9 @@ class ProxyEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=aws_db_proxy["test"]["name"],
+            db_proxy_name=test["name"],
             db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in aws_subnet["test"]],
+            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
 

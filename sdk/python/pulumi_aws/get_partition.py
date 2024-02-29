@@ -94,9 +94,9 @@ def get_partition(id: Optional[str] = None,
 
     current = aws.get_partition()
     s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="1",
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
     )])
     ```
 
@@ -130,9 +130,9 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     current = aws.get_partition()
     s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="1",
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
     )])
     ```
 

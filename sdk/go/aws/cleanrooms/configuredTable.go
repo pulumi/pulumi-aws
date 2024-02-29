@@ -29,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewConfiguredTable(ctx, "testConfiguredTable", &cleanrooms.ConfiguredTableArgs{
+//			_, err := cleanrooms.NewConfiguredTable(ctx, "test_configured_table", &cleanrooms.ConfiguredTableArgs{
+//				Name:           pulumi.String("pulumi-example-table"),
+//				Description:    pulumi.String("I made this table with Pulumi!"),
+//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
 //				AllowedColumns: pulumi.StringArray{
 //					pulumi.String("column1"),
 //					pulumi.String("column2"),
 //					pulumi.String("column3"),
 //				},
-//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
-//				Description:    pulumi.String("I made this table with Pulumi!"),
 //				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
 //					DatabaseName: pulumi.String("example_database"),
 //					TableName:    pulumi.String("example_table"),

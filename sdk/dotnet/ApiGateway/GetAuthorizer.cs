@@ -28,8 +28,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_rest_api.Example.Id,
-        ///         AuthorizerId = data.Aws_api_gateway_authorizers.Example.Ids[0],
+        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
+        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_rest_api.Example.Id,
-        ///         AuthorizerId = data.Aws_api_gateway_authorizers.Example.Ids[0],
+        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
+        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
         ///     });
         /// 
         /// });

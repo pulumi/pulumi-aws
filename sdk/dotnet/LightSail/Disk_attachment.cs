@@ -38,22 +38,24 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testDisk = new Aws.LightSail.Disk("testDisk", new()
+    ///     var test = new Aws.LightSail.Disk("test", new()
     ///     {
+    ///         Name = "test-disk",
     ///         SizeInGb = 8,
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///     });
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
     ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testDisk_attachment = new Aws.LightSail.Disk_attachment("testDisk_attachment", new()
+    ///     var testDisk_attachment = new Aws.LightSail.Disk_attachment("test", new()
     ///     {
-    ///         DiskName = testDisk.Name,
+    ///         DiskName = test.Name,
     ///         InstanceName = testInstance.Name,
     ///         DiskPath = "/dev/xvdf",
     ///     });

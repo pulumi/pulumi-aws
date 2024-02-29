@@ -520,10 +520,13 @@ class TransitVirtualInterface(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface",
-            connection_id=aws_dx_connection["example"]["id"],
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("example",
+            connection_id=example_aws_dx_connection["id"],
+            dx_gateway_id=example.id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
@@ -569,10 +572,13 @@ class TransitVirtualInterface(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface",
-            connection_id=aws_dx_connection["example"]["id"],
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("example",
+            connection_id=example_aws_dx_connection["id"],
+            dx_gateway_id=example.id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)

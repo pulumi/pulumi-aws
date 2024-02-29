@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         ProjectName = "example",
     ///         ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
     ///         {
-    ///             ProductId = aws_servicecatalog_product.Example.Id,
+    ///             ProductId = exampleAwsServicecatalogProduct.Id,
     ///         },
     ///     });
     /// 

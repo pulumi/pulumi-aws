@@ -30,9 +30,9 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
+        ///         Owner = "AWS",
         ///         NamePrefix = "AWS-",
         ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
         ///     });
         /// 
         /// });
@@ -50,10 +50,10 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
         ///         Owner = "Self",
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         DefaultBaseline = true,
+        ///         OperatingSystem = "WINDOWS",
         ///     });
         /// 
         /// });
@@ -83,9 +83,9 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
+        ///         Owner = "AWS",
         ///         NamePrefix = "AWS-",
         ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
         ///     });
         /// 
         /// });
@@ -103,10 +103,10 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
         ///         Owner = "Self",
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         DefaultBaseline = true,
+        ///         OperatingSystem = "WINDOWS",
         ///     });
         /// 
         /// });

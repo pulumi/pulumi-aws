@@ -25,16 +25,16 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
+    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskNode = testAwsVolumeAttachment.DeviceName,
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
-    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new()
+    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("test", new()
     ///     {
-    ///         DiskPath = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskPath = test.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });
@@ -51,14 +51,14 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskNode = testAwsVolumeAttachment.DeviceName,
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
     ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         DiskId = exampleAwsStoragegatewayLocalDisk.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });

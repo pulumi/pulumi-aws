@@ -17,17 +17,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
+ *     name: "foo",
  *     direction: "INBOUND",
  *     securityGroupIds: [
- *         aws_security_group.sg1.id,
- *         aws_security_group.sg2.id,
+ *         sg1.id,
+ *         sg2.id,
  *     ],
  *     ipAddresses: [
  *         {
- *             subnetId: aws_subnet.sn1.id,
+ *             subnetId: sn1.id,
  *         },
  *         {
- *             subnetId: aws_subnet.sn2.id,
+ *             subnetId: sn2.id,
  *             ip: "10.0.64.4",
  *         },
  *     ],

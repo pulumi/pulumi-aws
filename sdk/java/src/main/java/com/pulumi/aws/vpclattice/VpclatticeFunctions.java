@@ -53,7 +53,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
@@ -91,7 +91,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
@@ -129,7 +129,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
@@ -167,7 +167,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
@@ -349,7 +349,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
@@ -387,7 +387,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
@@ -425,7 +425,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
@@ -463,7 +463,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }

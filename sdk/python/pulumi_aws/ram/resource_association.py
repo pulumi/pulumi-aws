@@ -109,8 +109,8 @@ class ResourceAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            resource_arn=example_aws_subnet["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
 
         ## Import
@@ -144,8 +144,8 @@ class ResourceAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            resource_arn=example_aws_subnet["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
 
         ## Import

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsAnalysis({
- *     networkInsightsAnalysisId: aws_ec2_network_insights_analysis.example.id,
+ *     networkInsightsAnalysisId: exampleAwsEc2NetworkInsightsAnalysis.id,
  * });
  * ```
  */
@@ -117,7 +117,7 @@ export interface GetNetworkInsightsAnalysisResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsAnalysis({
- *     networkInsightsAnalysisId: aws_ec2_network_insights_analysis.example.id,
+ *     networkInsightsAnalysisId: exampleAwsEc2NetworkInsightsAnalysis.id,
  * });
  * ```
  */

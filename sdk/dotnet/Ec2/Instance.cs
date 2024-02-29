@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var thisAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var @this = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -101,9 +101,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var thisInstance = new Aws.Ec2.Instance("thisInstance", new()
+    ///     var thisInstance = new Aws.Ec2.Instance("this", new()
     ///     {
-    ///         Ami = thisAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         Ami = @this.Apply(@this =&gt; @this.Apply(getAmiResult =&gt; getAmiResult.Id)),
     ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
     ///         {
     ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myVpc = new Aws.Ec2.Vpc("myVpc", new()
+    ///     var myVpc = new Aws.Ec2.Vpc("my_vpc", new()
     ///     {
     ///         CidrBlock = "172.16.0.0/16",
     ///         Tags = 
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var mySubnet = new Aws.Ec2.Subnet("mySubnet", new()
+    ///     var mySubnet = new Aws.Ec2.Subnet("my_subnet", new()
     ///     {
     ///         VpcId = myVpc.Id,
     ///         CidrBlock = "172.16.10.0/24",
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooNetworkInterface = new Aws.Ec2.NetworkInterface("fooNetworkInterface", new()
+    ///     var foo = new Aws.Ec2.NetworkInterface("foo", new()
     ///     {
     ///         SubnetId = mySubnet.Id,
     ///         PrivateIps = new[]
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooInstance = new Aws.Ec2.Instance("fooInstance", new()
+    ///     var fooInstance = new Aws.Ec2.Instance("foo", new()
     ///     {
     ///         Ami = "ami-005e54dee72cc1d00",
     ///         InstanceType = "t2.micro",
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
     ///             {
-    ///                 NetworkInterfaceId = fooNetworkInterface.Id,
+    ///                 NetworkInterfaceId = foo.Id,
     ///                 DeviceIndex = 0,
     ///             },
     ///         },
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "172.16.0.0/16",
     ///         Tags = 
@@ -202,9 +202,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
     ///     {
-    ///         VpcId = exampleVpc.Id,
+    ///         VpcId = example.Id,
     ///         CidrBlock = "172.16.10.0/24",
     ///         AvailabilityZone = "us-east-2a",
     ///         Tags = 
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
     ///         InstanceType = "c6a.2xlarge",
@@ -268,8 +268,8 @@ namespace Pulumi.Aws.Ec2
     ///     var @this = new Aws.Ec2.Instance("this", new()
     ///     {
     ///         Ami = "ami-0dcc1e21636832c5d",
-    ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
     ///         InstanceType = "m5.large",
+    ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
     ///         Tenancy = "host",
     ///     });
     /// 

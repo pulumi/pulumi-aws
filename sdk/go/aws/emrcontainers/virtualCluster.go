@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrcontainers.NewVirtualCluster(ctx, "example", &emrcontainers.VirtualClusterArgs{
 //				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-//					Id:   pulumi.Any(aws_eks_cluster.Example.Name),
+//					Id:   pulumi.Any(exampleAwsEksCluster.Name),
 //					Type: pulumi.String("EKS"),
 //					Info: &emrcontainers.VirtualClusterContainerProviderInfoArgs{
 //						EksInfo: &emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs{
@@ -39,6 +39,7 @@ import (
 //						},
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

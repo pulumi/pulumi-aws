@@ -27,24 +27,25 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.255.255.0/28",
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new()
+    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("example", new()
     ///     {
     ///         VpcId = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
     ///     {
-    ///         DxGatewayId = exampleGateway.Id,
+    ///         DxGatewayId = example.Id,
     ///         AssociatedGatewayId = exampleVpnGateway.Id,
     ///     });
     /// 
@@ -60,16 +61,17 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
     ///     {
-    ///         DxGatewayId = exampleGateway.Id,
+    ///         DxGatewayId = example.Id,
     ///         AssociatedGatewayId = exampleTransitGateway.Id,
     ///         AllowedPrefixes = new[]
     ///         {
@@ -90,24 +92,25 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.255.255.0/28",
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new()
+    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("example", new()
     ///     {
     ///         VpcId = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
     ///     {
-    ///         DxGatewayId = exampleGateway.Id,
+    ///         DxGatewayId = example.Id,
     ///         AssociatedGatewayId = exampleVpnGateway.Id,
     ///         AllowedPrefixes = new[]
     ///         {

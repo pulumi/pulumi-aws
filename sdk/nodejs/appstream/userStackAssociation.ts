@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStack = new aws.appstream.Stack("testStack", {});
- * const testUser = new aws.appstream.User("testUser", {
+ * const test = new aws.appstream.Stack("test", {name: "STACK NAME"});
+ * const testUser = new aws.appstream.User("test", {
  *     authenticationType: "USERPOOL",
  *     userName: "EMAIL",
  * });
- * const testUserStackAssociation = new aws.appstream.UserStackAssociation("testUserStackAssociation", {
+ * const testUserStackAssociation = new aws.appstream.UserStackAssociation("test", {
  *     authenticationType: testUser.authenticationType,
- *     stackName: testStack.name,
+ *     stackName: test.name,
  *     userName: testUser.userName,
  * });
  * ```

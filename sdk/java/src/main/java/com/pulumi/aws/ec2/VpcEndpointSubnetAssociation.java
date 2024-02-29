@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var snEc2 = new VpcEndpointSubnetAssociation(&#34;snEc2&#34;, VpcEndpointSubnetAssociationArgs.builder()        
- *             .vpcEndpointId(aws_vpc_endpoint.ec2().id())
- *             .subnetId(aws_subnet.sn().id())
+ *             .vpcEndpointId(ec2.id())
+ *             .subnetId(sn.id())
  *             .build());
  * 
  *     }

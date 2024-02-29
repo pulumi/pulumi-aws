@@ -40,7 +40,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
+//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -125,26 +125,27 @@ class AccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example",
             public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
                 restrict_public_buckets=False,
             ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3:GetObjectTagging",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
+                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
             }))
         ```
@@ -180,26 +181,27 @@ class AccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example",
             public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
                 restrict_public_buckets=False,
             ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3:GetObjectTagging",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
+                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
             }))
         ```

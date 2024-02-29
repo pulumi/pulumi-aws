@@ -37,16 +37,15 @@ import (
 //				return err
 //			}
 //			_, err = comprehend.NewDocumentClassifier(ctx, "example", &comprehend.DocumentClassifierArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:              pulumi.String("example"),
+//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
 //					S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Test.Bucket, id), nil
+//						return fmt.Sprintf("s3://%v/%v", test.Bucket, id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

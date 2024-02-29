@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleServer, err := transfer.NewServer(ctx, "exampleServer", &transfer.ServerArgs{
+//			exampleServer, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
 //				Tags: pulumi.StringMap{
 //					"NAME": pulumi.String("tf-acc-test-transfer-server"),
@@ -59,13 +59,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("tf-test-transfer-user-iam-role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := transfer.NewUser(ctx, "exampleUser", &transfer.UserArgs{
+//			exampleUser, err := transfer.NewUser(ctx, "example", &transfer.UserArgs{
 //				ServerId: exampleServer.ID(),
 //				UserName: pulumi.String("tftestuser"),
 //				Role:     exampleRole.Arn,
@@ -76,7 +77,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewSshKey(ctx, "exampleSshKey", &transfer.SshKeyArgs{
+//			_, err = transfer.NewSshKey(ctx, "example", &transfer.SshKeyArgs{
 //				ServerId: exampleServer.ID(),
 //				UserName: exampleUser.UserName,
 //				Body:     pulumi.String("... SSH key ..."),
@@ -84,7 +85,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowFullAccesstoS3"),
@@ -101,9 +102,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("tf-test-transfer-user-iam-policy"),
 //				Role:   exampleRole.ID(),
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
+//				Policy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

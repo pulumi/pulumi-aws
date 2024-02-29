@@ -268,7 +268,7 @@ class EmailChannel(pulumi.CustomResource):
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "mobileanalytics:PutEvents",
@@ -276,9 +276,10 @@ class EmailChannel(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
+        role_policy_role_policy = aws.iam.RolePolicy("role_policy",
+            name="role_policy",
             role=role.id,
-            policy=role_policy_policy_document.json)
+            policy=role_policy.json)
         ```
 
         ## Import
@@ -328,7 +329,7 @@ class EmailChannel(pulumi.CustomResource):
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "mobileanalytics:PutEvents",
@@ -336,9 +337,10 @@ class EmailChannel(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
+        role_policy_role_policy = aws.iam.RolePolicy("role_policy",
+            name="role_policy",
             role=role.id,
-            policy=role_policy_policy_document.json)
+            policy=role_policy.json)
         ```
 
         ## Import

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationSubnetGroup.Invoke(new()
         ///     {
-        ///         ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test.Replication_subnet_group_id,
+        ///         ReplicationSubnetGroupId = testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationSubnetGroup.Invoke(new()
         ///     {
-        ///         ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test.Replication_subnet_group_id,
+        ///         ReplicationSubnetGroupId = testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
         ///     });
         /// 
         /// });

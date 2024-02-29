@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dynamodbTarget, err := appautoscaling.NewTarget(ctx, "dynamodbTarget", &appautoscaling.TargetArgs{
+//			dynamodb, err := appautoscaling.NewTarget(ctx, "dynamodb", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(100),
 //				MinCapacity:       pulumi.Int(5),
 //				ResourceId:        pulumi.String("table/tableName"),
@@ -39,10 +39,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appautoscaling.NewScheduledAction(ctx, "dynamodbScheduledAction", &appautoscaling.ScheduledActionArgs{
-//				ServiceNamespace:  dynamodbTarget.ServiceNamespace,
-//				ResourceId:        dynamodbTarget.ResourceId,
-//				ScalableDimension: dynamodbTarget.ScalableDimension,
+//			_, err = appautoscaling.NewScheduledAction(ctx, "dynamodb", &appautoscaling.ScheduledActionArgs{
+//				Name:              pulumi.String("dynamodb"),
+//				ServiceNamespace:  dynamodb.ServiceNamespace,
+//				ResourceId:        dynamodb.ResourceId,
+//				ScalableDimension: dynamodb.ScalableDimension,
 //				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
 //				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
 //					MinCapacity: pulumi.Int(1),
@@ -71,7 +72,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+//			ecs, err := appautoscaling.NewTarget(ctx, "ecs", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(4),
 //				MinCapacity:       pulumi.Int(1),
 //				ResourceId:        pulumi.String("service/clusterName/serviceName"),
@@ -81,10 +82,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appautoscaling.NewScheduledAction(ctx, "ecsScheduledAction", &appautoscaling.ScheduledActionArgs{
-//				ServiceNamespace:  ecsTarget.ServiceNamespace,
-//				ResourceId:        ecsTarget.ResourceId,
-//				ScalableDimension: ecsTarget.ScalableDimension,
+//			_, err = appautoscaling.NewScheduledAction(ctx, "ecs", &appautoscaling.ScheduledActionArgs{
+//				Name:              pulumi.String("ecs"),
+//				ServiceNamespace:  ecs.ServiceNamespace,
+//				ResourceId:        ecs.ResourceId,
+//				ScalableDimension: ecs.ScalableDimension,
 //				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
 //				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
 //					MinCapacity: pulumi.Int(1),

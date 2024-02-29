@@ -28,15 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &macie2.OrganizationAdminAccountArgs{
+//			_, err = macie2.NewOrganizationAdminAccount(ctx, "example", &macie2.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("ID OF THE ADMIN ACCOUNT"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

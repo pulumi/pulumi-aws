@@ -34,18 +34,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cfg.Rule;
+ * import com.pulumi.aws.cfg.RuleArgs;
+ * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.Rule;
- * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,6 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var r = new Rule(&#34;r&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .source(RuleSourceArgs.builder()
+ *                 .owner(&#34;AWS&#34;)
+ *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
@@ -70,24 +77,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *         var rRole = new Role(&#34;rRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;my-awsconfig-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(rRole.arn())
  *             .build());
  * 
- *         var rule = new Rule(&#34;rule&#34;, RuleArgs.builder()        
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;AWS&#34;)
- *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(foo)
- *                 .build());
- * 
- *         final var policyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;config:Put*&#34;)
@@ -95,9 +95,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var pRolePolicy = new RolePolicy(&#34;pRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;my-awsconfig-policy&#34;)
+ *             .role(rRole.id())
+ *             .policy(p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -119,7 +120,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
  * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRecorder = new Recorder(&#34;exampleRecorder&#34;);
+ *         var example = new Recorder(&#34;example&#34;);
  * 
  *         var exampleFunction = new Function(&#34;exampleFunction&#34;);
  * 
@@ -141,6 +141,7 @@ import javax.annotation.Nullable;
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(exampleFunction.arn())
  *             .principal(&#34;config.amazonaws.com&#34;)
+ *             .statementId(&#34;AllowExecutionFromConfig&#34;)
  *             .build());
  * 
  *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
@@ -148,11 +149,7 @@ import javax.annotation.Nullable;
  *                 .owner(&#34;CUSTOM_LAMBDA&#34;)
  *                 .sourceIdentifier(exampleFunction.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleRecorder,
- *                     examplePermission)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -182,6 +179,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .source(RuleSourceArgs.builder()
  *                 .owner(&#34;CUSTOM_POLICY&#34;)
  *                 .sourceDetails(RuleSourceSourceDetailArgs.builder()

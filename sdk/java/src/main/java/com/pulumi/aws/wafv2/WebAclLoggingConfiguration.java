@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
- *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
- *             .resourceArn(aws_wafv2_web_acl.example().arn())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
  *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
  *                     .name(&#34;user-agent&#34;)
@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
- *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
- *             .resourceArn(aws_wafv2_web_acl.example().arn())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
  *                 .defaultBehavior(&#34;KEEP&#34;)
  *                 .filters(                

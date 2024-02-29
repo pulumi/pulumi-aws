@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
+ *             .name(&#34;example-virtual-gateway&#34;)
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
@@ -86,6 +87,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
+ *             .name(&#34;example-virtual-gateway&#34;)
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
@@ -96,7 +98,7 @@ import javax.annotation.Nullable;
  *                     .tls(VirtualGatewaySpecListenerTlsArgs.builder()
  *                         .certificate(VirtualGatewaySpecListenerTlsCertificateArgs.builder()
  *                             .acm(VirtualGatewaySpecListenerTlsCertificateAcmArgs.builder()
- *                                 .certificateArn(aws_acm_certificate.example().arn())
+ *                                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                                 .build())
  *                             .build())
  *                         .mode(&#34;STRICT&#34;)

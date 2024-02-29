@@ -312,12 +312,12 @@ class Vocabulary(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.Vocabulary("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        Etienne		eh-tee-en	\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",
@@ -358,12 +358,12 @@ class Vocabulary(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.Vocabulary("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        Etienne		eh-tee-en	\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",

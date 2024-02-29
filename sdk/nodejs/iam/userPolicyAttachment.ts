@@ -18,8 +18,9 @@ import {User} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const user = new aws.iam.User("user", {});
+ * const user = new aws.iam.User("user", {name: "test-user"});
  * const policy = new aws.iam.Policy("policy", {
+ *     name: "test-policy",
  *     description: "A test policy",
  *     policy: "{ ... policy JSON ... }",
  * });

@@ -28,15 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorOrganization(ctx, "defaultVoiceConnectorOrganization", &chime.VoiceConnectorOrganizationArgs{
+//			_, err = chime.NewVoiceConnectorOrganization(ctx, "default", &chime.VoiceConnectorOrganizationArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				Routes: chime.VoiceConnectorOrganizationRouteArray{
 //					&chime.VoiceConnectorOrganizationRouteArgs{
 //						Host:     pulumi.String("127.0.0.1"),

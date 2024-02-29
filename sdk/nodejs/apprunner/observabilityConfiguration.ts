@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apprunner.ObservabilityConfiguration("example", {
  *     observabilityConfigurationName: "example",
- *     tags: {
- *         Name: "example-apprunner-observability-configuration",
- *     },
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
+ *     },
+ *     tags: {
+ *         Name: "example-apprunner-observability-configuration",
  *     },
  * });
  * ```

@@ -126,8 +126,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecrpublic.Repository("example", repository_name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -151,9 +151,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
+        example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import
@@ -188,8 +188,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecrpublic.Repository("example", repository_name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -213,9 +213,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
+        example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -41,6 +42,7 @@ import (
 //				return err
 //			}
 //			wafrule, err := wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
@@ -54,6 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
+//				Name:       pulumi.String("tfWebACL"),
 //				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -92,6 +95,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
+//				Name:       pulumi.String("example"),
 //				MetricName: pulumi.String("example"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -99,7 +103,7 @@ import (
 //				Rules: wafregional.WebAclRuleArray{
 //					&wafregional.WebAclRuleArgs{
 //						Priority: pulumi.Int(1),
-//						RuleId:   pulumi.Any(aws_wafregional_rule_group.Example.Id),
+//						RuleId:   pulumi.Any(exampleAwsWafregionalRuleGroup.Id),
 //						Type:     pulumi.String("GROUP"),
 //						OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
 //							Type: pulumi.String("NONE"),
@@ -131,10 +135,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration ...
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
 //				LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{

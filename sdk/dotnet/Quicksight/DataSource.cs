@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var @default = new Aws.Quicksight.DataSource("default", new()
     ///     {
     ///         DataSourceId = "example-id",
+    ///         Name = "My Cool Data in S3",
     ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
     ///         {
     ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args

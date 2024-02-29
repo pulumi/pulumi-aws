@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
  * ### With Host ID Filter
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
  * });
  * ```
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  *     statusIdFilters: ["ACTIVE"],
  * });
  * ```
@@ -96,7 +96,7 @@ export interface GetAssetsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
  * ### With Host ID Filter
@@ -106,7 +106,7 @@ export interface GetAssetsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
  * });
  * ```
@@ -117,7 +117,7 @@ export interface GetAssetsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
+ *     arn: exampleAwsOutpostsOutpost.arn,
  *     statusIdFilters: ["ACTIVE"],
  * });
  * ```

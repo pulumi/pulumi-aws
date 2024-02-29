@@ -30,11 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
+//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
+//				Name: pulumi.String("test-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test-policy"),
 //				Description: pulumi.String("A test policy"),
 //				Policy:      pulumi.Any("{ ... policy JSON ... }"),
 //			})

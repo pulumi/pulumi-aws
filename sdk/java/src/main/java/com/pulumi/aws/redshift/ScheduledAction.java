@@ -62,10 +62,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;redshift_scheduled_action&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;redshift_scheduled_action&#34;)
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -86,6 +88,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScheduledAction = new ScheduledAction(&#34;exampleScheduledAction&#34;, ScheduledActionArgs.builder()        
+ *             .name(&#34;tf-redshift-scheduled-action&#34;)
  *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
  *             .iamRole(exampleRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
@@ -123,8 +126,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ScheduledAction(&#34;example&#34;, ScheduledActionArgs.builder()        
+ *             .name(&#34;tf-redshift-scheduled-action&#34;)
  *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
- *             .iamRole(aws_iam_role.example().arn())
+ *             .iamRole(exampleAwsIamRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
  *                 .resizeCluster(ScheduledActionTargetActionResizeClusterArgs.builder()
  *                     .clusterIdentifier(&#34;tf-redshift001&#34;)

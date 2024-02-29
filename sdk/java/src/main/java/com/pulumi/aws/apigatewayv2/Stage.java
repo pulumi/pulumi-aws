@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stage(&#34;example&#34;, StageArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .name(&#34;example-stage&#34;)
  *             .build());
  * 
  *     }

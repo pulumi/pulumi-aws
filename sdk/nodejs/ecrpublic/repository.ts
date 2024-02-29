@@ -17,24 +17,23 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const usEast1 = new aws.Provider("usEast1", {region: "us-east-1"});
  * const foo = new aws.ecrpublic.Repository("foo", {
  *     repositoryName: "bar",
  *     catalogData: {
  *         aboutText: "About Text",
  *         architectures: ["ARM"],
  *         description: "Description",
- *         logoImageBlob: fs.readFileSync(image.png, { encoding: "base64" }),
+ *         logoImageBlob: std.filebase64({
+ *             input: png,
+ *         }).then(invoke => invoke.result),
  *         operatingSystems: ["Linux"],
  *         usageText: "Usage Text",
  *     },
  *     tags: {
  *         env: "production",
  *     },
- * }, {
- *     provider: aws.us_east_1,
  * });
  * ```
  *

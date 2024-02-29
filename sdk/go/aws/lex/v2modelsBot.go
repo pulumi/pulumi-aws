@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
+//				Name: pulumi.String("example"),
 //				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
 //					&lex.V2modelsBotDataPrivacyArgs{
 //						ChildDirected: pulumi.Bool("boolean"),

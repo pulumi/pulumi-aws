@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RiskConfiguration(&#34;example&#34;, RiskConfigurationArgs.builder()        
- *             .userPoolId(aws_cognito_user_pool.example().id())
+ *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
  *                 .blockedIpRangeLists(&#34;10.10.10.10/32&#34;)
  *                 .build())

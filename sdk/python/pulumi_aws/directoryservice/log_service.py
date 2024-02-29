@@ -106,8 +106,10 @@ class LogService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
+            retention_in_days=14)
+        ad_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
@@ -116,15 +118,15 @@ class LogService(pulumi.CustomResource):
                 identifiers=["ds.amazonaws.com"],
                 type="Service",
             )],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+            resources=[example.arn.apply(lambda arn: f"{arn}:*")],
             effect="Allow",
         )])
-        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
-            policy_document=ad_log_policy_policy_document.json,
+        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
+            policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("exampleLogService",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            log_group_name=example_log_group.name)
+        example_log_service = aws.directoryservice.LogService("example",
+            directory_id=example_aws_directory_service_directory["id"],
+            log_group_name=example.name)
         ```
 
         ## Import
@@ -155,8 +157,10 @@ class LogService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
+            retention_in_days=14)
+        ad_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
@@ -165,15 +169,15 @@ class LogService(pulumi.CustomResource):
                 identifiers=["ds.amazonaws.com"],
                 type="Service",
             )],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+            resources=[example.arn.apply(lambda arn: f"{arn}:*")],
             effect="Allow",
         )])
-        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
-            policy_document=ad_log_policy_policy_document.json,
+        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
+            policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("exampleLogService",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            log_group_name=example_log_group.name)
+        example_log_service = aws.directoryservice.LogService("example",
+            directory_id=example_aws_directory_service_directory["id"],
+            log_group_name=example.name)
         ```
 
         ## Import

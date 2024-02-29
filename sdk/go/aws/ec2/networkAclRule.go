@@ -34,19 +34,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			barNetworkAcl, err := ec2.NewNetworkAcl(ctx, "barNetworkAcl", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
+//			bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
+//				VpcId: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
-//				NetworkAclId: barNetworkAcl.ID(),
+//			_, err = ec2.NewNetworkAclRule(ctx, "bar", &ec2.NetworkAclRuleArgs{
+//				NetworkAclId: bar.ID(),
 //				RuleNumber:   pulumi.Int(200),
 //				Egress:       pulumi.Bool(false),
 //				Protocol:     pulumi.String("tcp"),
 //				RuleAction:   pulumi.String("allow"),
-//				CidrBlock:    pulumi.Any(aws_vpc.Foo.Cidr_block),
+//				CidrBlock:    pulumi.Any(foo.CidrBlock),
 //				FromPort:     pulumi.Int(22),
 //				ToPort:       pulumi.Int(22),
 //			})

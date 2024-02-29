@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewUsageLimit(ctx, "example", &redshift.UsageLimitArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.Id),
 //				FeatureType:       pulumi.String("concurrency-scaling"),
 //				LimitType:         pulumi.String("time"),
 //				Amount:            pulumi.Int(60),

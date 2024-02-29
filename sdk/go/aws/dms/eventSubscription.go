@@ -34,9 +34,10 @@ import (
 //					pulumi.String("creation"),
 //					pulumi.String("failure"),
 //				},
-//				SnsTopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//				Name:        pulumi.String("my-favorite-event-subscription"),
+//				SnsTopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
 //				SourceIds: pulumi.StringArray{
-//					aws_dms_replication_task.Example.Replication_task_id,
+//					exampleAwsDmsReplicationTask.ReplicationTaskId,
 //				},
 //				SourceType: pulumi.String("replication-task"),
 //				Tags: pulumi.StringMap{

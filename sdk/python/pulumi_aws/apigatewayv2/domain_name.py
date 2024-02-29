@@ -236,7 +236,7 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
@@ -247,20 +247,20 @@ class DomainName(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+        example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
             type="A",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.domain_name_configuration.target_domain_name,
-                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                name=example.domain_name_configuration.target_domain_name,
+                zone_id=example.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
             )])
         ```
@@ -303,7 +303,7 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
@@ -314,20 +314,20 @@ class DomainName(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+        example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
             type="A",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.domain_name_configuration.target_domain_name,
-                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                name=example.domain_name_configuration.target_domain_name,
+                zone_id=example.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
             )])
         ```

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BotAssociation(&#34;example&#34;, BotAssociationArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(&#34;us-west-2&#34;)
  *                 .name(&#34;Test&#34;)
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleIntent = new Intent(&#34;exampleIntent&#34;, IntentArgs.builder()        
+ *         var example = new Intent(&#34;example&#34;, IntentArgs.builder()        
  *             .createVersion(true)
  *             .name(&#34;connect_lex_intent&#34;)
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .intents(BotIntentArgs.builder()
- *                 .intentName(exampleIntent.name())
+ *                 .intentName(example.name())
  *                 .intentVersion(&#34;1&#34;)
  *                 .build())
  *             .childDirected(false)
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBotAssociation = new BotAssociation(&#34;exampleBotAssociation&#34;, BotAssociationArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .name(exampleBot.name())

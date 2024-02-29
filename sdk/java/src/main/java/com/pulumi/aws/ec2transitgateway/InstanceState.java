@@ -60,14 +60,14 @@ import javax.annotation.Nullable;
  *             .owners(&#34;099720109477&#34;)
  *             .build());
  * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
  *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.micro&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
  *             .build());
  * 
  *         var testInstanceState = new InstanceState(&#34;testInstanceState&#34;, InstanceStateArgs.builder()        
- *             .instanceId(testInstance.id())
+ *             .instanceId(test.id())
  *             .state(&#34;stopped&#34;)
  *             .build());
  * 

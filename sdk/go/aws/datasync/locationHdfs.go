@@ -32,13 +32,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					exampleAwsDatasyncAgent.Arn,
 //				},
 //				AuthenticationType: pulumi.String("SIMPLE"),
 //				SimpleUser:         pulumi.String("example"),
 //				NameNodes: datasync.LocationHdfsNameNodeArray{
 //					&datasync.LocationHdfsNameNodeArgs{
-//						Hostname: pulumi.Any(aws_instance.Example.Private_dns),
+//						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
 //						Port:     pulumi.Int(80),
 //					},
 //				},

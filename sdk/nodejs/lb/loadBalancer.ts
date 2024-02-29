@@ -20,13 +20,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lb.LoadBalancer("test", {
+ *     name: "test-lb-tf",
  *     internal: false,
  *     loadBalancerType: "application",
- *     securityGroups: [aws_security_group.lb_sg.id],
+ *     securityGroups: [lbSg.id],
  *     subnets: .map(subnet => (subnet.id)),
  *     enableDeletionProtection: true,
  *     accessLogs: {
- *         bucket: aws_s3_bucket.lb_logs.id,
+ *         bucket: lbLogs.id,
  *         prefix: "test-lb",
  *         enabled: true,
  *     },
@@ -42,6 +43,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lb.LoadBalancer("test", {
+ *     name: "test-lb-tf",
  *     internal: false,
  *     loadBalancerType: "network",
  *     subnets: .map(subnet => (subnet.id)),
@@ -58,15 +60,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lb.LoadBalancer("example", {
+ *     name: "example",
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
- *             subnetId: aws_subnet.example1.id,
- *             allocationId: aws_eip.example1.id,
+ *             subnetId: example1AwsSubnet.id,
+ *             allocationId: example1.id,
  *         },
  *         {
- *             subnetId: aws_subnet.example2.id,
- *             allocationId: aws_eip.example2.id,
+ *             subnetId: example2AwsSubnet.id,
+ *             allocationId: example2.id,
  *         },
  *     ],
  * });
@@ -78,14 +81,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lb.LoadBalancer("example", {
+ *     name: "example",
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
- *             subnetId: aws_subnet.example1.id,
+ *             subnetId: example1.id,
  *             privateIpv4Address: "10.0.1.15",
  *         },
  *         {
- *             subnetId: aws_subnet.example2.id,
+ *             subnetId: example2.id,
  *             privateIpv4Address: "10.0.2.15",
  *         },
  *     ],

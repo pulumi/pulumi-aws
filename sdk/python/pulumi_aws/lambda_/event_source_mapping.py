@@ -903,8 +903,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_dynamodb_table["streamArn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
         ### Kinesis
@@ -914,8 +914,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_kinesis_stream["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_kinesis_stream["arn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
         ### Managed Streaming for Apache Kafka (MSK)
@@ -925,8 +925,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_msk_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
@@ -937,7 +937,7 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=aws_lambda_function["example"]["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON",
             self_managed_event_source=aws.lambda_.EventSourceMappingSelfManagedEventSourceArgs(
@@ -967,8 +967,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"])
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
         ### SQS with event filter
 
@@ -978,13 +978,13 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"],
             filter_criteria=aws.lambda_.EventSourceMappingFilterCriteriaArgs(
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -992,11 +992,51 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],
             ))
+        ```
+        ### Amazon MQ (ActiveMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=example_aws_secretsmanager_secret_version["arn"],
+            )])
+        ```
+        ### Amazon MQ (RabbitMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=example_aws_secretsmanager_secret_version["arn"],
+                ),
+            ])
         ```
 
         ## Import
@@ -1053,8 +1093,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_dynamodb_table["streamArn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
         ### Kinesis
@@ -1064,8 +1104,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_kinesis_stream["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_kinesis_stream["arn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
         ### Managed Streaming for Apache Kafka (MSK)
@@ -1075,8 +1115,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_msk_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
@@ -1087,7 +1127,7 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=aws_lambda_function["example"]["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON",
             self_managed_event_source=aws.lambda_.EventSourceMappingSelfManagedEventSourceArgs(
@@ -1117,8 +1157,8 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"])
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
         ### SQS with event filter
 
@@ -1128,13 +1168,13 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"],
             filter_criteria=aws.lambda_.EventSourceMappingFilterCriteriaArgs(
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1142,11 +1182,51 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],
             ))
+        ```
+        ### Amazon MQ (ActiveMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=example_aws_secretsmanager_secret_version["arn"],
+            )])
+        ```
+        ### Amazon MQ (RabbitMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=example_aws_secretsmanager_secret_version["arn"],
+                ),
+            ])
         ```
 
         ## Import

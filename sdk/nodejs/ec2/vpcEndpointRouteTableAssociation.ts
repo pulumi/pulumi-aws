@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpcEndpointRouteTableAssociation("example", {
- *     routeTableId: aws_route_table.example.id,
- *     vpcEndpointId: aws_vpc_endpoint.example.id,
+ *     routeTableId: exampleAwsRouteTable.id,
+ *     vpcEndpointId: exampleAwsVpcEndpoint.id,
  * });
  * ```
  *

@@ -35,7 +35,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpcIpamPool, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
+//			test, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
 //				Filters: []ec2.GetVpcIpamPoolFilter{
 //					{
 //						Name: "description",
@@ -54,8 +54,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(testVpcIpamPool.Id),
+//			_, err = ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
+//				Ipv4IpamPoolId:    *pulumi.String(test.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {

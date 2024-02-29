@@ -336,6 +336,10 @@ class Configuration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
             data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
@@ -344,11 +348,7 @@ class Configuration(pulumi.CustomResource):
             <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
           </plugins>
         </broker>
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        \"\"\")
         ```
         ### RabbitMQ
 
@@ -357,13 +357,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="RabbitMQ",
+            engine_version="3.11.20",
             data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        \"\"\")
         ```
 
         ## Import
@@ -405,6 +405,10 @@ class Configuration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
             data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
@@ -413,11 +417,7 @@ class Configuration(pulumi.CustomResource):
             <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
           </plugins>
         </broker>
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        \"\"\")
         ```
         ### RabbitMQ
 
@@ -426,13 +426,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="RabbitMQ",
+            engine_version="3.11.20",
             data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        \"\"\")
         ```
 
         ## Import

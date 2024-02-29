@@ -16,8 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const parent = new aws.iot.ThingGroup("parent", {});
+ * const parent = new aws.iot.ThingGroup("parent", {name: "parent"});
  * const example = new aws.iot.ThingGroup("example", {
+ *     name: "example",
  *     parentGroupName: parent.name,
  *     properties: {
  *         attributePayload: {

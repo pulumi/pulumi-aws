@@ -289,6 +289,7 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.Service("example",
+            name="example",
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```
@@ -328,6 +329,7 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.Service("example",
+            name="example",
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```

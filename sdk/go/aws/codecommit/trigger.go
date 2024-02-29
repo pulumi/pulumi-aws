@@ -28,21 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
+//			test, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
 //				RepositoryName: pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
-//				RepositoryName: testRepository.RepositoryName,
+//			_, err = codecommit.NewTrigger(ctx, "test", &codecommit.TriggerArgs{
+//				RepositoryName: test.RepositoryName,
 //				Triggers: codecommit.TriggerTriggerArray{
 //					&codecommit.TriggerTriggerArgs{
 //						Name: pulumi.String("all"),
 //						Events: pulumi.StringArray{
 //							pulumi.String("all"),
 //						},
-//						DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
+//						DestinationArn: pulumi.Any(testAwsSnsTopic.Arn),
 //					},
 //				},
 //			})

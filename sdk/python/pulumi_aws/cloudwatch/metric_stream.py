@@ -466,6 +466,7 @@ class MetricStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
         streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -474,8 +475,10 @@ class MetricStream(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket")
+        metric_stream_to_firehose_role = aws.iam.Role("metric_stream_to_firehose",
+            name="metric_stream_to_firehose_role",
+            assume_role_policy=streams_assume_role.json)
+        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -484,14 +487,16 @@ class MetricStream(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
-        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
+        firehose_to_s3_role = aws.iam.Role("firehose_to_s3", assume_role_policy=firehose_assume_role.json)
+        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3_stream",
+            name="metric-stream-test-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_to_s3_role.arn,
                 bucket_arn=bucket.arn,
             ))
         main = aws.cloudwatch.MetricStream("main",
+            name="my-metric-stream",
             role_arn=metric_stream_to_firehose_role.arn,
             firehose_arn=s3_stream.arn,
             output_format="json",
@@ -508,7 +513,8 @@ class MetricStream(pulumi.CustomResource):
                     metric_names=[],
                 ),
             ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+        metric_stream_to_firehose = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "firehose:PutRecord",
@@ -516,13 +522,14 @@ class MetricStream(pulumi.CustomResource):
             ],
             resources=[s3_stream.arn],
         )])
-        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
+        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metric_stream_to_firehose",
+            name="default",
             role=metric_stream_to_firehose_role.id,
-            policy=metric_stream_to_firehose_policy_document.json)
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            policy=metric_stream_to_firehose.json)
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        firehose_to_s3 = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "s3:AbortMultipartUpload",
@@ -537,9 +544,10 @@ class MetricStream(pulumi.CustomResource):
                 bucket.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
+        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehose_to_s3",
+            name="default",
             role=firehose_to_s3_role.id,
-            policy=firehose_to_s3_policy_document.json)
+            policy=firehose_to_s3.json)
         ```
         ### Additional Statistics
 
@@ -548,8 +556,9 @@ class MetricStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.cloudwatch.MetricStream("main",
-            role_arn=aws_iam_role["metric_stream_to_firehose"]["arn"],
-            firehose_arn=aws_kinesis_firehose_delivery_stream["s3_stream"]["arn"],
+            name="my-metric-stream",
+            role_arn=metric_stream_to_firehose["arn"],
+            firehose_arn=s3_stream["arn"],
             output_format="json",
             statistics_configurations=[
                 aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(
@@ -611,6 +620,7 @@ class MetricStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
         streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -619,8 +629,10 @@ class MetricStream(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket")
+        metric_stream_to_firehose_role = aws.iam.Role("metric_stream_to_firehose",
+            name="metric_stream_to_firehose_role",
+            assume_role_policy=streams_assume_role.json)
+        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -629,14 +641,16 @@ class MetricStream(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
-        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
+        firehose_to_s3_role = aws.iam.Role("firehose_to_s3", assume_role_policy=firehose_assume_role.json)
+        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3_stream",
+            name="metric-stream-test-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_to_s3_role.arn,
                 bucket_arn=bucket.arn,
             ))
         main = aws.cloudwatch.MetricStream("main",
+            name="my-metric-stream",
             role_arn=metric_stream_to_firehose_role.arn,
             firehose_arn=s3_stream.arn,
             output_format="json",
@@ -653,7 +667,8 @@ class MetricStream(pulumi.CustomResource):
                     metric_names=[],
                 ),
             ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+        metric_stream_to_firehose = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "firehose:PutRecord",
@@ -661,13 +676,14 @@ class MetricStream(pulumi.CustomResource):
             ],
             resources=[s3_stream.arn],
         )])
-        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
+        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metric_stream_to_firehose",
+            name="default",
             role=metric_stream_to_firehose_role.id,
-            policy=metric_stream_to_firehose_policy_document.json)
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            policy=metric_stream_to_firehose.json)
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        firehose_to_s3 = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "s3:AbortMultipartUpload",
@@ -682,9 +698,10 @@ class MetricStream(pulumi.CustomResource):
                 bucket.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
+        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehose_to_s3",
+            name="default",
             role=firehose_to_s3_role.id,
-            policy=firehose_to_s3_policy_document.json)
+            policy=firehose_to_s3.json)
         ```
         ### Additional Statistics
 
@@ -693,8 +710,9 @@ class MetricStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.cloudwatch.MetricStream("main",
-            role_arn=aws_iam_role["metric_stream_to_firehose"]["arn"],
-            firehose_arn=aws_kinesis_firehose_delivery_stream["s3_stream"]["arn"],
+            name="my-metric-stream",
+            role_arn=metric_stream_to_firehose["arn"],
+            firehose_arn=s3_stream["arn"],
             output_format="json",
             statistics_configurations=[
                 aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(

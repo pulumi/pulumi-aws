@@ -25,6 +25,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
+    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
     ///             Title = "title",
@@ -33,12 +34,6 @@ namespace Pulumi.Aws.SsmIncidents
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
     ///         },
     ///     });
     /// 
@@ -56,6 +51,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
+    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
     ///             Title = "title",
@@ -69,11 +65,11 @@ namespace Pulumi.Aws.SsmIncidents
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example1.Arn,
+    ///                     SnsTopicArn = example1.Arn,
     ///                 },
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example2.Arn,
+    ///                     SnsTopicArn = example2.Arn,
     ///                 },
     ///             },
     ///             Summary = "summary",
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.SsmIncidents
     ///         DisplayName = "display name",
     ///         ChatChannels = new[]
     ///         {
-    ///             aws_sns_topic.Topic.Arn,
+    ///             topic.Arn,
     ///         },
     ///         Engagements = new[]
     ///         {
@@ -93,8 +89,8 @@ namespace Pulumi.Aws.SsmIncidents
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationArgs
     ///                 {
-    ///                     DocumentName = aws_ssm_document.Document1.Name,
-    ///                     RoleArn = aws_iam_role.Role1.Arn,
+    ///                     DocumentName = document1.Name,
+    ///                     RoleArn = role1.Arn,
     ///                     DocumentVersion = "version1",
     ///                     TargetAccount = "RESPONSE_PLAN_OWNER_ACCOUNT",
     ///                     Parameters = new[]
@@ -140,12 +136,6 @@ namespace Pulumi.Aws.SsmIncidents
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
     ///         },
     ///     });
     /// 

@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 
@@ -62,10 +61,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dlmLifecycleRole = new Role(&#34;dlmLifecycleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;dlm-lifecycle-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var dlmLifecyclePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var dlmLifecycle = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
@@ -86,8 +86,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dlmLifecycleRolePolicy = new RolePolicy(&#34;dlmLifecycleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;dlm-lifecycle-policy&#34;)
  *             .role(dlmLifecycleRole.id())
- *             .policy(dlmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(dlmLifecycle.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
@@ -117,7 +118,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Example Cross-Region Snapshot Copy Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -133,7 +133,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dlm.LifecyclePolicy;
  * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
  * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -165,13 +164,11 @@ import javax.annotation.Nullable;
  *         var dlmCrossRegionCopyCmk = new Key(&#34;dlmCrossRegionCopyCmk&#34;, KeyArgs.builder()        
  *             .description(&#34;Example Alternate Region KMS Key&#34;)
  *             .policy(key.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
  *             .description(&#34;example DLM lifecycle policy&#34;)
- *             .executionRoleArn(aws_iam_role.dlm_lifecycle_role().arn())
+ *             .executionRoleArn(dlmLifecycleRole.arn())
  *             .state(&#34;ENABLED&#34;)
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
  *                 .resourceTypes(&#34;VOLUME&#34;)
@@ -241,7 +238,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
  *             .description(&#34;tf-acc-basic&#34;)
- *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
  *                 .policyType(&#34;EVENT_BASED_POLICY&#34;)
  *                 .action(LifecyclePolicyPolicyDetailsActionArgs.builder()
@@ -266,13 +263,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var examplePolicy = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
  *             .name(&#34;AWSDataLifecycleManagerServiceRole&#34;)
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(aws_iam_role.example().id())
- *             .policyArn(examplePolicy.applyValue(getPolicyResult -&gt; getPolicyResult.arn()))
+ *             .role(exampleAwsIamRole.id())
+ *             .policyArn(example.applyValue(getPolicyResult -&gt; getPolicyResult.arn()))
  *             .build());
  * 
  *     }

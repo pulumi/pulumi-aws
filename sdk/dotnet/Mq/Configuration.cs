@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Configuration("example", new()
     ///     {
+    ///         Description = "Example Configuration",
+    ///         Name = "example",
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
     ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
     /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
     ///   &lt;plugins&gt;
@@ -35,11 +39,7 @@ namespace Pulumi.Aws.Mq
     ///     &lt;timeStampingBrokerPlugin ttlCeiling=""86400000"" zeroExpirationOverride=""86400000""/&gt;
     ///   &lt;/plugins&gt;
     /// &lt;/broker&gt;
-    /// 
     /// ",
-    ///         Description = "Example Configuration",
-    ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.17.6",
     ///     });
     /// 
     /// });
@@ -56,13 +56,13 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Configuration("example", new()
     ///     {
-    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
-    /// consumer_timeout = 1800000
-    /// 
-    /// ",
     ///         Description = "Example Configuration",
+    ///         Name = "example",
     ///         EngineType = "RabbitMQ",
     ///         EngineVersion = "3.11.20",
+    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+    /// consumer_timeout = 1800000
+    /// ",
     ///     });
     /// 
     /// });

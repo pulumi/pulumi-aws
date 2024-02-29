@@ -16,7 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [aws_ssmcontacts_contact.example.arn],
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     recurrence: {
  *         numberOfOnCalls: 1,
  *         recurrenceMultiplier: 1,
@@ -26,8 +27,6 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     timeZoneId: "Australia/Sydney",
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
  * ### Usage with Weekly Settings and Shift Coverages Fields
@@ -37,7 +36,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [aws_ssmcontacts_contact.example.arn],
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     recurrence: {
  *         numberOfOnCalls: 1,
  *         recurrenceMultiplier: 1,
@@ -77,8 +77,6 @@ import * as utilities from "../utilities";
  *         key1: "tag1",
  *         key2: "tag2",
  *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
  * ### Usage with Monthly Settings Fields
@@ -88,7 +86,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [aws_ssmcontacts_contact.example.arn],
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     recurrence: {
  *         numberOfOnCalls: 1,
  *         recurrenceMultiplier: 1,
@@ -110,8 +109,6 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     timeZoneId: "Australia/Sydney",
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
  *

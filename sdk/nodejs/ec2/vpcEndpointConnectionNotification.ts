@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const topicPolicyDocument = aws.iam.getPolicyDocument({
+ * const topic = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -25,13 +25,16 @@ import * as utilities from "../utilities";
  *         resources: ["arn:aws:sns:*:*:vpce-notification-topic"],
  *     }],
  * });
- * const topicTopic = new aws.sns.Topic("topicTopic", {policy: topicPolicyDocument.then(topicPolicyDocument => topicPolicyDocument.json)});
- * const fooVpcEndpointService = new aws.ec2.VpcEndpointService("fooVpcEndpointService", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.test.arn],
+ * const topicTopic = new aws.sns.Topic("topic", {
+ *     name: "vpce-notification-topic",
+ *     policy: topic.then(topic => topic.json),
  * });
- * const fooVpcEndpointConnectionNotification = new aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", {
- *     vpcEndpointServiceId: fooVpcEndpointService.id,
+ * const foo = new aws.ec2.VpcEndpointService("foo", {
+ *     acceptanceRequired: false,
+ *     networkLoadBalancerArns: [test.arn],
+ * });
+ * const fooVpcEndpointConnectionNotification = new aws.ec2.VpcEndpointConnectionNotification("foo", {
+ *     vpcEndpointServiceId: foo.id,
  *     connectionNotificationArn: topicTopic.arn,
  *     connectionEvents: [
  *         "Accept",

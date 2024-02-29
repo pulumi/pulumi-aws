@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAutoScalingConfigurationVersion = new Aws.AppRunner.AutoScalingConfigurationVersion("exampleAutoScalingConfigurationVersion", new()
+    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
     ///     {
     ///         AutoScalingConfigurationName = "example",
     ///         MaxConcurrency = 50,
@@ -33,9 +33,9 @@ namespace Pulumi.Aws.AppRunner
     ///         MinSize = 2,
     ///     });
     /// 
-    ///     var exampleDefaultAutoScalingConfigurationVersion = new Aws.AppRunner.DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", new()
+    ///     var exampleDefaultAutoScalingConfigurationVersion = new Aws.AppRunner.DefaultAutoScalingConfigurationVersion("example", new()
     ///     {
-    ///         AutoScalingConfigurationArn = exampleAutoScalingConfigurationVersion.Arn,
+    ///         AutoScalingConfigurationArn = example.Arn,
     ///     });
     /// 
     /// });

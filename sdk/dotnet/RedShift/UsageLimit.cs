@@ -24,7 +24,7 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.UsageLimit("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
     ///         FeatureType = "concurrency-scaling",
     ///         LimitType = "time",
     ///         Amount = 60,

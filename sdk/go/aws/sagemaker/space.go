@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewSpace(ctx, "example", &sagemaker.SpaceArgs{
-//				DomainId:  pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				DomainId:  pulumi.Any(test.Id),
 //				SpaceName: pulumi.String("example"),
 //			})
 //			if err != nil {

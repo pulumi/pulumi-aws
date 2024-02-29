@@ -45,13 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .path(&#34;/&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleUserLoginProfile = new UserLoginProfile(&#34;exampleUserLoginProfile&#34;, UserLoginProfileArgs.builder()        
- *             .user(exampleUser.name())
+ *             .user(example.name())
  *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
  *             .build());
  * 

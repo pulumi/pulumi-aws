@@ -252,12 +252,15 @@ class KxDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_kx_database = aws.finspace.KxDatabase("exampleKxDatabase",
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
+        example_kx_database = aws.finspace.KxDatabase("example",
             environment_id=example_kx_environment.id,
+            name="my-tf-kx-database",
             description="Example database description")
         ```
 
@@ -294,12 +297,15 @@ class KxDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_kx_database = aws.finspace.KxDatabase("exampleKxDatabase",
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
+        example_kx_database = aws.finspace.KxDatabase("example",
             environment_id=example_kx_environment.id,
+            name="my-tf-kx-database",
             description="Example database description")
         ```
 

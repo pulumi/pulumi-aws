@@ -138,7 +138,7 @@ class ServiceSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_setting = aws.ssm.ServiceSetting("testSetting",
+        test_setting = aws.ssm.ServiceSetting("test_setting",
             setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
             setting_value="true")
         ```
@@ -171,7 +171,7 @@ class ServiceSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_setting = aws.ssm.ServiceSetting("testSetting",
+        test_setting = aws.ssm.ServiceSetting("test_setting",
             setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
             setting_value="true")
         ```

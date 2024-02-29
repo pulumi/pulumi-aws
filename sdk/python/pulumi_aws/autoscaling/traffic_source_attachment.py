@@ -113,9 +113,9 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
             traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
+                identifier=example_aws_lb_target_group["arn"],
                 type="elbv2",
             ))
         ```
@@ -144,9 +144,9 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
             traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
+                identifier=example_aws_lb_target_group["arn"],
                 type="elbv2",
             ))
         ```

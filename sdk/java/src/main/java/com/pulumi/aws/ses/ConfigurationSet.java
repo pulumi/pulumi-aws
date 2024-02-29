@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.ConfigurationSet;
+ * import com.pulumi.aws.ses.ConfigurationSetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,7 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet(&#34;test&#34;);
+ *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -73,6 +76,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .tlsPolicy(&#34;Require&#34;)
  *                 .build())
@@ -105,6 +109,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
  *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
  *                 .customRedirectDomain(&#34;sub.example.com&#34;)
  *                 .build())

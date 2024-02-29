@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var testVpcIpam = new Aws.Ec2.VpcIpam("testVpcIpam", new()
+    ///     var test = new Aws.Ec2.VpcIpam("test", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -78,29 +78,23 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("testVpcIpamPool", new()
+    ///     var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("test", new()
     ///     {
     ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = testVpcIpam.PrivateDefaultScopeId,
+    ///         IpamScopeId = test.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", new()
+    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("test", new()
     ///     {
     ///         IpamPoolId = testVpcIpamPool.Id,
     ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var testVpc = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         Ipv4IpamPoolId = testVpcIpamPool.Id,
     ///         Ipv4NetmaskLength = 28,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testVpcIpamPoolCidr,
-    ///         },
     ///     });
     /// 
     /// });

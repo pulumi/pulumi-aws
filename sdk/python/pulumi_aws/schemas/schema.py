@@ -326,9 +326,10 @@ class Schema(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
-            registry_name=test_registry.name,
+        test = aws.schemas.Registry("test", name="my_own_registry")
+        test_schema = aws.schemas.Schema("test",
+            name="my_schema",
+            registry_name=test.name,
             type="OpenApi3",
             description="The schema definition for my event",
             content=json.dumps({
@@ -388,9 +389,10 @@ class Schema(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
-            registry_name=test_registry.name,
+        test = aws.schemas.Registry("test", name="my_own_registry")
+        test_schema = aws.schemas.Schema("test",
+            name="my_schema",
+            registry_name=test.name,
             type="OpenApi3",
             description="The schema definition for my event",
             content=json.dumps({

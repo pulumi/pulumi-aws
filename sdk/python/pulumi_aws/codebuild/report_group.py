@@ -262,7 +262,7 @@ class ReportGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -272,12 +272,13 @@ class ReportGroup(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="my test kms key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+            policy=example.json)
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_report_group = aws.codebuild.ReportGroup("example",
+            name="my test report group",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",
@@ -323,7 +324,7 @@ class ReportGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -333,12 +334,13 @@ class ReportGroup(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="my test kms key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+            policy=example.json)
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_report_group = aws.codebuild.ReportGroup("example",
+            name="my test report group",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",

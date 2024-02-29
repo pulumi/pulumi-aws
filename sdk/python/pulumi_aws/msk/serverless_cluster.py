@@ -224,6 +224,27 @@ class ServerlessCluster(pulumi.CustomResource):
 
         > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.ServerlessCluster("example",
+            cluster_name="Example",
+            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[example_aws_security_group["id"]],
+            )],
+            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
+                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
+                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
+                        enabled=True,
+                    ),
+                ),
+            ))
+        ```
+
         ## Import
 
         Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
@@ -249,6 +270,27 @@ class ServerlessCluster(pulumi.CustomResource):
         Manages an Amazon MSK Serverless cluster.
 
         > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.ServerlessCluster("example",
+            cluster_name="Example",
+            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[example_aws_security_group["id"]],
+            )],
+            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
+                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
+                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
+                        enabled=True,
+                    ),
+                ),
+            ))
+        ```
 
         ## Import
 

@@ -10,6 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iot.TopicRuleDestination("example", new()
+    ///     {
+    ///         VpcConfiguration = new Aws.Iot.Inputs.TopicRuleDestinationVpcConfigurationArgs
+    ///         {
+    ///             RoleArn = exampleAwsIamRole.Arn,
+    ///             SecurityGroups = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///             VpcId = exampleAwsVpc.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:

@@ -349,18 +349,19 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
+            name="example",
             assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
-                destination=f"s3://{aws_s3_bucket['test']['id']}",
+                destination=f"s3://{test_aws_s3_bucket['id']}",
                 destination_type="S3",
             ),
-            framework_id=aws_auditmanager_framework["test"]["id"],
+            framework_id=test_aws_auditmanager_framework["id"],
             roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=aws_iam_role["test"]["arn"],
+                role_arn=test_aws_iam_role["arn"],
                 role_type="PROCESS_OWNER",
             )],
             scope=aws.auditmanager.AssessmentScopeArgs(
                 aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=data["aws_caller_identity"]["current"]["account_id"],
+                    id=current["accountId"],
                 )],
                 aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
                     service_name="S3",
@@ -405,18 +406,19 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
+            name="example",
             assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
-                destination=f"s3://{aws_s3_bucket['test']['id']}",
+                destination=f"s3://{test_aws_s3_bucket['id']}",
                 destination_type="S3",
             ),
-            framework_id=aws_auditmanager_framework["test"]["id"],
+            framework_id=test_aws_auditmanager_framework["id"],
             roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=aws_iam_role["test"]["arn"],
+                role_arn=test_aws_iam_role["arn"],
                 role_type="PROCESS_OWNER",
             )],
             scope=aws.auditmanager.AssessmentScopeArgs(
                 aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=data["aws_caller_identity"]["current"]["account_id"],
+                    id=current["accountId"],
                 )],
                 aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
                     service_name="S3",

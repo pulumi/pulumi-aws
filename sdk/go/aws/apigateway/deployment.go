@@ -29,19 +29,13 @@ import (
 //
 // import (
 //
-//	"crypto/sha1"
-//	"encoding/hex"
 //	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -68,34 +62,37 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 //				Body: pulumi.String(json0),
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(body)
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//							var _zero pulumi.String
+//							tmpJSON1, err := json.Marshal(body)
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json1 := string(tmpJSON1)
+//							return pulumi.String(json1), nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -113,81 +110,79 @@ import (
 //
 // import (
 //
-//	"crypto/sha1"
-//	"encoding/hex"
 //	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResource, err := apigateway.NewResource(ctx, "exampleResource", &apigateway.ResourceArgs{
-//				ParentId: exampleRestApi.RootResourceId,
-//				PathPart: pulumi.String("example"),
-//				RestApi:  exampleRestApi.ID(),
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMethod, err := apigateway.NewMethod(ctx, "exampleMethod", &apigateway.MethodArgs{
+//			exampleResource, err := apigateway.NewResource(ctx, "example", &apigateway.ResourceArgs{
+//				ParentId: example.RootResourceId,
+//				PathPart: pulumi.String("example"),
+//				RestApi:  example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMethod, err := apigateway.NewMethod(ctx, "example", &apigateway.MethodArgs{
 //				Authorization: pulumi.String("NONE"),
 //				HttpMethod:    pulumi.String("GET"),
 //				ResourceId:    exampleResource.ID(),
-//				RestApi:       exampleRestApi.ID(),
+//				RestApi:       example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegration, err := apigateway.NewIntegration(ctx, "exampleIntegration", &apigateway.IntegrationArgs{
+//			exampleIntegration, err := apigateway.NewIntegration(ctx, "example", &apigateway.IntegrationArgs{
 //				HttpMethod: exampleMethod.HttpMethod,
 //				ResourceId: exampleResource.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				Type:       pulumi.String("MOCK"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": pulumi.All(exampleResource.ID(), exampleMethod.ID(), exampleIntegration.ID()).ApplyT(func(_args []interface{}) (string, error) {
-//						exampleResourceId := _args[0].(string)
-//						exampleMethodId := _args[1].(string)
-//						exampleIntegrationId := _args[2].(string)
-//						var _zero string
-//						tmpJSON0, err := json.Marshal([]string{
-//							exampleResourceId,
-//							exampleMethodId,
-//							exampleIntegrationId,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return json0, nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: pulumi.All(exampleResource.ID(), exampleMethod.ID(), exampleIntegration.ID()).ApplyT(func(_args []interface{}) (string, error) {
+//							exampleResourceId := _args[0].(string)
+//							exampleMethodId := _args[1].(string)
+//							exampleIntegrationId := _args[2].(string)
+//							var _zero string
+//							tmpJSON0, err := json.Marshal([]string{
+//								exampleResourceId,
+//								exampleMethodId,
+//								exampleIntegrationId,
+//							})
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json0 := string(tmpJSON0)
+//							return json0, nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("example"),
 //			})
 //			if err != nil {

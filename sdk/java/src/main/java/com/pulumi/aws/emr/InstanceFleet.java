@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
- *             .clusterId(aws_emr_cluster.cluster().id())
+ *             .clusterId(cluster.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
@@ -81,6 +81,7 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .name(&#34;task fleet&#34;)
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());

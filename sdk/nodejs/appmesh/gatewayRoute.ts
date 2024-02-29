@@ -17,14 +17,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appmesh.GatewayRoute("example", {
+ *     name: "example-gateway-route",
  *     meshName: "example-service-mesh",
- *     virtualGatewayName: aws_appmesh_virtual_gateway.example.name,
+ *     virtualGatewayName: exampleAwsAppmeshVirtualGateway.name,
  *     spec: {
  *         httpRoute: {
  *             action: {
  *                 target: {
  *                     virtualService: {
- *                         virtualServiceName: aws_appmesh_virtual_service.example.name,
+ *                         virtualServiceName: exampleAwsAppmeshVirtualService.name,
  *                     },
  *                 },
  *             },

@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewOriginAccessControl(ctx, "example", &cloudfront.OriginAccessControlArgs{
+//				Name:                          pulumi.String("example"),
 //				Description:                   pulumi.String("Example Policy"),
 //				OriginAccessControlOriginType: pulumi.String("s3"),
 //				SigningBehavior:               pulumi.String("always"),

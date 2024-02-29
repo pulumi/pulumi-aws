@@ -18,8 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.medialive.Channel("example", {
+ *     name: "example-channel",
  *     channelClass: "STANDARD",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     inputSpecification: {
  *         codec: "AVC",
  *         inputResolution: "HD",
@@ -27,16 +28,16 @@ import * as utilities from "../utilities";
  *     },
  *     inputAttachments: [{
  *         inputAttachmentName: "example-input",
- *         inputId: aws_medialive_input.example.id,
+ *         inputId: exampleAwsMedialiveInput.id,
  *     }],
  *     destinations: [{
  *         id: "destination",
  *         settings: [
  *             {
- *                 url: `s3://${aws_s3_bucket.main.id}/test1`,
+ *                 url: `s3://${main.id}/test1`,
  *             },
  *             {
- *                 url: `s3://${aws_s3_bucket.main2.id}/test2`,
+ *                 url: `s3://${main2.id}/test2`,
  *             },
  *         ],
  *     }],

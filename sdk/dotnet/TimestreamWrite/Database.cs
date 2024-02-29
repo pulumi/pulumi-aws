@@ -43,7 +43,7 @@ namespace Pulumi.Aws.TimestreamWrite
     ///     var example = new Aws.TimestreamWrite.Database("example", new()
     ///     {
     ///         DatabaseName = "database-example",
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "value" },

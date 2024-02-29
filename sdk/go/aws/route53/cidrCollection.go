@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewCidrCollection(ctx, "example", nil)
+//			_, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
+//				Name: pulumi.String("collection-1"),
+//			})
 //			if err != nil {
 //				return err
 //			}

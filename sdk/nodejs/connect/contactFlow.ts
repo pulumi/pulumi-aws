@@ -23,29 +23,30 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.connect.ContactFlow("test", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
  *     description: "Test Contact Flow Description",
  *     type: "CONTACT_FLOW",
  *     content: JSON.stringify({
- *         Version: "2019-10-30",
- *         StartAction: "12345678-1234-1234-1234-123456789012",
- *         Actions: [
+ *         version: "2019-10-30",
+ *         startAction: "12345678-1234-1234-1234-123456789012",
+ *         actions: [
  *             {
- *                 Identifier: "12345678-1234-1234-1234-123456789012",
- *                 Type: "MessageParticipant",
- *                 Transitions: {
- *                     NextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                     Errors: [],
- *                     Conditions: [],
+ *                 identifier: "12345678-1234-1234-1234-123456789012",
+ *                 type: "MessageParticipant",
+ *                 transitions: {
+ *                     nextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                     errors: [],
+ *                     conditions: [],
  *                 },
- *                 Parameters: {
- *                     Text: "Thanks for calling the sample flow!",
+ *                 parameters: {
+ *                     text: "Thanks for calling the sample flow!",
  *                 },
  *             },
  *             {
- *                 Identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                 Type: "DisconnectParticipant",
- *                 Transitions: {},
- *                 Parameters: {},
+ *                 identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                 type: "DisconnectParticipant",
+ *                 transitions: {},
+ *                 parameters: {},
  *             },
  *         ],
  *     }),

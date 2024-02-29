@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				Payer:  pulumi.String("Requester"),
 //			})
 //			if err != nil {

@@ -18,12 +18,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
+ *     name: "maintenance-window-webapp",
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
+ *     name: "maintenance-window-target",
  *     description: "This is a maintenance window target",
  *     resourceType: "INSTANCE",
  *     targets: [{
@@ -39,12 +41,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
+ *     name: "maintenance-window-webapp",
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
+ *     name: "maintenance-window-target",
  *     description: "This is a maintenance window target",
  *     resourceType: "RESOURCE_GROUP",
  *     targets: [{

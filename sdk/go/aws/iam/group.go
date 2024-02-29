@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewGroup(ctx, "developers", &iam.GroupArgs{
+//				Name: pulumi.String("developers"),
 //				Path: pulumi.String("/users/"),
 //			})
 //			if err != nil {

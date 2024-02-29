@@ -48,8 +48,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -99,8 +99,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -150,8 +150,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -201,8 +201,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()

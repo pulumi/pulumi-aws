@@ -304,7 +304,8 @@ class VirtualRouter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.VirtualRouter("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceB",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualRouterSpecArgs(
                 listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(
@@ -357,7 +358,8 @@ class VirtualRouter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.VirtualRouter("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceB",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualRouterSpecArgs(
                 listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(

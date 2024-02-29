@@ -71,13 +71,13 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             AddressAllocationIds = new[]
     ///             {
-    ///                 aws_eip.Example.Id,
+    ///                 exampleAwsEip.Id,
     ///             },
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 exampleAwsSubnet.Id,
     ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///         },
     ///     });
     /// 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_DIRECTORY_SERVICE",
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///     });
     /// 
     /// });
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_LAMBDA",
-    ///         Function = aws_lambda_identity_provider.Example.Arn,
+    ///         Function = exampleAwsLambdaIdentityProvider.Arn,
     ///     });
     /// 
     /// });
@@ -136,18 +136,18 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 exampleAwsSubnet.Id,
     ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///         },
     ///         Protocols = new[]
     ///         {
     ///             "FTP",
     ///             "FTPS",
     ///         },
-    ///         Certificate = aws_acm_certificate.Example.Arn,
+    ///         Certificate = exampleAwsAcmCertificate.Arn,
     ///         IdentityProviderType = "API_GATEWAY",
-    ///         Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
+    ///         Url = $"{exampleAwsApiGatewayDeployment.InvokeUrl}{exampleAwsApiGatewayResource.Path}",
     ///     });
     /// 
     /// });
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var transferLogGroup = new Aws.CloudWatch.LogGroup("transferLogGroup", new()
+    ///     var transfer = new Aws.CloudWatch.LogGroup("transfer", new()
     ///     {
     ///         NamePrefix = "transfer_test_",
     ///     });
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var iamForTransfer = new Aws.Iam.Role("iamForTransfer", new()
+    ///     var iamForTransfer = new Aws.Iam.Role("iam_for_transfer", new()
     ///     {
     ///         NamePrefix = "iam_for_transfer_",
     ///         AssumeRolePolicy = transferAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var transferServer = new Aws.Transfer.Server("transferServer", new()
+    ///     var transferServer = new Aws.Transfer.Server("transfer", new()
     ///     {
     ///         EndpointType = "PUBLIC",
     ///         LoggingRole = iamForTransfer.Arn,
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///         StructuredLogDestinations = new[]
     ///         {
-    ///             transferLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///             transfer.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         },
     ///     });
     /// 

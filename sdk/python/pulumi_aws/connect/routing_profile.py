@@ -331,9 +331,10 @@ class RoutingProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
                 channel="VOICE",
                 concurrency=1,
@@ -385,9 +386,10 @@ class RoutingProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
                 channel="VOICE",
                 concurrency=1,

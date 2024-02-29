@@ -22,36 +22,41 @@ import {RestApi} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
  *                 },
  *             },
  *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => crypto.createHash('sha1').update(JSON.stringify(body)).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
  * ```
@@ -60,39 +65,41 @@ import {RestApi} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleResource = new aws.apigateway.Resource("exampleResource", {
- *     parentId: exampleRestApi.rootResourceId,
+ * const example = new aws.apigateway.RestApi("example", {name: "example"});
+ * const exampleResource = new aws.apigateway.Resource("example", {
+ *     parentId: example.rootResourceId,
  *     pathPart: "example",
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  * });
- * const exampleMethod = new aws.apigateway.Method("exampleMethod", {
+ * const exampleMethod = new aws.apigateway.Method("example", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
  *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  * });
- * const exampleIntegration = new aws.apigateway.Integration("exampleIntegration", {
+ * const exampleIntegration = new aws.apigateway.Integration("example", {
  *     httpMethod: exampleMethod.httpMethod,
  *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     type: "MOCK",
  * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => crypto.createHash('sha1').update(JSON.stringify([
- *             exampleResourceId,
- *             exampleMethodId,
- *             exampleIntegrationId,
- *         ])).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify([
+ *                 exampleResource.id,
+ *                 exampleMethod.id,
+ *                 exampleIntegration.id,
+ *             ]),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
  * ```

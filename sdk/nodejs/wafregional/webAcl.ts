@@ -17,11 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
+ * const ipset = new aws.wafregional.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
  * const wafrule = new aws.wafregional.Rule("wafrule", {
+ *     name: "tfWAFRule",
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
@@ -30,6 +34,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const wafacl = new aws.wafregional.WebAcl("wafacl", {
+ *     name: "tfWebACL",
  *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
@@ -51,13 +56,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafregional.WebAcl("example", {
+ *     name: "example",
  *     metricName: "example",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
  *     rules: [{
  *         priority: 1,
- *         ruleId: aws_wafregional_rule_group.example.id,
+ *         ruleId: exampleAwsWafregionalRuleGroup.id,
  *         type: "GROUP",
  *         overrideAction: {
  *             type: "NONE",
@@ -73,9 +79,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const example = new aws.wafregional.WebAcl("example", {loggingConfiguration: {
- *     logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+ *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *     redactedFields: {
  *         fieldToMatches: [
  *             {

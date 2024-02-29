@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApiMapping(&#34;example&#34;, ApiMappingArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .domainName(aws_apigatewayv2_domain_name.example().id())
- *             .stage(aws_apigatewayv2_stage.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .domainName(exampleAwsApigatewayv2DomainName.id())
+ *             .stage(exampleAwsApigatewayv2Stage.id())
  *             .build());
  * 
  *     }

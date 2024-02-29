@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     ///         Size = 1,
     ///     });
     /// 
-    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new()
+    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebs_att", new()
     ///     {
     ///         DeviceName = "/dev/sdh",
     ///         VolumeId = example.Id,

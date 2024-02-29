@@ -92,15 +92,13 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(provider="aws.invitee",
-            depends_on=[invitee_account]))
+        invitee = aws.securityhub.Account("invitee")
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
 
         ## Import
@@ -132,15 +130,13 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(provider="aws.invitee",
-            depends_on=[invitee_account]))
+        invitee = aws.securityhub.Account("invitee")
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
 
         ## Import

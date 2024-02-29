@@ -12,8 +12,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getExport({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     restApiId: exampleAwsApiGatewayStage.restApiId,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     exportType: "oas30",
  * });
  * ```
@@ -90,8 +90,8 @@ export interface GetExportResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getExport({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     restApiId: exampleAwsApiGatewayStage.restApiId,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     exportType: "oas30",
  * });
  * ```

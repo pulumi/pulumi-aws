@@ -201,7 +201,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
     config = pulumi.Config()
     subnet_id = config.require_object("subnetId")
     selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.get_route(route_table_id=aws_route_table["selected"]["id"],
+    route = aws.ec2.get_route(route_table_id=selected_aws_route_table["id"],
         destination_cidr_block="10.0.1.0/24")
     interface = aws.ec2.get_network_interface(id=route.network_interface_id)
     ```
@@ -292,7 +292,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     config = pulumi.Config()
     subnet_id = config.require_object("subnetId")
     selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.get_route(route_table_id=aws_route_table["selected"]["id"],
+    route = aws.ec2.get_route(route_table_id=selected_aws_route_table["id"],
         destination_cidr_block="10.0.1.0/24")
     interface = aws.ec2.get_network_interface(id=route.network_interface_id)
     ```

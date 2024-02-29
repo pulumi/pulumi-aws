@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const example = new aws.organizations.Organization("example", {
  *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
+ * const exampleAccount = new aws.securityhub.Account("example", {});
+ * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
  * // Auto enable security hub in organization member accounts
- * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
+ * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
  *
  * ## Import

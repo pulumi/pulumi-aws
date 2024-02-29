@@ -382,10 +382,10 @@ class CompositeAlarm(pulumi.CustomResource):
         example = aws.cloudwatch.CompositeAlarm("example",
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
+            alarm_actions=example_aws_sns_topic["arn"],
+            ok_actions=example_aws_sns_topic["arn"],
+            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
+        ALARM({bravo["alarmName"]})
         \"\"\",
             actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
                 alarm="suppressor-alarm",
@@ -434,10 +434,10 @@ class CompositeAlarm(pulumi.CustomResource):
         example = aws.cloudwatch.CompositeAlarm("example",
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
+            alarm_actions=example_aws_sns_topic["arn"],
+            ok_actions=example_aws_sns_topic["arn"],
+            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
+        ALARM({bravo["alarmName"]})
         \"\"\",
             actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
                 alarm="suppressor-alarm",

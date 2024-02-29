@@ -696,7 +696,7 @@ class Subnet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main_aws_vpc["id"],
             cidr_block="10.0.1.0/24",
             tags={
                 "Name": "Main",
@@ -711,10 +711,10 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
+        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr",
+            vpc_id=main["id"],
             cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
+        in_secondary_cidr = aws.ec2.Subnet("in_secondary_cidr",
             vpc_id=secondary_cidr.vpc_id,
             cidr_block="172.20.0.0/24")
         ```
@@ -771,7 +771,7 @@ class Subnet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main_aws_vpc["id"],
             cidr_block="10.0.1.0/24",
             tags={
                 "Name": "Main",
@@ -786,10 +786,10 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
+        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr",
+            vpc_id=main["id"],
             cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
+        in_secondary_cidr = aws.ec2.Subnet("in_secondary_cidr",
             vpc_id=secondary_cidr.vpc_id,
             cidr_block="172.20.0.0/24")
         ```

@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Agreement("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     baseDirectory: "/DOC-EXAMPLE-BUCKET/home/mydirectory",
  *     description: "example",
- *     localProfileId: aws_transfer_profile.local.profile_id,
- *     partnerProfileId: aws_transfer_profile.partner.profile_id,
- *     serverId: aws_transfer_server.test.id,
+ *     localProfileId: local.profileId,
+ *     partnerProfileId: partner.profileId,
+ *     serverId: testAwsTransferServer.id,
  * });
  * ```
  *

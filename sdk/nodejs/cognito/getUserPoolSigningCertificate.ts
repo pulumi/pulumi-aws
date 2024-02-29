@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sc = aws.cognito.getUserPoolSigningCertificate({
- *     userPoolId: aws_cognito_user_pool.my_pool.id,
+ *     userPoolId: myPool.id,
  * });
  * ```
  */
@@ -60,7 +60,7 @@ export interface GetUserPoolSigningCertificateResult {
  * import * as aws from "@pulumi/aws";
  *
  * const sc = aws.cognito.getUserPoolSigningCertificate({
- *     userPoolId: aws_cognito_user_pool.my_pool.id,
+ *     userPoolId: myPool.id,
  * });
  * ```
  */

@@ -81,6 +81,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name:                pulumi.String("my_test_batch_job_definition"),
 //				Type:                pulumi.String("container"),
 //				ContainerProperties: pulumi.String(json0),
 //			})
@@ -143,8 +144,58 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name:           pulumi.String("tf_test_batch_job_definition_multinode"),
 //				Type:           pulumi.String("multinode"),
 //				NodeProperties: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Job Definitionn of type EKS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name: pulumi.String(" tf_test_batch_job_definition_eks"),
+//				Type: pulumi.String("container"),
+//				EksProperties: &batch.JobDefinitionEksPropertiesArgs{
+//					PodProperties: &batch.JobDefinitionEksPropertiesPodPropertiesArgs{
+//						HostNetwork: pulumi.Bool(true),
+//						Containers: &batch.JobDefinitionEksPropertiesPodPropertiesContainersArgs{
+//							Image: pulumi.String("public.ecr.aws/amazonlinux/amazonlinux:1"),
+//							Commands: pulumi.StringArray{
+//								pulumi.String("sleep"),
+//								pulumi.String("60"),
+//							},
+//							Resources: &batch.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs{
+//								Limits: pulumi.StringMap{
+//									"cpu":    pulumi.String("1"),
+//									"memory": pulumi.String("1024Mi"),
+//								},
+//							},
+//						},
+//						Metadata: &batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs{
+//							Labels: pulumi.StringMap{
+//								"environment": pulumi.String("test"),
+//							},
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -191,13 +242,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
+//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecs_task_execution_role", &iam.RoleArgs{
+//				Name:             pulumi.String("my_test_batch_exec_role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_task_execution_role_policy", &iam.RolePolicyAttachmentArgs{
 //				Role:      ecsTaskExecutionRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
 //			})
@@ -205,6 +257,7 @@ import (
 //				return err
 //			}
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name: pulumi.String("my_test_batch_job_definition"),
 //				Type: pulumi.String("container"),
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),

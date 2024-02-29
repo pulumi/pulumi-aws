@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.auditmanager.getFramework({
- *     frameworkType: "Standard",
  *     name: "Essential Eight",
+ *     frameworkType: "Standard",
  * });
  * ```
  */
@@ -69,8 +69,8 @@ export interface GetFrameworkResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.auditmanager.getFramework({
- *     frameworkType: "Standard",
  *     name: "Essential Eight",
+ *     frameworkType: "Standard",
  * });
  * ```
  */

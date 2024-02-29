@@ -123,12 +123,12 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig",
-            resource_id=example_vpc.id,
+        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("example",
+            resource_id=example.id,
             firewall_fail_open="ENABLED")
         ```
 
@@ -160,12 +160,12 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig",
-            resource_id=example_vpc.id,
+        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("example",
+            resource_id=example.id,
             firewall_fail_open="ENABLED")
         ```
 

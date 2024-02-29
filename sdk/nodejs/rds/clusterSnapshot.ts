@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsRdsCluster.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```

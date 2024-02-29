@@ -43,10 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;tf-test&#34;)
  *             .engineVersion(&#34;OpenSearch_1.1&#34;)
  *             .build());
  * 
- *         final var mainPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var main = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -65,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var mainDomainPolicy = new DomainPolicy(&#34;mainDomainPolicy&#34;, DomainPolicyArgs.builder()        
  *             .domainName(example.domainName())
- *             .accessPolicies(mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mainPolicyDocument -&gt; mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .accessPolicies(main.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(main -&gt; main.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

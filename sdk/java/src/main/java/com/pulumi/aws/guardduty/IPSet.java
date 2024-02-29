@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  *                 var key = values.t2;
  *                 return String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, bucket,key);
  *             }))
+ *             .name(&#34;MyIPSet&#34;)
  *             .build());
  * 
  *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        

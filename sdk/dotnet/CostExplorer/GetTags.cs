@@ -30,8 +30,8 @@ namespace Pulumi.Aws.CostExplorer
         ///     {
         ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
         ///         {
-        ///             End = "2022-12-01",
         ///             Start = "2021-01-01",
+        ///             End = "2022-12-01",
         ///         },
         ///     });
         /// 
@@ -62,8 +62,8 @@ namespace Pulumi.Aws.CostExplorer
         ///     {
         ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
         ///         {
-        ///             End = "2022-12-01",
         ///             Start = "2021-01-01",
+        ///             End = "2022-12-01",
         ///         },
         ///     });
         /// 

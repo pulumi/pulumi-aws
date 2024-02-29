@@ -653,6 +653,7 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-ec2-scaling-events",
             description="Capture all EC2 scaling events",
             event_pattern=json.dumps({
                 "source": ["aws.autoscaling"],
@@ -663,8 +664,11 @@ class EventTarget(pulumi.CustomResource):
                     "EC2 Instance Terminate Unsuccessful",
                 ],
             }))
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
+        test_stream = aws.kinesis.Stream("test_stream",
+            name="kinesis-test",
+            shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
+            target_id="Yada",
             rule=console.name,
             arn=test_stream.arn,
             run_command_targets=[
@@ -692,7 +696,8 @@ class EventTarget(pulumi.CustomResource):
                 identifiers=["events.amazonaws.com"],
             )],
         )])
-        stop_instance = aws.ssm.Document("stopInstance",
+        stop_instance = aws.ssm.Document("stop_instance",
+            name="stop_instance",
             document_type="Command",
             content=json.dumps({
                 "schemaVersion": "1.2",
@@ -707,7 +712,7 @@ class EventTarget(pulumi.CustomResource):
                     },
                 },
             }))
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
+        ssm_lifecycle = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -724,17 +729,23 @@ class EventTarget(pulumi.CustomResource):
                 resources=[stop_instance.arn],
             ),
         ])
-        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
-        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
-        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
+        ssm_lifecycle_role = aws.iam.Role("ssm_lifecycle",
+            name="SSMLifecycle",
+            assume_role_policy=ssm_lifecycle_trust.json)
+        ssm_lifecycle_policy = aws.iam.Policy("ssm_lifecycle",
+            name="SSMLifecycle",
+            policy=ssm_lifecycle.json)
+        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssm_lifecycle",
             policy_arn=ssm_lifecycle_policy.arn,
             role=ssm_lifecycle_role.name)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
             arn=stop_instance.arn,
-            rule=stop_instances_event_rule.name,
+            rule=stop_instances.name,
             role_arn=ssm_lifecycle_role.arn,
             run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
                 key="tag:Terminate",
@@ -747,18 +758,76 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=f"arn:aws:ssm:{var['aws_region']}::document/AWS-RunShellScript",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
+            arn=f"arn:aws:ssm:{aws_region}::document/AWS-RunShellScript",
             input="{\\"commands\\":[\\"halt\\"]}",
-            rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
+            rule=stop_instances.name,
+            role_arn=ssm_lifecycle["arn"],
             run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
                 key="tag:Terminate",
                 values=["midnight"],
             )])
+        ```
+        ### ECS Run Task with Role and Task Override Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        ecs_events = aws.iam.Role("ecs_events",
+            name="ecs_events",
+            assume_role_policy=assume_role.json)
+        ecs_events_run_task_with_any_role = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["iam:PassRole"],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ecs:RunTask"],
+                resources=[std.replace(text=task_name["arn"],
+                    search="/:\\\\d+$/",
+                    replace=":*").result],
+            ),
+        ])
+        ecs_events_run_task_with_any_role_role_policy = aws.iam.RolePolicy("ecs_events_run_task_with_any_role",
+            name="ecs_events_run_task_with_any_role",
+            role=ecs_events.id,
+            policy=ecs_events_run_task_with_any_role.json)
+        ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
+            target_id="run-scheduled-task-every-hour",
+            arn=cluster_name["arn"],
+            rule=every_hour["name"],
+            role_arn=ecs_events.arn,
+            ecs_target=aws.cloudwatch.EventTargetEcsTargetArgs(
+                task_count=1,
+                task_definition_arn=task_name["arn"],
+            ),
+            input=json.dumps({
+                "containerOverrides": [{
+                    "name": "name-of-container-to-override",
+                    "command": [
+                        "bin/console",
+                        "scheduled-task",
+                    ],
+                }],
+            }))
         ```
         ### API Gateway target
 
@@ -766,15 +835,12 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
-        # ...
-        example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example_deployment = aws.apigateway.Deployment("example", rest_api=example_aws_api_gateway_rest_api["id"])
+        example_stage = aws.apigateway.Stage("example",
+            rest_api=example_aws_api_gateway_rest_api["id"],
             deployment=example_deployment.id)
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+        example = aws.cloudwatch.EventTarget("example",
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
             rule=example_event_rule.id,
             http_target=aws.cloudwatch.EventTargetHttpTargetArgs(
@@ -800,22 +866,28 @@ class EventTarget(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=assume_role.json)
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("event_bus_invoke_remote_event_bus",
+            name="event-bus-invoke-remote-event-bus",
+            assume_role_policy=assume_role.json)
+        event_bus_invoke_remote_event_bus = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
         )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("event_bus_invoke_remote_event_bus",
+            name="event_bus_invoke_remote_event_bus",
+            policy=event_bus_invoke_remote_event_bus.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("event_bus_invoke_remote_event_bus",
             role=event_bus_invoke_remote_event_bus_role.name,
             policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
             arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
+            rule=stop_instances.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
@@ -824,10 +896,9 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example = aws.cloudwatch.EventTarget("example",
+            arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -847,10 +918,9 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example = aws.cloudwatch.EventTarget("example",
+            arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -867,8 +937,11 @@ class EventTarget(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
+        example = aws.cloudwatch.LogGroup("example",
+            name="/aws/events/guardduty/logs",
+            retention_in_days=1)
+        example_event_rule = aws.cloudwatch.EventRule("example",
+            name="guard-duty_event_rule",
             description="GuardDuty Findings",
             event_pattern=json.dumps({
                 "source": ["aws.guardduty"],
@@ -880,7 +953,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                resources=[example.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -892,7 +965,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                resources=[example.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -907,12 +980,12 @@ class EventTarget(pulumi.CustomResource):
                 )],
             ),
         ])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+        example_event_target = aws.cloudwatch.EventTarget("example",
             rule=example_event_rule.name,
-            arn=example_log_group.arn)
+            arn=example.arn)
         ```
 
         ## Import
@@ -967,6 +1040,7 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-ec2-scaling-events",
             description="Capture all EC2 scaling events",
             event_pattern=json.dumps({
                 "source": ["aws.autoscaling"],
@@ -977,8 +1051,11 @@ class EventTarget(pulumi.CustomResource):
                     "EC2 Instance Terminate Unsuccessful",
                 ],
             }))
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
+        test_stream = aws.kinesis.Stream("test_stream",
+            name="kinesis-test",
+            shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
+            target_id="Yada",
             rule=console.name,
             arn=test_stream.arn,
             run_command_targets=[
@@ -1006,7 +1083,8 @@ class EventTarget(pulumi.CustomResource):
                 identifiers=["events.amazonaws.com"],
             )],
         )])
-        stop_instance = aws.ssm.Document("stopInstance",
+        stop_instance = aws.ssm.Document("stop_instance",
+            name="stop_instance",
             document_type="Command",
             content=json.dumps({
                 "schemaVersion": "1.2",
@@ -1021,7 +1099,7 @@ class EventTarget(pulumi.CustomResource):
                     },
                 },
             }))
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
+        ssm_lifecycle = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -1038,17 +1116,23 @@ class EventTarget(pulumi.CustomResource):
                 resources=[stop_instance.arn],
             ),
         ])
-        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
-        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
-        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
+        ssm_lifecycle_role = aws.iam.Role("ssm_lifecycle",
+            name="SSMLifecycle",
+            assume_role_policy=ssm_lifecycle_trust.json)
+        ssm_lifecycle_policy = aws.iam.Policy("ssm_lifecycle",
+            name="SSMLifecycle",
+            policy=ssm_lifecycle.json)
+        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssm_lifecycle",
             policy_arn=ssm_lifecycle_policy.arn,
             role=ssm_lifecycle_role.name)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
             arn=stop_instance.arn,
-            rule=stop_instances_event_rule.name,
+            rule=stop_instances.name,
             role_arn=ssm_lifecycle_role.arn,
             run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
                 key="tag:Terminate",
@@ -1061,18 +1145,76 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=f"arn:aws:ssm:{var['aws_region']}::document/AWS-RunShellScript",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
+            arn=f"arn:aws:ssm:{aws_region}::document/AWS-RunShellScript",
             input="{\\"commands\\":[\\"halt\\"]}",
-            rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
+            rule=stop_instances.name,
+            role_arn=ssm_lifecycle["arn"],
             run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
                 key="tag:Terminate",
                 values=["midnight"],
             )])
+        ```
+        ### ECS Run Task with Role and Task Override Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        ecs_events = aws.iam.Role("ecs_events",
+            name="ecs_events",
+            assume_role_policy=assume_role.json)
+        ecs_events_run_task_with_any_role = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["iam:PassRole"],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ecs:RunTask"],
+                resources=[std.replace(text=task_name["arn"],
+                    search="/:\\\\d+$/",
+                    replace=":*").result],
+            ),
+        ])
+        ecs_events_run_task_with_any_role_role_policy = aws.iam.RolePolicy("ecs_events_run_task_with_any_role",
+            name="ecs_events_run_task_with_any_role",
+            role=ecs_events.id,
+            policy=ecs_events_run_task_with_any_role.json)
+        ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
+            target_id="run-scheduled-task-every-hour",
+            arn=cluster_name["arn"],
+            rule=every_hour["name"],
+            role_arn=ecs_events.arn,
+            ecs_target=aws.cloudwatch.EventTargetEcsTargetArgs(
+                task_count=1,
+                task_definition_arn=task_name["arn"],
+            ),
+            input=json.dumps({
+                "containerOverrides": [{
+                    "name": "name-of-container-to-override",
+                    "command": [
+                        "bin/console",
+                        "scheduled-task",
+                    ],
+                }],
+            }))
         ```
         ### API Gateway target
 
@@ -1080,15 +1222,12 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
-        # ...
-        example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example_deployment = aws.apigateway.Deployment("example", rest_api=example_aws_api_gateway_rest_api["id"])
+        example_stage = aws.apigateway.Stage("example",
+            rest_api=example_aws_api_gateway_rest_api["id"],
             deployment=example_deployment.id)
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+        example = aws.cloudwatch.EventTarget("example",
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
             rule=example_event_rule.id,
             http_target=aws.cloudwatch.EventTargetHttpTargetArgs(
@@ -1114,22 +1253,28 @@ class EventTarget(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=assume_role.json)
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("event_bus_invoke_remote_event_bus",
+            name="event-bus-invoke-remote-event-bus",
+            assume_role_policy=assume_role.json)
+        event_bus_invoke_remote_event_bus = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
         )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("event_bus_invoke_remote_event_bus",
+            name="event_bus_invoke_remote_event_bus",
+            policy=event_bus_invoke_remote_event_bus.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("event_bus_invoke_remote_event_bus",
             role=event_bus_invoke_remote_event_bus_role.name,
             policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+        stop_instances = aws.cloudwatch.EventRule("stop_instances",
+            name="StopInstance",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            target_id="StopInstance",
             arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
+            rule=stop_instances.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
@@ -1138,10 +1283,9 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example = aws.cloudwatch.EventTarget("example",
+            arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -1161,10 +1305,9 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
+        example_event_rule = aws.cloudwatch.EventRule("example")
+        example = aws.cloudwatch.EventTarget("example",
+            arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -1181,8 +1324,11 @@ class EventTarget(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
+        example = aws.cloudwatch.LogGroup("example",
+            name="/aws/events/guardduty/logs",
+            retention_in_days=1)
+        example_event_rule = aws.cloudwatch.EventRule("example",
+            name="guard-duty_event_rule",
             description="GuardDuty Findings",
             event_pattern=json.dumps({
                 "source": ["aws.guardduty"],
@@ -1194,7 +1340,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                resources=[example.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -1206,7 +1352,7 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                resources=[example.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=[
@@ -1221,12 +1367,12 @@ class EventTarget(pulumi.CustomResource):
                 )],
             ),
         ])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+        example_event_target = aws.cloudwatch.EventTarget("example",
             rule=example_event_rule.name,
-            arn=example_log_group.arn)
+            arn=example.arn)
         ```
 
         ## Import

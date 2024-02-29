@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.timestreamwrite.Database("example", {
  *     databaseName: "database-example",
- *     kmsKeyId: aws_kms_key.example.arn,
+ *     kmsKeyId: exampleAwsKmsKey.arn,
  *     tags: {
  *         Name: "value",
  *     },

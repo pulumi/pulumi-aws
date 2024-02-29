@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.storagegateway.getLocalDisk({
- *     diskPath: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ *     diskPath: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
  */
@@ -73,8 +73,8 @@ export interface GetLocalDiskResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.storagegateway.getLocalDisk({
- *     diskPath: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ *     diskPath: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
  */

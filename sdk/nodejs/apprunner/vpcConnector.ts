@@ -14,15 +14,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const connector = new aws.apprunner.VpcConnector("connector", {
- *     securityGroups: [
- *         "sg1",
- *         "sg2",
- *     ],
+ *     vpcConnectorName: "name",
  *     subnets: [
  *         "subnet1",
  *         "subnet2",
  *     ],
- *     vpcConnectorName: "name",
+ *     securityGroups: [
+ *         "sg1",
+ *         "sg2",
+ *     ],
  * });
  * ```
  *

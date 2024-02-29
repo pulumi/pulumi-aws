@@ -26,10 +26,10 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
     ///     {
     ///         DeviceFleetName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         RoleArn = test.Arn,
     ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
     ///         {
-    ///             S3OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/prefix/",
+    ///             S3OutputLocation = $"s3://{exampleAwsS3Bucket.Bucket}/prefix/",
     ///         },
     ///     });
     /// 

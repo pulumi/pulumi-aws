@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Domain(&#34;foo&#34;, DomainArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .description(&#34;SWF Domain&#34;)
  *             .workflowExecutionRetentionPeriodInDays(30)
  *             .build());

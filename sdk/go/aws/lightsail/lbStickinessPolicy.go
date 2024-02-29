@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbStickinessPolicy(ctx, "testLbStickinessPolicy", &lightsail.LbStickinessPolicyArgs{
-//				LbName:         testLb.Name,
+//			_, err = lightsail.NewLbStickinessPolicy(ctx, "test", &lightsail.LbStickinessPolicyArgs{
+//				LbName:         test.Name,
 //				CookieDuration: pulumi.Int(900),
 //				Enabled:        pulumi.Bool(true),
 //			})

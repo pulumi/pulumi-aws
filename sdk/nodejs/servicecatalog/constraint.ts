@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.servicecatalog.Constraint("example", {
  *     description: "Back off, man. I'm a scientist.",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
- *     productId: aws_servicecatalog_product.example.id,
+ *     portfolioId: exampleAwsServicecatalogPortfolio.id,
+ *     productId: exampleAwsServicecatalogProduct.id,
  *     type: "LAUNCH",
  *     parameters: JSON.stringify({
  *         RoleArn: "arn:aws:iam::123456789012:role/LaunchRole",

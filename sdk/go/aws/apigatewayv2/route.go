@@ -30,15 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
+//			example, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:                     pulumi.String("example-websocket-api"),
 //				ProtocolType:             pulumi.String("WEBSOCKET"),
 //				RouteSelectionExpression: pulumi.String("$request.body.action"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
+//			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("$default"),
 //			})
 //			if err != nil {
@@ -65,14 +66,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
+//			example, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:         pulumi.String("example-http-api"),
 //				ProtocolType: pulumi.String("HTTP"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "exampleIntegration", &apigatewayv2.IntegrationArgs{
-//				ApiId:             exampleApi.ID(),
+//			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
+//				ApiId:             example.ID(),
 //				IntegrationType:   pulumi.String("HTTP_PROXY"),
 //				IntegrationMethod: pulumi.String("ANY"),
 //				IntegrationUri:    pulumi.String("https://example.com/{proxy}"),
@@ -80,8 +82,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
+//			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("ANY /example/{proxy+}"),
 //				Target: exampleIntegration.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("integrations/%v", id), nil

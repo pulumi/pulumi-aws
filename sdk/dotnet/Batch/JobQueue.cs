@@ -23,14 +23,15 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testQueue = new Aws.Batch.JobQueue("testQueue", new()
+    ///     var testQueue = new Aws.Batch.JobQueue("test_queue", new()
     ///     {
+    ///         Name = "tf-test-batch-job-queue",
     ///         State = "ENABLED",
     ///         Priority = 1,
     ///         ComputeEnvironments = new[]
     ///         {
-    ///             aws_batch_compute_environment.Test_environment_1.Arn,
-    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             testEnvironment1.Arn,
+    ///             testEnvironment2.Arn,
     ///         },
     ///     });
     /// 
@@ -46,8 +47,9 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new()
+    ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
     ///             ComputeReservation = 1,
@@ -63,15 +65,16 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new()
+    ///     var exampleJobQueue = new Aws.Batch.JobQueue("example", new()
     ///     {
-    ///         SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
+    ///         Name = "tf-test-batch-job-queue",
+    ///         SchedulingPolicyArn = example.Arn,
     ///         State = "ENABLED",
     ///         Priority = 1,
     ///         ComputeEnvironments = new[]
     ///         {
-    ///             aws_batch_compute_environment.Test_environment_1.Arn,
-    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             testEnvironment1.Arn,
+    ///             testEnvironment2.Arn,
     ///         },
     ///     });
     /// 

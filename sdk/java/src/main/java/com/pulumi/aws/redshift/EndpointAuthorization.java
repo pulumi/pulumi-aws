@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointAuthorization(&#34;example&#34;, EndpointAuthorizationArgs.builder()        
  *             .account(&#34;01234567910&#34;)
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .build());
  * 
  *     }

@@ -13,23 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
+ * const testLbCertificate = new aws.lightsail.LbCertificate("test", {
+ *     name: "test-load-balancer-certificate",
+ *     lbName: test.id,
  *     domainName: "test.com",
  * });
- * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment", {
- *     lbName: testLb.name,
+ * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("test", {
+ *     lbName: test.name,
  *     certificateName: testLbCertificate.name,
  * });
- * const testLbHttpsRedirectionPolicy = new aws.lightsail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy", {
- *     lbName: testLb.name,
+ * const testLbHttpsRedirectionPolicy = new aws.lightsail.LbHttpsRedirectionPolicy("test", {
+ *     lbName: test.name,
  *     enabled: true,
  * });
  * ```

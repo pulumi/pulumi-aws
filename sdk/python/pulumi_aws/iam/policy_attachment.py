@@ -212,7 +212,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
+        user = aws.iam.User("user", name="test-user")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -221,17 +221,21 @@ class PolicyAttachment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        group = aws.iam.Group("group")
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role = aws.iam.Role("role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
+        group = aws.iam.Group("group", name="test-group")
+        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        policy_policy = aws.iam.Policy("policyPolicy",
+        policy_policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
-            policy=policy_policy_document.json)
+            policy=policy.json)
         test_attach = aws.iam.PolicyAttachment("test-attach",
+            name="test-attachment",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],
@@ -267,7 +271,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
+        user = aws.iam.User("user", name="test-user")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -276,17 +280,21 @@ class PolicyAttachment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        group = aws.iam.Group("group")
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role = aws.iam.Role("role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
+        group = aws.iam.Group("group", name="test-group")
+        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        policy_policy = aws.iam.Policy("policyPolicy",
+        policy_policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
-            policy=policy_policy_document.json)
+            policy=policy.json)
         test_attach = aws.iam.PolicyAttachment("test-attach",
+            name="test-attachment",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],

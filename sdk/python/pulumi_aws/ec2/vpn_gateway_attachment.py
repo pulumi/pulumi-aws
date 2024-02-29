@@ -115,7 +115,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         vpn = aws.ec2.VpnGateway("vpn", tags={
             "Name": "example-vpn-gateway",
         })
-        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpnAttachment",
+        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpn_attachment",
             vpc_id=network.id,
             vpn_gateway_id=vpn.id)
         ```
@@ -157,7 +157,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         vpn = aws.ec2.VpnGateway("vpn", tags={
             "Name": "example-vpn-gateway",
         })
-        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpnAttachment",
+        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpn_attachment",
             vpc_id=network.id,
             vpn_gateway_id=vpn.id)
         ```

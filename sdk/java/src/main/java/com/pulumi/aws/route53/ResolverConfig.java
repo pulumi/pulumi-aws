@@ -40,14 +40,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
  *         var exampleResolverConfig = new ResolverConfig(&#34;exampleResolverConfig&#34;, ResolverConfigArgs.builder()        
- *             .resourceId(exampleVpc.id())
+ *             .resourceId(example.id())
  *             .autodefinedReverseFlag(&#34;DISABLE&#34;)
  *             .build());
  * 

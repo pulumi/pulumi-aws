@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSourceBucketV2 = new aws.s3.BucketV2("exampleSourceBucketV2", {});
- * const exampleSourcePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleSourceBucketV2 = new aws.s3.BucketV2("example_source", {bucket: "example-source"});
+ * const exampleSource = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowSourceActions",
  *         effect: "Allow",
@@ -35,17 +35,17 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("exampleSourceBucketPolicy", {
+ * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("example_source", {
  *     bucket: exampleSourceBucketV2.id,
- *     policy: exampleSourcePolicyDocument.then(exampleSourcePolicyDocument => exampleSourcePolicyDocument.json),
+ *     policy: exampleSource.then(exampleSource => exampleSource.json),
  * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const example = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleSourceBucketV2.id,
  *     key: "example_source.csv",
  *     source: new pulumi.asset.FileAsset("example_source.csv"),
  * });
- * const exampleDestinationBucketV2 = new aws.s3.BucketV2("exampleDestinationBucketV2", {});
- * const exampleDestinationPolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleDestinationBucketV2 = new aws.s3.BucketV2("example_destination", {bucket: "example-destination"});
+ * const exampleDestination = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowDestinationActions",
  *         effect: "Allow",
@@ -67,11 +67,12 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("exampleDestinationBucketPolicy", {
+ * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("example_destination", {
  *     bucket: exampleDestinationBucketV2.id,
- *     policy: exampleDestinationPolicyDocument.then(exampleDestinationPolicyDocument => exampleDestinationPolicyDocument.json),
+ *     policy: exampleDestination.then(exampleDestination => exampleDestination.json),
  * });
- * const exampleFlow = new aws.appflow.Flow("exampleFlow", {
+ * const exampleFlow = new aws.appflow.Flow("example", {
+ *     name: "example",
  *     sourceFlowConfig: {
  *         connectorType: "S3",
  *         sourceConnectorProperties: {

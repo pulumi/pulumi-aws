@@ -286,8 +286,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -357,8 +357,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -428,8 +428,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -499,8 +499,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -570,8 +570,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -641,8 +641,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -712,8 +712,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -783,8 +783,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -854,8 +854,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -925,8 +925,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -996,8 +996,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -1067,8 +1067,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -3440,8 +3440,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -3511,8 +3511,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -3582,8 +3582,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -3653,8 +3653,8 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .build());
      * 
      *     }
@@ -3691,7 +3691,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(aws_connect_instance.test().id())
+     *             .instanceId(testAwsConnectInstance.id())
      *             .build());
      * 
      *     }
@@ -3728,7 +3728,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(aws_connect_instance.test().id())
+     *             .instanceId(testAwsConnectInstance.id())
      *             .build());
      * 
      *     }
@@ -3765,7 +3765,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(aws_connect_instance.test().id())
+     *             .instanceId(testAwsConnectInstance.id())
      *             .build());
      * 
      *     }
@@ -3802,7 +3802,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(aws_connect_instance.test().id())
+     *             .instanceId(testAwsConnectInstance.id())
      *             .build());
      * 
      *     }

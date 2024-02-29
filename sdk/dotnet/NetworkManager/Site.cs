@@ -22,11 +22,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var example = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     var exampleSite = new Aws.NetworkManager.Site("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///     });
     /// 
     /// });

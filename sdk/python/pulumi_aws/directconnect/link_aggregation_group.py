@@ -360,9 +360,10 @@ class LinkAggregationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge = aws.directconnect.LinkAggregationGroup("hoge",
+            name="tf-dx-lag",
             connections_bandwidth="1Gbps",
-            force_destroy=True,
-            location="EqDC2")
+            location="EqDC2",
+            force_destroy=True)
         ```
 
         ## Import
@@ -401,9 +402,10 @@ class LinkAggregationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge = aws.directconnect.LinkAggregationGroup("hoge",
+            name="tf-dx-lag",
             connections_bandwidth="1Gbps",
-            force_destroy=True,
-            location="EqDC2")
+            location="EqDC2",
+            force_destroy=True)
         ```
 
         ## Import

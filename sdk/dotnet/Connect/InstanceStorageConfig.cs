@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CONTACT_TRACE_RECORDS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             KinesisFirehoseConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs
     ///             {
-    ///                 FirehoseArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 FirehoseArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             },
     ///             StorageType = "KINESIS_FIREHOSE",
     ///         },
@@ -52,13 +52,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CONTACT_TRACE_RECORDS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             KinesisStreamConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs
     ///             {
-    ///                 StreamArn = aws_kinesis_stream.Example.Arn,
+    ///                 StreamArn = exampleAwsKinesisStream.Arn,
     ///             },
     ///             StorageType = "KINESIS_STREAM",
     ///         },
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "MEDIA_STREAMS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Connect
     ///                 EncryptionConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs
     ///                 {
     ///                     EncryptionType = "KMS",
-    ///                     KeyId = aws_kms_key.Example.Arn,
+    ///                     KeyId = exampleAwsKmsKey.Arn,
     ///                 },
     ///             },
     ///             StorageType = "KINESIS_VIDEO_STREAM",
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CHAT_TRANSCRIPTS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             S3Config = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 BucketPrefix = "example",
     ///             },
     ///             StorageType = "S3",
@@ -137,18 +137,18 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CHAT_TRANSCRIPTS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             S3Config = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 BucketPrefix = "example",
     ///                 EncryptionConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs
     ///                 {
     ///                     EncryptionType = "KMS",
-    ///                     KeyId = aws_kms_key.Example.Arn,
+    ///                     KeyId = exampleAwsKmsKey.Arn,
     ///                 },
     ///             },
     ///             StorageType = "S3",

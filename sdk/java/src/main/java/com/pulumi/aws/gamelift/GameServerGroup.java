@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,14 +57,12 @@ import javax.annotation.Nullable;
  *                     .instanceType(&#34;c5a.large&#34;)
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
+ *                 .id(exampleAwsLaunchTemplate.id())
  *                 .build())
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(aws_iam_role.example().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.example())
- *                 .build());
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .build());
  * 
  *     }
  * }
@@ -84,7 +81,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,19 +114,17 @@ import javax.annotation.Nullable;
  *                     .weightedCapacity(&#34;2&#34;)
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
+ *                 .id(exampleAwsLaunchTemplate.id())
  *                 .version(&#34;1&#34;)
  *                 .build())
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .vpcSubnets(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-23456789&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -178,13 +172,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;gamelift-game-server-group-example&#34;)
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
- *             .role(exampleRole.name())
+ *             .role(example.name())
  *             .build());
  * 
  *     }

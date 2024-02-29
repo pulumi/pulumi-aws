@@ -300,9 +300,9 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
+        example = aws.kms.Key("example")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
                 codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
                     name=example_repository.repository_name,
@@ -310,7 +310,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             ),
             kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
                 encryption_option="CUSTOMER_MANAGED_CMK",
-                kms_key_id=example_key.key_id,
+                kms_key_id=example.key_id,
             ))
         ```
 
@@ -336,9 +336,9 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
+        example = aws.kms.Key("example")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
                 codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
                     name=example_repository.repository_name,
@@ -346,7 +346,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             ),
             kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
                 encryption_option="CUSTOMER_MANAGED_CMK",
-                kms_key_id=example_key.key_id,
+                kms_key_id=example.key_id,
             ))
         ```
 

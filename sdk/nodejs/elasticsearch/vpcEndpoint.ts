@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.elasticsearch.VpcEndpoint("foo", {
- *     domainArn: aws_elasticsearch_domain.domain_1.arn,
+ *     domainArn: domain1.arn,
  *     vpcOptions: {
  *         securityGroupIds: [
- *             aws_security_group.test.id,
- *             aws_security_group.test2.id,
+ *             test.id,
+ *             test2.id,
  *         ],
  *         subnetIds: [
- *             aws_subnet.test.id,
- *             aws_subnet.test2.id,
+ *             testAwsSubnet.id,
+ *             test2AwsSubnet.id,
  *         ],
  *     },
  * });

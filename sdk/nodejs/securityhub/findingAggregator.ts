@@ -16,10 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {linkingMode: "ALL_REGIONS"}, {
- *     dependsOn: [exampleAccount],
- * });
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
  * ```
  * ### All Regions Except Specified Regions Usage
  *
@@ -29,15 +27,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {
  *     linkingMode: "ALL_REGIONS_EXCEPT_SPECIFIED",
  *     specifiedRegions: [
  *         "eu-west-1",
  *         "eu-west-2",
  *     ],
- * }, {
- *     dependsOn: [exampleAccount],
  * });
  * ```
  * ### Specified Regions Usage
@@ -48,15 +44,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {
  *     linkingMode: "SPECIFIED_REGIONS",
  *     specifiedRegions: [
  *         "eu-west-1",
  *         "eu-west-2",
  *     ],
- * }, {
- *     dependsOn: [exampleAccount],
  * });
  * ```
  *

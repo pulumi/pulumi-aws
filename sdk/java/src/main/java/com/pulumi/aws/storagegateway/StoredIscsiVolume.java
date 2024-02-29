@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName(&#34;example&#34;)
  *             .preserveExistingData(false)
- *             .diskId(data.aws_storagegateway_local_disk().test().id())
+ *             .diskId(test.id())
  *             .build());
  * 
  *     }
@@ -79,12 +79,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .snapshotId(aws_ebs_snapshot.example().id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .targetName(&#34;example&#34;)
  *             .preserveExistingData(false)
- *             .diskId(data.aws_storagegateway_local_disk().test().id())
+ *             .diskId(test.id())
  *             .build());
  * 
  *     }

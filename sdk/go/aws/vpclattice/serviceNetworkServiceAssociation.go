@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewServiceNetworkServiceAssociation(ctx, "example", &vpclattice.ServiceNetworkServiceAssociationArgs{
-//				ServiceIdentifier:        pulumi.Any(aws_vpclattice_service.Example.Id),
-//				ServiceNetworkIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
+//				ServiceIdentifier:        pulumi.Any(exampleAwsVpclatticeService.Id),
+//				ServiceNetworkIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
 //			})
 //			if err != nil {
 //				return err

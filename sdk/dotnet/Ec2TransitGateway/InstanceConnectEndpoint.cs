@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.InstanceConnectEndpoint("example", new()
     ///     {
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });

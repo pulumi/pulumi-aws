@@ -25,9 +25,9 @@ namespace Pulumi.Aws.RedshiftData
     /// {
     ///     var example = new Aws.RedshiftData.Statement("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///         Database = aws_redshift_cluster.Example.Database_name,
-    ///         DbUser = aws_redshift_cluster.Example.Master_username,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
+    ///         Database = exampleAwsRedshiftCluster.DatabaseName,
+    ///         DbUser = exampleAwsRedshiftCluster.MasterUsername,
     ///         Sql = "CREATE GROUP group_name;",
     ///     });
     /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.RedshiftData
     /// {
     ///     var example = new Aws.RedshiftData.Statement("example", new()
     ///     {
-    ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+    ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
     ///         Database = "dev",
     ///         Sql = "CREATE GROUP group_name;",
     ///     });

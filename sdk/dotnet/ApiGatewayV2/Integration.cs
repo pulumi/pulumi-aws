@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         IntegrationType = "MOCK",
     ///     });
     /// 
@@ -42,23 +42,24 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
+    ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
     ///         Code = new FileArchive("example.zip"),
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         Name = "Example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
     ///         Runtime = "nodejs16.x",
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         IntegrationType = "AWS_PROXY",
     ///         ConnectionType = "INTERNET",
     ///         ContentHandlingStrategy = "CONVERT_TO_TEXT",
     ///         Description = "Lambda example",
     ///         IntegrationMethod = "POST",
-    ///         IntegrationUri = exampleFunction.InvokeArn,
+    ///         IntegrationUri = example.InvokeArn,
     ///         PassthroughBehavior = "WHEN_NO_MATCH",
     ///     });
     /// 
@@ -76,8 +77,8 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         CredentialsArn = aws_iam_role.Example.Arn,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         CredentialsArn = exampleAwsIamRole.Arn,
     ///         Description = "SQS example",
     ///         IntegrationType = "AWS_PROXY",
     ///         IntegrationSubtype = "SQS-SendMessage",
@@ -102,14 +103,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         CredentialsArn = aws_iam_role.Example.Arn,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         CredentialsArn = exampleAwsIamRole.Arn,
     ///         Description = "Example with a load balancer",
     ///         IntegrationType = "HTTP_PROXY",
-    ///         IntegrationUri = aws_lb_listener.Example.Arn,
+    ///         IntegrationUri = exampleAwsLbListener.Arn,
     ///         IntegrationMethod = "ANY",
     ///         ConnectionType = "VPC_LINK",
-    ///         ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
+    ///         ConnectionId = exampleAwsApigatewayv2VpcLink.Id,
     ///         TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
     ///         {
     ///             ServerNameToVerify = "example.com",

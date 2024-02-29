@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.Vocabulary("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
  *     content: `Phrase	IPA	SoundsLike	DisplayAs
  * Los-Angeles			Los Angeles
  * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	
- * `,
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * Etienne		eh-tee-en	`,
  *     languageCode: "en-US",
  *     tags: {
  *         Key1: "Value1",

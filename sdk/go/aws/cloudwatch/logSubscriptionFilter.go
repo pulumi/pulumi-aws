@@ -28,11 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
-//				RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
+//			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "test_lambdafunction_logfilter", &cloudwatch.LogSubscriptionFilterArgs{
+//				Name:           pulumi.String("test_lambdafunction_logfilter"),
+//				RoleArn:        pulumi.Any(iamForLambda.Arn),
 //				LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
 //				FilterPattern:  pulumi.String("logtype test"),
-//				DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
+//				DestinationArn: pulumi.Any(testLogstream.Arn),
 //				Distribution:   pulumi.String("Random"),
 //			})
 //			if err != nil {

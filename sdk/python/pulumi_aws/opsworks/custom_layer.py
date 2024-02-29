@@ -849,8 +849,9 @@ class CustomLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custlayer = aws.opsworks.CustomLayer("custlayer",
+            name="My Awesome Custom Layer",
             short_name="awesome",
-            stack_id=aws_opsworks_stack["main"]["id"])
+            stack_id=main["id"])
         ```
 
         ## Import
@@ -903,8 +904,9 @@ class CustomLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custlayer = aws.opsworks.CustomLayer("custlayer",
+            name="My Awesome Custom Layer",
             short_name="awesome",
-            stack_id=aws_opsworks_stack["main"]["id"])
+            stack_id=main["id"])
         ```
 
         ## Import

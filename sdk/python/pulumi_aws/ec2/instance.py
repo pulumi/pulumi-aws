@@ -1831,7 +1831,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_ami = aws.ec2.get_ami(most_recent=True,
+        this = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
                 aws.ec2.GetAmiFilterArgs(
@@ -1843,8 +1843,8 @@ class Instance(pulumi.CustomResource):
                     values=["al2023-ami-2023*"],
                 ),
             ])
-        this_instance = aws.ec2.Instance("thisInstance",
-            ami=this_ami.id,
+        this_instance = aws.ec2.Instance("this",
+            ami=this.id,
             instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
                 spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
                     max_price="0.0031",
@@ -1861,29 +1861,29 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_vpc = aws.ec2.Vpc("myVpc",
+        my_vpc = aws.ec2.Vpc("my_vpc",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        my_subnet = aws.ec2.Subnet("mySubnet",
+        my_subnet = aws.ec2.Subnet("my_subnet",
             vpc_id=my_vpc.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-example",
             })
-        foo_network_interface = aws.ec2.NetworkInterface("fooNetworkInterface",
+        foo = aws.ec2.NetworkInterface("foo",
             subnet_id=my_subnet.id,
             private_ips=["172.16.10.100"],
             tags={
                 "Name": "primary_network_interface",
             })
-        foo_instance = aws.ec2.Instance("fooInstance",
+        foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
             instance_type="t2.micro",
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
-                network_interface_id=foo_network_interface.id,
+                network_interface_id=foo.id,
                 device_index=0,
             )],
             credit_specification=aws.ec2.InstanceCreditSpecificationArgs(
@@ -1896,13 +1896,13 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-east-2a",
             tags={
@@ -1914,7 +1914,7 @@ class Instance(pulumi.CustomResource):
                 name="name",
                 values=["al2023-ami-2023.*-x86_64"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
             instance_type="c6a.2xlarge",
             subnet_id=example_subnet.id,
@@ -1938,8 +1938,8 @@ class Instance(pulumi.CustomResource):
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             instance_type="m5.large",
+            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
 
@@ -2047,7 +2047,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_ami = aws.ec2.get_ami(most_recent=True,
+        this = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
                 aws.ec2.GetAmiFilterArgs(
@@ -2059,8 +2059,8 @@ class Instance(pulumi.CustomResource):
                     values=["al2023-ami-2023*"],
                 ),
             ])
-        this_instance = aws.ec2.Instance("thisInstance",
-            ami=this_ami.id,
+        this_instance = aws.ec2.Instance("this",
+            ami=this.id,
             instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
                 spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
                     max_price="0.0031",
@@ -2077,29 +2077,29 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_vpc = aws.ec2.Vpc("myVpc",
+        my_vpc = aws.ec2.Vpc("my_vpc",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        my_subnet = aws.ec2.Subnet("mySubnet",
+        my_subnet = aws.ec2.Subnet("my_subnet",
             vpc_id=my_vpc.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-example",
             })
-        foo_network_interface = aws.ec2.NetworkInterface("fooNetworkInterface",
+        foo = aws.ec2.NetworkInterface("foo",
             subnet_id=my_subnet.id,
             private_ips=["172.16.10.100"],
             tags={
                 "Name": "primary_network_interface",
             })
-        foo_instance = aws.ec2.Instance("fooInstance",
+        foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
             instance_type="t2.micro",
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
-                network_interface_id=foo_network_interface.id,
+                network_interface_id=foo.id,
                 device_index=0,
             )],
             credit_specification=aws.ec2.InstanceCreditSpecificationArgs(
@@ -2112,13 +2112,13 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-east-2a",
             tags={
@@ -2130,7 +2130,7 @@ class Instance(pulumi.CustomResource):
                 name="name",
                 values=["al2023-ami-2023.*-x86_64"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
             instance_type="c6a.2xlarge",
             subnet_id=example_subnet.id,
@@ -2154,8 +2154,8 @@ class Instance(pulumi.CustomResource):
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             instance_type="m5.large",
+            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
 

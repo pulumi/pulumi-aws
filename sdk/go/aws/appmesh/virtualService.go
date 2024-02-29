@@ -30,11 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("servicea.simpleapp.local"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualServiceSpecArgs{
 //					Provider: &appmesh.VirtualServiceSpecProviderArgs{
 //						VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
-//							VirtualNodeName: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//							VirtualNodeName: pulumi.Any(serviceb1.Name),
 //						},
 //					},
 //				},
@@ -62,11 +63,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("servicea.simpleapp.local"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualServiceSpecArgs{
 //					Provider: &appmesh.VirtualServiceSpecProviderArgs{
 //						VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
-//							VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//							VirtualRouterName: pulumi.Any(serviceb.Name),
 //						},
 //					},
 //				},

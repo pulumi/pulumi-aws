@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ * const example = aws.cloudwatch.getLogDataProtectionPolicyDocument({
  *     name: "Example",
  *     statements: [
  *         {
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  *                 audit: {
  *                     findingsDestination: {
  *                         cloudwatchLogs: {
- *                             logGroup: aws_cloudwatch_log_group.audit.name,
+ *                             logGroup: audit.name,
  *                         },
  *                         firehose: {
- *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
+ *                             deliveryStream: auditAwsKinesisFirehoseDeliveryStream.name,
  *                         },
  *                         s3: {
- *                             bucket: aws_s3_bucket.audit.bucket,
+ *                             bucket: auditAwsS3Bucket.bucket,
  *                         },
  *                     },
  *                 },
@@ -57,9 +57,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: aws_cloudwatch_log_group.example.name,
- *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
+ * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
+ *     logGroupName: exampleAwsCloudwatchLogGroup.name,
+ *     policyDocument: example.then(example => example.json),
  * });
  * ```
  */
@@ -122,7 +122,7 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ * const example = aws.cloudwatch.getLogDataProtectionPolicyDocument({
  *     name: "Example",
  *     statements: [
  *         {
@@ -135,13 +135,13 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  *                 audit: {
  *                     findingsDestination: {
  *                         cloudwatchLogs: {
- *                             logGroup: aws_cloudwatch_log_group.audit.name,
+ *                             logGroup: audit.name,
  *                         },
  *                         firehose: {
- *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
+ *                             deliveryStream: auditAwsKinesisFirehoseDeliveryStream.name,
  *                         },
  *                         s3: {
- *                             bucket: aws_s3_bucket.audit.bucket,
+ *                             bucket: auditAwsS3Bucket.bucket,
  *                         },
  *                     },
  *                 },
@@ -161,9 +161,9 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  *         },
  *     ],
  * });
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: aws_cloudwatch_log_group.example.name,
- *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
+ * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
+ *     logGroupName: exampleAwsCloudwatchLogGroup.name,
+ *     policyDocument: example.then(example => example.json),
  * });
  * ```
  */

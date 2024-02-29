@@ -19,9 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
+ *     name: "my-endpoint-config",
  *     productionVariants: [{
  *         variantName: "variant-1",
- *         modelName: aws_sagemaker_model.m.name,
+ *         modelName: m.name,
  *         initialInstanceCount: 1,
  *         instanceType: "ml.t2.medium",
  *     }],

@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambdaLayerPermission", new()
+    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambda_layer_permission", new()
     ///     {
-    ///         Action = "lambda:GetLayerVersion",
     ///         LayerName = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
-    ///         Principal = "111111111111",
-    ///         StatementId = "dev-account",
     ///         VersionNumber = 1,
+    ///         Principal = "111111111111",
+    ///         Action = "lambda:GetLayerVersion",
+    ///         StatementId = "dev-account",
     ///     });
     /// 
     /// });

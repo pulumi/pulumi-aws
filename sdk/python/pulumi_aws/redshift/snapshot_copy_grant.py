@@ -180,10 +180,10 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
+        test_cluster = aws.redshift.Cluster("test", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
             destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
+            grant_name=test.snapshot_copy_grant_name,
         ))
         ```
 
@@ -218,10 +218,10 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
+        test_cluster = aws.redshift.Cluster("test", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
             destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
+            grant_name=test.snapshot_copy_grant_name,
         ))
         ```
 

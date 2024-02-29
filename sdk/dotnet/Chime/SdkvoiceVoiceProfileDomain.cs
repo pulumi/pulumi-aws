@@ -23,17 +23,18 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS Key for Voice Profile Domain",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", new()
+    ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("example", new()
     ///     {
+    ///         Name = "ExampleVoiceProfileDomain",
     ///         ServerSideEncryptionConfiguration = new Aws.Chime.Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
     ///         {
-    ///             KmsKeyArn = exampleKey.Arn,
+    ///             KmsKeyArn = example.Arn,
     ///         },
     ///         Description = "My Voice Profile Domain",
     ///         Tags = 

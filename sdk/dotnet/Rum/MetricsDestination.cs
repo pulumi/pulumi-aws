@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Rum
     /// {
     ///     var example = new Aws.Rum.MetricsDestination("example", new()
     ///     {
-    ///         AppMonitorName = aws_rum_app_monitor.Example.Name,
+    ///         AppMonitorName = exampleAwsRumAppMonitor.Name,
     ///         Destination = "CloudWatch",
     ///     });
     /// 

@@ -280,17 +280,19 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
+        example_application = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
+        example = aws.appconfig.Environment("example",
+            name="example-environment-tf",
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=example_aws_cloudwatch_metric_alarm["arn"],
+                alarm_role_arn=example_aws_iam_role["arn"],
             )],
             tags={
                 "Type": "AppConfig Environment",
@@ -328,17 +330,19 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
+        example_application = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
+        example = aws.appconfig.Environment("example",
+            name="example-environment-tf",
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=example_aws_cloudwatch_metric_alarm["arn"],
+                alarm_role_arn=example_aws_iam_role["arn"],
             )],
             tags={
                 "Type": "AppConfig Environment",

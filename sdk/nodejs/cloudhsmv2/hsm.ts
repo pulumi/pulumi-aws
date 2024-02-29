@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cluster = aws.cloudhsmv2.getCluster({
- *     clusterId: _var.cloudhsm_cluster_id,
+ *     clusterId: cloudhsmClusterId,
  * });
- * const cloudhsmV2Hsm = new aws.cloudhsmv2.Hsm("cloudhsmV2Hsm", {
+ * const cloudhsmV2Hsm = new aws.cloudhsmv2.Hsm("cloudhsm_v2_hsm", {
  *     subnetId: cluster.then(cluster => cluster.subnetIds?.[0]),
  *     clusterId: cluster.then(cluster => cluster.clusterId),
  * });

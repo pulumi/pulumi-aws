@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.glacier.Vault;
@@ -47,9 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;);
+ *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;glacier-sns-topic&#34;)
+ *             .build());
  * 
- *         final var myArchivePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var myArchive = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;add-read-only-perm&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -65,13 +68,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var myArchiveVault = new Vault(&#34;myArchiveVault&#34;, VaultArgs.builder()        
+ *             .name(&#34;MyArchive&#34;)
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())
  *                 .events(                
  *                     &#34;ArchiveRetrievalCompleted&#34;,
  *                     &#34;InventoryRetrievalCompleted&#34;)
  *                 .build())
- *             .accessPolicy(myArchivePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .accessPolicy(myArchive.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Test&#34;, &#34;MyArchive&#34;))
  *             .build());
  * 

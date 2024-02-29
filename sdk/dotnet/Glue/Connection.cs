@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Glue
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -51,18 +52,19 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         ConnectionProperties = 
     ///         {
-    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{aws_rds_cluster.Example.Endpoint}/exampledatabase" },
+    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{exampleAwsRdsCluster.Endpoint}/exampledatabase" },
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
+    ///         Name = "example",
     ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
     ///         {
-    ///             AvailabilityZone = aws_subnet.Example.Availability_zone,
+    ///             AvailabilityZone = exampleAwsSubnet.AvailabilityZone,
     ///             SecurityGroupIdLists = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetId = aws_subnet.Example.Id,
+    ///             SubnetId = exampleAwsSubnet.Id,
     ///         },
     ///     });
     /// 

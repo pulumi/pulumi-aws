@@ -13,12 +13,72 @@ namespace Pulumi.Aws.SsoAdmin
     {
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+        ///         ["identityStoreId"] = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+        ///         ["identityStoreId"] = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstancesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());

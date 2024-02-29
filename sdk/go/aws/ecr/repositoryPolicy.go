@@ -31,11 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
+//			foo, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
+//				Name: pulumi.String("bar"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			foopolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			foopolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("new policy"),
@@ -70,9 +72,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicyRepositoryPolicy", &ecr.RepositoryPolicyArgs{
+//			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicy", &ecr.RepositoryPolicyArgs{
 //				Repository: foo.Name,
-//				Policy:     *pulumi.String(foopolicyPolicyDocument.Json),
+//				Policy:     *pulumi.String(foopolicy.Json),
 //			})
 //			if err != nil {
 //				return err

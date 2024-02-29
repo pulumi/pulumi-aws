@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewWorkingStorage(ctx, "example", &storagegateway.WorkingStorageArgs{
-//				DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
-//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//				DiskId:     pulumi.Any(exampleAwsStoragegatewayLocalDisk.Id),
+//				GatewayArn: pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {
 //				return err

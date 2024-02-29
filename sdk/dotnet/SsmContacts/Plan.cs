@@ -77,19 +77,19 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var escalationPlan = new Aws.SsmContacts.Contact("escalationPlan", new()
+    ///     var escalationPlan = new Aws.SsmContacts.Contact("escalation_plan", new()
     ///     {
     ///         Alias = "escalation-plan-alias",
     ///         Type = "ESCALATION",
     ///     });
     /// 
-    ///     var contactOne = new Aws.SsmContacts.Contact("contactOne", new()
+    ///     var contactOne = new Aws.SsmContacts.Contact("contact_one", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var contactTwo = new Aws.SsmContacts.Contact("contactTwo", new()
+    ///     var contactTwo = new Aws.SsmContacts.Contact("contact_two", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SsmContacts
     ///                         ChannelTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetChannelTargetInfoArgs
     ///                         {
     ///                             RetryIntervalInMinutes = 2,
-    ///                             ContactChannelId = aws_ssmcontacts_contact_channel.Channel.Arn,
+    ///                             ContactChannelId = channel.Arn,
     ///                         },
     ///                     },
     ///                 },

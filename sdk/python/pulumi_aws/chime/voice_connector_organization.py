@@ -141,10 +141,12 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+        default = aws.chime.VoiceConnector("default",
+            name="test",
+            require_encryption=True)
+        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             routes=[
                 aws.chime.VoiceConnectorOrganizationRouteArgs(
                     host="127.0.0.1",
@@ -192,10 +194,12 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+        default = aws.chime.VoiceConnector("default",
+            name="test",
+            require_encryption=True)
+        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             routes=[
                 aws.chime.VoiceConnectorOrganizationRouteArgs(
                     host="127.0.0.1",

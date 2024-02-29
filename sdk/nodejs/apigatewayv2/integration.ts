@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
+ *     apiId: exampleAwsApigatewayv2Api.id,
  *     integrationType: "MOCK",
  * });
  * ```
@@ -29,20 +29,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {
+ * const example = new aws.lambda.Function("example", {
  *     code: new pulumi.asset.FileArchive("example.zip"),
- *     role: aws_iam_role.example.arn,
+ *     name: "Example",
+ *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
  *     runtime: "nodejs16.x",
  * });
- * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
- *     apiId: aws_apigatewayv2_api.example.id,
+ * const exampleIntegration = new aws.apigatewayv2.Integration("example", {
+ *     apiId: exampleAwsApigatewayv2Api.id,
  *     integrationType: "AWS_PROXY",
  *     connectionType: "INTERNET",
  *     contentHandlingStrategy: "CONVERT_TO_TEXT",
  *     description: "Lambda example",
  *     integrationMethod: "POST",
- *     integrationUri: exampleFunction.invokeArn,
+ *     integrationUri: example.invokeArn,
  *     passthroughBehavior: "WHEN_NO_MATCH",
  * });
  * ```
@@ -53,8 +54,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     credentialsArn: aws_iam_role.example.arn,
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     credentialsArn: exampleAwsIamRole.arn,
  *     description: "SQS example",
  *     integrationType: "AWS_PROXY",
  *     integrationSubtype: "SQS-SendMessage",
@@ -71,14 +72,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     credentialsArn: aws_iam_role.example.arn,
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     credentialsArn: exampleAwsIamRole.arn,
  *     description: "Example with a load balancer",
  *     integrationType: "HTTP_PROXY",
- *     integrationUri: aws_lb_listener.example.arn,
+ *     integrationUri: exampleAwsLbListener.arn,
  *     integrationMethod: "ANY",
  *     connectionType: "VPC_LINK",
- *     connectionId: aws_apigatewayv2_vpc_link.example.id,
+ *     connectionId: exampleAwsApigatewayv2VpcLink.id,
  *     tlsConfig: {
  *         serverNameToVerify: "example.com",
  *     },

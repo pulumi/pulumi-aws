@@ -25,8 +25,8 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         SecretId = aws_secretsmanager_secret.Example.Id,
-    ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         RotationLambdaArn = exampleAwsLambdaFunction.Arn,
     ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
     ///         {
     ///             AutomaticallyAfterDays = 30,

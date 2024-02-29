@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress(&#34;email@example.com&#34;)
  *                 .build())
+ *             .name(&#34;Example contact channel&#34;)
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
@@ -87,6 +88,7 @@ import javax.annotation.Nullable;
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress(&#34;email@example.com&#34;)
  *                 .build())
+ *             .name(&#34;Example contact channel&#34;)
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 

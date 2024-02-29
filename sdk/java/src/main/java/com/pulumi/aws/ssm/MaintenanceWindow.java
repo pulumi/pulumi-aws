@@ -43,9 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new MaintenanceWindow(&#34;production&#34;, MaintenanceWindowArgs.builder()        
- *             .cutoff(1)
- *             .duration(3)
+ *             .name(&#34;maintenance-window-application&#34;)
  *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
+ *             .duration(3)
+ *             .cutoff(1)
  *             .build());
  * 
  *     }

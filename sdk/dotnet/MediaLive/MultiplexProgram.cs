@@ -28,8 +28,9 @@ namespace Pulumi.Aws.MediaLive
     ///         State = "available",
     ///     });
     /// 
-    ///     var exampleMultiplex = new Aws.MediaLive.Multiplex("exampleMultiplex", new()
+    ///     var example = new Aws.MediaLive.Multiplex("example", new()
     ///     {
+    ///         Name = "example-multiplex-changed",
     ///         AvailabilityZones = new[]
     ///         {
     ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
@@ -49,10 +50,10 @@ namespace Pulumi.Aws.MediaLive
     ///         },
     ///     });
     /// 
-    ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("exampleMultiplexProgram", new()
+    ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("example", new()
     ///     {
     ///         ProgramName = "example_program",
-    ///         MultiplexId = exampleMultiplex.Id,
+    ///         MultiplexId = example.Id,
     ///         MultiplexProgramSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsArgs
     ///         {
     ///             ProgramNumber = 1,

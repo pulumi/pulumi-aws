@@ -25,7 +25,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// {
     ///     var example = new Aws.VerifiedPermissions.PolicyTemplate("example", new()
     ///     {
-    ///         PolicyStoreId = aws_verifiedpermissions_policy_store.Example.Id,
+    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.Id,
     ///         Statement = "permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };",
     ///     });
     /// 

@@ -26,7 +26,8 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
+    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
+    ///         Name = "test",
     ///     });
     /// 
     /// });
@@ -45,7 +46,8 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
+    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
+    ///         Name = "mysvm",
     ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
     ///         {
     ///             NetbiosName = "mysvm",

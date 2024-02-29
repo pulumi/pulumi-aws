@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
  *                 .cidr(&#34;10.0.0.8/32&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
  *             .build());
  * 
  *     }

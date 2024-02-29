@@ -41,9 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccessPolicyAssociation(&#34;example&#34;, AccessPolicyAssociationArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .policyArn(&#34;arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy&#34;)
- *             .principalArn(aws_iam_user.example().arn())
+ *             .principalArn(exampleAwsIamUser.arn())
  *             .accessScope(AccessPolicyAssociationAccessScopeArgs.builder()
  *                 .type(&#34;namespace&#34;)
  *                 .namespaces(&#34;example-namespace&#34;)

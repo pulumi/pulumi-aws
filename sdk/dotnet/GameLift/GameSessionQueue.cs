@@ -24,12 +24,13 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
     ///     {
+    ///         Name = "example-session-queue",
     ///         Destinations = new[]
     ///         {
-    ///             aws_gamelift_fleet.Us_west_2_fleet.Arn,
-    ///             aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+    ///             usWest2Fleet.Arn,
+    ///             euCentral1Fleet.Arn,
     ///         },
-    ///         NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
+    ///         NotificationTarget = gameSessionQueueNotifications.Arn,
     ///         PlayerLatencyPolicies = new[]
     ///         {
     ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs

@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .perUnitStorageThroughput(1000)
  *                 .weeklyMaintenanceStartTime(&#34;2:05:00&#34;)
  *                 .build())
- *             .subnetIds(aws_subnet.test1().id())
+ *             .subnetIds(test1.id())
  *             .storageCapacity(1200)
  *             .build());
  * 

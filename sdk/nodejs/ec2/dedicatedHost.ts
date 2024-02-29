@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * // Create a new host with instance type of c5.18xlarge with Auto Placement
  * // and Host Recovery enabled.
  * const test = new aws.ec2.DedicatedHost("test", {
- *     autoPlacement: "on",
+ *     instanceType: "c5.18xlarge",
  *     availabilityZone: "us-west-2a",
  *     hostRecovery: "on",
- *     instanceType: "c5.18xlarge",
+ *     autoPlacement: "on",
  * });
  * ```
  *

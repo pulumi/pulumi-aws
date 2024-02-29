@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CostAllocationTag(&#34;example&#34;, CostAllocationTagArgs.builder()        
- *             .status(&#34;Active&#34;)
  *             .tagKey(&#34;example&#34;)
+ *             .status(&#34;Active&#34;)
  *             .build());
  * 
  *     }

@@ -1737,7 +1737,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -1748,7 +1748,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -1761,94 +1761,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -1886,413 +1809,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -2331,7 +1858,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -2342,7 +1869,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -2355,94 +1882,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -2480,413 +1930,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -2925,7 +1979,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -2936,7 +1990,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -2949,94 +2003,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -3074,413 +2051,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -3519,7 +2100,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -3530,7 +2111,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -3543,94 +2124,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -3668,413 +2172,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -4113,7 +2221,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -4124,7 +2232,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -4137,94 +2245,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -4262,413 +2293,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -4707,7 +2342,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -4718,7 +2353,7 @@ public final class IamFunctions {
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, var_.s3_bucket_name()))
+     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test(&#34;StringLike&#34;)
      *                         .variable(&#34;s3:prefix&#34;)
@@ -4731,94 +2366,17 @@ public final class IamFunctions {
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
+     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
      *                     .build())
      *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+     *             .name(&#34;example_policy&#34;)
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Multiple Condition Keys and Values
-     * 
-     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .conditions(                
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;pi&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(&#34;rds&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
-     *                         .build())
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -4856,413 +2414,17 @@ public final class IamFunctions {
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(var_.trusted_role_arn())
+     *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type(&#34;Federated&#34;)
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, var_.account_id(),var_.provider_name()),
+     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
-     * ```
-     * ### Example Using A Source Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example Using An Override Document
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example with Both Source and Override Documents
-     * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.politik.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Source Documents
-     * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * ### Example of Merging Override Documents
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_iam_policy_document.combined.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -5280,6 +2442,170 @@ public final class IamFunctions {
      * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
      * 
      * ## Example Usage
+     * ### Self Access-checking Example
+     * 
+     * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(            
+     *                 &#34;s3:GetObject&#34;,
+     *                 &#34;s3:PutObject&#34;,
+     *                 &#34;s3:DeleteObject&#34;)
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketObject;
+     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Testing the Effect of a Declared Policy
+     * 
+     * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.User;
+     * import com.pulumi.aws.iam.UserArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.UserPolicy;
+     * import com.pulumi.aws.iam.UserPolicyArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
+     *             .name(&#34;example_s3_access&#34;)
+     *             .user(example.name())
+     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     )))
+     *                 ))))
+     *             .build());
+     * 
+     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(exampleBucketV2.bucket())
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *                 var exampleBucketV2Arn = values.t1;
+     *                 var exampleBucketV2Arn1 = values.t2;
+     *                 return serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                             )),
+     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                                 exampleBucketV2Arn, 
+     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                             ))
+     *                         )))
+     *                     ));
+     *             }))
+     *             .build());
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .policySourceArn(example.arn())
+     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourcePolicyJson(accountAccess.policy())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args) {
@@ -5294,6 +2620,170 @@ public final class IamFunctions {
      * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
      * 
      * ## Example Usage
+     * ### Self Access-checking Example
+     * 
+     * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(            
+     *                 &#34;s3:GetObject&#34;,
+     *                 &#34;s3:PutObject&#34;,
+     *                 &#34;s3:DeleteObject&#34;)
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketObject;
+     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Testing the Effect of a Declared Policy
+     * 
+     * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.User;
+     * import com.pulumi.aws.iam.UserArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.UserPolicy;
+     * import com.pulumi.aws.iam.UserPolicyArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
+     *             .name(&#34;example_s3_access&#34;)
+     *             .user(example.name())
+     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     )))
+     *                 ))))
+     *             .build());
+     * 
+     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(exampleBucketV2.bucket())
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *                 var exampleBucketV2Arn = values.t1;
+     *                 var exampleBucketV2Arn1 = values.t2;
+     *                 return serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                             )),
+     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                                 exampleBucketV2Arn, 
+     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                             ))
+     *                         )))
+     *                     ));
+     *             }))
+     *             .build());
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .policySourceArn(example.arn())
+     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourcePolicyJson(accountAccess.policy())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args) {
@@ -5308,6 +2798,170 @@ public final class IamFunctions {
      * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
      * 
      * ## Example Usage
+     * ### Self Access-checking Example
+     * 
+     * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(            
+     *                 &#34;s3:GetObject&#34;,
+     *                 &#34;s3:PutObject&#34;,
+     *                 &#34;s3:DeleteObject&#34;)
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketObject;
+     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Testing the Effect of a Declared Policy
+     * 
+     * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.User;
+     * import com.pulumi.aws.iam.UserArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.UserPolicy;
+     * import com.pulumi.aws.iam.UserPolicyArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
+     *             .name(&#34;example_s3_access&#34;)
+     *             .user(example.name())
+     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     )))
+     *                 ))))
+     *             .build());
+     * 
+     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(exampleBucketV2.bucket())
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *                 var exampleBucketV2Arn = values.t1;
+     *                 var exampleBucketV2Arn1 = values.t2;
+     *                 return serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                             )),
+     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                                 exampleBucketV2Arn, 
+     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                             ))
+     *                         )))
+     *                     ));
+     *             }))
+     *             .build());
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .policySourceArn(example.arn())
+     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourcePolicyJson(accountAccess.policy())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args, InvokeOptions options) {
@@ -5322,6 +2976,170 @@ public final class IamFunctions {
      * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
      * 
      * ## Example Usage
+     * ### Self Access-checking Example
+     * 
+     * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(            
+     *                 &#34;s3:GetObject&#34;,
+     *                 &#34;s3:PutObject&#34;,
+     *                 &#34;s3:DeleteObject&#34;)
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketObject;
+     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Testing the Effect of a Declared Policy
+     * 
+     * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.iam.User;
+     * import com.pulumi.aws.iam.UserArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.UserPolicy;
+     * import com.pulumi.aws.iam.UserPolicyArgs;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-test-bucket&#34;)
+     *             .build());
+     * 
+     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
+     *             .name(&#34;example_s3_access&#34;)
+     *             .user(example.name())
+     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     )))
+     *                 ))))
+     *             .build());
+     * 
+     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(exampleBucketV2.bucket())
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *                 var exampleBucketV2Arn = values.t1;
+     *                 var exampleBucketV2Arn1 = values.t2;
+     *                 return serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                             )),
+     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                                 exampleBucketV2Arn, 
+     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                             ))
+     *                         )))
+     *                     ));
+     *             }))
+     *             .build());
+     * 
+     *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
+     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .policySourceArn(example.arn())
+     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourcePolicyJson(accountAccess.policy())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args, InvokeOptions options) {
@@ -6621,6 +4439,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)
@@ -6672,6 +4491,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)
@@ -6723,6 +4543,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)
@@ -6774,6 +4595,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)
@@ -6825,6 +4647,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)
@@ -6876,6 +4699,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-domain-elb&#34;)
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol(&#34;https&#34;)

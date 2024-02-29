@@ -25,16 +25,16 @@ namespace Pulumi.Aws.MediaLive
     /// {
     ///     var example = new Aws.MediaLive.InputSecurityGroup("example", new()
     ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "ENVIRONMENT", "prod" },
-    ///         },
     ///         WhitelistRules = new[]
     ///         {
     ///             new Aws.MediaLive.Inputs.InputSecurityGroupWhitelistRuleArgs
     ///             {
     ///                 Cidr = "10.0.0.8/32",
     ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ENVIRONMENT", "prod" },
     ///         },
     ///     });
     /// 

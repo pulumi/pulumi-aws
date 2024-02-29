@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
@@ -43,10 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())

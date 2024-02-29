@@ -16,20 +16,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xssMatchSet = new aws.waf.XssMatchSet("xssMatchSet", {xssMatchTuples: [
- *     {
- *         fieldToMatch: {
- *             type: "URI",
+ * const xssMatchSet = new aws.waf.XssMatchSet("xss_match_set", {
+ *     name: "xss_match_set",
+ *     xssMatchTuples: [
+ *         {
+ *             textTransformation: "NONE",
+ *             fieldToMatch: {
+ *                 type: "URI",
+ *             },
  *         },
- *         textTransformation: "NONE",
- *     },
- *     {
- *         fieldToMatch: {
- *             type: "QUERY_STRING",
+ *         {
+ *             textTransformation: "NONE",
+ *             fieldToMatch: {
+ *                 type: "QUERY_STRING",
+ *             },
  *         },
- *         textTransformation: "NONE",
- *     },
- * ]});
+ *     ],
+ * });
  * ```
  *
  * ## Import

@@ -339,14 +339,14 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
+            name="name",
             incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
                 title="title",
                 impact=3,
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
         ### Usage With All Fields
 
@@ -355,6 +355,7 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
+            name="name",
             incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
                 title="title",
                 impact=3,
@@ -364,21 +365,21 @@ class ResponsePlan(pulumi.CustomResource):
                 },
                 notification_targets=[
                     aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
+                        sns_topic_arn=example1["arn"],
                     ),
                     aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
+                        sns_topic_arn=example2["arn"],
                     ),
                 ],
                 summary="summary",
             ),
             display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
+            chat_channels=[topic["arn"]],
             engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action=aws.ssmincidents.ResponsePlanActionArgs(
                 ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
+                    document_name=document1["name"],
+                    role_arn=role1["arn"],
                     document_version="version1",
                     target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
                     parameters=[
@@ -409,8 +410,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
 
         ## Import
@@ -448,14 +448,14 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
+            name="name",
             incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
                 title="title",
                 impact=3,
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
         ### Usage With All Fields
 
@@ -464,6 +464,7 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
+            name="name",
             incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
                 title="title",
                 impact=3,
@@ -473,21 +474,21 @@ class ResponsePlan(pulumi.CustomResource):
                 },
                 notification_targets=[
                     aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
+                        sns_topic_arn=example1["arn"],
                     ),
                     aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
+                        sns_topic_arn=example2["arn"],
                     ),
                 ],
                 summary="summary",
             ),
             display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
+            chat_channels=[topic["arn"]],
             engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action=aws.ssmincidents.ResponsePlanActionArgs(
                 ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
+                    document_name=document1["name"],
+                    role_arn=role1["arn"],
                     document_version="version1",
                     target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
                     parameters=[
@@ -518,8 +519,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
 
         ## Import

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const my_instance = new aws.opsworks.Instance("my-instance", {
- *     stackId: aws_opsworks_stack.main.id,
- *     layerIds: [aws_opsworks_custom_layer["my-layer"].id],
+ *     stackId: main.id,
+ *     layerIds: [my_layer.id],
  *     instanceType: "t2.micro",
  *     os: "Amazon Linux 2015.09",
  *     state: "stopped",

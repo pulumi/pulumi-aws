@@ -23,7 +23,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
+    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodb_table_read_target", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
@@ -32,8 +32,9 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "dynamodb",
     ///     });
     /// 
-    ///     var dynamodbTableReadPolicy = new Aws.AppAutoScaling.Policy("dynamodbTableReadPolicy", new()
+    ///     var dynamodbTableReadPolicy = new Aws.AppAutoScaling.Policy("dynamodb_table_read_policy", new()
     ///     {
+    ///         Name = dynamodbTableReadTarget.ResourceId.Apply(resourceId =&gt; $"DynamoDBReadCapacityUtilization:{resourceId}"),
     ///         PolicyType = "TargetTrackingScaling",
     ///         ResourceId = dynamodbTableReadTarget.ResourceId,
     ///         ScalableDimension = dynamodbTableReadTarget.ScalableDimension,
@@ -60,7 +61,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -69,8 +70,9 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "ecs",
     ///     });
     /// 
-    ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
+    ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecs_policy", new()
     ///     {
+    ///         Name = "scale-down",
     ///         PolicyType = "StepScaling",
     ///         ResourceId = ecsTarget.ResourceId,
     ///         ScalableDimension = ecsTarget.ScalableDimension,
@@ -103,8 +105,9 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsService = new Aws.Ecs.Service("ecsService", new()
+    ///     var ecsService = new Aws.Ecs.Service("ecs_service", new()
     ///     {
+    ///         Name = "serviceName",
     ///         Cluster = "clusterName",
     ///         TaskDefinition = "taskDefinitionFamily:1",
     ///         DesiredCount = 2,
@@ -122,20 +125,21 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replicasTarget = new Aws.AppAutoScaling.Target("replicasTarget", new()
+    ///     var replicas = new Aws.AppAutoScaling.Target("replicas", new()
     ///     {
     ///         ServiceNamespace = "rds",
     ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
-    ///         ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
+    ///         ResourceId = $"cluster:{example.Id}",
     ///         MinCapacity = 1,
     ///         MaxCapacity = 15,
     ///     });
     /// 
-    ///     var replicasPolicy = new Aws.AppAutoScaling.Policy("replicasPolicy", new()
+    ///     var replicasPolicy = new Aws.AppAutoScaling.Policy("replicas", new()
     ///     {
-    ///         ServiceNamespace = replicasTarget.ServiceNamespace,
-    ///         ScalableDimension = replicasTarget.ScalableDimension,
-    ///         ResourceId = replicasTarget.ResourceId,
+    ///         Name = "cpu-auto-scaling",
+    ///         ServiceNamespace = replicas.ServiceNamespace,
+    ///         ScalableDimension = replicas.ScalableDimension,
+    ///         ResourceId = replicas.ResourceId,
     ///         PolicyType = "TargetTrackingScaling",
     ///         TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
     ///         {
@@ -161,7 +165,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -172,6 +176,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     ///     var example = new Aws.AppAutoScaling.Policy("example", new()
     ///     {
+    ///         Name = "foo",
     ///         PolicyType = "TargetTrackingScaling",
     ///         ResourceId = ecsTarget.ResourceId,
     ///         ScalableDimension = ecsTarget.ScalableDimension,
@@ -258,17 +263,18 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
+    ///     var mskTarget = new Aws.AppAutoScaling.Target("msk_target", new()
     ///     {
     ///         ServiceNamespace = "kafka",
     ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
-    ///         ResourceId = aws_msk_cluster.Example.Arn,
+    ///         ResourceId = example.Arn,
     ///         MinCapacity = 1,
     ///         MaxCapacity = 8,
     ///     });
     /// 
     ///     var targets = new Aws.AppAutoScaling.Policy("targets", new()
     ///     {
+    ///         Name = "storage-size-auto-scaling",
     ///         ServiceNamespace = mskTarget.ServiceNamespace,
     ///         ScalableDimension = mskTarget.ScalableDimension,
     ///         ResourceId = mskTarget.ResourceId,

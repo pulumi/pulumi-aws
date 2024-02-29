@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .authType(&#34;AWS_IAM&#34;)
  *             .customDomainName(&#34;example.com&#34;)
  *             .build());

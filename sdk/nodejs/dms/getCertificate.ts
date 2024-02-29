@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.dms.getCertificate({
- *     certificateId: aws_dms_certificate.test.certificate_id,
+ *     certificateId: test.certificateId,
  * });
  * ```
  */
@@ -97,7 +97,7 @@ export interface GetCertificateResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.dms.getCertificate({
- *     certificateId: aws_dms_certificate.test.certificate_id,
+ *     certificateId: test.certificateId,
  * });
  * ```
  */

@@ -280,7 +280,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
         ### Full usage
@@ -290,7 +290,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
                 magnetic_store_retention_period_in_days=30,
@@ -307,7 +307,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema=aws.timestreamwrite.TableSchemaArgs(
                 composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
@@ -352,7 +352,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
         ### Full usage
@@ -362,7 +362,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
                 magnetic_store_retention_period_in_days=30,
@@ -379,7 +379,7 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema=aws.timestreamwrite.TableSchemaArgs(
                 composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(

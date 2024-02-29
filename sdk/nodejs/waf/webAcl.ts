@@ -18,21 +18,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
+ * const ipset = new aws.waf.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
  * const wafrule = new aws.waf.Rule("wafrule", {
+ *     name: "tfWAFRule",
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
- * const wafAcl = new aws.waf.WebAcl("wafAcl", {
+ * const wafAcl = new aws.waf.WebAcl("waf_acl", {
+ *     name: "tfWebACL",
  *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
@@ -45,11 +48,6 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {
- *     dependsOn: [
- *         ipset,
- *         wafrule,
- *     ],
  * });
  * ```
  * ### Logging
@@ -61,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
- *     logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+ *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *     redactedFields: {
  *         fieldToMatches: [
  *             {

@@ -778,8 +778,8 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.customerprofiles.Domain("exampleDomain", domain_name="example")
-        example_profile = aws.customerprofiles.Profile("exampleProfile", domain_name=example_domain.domain_name)
+        example = aws.customerprofiles.Domain("example", domain_name="example")
+        example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
 
         ## Import
@@ -833,8 +833,8 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.customerprofiles.Domain("exampleDomain", domain_name="example")
-        example_profile = aws.customerprofiles.Profile("exampleProfile", domain_name=example_domain.domain_name)
+        example = aws.customerprofiles.Domain("example", domain_name="example")
+        example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
 
         ## Import

@@ -22,6 +22,71 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Managed Streaming for Kafka Replicator.
  * 
  * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.msk.Replicator;
+ * import com.pulumi.aws.msk.ReplicatorArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Replicator(&#34;test&#34;, ReplicatorArgs.builder()        
+ *             .replicatorName(&#34;test-name&#34;)
+ *             .description(&#34;test-description&#34;)
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .kafkaClusters(            
+ *                 ReplicatorKafkaClusterArgs.builder()
+ *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
+ *                         .mskClusterArn(source.arn())
+ *                         .build())
+ *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
+ *                         .subnetIds(sourceAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .securityGroupsIds(sourceAwsSecurityGroup.id())
+ *                         .build())
+ *                     .build(),
+ *                 ReplicatorKafkaClusterArgs.builder()
+ *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
+ *                         .mskClusterArn(target.arn())
+ *                         .build())
+ *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
+ *                         .subnetIds(targetAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .securityGroupsIds(targetAwsSecurityGroup.id())
+ *                         .build())
+ *                     .build())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterArn(target.arn())
+ *                 .targetCompressionType(&#34;NONE&#34;)
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicsToReplicates(&#34;.*&#34;)
+ *                     .build())
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(&#34;.*&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

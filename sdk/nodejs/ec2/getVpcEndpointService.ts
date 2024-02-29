@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const s3 = aws.ec2.getVpcEndpointService({
  *     service: "s3",
  *     serviceType: "Gateway",
@@ -163,6 +164,7 @@ export interface GetVpcEndpointServiceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const s3 = aws.ec2.getVpcEndpointService({
  *     service: "s3",
  *     serviceType: "Gateway",

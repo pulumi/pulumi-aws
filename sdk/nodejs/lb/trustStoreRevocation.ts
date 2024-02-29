@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTrustStore = new aws.lb.TrustStore("testTrustStore", {
+ * const test = new aws.lb.TrustStore("test", {
+ *     name: "tf-example-lb-ts",
  *     caCertificatesBundleS3Bucket: "...",
  *     caCertificatesBundleS3Key: "...",
  * });
- * const testTrustStoreRevocation = new aws.lb.TrustStoreRevocation("testTrustStoreRevocation", {
- *     trustStoreArn: testTrustStore.arn,
+ * const testTrustStoreRevocation = new aws.lb.TrustStoreRevocation("test", {
+ *     trustStoreArn: test.arn,
  *     revocationsS3Bucket: "...",
  *     revocationsS3Key: "...",
  * });

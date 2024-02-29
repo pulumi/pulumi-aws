@@ -452,11 +452,12 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_api = aws.apigatewayv2.Api("exampleApi",
+        example = aws.apigatewayv2.Api("example",
+            name="example-websocket-api",
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
-        example_route = aws.apigatewayv2.Route("exampleRoute",
-            api_id=example_api.id,
+        example_route = aws.apigatewayv2.Route("example",
+            api_id=example.id,
             route_key="$default")
         ```
         ### HTTP Proxy Integration
@@ -465,14 +466,16 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_api = aws.apigatewayv2.Api("exampleApi", protocol_type="HTTP")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=example_api.id,
+        example = aws.apigatewayv2.Api("example",
+            name="example-http-api",
+            protocol_type="HTTP")
+        example_integration = aws.apigatewayv2.Integration("example",
+            api_id=example.id,
             integration_type="HTTP_PROXY",
             integration_method="ANY",
             integration_uri="https://example.com/{proxy}")
-        example_route = aws.apigatewayv2.Route("exampleRoute",
-            api_id=example_api.id,
+        example_route = aws.apigatewayv2.Route("example",
+            api_id=example.id,
             route_key="ANY /example/{proxy+}",
             target=example_integration.id.apply(lambda id: f"integrations/{id}"))
         ```
@@ -521,11 +524,12 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_api = aws.apigatewayv2.Api("exampleApi",
+        example = aws.apigatewayv2.Api("example",
+            name="example-websocket-api",
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
-        example_route = aws.apigatewayv2.Route("exampleRoute",
-            api_id=example_api.id,
+        example_route = aws.apigatewayv2.Route("example",
+            api_id=example.id,
             route_key="$default")
         ```
         ### HTTP Proxy Integration
@@ -534,14 +538,16 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_api = aws.apigatewayv2.Api("exampleApi", protocol_type="HTTP")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=example_api.id,
+        example = aws.apigatewayv2.Api("example",
+            name="example-http-api",
+            protocol_type="HTTP")
+        example_integration = aws.apigatewayv2.Integration("example",
+            api_id=example.id,
             integration_type="HTTP_PROXY",
             integration_method="ANY",
             integration_uri="https://example.com/{proxy}")
-        example_route = aws.apigatewayv2.Route("exampleRoute",
-            api_id=example_api.id,
+        example_route = aws.apigatewayv2.Route("example",
+            api_id=example.id,
             route_key="ANY /example/{proxy+}",
             target=example_integration.id.apply(lambda id: f"integrations/{id}"))
         ```

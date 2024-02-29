@@ -24,29 +24,30 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService", new()
+    ///     var example = new Aws.VpcLattice.Service("example", new()
     ///     {
+    ///         Name = "example-vpclattice-service",
     ///         AuthType = "AWS_IAM",
     ///         CustomDomainName = "example.com",
     ///     });
     /// 
-    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("exampleAuthPolicy", new()
+    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("example", new()
     ///     {
-    ///         ResourceIdentifier = exampleService.Arn,
+    ///         ResourceIdentifier = example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = "*",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = "*",
+    ///                     ["resource"] = "*",
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["StringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["stringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["aws:PrincipalType"] = "anonymous",
     ///                         },

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFormation
     ///     {
     ///         AccountId = "123456789012",
     ///         Region = "us-east-1",
-    ///         StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///         StackSetName = exampleAwsCloudformationStackSet.Name,
     ///     });
     /// 
     /// });
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.CloudFormation
     ///                     {
     ///                         Identifiers = new[]
     ///                         {
-    ///                             aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
+    ///                             aWSCloudFormationStackSetAdministrationRole.Arn,
     ///                         },
     ///                         Type = "AWS",
     ///                     },
@@ -72,12 +72,15 @@ namespace Pulumi.Aws.CloudFormation
     ///         },
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("aWSCloudFormationStackSetExecutionRole", new()
+    ///     var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("AWSCloudFormationStackSetExecutionRole", new()
     ///     {
     ///         AssumeRolePolicy = aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "AWSCloudFormationStackSetExecutionRole",
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+    ///     // Additional IAM permissions necessary depend on the resources defined in the StackSet template
+    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -98,9 +101,10 @@ namespace Pulumi.Aws.CloudFormation
     ///         },
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", new()
+    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", new()
     ///     {
-    ///         Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "MinimumExecutionPolicy",
+    ///         Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Role = aWSCloudFormationStackSetExecutionRole.Name,
     ///     });
     /// 
@@ -122,11 +126,11 @@ namespace Pulumi.Aws.CloudFormation
     ///         {
     ///             OrganizationalUnitIds = new[]
     ///             {
-    ///                 aws_organizations_organization.Example.Roots[0].Id,
+    ///                 exampleAwsOrganizationsOrganization.Roots[0].Id,
     ///             },
     ///         },
     ///         Region = "us-east-1",
-    ///         StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///         StackSetName = exampleAwsCloudformationStackSet.Name,
     ///     });
     /// 
     /// });

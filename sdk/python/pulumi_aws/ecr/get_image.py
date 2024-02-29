@@ -152,8 +152,8 @@ def get_image(image_digest: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    service_image = aws.ecr.get_image(image_tag="latest",
-        repository_name="my/service")
+    service_image = aws.ecr.get_image(repository_name="my/service",
+        image_tag="latest")
     ```
 
 
@@ -201,8 +201,8 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    service_image = aws.ecr.get_image(image_tag="latest",
-        repository_name="my/service")
+    service_image = aws.ecr.get_image(repository_name="my/service",
+        image_tag="latest")
     ```
 
 

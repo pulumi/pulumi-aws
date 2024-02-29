@@ -23,10 +23,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new()
+    ///     var a = new Aws.Ec2.RouteTableAssociation("a", new()
     ///     {
-    ///         SubnetId = aws_subnet.Foo.Id,
-    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///         SubnetId = foo.Id,
+    ///         RouteTableId = bar.Id,
     ///     });
     /// 
     /// });
@@ -40,10 +40,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new()
+    ///     var b = new Aws.Ec2.RouteTableAssociation("b", new()
     ///     {
-    ///         GatewayId = aws_internet_gateway.Foo.Id,
-    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///         GatewayId = foo.Id,
+    ///         RouteTableId = bar.Id,
     ///     });
     /// 
     /// });

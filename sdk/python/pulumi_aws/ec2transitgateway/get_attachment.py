@@ -200,7 +200,7 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
     example = aws.ec2transitgateway.get_attachment(filters=[
         aws.ec2transitgateway.GetAttachmentFilterArgs(
             name="transit-gateway-id",
-            values=[aws_ec2_transit_gateway["example"]["id"]],
+            values=[example_aws_ec2_transit_gateway["id"]],
         ),
         aws.ec2transitgateway.GetAttachmentFilterArgs(
             name="resource-type",
@@ -254,7 +254,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     example = aws.ec2transitgateway.get_attachment(filters=[
         aws.ec2transitgateway.GetAttachmentFilterArgs(
             name="transit-gateway-id",
-            values=[aws_ec2_transit_gateway["example"]["id"]],
+            values=[example_aws_ec2_transit_gateway["id"]],
         ),
         aws.ec2transitgateway.GetAttachmentFilterArgs(
             name="resource-type",

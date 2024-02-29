@@ -315,10 +315,11 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.QuerySuggestionsBlockList("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
+                bucket=example_aws_s3_bucket["id"],
                 key="example/suggestions.txt",
             ),
             tags={
@@ -362,10 +363,11 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.QuerySuggestionsBlockList("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
+                bucket=example_aws_s3_bucket["id"],
                 key="example/suggestions.txt",
             ),
             tags={

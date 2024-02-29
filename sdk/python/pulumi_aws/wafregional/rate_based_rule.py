@@ -277,11 +277,14 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.RateBasedRule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
@@ -289,8 +292,7 @@ class RateBasedRule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
 
         ## Import
@@ -325,11 +327,14 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.RateBasedRule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
@@ -337,8 +342,7 @@ class RateBasedRule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
 
         ## Import

@@ -516,6 +516,35 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
+        ### Inline Data Document
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.imagebuilder.Component("example",
+            data=not_implemented(\"\"\"yamlencode({
+        phases=[{
+        name="build"
+        steps=[{
+        action="ExecuteBash"
+        inputs={
+        commands=["echo 'hello world'"]
+        }
+        name="example"
+        onFailure="Continue"
+        }]
+        }]
+        schemaVersion=1.0
+        })\"\"\"),
+            name="example",
+            platform="Linux",
+            version="1.0.0")
+        ```
         ### URI Document
 
         ```python
@@ -523,8 +552,9 @@ class Component(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Component("example",
+            name="example",
             platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
 
@@ -565,6 +595,35 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
+        ### Inline Data Document
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.imagebuilder.Component("example",
+            data=not_implemented(\"\"\"yamlencode({
+        phases=[{
+        name="build"
+        steps=[{
+        action="ExecuteBash"
+        inputs={
+        commands=["echo 'hello world'"]
+        }
+        name="example"
+        onFailure="Continue"
+        }]
+        }]
+        schemaVersion=1.0
+        })\"\"\"),
+            name="example",
+            platform="Linux",
+            version="1.0.0")
+        ```
         ### URI Document
 
         ```python
@@ -572,8 +631,9 @@ class Component(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Component("example",
+            name="example",
             platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
 

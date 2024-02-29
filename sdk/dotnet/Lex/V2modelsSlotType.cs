@@ -23,16 +23,17 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("testRolePolicyAttachment", new()
+    ///     var test = new Aws.Iam.RolePolicyAttachment("test", new()
     ///     {
-    ///         Role = aws_iam_role.Test.Name,
-    ///         PolicyArn = $"arn:{data.Aws_partition.Current.Partition}:iam::aws:policy/AmazonLexFullAccess",
+    ///         Role = testAwsIamRole.Name,
+    ///         PolicyArn = $"arn:{current.Partition}:iam::aws:policy/AmazonLexFullAccess",
     ///     });
     /// 
-    ///     var testV2modelsBot = new Aws.Lex.V2modelsBot("testV2modelsBot", new()
+    ///     var testV2modelsBot = new Aws.Lex.V2modelsBot("test", new()
     ///     {
+    ///         Name = "testbot",
     ///         IdleSessionTtlInSeconds = 60,
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         RoleArn = testAwsIamRole.Arn,
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -42,7 +43,7 @@ namespace Pulumi.Aws.Lex
     ///         },
     ///     });
     /// 
-    ///     var testV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("testV2modelsBotLocale", new()
+    ///     var testV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("test", new()
     ///     {
     ///         LocaleId = "en_US",
     ///         BotId = testV2modelsBot.Id,
@@ -50,7 +51,7 @@ namespace Pulumi.Aws.Lex
     ///         NLuIntentConfidenceThreshold = 0.7,
     ///     });
     /// 
-    ///     var testV2modelsBotVersion = new Aws.Lex.V2modelsBotVersion("testV2modelsBotVersion", new()
+    ///     var testV2modelsBotVersion = new Aws.Lex.V2modelsBotVersion("test", new()
     ///     {
     ///         BotId = testV2modelsBot.Id,
     ///         LocaleSpecification = testV2modelsBotLocale.LocaleId.Apply(localeId =&gt; 
@@ -62,10 +63,11 @@ namespace Pulumi.Aws.Lex
     ///         }),
     ///     });
     /// 
-    ///     var testV2modelsSlotType = new Aws.Lex.V2modelsSlotType("testV2modelsSlotType", new()
+    ///     var testV2modelsSlotType = new Aws.Lex.V2modelsSlotType("test", new()
     ///     {
     ///         BotId = testV2modelsBot.Id,
     ///         BotVersion = testV2modelsBotLocale.BotVersion,
+    ///         Name = "test",
     ///         LocaleId = testV2modelsBotLocale.LocaleId,
     ///     });
     /// 

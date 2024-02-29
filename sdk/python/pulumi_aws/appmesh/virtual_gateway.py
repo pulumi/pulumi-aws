@@ -295,6 +295,7 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -315,6 +316,7 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -325,7 +327,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=example_aws_acm_certificate["arn"],
                             ),
                         ),
                         mode="STRICT",
@@ -374,6 +376,7 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -394,6 +397,7 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -404,7 +408,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=example_aws_acm_certificate["arn"],
                             ),
                         ),
                         mode="STRICT",

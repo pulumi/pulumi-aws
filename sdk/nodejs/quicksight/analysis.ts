@@ -19,11 +19,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.Analysis("example", {
  *     analysisId: "example-id",
+ *     name: "example-name",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
+ *             arn: source.arn,
  *             dataSetReferences: [{
- *                 dataSetArn: aws_quicksight_data_set.dataset.arn,
+ *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
  *         },

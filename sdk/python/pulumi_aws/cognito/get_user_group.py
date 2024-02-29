@@ -111,8 +111,8 @@ def get_user_group(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cognito.get_user_group(name="example",
-        user_pool_id="us-west-2_aaaaaaaaa")
+    example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
+        name="example")
     ```
 
 
@@ -148,8 +148,8 @@ def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cognito.get_user_group(name="example",
-        user_pool_id="us-west-2_aaaaaaaaa")
+    example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
+        name="example")
     ```
 
 

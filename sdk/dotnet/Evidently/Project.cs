@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "Example Description",
     ///         Tags = 
     ///         {
@@ -46,6 +47,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         Description = "Example Description",
     ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Evidently.Inputs.ProjectDataDeliveryCloudwatchLogsArgs
@@ -53,7 +56,6 @@ namespace Pulumi.Aws.Evidently
     ///                 LogGroup = "example-log-group-name",
     ///             },
     ///         },
-    ///         Description = "Example Description",
     ///         Tags = 
     ///         {
     ///             { "Key1", "example Project" },
@@ -74,6 +76,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         Description = "Example Description",
     ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
     ///         {
     ///             S3Destination = new Aws.Evidently.Inputs.ProjectDataDeliveryS3DestinationArgs
@@ -82,7 +86,6 @@ namespace Pulumi.Aws.Evidently
     ///                 Prefix = "example",
     ///             },
     ///         },
-    ///         Description = "Example Description",
     ///         Tags = 
     ///         {
     ///             { "Key1", "example Project" },

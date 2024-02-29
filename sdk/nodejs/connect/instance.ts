@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Instance("test", {
- *     directoryId: aws_directory_service_directory.test.id,
+ *     directoryId: testAwsDirectoryServiceDirectory.id,
  *     identityManagementType: "EXISTING_DIRECTORY",
  *     inboundCallsEnabled: true,
  *     instanceAlias: "friendly-name-connect",

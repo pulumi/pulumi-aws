@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
- *             logGroup: aws_cloudwatch_log_group.example.id,
+ *             logGroup: exampleAwsCloudwatchLogGroup.id,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  * ### With Kinesis Data Firehose Logging
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         kinesisDataFirehose: {
- *             deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
+ *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             enabled: true,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  * ### With S3 logging
@@ -52,12 +52,12 @@ import * as utilities from "../utilities";
  * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         s3: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             enabled: true,
  *             prefix: "example",
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  * ### With all three logging options
@@ -70,18 +70,18 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
- *             logGroup: aws_cloudwatch_log_group.example.id,
+ *             logGroup: exampleAwsCloudwatchLogGroup.id,
  *         },
  *         kinesisDataFirehose: {
- *             deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
+ *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             enabled: true,
  *         },
  *         s3: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             enabled: true,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  * ### With `includeTrustContext`
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         includeTrustContext: true,
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  * ### With `logVersion`
@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         logVersion: "ocsf-1.0.0-rc.2",
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
  *

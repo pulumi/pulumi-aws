@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_dynamodb_table.example().stream_arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition(&#34;LATEST&#34;)
  *             .build());
  * 
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_kinesis_stream.example().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsKinesisStream.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition(&#34;LATEST&#34;)
  *             .build());
  * 
@@ -117,8 +117,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_msk_cluster.example().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsMskCluster.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics(&#34;Example&#34;)
  *             .startingPosition(&#34;TRIM_HORIZON&#34;)
  *             .build());
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics(&#34;Example&#34;)
  *             .startingPosition(&#34;TRIM_HORIZON&#34;)
  *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
@@ -198,8 +198,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(sqsQueueTest.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
@@ -230,14 +230,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(sqsQueueTest.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
  *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
  *                     .pattern(serializeJson(
  *                         jsonObject(
  *                             jsonProperty(&#34;body&#34;, jsonObject(
- *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;temperature&#34;, jsonArray(jsonObject(
  *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
  *                                         &#34;&gt;&#34;, 
  *                                         0, 
@@ -245,7 +245,7 @@ import javax.annotation.Nullable;
  *                                         100
  *                                     ))
  *                                 ))),
- *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
+ *                                 jsonProperty(&#34;location&#34;, jsonArray(&#34;New York&#34;))
  *                             ))
  *                         )))
  *                     .build())
@@ -256,7 +256,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Amazon MQ (ActiveMQ)
- * 
  * ```java
  * package generated_program;
  * 
@@ -281,13 +280,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
  *             .batchSize(10)
- *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .queues(&#34;example&#34;)
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                 .type(&#34;BASIC_AUTH&#34;)
- *                 .uri(aws_secretsmanager_secret_version.example().arn())
+ *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                 .build())
  *             .build());
  * 
@@ -295,7 +294,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Amazon MQ (RabbitMQ)
- * 
  * ```java
  * package generated_program;
  * 
@@ -320,9 +318,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
  *             .batchSize(1)
- *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .queues(&#34;example&#34;)
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
@@ -331,7 +329,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type(&#34;BASIC_AUTH&#34;)
- *                     .uri(aws_secretsmanager_secret_version.example().arn())
+ *                     .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                     .build())
  *             .build());
  * 

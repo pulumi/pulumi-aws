@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.PhoneNumber("example", new()
     ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
+    ///         TargetArn = exampleAwsConnectInstance.Arn,
     ///         CountryCode = "US",
     ///         Type = "DID",
     ///         Tags = 
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.PhoneNumber("example", new()
     ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
+    ///         TargetArn = exampleAwsConnectInstance.Arn,
     ///         CountryCode = "US",
     ///         Type = "DID",
     ///         Description = "example description",
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.PhoneNumber("example", new()
     ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
+    ///         TargetArn = exampleAwsConnectInstance.Arn,
     ///         CountryCode = "US",
     ///         Type = "DID",
     ///         Prefix = "+18005",

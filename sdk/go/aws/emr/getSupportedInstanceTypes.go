@@ -39,6 +39,44 @@ import (
 //	}
 //
 // ```
+// ### With a Lifecycle Pre-Condition
+//
+// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			instanceType := "r7g.large"
+//			releaseLabel := "emr-6.15.0"
+//			_, err := emr.GetSupportedInstanceTypes(ctx, &emr.GetSupportedInstanceTypesArgs{
+//				ReleaseLabel: releaseLabel,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = emr.NewCluster(ctx, "test", &emr.ClusterArgs{
+//				ReleaseLabel: pulumi.String(releaseLabel),
+//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//					InstanceType: pulumi.String(instanceType),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetSupportedInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSupportedInstanceTypesResult

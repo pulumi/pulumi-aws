@@ -130,7 +130,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -155,9 +155,10 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
                 endpoint_reference="site_down_banner",
             ),
         )])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
     ### Complex Example
 
@@ -167,7 +168,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     import pulumi
     import pulumi_aws as aws
 
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -227,9 +228,10 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
                 ],
             ),
         ])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
 
 
@@ -280,7 +282,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -305,9 +307,10 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 endpoint_reference="site_down_banner",
             ),
         )])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
     ### Complex Example
 
@@ -317,7 +320,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     import pulumi
     import pulumi_aws as aws
 
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -377,9 +380,10 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 ],
             ),
         ])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
 
 

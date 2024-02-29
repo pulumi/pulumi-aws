@@ -43,11 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventIntegration(&#34;example&#34;, EventIntegrationArgs.builder()        
+ *             .name(&#34;example-name&#34;)
  *             .description(&#34;Example Description&#34;)
+ *             .eventbridgeBus(&#34;default&#34;)
  *             .eventFilter(EventIntegrationEventFilterArgs.builder()
  *                 .source(&#34;aws.partner/examplepartner.com&#34;)
  *                 .build())
- *             .eventbridgeBus(&#34;default&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Event Integration&#34;))
  *             .build());
  * 

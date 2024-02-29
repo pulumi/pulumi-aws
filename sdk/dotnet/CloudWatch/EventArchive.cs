@@ -24,11 +24,15 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
+    ///     var order = new Aws.CloudWatch.EventBus("order", new()
     ///     {
-    ///         EventSourceArn = orderEventBus.Arn,
+    ///         Name = "orders",
+    ///     });
+    /// 
+    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("order", new()
+    ///     {
+    ///         Name = "order-archive",
+    ///         EventSourceArn = order.Arn,
     ///     });
     /// 
     /// });
@@ -44,12 +48,16 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
+    ///     var order = new Aws.CloudWatch.EventBus("order", new()
     ///     {
+    ///         Name = "orders",
+    ///     });
+    /// 
+    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("order", new()
+    ///     {
+    ///         Name = "order-archive",
     ///         Description = "Archived events from order service",
-    ///         EventSourceArn = orderEventBus.Arn,
+    ///         EventSourceArn = order.Arn,
     ///         RetentionDays = 7,
     ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {

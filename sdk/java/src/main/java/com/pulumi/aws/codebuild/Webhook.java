@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
- *             .projectName(aws_codebuild_project.example().name())
+ *             .projectName(exampleAwsCodebuildProject.name())
  *             .buildType(&#34;BUILD&#34;)
  *             .filterGroups(WebhookFilterGroupArgs.builder()
  *                 .filters(                
@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
  * 
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ * 
  * ```java
  * package generated_program;
  * 
@@ -97,17 +98,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleWebhook = new Webhook(&#34;exampleWebhook&#34;, WebhookArgs.builder()        
- *             .projectName(aws_codebuild_project.example().name())
+ *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
+ *             .projectName(exampleAwsCodebuildProject.name())
  *             .build());
  * 
  *         var exampleRepositoryWebhook = new RepositoryWebhook(&#34;exampleRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
  *             .active(true)
  *             .events(&#34;push&#34;)
- *             .repository(github_repository.example().name())
+ *             .name(&#34;example&#34;)
+ *             .repository(exampleGithubRepository.name())
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(exampleWebhook.payloadUrl())
- *                 .secret(exampleWebhook.secret())
+ *                 .url(example.payloadUrl())
+ *                 .secret(example.secret())
  *                 .contentType(&#34;json&#34;)
  *                 .insecureSsl(false)
  *                 .build())

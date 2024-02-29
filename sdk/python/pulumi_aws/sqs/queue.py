@@ -690,12 +690,13 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
+            name="example-queue",
             delay_seconds=90,
             max_message_size=2048,
             message_retention_seconds=86400,
             receive_wait_time_seconds=10,
             redrive_policy=json.dumps({
-                "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
+                "deadLetterTargetArn": queue_deadletter["arn"],
                 "maxReceiveCount": 4,
             }),
             tags={
@@ -709,8 +710,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            content_based_deduplication=True,
-            fifo_queue=True)
+            name="example-queue.fifo",
+            fifo_queue=True,
+            content_based_deduplication=True)
         ```
 
         ## High-throughput FIFO queue
@@ -720,8 +722,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            deduplication_scope="messageGroup",
+            name="pulumi-example-queue.fifo",
             fifo_queue=True,
+            deduplication_scope="messageGroup",
             fifo_throughput_limit="perMessageGroupId")
         ```
 
@@ -732,16 +735,18 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue", redrive_policy=json.dumps({
-            "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
-            "maxReceiveCount": 4,
-        }))
-        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
-        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+        queue = aws.sqs.Queue("queue",
+            name="pulumi-example-queue",
+            redrive_policy=json.dumps({
+                "deadLetterTargetArn": queue_deadletter["arn"],
+                "maxReceiveCount": 4,
+            }))
+        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy",
             queue_url=example_queue_deadletter.id,
             redrive_allow_policy=json.dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+                "sourceQueueArns": [example_queue["arn"]],
             }))
         ```
 
@@ -753,7 +758,9 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue", sqs_managed_sse_enabled=True)
+        queue = aws.sqs.Queue("queue",
+            name="pulumi-example-queue",
+            sqs_managed_sse_enabled=True)
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -763,8 +770,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            kms_data_key_reuse_period_seconds=300,
-            kms_master_key_id="alias/aws/sqs")
+            name="example-queue",
+            kms_master_key_id="alias/aws/sqs",
+            kms_data_key_reuse_period_seconds=300)
         ```
 
         ## Import
@@ -811,12 +819,13 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
+            name="example-queue",
             delay_seconds=90,
             max_message_size=2048,
             message_retention_seconds=86400,
             receive_wait_time_seconds=10,
             redrive_policy=json.dumps({
-                "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
+                "deadLetterTargetArn": queue_deadletter["arn"],
                 "maxReceiveCount": 4,
             }),
             tags={
@@ -830,8 +839,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            content_based_deduplication=True,
-            fifo_queue=True)
+            name="example-queue.fifo",
+            fifo_queue=True,
+            content_based_deduplication=True)
         ```
 
         ## High-throughput FIFO queue
@@ -841,8 +851,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            deduplication_scope="messageGroup",
+            name="pulumi-example-queue.fifo",
             fifo_queue=True,
+            deduplication_scope="messageGroup",
             fifo_throughput_limit="perMessageGroupId")
         ```
 
@@ -853,16 +864,18 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue", redrive_policy=json.dumps({
-            "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
-            "maxReceiveCount": 4,
-        }))
-        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
-        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+        queue = aws.sqs.Queue("queue",
+            name="pulumi-example-queue",
+            redrive_policy=json.dumps({
+                "deadLetterTargetArn": queue_deadletter["arn"],
+                "maxReceiveCount": 4,
+            }))
+        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy",
             queue_url=example_queue_deadletter.id,
             redrive_allow_policy=json.dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+                "sourceQueueArns": [example_queue["arn"]],
             }))
         ```
 
@@ -874,7 +887,9 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue", sqs_managed_sse_enabled=True)
+        queue = aws.sqs.Queue("queue",
+            name="pulumi-example-queue",
+            sqs_managed_sse_enabled=True)
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -884,8 +899,9 @@ class Queue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue",
-            kms_data_key_reuse_period_seconds=300,
-            kms_master_key_id="alias/aws/sqs")
+            name="example-queue",
+            kms_master_key_id="alias/aws/sqs",
+            kms_data_key_reuse_period_seconds=300)
         ```
 
         ## Import

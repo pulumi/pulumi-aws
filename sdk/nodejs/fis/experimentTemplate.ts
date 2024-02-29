@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.fis.ExperimentTemplate("example", {
  *     description: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     stopConditions: [{
  *         source: "none",
  *     }],

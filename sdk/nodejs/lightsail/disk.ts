@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const test = new aws.lightsail.Disk("test", {
+ *     name: "test",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });

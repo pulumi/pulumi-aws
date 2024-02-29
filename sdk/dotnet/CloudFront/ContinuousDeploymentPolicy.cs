@@ -29,7 +29,6 @@ namespace Pulumi.Aws.CloudFront
     ///         Staging = true,
     ///     });
     /// 
-    ///     // ... other configuration ...
     ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
     ///     {
     ///         Enabled = true,
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.CloudFront
     ///         ContinuousDeploymentPolicyId = example.Id,
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// ### Single Weight Config with Session Stickiness
@@ -77,7 +75,7 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             Items = new[]
     ///             {
-    ///                 aws_cloudfront_distribution.Staging.Domain_name,
+    ///                 staging.DomainName,
     ///             },
     ///             Quantity = 1,
     ///         },
@@ -115,7 +113,7 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             Items = new[]
     ///             {
-    ///                 aws_cloudfront_distribution.Staging.Domain_name,
+    ///                 staging.DomainName,
     ///             },
     ///             Quantity = 1,
     ///         },

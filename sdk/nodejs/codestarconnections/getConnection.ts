@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     arn: aws_codestarconnections_connection.example.arn,
+ *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
  * ### By Name
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     name: aws_codestarconnections_connection.example.name,
+ *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
  */
@@ -101,7 +101,7 @@ export interface GetConnectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     arn: aws_codestarconnections_connection.example.arn,
+ *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
  * ### By Name
@@ -111,7 +111,7 @@ export interface GetConnectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     name: aws_codestarconnections_connection.example.name,
+ *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
  */

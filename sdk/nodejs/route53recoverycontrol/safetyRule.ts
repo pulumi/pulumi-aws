@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     assertedControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
+ *     assertedControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+ *     name: "daisyguttridge",
  *     waitPeriodMs: 5000,
  *     ruleConfig: {
  *         inverted: false,
@@ -33,10 +34,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
+ *     name: "i_o",
  *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
  *     waitPeriodMs: 5000,
- *     gatingControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     targetControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
+ *     gatingControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
+ *     targetControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  *     ruleConfig: {
  *         inverted: false,
  *         threshold: 1,

@@ -238,9 +238,10 @@ class Upload(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_upload = aws.devicefarm.Upload("exampleUpload",
-            project_arn=example_project.arn,
+        example = aws.devicefarm.Project("example", name="example")
+        example_upload = aws.devicefarm.Upload("example",
+            name="example",
+            project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
 
@@ -276,9 +277,10 @@ class Upload(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_upload = aws.devicefarm.Upload("exampleUpload",
-            project_arn=example_project.arn,
+        example = aws.devicefarm.Project("example", name="example")
+        example_upload = aws.devicefarm.Upload("example",
+            name="example",
+            project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
 

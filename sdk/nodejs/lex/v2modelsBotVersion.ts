@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lex.V2modelsBotVersion("test", {
- *     botId: aws_lexv2models.test.id,
+ *     botId: testAwsLexv2models.id,
  *     localeSpecification: {
  *         en_US: {
  *             sourceBotVersion: "DRAFT",

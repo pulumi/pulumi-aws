@@ -331,7 +331,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
+        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,7 +360,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
+        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
 
         :param str resource_name: The name of the resource.

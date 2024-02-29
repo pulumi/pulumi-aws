@@ -53,14 +53,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//			r, err := iam.NewRole(ctx, "r", &iam.RoleArgs{
+//				Name:             pulumi.String("awsconfig-example"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
+//				Name:    pulumi.String("example"),
+//				RoleArn: r.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +87,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.R.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
 //					AllSupported: pulumi.Bool(false),
 //					ExclusionByResourceTypes: cfg.RecorderRecordingGroupExclusionByResourceTypeArray{
@@ -125,7 +128,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.R.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
 //					AllSupported:               pulumi.Bool(false),
 //					IncludeGlobalResourceTypes: pulumi.Bool(false),

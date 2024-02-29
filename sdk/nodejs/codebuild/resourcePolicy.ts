@@ -13,32 +13,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
+ * const example = new aws.codebuild.ReportGroup("example", {
+ *     name: "example",
  *     type: "TEST",
  *     exportConfig: {
  *         type: "NO_EXPORT",
  *     },
  * });
- * const currentPartition = aws.getPartition({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleResourcePolicy = new aws.codebuild.ResourcePolicy("exampleResourcePolicy", {
- *     resourceArn: exampleReportGroup.arn,
+ * const current = aws.getPartition({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const exampleResourcePolicy = new aws.codebuild.ResourcePolicy("example", {
+ *     resourceArn: example.arn,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Id: "default",
- *         Statement: [{
- *             Sid: "default",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
+ *         version: "2012-10-17",
+ *         id: "default",
+ *         statement: [{
+ *             sid: "default",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `arn:${current.partition}:iam::${currentGetCallerIdentity.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "codebuild:BatchGetReportGroups",
  *                 "codebuild:BatchGetReports",
  *                 "codebuild:ListReportsForReportGroup",
  *                 "codebuild:DescribeTestCases",
  *             ],
- *             Resource: exampleReportGroup.arn,
+ *             resource: example.arn,
  *         }],
  *     }),
  * });

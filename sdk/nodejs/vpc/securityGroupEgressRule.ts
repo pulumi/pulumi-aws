@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpc.SecurityGroupEgressRule("example", {
- *     securityGroupId: aws_security_group.example.id,
+ *     securityGroupId: exampleAwsSecurityGroup.id,
  *     cidrIpv4: "10.0.0.0/8",
  *     fromPort: 80,
  *     ipProtocol: "tcp",

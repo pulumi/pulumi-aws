@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PeeringAttachmentAccepter("example", {
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.example.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayPeeringAttachment.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
  *     },

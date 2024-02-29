@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new NetworkInterface(&#34;test&#34;, NetworkInterfaceArgs.builder()        
- *             .subnetId(aws_subnet.public_a().id())
+ *             .subnetId(publicA.id())
  *             .privateIps(&#34;10.0.0.50&#34;)
- *             .securityGroups(aws_security_group.web().id())
+ *             .securityGroups(web.id())
  *             .attachments(NetworkInterfaceAttachmentArgs.builder()
- *                 .instance(aws_instance.test().id())
+ *                 .instance(testAwsInstance.id())
  *                 .deviceIndex(1)
  *                 .build())
  *             .build());

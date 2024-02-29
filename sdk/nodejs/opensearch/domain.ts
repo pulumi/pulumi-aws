@@ -35,10 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.Domain("example", {
+ *     domainName: "example",
+ *     engineVersion: "Elasticsearch_7.10",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
  *     },
- *     engineVersion: "Elasticsearch_7.10",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
@@ -54,9 +55,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const example = Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -64,7 +65,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
@@ -72,7 +73,10 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * }));
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
+ * const exampleDomain = new aws.opensearch.Domain("example", {
+ *     domainName: domain,
+ *     accessPolicies: example.then(example => example.json),
+ * });
  * ```
  * ### Log publishing to CloudWatch Logs
  *
@@ -80,8 +84,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -96,12 +100,11 @@ import * as utilities from "../utilities";
  *         resources: ["arn:aws:logs:*"],
  *     }],
  * });
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyName: "example",
- *     policyDocument: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policyDocument: example.then(example => example.json),
  * });
- * // .. other configuration ...
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {logPublishingOptions: [{
+ * const exampleDomain = new aws.opensearch.Domain("example", {logPublishingOptions: [{
  *     cloudwatchLogGroupArn: exampleLogGroup.arn,
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
@@ -115,34 +118,35 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const vpc = config.requireObject("vpc");
  * const domain = config.get("domain") || "tf-test";
- * const exampleVpc = aws.ec2.getVpc({
+ * const example = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
  * });
- * const exampleSubnets = exampleVpc.then(exampleVpc => aws.ec2.getSubnets({
+ * const exampleGetSubnets = example.then(example => aws.ec2.getSubnets({
  *     filters: [{
  *         name: "vpc-id",
- *         values: [exampleVpc.id],
+ *         values: [example.id],
  *     }],
  *     tags: {
  *         Tier: "private",
  *     },
  * }));
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const exampleSecurityGroup = new aws.ec2.SecurityGroup("example", {
+ *     name: `${vpc}-opensearch-${domain}`,
  *     description: "Managed by Pulumi",
- *     vpcId: exampleVpc.then(exampleVpc => exampleVpc.id),
+ *     vpcId: example.then(example => example.id),
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
  *         protocol: "tcp",
- *         cidrBlocks: [exampleVpc.then(exampleVpc => exampleVpc.cidrBlock)],
+ *         cidrBlocks: [example.then(example => example.cidrBlock)],
  *     }],
  * });
- * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
- * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("example", {awsServiceName: "opensearchservice.amazonaws.com"});
+ * const exampleGetPolicyDocument = Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -150,10 +154,11 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *     }],
  * }));
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
+ * const exampleDomain = new aws.opensearch.Domain("example", {
+ *     domainName: domain,
  *     engineVersion: "OpenSearch_1.0",
  *     clusterConfig: {
  *         instanceType: "m4.large.search",
@@ -161,20 +166,18 @@ import * as utilities from "../utilities";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             exampleSubnets.then(exampleSubnets => exampleSubnets.ids?.[0]),
- *             exampleSubnets.then(exampleSubnets => exampleSubnets.ids?.[1]),
+ *             exampleGetSubnets.then(exampleGetSubnets => exampleGetSubnets.ids?.[0]),
+ *             exampleGetSubnets.then(exampleGetSubnets => exampleGetSubnets.ids?.[1]),
  *         ],
  *         securityGroupIds: [exampleSecurityGroup.id],
  *     },
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
- *     accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     accessPolicies: exampleGetPolicyDocument.then(exampleGetPolicyDocument => exampleGetPolicyDocument.json),
  *     tags: {
  *         Domain: "TestDomain",
  *     },
- * }, {
- *     dependsOn: [exampleServiceLinkedRole],
  * });
  * ```
  * ### Enabling fine-grained access control on an existing domain
@@ -187,32 +190,33 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.Domain("example", {
+ *     domainName: "ggkitty",
+ *     engineVersion: "Elasticsearch_7.1",
+ *     clusterConfig: {
+ *         instanceType: "r5.large.search",
+ *     },
  *     advancedSecurityOptions: {
- *         anonymousAuthEnabled: true,
  *         enabled: false,
+ *         anonymousAuthEnabled: true,
  *         internalUserDatabaseEnabled: true,
  *         masterUserOptions: {
  *             masterUserName: "example",
  *             masterUserPassword: "Barbarbarbar1!",
  *         },
  *     },
- *     clusterConfig: {
- *         instanceType: "r5.large.search",
+ *     encryptAtRest: {
+ *         enabled: true,
  *     },
  *     domainEndpointOptions: {
  *         enforceHttps: true,
  *         tlsSecurityPolicy: "Policy-Min-TLS-1-2-2019-07",
  *     },
+ *     nodeToNodeEncryption: {
+ *         enabled: true,
+ *     },
  *     ebsOptions: {
  *         ebsEnabled: true,
  *         volumeSize: 10,
- *     },
- *     encryptAtRest: {
- *         enabled: true,
- *     },
- *     engineVersion: "Elasticsearch_7.1",
- *     nodeToNodeEncryption: {
- *         enabled: true,
  *     },
  * });
  * ```
@@ -225,32 +229,33 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.Domain("example", {
+ *     domainName: "ggkitty",
+ *     engineVersion: "Elasticsearch_7.1",
+ *     clusterConfig: {
+ *         instanceType: "r5.large.search",
+ *     },
  *     advancedSecurityOptions: {
- *         anonymousAuthEnabled: true,
  *         enabled: true,
+ *         anonymousAuthEnabled: true,
  *         internalUserDatabaseEnabled: true,
  *         masterUserOptions: {
  *             masterUserName: "example",
  *             masterUserPassword: "Barbarbarbar1!",
  *         },
  *     },
- *     clusterConfig: {
- *         instanceType: "r5.large.search",
+ *     encryptAtRest: {
+ *         enabled: true,
  *     },
  *     domainEndpointOptions: {
  *         enforceHttps: true,
  *         tlsSecurityPolicy: "Policy-Min-TLS-1-2-2019-07",
  *     },
+ *     nodeToNodeEncryption: {
+ *         enabled: true,
+ *     },
  *     ebsOptions: {
  *         ebsEnabled: true,
  *         volumeSize: 10,
- *     },
- *     encryptAtRest: {
- *         enabled: true,
- *     },
- *     engineVersion: "Elasticsearch_7.1",
- *     nodeToNodeEncryption: {
- *         enabled: true,
  *     },
  * });
  * ```

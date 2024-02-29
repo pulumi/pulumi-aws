@@ -49,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var barNetworkAcl = new NetworkAcl(&#34;barNetworkAcl&#34;, NetworkAclArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
+ *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+ *             .vpcId(foo.id())
  *             .build());
  * 
  *         var barNetworkAclRule = new NetworkAclRule(&#34;barNetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
- *             .networkAclId(barNetworkAcl.id())
+ *             .networkAclId(bar.id())
  *             .ruleNumber(200)
  *             .egress(false)
  *             .protocol(&#34;tcp&#34;)
  *             .ruleAction(&#34;allow&#34;)
- *             .cidrBlock(aws_vpc.foo().cidr_block())
+ *             .cidrBlock(foo.cidrBlock())
  *             .fromPort(22)
  *             .toPort(22)
  *             .build());

@@ -43,10 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new CapacityReservation(&#34;default&#34;, CapacityReservationArgs.builder()        
+ *             .instanceType(&#34;t2.micro&#34;)
+ *             .instancePlatform(&#34;Linux/UNIX&#34;)
  *             .availabilityZone(&#34;eu-west-1a&#34;)
  *             .instanceCount(1)
- *             .instancePlatform(&#34;Linux/UNIX&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
  *     }

@@ -22,10 +22,11 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFilter = new Aws.GuardDuty.Filter("myFilter", new()
+    ///     var myFilter = new Aws.GuardDuty.Filter("MyFilter", new()
     ///     {
+    ///         Name = "MyFilter",
     ///         Action = "ARCHIVE",
-    ///         DetectorId = aws_guardduty_detector.Example.Id,
+    ///         DetectorId = example.Id,
     ///         Rank = 1,
     ///         FindingCriteria = new Aws.GuardDuty.Inputs.FilterFindingCriteriaArgs
     ///         {

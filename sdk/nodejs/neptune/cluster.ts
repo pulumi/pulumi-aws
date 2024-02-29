@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.neptune.Cluster("default", {
- *     applyImmediately: true,
- *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",
  *     engine: "neptune",
- *     iamDatabaseAuthenticationEnabled: true,
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     applyImmediately: true,
  * });
  * ```
  *

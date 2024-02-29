@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     name: _var.firewall_policy_name,
+ *     name: firewallPolicyName,
  * });
  * ```
  * ### Find firewall policy by ARN
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
+ *     arn: firewallPolicyArn,
  * });
  * ```
  * ### Find firewall policy by name and ARN
@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- *     name: _var.firewall_policy_name,
+ *     arn: firewallPolicyArn,
+ *     name: firewallPolicyName,
  * });
  * ```
  *
@@ -114,7 +114,7 @@ export interface GetFirewallPolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     name: _var.firewall_policy_name,
+ *     name: firewallPolicyName,
  * });
  * ```
  * ### Find firewall policy by ARN
@@ -124,7 +124,7 @@ export interface GetFirewallPolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
+ *     arn: firewallPolicyArn,
  * });
  * ```
  * ### Find firewall policy by name and ARN
@@ -134,8 +134,8 @@ export interface GetFirewallPolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- *     name: _var.firewall_policy_name,
+ *     arn: firewallPolicyArn,
+ *     name: firewallPolicyName,
  * });
  * ```
  *

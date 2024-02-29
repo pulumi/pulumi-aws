@@ -246,7 +246,9 @@ class Ledger(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sample_ledger = aws.qldb.Ledger("sample-ledger", permissions_mode="STANDARD")
+        sample_ledger = aws.qldb.Ledger("sample-ledger",
+            name="sample-ledger",
+            permissions_mode="STANDARD")
         ```
 
         ## Import
@@ -282,7 +284,9 @@ class Ledger(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sample_ledger = aws.qldb.Ledger("sample-ledger", permissions_mode="STANDARD")
+        sample_ledger = aws.qldb.Ledger("sample-ledger",
+            name="sample-ledger",
+            permissions_mode="STANDARD")
         ```
 
         ## Import

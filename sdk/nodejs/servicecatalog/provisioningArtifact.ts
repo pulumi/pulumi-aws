@@ -21,9 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.ProvisioningArtifact("example", {
- *     productId: aws_servicecatalog_product.example.id,
+ *     name: "example",
+ *     productId: exampleAwsServicecatalogProduct.id,
  *     type: "CLOUD_FORMATION_TEMPLATE",
- *     templateUrl: `https://${aws_s3_bucket.example.bucket_regional_domain_name}/${aws_s3_object.example.key}`,
+ *     templateUrl: `https://${exampleAwsS3Bucket.bucketRegionalDomainName}/${exampleAwsS3Object.key}`,
  * });
  * ```
  *

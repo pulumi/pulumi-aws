@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.TransitGatewayRouteTableAttachment("example", {
- *     peeringId: aws_networkmanager_transit_gateway_peering.example.id,
- *     transitGatewayRouteTableArn: aws_ec2_transit_gateway_route_table.example.arn,
+ *     peeringId: exampleAwsNetworkmanagerTransitGatewayPeering.id,
+ *     transitGatewayRouteTableArn: exampleAwsEc2TransitGatewayRouteTable.arn,
  * });
  * ```
  *

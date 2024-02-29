@@ -29,7 +29,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
  * import com.pulumi.aws.autoscaling.Notification;
  * import com.pulumi.aws.autoscaling.NotificationArgs;
  * import java.util.List;
@@ -45,11 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Topic(&#34;example&#34;);
+ *         var example = new Topic(&#34;example&#34;, TopicArgs.builder()        
+ *             .name(&#34;example-topic&#34;)
+ *             .build());
  * 
- *         var bar = new Group(&#34;bar&#34;);
+ *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;foobar1-test&#34;)
+ *             .build());
  * 
- *         var foo = new Group(&#34;foo&#34;);
+ *         var foo = new Group(&#34;foo&#34;, GroupArgs.builder()        
+ *             .name(&#34;barfoo-test&#34;)
+ *             .build());
  * 
  *         var exampleNotifications = new Notification(&#34;exampleNotifications&#34;, NotificationArgs.builder()        
  *             .groupNames(            

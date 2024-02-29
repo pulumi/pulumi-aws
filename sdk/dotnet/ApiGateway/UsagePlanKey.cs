@@ -22,22 +22,29 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ApiGateway.RestApi("test");
+    ///     var test = new Aws.ApiGateway.RestApi("test", new()
+    ///     {
+    ///         Name = "MyDemoAPI",
+    ///     });
     /// 
     ///     // ...
     ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
     ///     {
+    ///         Name = "my_usage_plan",
     ///         ApiStages = new[]
     ///         {
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
     ///                 ApiId = test.Id,
-    ///                 Stage = aws_api_gateway_stage.Foo.Stage_name,
+    ///                 Stage = foo.StageName,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey");
+    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey", new()
+    ///     {
+    ///         Name = "my_key",
+    ///     });
     /// 
     ///     var main = new Aws.ApiGateway.UsagePlanKey("main", new()
     ///     {

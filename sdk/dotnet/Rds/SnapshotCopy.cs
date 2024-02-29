@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var example = new Aws.Rds.Instance("example", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
@@ -36,13 +36,13 @@ namespace Pulumi.Aws.Rds
     ///         ParameterGroupName = "default.mysql5.6",
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Rds.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Rds.Snapshot("example", new()
     ///     {
-    ///         DbInstanceIdentifier = exampleInstance.Identifier,
+    ///         DbInstanceIdentifier = example.Identifier,
     ///         DbSnapshotIdentifier = "testsnapshot1234",
     ///     });
     /// 
-    ///     var exampleSnapshotCopy = new Aws.Rds.SnapshotCopy("exampleSnapshotCopy", new()
+    ///     var exampleSnapshotCopy = new Aws.Rds.SnapshotCopy("example", new()
     ///     {
     ///         SourceDbSnapshotIdentifier = exampleSnapshot.DbSnapshotArn,
     ///         TargetDbSnapshotIdentifier = "testsnapshot1234-copy",

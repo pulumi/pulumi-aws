@@ -50,7 +50,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
+        ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecs_policy", new()
         ///     {
         ///         StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
         ///         {

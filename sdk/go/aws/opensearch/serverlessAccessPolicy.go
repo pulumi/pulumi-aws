@@ -38,27 +38,27 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
+//					"rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
+//							"resourceType": "index",
+//							"resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
+//							"resourceType": "collection",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //					},
-//					"Principal": []*string{
+//					"principal": []*string{
 //						current.Arn,
 //					},
 //				},
@@ -68,6 +68,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("read and write permissions"),
 //				Policy:      pulumi.String(json0),
@@ -103,28 +104,28 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Rules": []interface{}{
+//					"rules": []interface{}{
 //						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
+//							"resourceType": "index",
+//							"resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:DescribeIndex",
 //								"aoss:ReadDocument",
 //							},
 //						},
 //						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
+//							"resourceType": "collection",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:DescribeCollectionItems",
 //							},
 //						},
 //					},
-//					"Principal": []*string{
+//					"principal": []*string{
 //						current.Arn,
 //					},
 //				},
@@ -134,6 +135,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("read-only permissions"),
 //				Policy:      pulumi.String(json0),
@@ -164,27 +166,27 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
+//					"rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
+//							"resourceType": "index",
+//							"resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
+//							"resourceType": "collection",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
-//							"Permission": []string{
+//							"permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //					},
-//					"Principal": []string{
+//					"principal": []string{
 //						"saml/123456789012/myprovider/user/Annie",
 //						"saml/123456789012/anotherprovider/group/Accounting",
 //					},
@@ -195,6 +197,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("saml permissions"),
 //				Policy:      pulumi.String(json0),

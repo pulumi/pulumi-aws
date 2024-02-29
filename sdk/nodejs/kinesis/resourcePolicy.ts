@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesis.ResourcePolicy("example", {
- *     resourceArn: aws_kinesis_stream.example.arn,
+ *     resourceArn: exampleAwsKinesisStream.arn,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Id": "writePolicy",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *       "kinesis:PutRecord",
  *       "kinesis:PutRecords"
  *     ],
- *     "Resource": "${aws_kinesis_stream.example.arn}"
+ *     "Resource": "${exampleAwsKinesisStream.arn}"
  *   }]
  * }
  * `,

@@ -693,10 +693,10 @@ class Certificate(pulumi.CustomResource):
 
         cert = aws.acm.Certificate("cert",
             domain_name="example.com",
+            validation_method="DNS",
             tags={
                 "Environment": "test",
-            },
-            validation_method="DNS")
+            })
         ```
         ### Custom Domain Validation Options
 
@@ -719,10 +719,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
-        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
-            private_key_pem=example_private_key.private_key_pem,
+            private_key_pem=example.private_key_pem,
             subject=tls.SelfSignedCertSubjectArgs(
                 common_name="example.com",
                 organization="ACME Examples, Inc",
@@ -734,7 +734,7 @@ class Certificate(pulumi.CustomResource):
                 "server_auth",
             ])
         cert = aws.acm.Certificate("cert",
-            private_key=example_private_key.private_key_pem,
+            private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
         ### Referencing domain_validation_options With for_each Based Resources
@@ -750,14 +750,14 @@ class Certificate(pulumi.CustomResource):
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in aws_acm_certificate.example.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
                 type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=aws_route53_zone["example"]["zone_id"]))
+                zone_id=example_aws_route53_zone["zoneId"]))
         ```
 
         ## Import
@@ -844,10 +844,10 @@ class Certificate(pulumi.CustomResource):
 
         cert = aws.acm.Certificate("cert",
             domain_name="example.com",
+            validation_method="DNS",
             tags={
                 "Environment": "test",
-            },
-            validation_method="DNS")
+            })
         ```
         ### Custom Domain Validation Options
 
@@ -870,10 +870,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
-        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
-            private_key_pem=example_private_key.private_key_pem,
+            private_key_pem=example.private_key_pem,
             subject=tls.SelfSignedCertSubjectArgs(
                 common_name="example.com",
                 organization="ACME Examples, Inc",
@@ -885,7 +885,7 @@ class Certificate(pulumi.CustomResource):
                 "server_auth",
             ])
         cert = aws.acm.Certificate("cert",
-            private_key=example_private_key.private_key_pem,
+            private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
         ### Referencing domain_validation_options With for_each Based Resources
@@ -901,14 +901,14 @@ class Certificate(pulumi.CustomResource):
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in aws_acm_certificate.example.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
                 type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=aws_route53_zone["example"]["zone_id"]))
+                zone_id=example_aws_route53_zone["zoneId"]))
         ```
 
         ## Import

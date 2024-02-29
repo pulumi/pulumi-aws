@@ -41,14 +41,15 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -86,14 +87,15 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -131,14 +133,15 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -176,14 +179,15 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }

@@ -14,14 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "1",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *                 identifiers: [current.accountId],
  *             }],
  *             actions: [
  *                 "acm-pca:DescribeCertificateAuthority",
@@ -30,17 +30,17 @@ import * as utilities from "../utilities";
  *                 "acm-pca:ListPermissions",
  *                 "acm-pca:ListTags",
  *             ],
- *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *         },
  *         {
  *             sid: "2",
- *             effect: Allow,
+ *             effect: allow,
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *                 identifiers: [current.accountId],
  *             }],
  *             actions: ["acm-pca:IssueCertificate"],
- *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "acm-pca:TemplateArn",
@@ -49,9 +49,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.acmpca.Policy("examplePolicy", {
- *     resourceArn: aws_acmpca_certificate_authority.example.arn,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ * const examplePolicy = new aws.acmpca.Policy("example", {
+ *     resourceArn: exampleAwsAcmpcaCertificateAuthority.arn,
+ *     policy: example.then(example => example.json),
  * });
  * ```
  *

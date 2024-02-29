@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Ecr
         /// {
         ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         ImageTag = "latest",
         ///         RepositoryName = "my/service",
+        ///         ImageTag = "latest",
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.Ecr
         /// {
         ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         ImageTag = "latest",
         ///         RepositoryName = "my/service",
+        ///         ImageTag = "latest",
         ///     });
         /// 
         /// });

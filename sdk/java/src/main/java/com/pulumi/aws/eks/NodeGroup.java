@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.NodeGroupArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,9 +52,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NodeGroup(&#34;example&#34;, NodeGroupArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
- *             .nodeRoleArn(aws_iam_role.example().arn())
- *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .nodeGroupName(&#34;example&#34;)
+ *             .nodeRoleArn(exampleAwsIamRole.arn())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(1)
  *                 .maxSize(2)
@@ -64,12 +64,7 @@ import javax.annotation.Nullable;
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
  *                 .maxUnavailable(1)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy(),
- *                     aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy(),
- *                     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -134,16 +129,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;eks-node-group-example&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 
@@ -162,6 +158,51 @@ import javax.annotation.Nullable;
  *             .role(example.name())
  *             .build());
  * 
+ *     }
+ * }
+ * ```
+ * ### Example Subnets for EKS Node Group
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .build());
+ * 
+ *         for (var i = 0; i &lt; 2; i++) {
+ *             new Subnet(&#34;example-&#34; + i, SubnetArgs.builder()            
+ *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names())[range.value()])
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(exampleAwsVpc.cidrBlock())
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build()).result())
+ *                 .vpcId(exampleAwsVpc.id())
+ *                 .build());
+ * 
+ *         
+ * }
  *     }
  * }
  * ```

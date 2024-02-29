@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("example"),
@@ -56,9 +56,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = schemas.NewRegistryPolicy(ctx, "exampleRegistryPolicy", &schemas.RegistryPolicyArgs{
+//			_, err = schemas.NewRegistryPolicy(ctx, "example", &schemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("example"),
-//				Policy:       *pulumi.String(examplePolicyDocument.Json),
+//				Policy:       *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

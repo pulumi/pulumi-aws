@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
-//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-//				DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
+//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
+//				DomainName: pulumi.Any(exampleAwsAppsyncDomainName.DomainName),
 //			})
 //			if err != nil {
 //				return err

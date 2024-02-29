@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appintegrations.DataIntegration("example", {
+ *     name: "example",
  *     description: "example",
- *     kmsKey: aws_kms_key.test.arn,
+ *     kmsKey: test.arn,
  *     sourceUri: "Salesforce://AppFlow/example",
  *     scheduleConfig: {
  *         firstExecutionFrom: "1439788442681",

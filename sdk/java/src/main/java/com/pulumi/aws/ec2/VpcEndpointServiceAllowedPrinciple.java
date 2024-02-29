@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
  *         var allowMeToFoo = new VpcEndpointServiceAllowedPrinciple(&#34;allowMeToFoo&#34;, VpcEndpointServiceAllowedPrincipleArgs.builder()        
- *             .vpcEndpointServiceId(aws_vpc_endpoint_service.foo().id())
+ *             .vpcEndpointServiceId(foo.id())
  *             .principalArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
  *             .build());
  * 

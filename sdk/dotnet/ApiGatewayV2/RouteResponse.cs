@@ -26,8 +26,8 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.RouteResponse("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         RouteId = aws_apigatewayv2_route.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         RouteId = exampleAwsApigatewayv2Route.Id,
     ///         RouteResponseKey = "$default",
     ///     });
     /// 

@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
- * const myArchivePolicyDocument = aws.iam.getPolicyDocument({
+ * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {name: "glacier-sns-topic"});
+ * const myArchive = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "add-read-only-perm",
  *         effect: "Allow",
@@ -34,7 +34,8 @@ import * as utilities from "../utilities";
  *         resources: ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
  *     }],
  * });
- * const myArchiveVault = new aws.glacier.Vault("myArchiveVault", {
+ * const myArchiveVault = new aws.glacier.Vault("my_archive", {
+ *     name: "MyArchive",
  *     notification: {
  *         snsTopic: awsSnsTopic.arn,
  *         events: [
@@ -42,7 +43,7 @@ import * as utilities from "../utilities";
  *             "InventoryRetrievalCompleted",
  *         ],
  *     },
- *     accessPolicy: myArchivePolicyDocument.then(myArchivePolicyDocument => myArchivePolicyDocument.json),
+ *     accessPolicy: myArchive.then(myArchive => myArchive.json),
  *     tags: {
  *         Test: "MyArchive",
  *     },

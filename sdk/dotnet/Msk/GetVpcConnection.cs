@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Msk
         /// {
         ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_msk_vpc_connection.Example.Arn,
+        ///         Arn = exampleAwsMskVpcConnection.Arn,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Msk
         /// {
         ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_msk_vpc_connection.Example.Arn,
+        ///         Arn = exampleAwsMskVpcConnection.Arn,
         ///     });
         /// 
         /// });

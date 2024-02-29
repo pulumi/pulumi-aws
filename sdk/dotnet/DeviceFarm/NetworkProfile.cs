@@ -24,11 +24,15 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
-    /// 
-    ///     var exampleNetworkProfile = new Aws.DeviceFarm.NetworkProfile("exampleNetworkProfile", new()
+    ///     var example = new Aws.DeviceFarm.Project("example", new()
     ///     {
-    ///         ProjectArn = exampleProject.Arn,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleNetworkProfile = new Aws.DeviceFarm.NetworkProfile("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ProjectArn = example.Arn,
     ///     });
     /// 
     /// });

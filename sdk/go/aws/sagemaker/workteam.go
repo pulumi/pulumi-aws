@@ -31,14 +31,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
 //				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
 //				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{
 //						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
-//							ClientId:  pulumi.Any(aws_cognito_user_pool_client.Example.Id),
-//							UserPool:  pulumi.Any(aws_cognito_user_pool_domain.Example.User_pool_id),
-//							UserGroup: pulumi.Any(aws_cognito_user_group.Example.Id),
+//							ClientId:  pulumi.Any(exampleAwsCognitoUserPoolClient.Id),
+//							UserPool:  pulumi.Any(exampleAwsCognitoUserPoolDomain.UserPoolId),
+//							UserGroup: pulumi.Any(exampleAwsCognitoUserGroup.Id),
 //						},
 //					},
 //				},
@@ -67,7 +67,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
 //				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
 //				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{

@@ -14,9 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.route53.TrafficPolicyInstance("test", {
- *     hostedZoneId: "Z033120931TAQO548OGJC",
+ *     name: "test.example.com",
  *     trafficPolicyId: "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
  *     trafficPolicyVersion: 1,
+ *     hostedZoneId: "Z033120931TAQO548OGJC",
  *     ttl: 360,
  * });
  * ```

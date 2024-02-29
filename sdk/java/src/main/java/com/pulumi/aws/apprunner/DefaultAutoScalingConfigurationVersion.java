@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAutoScalingConfigurationVersion = new AutoScalingConfigurationVersion(&#34;exampleAutoScalingConfigurationVersion&#34;, AutoScalingConfigurationVersionArgs.builder()        
+ *         var example = new AutoScalingConfigurationVersion(&#34;example&#34;, AutoScalingConfigurationVersionArgs.builder()        
  *             .autoScalingConfigurationName(&#34;example&#34;)
  *             .maxConcurrency(50)
  *             .maxSize(10)
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion(&#34;exampleDefaultAutoScalingConfigurationVersion&#34;, DefaultAutoScalingConfigurationVersionArgs.builder()        
- *             .autoScalingConfigurationArn(exampleAutoScalingConfigurationVersion.arn())
+ *             .autoScalingConfigurationArn(example.arn())
  *             .build());
  * 
  *     }

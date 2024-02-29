@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
  *             .authenticationType(&#34;USERPOOL&#34;)
+ *             .userName(&#34;EMAIL&#34;)
  *             .firstName(&#34;FIRST NAME&#34;)
  *             .lastName(&#34;LAST NAME&#34;)
- *             .userName(&#34;EMAIL&#34;)
  *             .build());
  * 
  *     }

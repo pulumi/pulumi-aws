@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -38,22 +39,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
+//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("test-load-balancer-certificate"),
+//				LbName:     test.ID(),
 //				DomainName: pulumi.String("test.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "testLbCertificateAttachment", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          testLb.Name,
+//			_, err = lightsail.NewLbCertificateAttachment(ctx, "test", &lightsail.LbCertificateAttachmentArgs{
+//				LbName:          test.Name,
 //				CertificateName: testLbCertificate.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "testLbHttpsRedirectionPolicy", &lightsail.LbHttpsRedirectionPolicyArgs{
-//				LbName:  testLb.Name,
+//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "test", &lightsail.LbHttpsRedirectionPolicyArgs{
+//				LbName:  test.Name,
 //				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {

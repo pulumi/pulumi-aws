@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new LocationFsxOntapFileSystem(&#34;test&#34;, LocationFsxOntapFileSystemArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_ontap_file_system.test().arn())
- *             .securityGroupArns(aws_security_group.test().arn())
- *             .storageVirtualMachineArn(aws_fsx_ontap_storage_virtual_machine.test().arn())
+ *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
+ *             .securityGroupArns(testAwsSecurityGroup.arn())
+ *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
  *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
  *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()

@@ -239,9 +239,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 port=443,
                 protocol="HTTPS",
             ))
@@ -253,9 +254,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="IP",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
@@ -285,9 +287,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="ALB",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 port=443,
                 protocol="HTTPS",
                 protocol_version="HTTP1",
@@ -301,7 +304,9 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.TargetGroup("example", type="LAMBDA")
+        example = aws.vpclattice.TargetGroup("example",
+            name="example",
+            type="LAMBDA")
         ```
 
         ## Import
@@ -338,9 +343,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 port=443,
                 protocol="HTTPS",
             ))
@@ -352,9 +358,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="IP",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
@@ -384,9 +391,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
+            name="example",
             type="ALB",
             config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
                 port=443,
                 protocol="HTTPS",
                 protocol_version="HTTP1",
@@ -400,7 +408,9 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.TargetGroup("example", type="LAMBDA")
+        example = aws.vpclattice.TargetGroup("example",
+            name="example",
+            type="LAMBDA")
         ```
 
         ## Import

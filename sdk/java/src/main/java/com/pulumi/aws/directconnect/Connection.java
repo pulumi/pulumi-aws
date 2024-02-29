@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var hoge = new Connection(&#34;hoge&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;tf-dx-connection&#34;)
  *             .bandwidth(&#34;1Gbps&#34;)
  *             .location(&#34;EqDC2&#34;)
  *             .build());
@@ -74,6 +75,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;tf-dx-connection&#34;)
  *             .bandwidth(&#34;10Gbps&#34;)
  *             .location(&#34;EqDA2&#34;)
  *             .requestMacsec(true)
@@ -107,10 +109,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;tf-dx-connection&#34;)
  *             .bandwidth(&#34;10Gbps&#34;)
- *             .encryptionMode(&#34;must_encrypt&#34;)
  *             .location(&#34;EqDC2&#34;)
  *             .requestMacsec(true)
+ *             .encryptionMode(&#34;must_encrypt&#34;)
  *             .build());
  * 
  *     }

@@ -32,41 +32,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "accepter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Accepter's side of the VIF.
-//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				AmazonSideAsn: pulumi.String("64512"),
-//			}, pulumi.Provider(aws.Accepter))
+//			accepter, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId: *pulumi.String(accepterCallerIdentity.AccountId),
+//				OwnerAccountId: *pulumi.String(accepter.AccountId),
+//				Name:           pulumi.String("tf-transit-vif-example"),
 //				Vlan:           pulumi.Int(4094),
 //				AddressFamily:  pulumi.String("ipv4"),
 //				BgpAsn:         pulumi.Int(65352),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepterHostedTransitVirtualInterfaceAcceptor", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
+//			// Accepter's side of the VIF.
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("tf-dxg-example"),
+//				AmazonSideAsn: pulumi.String("64512"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepter", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
 //				VirtualInterfaceId: creator.ID(),
 //				DxGatewayId:        example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Accepter))
+//			})
 //			if err != nil {
 //				return err
 //			}

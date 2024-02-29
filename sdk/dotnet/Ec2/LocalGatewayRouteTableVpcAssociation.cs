@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLocalGatewayRouteTable = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
+    ///     var example = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
     ///     {
     ///         OutpostArn = "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleLocalGatewayRouteTableVpcAssociation = new Aws.Ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", new()
+    ///     var exampleLocalGatewayRouteTableVpcAssociation = new Aws.Ec2.LocalGatewayRouteTableVpcAssociation("example", new()
     ///     {
-    ///         LocalGatewayRouteTableId = exampleLocalGatewayRouteTable.Apply(getLocalGatewayRouteTableResult =&gt; getLocalGatewayRouteTableResult.Id),
+    ///         LocalGatewayRouteTableId = example.Apply(getLocalGatewayRouteTableResult =&gt; getLocalGatewayRouteTableResult.Id),
     ///         VpcId = exampleVpc.Id,
     ///     });
     /// 

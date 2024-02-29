@@ -24,15 +24,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
+ *     ipamScopeId: example.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     cidr: "172.20.0.0/16",
  * });
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const ipv6TestPublicVpcIpamPool = new aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool", {
+ * const ipv6TestPublic = new aws.ec2.VpcIpamPool("ipv6_test_public", {
  *     addressFamily: "ipv6",
  *     ipamScopeId: example.publicDefaultScopeId,
  *     locale: "us-east-1",
@@ -57,8 +57,8 @@ import * as utilities from "../utilities";
  *     publicIpSource: "amazon",
  *     awsService: "ec2",
  * });
- * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", {
- *     ipamPoolId: ipv6TestPublicVpcIpamPool.id,
+ * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6_test_public", {
+ *     ipamPoolId: ipv6TestPublic.id,
  *     netmaskLength: 52,
  * });
  * ```

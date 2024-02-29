@@ -10,6 +10,52 @@ import * as utilities from "../utilities";
 /**
  * Provides an IPAM resource.
  *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const main = new aws.ec2.VpcIpam("main", {
+ *     description: "My IPAM",
+ *     operatingRegions: [{
+ *         regionName: current.then(current => current.name),
+ *     }],
+ *     tags: {
+ *         Test: "Main",
+ *     },
+ * });
+ * ```
+ *
+ * Shared with multiple operating_regions:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * // ensure current provider region is an operating_regions entry
+ * const allIpamRegions = notImplemented("distinct(concat([data.aws_region.current.name],var.ipam_regions))");
+ * const main = new aws.ec2.VpcIpam("main", {
+ *     operatingRegions: Object.entries(allIpamRegions).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *         regionName: entry.value,
+ *     })),
+ *     description: "multi region ipam",
+ * });
+ * const current = aws.getRegion({});
+ * const config = new pulumi.Config();
+ * const ipamRegions = config.getObject<Array<any>>("ipamRegions") || [
+ *     "us-east-1",
+ *     "us-west-2",
+ * ];
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:

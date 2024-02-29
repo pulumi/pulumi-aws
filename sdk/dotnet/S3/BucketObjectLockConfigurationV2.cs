@@ -27,20 +27,23 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "mybucket",
+    ///     });
+    /// 
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new()
+    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
     ///         {
     ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs

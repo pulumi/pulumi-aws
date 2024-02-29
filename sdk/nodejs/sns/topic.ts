@@ -15,7 +15,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {});
+ * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
  * ```
  * ## Example with Delivery Policy
  *
@@ -23,7 +23,9 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {deliveryPolicy: `{
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic",
+ *     deliveryPolicy: `{
  *   "http": {
  *     "defaultHealthyRetryPolicy": {
  *       "minDelayTarget": 20,
@@ -40,8 +42,8 @@ import {ARN} from "..";
  *     }
  *   }
  * }
- *
- * `});
+ * `,
+ * });
  * ```
  *
  * ## Example with Server-side encryption (SSE)
@@ -50,7 +52,10 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {kmsMasterKeyId: "alias/aws/sns"});
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic",
+ *     kmsMasterKeyId: "alias/aws/sns",
+ * });
  * ```
  *
  * ## Example with First-In-First-Out (FIFO)
@@ -59,9 +64,10 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {
- *     contentBasedDeduplication: true,
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic.fifo",
  *     fifoTopic: true,
+ *     contentBasedDeduplication: true,
  * });
  * ```
  *

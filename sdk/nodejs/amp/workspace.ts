@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {loggingConfiguration: {
- *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const exampleWorkspace = new aws.amp.Workspace("example", {loggingConfiguration: {
+ *     logGroupArn: pulumi.interpolate`${example.arn}:*`,
  * }});
  * ```
  * ### AWS KMS Customer Managed Keys (CMK)
@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms.Key("example", {
  *     description: "example",
  *     deletionWindowInDays: 7,
  * });
- * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {
+ * const example = new aws.amp.Workspace("example", {
  *     alias: "example",
  *     kmsKeyArn: exampleKey.arn,
  * });

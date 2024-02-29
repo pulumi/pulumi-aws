@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "INSTANCE",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *     },
@@ -33,9 +34,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "IP",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         ipAddressType: "IPV4",
  *         port: 443,
  *         protocol: "HTTPS",
@@ -66,9 +68,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "ALB",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *         protocolVersion: "HTTP1",
@@ -83,7 +86,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {type: "LAMBDA"});
+ * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
+ *     type: "LAMBDA",
+ * });
  * ```
  *
  * ## Import

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationAzureBlob("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
  *     authenticationType: "SAS",
  *     containerUrl: "https://example.com/path",
  *     sasConfiguration: {

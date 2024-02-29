@@ -16,21 +16,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.DistributionConfiguration("example", {distributions: [{
- *     amiDistributionConfiguration: {
- *         amiTags: {
- *             CostCenter: "IT",
+ * const example = new aws.imagebuilder.DistributionConfiguration("example", {
+ *     name: "example",
+ *     distributions: [{
+ *         amiDistributionConfiguration: {
+ *             amiTags: {
+ *                 CostCenter: "IT",
+ *             },
+ *             name: "example-{{ imagebuilder:buildDate }}",
+ *             launchPermission: {
+ *                 userIds: ["123456789012"],
+ *             },
  *         },
- *         launchPermission: {
- *             userIds: ["123456789012"],
- *         },
- *         name: "example-{{ imagebuilder:buildDate }}",
- *     },
- *     launchTemplateConfigurations: [{
- *         launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *         launchTemplateConfigurations: [{
+ *             launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *         }],
+ *         region: "us-east-1",
  *     }],
- *     region: "us-east-1",
- * }]});
+ * });
  * ```
  *
  * ## Import

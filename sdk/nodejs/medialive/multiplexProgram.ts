@@ -20,7 +20,8 @@ import * as utilities from "../utilities";
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
- * const exampleMultiplex = new aws.medialive.Multiplex("exampleMultiplex", {
+ * const example = new aws.medialive.Multiplex("example", {
+ *     name: "example-multiplex-changed",
  *     availabilityZones: [
  *         available.then(available => available.names?.[0]),
  *         available.then(available => available.names?.[1]),
@@ -36,9 +37,9 @@ import * as utilities from "../utilities";
  *         tag1: "value1",
  *     },
  * });
- * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("exampleMultiplexProgram", {
+ * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("example", {
  *     programName: "example_program",
- *     multiplexId: exampleMultiplex.id,
+ *     multiplexId: example.id,
  *     multiplexProgramSettings: {
  *         programNumber: 1,
  *         preferredChannelPipeline: "CURRENTLY_ACTIVE",

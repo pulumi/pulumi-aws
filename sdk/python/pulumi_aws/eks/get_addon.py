@@ -158,8 +158,8 @@ def get_addon(addon_name: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
-    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+        cluster_name=example_aws_eks_cluster["name"])
+    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
     ```
 
 
@@ -202,8 +202,8 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
-    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+        cluster_name=example_aws_eks_cluster["name"])
+    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
     ```
 
 

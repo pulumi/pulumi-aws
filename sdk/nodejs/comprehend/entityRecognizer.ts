@@ -18,11 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
  * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
  * const example = new aws.comprehend.EntityRecognizer("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
  *         entityTypes: [
@@ -34,14 +33,12 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.documents.bucket}/${documents.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.id}`,
  *         },
  *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.entities.bucket}/${entities.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.id}`,
  *         },
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * ```
  *

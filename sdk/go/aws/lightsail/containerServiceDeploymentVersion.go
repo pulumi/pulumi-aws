@@ -59,7 +59,7 @@ import (
 //						SuccessCodes:       pulumi.String("200-499"),
 //					},
 //				},
-//				ServiceName: pulumi.Any(aws_lightsail_container_service.Example.Name),
+//				ServiceName: pulumi.Any(exampleAwsLightsailContainerService.Name),
 //			})
 //			if err != nil {
 //				return err

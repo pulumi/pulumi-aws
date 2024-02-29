@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole: pulumi.Any(test.Arn),
 //				As2Config: &transfer.ConnectorAs2ConfigArgs{
 //					Compression:         pulumi.String("DISABLED"),
 //					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
 //					MessageSubject:      pulumi.String("For Connector"),
-//					LocalProfileId:      pulumi.Any(aws_transfer_profile.Local.Profile_id),
+//					LocalProfileId:      pulumi.Any(local.ProfileId),
 //					MdnResponse:         pulumi.String("NONE"),
 //					MdnSigningAlgorithm: pulumi.String("NONE"),
-//					PartnerProfileId:    pulumi.Any(aws_transfer_profile.Partner.Profile_id),
+//					PartnerProfileId:    pulumi.Any(partner.ProfileId),
 //					SigningAlgorithm:    pulumi.String("NONE"),
 //				},
 //				Url: pulumi.String("http://www.test.com"),
@@ -66,12 +66,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole: pulumi.Any(test.Arn),
 //				SftpConfig: &transfer.ConnectorSftpConfigArgs{
 //					TrustedHostKeys: pulumi.StringArray{
 //						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
 //					},
-//					UserSecretId: pulumi.Any(aws_secretsmanager_secret.Example.Id),
+//					UserSecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
 //				},
 //				Url: pulumi.String("sftp://test.com"),
 //			})

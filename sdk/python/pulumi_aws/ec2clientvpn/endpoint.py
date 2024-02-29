@@ -641,16 +641,16 @@ class Endpoint(pulumi.CustomResource):
 
         example = aws.ec2clientvpn.Endpoint("example",
             description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
+            server_certificate_arn=cert["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=root_cert["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=lg["name"],
+                cloudwatch_log_stream=ls["name"],
             ))
         ```
 
@@ -699,16 +699,16 @@ class Endpoint(pulumi.CustomResource):
 
         example = aws.ec2clientvpn.Endpoint("example",
             description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
+            server_certificate_arn=cert["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=root_cert["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=lg["name"],
+                cloudwatch_log_stream=ls["name"],
             ))
         ```
 

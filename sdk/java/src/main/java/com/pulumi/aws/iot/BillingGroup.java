@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BillingGroup(&#34;example&#34;, BillingGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .properties(BillingGroupPropertiesArgs.builder()
  *                 .description(&#34;This is my billing group&#34;)
  *                 .build())

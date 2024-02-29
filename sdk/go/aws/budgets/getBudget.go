@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.LookupBudget(ctx, &budgets.LookupBudgetArgs{
-//				Name: aws_budgets_budget.Test.Name,
+//				Name: testAwsBudgetsBudget.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

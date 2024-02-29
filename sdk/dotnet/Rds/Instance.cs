@@ -65,10 +65,127 @@ namespace Pulumi.Aws.Rds
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
     ///         InstanceClass = "db.t3.micro",
-    ///         ParameterGroupName = "default.mysql5.7",
-    ///         Password = "foobarbaz",
-    ///         SkipFinalSnapshot = true,
     ///         Username = "foo",
+    ///         Password = "foobarbaz",
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///         SkipFinalSnapshot = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### RDS Custom for Oracle Usage with Replica
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lookup the available instance classes for the custom engine for the region being operated in
+    ///     var custom_oracle = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     {
+    ///         Engine = "custom-oracle-ee",
+    ///         EngineVersion = "19.c.ee.002",
+    ///         LicenseModel = "bring-your-own-license",
+    ///         StorageType = "gp3",
+    ///         PreferredInstanceClasses = new[]
+    ///         {
+    ///             "db.r5.xlarge",
+    ///             "db.r5.2xlarge",
+    ///             "db.r5.4xlarge",
+    ///         },
+    ///     });
+    /// 
+    ///     // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+    ///     var byId = Aws.Kms.GetKey.Invoke(new()
+    ///     {
+    ///         KeyId = "example-ef278353ceba4a5a97de6784565b9f78",
+    ///     });
+    /// 
+    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     {
+    ///         AllocatedStorage = 50,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         DbSubnetGroupName = dbSubnetGroupName,
+    ///         Engine = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
+    ///         EngineVersion = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
+    ///         Identifier = "ee-instance-demo",
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         LicenseModel = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.LicenseModel)),
+    ///         MultiAz = false,
+    ///         Password = "avoid-plaintext-passwords",
+    ///         Username = "test",
+    ///         StorageEncrypted = true,
+    ///     });
+    /// 
+    ///     var test_replica = new Aws.Rds.Instance("test-replica", new()
+    ///     {
+    ///         ReplicateSourceDb = @default.Identifier,
+    ///         ReplicaMode = "mounted",
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         Identifier = "ee-instance-replica",
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         MultiAz = false,
+    ///         SkipFinalSnapshot = true,
+    ///         StorageEncrypted = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### RDS Custom for SQL Server
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lookup the available instance classes for the custom engine for the region being operated in
+    ///     var custom_sqlserver = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     {
+    ///         Engine = "custom-sqlserver-se",
+    ///         EngineVersion = "15.00.4249.2.v1",
+    ///         StorageType = "gp3",
+    ///         PreferredInstanceClasses = new[]
+    ///         {
+    ///             "db.r5.xlarge",
+    ///             "db.r5.2xlarge",
+    ///             "db.r5.4xlarge",
+    ///         },
+    ///     });
+    /// 
+    ///     // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+    ///     var byId = Aws.Kms.GetKey.Invoke(new()
+    ///     {
+    ///         KeyId = "example-ef278353ceba4a5a97de6784565b9f78",
+    ///     });
+    /// 
+    ///     var example = new Aws.Rds.Instance("example", new()
+    ///     {
+    ///         AllocatedStorage = 500,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomSQLServerInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         DbSubnetGroupName = dbSubnetGroupName,
+    ///         Engine = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
+    ///         EngineVersion = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
+    ///         Identifier = "sql-instance-demo",
+    ///         InstanceClass = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         MultiAz = false,
+    ///         Password = "avoid-plaintext-passwords",
+    ///         StorageEncrypted = true,
+    ///         Username = "test",
     ///     });
     /// 
     /// });
@@ -83,12 +200,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
     ///     var @default = Aws.Rds.GetEngineVersion.Invoke(new()
     ///     {
     ///         Engine = "db2-se",
     ///     });
     /// 
-    ///     var exampleOrderableDbInstance = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     // Lookup the available instance classes for the engine in the region being operated in
+    ///     var example = Aws.Rds.GetOrderableDbInstance.Invoke(new()
     ///     {
     ///         Engine = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Engine),
     ///         EngineVersion = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Version),
@@ -103,8 +222,9 @@ namespace Pulumi.Aws.Rds
     ///     });
     /// 
     ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("exampleParameterGroup", new()
+    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("example", new()
     ///     {
+    ///         Name = "db-db2-params",
     ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
     ///         Parameters = new[]
     ///         {
@@ -124,15 +244,15 @@ namespace Pulumi.Aws.Rds
     ///     });
     /// 
     ///     // Create the RDS Db2 instance, use the data sources defined to set attributes
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
     ///     {
     ///         AllocatedStorage = 100,
     ///         BackupRetentionPeriod = 7,
     ///         DbName = "test",
-    ///         Engine = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine),
-    ///         EngineVersion = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion),
+    ///         Engine = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine),
+    ///         EngineVersion = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion),
     ///         Identifier = "db2-instance-demo",
-    ///         InstanceClass = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
+    ///         InstanceClass = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
     ///         ParameterGroupName = exampleParameterGroup.Name,
     ///         Password = "avoid-plaintext-passwords",
     ///         Username = "test",
@@ -182,8 +302,8 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "5.7",
     ///         InstanceClass = "db.t3.micro",
     ///         ManageMasterUserPassword = true,
-    ///         ParameterGroupName = "default.mysql5.7",
     ///         Username = "foo",
+    ///         ParameterGroupName = "default.mysql5.7",
     ///     });
     /// 
     /// });

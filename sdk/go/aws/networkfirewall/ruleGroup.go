@@ -31,6 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
 //				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 //						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
@@ -48,7 +50,102 @@ import (
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
 //				},
-//				Type: pulumi.String("STATEFUL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Stateful Inspection for permitting packets from a source IP address
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ips := []string{
+//				"1.1.1.1/32",
+//				"1.0.0.1/32",
+//			}
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity:    pulumi.Int(50),
+//				Description: pulumi.String("Permits http traffic from source"),
+//				Name:        pulumi.String("example"),
+//				Type:        pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						StatefulRules: "TODO: For expression",
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("permit HTTP from source"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Stateful Inspection for blocking packets from going to an intended destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						StatefulRules: networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArray{
+//							&networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs{
+//								Action: pulumi.String("DROP"),
+//								Header: &networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs{
+//									Destination:     pulumi.String("124.1.1.24/32"),
+//									DestinationPort: pulumi.String("53"),
+//									Direction:       pulumi.String("ANY"),
+//									Protocol:        pulumi.String("TCP"),
+//									Source:          pulumi.String("1.2.3.4/32"),
+//									SourcePort:      pulumi.String("53"),
+//								},
+//								RuleOptions: networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArray{
+//									&networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs{
+//										Keyword: pulumi.String("sid"),
+//										Settings: pulumi.StringArray{
+//											pulumi.String("1"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -65,27 +162,25 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "example.rules",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
 //				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
 //				Type:     pulumi.String("STATEFUL"),
-//				Rules:    readFileOrPanic("example.rules"),
+//				Rules:    invokeFile.Result,
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -106,25 +201,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "suricata_rules_file",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
 //				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
 //				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
@@ -161,7 +254,108 @@ import (
 //						},
 //					},
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-//						RulesString: readFileOrPanic("suricata_rules_file"),
+//						RulesString: invokeFile.Result,
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Stateless Inspection with a Custom Action
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Description: pulumi.String("Stateless Rate Limiting Rule"),
+//				Capacity:    pulumi.Int(100),
+//				Name:        pulumi.String("example"),
+//				Type:        pulumi.String("STATELESS"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						StatelessRulesAndCustomActions: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs{
+//							CustomActions: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArray{
+//								&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs{
+//									ActionDefinition: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs{
+//										PublishMetricAction: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs{
+//											Dimensions: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs{
+//													Value: pulumi.String("2"),
+//												},
+//											},
+//										},
+//									},
+//									ActionName: pulumi.String("ExampleMetricsAction"),
+//								},
+//							},
+//							StatelessRules: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArray{
+//								&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs{
+//									Priority: pulumi.Int(1),
+//									RuleDefinition: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs{
+//										Actions: pulumi.StringArray{
+//											pulumi.String("aws:pass"),
+//											pulumi.String("ExampleMetricsAction"),
+//										},
+//										MatchAttributes: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs{
+//											Sources: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs{
+//													AddressDefinition: pulumi.String("1.2.3.4/32"),
+//												},
+//											},
+//											SourcePorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs{
+//													FromPort: pulumi.Int(443),
+//													ToPort:   pulumi.Int(443),
+//												},
+//											},
+//											Destinations: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs{
+//													AddressDefinition: pulumi.String("124.1.1.5/32"),
+//												},
+//											},
+//											DestinationPorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs{
+//													FromPort: pulumi.Int(443),
+//													ToPort:   pulumi.Int(443),
+//												},
+//											},
+//											Protocols: pulumi.IntArray{
+//												pulumi.Int(6),
+//											},
+//											TcpFlags: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs{
+//													Flags: pulumi.StringArray{
+//														pulumi.String("SYN"),
+//													},
+//													Masks: pulumi.StringArray{
+//														pulumi.String("SYN"),
+//														pulumi.String("ACK"),
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -193,6 +387,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
 //				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
 //				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
@@ -212,7 +407,7 @@ import (
 //								Key: pulumi.String("example"),
 //								IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{
 //									&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{
-//										ReferenceArn: pulumi.Any(aws_ec2_managed_prefix_list.This.Arn),
+//										ReferenceArn: pulumi.Any(this.Arn),
 //									},
 //								},
 //							},

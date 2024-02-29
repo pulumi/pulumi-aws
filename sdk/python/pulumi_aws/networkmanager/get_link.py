@@ -160,8 +160,8 @@ def get_link(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
-        link_id=var["link_id"])
+    example = aws.networkmanager.get_link(global_network_id=global_network_id,
+        link_id=link_id)
     ```
 
 
@@ -203,8 +203,8 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
-        link_id=var["link_id"])
+    example = aws.networkmanager.get_link(global_network_id=global_network_id,
+        link_id=link_id)
     ```
 
 

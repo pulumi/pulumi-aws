@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AssessmentDelegation("example", {
- *     assessmentId: aws_auditmanager_assessment.example.id,
- *     roleArn: aws_iam_role.example.arn,
+ *     assessmentId: exampleAwsAuditmanagerAssessment.id,
+ *     roleArn: exampleAwsIamRole.arn,
  *     roleType: "RESOURCE_OWNER",
  *     controlSetId: "example",
  * });

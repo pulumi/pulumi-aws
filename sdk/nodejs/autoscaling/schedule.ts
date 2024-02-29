@@ -13,8 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
+ * const foobar = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
+ *     name: "test-foobar5",
  *     maxSize: 1,
  *     minSize: 1,
  *     healthCheckGracePeriod: 300,
@@ -22,14 +23,14 @@ import * as utilities from "../utilities";
  *     forceDelete: true,
  *     terminationPolicies: ["OldestInstance"],
  * });
- * const foobarSchedule = new aws.autoscaling.Schedule("foobarSchedule", {
+ * const foobarSchedule = new aws.autoscaling.Schedule("foobar", {
  *     scheduledActionName: "foobar",
  *     minSize: 0,
  *     maxSize: 1,
  *     desiredCapacity: 0,
  *     startTime: "2016-12-11T18:00:00Z",
  *     endTime: "2016-12-12T06:00:00Z",
- *     autoscalingGroupName: foobarGroup.name,
+ *     autoscalingGroupName: foobar.name,
  * });
  * ```
  *

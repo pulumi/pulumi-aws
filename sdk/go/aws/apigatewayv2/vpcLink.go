@@ -32,10 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
+//				Name: pulumi.String("example"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					data.Aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
-//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
+//				SubnetIds: pulumi.Any(exampleAwsSubnets.Ids),
 //				Tags: pulumi.StringMap{
 //					"Usage": pulumi.String("example"),
 //				},

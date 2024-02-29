@@ -542,17 +542,17 @@ class Endpoint(pulumi.CustomResource):
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
             load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
-                load_balancer_arn=aws_lb["example"]["arn"],
+                load_balancer_arn=example_aws_lb["arn"],
                 port=443,
                 protocol="https",
-                subnet_ids=[subnet["id"] for subnet in aws_subnet["public"]],
+                subnet_ids=[subnet["id"] for subnet in public],
             ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+            security_group_ids=[example_aws_security_group["id"]],
+            verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
         ### Network Interface Example
 
@@ -564,16 +564,16 @@ class Endpoint(pulumi.CustomResource):
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
             network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
-                network_interface_id=aws_network_interface["example"]["id"],
+                network_interface_id=example_aws_network_interface["id"],
                 port=443,
                 protocol="https",
             ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+            security_group_ids=[example_aws_security_group["id"]],
+            verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
         ## Import
@@ -624,17 +624,17 @@ class Endpoint(pulumi.CustomResource):
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
             load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
-                load_balancer_arn=aws_lb["example"]["arn"],
+                load_balancer_arn=example_aws_lb["arn"],
                 port=443,
                 protocol="https",
-                subnet_ids=[subnet["id"] for subnet in aws_subnet["public"]],
+                subnet_ids=[subnet["id"] for subnet in public],
             ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+            security_group_ids=[example_aws_security_group["id"]],
+            verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
         ### Network Interface Example
 
@@ -646,16 +646,16 @@ class Endpoint(pulumi.CustomResource):
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
             network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
-                network_interface_id=aws_network_interface["example"]["id"],
+                network_interface_id=example_aws_network_interface["id"],
                 port=443,
                 protocol="https",
             ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+            security_group_ids=[example_aws_security_group["id"]],
+            verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
         ## Import

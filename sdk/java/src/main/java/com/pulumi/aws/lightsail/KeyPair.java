@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.KeyPair;
+ * import com.pulumi.aws.lightsail.KeyPairArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,7 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;);
+ *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
+ *             .name(&#34;lg_key_pair&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -72,6 +75,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
+ *             .name(&#34;lg_key_pair&#34;)
  *             .pgpKey(&#34;keybase:keybaseusername&#34;)
  *             .build());
  * 
@@ -101,7 +105,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
- *             .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *             .name(&#34;importing&#34;)
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(            
  *                 IpSetIpSetDescriptorArgs.builder()
  *                     .type(&#34;IPV4&#34;)

@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewEip(ctx, "lb", &ec2.EipArgs{
-//				Instance: pulumi.Any(aws_instance.Web.Id),
+//				Instance: pulumi.Any(web.Id),
 //				Domain:   pulumi.String("vpc"),
 //			})
 //			if err != nil {
@@ -59,7 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkInterface(ctx, "multi-ip", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Main.Id),
+//				SubnetId: pulumi.Any(main.Id),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("10.0.0.10"),
 //					pulumi.String("10.0.0.11"),
@@ -110,19 +110,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+//			_, err = ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
 //				VpcId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myTestSubnet, err := ec2.NewSubnet(ctx, "myTestSubnet", &ec2.SubnetArgs{
+//			myTestSubnet, err := ec2.NewSubnet(ctx, "my_test_subnet", &ec2.SubnetArgs{
 //				VpcId:               _default.ID(),
 //				CidrBlock:           pulumi.String("10.0.0.0/24"),
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gw,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -139,9 +137,7 @@ import (
 //				Domain:                 pulumi.String("vpc"),
 //				Instance:               foo.ID(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gw,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

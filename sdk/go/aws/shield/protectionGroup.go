@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("MAX"),
 //				Pattern:           pulumi.String("ALL"),
-//				ProtectionGroupId: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,40 +62,39 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			_, err = shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtectionGroup(ctx, "exampleProtectionGroup", &shield.ProtectionGroupArgs{
+//			_, err = shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
 //				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("MEAN"),
 //				Pattern:           pulumi.String("ARBITRARY"),
 //				Members: pulumi.StringArray{
-//					exampleEip.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//					example.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleProtection,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -119,9 +118,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("SUM"),
 //				Pattern:           pulumi.String("BY_RESOURCE_TYPE"),
-//				ProtectionGroupId: pulumi.String("example"),
 //				ResourceType:      pulumi.String("ELASTIC_IP_ALLOCATION"),
 //			})
 //			if err != nil {

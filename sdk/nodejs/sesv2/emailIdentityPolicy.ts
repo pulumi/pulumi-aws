@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {emailIdentity: "testing@example.com"});
- * const exampleEmailIdentityPolicy = new aws.sesv2.EmailIdentityPolicy("exampleEmailIdentityPolicy", {
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
+ * const exampleEmailIdentityPolicy = new aws.sesv2.EmailIdentityPolicy("example", {
+ *     emailIdentity: example.emailIdentity,
  *     policyName: "example",
  *     policy: pulumi.interpolate`{
  *   "Id":"ExampleAuthorizationPolicy",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     {
  *       "Sid":"AuthorizeIAMUser",
  *       "Effect":"Allow",
- *       "Resource":"${exampleEmailIdentity.arn}",
+ *       "Resource":"${example.arn}",
  *       "Principal":{
  *         "AWS":[
  *           "arn:aws:iam::123456789012:user/John",

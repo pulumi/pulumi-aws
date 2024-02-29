@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-//				ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
+//				ClusterIdentifier:         pulumi.Any(test.ClusterIdentifier),
 //				ClusterEndpointIdentifier: pulumi.String("example"),
 //				EndpointType:              pulumi.String("READER"),
 //			})

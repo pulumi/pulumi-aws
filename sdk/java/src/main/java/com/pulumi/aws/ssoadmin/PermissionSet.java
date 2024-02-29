@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For example:

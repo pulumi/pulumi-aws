@@ -375,34 +375,33 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        allow_tls = aws.ec2.SecurityGroup("allowTls",
+        allow_tls = aws.ec2.SecurityGroup("allow_tls",
+            name="allow_tls",
             description="Allow TLS inbound traffic and all outbound traffic",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "allow_tls",
             })
-        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv4",
+        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allow_tls_ipv4",
             security_group_id=allow_tls.id,
-            cidr_ipv4=aws_vpc["main"]["cidr_block"],
+            cidr_ipv4=main["cidrBlock"],
             from_port=443,
             ip_protocol="tcp",
             to_port=443)
-        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv6",
+        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allow_tls_ipv6",
             security_group_id=allow_tls.id,
-            cidr_ipv6=aws_vpc["main"]["ipv6_cidr_block"],
+            cidr_ipv6=main["ipv6CidrBlock"],
             from_port=443,
             ip_protocol="tcp",
             to_port=443)
-        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4",
+        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4",
             security_group_id=allow_tls.id,
             cidr_ipv4="0.0.0.0/0",
             ip_protocol="-1")
-        # semantically equivalent to all ports
-        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6",
+        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6",
             security_group_id=allow_tls.id,
             cidr_ipv6="::/0",
             ip_protocol="-1")
-        # semantically equivalent to all ports
         ```
 
         > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
@@ -412,11 +411,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            cidr_blocks=["0.0.0.0/0"],
             from_port=0,
-            ipv6_cidr_blocks=["::/0"],
-            protocol="-1",
             to_port=0,
+            protocol="-1",
+            cidr_blocks=["0.0.0.0/0"],
+            ipv6_cidr_blocks=["::/0"],
         )])
         ```
         ### Usage With Prefix List IDs
@@ -430,9 +429,7 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ... other configuration ...
-        # ... other configuration ...
+        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
             from_port=0,
             to_port=0,
@@ -451,7 +448,8 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example",
-            vpc_id=aws_vpc["example"]["id"],
+            name="sg",
+            vpc_id=example_aws_vpc["id"],
             ingress=[],
             egress=[])
         ```
@@ -476,7 +474,7 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example")
+        example = aws.ec2.SecurityGroup("example", name="changeable-name")
         ```
         ### `replace_triggered_by`
 
@@ -488,11 +486,10 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup")
-        # ... other configuration ...
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example = aws.ec2.SecurityGroup("example", name="sg")
+        example_instance = aws.ec2.Instance("example",
             instance_type="t3.small",
-            vpc_security_group_ids=[aws_security_group["test"]["id"]])
+            vpc_security_group_ids=[test["id"]])
         ```
         ### Shorter timeout
 
@@ -504,7 +501,42 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example")
+        example = aws.ec2.SecurityGroup("example", name="izizavle")
+        ```
+        ### Provisioners
+
+        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+
+        **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_command as command
+        import pulumi_null as null
+        import pulumi_std as std
+
+        default = aws.ec2.get_security_group(name="default")
+        example = aws.ec2.SecurityGroup("example",
+            name="sg",
+            tags={
+                "workaround1": "tagged-name",
+                "workaround2": default.id,
+            })
+        example_provisioner0 = command.local.Command("exampleProvisioner0",
+            create=true,
+            update=true,
+            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values={tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
+        ,
+            opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_resource = null.index.Resource("example", triggers={
+            rerunUponChangeOf: std.join(separator=,,
+                input=example_aws_vpc_endpoint.security_group_ids).result,
+        })
+        example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
+        ,
+        opts=pulumi.ResourceOptions(depends_on=[example_resource]))
         ```
 
         ## Import
@@ -550,34 +582,33 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        allow_tls = aws.ec2.SecurityGroup("allowTls",
+        allow_tls = aws.ec2.SecurityGroup("allow_tls",
+            name="allow_tls",
             description="Allow TLS inbound traffic and all outbound traffic",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "allow_tls",
             })
-        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv4",
+        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allow_tls_ipv4",
             security_group_id=allow_tls.id,
-            cidr_ipv4=aws_vpc["main"]["cidr_block"],
+            cidr_ipv4=main["cidrBlock"],
             from_port=443,
             ip_protocol="tcp",
             to_port=443)
-        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv6",
+        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allow_tls_ipv6",
             security_group_id=allow_tls.id,
-            cidr_ipv6=aws_vpc["main"]["ipv6_cidr_block"],
+            cidr_ipv6=main["ipv6CidrBlock"],
             from_port=443,
             ip_protocol="tcp",
             to_port=443)
-        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4",
+        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4",
             security_group_id=allow_tls.id,
             cidr_ipv4="0.0.0.0/0",
             ip_protocol="-1")
-        # semantically equivalent to all ports
-        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6",
+        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6",
             security_group_id=allow_tls.id,
             cidr_ipv6="::/0",
             ip_protocol="-1")
-        # semantically equivalent to all ports
         ```
 
         > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
@@ -587,11 +618,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            cidr_blocks=["0.0.0.0/0"],
             from_port=0,
-            ipv6_cidr_blocks=["::/0"],
-            protocol="-1",
             to_port=0,
+            protocol="-1",
+            cidr_blocks=["0.0.0.0/0"],
+            ipv6_cidr_blocks=["::/0"],
         )])
         ```
         ### Usage With Prefix List IDs
@@ -605,9 +636,7 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ... other configuration ...
-        # ... other configuration ...
+        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
             from_port=0,
             to_port=0,
@@ -626,7 +655,8 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example",
-            vpc_id=aws_vpc["example"]["id"],
+            name="sg",
+            vpc_id=example_aws_vpc["id"],
             ingress=[],
             egress=[])
         ```
@@ -651,7 +681,7 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example")
+        example = aws.ec2.SecurityGroup("example", name="changeable-name")
         ```
         ### `replace_triggered_by`
 
@@ -663,11 +693,10 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup")
-        # ... other configuration ...
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example = aws.ec2.SecurityGroup("example", name="sg")
+        example_instance = aws.ec2.Instance("example",
             instance_type="t3.small",
-            vpc_security_group_ids=[aws_security_group["test"]["id"]])
+            vpc_security_group_ids=[test["id"]])
         ```
         ### Shorter timeout
 
@@ -679,7 +708,42 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example")
+        example = aws.ec2.SecurityGroup("example", name="izizavle")
+        ```
+        ### Provisioners
+
+        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+
+        **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_command as command
+        import pulumi_null as null
+        import pulumi_std as std
+
+        default = aws.ec2.get_security_group(name="default")
+        example = aws.ec2.SecurityGroup("example",
+            name="sg",
+            tags={
+                "workaround1": "tagged-name",
+                "workaround2": default.id,
+            })
+        example_provisioner0 = command.local.Command("exampleProvisioner0",
+            create=true,
+            update=true,
+            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values={tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
+        ,
+            opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_resource = null.index.Resource("example", triggers={
+            rerunUponChangeOf: std.join(separator=,,
+                input=example_aws_vpc_endpoint.security_group_ids).result,
+        })
+        example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
+        ,
+        opts=pulumi.ResourceOptions(depends_on=[example_resource]))
         ```
 
         ## Import

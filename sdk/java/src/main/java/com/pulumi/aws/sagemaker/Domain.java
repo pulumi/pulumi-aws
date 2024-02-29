@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -62,15 +62,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .subnetIds(aws_subnet.example().id())
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
  *                 .executionRole(exampleRole.arn())
  *                 .build())
@@ -111,9 +112,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
+ *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
  *             .imageName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
@@ -126,17 +127,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleImageVersion = new ImageVersion(&#34;exampleImageVersion&#34;, ImageVersionArgs.builder()        
- *             .imageName(exampleImage.id())
+ *             .imageName(example.id())
  *             .baseImage(&#34;base-image&#34;)
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .subnetIds(aws_subnet.example().id())
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(aws_iam_role.example().arn())
+ *                 .executionRole(exampleAwsIamRole.arn())
  *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
  *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
  *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())

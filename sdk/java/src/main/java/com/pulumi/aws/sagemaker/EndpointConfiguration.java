@@ -49,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec = new EndpointConfiguration(&#34;ec&#34;, EndpointConfigurationArgs.builder()        
+ *             .name(&#34;my-endpoint-config&#34;)
  *             .productionVariants(EndpointConfigurationProductionVariantArgs.builder()
  *                 .variantName(&#34;variant-1&#34;)
- *                 .modelName(aws_sagemaker_model.m().name())
+ *                 .modelName(m.name())
  *                 .initialInstanceCount(1)
  *                 .instanceType(&#34;ml.t2.medium&#34;)
  *                 .build())

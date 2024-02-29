@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
     ///             ComputeReservation = 1,

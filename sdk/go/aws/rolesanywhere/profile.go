@@ -32,19 +32,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"sts:AssumeRole",
 //							"sts:TagSession",
 //							"sts:SetSourceIdentity",
 //						},
-//						"Principal": map[string]interface{}{
-//							"Service": "rolesanywhere.amazonaws.com",
+//						"principal": map[string]interface{}{
+//							"service": "rolesanywhere.amazonaws.com",
 //						},
-//						"Effect": "Allow",
-//						"Sid":    "",
+//						"effect": "Allow",
+//						"sid":    "",
 //					},
 //				},
 //			})
@@ -52,16 +52,18 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+//				Name:             pulumi.String("test"),
 //				Path:             pulumi.String("/"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rolesanywhere.NewProfile(ctx, "testProfile", &rolesanywhere.ProfileArgs{
+//			_, err = rolesanywhere.NewProfile(ctx, "test", &rolesanywhere.ProfileArgs{
+//				Name: pulumi.String("example"),
 //				RoleArns: pulumi.StringArray{
-//					testRole.Arn,
+//					test.Arn,
 //				},
 //			})
 //			if err != nil {

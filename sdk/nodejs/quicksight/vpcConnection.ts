@@ -17,37 +17,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpcConnectionRole = new aws.iam.Role("vpcConnectionRole", {
+ * const vpcConnectionRole = new aws.iam.Role("vpc_connection_role", {
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "sts:AssumeRole",
- *             Principal: {
- *                 Service: "quicksight.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "sts:AssumeRole",
+ *             principal: {
+ *                 service: "quicksight.amazonaws.com",
  *             },
  *         }],
  *     }),
  *     inlinePolicies: [{
  *         name: "QuickSightVPCConnectionRolePolicy",
  *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Effect: "Allow",
- *                 Action: [
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: [
  *                     "ec2:CreateNetworkInterface",
  *                     "ec2:ModifyNetworkInterfaceAttribute",
  *                     "ec2:DeleteNetworkInterface",
  *                     "ec2:DescribeSubnets",
  *                     "ec2:DescribeSecurityGroups",
  *                 ],
- *                 Resource: ["*"],
+ *                 resource: ["*"],
  *             }],
  *         }),
  *     }],
  * });
  * const example = new aws.quicksight.VpcConnection("example", {
  *     vpcConnectionId: "example-connection-id",
+ *     name: "Example Connection",
  *     roleArn: vpcConnectionRole.arn,
  *     securityGroupIds: ["sg-00000000000000000"],
  *     subnetIds: [

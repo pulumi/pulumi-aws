@@ -25,7 +25,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-cloudwatch",
+    ///         ConfigurationSetName = example.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -57,7 +58,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-kinesis",
+    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -66,8 +68,8 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
     ///         {
-    ///             StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             StreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///             RoleArn = example.Arn,
     ///         },
     ///     });
     /// 
@@ -85,7 +87,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var sns = new Aws.Ses.EventDestination("sns", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-sns",
+    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -94,7 +97,7 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
     ///         {
-    ///             TopicArn = aws_sns_topic.Example.Arn,
+    ///             TopicArn = example.Arn,
     ///         },
     ///     });
     /// 

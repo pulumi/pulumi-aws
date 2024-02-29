@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "example", &networkmanager.SiteToSiteVpnAttachmentArgs{
-//				CoreNetworkId:    pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpnConnectionArn: pulumi.Any(aws_vpn_connection.Example.Arn),
+//				CoreNetworkId:    pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpnConnectionArn: pulumi.Any(exampleAwsVpnConnection.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -40,6 +40,136 @@ import (
 //		})
 //	}
 //
+// ```
+// ### Full Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-awscc/sdk/v1/go/awscc"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testCustomerGateway, err := ec2.NewCustomerGateway(ctx, "test", &ec2.CustomerGatewayArgs{
+// BgpAsn: pulumi.String("65000"),
+// IpAddress: pulumi.String("172.0.0.1"),
+// Type: pulumi.String("ipsec.1"),
+// })
+// if err != nil {
+// return err
+// }
+// testVpnConnection, err := ec2.NewVpnConnection(ctx, "test", &ec2.VpnConnectionArgs{
+// CustomerGatewayId: testCustomerGateway.ID(),
+// Type: pulumi.String("ipsec.1"),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("test"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "test", &networkmanager.GlobalNetworkArgs{
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("test"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testNetworkmanagerCoreNetwork, err := index.NewNetworkmanagerCoreNetwork(ctx, "test", &index.NetworkmanagerCoreNetworkArgs{
+// GlobalNetworkId: testGlobalNetwork.ID(),
+// PolicyDocument: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
+// CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
+// {
+// VpnEcmpSupport: pulumi.BoolRef(false),
+// AsnRanges: []string{
+// "64512-64555",
+// },
+// EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
+// {
+// Location: current.Name,
+// Asn: pulumi.StringRef("64512"),
+// },
+// },
+// },
+// },
+// Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
+// {
+// Name: "shared",
+// Description: pulumi.StringRef("SegmentForSharedServices"),
+// RequireAttachmentAcceptance: pulumi.BoolRef(true),
+// },
+// },
+// SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
+// {
+// Action: "share",
+// Mode: pulumi.StringRef("attachment-route"),
+// Segment: "shared",
+// ShareWiths: []string{
+// "*",
+// },
+// },
+// },
+// AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
+// {
+// RuleNumber: 1,
+// ConditionLogic: pulumi.StringRef("or"),
+// Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+// {
+// Type: "tag-value",
+// Operator: pulumi.StringRef("equals"),
+// Key: pulumi.StringRef("segment"),
+// Value: pulumi.StringRef("shared"),
+// },
+// },
+// Action: {
+// AssociationMethod: "constant",
+// Segment: pulumi.StringRef("shared"),
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// testSiteToSiteVpnAttachment, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "test", &networkmanager.SiteToSiteVpnAttachmentArgs{
+// CoreNetworkId: testNetworkmanagerCoreNetwork.Id,
+// VpnConnectionArn: testVpnConnection.Arn,
+// Tags: pulumi.StringMap{
+// "segment": pulumi.String("shared"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
+// AttachmentId: testSiteToSiteVpnAttachment.ID(),
+// AttachmentType: testSiteToSiteVpnAttachment.AttachmentType,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

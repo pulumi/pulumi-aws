@@ -22,11 +22,12 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
+    ///     var demo = new Aws.Amp.Workspace("demo");
     /// 
-    ///     var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demoRuleGroupNamespace", new()
+    ///     var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demo", new()
     ///     {
-    ///         WorkspaceId = demoWorkspace.Id,
+    ///         Name = "rules",
+    ///         WorkspaceId = demo.Id,
     ///         Data = @"groups:
     ///   - name: test
     ///     rules:

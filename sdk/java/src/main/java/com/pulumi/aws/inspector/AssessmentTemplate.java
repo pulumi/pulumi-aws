@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AssessmentTemplate(&#34;example&#34;, AssessmentTemplateArgs.builder()        
- *             .targetArn(aws_inspector_assessment_target.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .targetArn(exampleAwsInspectorAssessmentTarget.arn())
  *             .duration(3600)
  *             .rulesPackageArns(            
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p&#34;,
@@ -54,7 +55,7 @@ import javax.annotation.Nullable;
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD&#34;)
  *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
  *                 .event(&#34;ASSESSMENT_RUN_COMPLETED&#34;)
- *                 .topicArn(aws_sns_topic.example().arn())
+ *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
  *             .build());
  * 

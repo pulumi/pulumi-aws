@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
@@ -34,9 +34,9 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
     ///                 {
-    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                     UserGroup = aws_cognito_user_group.Example.Id,
+    ///                     ClientId = exampleAwsCognitoUserPoolClient.Id,
+    ///                     UserPool = exampleAwsCognitoUserPoolDomain.UserPoolId,
+    ///                     UserGroup = exampleAwsCognitoUserGroup.Id,
     ///                 },
     ///             },
     ///         },
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {

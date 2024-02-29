@@ -34,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-//				ClusterId: pulumi.Any(aws_emr_cluster.Cluster.Id),
+//				ClusterId: pulumi.Any(cluster.Id),
 //				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
 //					&emr.InstanceFleetInstanceTypeConfigArgs{
 //						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
@@ -71,6 +71,7 @@ import (
 //						},
 //					},
 //				},
+//				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
 //			})

@@ -342,8 +342,9 @@ class DeploymentStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.DeploymentStrategy("example",
-            deployment_duration_in_minutes=3,
+            name="example-deployment-strategy-tf",
             description="Example Deployment Strategy",
+            deployment_duration_in_minutes=3,
             final_bake_time_in_minutes=4,
             growth_factor=10,
             growth_type="LINEAR",
@@ -388,8 +389,9 @@ class DeploymentStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.DeploymentStrategy("example",
-            deployment_duration_in_minutes=3,
+            name="example-deployment-strategy-tf",
             description="Example Deployment Strategy",
+            deployment_duration_in_minutes=3,
             final_bake_time_in_minutes=4,
             growth_factor=10,
             growth_type="LINEAR",

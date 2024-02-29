@@ -349,8 +349,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInsightsPath("test",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         ```
 
@@ -390,8 +390,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInsightsPath("test",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         ```
 

@@ -110,12 +110,14 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-            field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                type="QUERY_STRING",
-            ),
-            text_transformation="URL_DECODE",
-        )])
+        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
+            name="tf-sql_injection_match_set",
+            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+                text_transformation="URL_DECODE",
+                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                    type="QUERY_STRING",
+                ),
+            )])
         ```
 
         ## Import
@@ -146,12 +148,14 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-            field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                type="QUERY_STRING",
-            ),
-            text_transformation="URL_DECODE",
-        )])
+        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
+            name="tf-sql_injection_match_set",
+            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+                text_transformation="URL_DECODE",
+                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                    type="QUERY_STRING",
+                ),
+            )])
         ```
 
         ## Import

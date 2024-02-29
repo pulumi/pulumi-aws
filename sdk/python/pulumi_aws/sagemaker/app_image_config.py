@@ -223,10 +223,10 @@ class AppImageConfig(pulumi.CustomResource):
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
 
@@ -277,10 +277,10 @@ class AppImageConfig(pulumi.CustomResource):
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
 

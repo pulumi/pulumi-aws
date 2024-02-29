@@ -50,16 +50,16 @@ import javax.annotation.Nullable;
  *             .applicationDomain(&#34;example.com&#34;)
  *             .attachmentType(&#34;vpc&#34;)
  *             .description(&#34;example&#34;)
- *             .domainCertificateArn(aws_acm_certificate.example().arn())
+ *             .domainCertificateArn(exampleAwsAcmCertificate.arn())
  *             .endpointDomainPrefix(&#34;example&#34;)
  *             .endpointType(&#34;network-interface&#34;)
  *             .networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs.builder()
- *                 .networkInterfaceId(aws_network_interface.example().id())
+ *                 .networkInterfaceId(exampleAwsNetworkInterface.id())
  *                 .port(443)
  *                 .protocol(&#34;https&#34;)
  *                 .build())
- *             .securityGroupIds(aws_security_group.example().id())
- *             .verifiedAccessGroupId(aws_verifiedaccess_group.example().id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .verifiedAccessGroupId(exampleAwsVerifiedaccessGroup.id())
  *             .build());
  * 
  *     }

@@ -34,13 +34,7 @@ namespace Pulumi.Aws.Dms
     ///         EndpointId = "donnedtipi",
     ///         EndpointType = "target",
     ///         BucketName = "beckut_name",
-    ///         ServiceAccessRoleArn = aws_iam_role.Example.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
+    ///         ServiceAccessRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -91,7 +85,7 @@ namespace Pulumi.Aws.Dms
     ///         EnableStatistics = false,
     ///         EncodingType = "plain",
     ///         EncryptionMode = "SSE_S3",
-    ///         ExpectedBucketOwner = data.Aws_caller_identity.Current.Account_id,
+    ///         ExpectedBucketOwner = current.AccountId,
     ///         ExternalTableDefinition = "etd",
     ///         IgnoreHeaderRows = 1,
     ///         IncludeOpForFullLoad = true,
@@ -101,18 +95,12 @@ namespace Pulumi.Aws.Dms
     ///         PreserveTransactions = false,
     ///         Rfc4180 = false,
     ///         RowGroupLength = 11000,
-    ///         ServerSideEncryptionKmsKeyId = aws_kms_key.Example.Arn,
-    ///         ServiceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         ServerSideEncryptionKmsKeyId = exampleAwsKmsKey.Arn,
+    ///         ServiceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         TimestampColumnName = "tx_commit_time",
     ///         UseCsvNoSupValue = false,
     ///         UseTaskStartTimeForFullLoadTimestamp = true,
     ///         GlueCatalogGeneration = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
     ///     });
     /// 
     /// });

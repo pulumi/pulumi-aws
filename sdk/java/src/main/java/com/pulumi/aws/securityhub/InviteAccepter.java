@@ -28,10 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Member;
  * import com.pulumi.aws.securityhub.MemberArgs;
- * import com.pulumi.aws.securityhub.AccountArgs;
  * import com.pulumi.aws.securityhub.InviteAccepter;
  * import com.pulumi.aws.securityhub.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;123456789012&#34;)
@@ -53,16 +51,11 @@ import javax.annotation.Nullable;
  *             .invite(true)
  *             .build());
  * 
- *         var inviteeAccount = new Account(&#34;inviteeAccount&#34;, AccountArgs.Empty, CustomResourceOptions.builder()
- *             .provider(&#34;aws.invitee&#34;)
- *             .build());
+ *         var invitee = new Account(&#34;invitee&#34;);
  * 
  *         var inviteeInviteAccepter = new InviteAccepter(&#34;inviteeInviteAccepter&#34;, InviteAccepterArgs.builder()        
  *             .masterId(exampleMember.masterId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.invitee&#34;)
- *                 .dependsOn(inviteeAccount)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

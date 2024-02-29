@@ -21,16 +21,6 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// Represents the map target.
         /// 
         /// The `Restricted` option is achieved using the following mapping:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly string Target;
 

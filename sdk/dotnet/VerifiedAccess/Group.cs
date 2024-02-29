@@ -25,7 +25,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// {
     ///     var example = new Aws.VerifiedAccess.Group("example", new()
     ///     {
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });

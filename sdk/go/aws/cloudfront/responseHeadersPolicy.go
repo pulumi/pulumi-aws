@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				Name:    pulumi.String("example-policy"),
 //				Comment: pulumi.String("test comment"),
 //				CorsConfig: &cloudfront.ResponseHeadersPolicyCorsConfigArgs{
 //					AccessControlAllowCredentials: pulumi.Bool(true),
@@ -78,6 +79,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				Name: pulumi.String("example-headers-policy"),
 //				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
 //					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
 //						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
@@ -117,6 +119,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				Name: pulumi.String("example-headers-policy"),
 //				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
 //					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
 //						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{

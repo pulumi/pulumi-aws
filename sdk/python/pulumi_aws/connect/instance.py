@@ -453,7 +453,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
+            directory_id=test_aws_directory_service_directory["id"],
             identity_management_type="EXISTING_DIRECTORY",
             inbound_calls_enabled=True,
             instance_alias="friendly-name-connect",
@@ -525,7 +525,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
+            directory_id=test_aws_directory_service_directory["id"],
             identity_management_type="EXISTING_DIRECTORY",
             inbound_calls_enabled=True,
             instance_alias="friendly-name-connect",

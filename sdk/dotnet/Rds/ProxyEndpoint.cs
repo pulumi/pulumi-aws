@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.ProxyEndpoint("example", new()
     ///     {
-    ///         DbProxyName = aws_db_proxy.Test.Name,
+    ///         DbProxyName = test.Name,
     ///         DbProxyEndpointName = "example",
-    ///         VpcSubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         VpcSubnetIds = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         TargetRole = "READ_ONLY",
     ///     });
     /// 

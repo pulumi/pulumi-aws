@@ -64,8 +64,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
@@ -102,8 +102,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
@@ -140,8 +140,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
@@ -178,8 +178,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
@@ -216,7 +216,7 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
@@ -253,7 +253,7 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
@@ -290,7 +290,7 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
@@ -327,7 +327,7 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
@@ -510,8 +510,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
@@ -547,8 +547,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
@@ -584,8 +584,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
@@ -621,8 +621,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
@@ -1146,8 +1146,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1189,8 +1189,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1232,8 +1232,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1275,8 +1275,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),

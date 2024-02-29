@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WorkerConfiguration(&#34;example&#34;, WorkerConfigurationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .propertiesFileContent(&#34;&#34;&#34;
  * key.converter=org.apache.kafka.connect.storage.StringConverter
  * value.converter=org.apache.kafka.connect.storage.StringConverter
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 

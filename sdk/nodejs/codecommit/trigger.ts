@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRepository = new aws.codecommit.Repository("testRepository", {repositoryName: "test"});
- * const testTrigger = new aws.codecommit.Trigger("testTrigger", {
- *     repositoryName: testRepository.repositoryName,
+ * const test = new aws.codecommit.Repository("test", {repositoryName: "test"});
+ * const testTrigger = new aws.codecommit.Trigger("test", {
+ *     repositoryName: test.repositoryName,
  *     triggers: [{
  *         name: "all",
  *         events: ["all"],
- *         destinationArn: aws_sns_topic.test.arn,
+ *         destinationArn: testAwsSnsTopic.arn,
  *     }],
  * });
  * ```

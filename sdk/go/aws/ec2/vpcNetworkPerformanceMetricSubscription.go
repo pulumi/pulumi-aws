@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcNetworkPerformanceMetricSubscription(ctx, "example", &ec2.VpcNetworkPerformanceMetricSubscriptionArgs{
-//				Destination: pulumi.String("us-west-1"),
 //				Source:      pulumi.String("us-east-1"),
+//				Destination: pulumi.String("us-west-1"),
 //			})
 //			if err != nil {
 //				return err

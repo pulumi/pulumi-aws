@@ -21,16 +21,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mongo = new aws.ecs.Service("mongo", {
- *     cluster: aws_ecs_cluster.foo.id,
- *     taskDefinition: aws_ecs_task_definition.mongo.arn,
+ *     name: "mongodb",
+ *     cluster: fooAwsEcsCluster.id,
+ *     taskDefinition: mongoAwsEcsTaskDefinition.arn,
  *     desiredCount: 3,
- *     iamRole: aws_iam_role.foo.arn,
+ *     iamRole: fooAwsIamRole.arn,
  *     orderedPlacementStrategies: [{
  *         type: "binpack",
  *         field: "cpu",
  *     }],
  *     loadBalancers: [{
- *         targetGroupArn: aws_lb_target_group.foo.arn,
+ *         targetGroupArn: foo.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
@@ -38,8 +39,6 @@ import * as utilities from "../utilities";
  *         type: "memberOf",
  *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
  *     }],
- * }, {
- *     dependsOn: [aws_iam_role_policy.foo],
  * });
  * ```
  * ### Ignoring Changes to Desired Count
@@ -50,7 +49,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configurations ...
  * const example = new aws.ecs.Service("example", {desiredCount: 2});
  * ```
  * ### Daemon Scheduling Strategy
@@ -60,8 +58,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.ecs.Service("bar", {
- *     cluster: aws_ecs_cluster.foo.id,
- *     taskDefinition: aws_ecs_task_definition.bar.arn,
+ *     name: "bar",
+ *     cluster: foo.id,
+ *     taskDefinition: barAwsEcsTaskDefinition.arn,
  *     schedulingStrategy: "DAEMON",
  * });
  * ```
@@ -72,11 +71,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     cluster: aws_ecs_cluster.example.id,
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  *     alarms: {
  *         enable: true,
  *         rollback: true,
- *         alarmNames: [aws_cloudwatch_metric_alarm.example.alarm_name],
+ *         alarmNames: [exampleAwsCloudwatchMetricAlarm.alarmName],
  *     },
  * });
  * ```
@@ -87,9 +87,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     cluster: aws_ecs_cluster.example.id,
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  *     deploymentController: {
  *         type: "EXTERNAL",
+ *     },
+ * });
+ * ```
+ * ### Redeploy Service On Every Apply
+ *
+ * The key used with `triggers` is arbitrary.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     forceNewDeployment: true,
+ *     triggers: {
+ *         redeployment: notImplemented("plantimestamp()"),
  *     },
  * });
  * ```

@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Firewall Resource
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -48,16 +47,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Firewall(&#34;example&#34;, FirewallArgs.builder()        
- *             .firewallPolicyArn(aws_networkfirewall_firewall_policy.example().arn())
- *             .vpcId(aws_vpc.example().id())
+ *             .name(&#34;example&#34;)
+ *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
+ *             .vpcId(exampleAwsVpc.id())
  *             .subnetMappings(FirewallSubnetMappingArgs.builder()
- *                 .subnetId(aws_subnet.example().id())
+ *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
  *             ))
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

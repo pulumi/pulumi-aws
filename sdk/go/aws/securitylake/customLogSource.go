@@ -37,7 +37,7 @@ import (
 //				},
 //				Configuration: &securitylake.CustomLogSourceConfigurationArgs{
 //					CrawlerConfiguration: &securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs{
-//						RoleArn: pulumi.Any(aws_iam_role.Custom_log.Arn),
+//						RoleArn: pulumi.Any(customLog.Arn),
 //					},
 //					ProviderIdentity: &securitylake.CustomLogSourceConfigurationProviderIdentityArgs{
 //						ExternalId: pulumi.String("example-id"),

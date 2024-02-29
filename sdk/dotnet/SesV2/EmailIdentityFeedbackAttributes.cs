@@ -23,14 +23,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
     ///         EmailIdentityDetails = "example.com",
     ///     });
     /// 
-    ///     var exampleEmailIdentityFeedbackAttributes = new Aws.SesV2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", new()
+    ///     var exampleEmailIdentityFeedbackAttributes = new Aws.SesV2.EmailIdentityFeedbackAttributes("example", new()
     ///     {
-    ///         EmailIdentity = exampleEmailIdentity.EmailIdentityDetails,
+    ///         EmailIdentity = example.EmailIdentityDetails,
     ///         EmailForwardingEnabled = true,
     ///     });
     /// 

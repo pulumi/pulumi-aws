@@ -30,11 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
+//			testTopic, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
+//				Name: pulumi.String("test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -54,13 +56,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(testPolicyDocument.Json),
+//			testRole, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+//				Name:             pulumi.String("test"),
+//				AssumeRolePolicy: *pulumi.String(test.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appconfig.NewExtension(ctx, "testExtension", &appconfig.ExtensionArgs{
+//			_, err = appconfig.NewExtension(ctx, "test", &appconfig.ExtensionArgs{
+//				Name:        pulumi.String("test"),
 //				Description: pulumi.String("test description"),
 //				ActionPoints: appconfig.ExtensionActionPointArray{
 //					&appconfig.ExtensionActionPointArgs{

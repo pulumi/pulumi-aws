@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const example = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
- *     transitGatewayId: exampleTransitGateway.id,
+ *     transitGatewayId: example.id,
  *     type: exampleCustomerGateway.type,
  * });
  * ```
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
+ * const vpnGateway = new aws.ec2.VpnGateway("vpn_gateway", {vpcId: vpc.id});
+ * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
@@ -59,13 +59,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {
+ * const exampleGateway = new aws.directconnect.Gateway("example", {
+ *     name: "example_ipsec_vpn_example",
+ *     amazonSideAsn: "64512",
+ * });
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {
  *     amazonSideAsn: 64513,
  *     description: "example_ipsec_vpn_example",
  *     transitGatewayCidrBlocks: ["10.0.0.0/24"],
  * });
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "64514",
  *     ipAddress: "10.0.0.1",
  *     type: "ipsec.1",
@@ -73,20 +76,20 @@ import * as utilities from "../utilities";
  *         Name: "example_ipsec_vpn_example",
  *     },
  * });
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
  *     dxGatewayId: exampleGateway.id,
  *     associatedGatewayId: exampleTransitGateway.id,
  *     allowedPrefixes: ["10.0.0.0/8"],
  * });
- * const exampleDirectConnectGatewayAttachment = aws.ec2transitgateway.getDirectConnectGatewayAttachmentOutput({
+ * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachmentOutput({
  *     transitGatewayId: exampleTransitGateway.id,
  *     dxGatewayId: exampleGateway.id,
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
  *     outsideIpAddressType: "PrivateIpv4",
  *     transitGatewayId: exampleTransitGateway.id,
- *     transportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.apply(exampleDirectConnectGatewayAttachment => exampleDirectConnectGatewayAttachment.id),
+ *     transportTransitGatewayAttachmentId: example.apply(example => example.id),
  *     type: "ipsec.1",
  *     tags: {
  *         Name: "example_ipsec_vpn_example",

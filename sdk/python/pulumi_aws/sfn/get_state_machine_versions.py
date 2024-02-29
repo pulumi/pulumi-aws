@@ -77,7 +77,7 @@ def get_state_machine_versions(statemachine_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=aws_sfn_state_machine["test"]["arn"])
+    test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
     ```
 
 
@@ -107,7 +107,7 @@ def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[st
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=aws_sfn_state_machine["test"]["arn"])
+    test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
     ```
 
 

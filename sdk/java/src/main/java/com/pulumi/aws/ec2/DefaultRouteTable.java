@@ -50,15 +50,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
- *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
+ *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes(            
  *                 DefaultRouteTableRouteArgs.builder()
  *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
- *                     .gatewayId(aws_internet_gateway.example().id())
+ *                     .gatewayId(exampleAwsInternetGateway.id())
  *                     .build(),
  *                 DefaultRouteTableRouteArgs.builder()
  *                     .ipv6CidrBlock(&#34;::/0&#34;)
- *                     .egressOnlyGatewayId(aws_egress_only_internet_gateway.example().id())
+ *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
- *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
+ *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes()
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());

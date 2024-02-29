@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Vpc_id,
+        ///                     vpcId,
         ///                 },
         ///             },
         ///         },
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Vpc_id,
+        ///                     vpcId,
         ///                 },
         ///             },
         ///         },

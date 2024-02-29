@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Database("test", {
+ *     relationalDatabaseName: "test",
  *     availabilityZone: "us-east-1a",
- *     blueprintId: "mysql_8_0",
- *     bundleId: "micro_1_0",
  *     masterDatabaseName: "testdatabasename",
  *     masterPassword: "testdatabasepassword",
  *     masterUsername: "test",
- *     relationalDatabaseName: "test",
+ *     blueprintId: "mysql_8_0",
+ *     bundleId: "micro_1_0",
  * });
  * ```
  * ### Basic postrgres blueprint
@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Database("test", {
+ *     relationalDatabaseName: "test",
  *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
  *     masterDatabaseName: "testdatabasename",
  *     masterPassword: "testdatabasepassword",
  *     masterUsername: "test",
- *     relationalDatabaseName: "test",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
  * });
  * ```
  * ### Custom backup and maintenance windows
@@ -53,15 +53,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Database("test", {
+ *     relationalDatabaseName: "test",
  *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
  *     masterDatabaseName: "testdatabasename",
  *     masterPassword: "testdatabasepassword",
  *     masterUsername: "test",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
  *     preferredBackupWindow: "16:00-16:30",
  *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
- *     relationalDatabaseName: "test",
  * });
  * ```
  * ### Final Snapshots
@@ -73,16 +73,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Database("test", {
+ *     relationalDatabaseName: "test",
  *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
- *     finalSnapshotName: "MyFinalSnapshot",
  *     masterDatabaseName: "testdatabasename",
  *     masterPassword: "testdatabasepassword",
  *     masterUsername: "test",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
  *     preferredBackupWindow: "16:00-16:30",
  *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
- *     relationalDatabaseName: "test",
+ *     finalSnapshotName: "MyFinalSnapshot",
  * });
  * ```
  * ### Apply Immediately
@@ -94,14 +94,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Database("test", {
- *     applyImmediately: true,
+ *     relationalDatabaseName: "test",
  *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
  *     masterDatabaseName: "testdatabasename",
  *     masterPassword: "testdatabasepassword",
  *     masterUsername: "test",
- *     relationalDatabaseName: "test",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
+ *     applyImmediately: true,
  * });
  * ```
  * ## Blueprint Ids

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAmi = aws.ec2.getAmi({
+ * const example = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [{
@@ -23,12 +23,15 @@ import * as utilities from "../utilities";
  *         values: ["amzn-ami-vpc-nat*"],
  *     }],
  * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     ami: exampleAmi.then(exampleAmi => exampleAmi.id),
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     ami: example.then(example => example.id),
  *     instanceType: "t2.micro",
  * });
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", {licenseCountingType: "Instance"});
- * const exampleAssociation = new aws.licensemanager.Association("exampleAssociation", {
+ * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
+ *     name: "Example",
+ *     licenseCountingType: "Instance",
+ * });
+ * const exampleAssociation = new aws.licensemanager.Association("example", {
  *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
  *     resourceArn: exampleInstance.arn,
  * });

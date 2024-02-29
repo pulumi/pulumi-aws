@@ -17,9 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.efs.FileSystem("foo", {tags: {
- *     Name: "MyProduct",
- * }});
+ * const foo = new aws.efs.FileSystem("foo", {
+ *     creationToken: "my-product",
+ *     tags: {
+ *         Name: "MyProduct",
+ *     },
+ * });
  * ```
  * ### Using lifecycle policy
  *
@@ -27,9 +30,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {lifecyclePolicies: [{
- *     transitionToIa: "AFTER_30_DAYS",
- * }]});
+ * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
+ *     creationToken: "my-product",
+ *     lifecyclePolicies: [{
+ *         transitionToIa: "AFTER_30_DAYS",
+ *     }],
+ * });
  * ```
  *
  * ## Import

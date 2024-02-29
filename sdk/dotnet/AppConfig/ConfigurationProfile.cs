@@ -24,14 +24,15 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.ConfigurationProfile("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
     ///         Description = "Example Configuration Profile",
+    ///         Name = "example-configuration-profile-tf",
     ///         LocationUri = "hosted",
     ///         Validators = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
     ///             {
-    ///                 Content = aws_lambda_function.Example.Arn,
+    ///                 Content = exampleAwsLambdaFunction.Arn,
     ///                 Type = "LAMBDA",
     ///             },
     ///         },

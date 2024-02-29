@@ -480,6 +480,7 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge = aws.directconnect.Connection("hoge",
+            name="tf-dx-connection",
             bandwidth="1Gbps",
             location="EqDC2")
         ```
@@ -490,6 +491,7 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
             location="EqDA2",
             request_macsec=True)
@@ -503,10 +505,11 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
             location="EqDC2",
-            request_macsec=True)
+            request_macsec=True,
+            encryption_mode="must_encrypt")
         ```
 
         ## Import
@@ -547,6 +550,7 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge = aws.directconnect.Connection("hoge",
+            name="tf-dx-connection",
             bandwidth="1Gbps",
             location="EqDC2")
         ```
@@ -557,6 +561,7 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
             location="EqDA2",
             request_macsec=True)
@@ -570,10 +575,11 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
             location="EqDC2",
-            request_macsec=True)
+            request_macsec=True,
+            encryption_mode="must_encrypt")
         ```
 
         ## Import

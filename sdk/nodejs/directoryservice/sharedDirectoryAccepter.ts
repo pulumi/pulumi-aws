@@ -15,16 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSharedDirectory = new aws.directoryservice.SharedDirectory("exampleSharedDirectory", {
- *     directoryId: aws_directory_service_directory.example.id,
+ * const example = new aws.directoryservice.SharedDirectory("example", {
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  *     notes: "example",
  *     target: {
- *         id: data.aws_caller_identity.receiver.account_id,
+ *         id: receiver.accountId,
  *     },
  * });
- * const exampleSharedDirectoryAccepter = new aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", {sharedDirectoryId: exampleSharedDirectory.sharedDirectoryId}, {
- *     provider: "awsalternate",
- * });
+ * const exampleSharedDirectoryAccepter = new aws.directoryservice.SharedDirectoryAccepter("example", {sharedDirectoryId: example.sharedDirectoryId});
  * ```
  *
  * ## Import

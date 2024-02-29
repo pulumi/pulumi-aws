@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new Link(&#34;example&#34;, LinkArgs.builder()        
  *             .labelTemplate(&#34;$AccountName&#34;)
  *             .resourceTypes(&#34;AWS::CloudWatch::Metric&#34;)
- *             .sinkIdentifier(aws_oam_sink.test().id())
+ *             .sinkIdentifier(test.id())
  *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
  *             .build());
  * 

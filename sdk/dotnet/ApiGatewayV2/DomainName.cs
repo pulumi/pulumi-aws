@@ -32,7 +32,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         Domain = "ws-api.example.com",
     ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
-    ///             CertificateArn = aws_acm_certificate.Example.Arn,
+    ///             CertificateArn = exampleAwsAcmCertificate.Arn,
     ///             EndpointType = "REGIONAL",
     ///             SecurityPolicy = "TLS_1_2",
     ///         },
@@ -50,28 +50,28 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainName = new Aws.ApiGatewayV2.DomainName("exampleDomainName", new()
+    ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
     ///     {
     ///         Domain = "http-api.example.com",
     ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
-    ///             CertificateArn = aws_acm_certificate.Example.Arn,
+    ///             CertificateArn = exampleAwsAcmCertificate.Arn,
     ///             EndpointType = "REGIONAL",
     ///             SecurityPolicy = "TLS_1_2",
     ///         },
     ///     });
     /// 
-    ///     var exampleRecord = new Aws.Route53.Record("exampleRecord", new()
+    ///     var exampleRecord = new Aws.Route53.Record("example", new()
     ///     {
-    ///         Name = exampleDomainName.Domain,
+    ///         Name = example.Domain,
     ///         Type = "A",
-    ///         ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
     ///             {
-    ///                 Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
-    ///                 ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
+    ///                 Name = example.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
+    ///                 ZoneId = example.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
     ///                 EvaluateTargetHealth = false,
     ///             },
     ///         },

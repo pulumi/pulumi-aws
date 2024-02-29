@@ -51,10 +51,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -80,7 +81,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -128,10 +129,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -157,7 +159,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -205,10 +207,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -234,7 +237,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -282,10 +285,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -311,7 +315,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -359,10 +363,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -388,7 +393,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -436,10 +441,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -465,7 +471,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }

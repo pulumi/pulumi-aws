@@ -303,7 +303,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         example = aws.fis.ExperimentTemplate("example",
             description="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
                 source="none",
             )],
@@ -367,7 +367,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         example = aws.fis.ExperimentTemplate("example",
             description="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
                 source="none",
             )],

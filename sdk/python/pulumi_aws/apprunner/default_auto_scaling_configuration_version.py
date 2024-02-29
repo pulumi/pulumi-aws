@@ -77,12 +77,12 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_auto_scaling_configuration_version = aws.apprunner.AutoScalingConfigurationVersion("exampleAutoScalingConfigurationVersion",
+        example = aws.apprunner.AutoScalingConfigurationVersion("example",
             auto_scaling_configuration_name="example",
             max_concurrency=50,
             max_size=10,
             min_size=2)
-        example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", auto_scaling_configuration_arn=example_auto_scaling_configuration_version.arn)
+        example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("example", auto_scaling_configuration_arn=example.arn)
         ```
 
         ## Import
@@ -115,12 +115,12 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_auto_scaling_configuration_version = aws.apprunner.AutoScalingConfigurationVersion("exampleAutoScalingConfigurationVersion",
+        example = aws.apprunner.AutoScalingConfigurationVersion("example",
             auto_scaling_configuration_name="example",
             max_concurrency=50,
             max_size=10,
             min_size=2)
-        example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", auto_scaling_configuration_arn=example_auto_scaling_configuration_version.arn)
+        example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("example", auto_scaling_configuration_arn=example.arn)
         ```
 
         ## Import

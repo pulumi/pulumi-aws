@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTablePropagation(&#34;example&#34;, RouteTablePropagationArgs.builder()        
- *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
- *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
  *             .build());
  * 
  *     }

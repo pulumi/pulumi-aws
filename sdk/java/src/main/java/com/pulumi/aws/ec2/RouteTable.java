@@ -64,15 +64,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .routes(            
  *                 RouteTableRouteArgs.builder()
  *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
- *                     .gatewayId(aws_internet_gateway.example().id())
+ *                     .gatewayId(exampleAwsInternetGateway.id())
  *                     .build(),
  *                 RouteTableRouteArgs.builder()
  *                     .ipv6CidrBlock(&#34;::/0&#34;)
- *                     .egressOnlyGatewayId(aws_egress_only_internet_gateway.example().id())
+ *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .routes()
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -141,12 +141,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .build());
  * 
  *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
- *             .vpcId(testVpc.id())
+ *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock(&#34;10.1.0.0/16&#34;)
  *                 .gatewayId(&#34;local&#34;)
@@ -186,13 +186,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .build());
  * 
  *         var testSubnet = new Subnet(&#34;testSubnet&#34;, SubnetArgs.builder()        
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .vpcId(testVpc.id())
+ *             .vpcId(test.id())
  *             .build());
  * 
  *         var testNetworkInterface = new NetworkInterface(&#34;testNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
@@ -200,9 +200,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
- *             .vpcId(testVpc.id())
+ *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
- *                 .cidrBlock(testVpc.cidrBlock())
+ *                 .cidrBlock(test.cidrBlock())
  *                 .networkInterfaceId(testNetworkInterface.id())
  *                 .build())
  *             .build());

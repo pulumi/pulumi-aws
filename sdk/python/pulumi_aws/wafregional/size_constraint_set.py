@@ -122,14 +122,16 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
+            size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
+                text_transformation="NONE",
+                comparison_operator="EQ",
+                size=4096,
+                field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
+                    type="BODY",
+                ),
+            )])
         ```
 
         ## Import
@@ -160,14 +162,16 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
+            size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
+                text_transformation="NONE",
+                comparison_operator="EQ",
+                size=4096,
+                field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
+                    type="BODY",
+                ),
+            )])
         ```
 
         ## Import

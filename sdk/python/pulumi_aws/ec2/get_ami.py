@@ -516,6 +516,9 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     import pulumi_aws as aws
 
     example = aws.ec2.get_ami(executable_users=["self"],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"],
         filters=[
             aws.ec2.GetAmiFilterArgs(
                 name="name",
@@ -529,10 +532,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
                 name="virtualization-type",
                 values=["hvm"],
             ),
-        ],
-        most_recent=True,
-        name_regex="^myami-\\\\d{3}",
-        owners=["self"])
+        ])
     ```
 
 
@@ -632,6 +632,9 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     import pulumi_aws as aws
 
     example = aws.ec2.get_ami(executable_users=["self"],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"],
         filters=[
             aws.ec2.GetAmiFilterArgs(
                 name="name",
@@ -645,10 +648,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
                 name="virtualization-type",
                 values=["hvm"],
             ),
-        ],
-        most_recent=True,
-        name_regex="^myami-\\\\d{3}",
-        owners=["self"])
+        ])
     ```
 
 

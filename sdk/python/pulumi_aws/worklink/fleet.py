@@ -355,7 +355,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
+        example = aws.worklink.Fleet("example", name="example")
         ```
 
         Network Configuration Usage:
@@ -364,11 +364,13 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
-            security_group_ids=[aws_security_group["test"]["id"]],
-        ))
+        example = aws.worklink.Fleet("example",
+            name="example",
+            network=aws.worklink.FleetNetworkArgs(
+                vpc_id=test_aws_vpc["id"],
+                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
+                security_group_ids=[test["id"]],
+            ))
         ```
 
         Identity Provider Configuration Usage:
@@ -376,11 +378,14 @@ class Fleet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test = aws.worklink.Fleet("test", identity_provider=aws.worklink.FleetIdentityProviderArgs(
-            type="SAML",
-            saml_metadata=(lambda path: open(path).read())("saml-metadata.xml"),
-        ))
+        test = aws.worklink.Fleet("test",
+            name="tf-worklink-fleet",
+            identity_provider=aws.worklink.FleetIdentityProviderArgs(
+                type="SAML",
+                saml_metadata=std.file(input="saml-metadata.xml").result,
+            ))
         ```
 
         ## Import
@@ -420,7 +425,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
+        example = aws.worklink.Fleet("example", name="example")
         ```
 
         Network Configuration Usage:
@@ -429,11 +434,13 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
-            security_group_ids=[aws_security_group["test"]["id"]],
-        ))
+        example = aws.worklink.Fleet("example",
+            name="example",
+            network=aws.worklink.FleetNetworkArgs(
+                vpc_id=test_aws_vpc["id"],
+                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
+                security_group_ids=[test["id"]],
+            ))
         ```
 
         Identity Provider Configuration Usage:
@@ -441,11 +448,14 @@ class Fleet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test = aws.worklink.Fleet("test", identity_provider=aws.worklink.FleetIdentityProviderArgs(
-            type="SAML",
-            saml_metadata=(lambda path: open(path).read())("saml-metadata.xml"),
-        ))
+        test = aws.worklink.Fleet("test",
+            name="tf-worklink-fleet",
+            identity_provider=aws.worklink.FleetIdentityProviderArgs(
+                type="SAML",
+                saml_metadata=std.file(input="saml-metadata.xml").result,
+            ))
         ```
 
         ## Import

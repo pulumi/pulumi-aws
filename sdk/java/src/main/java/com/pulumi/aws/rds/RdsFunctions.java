@@ -460,14 +460,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -517,14 +517,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -574,14 +574,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -631,14 +631,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -688,14 +688,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -745,14 +745,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -1071,12 +1071,12 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -1147,12 +1147,12 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -1223,12 +1223,12 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -1299,12 +1299,12 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -1340,9 +1340,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1369,11 +1369,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1407,9 +1407,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1436,11 +1436,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1474,9 +1474,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1503,11 +1503,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1541,9 +1541,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1570,11 +1570,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1608,9 +1608,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1637,11 +1637,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1675,9 +1675,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1704,11 +1704,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -2388,11 +2388,11 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
@@ -2471,11 +2471,11 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
@@ -2554,11 +2554,11 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
@@ -2637,11 +2637,11 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }

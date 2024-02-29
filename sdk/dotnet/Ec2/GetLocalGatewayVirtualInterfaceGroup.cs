@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetLocalGatewayVirtualInterfaceGroup.Invoke(new()
         ///     {
-        ///         LocalGatewayId = data.Aws_ec2_local_gateway.Example.Id,
+        ///         LocalGatewayId = exampleAwsEc2LocalGateway.Id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetLocalGatewayVirtualInterfaceGroup.Invoke(new()
         ///     {
-        ///         LocalGatewayId = data.Aws_ec2_local_gateway.Example.Id,
+        ///         LocalGatewayId = exampleAwsEc2LocalGateway.Id,
         ///     });
         /// 
         /// });

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rum.MetricsDestination("example", {
- *     appMonitorName: aws_rum_app_monitor.example.name,
+ *     appMonitorName: exampleAwsRumAppMonitor.name,
  *     destination: "CloudWatch",
  * });
  * ```

@@ -339,17 +339,18 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.route53.ResolverEndpoint("foo",
+            name="foo",
             direction="INBOUND",
             security_group_ids=[
-                aws_security_group["sg1"]["id"],
-                aws_security_group["sg2"]["id"],
+                sg1["id"],
+                sg2["id"],
             ],
             ip_addresses=[
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn1"]["id"],
+                    subnet_id=sn1["id"],
                 ),
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn2"]["id"],
+                    subnet_id=sn2["id"],
                     ip="10.0.64.4",
                 ),
             ],
@@ -401,17 +402,18 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.route53.ResolverEndpoint("foo",
+            name="foo",
             direction="INBOUND",
             security_group_ids=[
-                aws_security_group["sg1"]["id"],
-                aws_security_group["sg2"]["id"],
+                sg1["id"],
+                sg2["id"],
             ],
             ip_addresses=[
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn1"]["id"],
+                    subnet_id=sn1["id"],
                 ),
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn2"]["id"],
+                    subnet_id=sn2["id"],
                     ip="10.0.64.4",
                 ),
             ],

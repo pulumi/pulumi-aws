@@ -295,13 +295,13 @@ class Workteam(pulumi.CustomResource):
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=aws_cognito_user_pool_client["example"]["id"],
-                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
-                    user_group=aws_cognito_user_group["example"]["id"],
+                    client_id=example_aws_cognito_user_pool_client["id"],
+                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
+                    user_group=example_aws_cognito_user_group["id"],
                 ),
             )])
         ```
@@ -313,7 +313,7 @@ class Workteam(pulumi.CustomResource):
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(
@@ -357,13 +357,13 @@ class Workteam(pulumi.CustomResource):
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=aws_cognito_user_pool_client["example"]["id"],
-                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
-                    user_group=aws_cognito_user_group["example"]["id"],
+                    client_id=example_aws_cognito_user_pool_client["id"],
+                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
+                    user_group=example_aws_cognito_user_group["id"],
                 ),
             )])
         ```
@@ -375,7 +375,7 @@ class Workteam(pulumi.CustomResource):
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(

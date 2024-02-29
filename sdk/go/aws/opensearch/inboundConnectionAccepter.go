@@ -30,32 +30,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooOutboundConnection, err := opensearch.NewOutboundConnection(ctx, "fooOutboundConnection", &opensearch.OutboundConnectionArgs{
+//			foo, err := opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
 //				ConnectionAlias: pulumi.String("outbound_connection"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
+//					OwnerId:    *pulumi.String(current.AccountId),
+//					Region:     *pulumi.String(currentGetRegion.Name),
+//					DomainName: pulumi.Any(localDomain.DomainName),
 //				},
 //				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
+//					OwnerId:    *pulumi.String(current.AccountId),
+//					Region:     *pulumi.String(currentGetRegion.Name),
+//					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewInboundConnectionAccepter(ctx, "fooInboundConnectionAccepter", &opensearch.InboundConnectionAccepterArgs{
-//				ConnectionId: fooOutboundConnection.ID(),
+//			_, err = opensearch.NewInboundConnectionAccepter(ctx, "foo", &opensearch.InboundConnectionAccepterArgs{
+//				ConnectionId: foo.ID(),
 //			})
 //			if err != nil {
 //				return err

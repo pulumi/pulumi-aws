@@ -887,12 +887,13 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with Airflow configuration options
 
@@ -906,12 +907,13 @@ class Environment(pulumi.CustomResource):
                 "core.parallelism": "1",
             },
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with logging configurations
 
@@ -923,7 +925,7 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration=aws.mwaa.EnvironmentLoggingConfigurationArgs(
                 dag_processing_logs=aws.mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs(
                     enabled=True,
@@ -946,11 +948,12 @@ class Environment(pulumi.CustomResource):
                     log_level="CRITICAL",
                 ),
             ),
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with tags
 
@@ -960,12 +963,13 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"],
+            source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
                 "Environment": "production",
@@ -1025,12 +1029,13 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with Airflow configuration options
 
@@ -1044,12 +1049,13 @@ class Environment(pulumi.CustomResource):
                 "core.parallelism": "1",
             },
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with logging configurations
 
@@ -1061,7 +1067,7 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration=aws.mwaa.EnvironmentLoggingConfigurationArgs(
                 dag_processing_logs=aws.mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs(
                     enabled=True,
@@ -1084,11 +1090,12 @@ class Environment(pulumi.CustomResource):
                     log_level="CRITICAL",
                 ),
             ),
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+            source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
         ### Example with tags
 
@@ -1098,12 +1105,13 @@ class Environment(pulumi.CustomResource):
 
         example = aws.mwaa.Environment("example",
             dag_s3_path="dags/",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
-                security_group_ids=[aws_security_group["example"]["id"]],
-                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+                security_group_ids=[example_aws_security_group["id"]],
+                subnet_ids=[__item["id"] for __item in private],
             ),
-            source_bucket_arn=aws_s3_bucket["example"]["arn"],
+            source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
                 "Environment": "production",

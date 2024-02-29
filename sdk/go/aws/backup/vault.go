@@ -28,7 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-//				KmsKeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//				Name:      pulumi.String("example_backup_vault"),
+//				KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -152,7 +152,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
 
         example = aws.ebs.FastSnapshotRestore("example",
             availability_zone="us-west-2a",
-            snapshot_id=aws_ebs_snapshot["example"]["id"])
+            snapshot_id=example_aws_ebs_snapshot["id"])
         ```
 
         ## Import
@@ -186,7 +186,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
 
         example = aws.ebs.FastSnapshotRestore("example",
             availability_zone="us-west-2a",
-            snapshot_id=aws_ebs_snapshot["example"]["id"])
+            snapshot_id=example_aws_ebs_snapshot["id"])
         ```
 
         ## Import

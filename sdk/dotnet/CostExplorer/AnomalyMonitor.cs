@@ -25,10 +25,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
+    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("service_monitor", new()
     ///     {
-    ///         MonitorDimension = "SERVICE",
+    ///         Name = "AWSServiceMonitor",
     ///         MonitorType = "DIMENSIONAL",
+    ///         MonitorDimension = "SERVICE",
     ///     });
     /// 
     /// });
@@ -46,19 +47,20 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
     ///     {
+    ///         Name = "AWSCustomAnomalyMonitor",
     ///         MonitorType = "CUSTOM",
     ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["And"] = null,
-    ///             ["CostCategories"] = null,
-    ///             ["Dimensions"] = null,
-    ///             ["Not"] = null,
-    ///             ["Or"] = null,
-    ///             ["Tags"] = new Dictionary&lt;string, object?&gt;
+    ///             ["and"] = null,
+    ///             ["costCategories"] = null,
+    ///             ["dimensions"] = null,
+    ///             ["not"] = null,
+    ///             ["or"] = null,
+    ///             ["tags"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Key"] = "CostCenter",
-    ///                 ["MatchOptions"] = null,
-    ///                 ["Values"] = new[]
+    ///                 ["key"] = "CostCenter",
+    ///                 ["matchOptions"] = null,
+    ///                 ["values"] = new[]
     ///                 {
     ///                     "10000",
     ///                 },

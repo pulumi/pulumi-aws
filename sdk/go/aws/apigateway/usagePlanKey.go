@@ -28,22 +28,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := apigateway.NewRestApi(ctx, "test", nil)
+//			test, err := apigateway.NewRestApi(ctx, "test", &apigateway.RestApiArgs{
+//				Name: pulumi.String("MyDemoAPI"),
+//			})
 //			if err != nil {
 //				return err
 //			}
+//			// ...
 //			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
+//				Name: pulumi.String("my_usage_plan"),
 //				ApiStages: apigateway.UsagePlanApiStageArray{
 //					&apigateway.UsagePlanApiStageArgs{
 //						ApiId: test.ID(),
-//						Stage: pulumi.Any(aws_api_gateway_stage.Foo.Stage_name),
+//						Stage: pulumi.Any(foo.StageName),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			mykey, err := apigateway.NewApiKey(ctx, "mykey", nil)
+//			mykey, err := apigateway.NewApiKey(ctx, "mykey", &apigateway.ApiKeyArgs{
+//				Name: pulumi.String("my_key"),
+//			})
 //			if err != nil {
 //				return err
 //			}

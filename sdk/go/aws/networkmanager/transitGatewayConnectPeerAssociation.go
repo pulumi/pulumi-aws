@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewTransitGatewayConnectPeerAssociation(ctx, "example", &networkmanager.TransitGatewayConnectPeerAssociationArgs{
-//				GlobalNetworkId:              pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:                     pulumi.Any(aws_networkmanager_device.Example.Id),
-//				TransitGatewayConnectPeerArn: pulumi.Any(aws_ec2_transit_gateway_connect_peer.Example.Arn),
+//				GlobalNetworkId:              pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				DeviceId:                     pulumi.Any(exampleAwsNetworkmanagerDevice.Id),
+//				TransitGatewayConnectPeerArn: pulumi.Any(exampleAwsEc2TransitGatewayConnectPeer.Arn),
 //			})
 //			if err != nil {
 //				return err

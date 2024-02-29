@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.MonitoringSubscription("example", {
- *     distributionId: aws_cloudfront_distribution.example.id,
+ *     distributionId: exampleAwsCloudfrontDistribution.id,
  *     monitoringSubscription: {
  *         realtimeMetricsSubscriptionConfig: {
  *             realtimeMetricsSubscriptionStatus: "Enabled",

@@ -18,25 +18,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCollaboration = new aws.cleanrooms.Collaboration("testCollaboration", {
- *     creatorDisplayName: "Creator ",
+ * const testCollaboration = new aws.cleanrooms.Collaboration("test_collaboration", {
+ *     name: "pulumi-example-collaboration",
  *     creatorMemberAbilities: [
  *         "CAN_QUERY",
  *         "CAN_RECEIVE_RESULTS",
  *     ],
+ *     creatorDisplayName: "Creator ",
+ *     description: "I made this collaboration with Pulumi!",
+ *     queryLogStatus: "DISABLED",
  *     dataEncryptionMetadata: {
  *         allowClearText: true,
  *         allowDuplicates: true,
  *         allowJoinsOnColumnsWithDifferentNames: true,
  *         preserveNulls: false,
  *     },
- *     description: "I made this collaboration with Pulumi!",
  *     members: [{
  *         accountId: "123456789012",
  *         displayName: "Other member",
  *         memberAbilities: [],
  *     }],
- *     queryLogStatus: "DISABLED",
  *     tags: {
  *         Project: "Pulumi",
  *     },

@@ -13,31 +13,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {
+ * const lbUser = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
+ *     path: "/system/",
+ * });
+ * const lb = new aws.iam.AccessKey("lb", {
  *     user: lbUser.name,
  *     pgpKey: "keybase:some_person_that_exists",
  * });
- * const lbRoPolicyDocument = aws.iam.getPolicyDocument({
+ * const lbRo = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const lbRoUserPolicy = new aws.iam.UserPolicy("lbRoUserPolicy", {
+ * const lbRoUserPolicy = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
  *     user: lbUser.name,
- *     policy: lbRoPolicyDocument.then(lbRoPolicyDocument => lbRoPolicyDocument.json),
+ *     policy: lbRo.then(lbRo => lbRo.json),
  * });
- * export const secret = lbAccessKey.encryptedSecret;
+ * export const secret = lb.encryptedSecret;
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testUser = new aws.iam.User("testUser", {path: "/test/"});
- * const testAccessKey = new aws.iam.AccessKey("testAccessKey", {user: testUser.name});
+ * const test = new aws.iam.User("test", {
+ *     name: "test",
+ *     path: "/test/",
+ * });
+ * const testAccessKey = new aws.iam.AccessKey("test", {user: test.name});
  * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
  *

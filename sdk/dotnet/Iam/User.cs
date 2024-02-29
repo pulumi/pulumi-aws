@@ -24,8 +24,9 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lb = new Aws.Iam.User("lb", new()
     ///     {
+    ///         Name = "loadbalancer",
     ///         Path = "/system/",
     ///         Tags = 
     ///         {
@@ -33,12 +34,12 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lb", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         User = lb.Name,
     ///     });
     /// 
-    ///     var lbRoPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var lbRo = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,10 +58,11 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lbRoUserPolicy", new()
+    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lb_ro", new()
     ///     {
-    ///         User = lbUser.Name,
-    ///         Policy = lbRoPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "test",
+    ///         User = lb.Name,
+    ///         Policy = lbRo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

@@ -19,10 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const testInventory = new aws.s3.Inventory("testInventory", {
- *     bucket: testBucketV2.id,
+ * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
+ * const testInventory = new aws.s3.Inventory("test", {
+ *     bucket: test.id,
+ *     name: "EntireBucketDaily",
  *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
@@ -41,10 +42,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
+ * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
+ *     name: "DocumentsWeekly",
  *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",

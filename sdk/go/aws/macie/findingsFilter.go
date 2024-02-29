@@ -34,6 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = macie.NewFindingsFilter(ctx, "test", &macie.FindingsFilterArgs{
+//				Name:        pulumi.String("NAME OF THE FINDINGS FILTER"),
 //				Description: pulumi.String("DESCRIPTION"),
 //				Position:    pulumi.Int(1),
 //				Action:      pulumi.String("ARCHIVE"),
@@ -42,14 +43,12 @@ import (
 //						&macie.FindingsFilterFindingCriteriaCriterionArgs{
 //							Field: pulumi.String("region"),
 //							Eqs: pulumi.StringArray{
-//								data.Aws_region.Current.Name,
+//								current.Name,
 //							},
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

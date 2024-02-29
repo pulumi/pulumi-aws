@@ -38,16 +38,21 @@ import {ARN} from "..";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const lambda = archive.getFile({
  *     type: "zip",
  *     sourceFile: "lambda.js",
  *     outputPath: "lambda_function_payload.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "index.test",
+ *     sourceCodeHash: lambda.then(lambda => lambda.outputBase64sha256),
  *     runtime: "nodejs18.x",
  *     environment: {
  *         variables: {
@@ -62,9 +67,8 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLayerVersion = new aws.lambda.LayerVersion("exampleLayerVersion", {});
- * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {layers: [exampleLayerVersion.arn]});
+ * const example = new aws.lambda.LayerVersion("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {layers: [example.arn]});
  * ```
  * ### Lambda Ephemeral Storage
  *
@@ -84,9 +88,13 @@ import {ARN} from "..";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "index.test",
  *     runtime: "nodejs18.x",
@@ -104,17 +112,11 @@ import {ARN} from "..";
  * import * as aws from "@pulumi/aws";
  *
  * // EFS file system
- * const efsForLambda = new aws.efs.FileSystem("efsForLambda", {tags: {
+ * const efsForLambda = new aws.efs.FileSystem("efs_for_lambda", {tags: {
  *     Name: "efs_for_lambda",
  * }});
- * // Mount target connects the file system to the subnet
- * const alpha = new aws.efs.MountTarget("alpha", {
- *     fileSystemId: efsForLambda.id,
- *     subnetId: aws_subnet.subnet_for_lambda.id,
- *     securityGroups: [aws_security_group.sg_for_lambda.id],
- * });
  * // EFS access point used by lambda file system
- * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
+ * const accessPointForLambda = new aws.efs.AccessPoint("access_point_for_lambda", {
  *     fileSystemId: efsForLambda.id,
  *     rootDirectory: {
  *         path: "/lambda",
@@ -130,18 +132,21 @@ import {ARN} from "..";
  *     },
  * });
  * // A lambda function connected to an EFS file system
- * // ... other configuration ...
  * const example = new aws.lambda.Function("example", {
  *     fileSystemConfig: {
  *         arn: accessPointForLambda.arn,
  *         localMountPath: "/mnt/efs",
  *     },
  *     vpcConfig: {
- *         subnetIds: [aws_subnet.subnet_for_lambda.id],
- *         securityGroupIds: [aws_security_group.sg_for_lambda.id],
+ *         subnetIds: [subnetForLambda.id],
+ *         securityGroupIds: [sgForLambda.id],
  *     },
- * }, {
- *     dependsOn: [alpha],
+ * });
+ * // Mount target connects the file system to the subnet
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: efsForLambda.id,
+ *     subnetId: subnetForLambda.id,
+ *     securityGroups: [sgForLambda.id],
  * });
  * ```
  * ### Lambda retries
@@ -157,10 +162,20 @@ import {ARN} from "..";
  *
  * const config = new pulumi.Config();
  * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
+ * const testLambda = new aws.lambda.Function("test_lambda", {
+ *     name: lambdaFunctionName,
+ *     loggingConfig: {
+ *         logFormat: "Text",
+ *     },
+ * });
  * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
- * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
- * const lambdaLoggingPolicyDocument = aws.iam.getPolicyDocument({
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/lambda/${lambdaFunctionName}`,
+ *     retentionInDays: 14,
+ * });
+ * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+ * const lambdaLogging = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -171,22 +186,15 @@ import {ARN} from "..";
  *         resources: ["arn:aws:logs:*:*:*"],
  *     }],
  * });
- * const lambdaLoggingPolicy = new aws.iam.Policy("lambdaLoggingPolicy", {
+ * const lambdaLoggingPolicy = new aws.iam.Policy("lambda_logging", {
+ *     name: "lambda_logging",
  *     path: "/",
  *     description: "IAM policy for logging from a lambda",
- *     policy: lambdaLoggingPolicyDocument.then(lambdaLoggingPolicyDocument => lambdaLoggingPolicyDocument.json),
+ *     policy: lambdaLogging.then(lambdaLogging => lambdaLogging.json),
  * });
- * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
- *     role: aws_iam_role.iam_for_lambda.name,
+ * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambda_logs", {
+ *     role: iamForLambda.name,
  *     policyArn: lambdaLoggingPolicy.arn,
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {loggingConfig: {
- *     logFormat: "Text",
- * }}, {
- *     dependsOn: [
- *         lambdaLogs,
- *         example,
- *     ],
  * });
  * ```
  * ## Specifying the Deployment Package

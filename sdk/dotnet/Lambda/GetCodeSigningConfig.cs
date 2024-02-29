@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
         /// });

@@ -30,11 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := iam.NewUser(ctx, "user", nil)
+//			user, err := iam.NewUser(ctx, "user", &iam.UserArgs{
+//				Name: pulumi.String("test-user"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test-policy"),
 //				Description: pulumi.String("A test policy"),
 //				Policy:      pulumi.Any("{ ... policy JSON ... }"),
 //			})

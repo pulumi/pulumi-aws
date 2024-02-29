@@ -16,11 +16,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventApiDestination("test", {
+ *     name: "api-destination",
  *     description: "An API Destination",
  *     invocationEndpoint: "https://api.destination.com/endpoint",
  *     httpMethod: "POST",
  *     invocationRateLimitPerSecond: 20,
- *     connectionArn: aws_cloudwatch_event_connection.test.arn,
+ *     connectionArn: testAwsCloudwatchEventConnection.arn,
  * });
  * ```
  *

@@ -48,6 +48,8 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
+        ///         Name = "MyResourceName",
+        ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
@@ -59,8 +61,6 @@ namespace Pulumi.Aws.Ram
         ///                 },
         ///             },
         ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
         ///     });
         /// 
         /// });
@@ -106,6 +106,8 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
+        ///         Name = "MyResourceName",
+        ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
@@ -117,8 +119,6 @@ namespace Pulumi.Aws.Ram
         ///                 },
         ///             },
         ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
         ///     });
         /// 
         /// });

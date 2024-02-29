@@ -44,12 +44,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .statelessDefaultActions(&#34;aws:pass&#34;)
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
- *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
+ *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
  *                 .tlsInspectionConfigurationArn(&#34;arn:aws:network-firewall:REGION:ACCT:tls-configuration/example&#34;)
  *                 .build())
@@ -87,6 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
  *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
@@ -102,7 +104,7 @@ import javax.annotation.Nullable;
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
- *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
+ *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
@@ -116,7 +118,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  * ## Policy with a Custom Action for Stateless Inspection
- * 
  * ```java
  * package generated_program;
  * 
@@ -140,19 +141,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new FirewallPolicy(&#34;test&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
- *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
- *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
- *                             .dimension(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                             .build())
- *                         .build())
- *                     .actionName(&#34;ExampleCustomAction&#34;)
- *                     .build())
  *                 .statelessDefaultActions(                
  *                     &#34;aws:pass&#34;,
  *                     &#34;ExampleCustomAction&#34;)
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
+ *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
+ *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
+ *                             .dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
+ *                                 .value(&#34;1&#34;)
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .actionName(&#34;ExampleCustomAction&#34;)
+ *                     .build())
  *                 .build())
  *             .build());
  * 

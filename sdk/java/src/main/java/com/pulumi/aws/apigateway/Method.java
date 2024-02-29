@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
@@ -76,6 +77,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.CognitoFunctions;
  * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Resource;
  * import com.pulumi.aws.apigateway.ResourceArgs;
  * import com.pulumi.aws.apigateway.Authorizer;
@@ -97,11 +99,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var cognitoUserPoolName = config.get(&#34;cognitoUserPoolName&#34;);
- *         final var thisUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+ *         final var this = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
  *             .name(cognitoUserPoolName)
  *             .build());
  * 
- *         var thisRestApi = new RestApi(&#34;thisRestApi&#34;);
+ *         var thisRestApi = new RestApi(&#34;thisRestApi&#34;, RestApiArgs.builder()        
+ *             .name(&#34;with-authorizer&#34;)
+ *             .build());
  * 
  *         var thisResource = new Resource(&#34;thisResource&#34;, ResourceArgs.builder()        
  *             .restApi(thisRestApi.id())
@@ -110,9 +114,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var thisAuthorizer = new Authorizer(&#34;thisAuthorizer&#34;, AuthorizerArgs.builder()        
+ *             .name(&#34;CognitoUserPoolAuthorizer&#34;)
  *             .type(&#34;COGNITO_USER_POOLS&#34;)
  *             .restApi(thisRestApi.id())
- *             .providerArns(thisUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+ *             .providerArns(this_.arns())
  *             .build());
  * 
  *         var any = new Method(&#34;any&#34;, MethodArgs.builder()        

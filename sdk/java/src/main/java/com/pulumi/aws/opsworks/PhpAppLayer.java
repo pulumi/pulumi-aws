@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var app = new PhpAppLayer(&#34;app&#34;, PhpAppLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .build());
  * 
  *     }

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// {
     ///     var test = new Aws.ResourceGroups.Group("test", new()
     ///     {
+    ///         Name = "test-group",
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = @"{
@@ -37,7 +38,6 @@ namespace Pulumi.Aws.ResourceGroups
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         },
     ///     });

@@ -243,7 +243,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kinesis.Stream("example", shard_count=2)
+        example = aws.kinesis.Stream("example",
+            name="example",
+            shard_count=2)
         media_pipelines_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -252,8 +254,11 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        call_analytics_role = aws.iam.Role("callAnalyticsRole", assume_role_policy=media_pipelines_assume_role.json)
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
+        call_analytics_role = aws.iam.Role("call_analytics_role",
+            name="CallAnalyticsRole",
+            assume_role_policy=media_pipelines_assume_role.json)
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyBasicConfiguration",
             resource_access_role_arn=call_analytics_role.arn,
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
@@ -290,9 +295,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        post_call_role = aws.iam.Role("postCallRole", assume_role_policy=transcribe_assume_role.json)
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        post_call_role = aws.iam.Role("post_call_role",
+            name="PostCallAccessRole",
+            assume_role_policy=transcribe_assume_role.json)
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyCallAnalyticsConfiguration",
+            resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
@@ -322,7 +330,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ])
@@ -333,8 +341,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["call_analytics_role"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyRealTimeAlertConfiguration",
+            resource_access_role_arn=call_analytics_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
@@ -345,7 +354,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ],
@@ -386,8 +395,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyTranscribeConfiguration",
+            resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeProcessor",
@@ -408,7 +418,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ])
@@ -419,8 +429,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyVoiceAnalyticsConfiguration",
+            resource_access_role_arn=example["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="VoiceAnalyticsProcessor",
@@ -450,7 +461,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=test["arn"],
                     ),
                 ),
             ])
@@ -461,8 +472,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyS3RecordingConfiguration",
+            resource_access_role_arn=example["arn"],
             elements=[aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                 type="S3RecordingSink",
                 s3_recording_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs(
@@ -504,7 +516,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kinesis.Stream("example", shard_count=2)
+        example = aws.kinesis.Stream("example",
+            name="example",
+            shard_count=2)
         media_pipelines_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -513,8 +527,11 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        call_analytics_role = aws.iam.Role("callAnalyticsRole", assume_role_policy=media_pipelines_assume_role.json)
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
+        call_analytics_role = aws.iam.Role("call_analytics_role",
+            name="CallAnalyticsRole",
+            assume_role_policy=media_pipelines_assume_role.json)
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyBasicConfiguration",
             resource_access_role_arn=call_analytics_role.arn,
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
@@ -551,9 +568,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        post_call_role = aws.iam.Role("postCallRole", assume_role_policy=transcribe_assume_role.json)
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        post_call_role = aws.iam.Role("post_call_role",
+            name="PostCallAccessRole",
+            assume_role_policy=transcribe_assume_role.json)
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyCallAnalyticsConfiguration",
+            resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
@@ -583,7 +603,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ])
@@ -594,8 +614,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["call_analytics_role"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyRealTimeAlertConfiguration",
+            resource_access_role_arn=call_analytics_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
@@ -606,7 +627,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ],
@@ -647,8 +668,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyTranscribeConfiguration",
+            resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="AmazonTranscribeProcessor",
@@ -669,7 +691,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=example["arn"],
                     ),
                 ),
             ])
@@ -680,8 +702,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyVoiceAnalyticsConfiguration",
+            resource_access_role_arn=example["arn"],
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="VoiceAnalyticsProcessor",
@@ -711,7 +734,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=test["arn"],
                     ),
                 ),
             ])
@@ -722,8 +745,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration",
-            resource_access_role_arn=aws_iam_role["example"]["arn"],
+        my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
+            name="MyS3RecordingConfiguration",
+            resource_access_role_arn=example["arn"],
             elements=[aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                 type="S3RecordingSink",
                 s3_recording_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs(

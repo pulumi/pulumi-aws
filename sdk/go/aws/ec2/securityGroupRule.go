@@ -46,10 +46,10 @@ import (
 //				ToPort:   pulumi.Int(65535),
 //				Protocol: pulumi.String("tcp"),
 //				CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Cidr_block,
+//					exampleAwsVpc.CidrBlock,
 //				},
 //				Ipv6CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Ipv6_cidr_block,
+//					exampleAwsVpc.Ipv6CidrBlock,
 //				},
 //				SecurityGroupId: pulumi.String("sg-123456"),
 //			})
@@ -82,11 +82,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ...
-//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "my_endpoint", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSecurityGroupRule(ctx, "allowAll", &ec2.SecurityGroupRuleArgs{
+//			_, err = ec2.NewSecurityGroupRule(ctx, "allow_all", &ec2.SecurityGroupRuleArgs{
 //				Type:     pulumi.String("egress"),
 //				ToPort:   pulumi.Int(0),
 //				Protocol: pulumi.String("-1"),
@@ -133,7 +133,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSecurityGroupRule(ctx, "s3GatewayEgress", &ec2.SecurityGroupRuleArgs{
+//			_, err = ec2.NewSecurityGroupRule(ctx, "s3_gateway_egress", &ec2.SecurityGroupRuleArgs{
 //				Description:     pulumi.String("S3 Gateway Egress"),
 //				Type:            pulumi.String("egress"),
 //				SecurityGroupId: pulumi.String("sg-123456"),

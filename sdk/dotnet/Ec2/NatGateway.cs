@@ -25,17 +25,11 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         AllocationId = aws_eip.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         AllocationId = exampleAwsEip.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "gw NAT" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_internet_gateway.Example,
     ///         },
     ///     });
     /// 
@@ -53,11 +47,11 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         AllocationId = aws_eip.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         AllocationId = exampleAwsEip.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         SecondaryAllocationIds = new[]
     ///         {
-    ///             aws_eip.Secondary.Id,
+    ///             secondary.Id,
     ///         },
     ///         SecondaryPrivateIpAddresses = new[]
     ///         {
@@ -80,7 +74,7 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });
@@ -98,7 +92,7 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         SecondaryPrivateIpAddressCount = 7,
     ///     });
     /// 

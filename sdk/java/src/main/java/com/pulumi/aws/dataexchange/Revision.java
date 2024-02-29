@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Revision(&#34;example&#34;, RevisionArgs.builder()        
- *             .dataSetId(aws_dataexchange_data_set.example().id())
+ *             .dataSetId(exampleAwsDataexchangeDataSet.id())
  *             .build());
  * 
  *     }

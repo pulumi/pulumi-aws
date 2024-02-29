@@ -22,6 +22,93 @@ import (
 //
 // This is different from the `getAvailabilityZones` (plural) data source,
 // which provides a list of the available zones.
+//
+// ## Example Usage
+//
+// The following example shows how this data source might be used to derive
+// VPC and subnet CIDR prefixes systematically for an availability zone.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			regionNumber := map[string]interface{}{
+//				"ap-northeast-1": 5,
+//				"eu-central-1":   4,
+//				"us-east-1":      1,
+//				"us-west-1":      2,
+//				"us-west-2":      3,
+//			}
+//			if param := cfg.GetObject("regionNumber"); param != nil {
+//				regionNumber = param
+//			}
+//			azNumber := map[string]interface{}{
+//				"a": 1,
+//				"b": 2,
+//				"c": 3,
+//				"d": 4,
+//				"e": 5,
+//				"f": 6,
+//			}
+//			if param := cfg.GetObject("azNumber"); param != nil {
+//				azNumber = param
+//			}
+//			// Retrieve the AZ where we want to create network resources
+//			// This must be in the region selected on the AWS provider.
+//			example, err := aws.GetAvailabilityZone(ctx, &aws.GetAvailabilityZoneArgs{
+//				Name: pulumi.StringRef("eu-central-1a"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   "10.0.0.0/8",
+//				Newbits: 4,
+//				Netnum:  regionNumber[example.Region],
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create a VPC for the region associated with the AZ
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				CidrBlock: invokeCidrsubnet.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create a subnet for the AZ within the regional VPC
+//			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId: exampleVpc.ID(),
+//				CidrBlock: exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+//					return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//						Input:   cidrBlock,
+//						Newbits: 4,
+//						Netnum:  azNumber[example.NameSuffix],
+//					}, nil), nil
+//				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAvailabilityZoneResult

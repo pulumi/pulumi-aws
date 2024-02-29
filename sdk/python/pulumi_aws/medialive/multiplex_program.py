@@ -151,7 +151,8 @@ class MultiplexProgram(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
+        example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -166,9 +167,9 @@ class MultiplexProgram(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
             })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
+        example_multiplex_program = aws.medialive.MultiplexProgram("example",
             program_name="example_program",
-            multiplex_id=example_multiplex.id,
+            multiplex_id=example.id,
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",
@@ -211,7 +212,8 @@ class MultiplexProgram(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
+        example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -226,9 +228,9 @@ class MultiplexProgram(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
             })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
+        example_multiplex_program = aws.medialive.MultiplexProgram("example",
             program_name="example_program",
-            multiplex_id=example_multiplex.id,
+            multiplex_id=example.id,
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",

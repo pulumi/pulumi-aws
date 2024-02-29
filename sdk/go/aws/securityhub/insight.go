@@ -29,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					AwsAccountIds: securityhub.InsightFiltersAwsAccountIdArray{
 //						&securityhub.InsightFiltersAwsAccountIdArgs{
@@ -47,9 +47,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("AwsAccountId"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -72,11 +71,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					CreatedAts: securityhub.InsightFiltersCreatedAtArray{
 //						&securityhub.InsightFiltersCreatedAtArgs{
@@ -88,9 +87,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("CreatedAt"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -113,11 +111,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					NetworkDestinationIpv4s: securityhub.InsightFiltersNetworkDestinationIpv4Array{
 //						&securityhub.InsightFiltersNetworkDestinationIpv4Args{
@@ -126,9 +124,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("NetworkDestinationIpV4"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -151,11 +148,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					Confidences: securityhub.InsightFiltersConfidenceArray{
 //						&securityhub.InsightFiltersConfidenceArgs{
@@ -164,9 +161,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("Confidence"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -189,11 +185,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					ResourceTags: securityhub.InsightFiltersResourceTagArray{
 //						&securityhub.InsightFiltersResourceTagArgs{
@@ -204,9 +200,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("ResourceTags"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}

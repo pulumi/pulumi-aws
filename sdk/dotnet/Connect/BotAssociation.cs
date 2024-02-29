@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = "us-west-2",
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleIntent = new Aws.Lex.Intent("exampleIntent", new()
+    ///     var example = new Aws.Lex.Intent("example", new()
     ///     {
     ///         CreateVersion = true,
     ///         Name = "connect_lex_intent",
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Connect
     ///         },
     ///     });
     /// 
-    ///     var exampleBot = new Aws.Lex.Bot("exampleBot", new()
+    ///     var exampleBot = new Aws.Lex.Bot("example", new()
     ///     {
     ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
     ///         {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             new Aws.Lex.Inputs.BotIntentArgs
     ///             {
-    ///                 IntentName = exampleIntent.Name,
+    ///                 IntentName = example.Name,
     ///                 IntentVersion = "1",
     ///             },
     ///         },
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.Connect
     ///         ProcessBehavior = "BUILD",
     ///     });
     /// 
-    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("exampleBotAssociation", new()
+    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),

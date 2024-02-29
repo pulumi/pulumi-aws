@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *         var example = new Distribution(&#34;example&#34;, DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(aws_cloudfront_origin_access_identity.example().cloudfront_access_identity_path())
+ *                     .originAccessIdentity(exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath())
  *                     .build())
  *                 .build())
  *             .build());
@@ -127,16 +127,16 @@ import javax.annotation.Nullable;
  *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;s3:GetObject&#34;)
- *                 .resources(String.format(&#34;%s/*&#34;, aws_s3_bucket.example().arn()))
+ *                 .resources(String.format(&#34;%s/*&#34;, exampleAwsS3Bucket.arn()))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type(&#34;AWS&#34;)
- *                     .identifiers(aws_cloudfront_origin_access_identity.example().iam_arn())
+ *                     .identifiers(exampleAwsCloudfrontOriginAccessIdentity.iamArn())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
- *             .bucket(aws_s3_bucket.example().id())
+ *             .bucket(exampleAwsS3Bucket.id())
  *             .policy(s3Policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 

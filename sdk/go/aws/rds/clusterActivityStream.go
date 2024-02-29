@@ -37,7 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := rds.NewCluster(ctx, "defaultCluster", &rds.ClusterArgs{
+//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
@@ -53,28 +53,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultClusterInstance, err := rds.NewClusterInstance(ctx, "defaultClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "default", &rds.ClusterInstanceArgs{
 //				Identifier:        pulumi.String("aurora-instance-demo"),
-//				ClusterIdentifier: defaultCluster.ClusterIdentifier,
-//				Engine:            defaultCluster.Engine,
+//				ClusterIdentifier: _default.ClusterIdentifier,
+//				Engine:            _default.Engine,
 //				InstanceClass:     pulumi.String("db.r6g.large"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
+//			defaultKey, err := kms.NewKey(ctx, "default", &kms.KeyArgs{
 //				Description: pulumi.String("AWS KMS Key to encrypt Database Activity Stream"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterActivityStream(ctx, "defaultClusterActivityStream", &rds.ClusterActivityStreamArgs{
-//				ResourceArn: defaultCluster.Arn,
+//			_, err = rds.NewClusterActivityStream(ctx, "default", &rds.ClusterActivityStreamArgs{
+//				ResourceArn: _default.Arn,
 //				Mode:        pulumi.String("async"),
 //				KmsKeyId:    defaultKey.KeyId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				defaultClusterInstance,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

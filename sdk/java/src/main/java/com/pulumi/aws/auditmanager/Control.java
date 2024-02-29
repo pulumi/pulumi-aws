@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Control(&#34;example&#34;, ControlArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
  *                 .sourceName(&#34;example&#34;)
  *                 .sourceSetUpOption(&#34;Procedural_Controls_Mapping&#34;)

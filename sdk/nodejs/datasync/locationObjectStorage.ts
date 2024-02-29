@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationObjectStorage("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
  *     serverHostname: "example",
  *     bucketName: "example",
  * });

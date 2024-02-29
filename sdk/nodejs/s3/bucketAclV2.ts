@@ -21,18 +21,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  * ### With `public-read` ACL
@@ -44,28 +42,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
+ *     bucket: example.id,
  *     blockPublicAcls: false,
  *     blockPublicPolicy: false,
  *     ignorePublicAcls: false,
  *     restrictPublicBuckets: false,
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "public-read",
- * }, {
- *     dependsOn: [
- *         exampleBucketOwnershipControls,
- *         exampleBucketPublicAccessBlock,
- *     ],
  * });
  * ```
  * ### With Grants
@@ -75,15 +68,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.s3.getCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     accessControlPolicy: {
  *         grants: [
  *             {
@@ -105,8 +98,6 @@ import * as utilities from "../utilities";
  *             id: current.then(current => current.id),
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  *

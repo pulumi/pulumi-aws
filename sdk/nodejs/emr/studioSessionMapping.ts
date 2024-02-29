@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.StudioSessionMapping("example", {
- *     studioId: aws_emr_studio.example.id,
+ *     studioId: exampleAwsEmrStudio.id,
  *     identityType: "USER",
  *     identityId: "example",
- *     sessionPolicyArn: aws_iam_policy.example.arn,
+ *     sessionPolicyArn: exampleAwsIamPolicy.arn,
  * });
  * ```
  *

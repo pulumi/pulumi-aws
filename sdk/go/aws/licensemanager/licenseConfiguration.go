@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+//				Name:                  pulumi.String("Example"),
 //				Description:           pulumi.String("Example"),
 //				LicenseCount:          pulumi.Int(10),
 //				LicenseCountHardLimit: pulumi.Bool(true),

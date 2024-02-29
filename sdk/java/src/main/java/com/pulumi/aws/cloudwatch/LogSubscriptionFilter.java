@@ -40,10 +40,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testLambdafunctionLogfilter = new LogSubscriptionFilter(&#34;testLambdafunctionLogfilter&#34;, LogSubscriptionFilterArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_lambda().arn())
+ *             .name(&#34;test_lambdafunction_logfilter&#34;)
+ *             .roleArn(iamForLambda.arn())
  *             .logGroup(&#34;/aws/lambda/example_lambda_name&#34;)
  *             .filterPattern(&#34;logtype test&#34;)
- *             .destinationArn(aws_kinesis_stream.test_logstream().arn())
+ *             .destinationArn(testLogstream.arn())
  *             .distribution(&#34;Random&#34;)
  *             .build());
  * 

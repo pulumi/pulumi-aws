@@ -107,7 +107,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=example["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -160,7 +160,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=example["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },

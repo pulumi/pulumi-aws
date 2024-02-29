@@ -25,6 +25,7 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         AuthType = "AWS_IAM",
     ///         CustomDomainName = "example.com",
     ///     });

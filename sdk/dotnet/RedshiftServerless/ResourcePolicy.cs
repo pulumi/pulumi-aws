@@ -25,27 +25,27 @@ namespace Pulumi.Aws.RedshiftServerless
     /// {
     ///     var example = new Aws.RedshiftServerless.ResourcePolicy("example", new()
     ///     {
-    ///         ResourceArn = aws_redshiftserverless_snapshot.Example.Arn,
+    ///         ResourceArn = exampleAwsRedshiftserverlessSnapshot.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = new[]
     ///                         {
     ///                             "12345678901",
     ///                         },
     ///                     },
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "redshift-serverless:RestoreFromSnapshot",
     ///                     },
-    ///                     ["Sid"] = "",
+    ///                     ["sid"] = "",
     ///                 },
     ///             },
     ///         }),

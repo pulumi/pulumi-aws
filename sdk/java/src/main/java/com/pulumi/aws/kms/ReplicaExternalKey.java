@@ -29,13 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.kms.ExternalKey;
  * import com.pulumi.aws.kms.ExternalKeyArgs;
  * import com.pulumi.aws.kms.ReplicaExternalKey;
  * import com.pulumi.aws.kms.ReplicaExternalKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,24 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Provider(&#34;primary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var primaryExternalKey = new ExternalKey(&#34;primaryExternalKey&#34;, ExternalKeyArgs.builder()        
+ *         var primary = new ExternalKey(&#34;primary&#34;, ExternalKeyArgs.builder()        
  *             .description(&#34;Multi-Region primary key&#34;)
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
  *             .enabled(true)
  *             .keyMaterialBase64(&#34;...&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
  *         var replica = new ReplicaExternalKey(&#34;replica&#34;, ReplicaExternalKeyArgs.builder()        
  *             .description(&#34;Multi-Region replica key&#34;)
  *             .deletionWindowInDays(7)
- *             .primaryKeyArn(aws_kms_external.primary().arn())
+ *             .primaryKeyArn(primaryAwsKmsExternal.arn())
  *             .keyMaterialBase64(&#34;...&#34;)
  *             .build());
  * 

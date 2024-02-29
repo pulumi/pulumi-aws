@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
     ///         {
     ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
@@ -36,7 +37,7 @@ namespace Pulumi.Aws.Glue
     ///             },
     ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
     ///             {
-    ///                 KmsKeyArn = data.Aws_kms_key.Example.Arn,
+    ///                 KmsKeyArn = exampleAwsKmsKey.Arn,
     ///                 S3EncryptionMode = "SSE-KMS",
     ///             },
     ///         },

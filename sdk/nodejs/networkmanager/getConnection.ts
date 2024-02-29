@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getConnection({
- *     globalNetworkId: _var.global_network_id,
- *     connectionId: _var.connection_id,
+ *     globalNetworkId: globalNetworkId,
+ *     connectionId: connectionId,
  * });
  * ```
  */
@@ -96,8 +96,8 @@ export interface GetConnectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getConnection({
- *     globalNetworkId: _var.global_network_id,
- *     connectionId: _var.connection_id,
+ *     globalNetworkId: globalNetworkId,
+ *     connectionId: connectionId,
  * });
  * ```
  */

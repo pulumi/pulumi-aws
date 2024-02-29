@@ -28,9 +28,9 @@ namespace Pulumi.Aws.Msk
     ///         {
     ///             "2.1.0",
     ///         },
+    ///         Name = "example",
     ///         ServerProperties = @"auto.create.topics.enable = true
     /// delete.topic.enable = true
-    /// 
     /// ",
     ///     });
     /// 

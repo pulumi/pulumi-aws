@@ -13,26 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.docdb.Cluster("exampleCluster", {
+ * const example = new aws.docdb.Cluster("example", {
  *     clusterIdentifier: "example",
  *     availabilityZones: [
- *         data.aws_availability_zones.available.names[0],
- *         data.aws_availability_zones.available.names[1],
- *         data.aws_availability_zones.available.names[2],
+ *         available.names[0],
+ *         available.names[1],
+ *         available.names[2],
  *     ],
  *     masterUsername: "foo",
  *     masterPassword: "mustbeeightcharaters",
  *     skipFinalSnapshot: true,
  * });
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleEventSubscription = new aws.docdb.EventSubscription("exampleEventSubscription", {
+ * const exampleTopic = new aws.sns.Topic("example", {name: "example-events"});
+ * const exampleEventSubscription = new aws.docdb.EventSubscription("example", {
+ *     name: "example",
  *     enabled: true,
  *     eventCategories: [
  *         "creation",
  *         "failure",
  *     ],
  *     sourceType: "db-cluster",
- *     sourceIds: [exampleCluster.id],
+ *     sourceIds: [example.id],
  *     snsTopicArn: exampleTopic.arn,
  * });
  * ```

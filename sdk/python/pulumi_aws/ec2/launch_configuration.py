@@ -676,7 +676,8 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
+            name="web_config",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
@@ -706,11 +707,12 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name_prefix="lc-example-",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
+            name="asg-example",
             launch_configuration=as_conf.name,
             min_size=1,
             max_size=2)
@@ -745,11 +747,13 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             image_id=ubuntu.id,
             instance_type="m4.large",
             spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
+        bar = aws.autoscaling.Group("bar",
+            name="asg-example",
+            launch_configuration=as_conf.name)
         ```
 
         ## Block devices
@@ -866,7 +870,8 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
+            name="web_config",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
@@ -896,11 +901,12 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name_prefix="lc-example-",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
+            name="asg-example",
             launch_configuration=as_conf.name,
             min_size=1,
             max_size=2)
@@ -935,11 +941,13 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             image_id=ubuntu.id,
             instance_type="m4.large",
             spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
+        bar = aws.autoscaling.Group("bar",
+            name="asg-example",
+            launch_configuration=as_conf.name)
         ```
 
         ## Block devices

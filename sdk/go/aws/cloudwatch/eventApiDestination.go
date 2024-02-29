@@ -31,11 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventApiDestination(ctx, "test", &cloudwatch.EventApiDestinationArgs{
+//				Name:                         pulumi.String("api-destination"),
 //				Description:                  pulumi.String("An API Destination"),
 //				InvocationEndpoint:           pulumi.String("https://api.destination.com/endpoint"),
 //				HttpMethod:                   pulumi.String("POST"),
 //				InvocationRateLimitPerSecond: pulumi.Int(20),
-//				ConnectionArn:                pulumi.Any(aws_cloudwatch_event_connection.Test.Arn),
+//				ConnectionArn:                pulumi.Any(testAwsCloudwatchEventConnection.Arn),
 //			})
 //			if err != nil {
 //				return err

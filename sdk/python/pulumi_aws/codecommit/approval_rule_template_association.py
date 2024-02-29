@@ -107,8 +107,8 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplateAssociation("example",
-            approval_rule_template_name=aws_codecommit_approval_rule_template["example"]["name"],
-            repository_name=aws_codecommit_repository["example"]["repository_name"])
+            approval_rule_template_name=example_aws_codecommit_approval_rule_template["name"],
+            repository_name=example_aws_codecommit_repository["repositoryName"])
         ```
 
         ## Import
@@ -140,8 +140,8 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplateAssociation("example",
-            approval_rule_template_name=aws_codecommit_approval_rule_template["example"]["name"],
-            repository_name=aws_codecommit_repository["example"]["repository_name"])
+            approval_rule_template_name=example_aws_codecommit_approval_rule_template["name"],
+            repository_name=example_aws_codecommit_repository["repositoryName"])
         ```
 
         ## Import

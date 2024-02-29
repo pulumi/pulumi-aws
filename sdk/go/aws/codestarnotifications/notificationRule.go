@@ -36,7 +36,9 @@ import (
 // if err != nil {
 // return err
 // }
-// notif, err := sns.NewTopic(ctx, "notif", nil)
+// notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
+// Name: pulumi.String("notification"),
+// })
 // if err != nil {
 // return err
 // }
@@ -76,6 +78,7 @@ import (
 // EventTypeIds: pulumi.StringArray{
 // pulumi.String("codecommit-repository-comments-on-commits"),
 // },
+// Name: pulumi.String("example-code-repo-commits"),
 // Resource: code.Arn,
 // Targets: codestarnotifications.NotificationRuleTargetArray{
 // &codestarnotifications.NotificationRuleTargetArgs{

@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  *
  * const delegated = aws.getCallerIdentity({});
  * const example = new aws.ec2.VpcIpamOrganizationAdminAccount("example", {delegatedAdminAccountId: delegated.then(delegated => delegated.accountId)});
- * const ipamDelegateAccount = new aws.Provider("ipamDelegateAccount", {});
- * // authentication arguments omitted
  * ```
  *
  * ## Import

@@ -28,15 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			example, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("my_database"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewUserDefinedFunction(ctx, "exampleUserDefinedFunction", &glue.UserDefinedFunctionArgs{
-//				CatalogId:    exampleCatalogDatabase.CatalogId,
-//				DatabaseName: exampleCatalogDatabase.Name,
+//			_, err = glue.NewUserDefinedFunction(ctx, "example", &glue.UserDefinedFunctionArgs{
+//				Name:         pulumi.String("my_func"),
+//				CatalogId:    example.CatalogId,
+//				DatabaseName: example.Name,
 //				ClassName:    pulumi.String("class"),
 //				OwnerName:    pulumi.String("owner"),
 //				OwnerType:    pulumi.String("GROUP"),

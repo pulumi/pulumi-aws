@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ivschat.Room;
+ * import com.pulumi.aws.ivschat.RoomArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Room(&#34;example&#34;);
+ *         var example = new Room(&#34;example&#34;, RoomArgs.builder()        
+ *             .name(&#34;tf-room&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -76,20 +79,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
  *             .bucketPrefix(&#34;tf-ivschat-logging-bucket-&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *             .name(&#34;tf-ivschat-loggingconfiguration&#34;)
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(exampleBucketV2.id())
+ *                     .bucketName(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleRoom = new Room(&#34;exampleRoom&#34;, RoomArgs.builder()        
+ *             .name(&#34;tf-ivschat-room&#34;)
  *             .loggingConfigurationIdentifiers(exampleLoggingConfiguration.arn())
  *             .build());
  * 

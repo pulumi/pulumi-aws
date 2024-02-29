@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
- *             .arn(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+ *         final var currentGetSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+ *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
  *             .build());
  * 
  *         var test = new DataLakeSettings(&#34;test&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(currentSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
+ *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
  *             .build());
  * 
  *     }
@@ -119,13 +119,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;sadabate&#34;)
  *             .build());
  * 
  *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
  *             .name(&#34;abelt&#34;)
- *             .databaseName(aws_glue_catalog_database.test().name())
+ *             .databaseName(test.name())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
  *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
  *                     .name(&#34;event&#34;)
@@ -187,10 +187,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.workflow_role().arn())
+ *             .principal(workflowRole.arn())
  *             .permissions(&#34;DATA_LOCATION_ACCESS&#34;)
  *             .dataLocation(PermissionsDataLocationArgs.builder()
- *                 .arn(aws_lakeformation_resource.example().arn())
+ *                 .arn(exampleAwsLakeformationResource.arn())
  *                 .build())
  *             .build());
  * 
@@ -221,13 +221,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.workflow_role().arn())
+ *             .principal(workflowRole.arn())
  *             .permissions(            
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,
  *                 &#34;DROP&#34;)
  *             .database(PermissionsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .catalogId(&#34;110376042874&#34;)
  *                 .build())
  *             .build());
@@ -259,7 +259,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Permissions(&#34;test&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.sales_role().arn())
+ *             .principal(salesRole.arn())
  *             .permissions(            
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,

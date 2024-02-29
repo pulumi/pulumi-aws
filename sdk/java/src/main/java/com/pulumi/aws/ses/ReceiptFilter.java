@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var filter = new ReceiptFilter(&#34;filter&#34;, ReceiptFilterArgs.builder()        
+ *             .name(&#34;block-spammer&#34;)
  *             .cidr(&#34;10.10.10.10&#34;)
  *             .policy(&#34;Block&#34;)
  *             .build());

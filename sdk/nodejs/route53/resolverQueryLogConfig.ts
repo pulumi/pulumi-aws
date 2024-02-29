@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverQueryLogConfig("example", {
- *     destinationArn: aws_s3_bucket.example.arn,
+ *     name: "example",
+ *     destinationArn: exampleAwsS3Bucket.arn,
  *     tags: {
  *         Environment: "Prod",
  *     },

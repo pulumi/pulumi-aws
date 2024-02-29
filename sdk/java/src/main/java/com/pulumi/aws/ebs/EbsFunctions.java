@@ -574,6 +574,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -583,8 +585,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -621,6 +621,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -630,8 +632,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -668,6 +668,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -677,8 +679,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -715,6 +715,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -724,8 +726,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -762,6 +762,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -771,8 +773,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -809,6 +809,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -818,8 +820,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -857,6 +857,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -866,7 +867,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -904,6 +904,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -913,7 +914,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -951,6 +951,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -960,7 +961,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -998,6 +998,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1007,7 +1008,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -1045,6 +1045,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1054,7 +1055,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -1092,6 +1092,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1101,7 +1102,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
@@ -1139,6 +1139,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1148,7 +1149,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1186,6 +1186,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1195,7 +1196,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1233,6 +1233,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1242,7 +1243,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1280,6 +1280,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1289,7 +1290,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1327,6 +1327,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1336,7 +1337,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1374,6 +1374,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1383,7 +1384,6 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }

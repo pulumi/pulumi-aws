@@ -29,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := keyspaces.NewKeyspace(ctx, "example", nil)
+//			_, err := keyspaces.NewKeyspace(ctx, "example", &keyspaces.KeyspaceArgs{
+//				Name: pulumi.String("my_keyspace"),
+//			})
 //			if err != nil {
 //				return err
 //			}

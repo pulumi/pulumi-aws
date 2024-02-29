@@ -44,8 +44,8 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
@@ -86,8 +86,8 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
@@ -128,8 +128,8 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
@@ -170,8 +170,8 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }

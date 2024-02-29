@@ -24,44 +24,48 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
     ///     {
+    ///         Name = "iam_for_lambda",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                         ["service"] = "lambda.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
     ///     {
     ///         Code = new FileArchive("lambdatest.zip"),
+    ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.handler",
     ///         Runtime = "nodejs16.x",
     ///     });
     /// 
-    ///     var testAlias = new Aws.Lambda.Alias("testAlias", new()
+    ///     var testAlias = new Aws.Lambda.Alias("test_alias", new()
     ///     {
+    ///         Name = "testalias",
     ///         Description = "a sample description",
     ///         FunctionName = testLambda.Name,
     ///         FunctionVersion = "$LATEST",
     ///     });
     /// 
-    ///     var allowCloudwatch = new Aws.Lambda.Permission("allowCloudwatch", new()
+    ///     var allowCloudwatch = new Aws.Lambda.Permission("allow_cloudwatch", new()
     ///     {
+    ///         StatementId = "AllowExecutionFromCloudWatch",
     ///         Action = "lambda:InvokeFunction",
     ///         Function = testLambda.Name,
     ///         Principal = "events.amazonaws.com",
@@ -82,23 +86,27 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultRole = new Aws.Iam.Role("defaultRole", new()
+    ///     var @default = new Aws.Sns.Topic("default", new()
     ///     {
+    ///         Name = "call-lambda-maybe",
+    ///     });
+    /// 
+    ///     var defaultRole = new Aws.Iam.Role("default", new()
+    ///     {
+    ///         Name = "iam_for_lambda_with_sns",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                         ["service"] = "lambda.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -108,22 +116,24 @@ namespace Pulumi.Aws.Lambda
     ///     var func = new Aws.Lambda.Function("func", new()
     ///     {
     ///         Code = new FileArchive("lambdatest.zip"),
+    ///         Name = "lambda_called_from_sns",
     ///         Role = defaultRole.Arn,
     ///         Handler = "exports.handler",
     ///         Runtime = "python3.7",
     ///     });
     /// 
-    ///     var withSns = new Aws.Lambda.Permission("withSns", new()
+    ///     var withSns = new Aws.Lambda.Permission("with_sns", new()
     ///     {
+    ///         StatementId = "AllowExecutionFromSNS",
     ///         Action = "lambda:InvokeFunction",
     ///         Function = func.Name,
     ///         Principal = "sns.amazonaws.com",
-    ///         SourceArn = defaultTopic.Arn,
+    ///         SourceArn = @default.Arn,
     ///     });
     /// 
     ///     var lambda = new Aws.Sns.TopicSubscription("lambda", new()
     ///     {
-    ///         Topic = defaultTopic.Arn,
+    ///         Topic = @default.Arn,
     ///         Protocol = "lambda",
     ///         Endpoint = func.Arn,
     ///     });
@@ -140,13 +150,15 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
     ///     {
+    ///         Name = "MyDemoAPI",
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var lambdaPermission = new Aws.Lambda.Permission("lambdaPermission", new()
+    ///     var lambdaPermission = new Aws.Lambda.Permission("lambda_permission", new()
     ///     {
+    ///         StatementId = "AllowMyDemoAPIInvoke",
     ///         Action = "lambda:InvokeFunction",
     ///         Function = "MyDemoFunction",
     ///         Principal = "apigateway.amazonaws.com",
@@ -165,7 +177,10 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultLogGroup = new Aws.CloudWatch.LogGroup("defaultLogGroup");
+    ///     var @default = new Aws.CloudWatch.LogGroup("default", new()
+    ///     {
+    ///         Name = "/default",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -193,38 +208,35 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     var defaultRole = new Aws.Iam.Role("defaultRole", new()
+    ///     var defaultRole = new Aws.Iam.Role("default", new()
     ///     {
+    ///         Name = "iam_for_lambda_called_from_cloudwatch_logs",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var loggingFunction = new Aws.Lambda.Function("loggingFunction", new()
+    ///     var loggingFunction = new Aws.Lambda.Function("logging", new()
     ///     {
     ///         Code = new FileArchive("lamba_logging.zip"),
+    ///         Name = "lambda_called_from_cloudwatch_logs",
     ///         Handler = "exports.handler",
     ///         Role = defaultRole.Arn,
     ///         Runtime = "python3.7",
     ///     });
     /// 
-    ///     var loggingPermission = new Aws.Lambda.Permission("loggingPermission", new()
+    ///     var logging = new Aws.Lambda.Permission("logging", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
     ///         Function = loggingFunction.Name,
     ///         Principal = "logs.eu-west-1.amazonaws.com",
-    ///         SourceArn = defaultLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         SourceArn = @default.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///     });
     /// 
-    ///     var loggingLogSubscriptionFilter = new Aws.CloudWatch.LogSubscriptionFilter("loggingLogSubscriptionFilter", new()
+    ///     var loggingLogSubscriptionFilter = new Aws.CloudWatch.LogSubscriptionFilter("logging", new()
     ///     {
     ///         DestinationArn = loggingFunction.Arn,
     ///         FilterPattern = "",
-    ///         LogGroup = defaultLogGroup.Name,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             loggingPermission,
-    ///         },
+    ///         LogGroup = @default.Name,
+    ///         Name = "logging_default",
     ///     });
     /// 
     /// });
@@ -239,16 +251,16 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var urlFunctionUrl = new Aws.Lambda.FunctionUrl("urlFunctionUrl", new()
+    ///     var url = new Aws.Lambda.FunctionUrl("url", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         FunctionName = example.FunctionName,
     ///         AuthorizationType = "AWS_IAM",
     ///     });
     /// 
-    ///     var urlPermission = new Aws.Lambda.Permission("urlPermission", new()
+    ///     var urlPermission = new Aws.Lambda.Permission("url", new()
     ///     {
     ///         Action = "lambda:InvokeFunctionUrl",
-    ///         Function = aws_lambda_function.Example.Function_name,
+    ///         Function = example.FunctionName,
     ///         Principal = "arn:aws:iam::444455556666:role/example",
     ///         SourceAccount = "444455556666",
     ///         FunctionUrlAuthType = "AWS_IAM",
@@ -271,7 +283,7 @@ namespace Pulumi.Aws.Lambda
     ///     var logging = new Aws.Lambda.Permission("logging", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
-    ///         Function = aws_lambda_function.Example.Function_name,
+    ///         Function = example.FunctionName,
     ///         Principal = "events.amazonaws.com",
     ///         SourceArn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
     ///     });

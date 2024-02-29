@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.dataexchange.DataSet("example", {
  *     assetType: "S3_SNAPSHOT",
  *     description: "example",
+ *     name: "example",
  * });
  * ```
  *

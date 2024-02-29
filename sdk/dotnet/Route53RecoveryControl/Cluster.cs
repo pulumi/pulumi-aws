@@ -22,7 +22,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryControl.Cluster("example");
+    ///     var example = new Aws.Route53RecoveryControl.Cluster("example", new()
+    ///     {
+    ///         Name = "georgefitzgerald",
+    ///     });
     /// 
     /// });
     /// ```

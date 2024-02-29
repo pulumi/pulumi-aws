@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         perUnitStorageThroughput: 1000,
  *         weeklyMaintenanceStartTime: "2:05:00",
  *     }],
- *     subnetIds: [aws_subnet.test1.id],
+ *     subnetIds: [test1.id],
  *     storageCapacity: 1200,
  * });
  * ```

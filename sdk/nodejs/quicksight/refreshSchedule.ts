@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  *     schedule: {
  *         refreshType: "FULL_REFRESH",
  *         scheduleFrequency: {
  *             interval: "HOURLY",
  *         },
  *     },
- *     scheduleId: "schedule-id",
  * });
  * ```
  * ### With Weekly Refresh
@@ -36,18 +36,18 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  *     schedule: {
  *         refreshType: "INCREMENTAL_REFRESH",
  *         scheduleFrequency: {
  *             interval: "WEEKLY",
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
  *             refreshOnDay: {
  *                 dayOfWeek: "MONDAY",
  *             },
- *             timeOfTheDay: "01:00",
- *             timezone: "Europe/London",
  *         },
  *     },
- *     scheduleId: "schedule-id",
  * });
  * ```
  * ### With Monthly Refresh
@@ -58,18 +58,18 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  *     schedule: {
  *         refreshType: "INCREMENTAL_REFRESH",
  *         scheduleFrequency: {
  *             interval: "MONTHLY",
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
  *             refreshOnDay: {
  *                 dayOfMonth: "1",
  *             },
- *             timeOfTheDay: "01:00",
- *             timezone: "Europe/London",
  *         },
  *     },
- *     scheduleId: "schedule-id",
  * });
  * ```
  *

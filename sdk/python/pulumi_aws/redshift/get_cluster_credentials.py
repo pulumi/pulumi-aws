@@ -138,8 +138,8 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-        db_user=aws_redshift_cluster["example"]["master_username"])
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
+        db_user=example_aws_redshift_cluster["masterUsername"])
     ```
 
 
@@ -189,8 +189,8 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-        db_user=aws_redshift_cluster["example"]["master_username"])
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
+        db_user=example_aws_redshift_cluster["masterUsername"])
     ```
 
 

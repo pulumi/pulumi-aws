@@ -380,7 +380,7 @@ class FeatureGroup(pulumi.CustomResource):
             feature_group_name="example",
             record_identifier_feature_name="example",
             event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
                 feature_name="example",
                 feature_type="String",
@@ -431,7 +431,7 @@ class FeatureGroup(pulumi.CustomResource):
             feature_group_name="example",
             record_identifier_feature_name="example",
             event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
                 feature_name="example",
                 feature_type="String",

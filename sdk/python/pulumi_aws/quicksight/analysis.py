@@ -449,11 +449,12 @@ class Analysis(pulumi.CustomResource):
 
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
+            name="example-name",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
@@ -500,11 +501,12 @@ class Analysis(pulumi.CustomResource):
 
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
+            name="example-name",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),

@@ -29,30 +29,31 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
+    ///     var b = new Aws.S3.BucketV2("b", new()
     ///     {
+    ///         Bucket = "mybucket",
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAclV2("bAcl", new()
+    ///     var bAcl = new Aws.S3.BucketAclV2("b_acl", new()
     ///     {
-    ///         Bucket = bucketV2.Id,
+    ///         Bucket = b.Id,
     ///         Acl = "private",
     ///     });
     /// 
     ///     var s3OriginId = "myS3Origin";
     /// 
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
     ///         Origins = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = bucketV2.BucketRegionalDomainName,
-    ///                 OriginAccessControlId = aws_cloudfront_origin_access_control.Default.Id,
+    ///                 DomainName = b.BucketRegionalDomainName,
+    ///                 OriginAccessControlId = @default.Id,
     ///                 OriginId = s3OriginId,
     ///             },
     ///         },
@@ -207,7 +208,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
     ///         OriginGroups = new[]
     ///         {
@@ -241,20 +242,20 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
+    ///                 DomainName = primary.BucketRegionalDomainName,
     ///                 OriginId = "primaryS3",
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
     ///                 },
     ///             },
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = aws_s3_bucket.Failover.Bucket_regional_domain_name,
+    ///                 DomainName = failover.BucketRegionalDomainName,
     ///                 OriginId = "failoverS3",
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
     ///                 },
     ///             },
     ///         },
@@ -264,7 +265,6 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// ### With Managed Caching Policy
@@ -281,17 +281,17 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var s3OriginId = "myS3Origin";
     /// 
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
     ///         Origins = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
+    ///                 DomainName = primary.BucketRegionalDomainName,
     ///                 OriginId = "myS3Origin",
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
     ///                 },
     ///             },
     ///         },
@@ -330,7 +330,6 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// 

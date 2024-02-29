@@ -259,6 +259,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.redshift.ParameterGroup("bar",
+            name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
                 aws.redshift.ParameterGroupParameterArgs(
@@ -310,6 +311,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.redshift.ParameterGroup("bar",
+            name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
                 aws.redshift.ParameterGroupParameterArgs(

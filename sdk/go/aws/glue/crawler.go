@@ -30,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				DynamodbTargets: glue.CrawlerDynamodbTargetArray{
 //					&glue.CrawlerDynamodbTargetArgs{
 //						Path: pulumi.String("table-name"),
@@ -61,11 +62,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				JdbcTargets: glue.CrawlerJdbcTargetArray{
 //					&glue.CrawlerJdbcTargetArgs{
-//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						ConnectionName: pulumi.Any(exampleAwsGlueConnection.Name),
 //						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
@@ -95,11 +97,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket)),
 //					},
 //				},
 //			})
@@ -126,13 +129,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				CatalogTargets: glue.CrawlerCatalogTargetArray{
 //					&glue.CrawlerCatalogTargetArgs{
-//						DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//						DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //						Tables: pulumi.StringArray{
-//							aws_glue_catalog_table.Example.Name,
+//							exampleAwsGlueCatalogTable.Name,
 //						},
 //					},
 //				},
@@ -172,11 +176,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				MongodbTargets: glue.CrawlerMongodbTargetArray{
 //					&glue.CrawlerMongodbTargetArgs{
-//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						ConnectionName: pulumi.Any(exampleAwsGlueConnection.Name),
 //						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
@@ -207,29 +212,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Grouping": map[string]interface{}{
-//					"TableGroupingPolicy": "CombineCompatibleSchemas",
+//				"grouping": map[string]interface{}{
+//					"tableGroupingPolicy": "CombineCompatibleSchemas",
 //				},
-//				"CrawlerOutput": map[string]interface{}{
-//					"Partitions": map[string]interface{}{
-//						"AddOrUpdateBehavior": "InheritFromTable",
+//				"crawlerOutput": map[string]interface{}{
+//					"partitions": map[string]interface{}{
+//						"addOrUpdateBehavior": "InheritFromTable",
 //					},
 //				},
-//				"Version": 1,
+//				"version": 1,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
-//				DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
+//			_, err = glue.NewCrawler(ctx, "events_crawler", &glue.CrawlerArgs{
+//				DatabaseName:  pulumi.Any(glueDatabase.Name),
 //				Schedule:      pulumi.String("cron(0 1 * * ? *)"),
-//				Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
-//				Tags:          pulumi.Any(_var.Tags),
+//				Name:          pulumi.String(fmt.Sprintf("events_crawler_%v", environmentName)),
+//				Role:          pulumi.Any(glueRole.Arn),
+//				Tags:          pulumi.Any(tags),
 //				Configuration: pulumi.String(json0),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Data_lake_bucket.Bucket)),
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", dataLakeBucket.Bucket)),
 //					},
 //				},
 //			})

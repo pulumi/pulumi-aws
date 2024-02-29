@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderFlowersBot = new Aws.Lex.Bot("orderFlowersBot", new()
+    ///     var orderFlowersBot = new Aws.Lex.Bot("order_flowers_bot", new()
     ///     {
     ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
     ///         {

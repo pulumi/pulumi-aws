@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePermission = new Permission(&#34;examplePermission&#34;, PermissionArgs.builder()        
+ *         var example = new Permission(&#34;example&#34;, PermissionArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .actions(            
  *                 &#34;IssueCertificate&#34;,

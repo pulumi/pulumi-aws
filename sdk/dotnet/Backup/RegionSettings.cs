@@ -24,11 +24,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var test = new Aws.Backup.RegionSettings("test", new()
     ///     {
-    ///         ResourceTypeManagementPreference = 
-    ///         {
-    ///             { "DynamoDB", true },
-    ///             { "EFS", true },
-    ///         },
     ///         ResourceTypeOptInPreference = 
     ///         {
     ///             { "Aurora", true },
@@ -42,6 +37,11 @@ namespace Pulumi.Aws.Backup
     ///             { "RDS", true },
     ///             { "Storage Gateway", true },
     ///             { "VirtualMachine", true },
+    ///         },
+    ///         ResourceTypeManagementPreference = 
+    ///         {
+    ///             { "DynamoDB", true },
+    ///             { "EFS", true },
     ///         },
     ///     });
     /// 

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.vpclattice.getAuthPolicy({
- *     resourceIdentifier: aws_vpclattice_auth_policy.test.resource_identifier,
+ *     resourceIdentifier: testAwsVpclatticeAuthPolicy.resourceIdentifier,
  * });
  * ```
  */
@@ -76,7 +76,7 @@ export interface GetAuthPolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.vpclattice.getAuthPolicy({
- *     resourceIdentifier: aws_vpclattice_auth_policy.test.resource_identifier,
+ *     resourceIdentifier: testAwsVpclatticeAuthPolicy.resourceIdentifier,
  * });
  * ```
  */

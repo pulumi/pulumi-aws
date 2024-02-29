@@ -33,11 +33,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				ClusterType:       pulumi.String("single-node"),
 //				DatabaseName:      pulumi.String("mydb"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
 //				MasterUsername:    pulumi.String("exampleuser"),
+//				MasterPassword:    pulumi.String("Mustbe8characters"),
 //				NodeType:          pulumi.String("dc1.large"),
+//				ClusterType:       pulumi.String("single-node"),
 //			})
 //			if err != nil {
 //				return err
@@ -63,11 +63,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
 //				ClusterIdentifier:    pulumi.String("tf-redshift-cluster"),
-//				ClusterType:          pulumi.String("single-node"),
 //				DatabaseName:         pulumi.String("mydb"),
-//				ManageMasterPassword: pulumi.Bool(true),
 //				MasterUsername:       pulumi.String("exampleuser"),
 //				NodeType:             pulumi.String("dc1.large"),
+//				ClusterType:          pulumi.String("single-node"),
+//				ManageMasterPassword: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

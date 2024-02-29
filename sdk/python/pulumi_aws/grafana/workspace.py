@@ -645,17 +645,19 @@ class Workspace(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
@@ -709,17 +711,19 @@ class Workspace(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],

@@ -23,16 +23,14 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedPublicVirtualInterface("creator", new()
     ///     {
     ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         OwnerAccountId = accepter.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Name = "vif-foo",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
@@ -46,16 +44,13 @@ namespace Pulumi.Aws.DirectConnect
     ///     });
     /// 
     ///     // Accepter's side of the VIF.
-    ///     var accepterHostedPublicVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", new()
+    ///     var accepterHostedPublicVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepter("accepter", new()
     ///     {
     ///         VirtualInterfaceId = creator.Id,
     ///         Tags = 
     ///         {
     ///             { "Side", "Accepter" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
     ///     });
     /// 
     /// });

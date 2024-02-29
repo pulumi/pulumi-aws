@@ -29,9 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewSubnetGroup(ctx, "default", &neptune.SubnetGroupArgs{
+//				Name: pulumi.String("main"),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Frontend.Id,
-//					aws_subnet.Backend.Id,
+//					frontend.Id,
+//					backend.Id,
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My neptune subnet group"),

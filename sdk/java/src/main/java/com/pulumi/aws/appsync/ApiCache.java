@@ -43,12 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleApiCache = new ApiCache(&#34;exampleApiCache&#34;, ApiCacheArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
+ *             .apiId(example.id())
  *             .apiCachingBehavior(&#34;FULL_REQUEST_CACHING&#34;)
  *             .type(&#34;LARGE&#34;)
  *             .ttl(900)

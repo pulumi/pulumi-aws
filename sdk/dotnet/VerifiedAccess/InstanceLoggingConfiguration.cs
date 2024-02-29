@@ -30,10 +30,10 @@ namespace Pulumi.Aws.VerifiedAccess
     ///             CloudwatchLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs
     ///             {
     ///                 Enabled = true,
-    ///                 LogGroup = aws_cloudwatch_log_group.Example.Id,
+    ///                 LogGroup = exampleAwsCloudwatchLogGroup.Id,
     ///             },
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         {
     ///             KinesisDataFirehose = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
     ///             {
-    ///                 DeliveryStream = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 DeliveryStream = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 Enabled = true,
     ///             },
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
@@ -79,12 +79,12 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         {
     ///             S3 = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsS3Args
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 Enabled = true,
     ///                 Prefix = "example",
     ///             },
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
@@ -106,20 +106,20 @@ namespace Pulumi.Aws.VerifiedAccess
     ///             CloudwatchLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs
     ///             {
     ///                 Enabled = true,
-    ///                 LogGroup = aws_cloudwatch_log_group.Example.Id,
+    ///                 LogGroup = exampleAwsCloudwatchLogGroup.Id,
     ///             },
     ///             KinesisDataFirehose = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
     ///             {
-    ///                 DeliveryStream = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 DeliveryStream = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 Enabled = true,
     ///             },
     ///             S3 = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsS3Args
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 Enabled = true,
     ///             },
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         {
     ///             IncludeTrustContext = true,
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         {
     ///             LogVersion = "ocsf-1.0.0-rc.2",
     ///         },
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });

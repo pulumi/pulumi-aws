@@ -15,8 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
+ * const order = new aws.cloudwatch.EventBus("order", {name: "orders"});
+ * const orderEventArchive = new aws.cloudwatch.EventArchive("order", {
+ *     name: "order-archive",
+ *     eventSourceArn: order.arn,
+ * });
  * ```
  * ## Example all optional arguments
  *
@@ -24,10 +27,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {
+ * const order = new aws.cloudwatch.EventBus("order", {name: "orders"});
+ * const orderEventArchive = new aws.cloudwatch.EventArchive("order", {
+ *     name: "order-archive",
  *     description: "Archived events from order service",
- *     eventSourceArn: orderEventBus.arn,
+ *     eventSourceArn: order.arn,
  *     retentionDays: 7,
  *     eventPattern: JSON.stringify({
  *         source: ["company.team.order"],

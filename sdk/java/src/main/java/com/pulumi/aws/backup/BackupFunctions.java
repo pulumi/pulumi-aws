@@ -496,7 +496,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
@@ -534,7 +534,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
@@ -572,7 +572,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
@@ -610,7 +610,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 

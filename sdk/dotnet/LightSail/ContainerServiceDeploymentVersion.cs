@@ -60,7 +60,7 @@ namespace Pulumi.Aws.LightSail
     ///                 SuccessCodes = "200-499",
     ///             },
     ///         },
-    ///         ServiceName = aws_lightsail_container_service.Example.Name,
+    ///         ServiceName = exampleAwsLightsailContainerService.Name,
     ///     });
     /// 
     /// });

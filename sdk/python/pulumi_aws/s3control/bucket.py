@@ -213,7 +213,7 @@ class Bucket(pulumi.CustomResource):
 
         example = aws.s3control.Bucket("example",
             bucket="example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"])
         ```
 
         ## Import
@@ -249,7 +249,7 @@ class Bucket(pulumi.CustomResource):
 
         example = aws.s3control.Bucket("example",
             bucket="example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"])
         ```
 
         ## Import

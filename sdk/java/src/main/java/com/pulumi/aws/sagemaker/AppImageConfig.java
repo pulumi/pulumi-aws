@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,10 +85,10 @@ import javax.annotation.Nullable;
  *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .fileSystemConfig()
  *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
  *                     .name(&#34;example&#34;)
  *                     .build())
+ *                 .fileSystemConfig()
  *                 .build())
  *             .build());
  * 

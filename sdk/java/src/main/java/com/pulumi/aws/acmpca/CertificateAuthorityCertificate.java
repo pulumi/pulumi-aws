@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate(&#34;exampleCertificateAuthorityCertificate&#34;, CertificateAuthorityCertificateArgs.builder()        
+ *         var example = new CertificateAuthorityCertificate(&#34;example&#34;, CertificateAuthorityCertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificate(exampleCertificate.certificate())
  *             .certificateChain(exampleCertificate.certificateChain())
@@ -126,12 +126,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var rootCertificateAuthority = new CertificateAuthority(&#34;rootCertificateAuthority&#34;);
+ *         var root = new CertificateAuthority(&#34;root&#34;);
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
  *         var subordinateCertificate = new Certificate(&#34;subordinateCertificate&#34;, CertificateArgs.builder()        
- *             .certificateAuthorityArn(rootCertificateAuthority.arn())
+ *             .certificateAuthorityArn(root.arn())
  *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
  *             .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
  *             .templateArn(String.format(&#34;arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var subordinateCertificateAuthorityCertificate = new CertificateAuthorityCertificate(&#34;subordinateCertificateAuthorityCertificate&#34;, CertificateAuthorityCertificateArgs.builder()        
+ *         var subordinate = new CertificateAuthorityCertificate(&#34;subordinate&#34;, CertificateAuthorityCertificateArgs.builder()        
  *             .certificateAuthorityArn(subordinateCertificateAuthority.arn())
  *             .certificate(subordinateCertificate.certificate())
  *             .certificateChain(subordinateCertificate.certificateChain())

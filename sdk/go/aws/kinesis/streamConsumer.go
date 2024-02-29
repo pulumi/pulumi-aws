@@ -32,14 +32,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("example-stream"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewStreamConsumer(ctx, "exampleStreamConsumer", &kinesis.StreamConsumerArgs{
-//				StreamArn: exampleStream.Arn,
+//			_, err = kinesis.NewStreamConsumer(ctx, "example", &kinesis.StreamConsumerArgs{
+//				Name:      pulumi.String("example-consumer"),
+//				StreamArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

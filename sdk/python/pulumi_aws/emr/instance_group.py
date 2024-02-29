@@ -51,7 +51,6 @@ class InstanceGroupArgs:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
@@ -148,7 +147,6 @@ class InstanceGroupArgs:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """
@@ -246,7 +244,6 @@ class _InstanceGroupState:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
@@ -340,7 +337,6 @@ class _InstanceGroupState:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """
@@ -465,9 +461,10 @@ class InstanceGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
+            cluster_id=tf_test_cluster["id"],
             instance_count=1,
-            instance_type="m5.xlarge")
+            instance_type="m5.xlarge",
+            name="my little instance group")
         ```
 
         ## Import
@@ -503,7 +500,6 @@ class InstanceGroup(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
@@ -533,9 +529,10 @@ class InstanceGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
+            cluster_id=tf_test_cluster["id"],
             instance_count=1,
-            instance_type="m5.xlarge")
+            instance_type="m5.xlarge",
+            name="my little instance group")
         ```
 
         ## Import
@@ -645,7 +642,6 @@ class InstanceGroup(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
@@ -721,7 +717,6 @@ class InstanceGroup(pulumi.CustomResource):
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """

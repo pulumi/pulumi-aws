@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewSlotType(ctx, "flowerTypes", &lex.SlotTypeArgs{
+//			_, err := lex.NewSlotType(ctx, "flower_types", &lex.SlotTypeArgs{
 //				CreateVersion: pulumi.Bool(true),
 //				Description:   pulumi.String("Types of flowers to order"),
 //				EnumerationValues: lex.SlotTypeEnumerationValueArray{

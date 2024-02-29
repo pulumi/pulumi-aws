@@ -18,7 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
+ *     name: "my-notebook-instance",
+ *     roleArn: role.arn,
  *     instanceType: "ml.t2.medium",
  *     tags: {
  *         Name: "foo",
@@ -38,7 +39,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
+ *     name: "my-notebook-instance",
+ *     roleArn: role.arn,
  *     instanceType: "ml.t2.medium",
  *     defaultCodeRepository: example.codeRepositoryName,
  *     tags: {

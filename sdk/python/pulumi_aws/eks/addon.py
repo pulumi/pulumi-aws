@@ -509,7 +509,7 @@ class Addon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
@@ -521,50 +521,48 @@ class Addon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="coredns",
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
 
         ## Example add-on usage with custom configuration_values
-
-        Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
-
-        > **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
-
-        To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
-        This below is an example for extracting the `configuration_values` schema for `coredns`.
+        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 
         ```python
         import pulumi
-        ```
-
-        Example to create a `coredns` managed addon with custom `configuration_values`.
-
-        ```python
-        import pulumi
-        import json
         import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
 
-        example = aws.eks.Addon("example",
-            cluster_name="mycluster",
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_create="OVERWRITE",
-            configuration_values=json.dumps({
-                "replicaCount": 4,
-                "resources": {
-                    "limits": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
-                    },
-                    "requests": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
-                    },
-                },
-            }))
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example_cluster.identities[0].oidcs[0].issuer)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example-vpc-cni-role")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            role=example_role.name)
         ```
 
         ## Import
@@ -618,7 +616,7 @@ class Addon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
@@ -630,50 +628,48 @@ class Addon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="coredns",
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
 
         ## Example add-on usage with custom configuration_values
-
-        Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
-
-        > **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
-
-        To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
-        This below is an example for extracting the `configuration_values` schema for `coredns`.
+        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 
         ```python
         import pulumi
-        ```
-
-        Example to create a `coredns` managed addon with custom `configuration_values`.
-
-        ```python
-        import pulumi
-        import json
         import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
 
-        example = aws.eks.Addon("example",
-            cluster_name="mycluster",
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_create="OVERWRITE",
-            configuration_values=json.dumps({
-                "replicaCount": 4,
-                "resources": {
-                    "limits": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
-                    },
-                    "requests": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
-                    },
-                },
-            }))
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example_cluster.identities[0].oidcs[0].issuer)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example-vpc-cni-role")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            role=example_role.name)
         ```
 
         ## Import

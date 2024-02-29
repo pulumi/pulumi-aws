@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
+ * const test = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
+ * const testVpc = new aws.ec2.Vpc("test", {
+ *     ipv4IpamPoolId: test.then(test => test.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```
@@ -170,7 +170,7 @@ export interface GetVpcIamPoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
+ * const test = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -182,8 +182,8 @@ export interface GetVpcIamPoolResult {
  *         },
  *     ],
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
+ * const testVpc = new aws.ec2.Vpc("test", {
+ *     ipv4IpamPoolId: test.then(test => test.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```

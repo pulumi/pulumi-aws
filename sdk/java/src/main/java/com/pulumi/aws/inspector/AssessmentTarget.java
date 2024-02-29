@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new AssessmentTarget(&#34;foo&#34;, AssessmentTargetArgs.builder()        
+ *             .name(&#34;assessment target&#34;)
  *             .resourceGroupArn(bar.arn())
  *             .build());
  * 

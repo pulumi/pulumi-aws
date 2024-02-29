@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Agreement("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         BaseDirectory = "/DOC-EXAMPLE-BUCKET/home/mydirectory",
     ///         Description = "example",
-    ///         LocalProfileId = aws_transfer_profile.Local.Profile_id,
-    ///         PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
-    ///         ServerId = aws_transfer_server.Test.Id,
+    ///         LocalProfileId = local.ProfileId,
+    ///         PartnerProfileId = partner.ProfileId,
+    ///         ServerId = testAwsTransferServer.Id,
     ///     });
     /// 
     /// });

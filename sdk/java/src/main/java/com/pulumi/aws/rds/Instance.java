@@ -90,17 +90,16 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.7&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
- *             .password(&#34;foobarbaz&#34;)
- *             .skipFinalSnapshot(true)
  *             .username(&#34;foo&#34;)
+ *             .password(&#34;foobarbaz&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .skipFinalSnapshot(true)
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### RDS Custom for Oracle Usage with Replica
- * 
  * ```java
  * package generated_program;
  * 
@@ -146,7 +145,7 @@ import javax.annotation.Nullable;
  *             .autoMinorVersionUpgrade(false)
  *             .customIamInstanceProfile(&#34;AWSRDSCustomInstanceProfile&#34;)
  *             .backupRetentionPeriod(7)
- *             .dbSubnetGroupName(local.db_subnet_group_name())
+ *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_oracle.engine())
  *             .engineVersion(custom_oracle.engineVersion())
  *             .identifier(&#34;ee-instance-demo&#34;)
@@ -157,7 +156,6 @@ import javax.annotation.Nullable;
  *             .password(&#34;avoid-plaintext-passwords&#34;)
  *             .username(&#34;test&#34;)
  *             .storageEncrypted(true)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var test_replica = new Instance(&#34;test-replica&#34;, InstanceArgs.builder()        
@@ -172,14 +170,12 @@ import javax.annotation.Nullable;
  *             .multiAz(false)
  *             .skipFinalSnapshot(true)
  *             .storageEncrypted(true)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### RDS Custom for SQL Server
- * 
  * ```java
  * package generated_program;
  * 
@@ -224,7 +220,7 @@ import javax.annotation.Nullable;
  *             .autoMinorVersionUpgrade(false)
  *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceProfile&#34;)
  *             .backupRetentionPeriod(7)
- *             .dbSubnetGroupName(local.db_subnet_group_name())
+ *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_sqlserver.engine())
  *             .engineVersion(custom_sqlserver.engineVersion())
  *             .identifier(&#34;sql-instance-demo&#34;)
@@ -234,7 +230,6 @@ import javax.annotation.Nullable;
  *             .password(&#34;avoid-plaintext-passwords&#34;)
  *             .storageEncrypted(true)
  *             .username(&#34;test&#34;)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -272,7 +267,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;db2-se&#34;)
  *             .build());
  * 
- *         final var exampleOrderableDbInstance = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+ *         final var example = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(default_.engine())
  *             .engineVersion(default_.version())
  *             .licenseModel(&#34;bring-your-own-license&#34;)
@@ -284,6 +279,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;db-db2-params&#34;)
  *             .family(default_.parameterGroupFamily())
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
@@ -302,10 +298,10 @@ import javax.annotation.Nullable;
  *             .allocatedStorage(100)
  *             .backupRetentionPeriod(7)
  *             .dbName(&#34;test&#34;)
- *             .engine(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engine()))
- *             .engineVersion(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engineVersion()))
+ *             .engine(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engine()))
+ *             .engineVersion(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engineVersion()))
  *             .identifier(&#34;db2-instance-demo&#34;)
- *             .instanceClass(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.instanceClass()))
+ *             .instanceClass(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.instanceClass()))
  *             .parameterGroupName(exampleParameterGroup.name())
  *             .password(&#34;avoid-plaintext-passwords&#34;)
  *             .username(&#34;test&#34;)
@@ -379,8 +375,8 @@ import javax.annotation.Nullable;
  *             .engineVersion(&#34;5.7&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
  *             .manageMasterUserPassword(true)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .username(&#34;foo&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .build());
  * 
  *     }

@@ -13,42 +13,6 @@ namespace Pulumi.Aws.LB
     /// Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
     /// 
     /// ## Example Usage
-    /// ### Trust Store Load Balancer Listener
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LB.TrustStore("test", new()
-    ///     {
-    ///         CaCertificatesBundleS3Bucket = "...",
-    ///         CaCertificatesBundleS3Key = "...",
-    ///     });
-    /// 
-    ///     var example = new Aws.LB.Listener("example", new()
-    ///     {
-    ///         LoadBalancerArn = aws_lb.Example.Id,
-    ///         DefaultActions = new[]
-    ///         {
-    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
-    ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Example.Id,
-    ///                 Type = "forward",
-    ///             },
-    ///         },
-    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
-    ///         {
-    ///             Mode = "verify",
-    ///             TrustStoreArn = test.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

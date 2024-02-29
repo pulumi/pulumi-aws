@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetworkServiceAssociation(&#34;example&#34;, ServiceNetworkServiceAssociationArgs.builder()        
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
- *             .serviceNetworkIdentifier(aws_vpclattice_service_network.example().id())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
  *             .build());
  * 
  *     }

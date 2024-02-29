@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Agreement(&#34;example&#34;, AgreementArgs.builder()        
- *             .accessRole(aws_iam_role.test().arn())
+ *             .accessRole(test.arn())
  *             .baseDirectory(&#34;/DOC-EXAMPLE-BUCKET/home/mydirectory&#34;)
  *             .description(&#34;example&#34;)
- *             .localProfileId(aws_transfer_profile.local().profile_id())
- *             .partnerProfileId(aws_transfer_profile.partner().profile_id())
- *             .serverId(aws_transfer_server.test().id())
+ *             .localProfileId(local.profileId())
+ *             .partnerProfileId(partner.profileId())
+ *             .serverId(testAwsTransferServer.id())
  *             .build());
  * 
  *     }

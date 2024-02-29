@@ -52,11 +52,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -102,11 +102,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -152,11 +152,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -202,11 +202,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -252,11 +252,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -302,11 +302,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -516,6 +516,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -541,14 +542,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -562,10 +565,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -603,6 +607,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -628,14 +633,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -649,10 +656,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -690,6 +698,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -715,14 +724,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -736,10 +747,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -777,6 +789,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -802,14 +815,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -823,10 +838,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -864,6 +880,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -889,14 +906,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -910,10 +929,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -951,6 +971,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -976,14 +997,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -997,10 +1020,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())

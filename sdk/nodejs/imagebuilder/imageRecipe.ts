@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",
@@ -38,7 +38,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     parentImage: `arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x`,
+ *     name: "example",
+ *     parentImage: `arn:${current.partition}:imagebuilder:${currentAwsRegion.name}:aws:image/amazon-linux-2-x86/x.x.x`,
  *     version: "1.0.0",
  * });
  * ```

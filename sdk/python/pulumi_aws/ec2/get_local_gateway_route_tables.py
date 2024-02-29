@@ -90,8 +90,8 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateway_route_tables = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo_local_gateway_route_tables.ids)
+    foo = aws.ec2.get_local_gateway_route_tables()
+    pulumi.export("foo", foo.ids)
     ```
 
 
@@ -130,8 +130,8 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateway_route_tables = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo_local_gateway_route_tables.ids)
+    foo = aws.ec2.get_local_gateway_route_tables()
+    pulumi.export("foo", foo.ids)
     ```
 
 

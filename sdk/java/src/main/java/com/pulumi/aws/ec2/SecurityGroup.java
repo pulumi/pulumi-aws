@@ -58,14 +58,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;allow_tls&#34;)
  *             .description(&#34;Allow TLS inbound traffic and all outbound traffic&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
  *             .build());
  * 
  *         var allowTlsIpv4 = new SecurityGroupIngressRule(&#34;allowTlsIpv4&#34;, SecurityGroupIngressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv4(aws_vpc.main().cidr_block())
+ *             .cidrIpv4(main.cidrBlock())
  *             .fromPort(443)
  *             .ipProtocol(&#34;tcp&#34;)
  *             .toPort(443)
@@ -73,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var allowTlsIpv6 = new SecurityGroupIngressRule(&#34;allowTlsIpv6&#34;, SecurityGroupIngressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv6(aws_vpc.main().ipv6_cidr_block())
+ *             .cidrIpv6(main.ipv6CidrBlock())
  *             .fromPort(443)
  *             .ipProtocol(&#34;tcp&#34;)
  *             .toPort(443)
@@ -120,11 +121,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
  *             .egress(SecurityGroupEgressArgs.builder()
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
  *                 .fromPort(0)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
- *                 .protocol(&#34;-1&#34;)
  *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
  *                 .build())
  *             .build());
  * 
@@ -201,7 +202,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .vpcId(aws_vpc.example().id())
+ *             .name(&#34;sg&#34;)
+ *             .vpcId(exampleAwsVpc.id())
  *             .ingress()
  *             .egress()
  *             .build());
@@ -232,6 +234,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -245,7 +248,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;changeable-name&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -262,6 +267,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import java.util.List;
@@ -277,11 +283,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;sg&#34;)
+ *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
  *             .instanceType(&#34;t3.small&#34;)
- *             .vpcSecurityGroupIds(aws_security_group.test().id())
+ *             .vpcSecurityGroupIds(test.id())
  *             .build());
  * 
  *     }
@@ -299,6 +307,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -312,7 +321,80 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;izizavle&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Provisioners
+ * 
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ * 
+ * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.command.local.Command;
+ * import com.pulumi.command.local.CommandArgs;
+ * import com.pulumi.null.resource;
+ * import com.pulumi.null.ResourceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+ *             .name(&#34;default&#34;)
+ *             .build());
+ * 
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;sg&#34;)
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;workaround1&#34;, &#34;tagged-name&#34;),
+ *                 Map.entry(&#34;workaround2&#34;, default_.id())
+ *             ))
+ *             .build());
+ * 
+ *         var exampleProvisioner0 = new Command(&#34;exampleProvisioner0&#34;, CommandArgs.builder()        
+ *             .create(&#34;true&#34;)
+ *             .update(&#34;true&#34;)
+ *             .delete(&#34;&#34;&#34;
+ *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters &#34;Name=tag:Name,Values=%s&#34; --query &#34;VpcEndpoints[0].VpcEndpointId&#34; --output text` &amp;&amp;
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
+ * &#34;, tags.workaround1(),tags.workaround2(),id))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *         var exampleResourceProvisioner0 = new Command(&#34;exampleResourceProvisioner0&#34;, CommandArgs.builder()        
+ *             .create(&#34;&#34;&#34;
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
+ * &#34;, exampleAwsVpcEndpoint.id(),default_.id()))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleResource)
+ *                 .build());
  * 
  *     }
  * }

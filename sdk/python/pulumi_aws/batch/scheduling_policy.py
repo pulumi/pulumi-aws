@@ -174,6 +174,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
+            name="example",
             fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
                 compute_reservation=1,
                 share_decay_seconds=3600,
@@ -222,6 +223,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
+            name="example",
             fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
                 compute_reservation=1,
                 share_decay_seconds=3600,

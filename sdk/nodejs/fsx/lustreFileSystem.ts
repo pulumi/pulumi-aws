@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.LustreFileSystem("example", {
- *     importPath: `s3://${aws_s3_bucket.example.bucket}`,
+ *     importPath: `s3://${exampleAwsS3Bucket.bucket}`,
  *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
+ *     subnetIds: exampleAwsSubnet.id,
  * });
  * ```
  *

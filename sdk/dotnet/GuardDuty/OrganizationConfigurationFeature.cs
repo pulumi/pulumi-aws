@@ -29,9 +29,10 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eksRuntimeMonitoring", new()
+    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eks_runtime_monitoring", new()
     ///     {
     ///         DetectorId = example.Id,
+    ///         Name = "EKS_RUNTIME_MONITORING",
     ///         AutoEnable = "ALL",
     ///         AdditionalConfigurations = new[]
     ///         {

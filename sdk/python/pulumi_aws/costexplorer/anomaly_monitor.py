@@ -247,9 +247,10 @@ class AnomalyMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service_monitor = aws.costexplorer.AnomalyMonitor("serviceMonitor",
-            monitor_dimension="SERVICE",
-            monitor_type="DIMENSIONAL")
+        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
+            name="AWSServiceMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
         ```
         ### Custom Example
 
@@ -259,17 +260,18 @@ class AnomalyMonitor(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```
@@ -308,9 +310,10 @@ class AnomalyMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service_monitor = aws.costexplorer.AnomalyMonitor("serviceMonitor",
-            monitor_dimension="SERVICE",
-            monitor_type="DIMENSIONAL")
+        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
+            name="AWSServiceMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
         ```
         ### Custom Example
 
@@ -320,17 +323,18 @@ class AnomalyMonitor(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```

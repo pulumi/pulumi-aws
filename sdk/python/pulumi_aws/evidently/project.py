@@ -344,6 +344,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
             description="Example Description",
             tags={
                 "Key1": "example Project",
@@ -356,12 +357,13 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
                     log_group="example-log-group-name",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -373,13 +375,14 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -417,6 +420,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
             description="Example Description",
             tags={
                 "Key1": "example Project",
@@ -429,12 +433,13 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
                     log_group="example-log-group-name",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -446,13 +451,14 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })

@@ -29,17 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
+//				Name:      pulumi.String("foo"),
 //				Direction: pulumi.String("INBOUND"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Sg1.Id,
-//					aws_security_group.Sg2.Id,
+//					sg1.Id,
+//					sg2.Id,
 //				},
 //				IpAddresses: route53.ResolverEndpointIpAddressArray{
 //					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
+//						SubnetId: pulumi.Any(sn1.Id),
 //					},
 //					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
+//						SubnetId: pulumi.Any(sn2.Id),
 //						Ip:       pulumi.String("10.0.64.4"),
 //					},
 //				},

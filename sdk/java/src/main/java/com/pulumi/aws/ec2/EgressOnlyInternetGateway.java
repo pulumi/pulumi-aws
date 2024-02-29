@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .assignGeneratedIpv6CidrBlock(true)
  *             .build());
  * 
  *         var exampleEgressOnlyInternetGateway = new EgressOnlyInternetGateway(&#34;exampleEgressOnlyInternetGateway&#34;, EgressOnlyInternetGatewayArgs.builder()        
- *             .vpcId(exampleVpc.id())
+ *             .vpcId(example.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
  *             .build());
  * 

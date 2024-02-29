@@ -30,12 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
+//			example, err := devicefarm.NewProject(ctx, "example", &devicefarm.ProjectArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devicefarm.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm.NetworkProfileArgs{
-//				ProjectArn: exampleProject.Arn,
+//			_, err = devicefarm.NewNetworkProfile(ctx, "example", &devicefarm.NetworkProfileArgs{
+//				Name:       pulumi.String("example"),
+//				ProjectArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

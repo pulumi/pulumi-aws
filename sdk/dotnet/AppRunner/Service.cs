@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppRunner
     ///         {
     ///             AuthenticationConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs
     ///             {
-    ///                 ConnectionArn = aws_apprunner_connection.Example.Arn,
+    ///                 ConnectionArn = exampleAwsApprunnerConnection.Arn,
     ///             },
     ///             CodeRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryArgs
     ///             {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.AppRunner
     ///             EgressConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationEgressConfigurationArgs
     ///             {
     ///                 EgressType = "VPC",
-    ///                 VpcConnectorArn = aws_apprunner_vpc_connector.Connector.Arn,
+    ///                 VpcConnectorArn = connector.Arn,
     ///             },
     ///         },
     ///         Tags = 
@@ -84,7 +84,6 @@ namespace Pulumi.Aws.AppRunner
     ///         ServiceName = "example",
     ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///         {
-    ///             AutoDeploymentsEnabled = false,
     ///             ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
     ///             {
     ///                 ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
@@ -94,6 +93,7 @@ namespace Pulumi.Aws.AppRunner
     ///                 ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
     ///                 ImageRepositoryType = "ECR_PUBLIC",
     ///             },
+    ///             AutoDeploymentsEnabled = false,
     ///         },
     ///         Tags = 
     ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("exampleObservabilityConfiguration", new()
+    ///     var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("example", new()
     ///     {
     ///         ObservabilityConfigurationName = "example",
     ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.AppRunner
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Aws.AppRunner.Service("exampleService", new()
+    ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
     ///         ServiceName = "example",
     ///         ObservabilityConfiguration = new Aws.AppRunner.Inputs.ServiceObservabilityConfigurationArgs

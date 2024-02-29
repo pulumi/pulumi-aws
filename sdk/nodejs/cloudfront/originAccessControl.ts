@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.OriginAccessControl("example", {
+ *     name: "example",
  *     description: "Example Policy",
  *     originAccessControlOriginType: "s3",
  *     signingBehavior: "always",

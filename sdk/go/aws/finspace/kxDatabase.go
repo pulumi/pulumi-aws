@@ -30,21 +30,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Example KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
+//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
+//				Name:     pulumi.String("my-tf-kx-environment"),
+//				KmsKeyId: example.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxDatabase(ctx, "exampleKxDatabase", &finspace.KxDatabaseArgs{
+//			_, err = finspace.NewKxDatabase(ctx, "example", &finspace.KxDatabaseArgs{
 //				EnvironmentId: exampleKxEnvironment.ID(),
+//				Name:          pulumi.String("my-tf-kx-database"),
 //				Description:   pulumi.String("Example database description"),
 //			})
 //			if err != nil {

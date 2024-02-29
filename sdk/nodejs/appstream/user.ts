@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.appstream.User("example", {
  *     authenticationType: "USERPOOL",
+ *     userName: "EMAIL",
  *     firstName: "FIRST NAME",
  *     lastName: "LAST NAME",
- *     userName: "EMAIL",
  * });
  * ```
  *

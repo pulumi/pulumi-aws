@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .build());
  * 
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .retentionProperties(TableRetentionPropertiesArgs.builder()
  *                 .magneticStoreRetentionPeriodInDays(30)
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .schema(TableSchemaArgs.builder()
  *                 .compositePartitionKey(TableSchemaCompositePartitionKeyArgs.builder()

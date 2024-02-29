@@ -21,6 +21,112 @@ import javax.annotation.Nullable;
  * Manages a replicated Region and directory for Multi-Region replication.
  * Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.directoryservice.Directory;
+ * import com.pulumi.aws.directoryservice.DirectoryArgs;
+ * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
+ * import com.pulumi.aws.directoryservice.ServiceRegion;
+ * import com.pulumi.aws.directoryservice.ServiceRegionArgs;
+ * import com.pulumi.aws.directoryservice.inputs.ServiceRegionVpcSettingsArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = AwsFunctions.getRegion();
+ * 
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name(&#34;opt-in-status&#34;)
+ *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Primary&#34;))
+ *             .build());
+ * 
+ *         for (var i = 0; i &lt; 2; i++) {
+ *             new Subnet(&#34;exampleSubnet-&#34; + i, SubnetArgs.builder()            
+ *                 .vpcId(exampleVpc.id())
+ *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names())[range.value()])
+ *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+ *                 .tags(Map.of(&#34;Name&#34;, &#34;Primary&#34;))
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
+ *             .name(&#34;example.com&#34;)
+ *             .password(&#34;SuperSecretPassw0rd&#34;)
+ *             .type(&#34;MicrosoftAD&#34;)
+ *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
+ *                 .vpcId(exampleVpc.id())
+ *                 .subnetIds(exampleSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .build())
+ *             .build());
+ * 
+ *         final var available-secondary = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name(&#34;opt-in-status&#34;)
+ *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_secondary = new Vpc(&#34;example-secondary&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *             .build());
+ * 
+ *         for (var i = 0; i &lt; 2; i++) {
+ *             new Subnet(&#34;example-secondarySubnet-&#34; + i, SubnetArgs.builder()            
+ *                 .vpcId(example_secondary.id())
+ *                 .availabilityZone(available_secondary.names()[range.value()])
+ *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+ *                 .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleServiceRegion = new ServiceRegion(&#34;exampleServiceRegion&#34;, ServiceRegionArgs.builder()        
+ *             .directoryId(exampleDirectory.id())
+ *             .regionName(example.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()
+ *                 .vpcId(example_secondary.id())
+ *                 .subnetIds(example_secondarySubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:

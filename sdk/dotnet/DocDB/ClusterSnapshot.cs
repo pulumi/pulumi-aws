@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var example = new Aws.DocDB.ClusterSnapshot("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_docdb_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsDocdbCluster.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
     ///     });
     /// 

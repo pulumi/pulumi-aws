@@ -28,12 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			demo, err := amp.NewWorkspace(ctx, "demo", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
-//				WorkspaceId: demoWorkspace.ID(),
+//			_, err = amp.NewAlertManagerDefinition(ctx, "demo", &amp.AlertManagerDefinitionArgs{
+//				WorkspaceId: demo.ID(),
 //				Definition: pulumi.String(`alertmanager_config: |
 //	  route:
 //	    receiver: 'default'

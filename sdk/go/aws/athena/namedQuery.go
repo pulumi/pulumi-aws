@@ -32,23 +32,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
+//			hoge, err := s3.NewBucketV2(ctx, "hoge", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tf-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testKey, err := kms.NewKey(ctx, "testKey", &kms.KeyArgs{
+//			test, err := kms.NewKey(ctx, "test", &kms.KeyArgs{
 //				DeletionWindowInDays: pulumi.Int(7),
 //				Description:          pulumi.String("Athena KMS Key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testWorkgroup, err := athena.NewWorkgroup(ctx, "testWorkgroup", &athena.WorkgroupArgs{
+//			testWorkgroup, err := athena.NewWorkgroup(ctx, "test", &athena.WorkgroupArgs{
+//				Name: pulumi.String("example"),
 //				Configuration: &athena.WorkgroupConfigurationArgs{
 //					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
 //						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
 //							EncryptionOption: pulumi.String("SSE_KMS"),
-//							KmsKeyArn:        testKey.Arn,
+//							KmsKeyArn:        test.Arn,
 //						},
 //					},
 //				},
@@ -56,14 +59,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			hogeDatabase, err := athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
+//			hogeDatabase, err := athena.NewDatabase(ctx, "hoge", &athena.DatabaseArgs{
 //				Name:   pulumi.String("users"),
-//				Bucket: hogeBucketV2.ID(),
+//				Bucket: hoge.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = athena.NewNamedQuery(ctx, "foo", &athena.NamedQueryArgs{
+//				Name:      pulumi.String("bar"),
 //				Workgroup: testWorkgroup.ID(),
 //				Database:  hogeDatabase.Name,
 //				Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {

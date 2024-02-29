@@ -22,16 +22,16 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var foo = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
     ///         AvailabilityZone = "us-west-2a",
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-dbsubnet-test-1" },
@@ -42,15 +42,16 @@ namespace Pulumi.Aws.RedShift
     ///     {
     ///         CidrBlock = "10.1.2.0/24",
     ///         AvailabilityZone = "us-west-2b",
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-dbsubnet-test-2" },
     ///         },
     ///     });
     /// 
-    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
+    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         SubnetIds = new[]
     ///         {
     ///             fooSubnet.Id,

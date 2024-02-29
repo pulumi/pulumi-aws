@@ -22,15 +22,15 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("exampleWorkgroup", new()
+    ///     var example = new Aws.RedshiftServerless.Workgroup("example", new()
     ///     {
-    ///         NamespaceName = aws_redshiftserverless_namespace.Example.Namespace_name,
+    ///         NamespaceName = exampleAwsRedshiftserverlessNamespace.NamespaceName,
     ///         WorkgroupName = "example",
     ///     });
     /// 
-    ///     var exampleUsageLimit = new Aws.RedshiftServerless.UsageLimit("exampleUsageLimit", new()
+    ///     var exampleUsageLimit = new Aws.RedshiftServerless.UsageLimit("example", new()
     ///     {
-    ///         ResourceArn = exampleWorkgroup.Arn,
+    ///         ResourceArn = example.Arn,
     ///         UsageType = "serverless-compute",
     ///         Amount = 60,
     ///     });

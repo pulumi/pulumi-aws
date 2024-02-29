@@ -568,7 +568,7 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.ec2.Eip("lb",
-            instance=aws_instance["web"]["id"],
+            instance=web["id"],
             domain="vpc")
         ```
         ### Multiple EIPs associated with a single network interface
@@ -578,7 +578,7 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=aws_subnet["main"]["id"],
+            subnet_id=main["id"],
             private_ips=[
                 "10.0.0.10",
                 "10.0.0.11",
@@ -602,11 +602,10 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type="t2.micro",
@@ -615,8 +614,7 @@ class Eip(pulumi.CustomResource):
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
         ### Allocating EIP from the BYOIP pool
 
@@ -678,7 +676,7 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.ec2.Eip("lb",
-            instance=aws_instance["web"]["id"],
+            instance=web["id"],
             domain="vpc")
         ```
         ### Multiple EIPs associated with a single network interface
@@ -688,7 +686,7 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=aws_subnet["main"]["id"],
+            subnet_id=main["id"],
             private_ips=[
                 "10.0.0.10",
                 "10.0.0.11",
@@ -712,11 +710,10 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type="t2.micro",
@@ -725,8 +722,7 @@ class Eip(pulumi.CustomResource):
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
         ### Allocating EIP from the BYOIP pool
 

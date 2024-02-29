@@ -29,11 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
+//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
+//					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Kendra Thesaurus"),

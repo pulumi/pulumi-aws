@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.backup.getSelection({
- *     planId: data.aws_backup_plan.example.id,
+ *     planId: exampleAwsBackupPlan.id,
  *     selectionId: "selection-id-example",
  * });
  * ```
@@ -75,7 +75,7 @@ export interface GetSelectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.backup.getSelection({
- *     planId: data.aws_backup_plan.example.id,
+ *     planId: exampleAwsBackupPlan.id,
  *     selectionId: "selection-id-example",
  * });
  * ```

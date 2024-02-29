@@ -27,9 +27,9 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_alias.Example.Function_name,
+    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
     ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = aws_lambda_alias.Example.Name,
+    ///         Qualifier = exampleAwsLambdaAlias.Name,
     ///     });
     /// 
     /// });
@@ -46,9 +46,9 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = aws_lambda_function.Example.Version,
+    ///         Qualifier = exampleAwsLambdaFunction.Version,
     ///     });
     /// 
     /// });

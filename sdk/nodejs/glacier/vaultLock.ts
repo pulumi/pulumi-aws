@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVault = new aws.glacier.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleVault = new aws.glacier.Vault("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["glacier:DeleteArchive"],
  *         effect: "Deny",
@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
+ * const exampleVaultLock = new aws.glacier.VaultLock("example", {
  *     completeLock: false,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  *     vaultName: exampleVault.name,
  * });
  * ```
@@ -45,8 +45,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glacier.VaultLock("example", {
  *     completeLock: true,
- *     policy: data.aws_iam_policy_document.example.json,
- *     vaultName: aws_glacier_vault.example.name,
+ *     policy: exampleAwsIamPolicyDocument.json,
+ *     vaultName: exampleAwsGlacierVault.name,
  * });
  * ```
  *

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .description(&#34;example description&#34;)
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .prefix(&#34;+18005&#34;)

@@ -41,25 +41,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("my-test-trail"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+//				Name:                       pulumi.String("example"),
+//				S3BucketName:               exampleBucketV2.ID(),
+//				S3KeyPrefix:                pulumi.String("prefix"),
+//				IncludeGlobalServiceEvents: pulumi.Bool(false),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
@@ -83,7 +93,7 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId)),
 //								},
 //							},
 //						},
@@ -104,7 +114,7 @@ import (
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, currentCallerIdentity.AccountId), nil
+//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
 //							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
@@ -119,29 +129,19 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId)),
 //								},
 //							},
 //						},
 //					},
 //				},
 //			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				S3BucketName:               exampleBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -173,6 +173,8 @@ import (
 //			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
+//						ReadWriteType:           pulumi.String("All"),
+//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::Lambda::Function"),
@@ -181,8 +183,6 @@ import (
 //								},
 //							},
 //						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
 //					},
 //				},
 //			})
@@ -211,6 +211,8 @@ import (
 //			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
+//						ReadWriteType:           pulumi.String("All"),
+//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::S3::Object"),
@@ -219,8 +221,6 @@ import (
 //								},
 //							},
 //						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
 //					},
 //				},
 //			})
@@ -258,6 +258,8 @@ import (
 //			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
+//						ReadWriteType:           pulumi.String("All"),
+//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::S3::Object"),
@@ -266,8 +268,201 @@ import (
 //								},
 //							},
 //						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			not_important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "not-important-bucket-1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			not_important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "not-important-bucket-2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+//				AdvancedEventSelectors: cloudtrail.TrailAdvancedEventSelectorArray{
+//					&cloudtrail.TrailAdvancedEventSelectorArgs{
+//						Name: pulumi.String("Log all S3 objects events except for two S3 buckets"),
+//						FieldSelectors: cloudtrail.TrailAdvancedEventSelectorFieldSelectorArray{
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventCategory"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("Data"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.ARN"),
+//								NotStartsWiths: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("%v/", not_important_bucket_1.Arn)),
+//									pulumi.String(fmt.Sprintf("%v/", not_important_bucket_2.Arn)),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.type"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("AWS::S3::Object"),
+//								},
+//							},
+//						},
+//					},
+//					&cloudtrail.TrailAdvancedEventSelectorArgs{
+//						Name: pulumi.String("Log readOnly and writeOnly management events"),
+//						FieldSelectors: cloudtrail.TrailAdvancedEventSelectorFieldSelectorArray{
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventCategory"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("Management"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "important-bucket-1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "important-bucket-2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			important_bucket_3, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "important-bucket-3",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+//				AdvancedEventSelectors: cloudtrail.TrailAdvancedEventSelectorArray{
+//					&cloudtrail.TrailAdvancedEventSelectorArgs{
+//						Name: pulumi.String("Log PutObject and DeleteObject events for two S3 buckets"),
+//						FieldSelectors: cloudtrail.TrailAdvancedEventSelectorFieldSelectorArray{
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventCategory"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("Data"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventName"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("PutObject"),
+//									pulumi.String("DeleteObject"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.ARN"),
+//								StartsWiths: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("%v/", important_bucket_1.Arn)),
+//									pulumi.String(fmt.Sprintf("%v/", important_bucket_2.Arn)),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("readOnly"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("false"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.type"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("AWS::S3::Object"),
+//								},
+//							},
+//						},
+//					},
+//					&cloudtrail.TrailAdvancedEventSelectorArgs{
+//						Name: pulumi.String("Log Delete* events for one S3 bucket"),
+//						FieldSelectors: cloudtrail.TrailAdvancedEventSelectorFieldSelectorArray{
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventCategory"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("Data"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventName"),
+//								StartsWiths: pulumi.StringArray{
+//									pulumi.String("Delete"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.ARN"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("%v/important-prefix", important_bucket_3.Arn)),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("readOnly"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("false"),
+//								},
+//							},
+//							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.type"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("AWS::S3::Object"),
+//								},
+//							},
+//						},
 //					},
 //				},
 //			})
@@ -296,12 +491,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("Example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+//				CloudWatchLogsGroupArn: example.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf("%v:*", arn), nil
 //				}).(pulumi.StringOutput),
 //			})

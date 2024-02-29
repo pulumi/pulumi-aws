@@ -93,6 +93,35 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         Provides a SageMaker Model Package Group Policy resource.
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        current = aws.get_caller_identity()
+        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AddPermModelPackageGroup",
+            actions=[
+                "sagemaker:DescribeModelPackage",
+                "sagemaker:ListModelPackages",
+            ],
+            resources=[arn],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[current.account_id],
+                type="AWS",
+            )],
+        )]))
+        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
+            model_package_group_name=example_model_package_group.model_package_group_name,
+            resource_policy=json.dumps(not_implemented("jsondecode(data.aws_iam_policy_document.example.json)")))
+        ```
 
         ## Import
 
@@ -116,6 +145,35 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         Provides a SageMaker Model Package Group Policy resource.
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        current = aws.get_caller_identity()
+        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AddPermModelPackageGroup",
+            actions=[
+                "sagemaker:DescribeModelPackage",
+                "sagemaker:ListModelPackages",
+            ],
+            resources=[arn],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[current.account_id],
+                type="AWS",
+            )],
+        )]))
+        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
+            model_package_group_name=example_model_package_group.model_package_group_name,
+            resource_policy=json.dumps(not_implemented("jsondecode(data.aws_iam_policy_document.example.json)")))
+        ```
 
         ## Import
 

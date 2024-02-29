@@ -49,15 +49,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
+//						GatewayId: pulumi.Any(exampleAwsInternetGateway.Id),
 //					},
 //					&ec2.RouteTableRouteArgs{
 //						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
+//						EgressOnlyGatewayId: pulumi.Any(exampleAwsEgressOnlyInternetGateway.Id),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -88,7 +88,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId:  pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:  pulumi.Any(exampleAwsVpc.Id),
 //				Routes: ec2.RouteTableRouteArray{},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -120,14 +120,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//			test, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
-//				VpcId: testVpc.ID(),
+//			_, err = ec2.NewRouteTable(ctx, "test", &ec2.RouteTableArgs{
+//				VpcId: test.ID(),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.1.0.0/16"),
@@ -158,30 +158,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//			test, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testSubnet, err := ec2.NewSubnet(ctx, "testSubnet", &ec2.SubnetArgs{
+//			testSubnet, err := ec2.NewSubnet(ctx, "test", &ec2.SubnetArgs{
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
-//				VpcId:     testVpc.ID(),
+//				VpcId:     test.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "testNetworkInterface", &ec2.NetworkInterfaceArgs{
+//			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
 //				SubnetId: testSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
-//				VpcId: testVpc.ID(),
+//			_, err = ec2.NewRouteTable(ctx, "test", &ec2.RouteTableArgs{
+//				VpcId: test.ID(),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
-//						CidrBlock:          testVpc.CidrBlock,
+//						CidrBlock:          test.CidrBlock,
 //						NetworkInterfaceId: testNetworkInterface.ID(),
 //					},
 //				},

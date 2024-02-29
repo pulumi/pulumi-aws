@@ -32,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3control.NewBucket(ctx, "example", &s3control.BucketArgs{
 //				Bucket:    pulumi.String("example"),
-//				OutpostId: pulumi.Any(data.Aws_outposts_outpost.Example.Id),
+//				OutpostId: pulumi.Any(exampleAwsOutpostsOutpost.Id),
 //			})
 //			if err != nil {
 //				return err

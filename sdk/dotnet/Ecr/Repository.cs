@@ -24,11 +24,12 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var foo = new Aws.Ecr.Repository("foo", new()
     ///     {
+    ///         Name = "bar",
+    ///         ImageTagMutability = "MUTABLE",
     ///         ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
     ///         {
     ///             ScanOnPush = true,
     ///         },
-    ///         ImageTagMutability = "MUTABLE",
     ///     });
     /// 
     /// });

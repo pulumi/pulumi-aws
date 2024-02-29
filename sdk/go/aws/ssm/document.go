@@ -33,6 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
+//				Name:         pulumi.String("test_document"),
+//				DocumentType: pulumi.String("Command"),
 //				Content: pulumi.String(`  {
 //	    "schemaVersion": "1.2",
 //	    "description": "Check ip configuration of a Linux instance.",
@@ -53,7 +55,6 @@ import (
 //
 // `),
 //
-//				DocumentType: pulumi.String("Command"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,6 +79,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
+//				Name:           pulumi.String("test_document"),
+//				DocumentFormat: pulumi.String("YAML"),
+//				DocumentType:   pulumi.String("Command"),
 //				Content: pulumi.String(`schemaVersion: '1.2'
 //
 // description: Check ip configuration of a Linux instance.
@@ -92,8 +96,6 @@ import (
 //
 // `),
 //
-//				DocumentFormat: pulumi.String("YAML"),
-//				DocumentType:   pulumi.String("Command"),
 //			})
 //			if err != nil {
 //				return err

@@ -61,7 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+//			_, err = route53.NewRecord(ctx, "example_amazonses_verification_record", &route53.RecordArgs{
 //				ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //				Name:   pulumi.String("_amazonses.example.com"),
 //				Type:   pulumi.String("TXT"),

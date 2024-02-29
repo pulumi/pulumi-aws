@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
     ///     {
+    ///         Name = "wu-tang",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -92,6 +93,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
     ///     {
+    ///         Name = "wu-tang",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",

@@ -208,6 +208,51 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
     This is different from the `get_availability_zones` (plural) data source,
     which provides a list of the available zones.
 
+    ## Example Usage
+
+    The following example shows how this data source might be used to derive
+    VPC and subnet CIDR prefixes systematically for an availability zone.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    config = pulumi.Config()
+    region_number = config.get_object("regionNumber")
+    if region_number is None:
+        region_number = {
+            "ap-northeast-1": 5,
+            "eu-central-1": 4,
+            "us-east-1": 1,
+            "us-west-1": 2,
+            "us-west-2": 3,
+        }
+    az_number = config.get_object("azNumber")
+    if az_number is None:
+        az_number = {
+            "a": 1,
+            "b": 2,
+            "c": 3,
+            "d": 4,
+            "e": 5,
+            "f": 6,
+        }
+    # Retrieve the AZ where we want to create network resources
+    # This must be in the region selected on the AWS provider.
+    example = aws.get_availability_zone(name="eu-central-1a")
+    # Create a VPC for the region associated with the AZ
+    example_vpc = aws.ec2.Vpc("example", cidr_block=std.cidrsubnet(input="10.0.0.0/8",
+        newbits=4,
+        netnum=region_number[example.region]).result)
+    # Create a subnet for the AZ within the regional VPC
+    example_subnet = aws.ec2.Subnet("example",
+        vpc_id=example_vpc.id,
+        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+            newbits=4,
+            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
+    ```
+
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -260,6 +305,51 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
 
     This is different from the `get_availability_zones` (plural) data source,
     which provides a list of the available zones.
+
+    ## Example Usage
+
+    The following example shows how this data source might be used to derive
+    VPC and subnet CIDR prefixes systematically for an availability zone.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    config = pulumi.Config()
+    region_number = config.get_object("regionNumber")
+    if region_number is None:
+        region_number = {
+            "ap-northeast-1": 5,
+            "eu-central-1": 4,
+            "us-east-1": 1,
+            "us-west-1": 2,
+            "us-west-2": 3,
+        }
+    az_number = config.get_object("azNumber")
+    if az_number is None:
+        az_number = {
+            "a": 1,
+            "b": 2,
+            "c": 3,
+            "d": 4,
+            "e": 5,
+            "f": 6,
+        }
+    # Retrieve the AZ where we want to create network resources
+    # This must be in the region selected on the AWS provider.
+    example = aws.get_availability_zone(name="eu-central-1a")
+    # Create a VPC for the region associated with the AZ
+    example_vpc = aws.ec2.Vpc("example", cidr_block=std.cidrsubnet(input="10.0.0.0/8",
+        newbits=4,
+        netnum=region_number[example.region]).result)
+    # Create a subnet for the AZ within the regional VPC
+    example_subnet = aws.ec2.Subnet("example",
+        vpc_id=example_vpc.id,
+        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+            newbits=4,
+            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
+    ```
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

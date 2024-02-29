@@ -34,7 +34,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := iam.NewUser(ctx, "user", nil)
+//			user, err := iam.NewUser(ctx, "user", &iam.UserArgs{
+//				Name: pulumi.String("test-user"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -60,16 +62,19 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Name:             pulumi.String("test-role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			group, err := iam.NewGroup(ctx, "group", nil)
+//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
+//				Name: pulumi.String("test-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -85,14 +90,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			policyPolicy, err := iam.NewPolicy(ctx, "policyPolicy", &iam.PolicyArgs{
+//			policyPolicy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test-policy"),
 //				Description: pulumi.String("A test policy"),
-//				Policy:      *pulumi.String(policyPolicyDocument.Json),
+//				Policy:      *pulumi.String(policy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
+//				Name: pulumi.String("test-attachment"),
 //				Users: pulumi.Array{
 //					user.Name,
 //				},

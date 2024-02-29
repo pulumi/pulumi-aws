@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.SubnetCidrReservation("example", {
  *     cidrBlock: "10.0.0.16/28",
  *     reservationType: "prefix",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
  *

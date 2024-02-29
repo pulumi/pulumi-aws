@@ -25,11 +25,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "EntireBucket",
     ///         Tierings = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
@@ -57,11 +61,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///         Status = "Disabled",
     ///         Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
     ///         {

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var test = Aws.VpcLattice.GetAuthPolicy.Invoke(new()
         ///     {
-        ///         ResourceIdentifier = aws_vpclattice_auth_policy.Test.Resource_identifier,
+        ///         ResourceIdentifier = testAwsVpclatticeAuthPolicy.ResourceIdentifier,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var test = Aws.VpcLattice.GetAuthPolicy.Invoke(new()
         ///     {
-        ///         ResourceIdentifier = aws_vpclattice_auth_policy.Test.Resource_identifier,
+        ///         ResourceIdentifier = testAwsVpclatticeAuthPolicy.ResourceIdentifier,
         ///     });
         /// 
         /// });

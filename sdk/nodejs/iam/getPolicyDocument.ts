@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "1",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             actions: ["s3:ListBucket"],
- *             resources: [`arn:aws:s3:::${_var.s3_bucket_name}`],
+ *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "s3:prefix",
@@ -45,60 +45,17 @@ import * as utilities from "../utilities";
  *         {
  *             actions: ["s3:*"],
  *             resources: [
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}`,
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}/*`,
+ *                 `arn:aws:s3:::${s3BucketName}/home/&{aws:username}`,
+ *                 `arn:aws:s3:::${s3BucketName}/home/&{aws:username}/*`,
  *             ],
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example_policy",
  *     path: "/",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * ```
- * ### Example Multiple Condition Keys and Values
- *
- * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleMultipleConditionKeysAndValues = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "kms:Decrypt",
- *             "kms:GenerateDataKey",
- *         ],
- *         conditions: [
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: ["pi"],
- *                 variable: "kms:EncryptionContext:service",
- *             },
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: ["rds"],
- *                 variable: "kms:EncryptionContext:aws:pi:service",
- *             },
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: [
- *                     "db-AAAAABBBBBCCCCCDDDDDEEEEE",
- *                     "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
- *                 ],
- *                 variable: "kms:EncryptionContext:aws:rds:db-id",
- *             },
- *         ],
- *         resources: ["*"],
- *     }],
- * });
- * ```
- *
- * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * ### Example Assume-Role Policy with Multiple Principals
  *
@@ -118,229 +75,18 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 type: "AWS",
- *                 identifiers: [_var.trusted_role_arn],
+ *                 identifiers: [trustedRoleArn],
  *             },
  *             {
  *                 type: "Federated",
  *                 identifiers: [
- *                     `arn:aws:iam::${_var.account_id}:saml-provider/${_var.provider_name}`,
+ *                     `arn:aws:iam::${accountId}:saml-provider/${providerName}`,
  *                     "cognito-identity.amazonaws.com",
  *                 ],
  *             },
  *         ],
  *     }],
  * });
- * ```
- * ### Example Using A Source Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverride",
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const sourceDocumentExample = source.then(source => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [source.json],
- *     statements: [{
- *         sid: "SidToOverride",
- *         actions: ["s3:*"],
- *         resources: [
- *             "arn:aws:s3:::somebucket",
- *             "arn:aws:s3:::somebucket/*",
- *         ],
- *     }],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example Using An Override Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "SidToOverride",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const overridePolicyDocumentExample = override.then(override => aws.iam.getPolicyDocument({
- *     overridePolicyDocuments: [override.json],
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverride",
- *             actions: ["s3:*"],
- *             resources: [
- *                 "arn:aws:s3:::somebucket",
- *                 "arn:aws:s3:::somebucket/*",
- *             ],
- *         },
- *     ],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example with Both Source and Override Documents
- *
- * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *     }],
- * });
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["s3:GetObject"],
- *         resources: ["*"],
- *     }],
- * });
- * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [source.json],
- *     overridePolicyDocuments: [override.json],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.politik.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example of Merging Source Documents
- *
- * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sourceOne = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "UniqueSidOne",
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const sourceTwo = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "UniqueSidTwo",
- *             actions: ["iam:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             actions: ["lambda:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const combined = Promise.all([sourceOne, sourceTwo]).then(([sourceOne, sourceTwo]) => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [
- *         sourceOne.json,
- *         sourceTwo.json,
- *     ],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.combined.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example of Merging Override Documents
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const policyOne = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceHolderOne",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const policyTwo = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             effect: "Allow",
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "OverridePlaceHolderTwo",
- *             effect: "Allow",
- *             actions: ["iam:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const policyThree = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceHolderOne",
- *         effect: "Deny",
- *         actions: ["logs:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const combined = Promise.all([policyOne, policyTwo, policyThree]).then(([policyOne, policyTwo, policyThree]) => aws.iam.getPolicyDocument({
- *     overridePolicyDocuments: [
- *         policyOne.json,
- *         policyTwo.json,
- *         policyThree.json,
- *     ],
- *     statements: [{
- *         sid: "OverridePlaceHolderTwo",
- *         effect: "Deny",
- *         actions: ["*"],
- *         resources: ["*"],
- *     }],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.combined.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
@@ -412,7 +158,7 @@ export interface GetPolicyDocumentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "1",
@@ -424,7 +170,7 @@ export interface GetPolicyDocumentResult {
  *         },
  *         {
  *             actions: ["s3:ListBucket"],
- *             resources: [`arn:aws:s3:::${_var.s3_bucket_name}`],
+ *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "s3:prefix",
@@ -438,60 +184,17 @@ export interface GetPolicyDocumentResult {
  *         {
  *             actions: ["s3:*"],
  *             resources: [
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}`,
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}/*`,
+ *                 `arn:aws:s3:::${s3BucketName}/home/&{aws:username}`,
+ *                 `arn:aws:s3:::${s3BucketName}/home/&{aws:username}/*`,
  *             ],
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example_policy",
  *     path: "/",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * ```
- * ### Example Multiple Condition Keys and Values
- *
- * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleMultipleConditionKeysAndValues = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "kms:Decrypt",
- *             "kms:GenerateDataKey",
- *         ],
- *         conditions: [
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: ["pi"],
- *                 variable: "kms:EncryptionContext:service",
- *             },
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: ["rds"],
- *                 variable: "kms:EncryptionContext:aws:pi:service",
- *             },
- *             {
- *                 test: "ForAnyValue:StringEquals",
- *                 values: [
- *                     "db-AAAAABBBBBCCCCCDDDDDEEEEE",
- *                     "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
- *                 ],
- *                 variable: "kms:EncryptionContext:aws:rds:db-id",
- *             },
- *         ],
- *         resources: ["*"],
- *     }],
- * });
- * ```
- *
- * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * ### Example Assume-Role Policy with Multiple Principals
  *
@@ -511,229 +214,18 @@ export interface GetPolicyDocumentResult {
  *             },
  *             {
  *                 type: "AWS",
- *                 identifiers: [_var.trusted_role_arn],
+ *                 identifiers: [trustedRoleArn],
  *             },
  *             {
  *                 type: "Federated",
  *                 identifiers: [
- *                     `arn:aws:iam::${_var.account_id}:saml-provider/${_var.provider_name}`,
+ *                     `arn:aws:iam::${accountId}:saml-provider/${providerName}`,
  *                     "cognito-identity.amazonaws.com",
  *                 ],
  *             },
  *         ],
  *     }],
  * });
- * ```
- * ### Example Using A Source Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverride",
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const sourceDocumentExample = source.then(source => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [source.json],
- *     statements: [{
- *         sid: "SidToOverride",
- *         actions: ["s3:*"],
- *         resources: [
- *             "arn:aws:s3:::somebucket",
- *             "arn:aws:s3:::somebucket/*",
- *         ],
- *     }],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example Using An Override Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "SidToOverride",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const overridePolicyDocumentExample = override.then(override => aws.iam.getPolicyDocument({
- *     overridePolicyDocuments: [override.json],
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverride",
- *             actions: ["s3:*"],
- *             resources: [
- *                 "arn:aws:s3:::somebucket",
- *                 "arn:aws:s3:::somebucket/*",
- *             ],
- *         },
- *     ],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example with Both Source and Override Documents
- *
- * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *     }],
- * });
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["s3:GetObject"],
- *         resources: ["*"],
- *     }],
- * });
- * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [source.json],
- *     overridePolicyDocuments: [override.json],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.politik.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example of Merging Source Documents
- *
- * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sourceOne = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "UniqueSidOne",
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const sourceTwo = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "UniqueSidTwo",
- *             actions: ["iam:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             actions: ["lambda:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const combined = Promise.all([sourceOne, sourceTwo]).then(([sourceOne, sourceTwo]) => aws.iam.getPolicyDocument({
- *     sourcePolicyDocuments: [
- *         sourceOne.json,
- *         sourceTwo.json,
- *     ],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.combined.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * ### Example of Merging Override Documents
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const policyOne = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceHolderOne",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const policyTwo = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             effect: "Allow",
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "OverridePlaceHolderTwo",
- *             effect: "Allow",
- *             actions: ["iam:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const policyThree = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceHolderOne",
- *         effect: "Deny",
- *         actions: ["logs:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const combined = Promise.all([policyOne, policyTwo, policyThree]).then(([policyOne, policyTwo, policyThree]) => aws.iam.getPolicyDocument({
- *     overridePolicyDocuments: [
- *         policyOne.json,
- *         policyTwo.json,
- *         policyThree.json,
- *     ],
- *     statements: [{
- *         sid: "OverridePlaceHolderTwo",
- *         effect: "Deny",
- *         actions: ["*"],
- *         resources: ["*"],
- *     }],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.combined.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  */
 export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDocumentResult> {

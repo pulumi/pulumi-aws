@@ -31,24 +31,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", &s3.BucketV2Args{
+//			test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("tf-test"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testWorkgroup, err := athena.NewWorkgroup(ctx, "testWorkgroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testDatabase, err := athena.NewDatabase(ctx, "testDatabase", &athena.DatabaseArgs{
-//				Name:   pulumi.String("example"),
-//				Bucket: testBucketV2.Bucket,
+//			testWorkgroup, err := athena.NewWorkgroup(ctx, "test", &athena.WorkgroupArgs{
+//				Name: pulumi.String("tf-test"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = athena.NewPreparedStatement(ctx, "testPreparedStatement", &athena.PreparedStatementArgs{
+//			testDatabase, err := athena.NewDatabase(ctx, "test", &athena.DatabaseArgs{
+//				Name:   pulumi.String("example"),
+//				Bucket: test.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = athena.NewPreparedStatement(ctx, "test", &athena.PreparedStatementArgs{
+//				Name: pulumi.String("tf_test"),
 //				QueryStatement: testDatabase.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("SELECT * FROM %v WHERE x = ?", name), nil
 //				}).(pulumi.StringOutput),

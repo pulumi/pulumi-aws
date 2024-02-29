@@ -15,11 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket});
- * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
- *     dependsOn: [fooDeliveryChannel],
- * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -30,25 +25,41 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
- *     role: role.name,
+ * const r = new aws.iam.Role("r", {
+ *     name: "example-awsconfig",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const fooRecorder = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: r.arn,
+ * });
+ * const foo = new aws.cfg.RecorderStatus("foo", {
+ *     name: fooRecorder.name,
+ *     isEnabled: true,
+ * });
+ * const a = new aws.iam.RolePolicyAttachment("a", {
+ *     role: r.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
  * });
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const policyDocument = aws.iam.getPolicyDocumentOutput({
+ * const b = new aws.s3.BucketV2("b", {bucket: "awsconfig-example"});
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
+ *     s3BucketName: b.bucket,
+ * });
+ * const p = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["s3:*"],
  *         resources: [
- *             bucketV2.arn,
- *             pulumi.interpolate`${bucketV2.arn}/*`,
+ *             b.arn,
+ *             pulumi.interpolate`${b.arn}/*`,
  *         ],
  *     }],
  * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.apply(policyDocument => policyDocument.json),
+ * const pRolePolicy = new aws.iam.RolePolicy("p", {
+ *     name: "awsconfig-example",
+ *     role: r.id,
+ *     policy: p.apply(p => p.json),
  * });
  * ```
  *

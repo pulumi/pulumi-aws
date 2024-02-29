@@ -35,18 +35,18 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentSessionContext = Aws.Iam.GetSessionContext.Invoke(new()
+    ///     var currentGetSessionContext = Aws.Iam.GetSessionContext.Invoke(new()
     ///     {
-    ///         Arn = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///         Arn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///     });
     /// 
     ///     var test = new Aws.LakeFormation.DataLakeSettings("test", new()
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             currentSessionContext.Apply(getSessionContextResult =&gt; getSessionContextResult.IssuerArn),
+    ///             currentGetSessionContext.Apply(getSessionContextResult =&gt; getSessionContextResult.IssuerArn),
     ///         },
     ///     });
     /// 
@@ -76,15 +76,15 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "sadabate",
     ///     });
     /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "abelt",
-    ///         DatabaseName = aws_glue_catalog_database.Test.Name,
+    ///         DatabaseName = test.Name,
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
     ///             Columns = new[]
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var examplePermissions = new Aws.LakeFormation.Permissions("examplePermissions", new()
+    ///     var examplePermissions = new Aws.LakeFormation.Permissions("example", new()
     ///     {
     ///         PermissionDetails = new[]
     ///         {
@@ -146,14 +146,14 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "DATA_LOCATION_ACCESS",
     ///         },
     ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
     ///         {
-    ///             Arn = aws_lakeformation_resource.Example.Arn,
+    ///             Arn = exampleAwsLakeformationResource.Arn,
     ///         },
     ///     });
     /// 
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "CREATE_TABLE",
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             Name = exampleAwsGlueCatalogDatabase.Name,
     ///             CatalogId = "110376042874",
     ///         },
     ///     });
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var test = new Aws.LakeFormation.Permissions("test", new()
     ///     {
-    ///         Principal = aws_iam_role.Sales_role.Arn,
+    ///         Principal = salesRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "CREATE_TABLE",

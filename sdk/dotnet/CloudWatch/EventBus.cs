@@ -24,7 +24,10 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
+    ///     var messenger = new Aws.CloudWatch.EventBus("messenger", new()
+    ///     {
+    ///         Name = "chat-messages",
+    ///     });
     /// 
     /// });
     /// ```
@@ -37,14 +40,15 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplepartnerEventSource = Aws.CloudWatch.GetEventSource.Invoke(new()
+    ///     var examplepartner = Aws.CloudWatch.GetEventSource.Invoke(new()
     ///     {
     ///         NamePrefix = "aws.partner/examplepartner.com",
     ///     });
     /// 
-    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartnerEventBus", new()
+    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartner", new()
     ///     {
-    ///         EventSourceName = examplepartnerEventSource.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///         Name = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///         EventSourceName = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
     ///     });
     /// 
     /// });

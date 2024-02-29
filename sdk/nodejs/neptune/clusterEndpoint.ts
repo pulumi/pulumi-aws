@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ClusterEndpoint("example", {
- *     clusterIdentifier: aws_neptune_cluster.test.cluster_identifier,
+ *     clusterIdentifier: test.clusterIdentifier,
  *     clusterEndpointIdentifier: "example",
  *     endpointType: "READER",
  * });

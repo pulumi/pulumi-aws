@@ -37,16 +37,16 @@ namespace Pulumi.Aws.Rds
         /// 
         ///     // Use the last snapshot of the dev database before it was destroyed to create
         ///     // a new dev database.
-        ///     var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new()
+        ///     var aurora = new Aws.Rds.Cluster("aurora", new()
         ///     {
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });
         /// 
-        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new()
+        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
         ///     {
-        ///         ClusterIdentifier = auroraCluster.Id,
+        ///         ClusterIdentifier = aurora.Id,
         ///         InstanceClass = "db.t2.small",
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });
@@ -85,16 +85,16 @@ namespace Pulumi.Aws.Rds
         /// 
         ///     // Use the last snapshot of the dev database before it was destroyed to create
         ///     // a new dev database.
-        ///     var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new()
+        ///     var aurora = new Aws.Rds.Cluster("aurora", new()
         ///     {
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });
         /// 
-        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new()
+        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
         ///     {
-        ///         ClusterIdentifier = auroraCluster.Id,
+        ///         ClusterIdentifier = aurora.Id,
         ///         InstanceClass = "db.t2.small",
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });

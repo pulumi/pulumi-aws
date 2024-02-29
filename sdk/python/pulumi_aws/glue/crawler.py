@@ -808,8 +808,9 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             dynamodb_targets=[aws.glue.CrawlerDynamodbTargetArgs(
                 path="table-name",
             )])
@@ -821,10 +822,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
@@ -835,10 +837,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['example']['bucket']}",
+                path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
         ### Catalog Target Example
@@ -848,11 +851,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                tables=[aws_glue_catalog_table["example"]["name"]],
+                database_name=example_aws_glue_catalog_database["name"],
+                tables=[example_aws_glue_catalog_table["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
                 delete_behavior="LOG",
@@ -872,10 +876,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
@@ -886,24 +891,25 @@ class Crawler(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        events_crawler = aws.glue.Crawler("eventsCrawler",
-            database_name=aws_glue_catalog_database["glue_database"]["name"],
+        events_crawler = aws.glue.Crawler("events_crawler",
+            database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
-            role=aws_iam_role["glue_role"]["arn"],
-            tags=var["tags"],
+            name=f"events_crawler_{environment_name}",
+            role=glue_role["arn"],
+            tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['data_lake_bucket']['bucket']}",
+                path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
 
@@ -957,8 +963,9 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             dynamodb_targets=[aws.glue.CrawlerDynamodbTargetArgs(
                 path="table-name",
             )])
@@ -970,10 +977,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
@@ -984,10 +992,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['example']['bucket']}",
+                path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
         ### Catalog Target Example
@@ -997,11 +1006,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                tables=[aws_glue_catalog_table["example"]["name"]],
+                database_name=example_aws_glue_catalog_database["name"],
+                tables=[example_aws_glue_catalog_table["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
                 delete_behavior="LOG",
@@ -1021,10 +1031,11 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
@@ -1035,24 +1046,25 @@ class Crawler(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        events_crawler = aws.glue.Crawler("eventsCrawler",
-            database_name=aws_glue_catalog_database["glue_database"]["name"],
+        events_crawler = aws.glue.Crawler("events_crawler",
+            database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
-            role=aws_iam_role["glue_role"]["arn"],
-            tags=var["tags"],
+            name=f"events_crawler_{environment_name}",
+            role=glue_role["arn"],
+            tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['data_lake_bucket']['bucket']}",
+                path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
 

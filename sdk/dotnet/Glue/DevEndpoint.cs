@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -49,13 +49,15 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "AWSGlueServiceRole-foo",
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleDevEndpoint = new Aws.Glue.DevEndpoint("exampleDevEndpoint", new()
+    ///     var exampleDevEndpoint = new Aws.Glue.DevEndpoint("example", new()
     ///     {
+    ///         Name = "foo",
     ///         RoleArn = exampleRole.Arn,
     ///     });
     /// 

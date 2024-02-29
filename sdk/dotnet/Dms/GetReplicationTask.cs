@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationTask.Invoke(new()
         ///     {
-        ///         ReplicationTaskId = aws_dms_replication_task.Test.Replication_task_id,
+        ///         ReplicationTaskId = testAwsDmsReplicationTask.ReplicationTaskId,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationTask.Invoke(new()
         ///     {
-        ///         ReplicationTaskId = aws_dms_replication_task.Test.Replication_task_id,
+        ///         ReplicationTaskId = testAwsDmsReplicationTask.ReplicationTaskId,
         ///     });
         /// 
         /// });

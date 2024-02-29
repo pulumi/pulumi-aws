@@ -13,14 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["*"],
  *         resources: ["*"],
  *     }],
  * });
- * const examplePolicy = new aws.organizations.Policy("examplePolicy", {content: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
+ * const examplePolicy = new aws.organizations.Policy("example", {
+ *     name: "example",
+ *     content: example.then(example => example.json),
+ * });
  * ```
  *
  * ## Import

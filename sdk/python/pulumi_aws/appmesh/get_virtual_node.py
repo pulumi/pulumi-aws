@@ -158,8 +158,8 @@ def get_virtual_node(mesh_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_node(mesh_name="example-mesh",
-        name="serviceBv1")
+    test = aws.appmesh.get_virtual_node(name="serviceBv1",
+        mesh_name="example-mesh")
     ```
 
 
@@ -204,8 +204,8 @@ def get_virtual_node_output(mesh_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_node(mesh_name="example-mesh",
-        name="serviceBv1")
+    test = aws.appmesh.get_virtual_node(name="serviceBv1",
+        mesh_name="example-mesh")
     ```
 
 

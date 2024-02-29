@@ -106,10 +106,10 @@ class TrackerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
+        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example_tracker = aws.location.Tracker("example", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("example",
+            consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
 
@@ -141,10 +141,10 @@ class TrackerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
+        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example_tracker = aws.location.Tracker("example", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("example",
+            consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
 

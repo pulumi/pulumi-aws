@@ -211,9 +211,14 @@ class LandingZone(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         example = aws.controltower.LandingZone("example",
-            manifest_json=(lambda path: open(path).read())(f"{path['module']}/LandingZoneManifest.json"),
+            manifest_json=std.file(input=f"{not_implemented('path.module')}/LandingZoneManifest.json").result,
             version="3.2")
         ```
 
@@ -246,9 +251,14 @@ class LandingZone(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         example = aws.controltower.LandingZone("example",
-            manifest_json=(lambda path: open(path).read())(f"{path['module']}/LandingZoneManifest.json"),
+            manifest_json=std.file(input=f"{not_implemented('path.module')}/LandingZoneManifest.json").result,
             version="3.2")
         ```
 

@@ -138,14 +138,16 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.domain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -157,7 +159,7 @@ class Instance(pulumi.CustomResource):
             health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
                 failure_threshold=1,
             ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
@@ -170,9 +172,13 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="example.domain.test",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
+            namespace_id=example.id)
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
@@ -209,14 +215,16 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.domain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -228,7 +236,7 @@ class Instance(pulumi.CustomResource):
             health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
                 failure_threshold=1,
             ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
@@ -241,9 +249,13 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="example.domain.test",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
+            namespace_id=example.id)
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={

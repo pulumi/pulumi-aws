@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudtrail.EventDataStore("example", {});
+ * const example = new aws.cloudtrail.EventDataStore("example", {name: "example-event-data-store"});
  * ```
  * ### Data Event Logging
  *
@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  * const table = aws.dynamodb.getTable({
  *     name: "not-important-dynamodb-table",
  * });
- * // ... other configuration ...
  * const example = new aws.cloudtrail.EventDataStore("example", {advancedEventSelectors: [{
  *     name: "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
  *     fieldSelectors: [

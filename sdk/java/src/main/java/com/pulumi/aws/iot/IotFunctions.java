@@ -28,8 +28,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -45,7 +45,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -70,8 +70,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -87,7 +87,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -112,8 +112,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -129,7 +129,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -154,8 +154,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -171,7 +171,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -196,8 +196,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -213,7 +213,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -238,8 +238,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -255,7 +255,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -299,13 +299,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -350,13 +350,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -401,13 +401,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -452,13 +452,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -503,13 +503,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -554,13 +554,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())

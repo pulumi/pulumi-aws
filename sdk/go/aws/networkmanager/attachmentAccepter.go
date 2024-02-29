@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Attachment_type),
+//				AttachmentId:   pulumi.Any(vpc.Id),
+//				AttachmentType: pulumi.Any(vpc.AttachmentType),
 //			})
 //			if err != nil {
 //				return err
@@ -56,8 +56,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type),
+//				AttachmentId:   pulumi.Any(vpn.Id),
+//				AttachmentType: pulumi.Any(vpn.AttachmentType),
 //			})
 //			if err != nil {
 //				return err

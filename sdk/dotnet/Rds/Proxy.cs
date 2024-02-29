@@ -24,18 +24,19 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
+    ///         Name = "example",
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
     ///         IdleClientTimeout = 1800,
     ///         RequireTls = true,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         VpcSubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         Auths = new[]
     ///         {
@@ -44,7 +45,7 @@ namespace Pulumi.Aws.Rds
     ///                 AuthScheme = "SECRETS",
     ///                 Description = "example",
     ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
     ///             },
     ///         },
     ///         Tags = 

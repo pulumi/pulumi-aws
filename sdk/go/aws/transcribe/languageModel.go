@@ -36,7 +36,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -56,22 +56,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"s3:GetObject",
 //							"s3:ListBucket",
 //						},
-//						"Effect": "Allow",
-//						"Resource": []string{
+//						"effect": "Allow",
+//						"resource": []string{
 //							"*",
 //						},
 //					},
@@ -81,14 +82,16 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = iam.NewRolePolicy(ctx, "testPolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "test_policy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("example"),
 //				Role:   exampleRole.ID(),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example-transcribe"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -102,7 +105,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transcribe.NewLanguageModel(ctx, "exampleLanguageModel", &transcribe.LanguageModelArgs{
+//			_, err = transcribe.NewLanguageModel(ctx, "example", &transcribe.LanguageModelArgs{
 //				ModelName:     pulumi.String("example"),
 //				BaseModelName: pulumi.String("NarrowBand"),
 //				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{

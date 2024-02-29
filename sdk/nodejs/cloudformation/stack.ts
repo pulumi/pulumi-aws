@@ -14,27 +14,28 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const network = new aws.cloudformation.Stack("network", {
+ *     name: "networking-stack",
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
  *     },
  *     templateBody: JSON.stringify({
- *         Parameters: {
- *             VPCCidr: {
- *                 Type: "String",
- *                 Default: "10.0.0.0/16",
- *                 Description: "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+ *         parameters: {
+ *             vPCCidr: {
+ *                 type: "String",
+ *                 "default": "10.0.0.0/16",
+ *                 description: "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
  *             },
  *         },
- *         Resources: {
+ *         resources: {
  *             myVpc: {
- *                 Type: "AWS::EC2::VPC",
- *                 Properties: {
- *                     CidrBlock: {
+ *                 type: "AWS::EC2::VPC",
+ *                 properties: {
+ *                     cidrBlock: {
  *                         Ref: "VPCCidr",
  *                     },
- *                     Tags: [{
- *                         Key: "Name",
- *                         Value: "Primary_CF_VPC",
+ *                     tags: [{
+ *                         key: "Name",
+ *                         value: "Primary_CF_VPC",
  *                     }],
  *                 },
  *             },

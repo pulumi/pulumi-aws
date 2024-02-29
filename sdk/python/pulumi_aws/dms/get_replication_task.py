@@ -207,7 +207,7 @@ def get_replication_task(replication_task_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
+    test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
     ```
 
 
@@ -255,7 +255,7 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
+    test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
     ```
 
 

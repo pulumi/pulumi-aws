@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .domain(exampleDomain.domain())
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy(&#34;exampleRepositoryPermissionsPolicy&#34;, RepositoryPermissionsPolicyArgs.builder()        
  *             .repository(exampleRepository.repository())
  *             .domain(exampleDomain.domain())
- *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

@@ -24,32 +24,38 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
- * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {inputs: {
- *     namePrefix: "test_prefix",
- *     kinesisStream: {
- *         resourceArn: testStream.arn,
- *         roleArn: aws_iam_role.test.arn,
- *     },
- *     parallelism: {
- *         count: 1,
- *     },
- *     schema: {
- *         recordColumns: [{
- *             mapping: "$.test",
- *             name: "test",
- *             sqlType: "VARCHAR(8)",
- *         }],
- *         recordEncoding: "UTF-8",
- *         recordFormat: {
- *             mappingParameters: {
- *                 json: {
- *                     recordRowPath: "$",
+ * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "kinesis-test",
+ *     shardCount: 1,
+ * });
+ * const testApplication = new aws.kinesis.AnalyticsApplication("test_application", {
+ *     name: "kinesis-analytics-application-test",
+ *     inputs: {
+ *         namePrefix: "test_prefix",
+ *         kinesisStream: {
+ *             resourceArn: testStream.arn,
+ *             roleArn: test.arn,
+ *         },
+ *         parallelism: {
+ *             count: 1,
+ *         },
+ *         schema: {
+ *             recordColumns: [{
+ *                 mapping: "$.test",
+ *                 name: "test",
+ *                 sqlType: "VARCHAR(8)",
+ *             }],
+ *             recordEncoding: "UTF-8",
+ *             recordFormat: {
+ *                 mappingParameters: {
+ *                     json: {
+ *                         recordRowPath: "$",
+ *                     },
  *                 },
  *             },
  *         },
  *     },
- * }});
+ * });
  * ```
  * ### Starting An Application
  *
@@ -57,20 +63,28 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLogStream = new aws.cloudwatch.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "analytics"});
+ * const exampleLogStream = new aws.cloudwatch.LogStream("example", {
+ *     name: "example-kinesis-application",
+ *     logGroupName: example.name,
+ * });
+ * const exampleStream = new aws.kinesis.Stream("example", {
+ *     name: "example-kinesis-stream",
+ *     shardCount: 1,
+ * });
+ * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("example", {
+ *     name: "example-kinesis-delivery-stream",
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
- *         bucketArn: aws_s3_bucket.example.arn,
- *         roleArn: aws_iam_role.example.arn,
+ *         bucketArn: exampleAwsS3Bucket.arn,
+ *         roleArn: exampleAwsIamRole.arn,
  *     },
  * });
  * const test = new aws.kinesis.AnalyticsApplication("test", {
+ *     name: "example-application",
  *     cloudwatchLoggingOptions: {
  *         logStreamArn: exampleLogStream.arn,
- *         roleArn: aws_iam_role.example.arn,
+ *         roleArn: exampleAwsIamRole.arn,
  *     },
  *     inputs: {
  *         namePrefix: "example_prefix",
@@ -90,7 +104,7 @@ import {ARN} from "..";
  *         },
  *         kinesisStream: {
  *             resourceArn: exampleStream.arn,
- *             roleArn: aws_iam_role.example.arn,
+ *             roleArn: exampleAwsIamRole.arn,
  *         },
  *         startingPositionConfigurations: [{
  *             startingPosition: "NOW",
@@ -103,7 +117,7 @@ import {ARN} from "..";
  *         },
  *         kinesisFirehose: {
  *             resourceArn: exampleFirehoseDeliveryStream.arn,
- *             roleArn: aws_iam_role.example.arn,
+ *             roleArn: exampleAwsIamRole.arn,
  *         },
  *     }],
  *     startApplication: true,

@@ -22,8 +22,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCustomRoutingAccelerator = new Aws.GlobalAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
+    ///     var example = new Aws.GlobalAccelerator.CustomRoutingAccelerator("example", new()
     ///     {
+    ///         Name = "Example",
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
@@ -34,9 +35,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("exampleCustomRoutingListener", new()
+    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("example", new()
     ///     {
-    ///         AcceleratorArn = exampleCustomRoutingAccelerator.Id,
+    ///         AcceleratorArn = example.Id,
     ///         PortRanges = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs

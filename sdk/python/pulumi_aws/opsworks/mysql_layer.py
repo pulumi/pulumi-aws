@@ -866,7 +866,7 @@ class MysqlLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        db = aws.opsworks.MysqlLayer("db", stack_id=aws_opsworks_stack["main"]["id"])
+        db = aws.opsworks.MysqlLayer("db", stack_id=main["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -909,7 +909,7 @@ class MysqlLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        db = aws.opsworks.MysqlLayer("db", stack_id=aws_opsworks_stack["main"]["id"])
+        db = aws.opsworks.MysqlLayer("db", stack_id=main["id"])
         ```
 
         :param str resource_name: The name of the resource.

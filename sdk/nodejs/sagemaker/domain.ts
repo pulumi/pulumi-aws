@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -26,15 +26,16 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
  *     path: "/",
- *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     assumeRolePolicy: example.then(example => example.json),
  * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
+ * const exampleDomain = new aws.sagemaker.Domain("example", {
  *     domainName: "example",
  *     authMode: "IAM",
- *     vpcId: aws_vpc.example.id,
- *     subnetIds: [aws_subnet.example.id],
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  *     defaultUserSettings: {
  *         executionRole: exampleRole.arn,
  *     },
@@ -46,11 +47,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleImage = new aws.sagemaker.Image("exampleImage", {
+ * const example = new aws.sagemaker.Image("example", {
  *     imageName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
- * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("exampleAppImageConfig", {
+ * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("example", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpec: {
@@ -58,17 +59,17 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleImageVersion = new aws.sagemaker.ImageVersion("exampleImageVersion", {
- *     imageName: exampleImage.id,
+ * const exampleImageVersion = new aws.sagemaker.ImageVersion("example", {
+ *     imageName: example.id,
  *     baseImage: "base-image",
  * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
+ * const exampleDomain = new aws.sagemaker.Domain("example", {
  *     domainName: "example",
  *     authMode: "IAM",
- *     vpcId: aws_vpc.example.id,
- *     subnetIds: [aws_subnet.example.id],
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  *     defaultUserSettings: {
- *         executionRole: aws_iam_role.example.arn,
+ *         executionRole: exampleAwsIamRole.arn,
  *         kernelGatewayAppSettings: {
  *             customImages: [{
  *                 appImageConfigName: exampleAppImageConfig.appImageConfigName,

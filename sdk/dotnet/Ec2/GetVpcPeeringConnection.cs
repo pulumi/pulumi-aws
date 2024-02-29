@@ -27,20 +27,21 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         PeerCidrBlock = "10.0.1.0/22",
         ///     });
         /// 
         ///     // Create a route table
         ///     var rt = new Aws.Ec2.RouteTable("rt", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
         ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     var r = new Aws.Ec2.Route("r", new()
         ///     {
         ///         RouteTableId = rt.Id,
         ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
@@ -71,20 +72,21 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         PeerCidrBlock = "10.0.1.0/22",
         ///     });
         /// 
         ///     // Create a route table
         ///     var rt = new Aws.Ec2.RouteTable("rt", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
         ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     var r = new Aws.Ec2.Route("r", new()
         ///     {
         ///         RouteTableId = rt.Id,
         ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),

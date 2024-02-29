@@ -188,14 +188,14 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
             key_algorithm="RSA_4096",
             signing_algorithm="SHA512WITHRSA",
             subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
                 common_name="example.com",
             ),
         ))
-        example_permission = aws.acmpca.Permission("examplePermission",
+        example = aws.acmpca.Permission("example",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[
                 "IssueCertificate",
@@ -228,14 +228,14 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
             key_algorithm="RSA_4096",
             signing_algorithm="SHA512WITHRSA",
             subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
                 common_name="example.com",
             ),
         ))
-        example_permission = aws.acmpca.Permission("examplePermission",
+        example = aws.acmpca.Permission("example",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[
                 "IssueCertificate",

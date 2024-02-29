@@ -47,10 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .junctionPath(&#34;/test&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
  *             .build());
  * 
  *     }
@@ -82,10 +83,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .junctionPath(&#34;/test&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
  *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
  *                 .name(&#34;AUTO&#34;)
  *                 .coolingPeriod(31)

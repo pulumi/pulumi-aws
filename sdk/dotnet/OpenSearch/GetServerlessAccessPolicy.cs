@@ -29,8 +29,8 @@ namespace Pulumi.Aws.OpenSearch
         /// {
         ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
         ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
+        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
+        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Aws.OpenSearch
         /// {
         ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
         ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
+        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
+        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
         ///     });
         /// 
         /// });

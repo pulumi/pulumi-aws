@@ -23,15 +23,17 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "tf-dxg-example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new()
+    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("example", new()
     ///     {
-    ///         ConnectionId = aws_dx_connection.Example.Id,
-    ///         DxGatewayId = exampleGateway.Id,
+    ///         ConnectionId = exampleAwsDxConnection.Id,
+    ///         DxGatewayId = example.Id,
+    ///         Name = "tf-transit-vif-example",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,

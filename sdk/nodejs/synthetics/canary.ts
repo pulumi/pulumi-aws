@@ -19,14 +19,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const some = new aws.synthetics.Canary("some", {
+ *     name: "some-canary",
  *     artifactS3Location: "s3://some-bucket/",
  *     executionRoleArn: "some-role",
  *     handler: "exports.handler",
+ *     zipFile: "test-fixtures/lambdatest.zip",
  *     runtimeVersion: "syn-1.0",
  *     schedule: {
  *         expression: "rate(0 minute)",
  *     },
- *     zipFile: "test-fixtures/lambdatest.zip",
  * });
  * ```
  *

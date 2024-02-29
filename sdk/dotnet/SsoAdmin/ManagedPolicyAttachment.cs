@@ -15,6 +15,91 @@ namespace Pulumi.Aws.SsoAdmin
     /// &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///     });
+    /// 
+    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
+    ///     {
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Account Assignment
+    /// 
+    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
+    ///     {
+    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.sso_instance.identity_store_ids)")[0],
+    ///         DisplayName = "Admin",
+    ///         Description = "Admin Group",
+    ///     });
+    /// 
+    ///     var accountAssignment = new Aws.SsoAdmin.AccountAssignment("account_assignment", new()
+    ///     {
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///         PrincipalId = exampleGroup.GroupId,
+    ///         PrincipalType = "GROUP",
+    ///         TargetId = "123456789012",
+    ///         TargetType = "AWS_ACCOUNT",
+    ///     });
+    /// 
+    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
+    ///     {
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

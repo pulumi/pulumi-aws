@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_instance = new Instance(&#34;my-instance&#34;, InstanceArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
- *             .layerIds(aws_opsworks_custom_layer.my-layer().id())
+ *             .stackId(main.id())
+ *             .layerIds(my_layer.id())
  *             .instanceType(&#34;t2.micro&#34;)
  *             .os(&#34;Amazon Linux 2015.09&#34;)
  *             .state(&#34;stopped&#34;)

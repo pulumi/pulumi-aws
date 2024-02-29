@@ -50,21 +50,24 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
+//				Name:         pulumi.String("capture-ec2-scaling-events"),
 //				Description:  pulumi.String("Capture all EC2 scaling events"),
 //				EventPattern: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:       pulumi.String("kinesis-test"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventTarget(ctx, "yada", &cloudwatch.EventTargetArgs{
-//				Rule: console.Name,
-//				Arn:  testStream.Arn,
+//				TargetId: pulumi.String("Yada"),
+//				Rule:     console.Name,
+//				Arn:      testStream.Arn,
 //				RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 //					&cloudwatch.EventTargetRunCommandTargetArgs{
 //						Key: pulumi.String("tag:Name"),
@@ -147,14 +150,15 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
+//			stopInstance, err := ssm.NewDocument(ctx, "stop_instance", &ssm.DocumentArgs{
+//				Name:         pulumi.String("stop_instance"),
 //				DocumentType: pulumi.String("Command"),
 //				Content:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ssmLifecyclePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			ssmLifecycle := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -185,38 +189,42 @@ import (
 //					},
 //				},
 //			}, nil)
-//			ssmLifecycleRole, err := iam.NewRole(ctx, "ssmLifecycleRole", &iam.RoleArgs{
+//			ssmLifecycleRole, err := iam.NewRole(ctx, "ssm_lifecycle", &iam.RoleArgs{
+//				Name:             pulumi.String("SSMLifecycle"),
 //				AssumeRolePolicy: *pulumi.String(ssmLifecycleTrust.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
-//				Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &ssmLifecyclePolicyDocument.Json, nil
+//			ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssm_lifecycle", &iam.PolicyArgs{
+//				Name: pulumi.String("SSMLifecycle"),
+//				Policy: ssmLifecycle.ApplyT(func(ssmLifecycle iam.GetPolicyDocumentResult) (*string, error) {
+//					return &ssmLifecycle.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ssmLifecycleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ssm_lifecycle", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: ssmLifecyclePolicy.Arn,
 //				Role:      ssmLifecycleRole.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+//			stopInstances, err := cloudwatch.NewEventRule(ctx, "stop_instances", &cloudwatch.EventRuleArgs{
+//				Name:               pulumi.String("StopInstance"),
 //				Description:        pulumi.String("Stop instances nightly"),
 //				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:     stopInstance.Arn,
-//				Rule:    stopInstancesEventRule.Name,
-//				RoleArn: ssmLifecycleRole.Arn,
+//			_, err = cloudwatch.NewEventTarget(ctx, "stop_instances", &cloudwatch.EventTargetArgs{
+//				TargetId: pulumi.String("StopInstance"),
+//				Arn:      stopInstance.Arn,
+//				Rule:     stopInstances.Name,
+//				RoleArn:  ssmLifecycleRole.Arn,
 //				RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 //					&cloudwatch.EventTargetRunCommandTargetArgs{
 //						Key: pulumi.String("tag:Terminate"),
@@ -250,18 +258,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+//			stopInstances, err := cloudwatch.NewEventRule(ctx, "stop_instances", &cloudwatch.EventRuleArgs{
+//				Name:               pulumi.String("StopInstance"),
 //				Description:        pulumi.String("Stop instances nightly"),
 //				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:     pulumi.String(fmt.Sprintf("arn:aws:ssm:%v::document/AWS-RunShellScript", _var.Aws_region)),
-//				Input:   pulumi.String("{\"commands\":[\"halt\"]}"),
-//				Rule:    stopInstancesEventRule.Name,
-//				RoleArn: pulumi.Any(aws_iam_role.Ssm_lifecycle.Arn),
+//			_, err = cloudwatch.NewEventTarget(ctx, "stop_instances", &cloudwatch.EventTargetArgs{
+//				TargetId: pulumi.String("StopInstance"),
+//				Arn:      pulumi.String(fmt.Sprintf("arn:aws:ssm:%v::document/AWS-RunShellScript", awsRegion)),
+//				Input:    pulumi.String("{\"commands\":[\"halt\"]}"),
+//				Rule:     stopInstances.Name,
+//				RoleArn:  pulumi.Any(ssmLifecycle.Arn),
 //				RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 //					&cloudwatch.EventTargetRunCommandTargetArgs{
 //						Key: pulumi.String("tag:Terminate"),
@@ -278,6 +288,125 @@ import (
 //		})
 //	}
 //
+// ```
+// ### ECS Run Task with Role and Task Override Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// ecsEvents, err := iam.NewRole(ctx, "ecs_events", &iam.RoleArgs{
+// Name: pulumi.String("ecs_events"),
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+// Text: taskName.Arn,
+// Search: "/:\\d+$/",
+// Replace: ":*",
+// }, nil)
+// if err != nil {
+// return err
+// }
+// &iam.GetPolicyDocumentArgs{
+// Statements: pulumi.Array{
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "iam:PassRole",
+// },
+// Resources: []string{
+// "*",
+// },
+// },
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "ecs:RunTask",
+// },
+// Resources: interface{}{
+// invokeReplace.Result,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
+// Name: pulumi.String("ecs_events_run_task_with_any_role"),
+// Role: ecsEvents.ID(),
+// Policy: *pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "containerOverrides": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "name-of-container-to-override",
+// "command": []string{
+// "bin/console",
+// "scheduled-task",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// _, err = cloudwatch.NewEventTarget(ctx, "ecs_scheduled_task", &cloudwatch.EventTargetArgs{
+// TargetId: pulumi.String("run-scheduled-task-every-hour"),
+// Arn: pulumi.Any(clusterName.Arn),
+// Rule: pulumi.Any(everyHour.Name),
+// RoleArn: ecsEvents.Arn,
+// EcsTarget: &cloudwatch.EventTargetEcsTargetArgs{
+// TaskCount: pulumi.Int(1),
+// TaskDefinitionArn: pulumi.Any(taskName.Arn),
+// },
+// Input: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### API Gateway target
 //
@@ -296,24 +425,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: pulumi.Any(exampleAwsApiGatewayRestApi.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
 //				Deployment: exampleDeployment.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+//			_, err = cloudwatch.NewEventTarget(ctx, "example", &cloudwatch.EventTargetArgs{
 //				Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
 //					return fmt.Sprintf("%v/GET", executionArn), nil
 //				}).(pulumi.StringOutput),
@@ -371,13 +500,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "eventBusInvokeRemoteEventBusRole", &iam.RoleArgs{
+//			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "event_bus_invoke_remote_event_bus", &iam.RoleArgs{
+//				Name:             pulumi.String("event-bus-invoke-remote-event-bus"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			eventBusInvokeRemoteEventBusPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			eventBusInvokeRemoteEventBus, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -393,30 +523,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "eventBusInvokeRemoteEventBusPolicy", &iam.PolicyArgs{
-//				Policy: *pulumi.String(eventBusInvokeRemoteEventBusPolicyDocument.Json),
+//			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "event_bus_invoke_remote_event_bus", &iam.PolicyArgs{
+//				Name:   pulumi.String("event_bus_invoke_remote_event_bus"),
+//				Policy: *pulumi.String(eventBusInvokeRemoteEventBus.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "eventBusInvokeRemoteEventBusRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "event_bus_invoke_remote_event_bus", &iam.RolePolicyAttachmentArgs{
 //				Role:      eventBusInvokeRemoteEventBusRole.Name,
 //				PolicyArn: eventBusInvokeRemoteEventBusPolicy.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+//			stopInstances, err := cloudwatch.NewEventRule(ctx, "stop_instances", &cloudwatch.EventRuleArgs{
+//				Name:               pulumi.String("StopInstance"),
 //				Description:        pulumi.String("Stop instances nightly"),
 //				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:     pulumi.String("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"),
-//				Rule:    stopInstancesEventRule.Name,
-//				RoleArn: eventBusInvokeRemoteEventBusRole.Arn,
+//			_, err = cloudwatch.NewEventTarget(ctx, "stop_instances", &cloudwatch.EventTargetArgs{
+//				TargetId: pulumi.String("StopInstance"),
+//				Arn:      pulumi.String("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"),
+//				Rule:     stopInstances.Name,
+//				RoleArn:  eventBusInvokeRemoteEventBusRole.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -440,12 +573,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:  pulumi.Any(aws_lambda_function.Example.Arn),
+//			_, err = cloudwatch.NewEventTarget(ctx, "example", &cloudwatch.EventTargetArgs{
+//				Arn:  pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				Rule: exampleEventRule.ID(),
 //				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 //					InputPaths: pulumi.StringMap{
@@ -477,12 +610,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
-//				Arn:  pulumi.Any(aws_lambda_function.Example.Arn),
+//			_, err = cloudwatch.NewEventTarget(ctx, "example", &cloudwatch.EventTargetArgs{
+//				Arn:  pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				Rule: exampleEventRule.ID(),
 //				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 //					InputPaths: pulumi.StringMap{
@@ -518,7 +651,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String("/aws/events/guardduty/logs"),
 //				RetentionInDays: pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -533,7 +667,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", &cloudwatch.EventRuleArgs{
+//			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "example", &cloudwatch.EventRuleArgs{
+//				Name:         pulumi.String("guard-duty_event_rule"),
 //				Description:  pulumi.String("GuardDuty Findings"),
 //				EventPattern: pulumi.String(json0),
 //				Tags: pulumi.StringMap{
@@ -551,7 +686,7 @@ import (
 //							pulumi.String("logs:CreateLogStream"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//							example.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v:*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -571,7 +706,7 @@ import (
 //							pulumi.String("logs:PutLogEvents"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//							example.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v:*:*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -596,7 +731,7 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &exampleLogPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput),
@@ -605,9 +740,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+//			_, err = cloudwatch.NewEventTarget(ctx, "example", &cloudwatch.EventTargetArgs{
 //				Rule: exampleEventRule.Name,
-//				Arn:  exampleLogGroup.Arn,
+//				Arn:  example.Arn,
 //			})
 //			if err != nil {
 //				return err

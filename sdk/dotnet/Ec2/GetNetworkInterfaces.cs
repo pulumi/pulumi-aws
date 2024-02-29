@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke();
+        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
+        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "subnet-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_subnet.Test.Id,
+        ///                     test.Id,
         ///                 },
         ///             },
         ///         },
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
         ///     };
         /// });
         /// ```
@@ -113,11 +113,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke();
+        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
         ///     };
         /// });
         /// ```
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
+        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "subnet-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_subnet.Test.Id,
+        ///                     test.Id,
         ///                 },
         ///             },
         ///         },
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
         ///     };
         /// });
         /// ```

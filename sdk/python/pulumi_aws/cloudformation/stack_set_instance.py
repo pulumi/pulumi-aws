@@ -363,7 +363,7 @@ class StackSetInstance(pulumi.CustomResource):
         example = aws.cloudformation.StackSetInstance("example",
             account_id="123456789012",
             region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+            stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
         ### Example IAM Setup in Target Account
 
@@ -375,12 +375,16 @@ class StackSetInstance(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[aws_iam_role["AWSCloudFormationStackSetAdministrationRole"]["arn"]],
+                identifiers=[a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 type="AWS",
             )],
         )])
-        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("aWSCloudFormationStackSetExecutionRole", assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json)
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
+            assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,
+            name="AWSCloudFormationStackSetExecutionRole")
+        # Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+        # Additional IAM permissions necessary depend on the resources defined in the StackSet template
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "cloudformation:*",
                 "s3:*",
@@ -389,8 +393,9 @@ class StackSetInstance(pulumi.CustomResource):
             effect="Allow",
             resources=["*"],
         )])
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document.json,
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy",
+            name="MinimumExecutionPolicy",
+            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
         ### Example Deployment across Organizations account
@@ -401,10 +406,10 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             deployment_targets=aws.cloudformation.StackSetInstanceDeploymentTargetsArgs(
-                organizational_unit_ids=[aws_organizations_organization["example"]["roots"][0]["id"]],
+                organizational_unit_ids=[example_aws_organizations_organization["roots"][0]["id"]],
             ),
             region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+            stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
         ## Import
@@ -463,7 +468,7 @@ class StackSetInstance(pulumi.CustomResource):
         example = aws.cloudformation.StackSetInstance("example",
             account_id="123456789012",
             region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+            stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
         ### Example IAM Setup in Target Account
 
@@ -475,12 +480,16 @@ class StackSetInstance(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[aws_iam_role["AWSCloudFormationStackSetAdministrationRole"]["arn"]],
+                identifiers=[a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 type="AWS",
             )],
         )])
-        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("aWSCloudFormationStackSetExecutionRole", assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json)
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
+            assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,
+            name="AWSCloudFormationStackSetExecutionRole")
+        # Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+        # Additional IAM permissions necessary depend on the resources defined in the StackSet template
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "cloudformation:*",
                 "s3:*",
@@ -489,8 +498,9 @@ class StackSetInstance(pulumi.CustomResource):
             effect="Allow",
             resources=["*"],
         )])
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document.json,
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy",
+            name="MinimumExecutionPolicy",
+            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
         ### Example Deployment across Organizations account
@@ -501,10 +511,10 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             deployment_targets=aws.cloudformation.StackSetInstanceDeploymentTargetsArgs(
-                organizational_unit_ids=[aws_organizations_organization["example"]["roots"][0]["id"]],
+                organizational_unit_ids=[example_aws_organizations_organization["roots"][0]["id"]],
             ),
             region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+            stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
         ## Import

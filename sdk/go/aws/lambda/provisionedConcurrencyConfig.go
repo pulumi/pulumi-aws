@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName:                    pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
+//				Qualifier:                       pulumi.Any(exampleAwsLambdaAlias.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -59,9 +59,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
+//				FunctionName:                    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
+//				Qualifier:                       pulumi.Any(exampleAwsLambdaFunction.Version),
 //			})
 //			if err != nil {
 //				return err

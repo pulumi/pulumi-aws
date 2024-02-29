@@ -27,7 +27,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",

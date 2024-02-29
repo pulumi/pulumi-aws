@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
  *     engine: "memcached",
+ *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
  *             maximum: 10,
@@ -29,10 +30,10 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     description: "Test Server",
- *     kmsKeyId: aws_kms_key.test.arn,
+ *     kmsKeyId: test.arn,
  *     majorEngineVersion: "1.6",
- *     securityGroupIds: [aws_security_group.test.id],
- *     subnetIds: aws_subnet.test.map(__item => __item.id),
+ *     securityGroupIds: [testAwsSecurityGroup.id],
+ *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
  * ### Redis Serverless
@@ -43,6 +44,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
  *     engine: "redis",
+ *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
  *             maximum: 10,
@@ -54,11 +56,11 @@ import * as utilities from "../utilities";
  *     },
  *     dailySnapshotTime: "09:00",
  *     description: "Test Server",
- *     kmsKeyId: aws_kms_key.test.arn,
+ *     kmsKeyId: test.arn,
  *     majorEngineVersion: "7",
  *     snapshotRetentionLimit: 1,
- *     securityGroupIds: [aws_security_group.test.id],
- *     subnetIds: aws_subnet.test.map(__item => __item.id),
+ *     securityGroupIds: [testAwsSecurityGroup.id],
+ *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
  *

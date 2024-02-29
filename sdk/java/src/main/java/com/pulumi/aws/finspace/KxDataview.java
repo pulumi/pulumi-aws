@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -47,17 +46,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxDataview(&#34;example&#34;, KxDataviewArgs.builder()        
- *             .environmentId(aws_finspace_kx_environment.example().id())
- *             .databaseName(aws_finspace_kx_database.example().name())
+ *             .name(&#34;my-tf-kx-dataview&#34;)
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
+ *             .databaseName(exampleAwsFinspaceKxDatabase.name())
  *             .availabilityZoneId(&#34;use1-az2&#34;)
  *             .description(&#34;Terraform managed Kx Dataview&#34;)
  *             .azMode(&#34;SINGLE&#34;)
  *             .autoUpdate(true)
  *             .segmentConfigurations(KxDataviewSegmentConfigurationArgs.builder()
- *                 .volumeName(aws_finspace_kx_volume.example().name())
+ *                 .volumeName(exampleAwsFinspaceKxVolume.name())
  *                 .dbPaths(&#34;/*&#34;)
  *                 .build())
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -184,7 +184,7 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        awesome_devices = aws.devicefarm.Project("awesomeDevices")
+        awesome_devices = aws.devicefarm.Project("awesome_devices", name="my-device-farm")
         ```
 
         ## Import
@@ -221,7 +221,7 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        awesome_devices = aws.devicefarm.Project("awesomeDevices")
+        awesome_devices = aws.devicefarm.Project("awesome_devices", name="my-device-farm")
         ```
 
         ## Import

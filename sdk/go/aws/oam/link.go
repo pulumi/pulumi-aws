@@ -34,7 +34,7 @@ import (
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::CloudWatch::Metric"),
 //				},
-//				SinkIdentifier: pulumi.Any(aws_oam_sink.Test.Id),
+//				SinkIdentifier: pulumi.Any(test.Id),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},

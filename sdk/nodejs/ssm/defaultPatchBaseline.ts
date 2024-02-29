@@ -14,8 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePatchBaseline = new aws.ssm.PatchBaseline("examplePatchBaseline", {approvedPatches: ["KB123456"]});
- * const exampleDefaultPatchBaseline = new aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", {
+ * const examplePatchBaseline = new aws.ssm.PatchBaseline("example", {
+ *     name: "example",
+ *     approvedPatches: ["KB123456"],
+ * });
+ * const example = new aws.ssm.DefaultPatchBaseline("example", {
  *     baselineId: examplePatchBaseline.id,
  *     operatingSystem: examplePatchBaseline.operatingSystem,
  * });

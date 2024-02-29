@@ -188,11 +188,12 @@ class TrustStoreRevocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_trust_store = aws.lb.TrustStore("testTrustStore",
+        test = aws.lb.TrustStore("test",
+            name="tf-example-lb-ts",
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
-        test_trust_store_revocation = aws.lb.TrustStoreRevocation("testTrustStoreRevocation",
-            trust_store_arn=test_trust_store.arn,
+        test_trust_store_revocation = aws.lb.TrustStoreRevocation("test",
+            trust_store_arn=test.arn,
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```
@@ -228,11 +229,12 @@ class TrustStoreRevocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_trust_store = aws.lb.TrustStore("testTrustStore",
+        test = aws.lb.TrustStore("test",
+            name="tf-example-lb-ts",
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
-        test_trust_store_revocation = aws.lb.TrustStoreRevocation("testTrustStoreRevocation",
-            trust_store_arn=test_trust_store.arn,
+        test_trust_store_revocation = aws.lb.TrustStoreRevocation("test",
+            trust_store_arn=test.arn,
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```

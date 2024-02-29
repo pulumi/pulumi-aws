@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito.UserPool("pool", {name: "mypool"});
  * ```
  * ### Enabling SMS and Software Token Multi-Factor Authentication
  *
@@ -25,13 +25,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const example = new aws.cognito.UserPool("example", {
  *     mfaConfiguration: "ON",
  *     smsAuthenticationMessage: "Your code is {####}",
  *     smsConfiguration: {
  *         externalId: "example",
- *         snsCallerArn: aws_iam_role.example.arn,
+ *         snsCallerArn: exampleAwsIamRole.arn,
  *         snsRegion: "us-east-1",
  *     },
  *     softwareTokenMfaConfiguration: {
@@ -45,18 +44,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.cognito.UserPool("test", {accountRecoverySetting: {
- *     recoveryMechanisms: [
- *         {
- *             name: "verified_email",
- *             priority: 1,
- *         },
- *         {
- *             name: "verified_phone_number",
- *             priority: 2,
- *         },
- *     ],
- * }});
+ * const test = new aws.cognito.UserPool("test", {
+ *     name: "mypool",
+ *     accountRecoverySetting: {
+ *         recoveryMechanisms: [
+ *             {
+ *                 name: "verified_email",
+ *                 priority: 1,
+ *             },
+ *             {
+ *                 name: "verified_phone_number",
+ *                 priority: 2,
+ *             },
+ *         ],
+ *     },
+ * });
  * ```
  *
  * ## Import

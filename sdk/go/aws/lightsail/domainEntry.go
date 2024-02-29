@@ -30,14 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "testDomain", &lightsail.DomainArgs{
+//			_, err := lightsail.NewDomain(ctx, "test", &lightsail.DomainArgs{
 //				DomainName: pulumi.String("mydomain.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewDomainEntry(ctx, "testDomainEntry", &lightsail.DomainEntryArgs{
-//				DomainName: pulumi.Any(aws_lightsail_domain.Domain_test.Domain_name),
+//			_, err = lightsail.NewDomainEntry(ctx, "test", &lightsail.DomainEntryArgs{
+//				DomainName: pulumi.Any(domainTest.DomainName),
+//				Name:       pulumi.String("www"),
 //				Type:       pulumi.String("A"),
 //				Target:     pulumi.String("127.0.0.1"),
 //			})

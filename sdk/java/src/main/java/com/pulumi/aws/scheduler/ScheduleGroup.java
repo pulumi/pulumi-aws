@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.scheduler.ScheduleGroup;
+ * import com.pulumi.aws.scheduler.ScheduleGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ScheduleGroup(&#34;example&#34;);
+ *         var example = new ScheduleGroup(&#34;example&#34;, ScheduleGroupArgs.builder()        
+ *             .name(&#34;my-schedule-group&#34;)
+ *             .build());
  * 
  *     }
  * }

@@ -538,7 +538,8 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new GitLab Lightsail Instance
-        gitlab_test = aws.lightsail.Instance("gitlabTest",
+        gitlab_test = aws.lightsail.Instance("gitlab_test",
+            name="custom_gitlab",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
@@ -556,6 +557,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom = aws.lightsail.Instance("custom",
+            name="custom",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
@@ -568,14 +570,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Instance("test",
-            add_on=aws.lightsail.InstanceAddOnArgs(
-                snapshot_time="06:00",
-                status="Enabled",
-                type="AutoSnapshot",
-            ),
+            name="custom_instance",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
+            add_on=aws.lightsail.InstanceAddOnArgs(
+                type="AutoSnapshot",
+                snapshot_time="06:00",
+                status="Enabled",
+            ),
             tags={
                 "foo": "bar",
             })
@@ -629,7 +632,8 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new GitLab Lightsail Instance
-        gitlab_test = aws.lightsail.Instance("gitlabTest",
+        gitlab_test = aws.lightsail.Instance("gitlab_test",
+            name="custom_gitlab",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
@@ -647,6 +651,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom = aws.lightsail.Instance("custom",
+            name="custom",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
@@ -659,14 +664,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Instance("test",
-            add_on=aws.lightsail.InstanceAddOnArgs(
-                snapshot_time="06:00",
-                status="Enabled",
-                type="AutoSnapshot",
-            ),
+            name="custom_instance",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
+            add_on=aws.lightsail.InstanceAddOnArgs(
+                type="AutoSnapshot",
+                snapshot_time="06:00",
+                status="Enabled",
+            ),
             tags={
                 "foo": "bar",
             })

@@ -99,7 +99,7 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=aws_route53_resolver_firewall_rule_group["example"]["id"])
+    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
     ```
 
 
@@ -138,7 +138,7 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[st
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=aws_route53_resolver_firewall_rule_group["example"]["id"])
+    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
     ```
 
 

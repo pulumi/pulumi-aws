@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
- *     compatibleRuntimes: ["nodejs16.x"],
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
  *     layerName: "lambda_layer_name",
+ *     compatibleRuntimes: ["nodejs16.x"],
  * });
  * ```
  * ## Specifying the Deployment Package

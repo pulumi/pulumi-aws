@@ -32,15 +32,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verificationPrivateKey", &tls.PrivateKeyArgs{
+//			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = tls.NewCertRequest(ctx, "verificationCertRequest", &tls.CertRequestArgs{
+//			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
-//				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
+//				PrivateKeyPem: verification.PrivateKeyPem,
 //				Subject: &tls.CertRequestSubjectArgs{
 //					CommonName: *pulumi.String(example.RegistrationCode),
 //				},

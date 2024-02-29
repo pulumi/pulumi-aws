@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const testInstances = await aws.ec2.getInstances({
+ *     const test = await aws.ec2.getInstances({
  *         instanceTags: {
  *             Role: "HardWorker",
  *         },
@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  *         ],
  *     });
  *     const testEip: aws.ec2.Eip[] = [];
- *     for (const range = {value: 0}; range.value < testInstances.ids.length; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`testEip-${range.value}`, {instance: testInstances.ids[range.value]}));
+ *     for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
+ *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.ids[range.value]}));
  *     }
  * }
  * ```
@@ -119,7 +119,7 @@ export interface GetInstancesResult {
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const testInstances = await aws.ec2.getInstances({
+ *     const test = await aws.ec2.getInstances({
  *         instanceTags: {
  *             Role: "HardWorker",
  *         },
@@ -133,8 +133,8 @@ export interface GetInstancesResult {
  *         ],
  *     });
  *     const testEip: aws.ec2.Eip[] = [];
- *     for (const range = {value: 0}; range.value < testInstances.ids.length; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`testEip-${range.value}`, {instance: testInstances.ids[range.value]}));
+ *     for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
+ *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.ids[range.value]}));
  *     }
  * }
  * ```

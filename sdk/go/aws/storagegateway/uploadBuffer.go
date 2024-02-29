@@ -31,16 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLocalDisk, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-//				DiskNode:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
-//				GatewayArn: aws_storagegateway_gateway.Test.Arn,
+//			test, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+//				DiskNode:   pulumi.StringRef(testAwsVolumeAttachment.DeviceName),
+//				GatewayArn: testAwsStoragegatewayGateway.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storagegateway.NewUploadBuffer(ctx, "testUploadBuffer", &storagegateway.UploadBufferArgs{
-//				DiskPath:   *pulumi.String(testLocalDisk.DiskPath),
-//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
+//			_, err = storagegateway.NewUploadBuffer(ctx, "test", &storagegateway.UploadBufferArgs{
+//				DiskPath:   *pulumi.String(test.DiskPath),
+//				GatewayArn: pulumi.Any(testAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -65,15 +65,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-//				DiskNode:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
-//				GatewayArn: aws_storagegateway_gateway.Test.Arn,
+//				DiskNode:   pulumi.StringRef(testAwsVolumeAttachment.DeviceName),
+//				GatewayArn: testAwsStoragegatewayGateway.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = storagegateway.NewUploadBuffer(ctx, "example", &storagegateway.UploadBufferArgs{
-//				DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
-//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//				DiskId:     pulumi.Any(exampleAwsStoragegatewayLocalDisk.Id),
+//				GatewayArn: pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {
 //				return err

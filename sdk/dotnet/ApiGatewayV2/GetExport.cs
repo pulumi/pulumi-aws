@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {
         ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
         ///     {
-        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
+        ///         ApiId = testAwsApigatewayv2Route.ApiId,
         ///         Specification = "OAS30",
         ///         OutputType = "JSON",
         ///     });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {
         ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
         ///     {
-        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
+        ///         ApiId = testAwsApigatewayv2Route.ApiId,
         ///         Specification = "OAS30",
         ///         OutputType = "JSON",
         ///     });

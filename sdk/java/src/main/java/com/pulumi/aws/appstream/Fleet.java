@@ -48,21 +48,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new Fleet(&#34;testFleet&#34;, FleetArgs.builder()        
+ *             .name(&#34;test-fleet&#34;)
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
  *             .description(&#34;test fleet&#34;)
+ *             .idleDisconnectTimeoutInSeconds(60)
  *             .displayName(&#34;test-fleet&#34;)
  *             .enableDefaultInternetAccess(false)
  *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .idleDisconnectTimeoutInSeconds(60)
  *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .maxUserDurationInSeconds(600)
- *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
  *             .vpcConfig(FleetVpcConfigArgs.builder()
  *                 .subnetIds(&#34;subnet-06e9b13400c225127&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
  *             .build());
  * 
  *     }

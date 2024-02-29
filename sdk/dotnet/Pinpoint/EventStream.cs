@@ -24,8 +24,9 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         Name = "pinpoint-kinesis-test",
     ///         ShardCount = 1,
     ///     });
     /// 
@@ -55,7 +56,7 @@ namespace Pulumi.Aws.Pinpoint
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test_role", new()
     ///     {
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
@@ -67,7 +68,7 @@ namespace Pulumi.Aws.Pinpoint
     ///         RoleArn = testRole.Arn,
     ///     });
     /// 
-    ///     var testRolePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var testRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -87,10 +88,11 @@ namespace Pulumi.Aws.Pinpoint
     ///         },
     ///     });
     /// 
-    ///     var testRolePolicyRolePolicy = new Aws.Iam.RolePolicy("testRolePolicyRolePolicy", new()
+    ///     var testRolePolicyRolePolicy = new Aws.Iam.RolePolicy("test_role_policy", new()
     ///     {
+    ///         Name = "test_policy",
     ///         Role = testRole.Id,
-    ///         Policy = testRolePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = testRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

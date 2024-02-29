@@ -265,7 +265,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=aws_oam_sink["test"]["id"],
+            sink_identifier=test["id"],
             tags={
                 "Env": "prod",
             })
@@ -307,7 +307,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=aws_oam_sink["test"]["id"],
+            sink_identifier=test["id"],
             tags={
                 "Env": "prod",
             })

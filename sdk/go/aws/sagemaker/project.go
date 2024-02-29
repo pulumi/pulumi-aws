@@ -33,7 +33,7 @@ import (
 //			_, err := sagemaker.NewProject(ctx, "example", &sagemaker.ProjectArgs{
 //				ProjectName: pulumi.String("example"),
 //				ServiceCatalogProvisioningDetails: &sagemaker.ProjectServiceCatalogProvisioningDetailsArgs{
-//					ProductId: pulumi.Any(aws_servicecatalog_product.Example.Id),
+//					ProductId: pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				},
 //			})
 //			if err != nil {

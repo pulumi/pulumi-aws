@@ -29,14 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := customerprofiles.NewDomain(ctx, "exampleDomain", &customerprofiles.DomainArgs{
+//			example, err := customerprofiles.NewDomain(ctx, "example", &customerprofiles.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = customerprofiles.NewProfile(ctx, "exampleProfile", &customerprofiles.ProfileArgs{
-//				DomainName: exampleDomain.DomainName,
+//			_, err = customerprofiles.NewProfile(ctx, "example", &customerprofiles.ProfileArgs{
+//				DomainName: example.DomainName,
 //			})
 //			if err != nil {
 //				return err

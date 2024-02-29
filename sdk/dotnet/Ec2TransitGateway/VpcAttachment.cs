@@ -26,10 +26,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     {
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });

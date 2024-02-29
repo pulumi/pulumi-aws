@@ -31,11 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := cloudsearch.NewDomain(ctx, "exampleDomain", nil)
+//			exampleDomain, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
+//				Name: pulumi.String("example-domain"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("search_only"),
@@ -67,9 +69,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
+//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "example", &cloudsearch.DomainServiceAccessPolicyArgs{
 //				DomainName:   exampleDomain.ID(),
-//				AccessPolicy: *pulumi.String(examplePolicyDocument.Json),
+//				AccessPolicy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

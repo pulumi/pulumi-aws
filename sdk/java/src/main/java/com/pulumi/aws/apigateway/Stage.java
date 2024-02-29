@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -72,22 +72,22 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleMethodSettings = new MethodSettings(&#34;exampleMethodSettings&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;*{@literal /}*&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
@@ -109,11 +109,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.apigateway.Stage;
  * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -129,17 +128,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
- * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(7)
- *             .build());
+ *         var example = new RestApi(&#34;example&#34;);
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .stageName(stageName)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleLogGroup)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(example.id().applyValue(id -&gt; String.format(&#34;API-Gateway-Execution-Logs_%s/%s&#34;, id,stageName)))
+ *             .retentionInDays(7)
+ *             .build());
  * 
  *     }
  * }

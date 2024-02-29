@@ -295,11 +295,12 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
+                        virtual_node_name=serviceb1["name"],
                     ),
                 ),
             ))
@@ -311,11 +312,12 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+                        virtual_router_name=serviceb["name"],
                     ),
                 ),
             ))
@@ -354,11 +356,12 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
+                        virtual_node_name=serviceb1["name"],
                     ),
                 ),
             ))
@@ -370,11 +373,12 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+                        virtual_router_name=serviceb["name"],
                     ),
                 ),
             ))

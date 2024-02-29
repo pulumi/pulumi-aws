@@ -29,13 +29,13 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "mysql_8_0",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
+    ///         BlueprintId = "mysql_8_0",
+    ///         BundleId = "micro_1_0",
     ///     });
     /// 
     /// });
@@ -52,13 +52,13 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///     });
     /// 
     /// });
@@ -77,15 +77,15 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
     ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
-    ///         RelationalDatabaseName = "test",
     ///     });
     /// 
     /// });
@@ -104,16 +104,16 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
-    ///         FinalSnapshotName = "MyFinalSnapshot",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
     ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
-    ///         RelationalDatabaseName = "test",
+    ///         FinalSnapshotName = "MyFinalSnapshot",
     ///     });
     /// 
     /// });
@@ -132,14 +132,14 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
-    ///         ApplyImmediately = true,
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });

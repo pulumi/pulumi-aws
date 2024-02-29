@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewInstanceConnectEndpoint(ctx, "example", &ec2transitgateway.InstanceConnectEndpointArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err

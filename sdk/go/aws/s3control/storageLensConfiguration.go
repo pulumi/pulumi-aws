@@ -53,7 +53,7 @@ import (
 //						},
 //						S3BucketDestination: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{
 //							AccountId:           *pulumi.String(current.AccountId),
-//							Arn:                 pulumi.Any(aws_s3_bucket.Target.Arn),
+//							Arn:                 pulumi.Any(target.Arn),
 //							Format:              pulumi.String("CSV"),
 //							OutputSchemaVersion: pulumi.String("V_1"),
 //							Encryption: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{
@@ -65,8 +65,8 @@ import (
 //					},
 //					Exclude: &s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs{
 //						Buckets: pulumi.StringArray{
-//							aws_s3_bucket.B1.Arn,
-//							aws_s3_bucket.B2.Arn,
+//							b1.Arn,
+//							b2.Arn,
 //						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("us-east-2"),

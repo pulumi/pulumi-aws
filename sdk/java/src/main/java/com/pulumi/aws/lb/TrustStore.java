@@ -19,52 +19,6 @@ import javax.annotation.Nullable;
  * Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
  * 
  * ## Example Usage
- * ### Trust Store Load Balancer Listener
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TrustStore;
- * import com.pulumi.aws.lb.TrustStoreArgs;
- * import com.pulumi.aws.lb.Listener;
- * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TrustStore(&#34;test&#34;, TrustStoreArgs.builder()        
- *             .caCertificatesBundleS3Bucket(&#34;...&#34;)
- *             .caCertificatesBundleS3Key(&#34;...&#34;)
- *             .build());
- * 
- *         var example = new Listener(&#34;example&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(aws_lb.example().id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.example().id())
- *                 .type(&#34;forward&#34;)
- *                 .build())
- *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
- *                 .mode(&#34;verify&#34;)
- *                 .trustStoreArn(test.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

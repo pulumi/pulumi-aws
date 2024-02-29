@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.NewChannel(ctx, "example", nil)
+//			_, err := ivs.NewChannel(ctx, "example", &ivs.ChannelArgs{
+//				Name: pulumi.String("channel-1"),
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.CachePolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         Comment = "test comment",
     ///         DefaultTtl = 50,
     ///         MaxTtl = 100,

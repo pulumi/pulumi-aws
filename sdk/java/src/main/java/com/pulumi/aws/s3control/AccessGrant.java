@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.AccessGrantArgs;
  * import com.pulumi.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurationArgs;
  * import com.pulumi.aws.s3control.inputs.AccessGrantGranteeArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,14 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccessGrantsInstance = new AccessGrantsInstance(&#34;exampleAccessGrantsInstance&#34;);
+ *         var example = new AccessGrantsInstance(&#34;example&#34;);
  * 
  *         var exampleAccessGrantsLocation = new AccessGrantsLocation(&#34;exampleAccessGrantsLocation&#34;, AccessGrantsLocationArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .locationScope(String.format(&#34;s3://%s/prefixA*&#34;, aws_s3_bucket.example().bucket()))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccessGrantsInstance)
- *                 .build());
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .locationScope(String.format(&#34;s3://%s/prefixA*&#34;, exampleAwsS3Bucket.bucket()))
+ *             .build());
  * 
  *         var exampleAccessGrant = new AccessGrant(&#34;exampleAccessGrant&#34;, AccessGrantArgs.builder()        
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
@@ -67,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .grantee(AccessGrantGranteeArgs.builder()
  *                 .granteeType(&#34;IAM&#34;)
- *                 .granteeIdentifier(aws_iam_user.example().arn())
+ *                 .granteeIdentifier(exampleAwsIamUser.arn())
  *                 .build())
  *             .build());
  * 

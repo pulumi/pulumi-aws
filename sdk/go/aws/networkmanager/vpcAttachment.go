@@ -31,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 //				SubnetArns: pulumi.StringArray{
-//					aws_subnet.Example.Arn,
+//					exampleAwsSubnet.Arn,
 //				},
-//				CoreNetworkId: pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpcArn:        pulumi.Any(aws_vpc.Example.Arn),
+//				CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpcArn:        pulumi.Any(exampleAwsVpc.Arn),
 //			})
 //			if err != nil {
 //				return err

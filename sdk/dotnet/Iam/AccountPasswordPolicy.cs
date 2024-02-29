@@ -28,12 +28,12 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var strict = new Aws.Iam.AccountPasswordPolicy("strict", new()
     ///     {
-    ///         AllowUsersToChangePassword = true,
     ///         MinimumPasswordLength = 8,
     ///         RequireLowercaseCharacters = true,
     ///         RequireNumbers = true,
-    ///         RequireSymbols = true,
     ///         RequireUppercaseCharacters = true,
+    ///         RequireSymbols = true,
+    ///         AllowUsersToChangePassword = true,
     ///     });
     /// 
     /// });

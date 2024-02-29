@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.Neptune.Cluster("defaultCluster", new()
+    ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
@@ -33,16 +33,20 @@ namespace Pulumi.Aws.Neptune
     /// 
     ///     var example = new Aws.Neptune.ClusterInstance("example", new()
     ///     {
-    ///         ClusterIdentifier = defaultCluster.Id,
+    ///         ClusterIdentifier = @default.Id,
     ///         Engine = "neptune",
     ///         InstanceClass = "db.r4.large",
     ///         ApplyImmediately = true,
     ///     });
     /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultTopic = new Aws.Sns.Topic("default", new()
     ///     {
+    ///         Name = "neptune-events",
+    ///     });
+    /// 
+    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("default", new()
+    ///     {
+    ///         Name = "neptune-event-sub",
     ///         SnsTopicArn = defaultTopic.Arn,
     ///         SourceType = "db-instance",
     ///         SourceIds = new[]

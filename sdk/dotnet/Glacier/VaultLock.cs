@@ -27,9 +27,12 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVault = new Aws.Glacier.Vault("exampleVault");
+    ///     var exampleVault = new Aws.Glacier.Vault("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -60,10 +63,10 @@ namespace Pulumi.Aws.Glacier
     ///         },
     ///     });
     /// 
-    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new()
+    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("example", new()
     ///     {
     ///         CompleteLock = false,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         VaultName = exampleVault.Name,
     ///     });
     /// 
@@ -82,8 +85,8 @@ namespace Pulumi.Aws.Glacier
     ///     var example = new Aws.Glacier.VaultLock("example", new()
     ///     {
     ///         CompleteLock = true,
-    ///         Policy = data.Aws_iam_policy_document.Example.Json,
-    ///         VaultName = aws_glacier_vault.Example.Name,
+    ///         Policy = exampleAwsIamPolicyDocument.Json,
+    ///         VaultName = exampleAwsGlacierVault.Name,
     ///     });
     /// 
     /// });

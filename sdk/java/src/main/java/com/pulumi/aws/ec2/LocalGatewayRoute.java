@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LocalGatewayRoute(&#34;example&#34;, LocalGatewayRouteArgs.builder()        
  *             .destinationCidrBlock(&#34;172.16.0.0/16&#34;)
- *             .localGatewayRouteTableId(data.aws_ec2_local_gateway_route_table().example().id())
- *             .localGatewayVirtualInterfaceGroupId(data.aws_ec2_local_gateway_virtual_interface_group().example().id())
+ *             .localGatewayRouteTableId(exampleAwsEc2LocalGatewayRouteTable.id())
+ *             .localGatewayVirtualInterfaceGroupId(exampleAwsEc2LocalGatewayVirtualInterfaceGroup.id())
  *             .build());
  * 
  *     }

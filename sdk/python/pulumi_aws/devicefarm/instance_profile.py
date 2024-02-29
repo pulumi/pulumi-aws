@@ -280,7 +280,7 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devicefarm.InstanceProfile("example")
+        example = aws.devicefarm.InstanceProfile("example", name="example")
         ```
 
         ## Import
@@ -317,7 +317,7 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devicefarm.InstanceProfile("example")
+        example = aws.devicefarm.InstanceProfile("example", name="example")
         ```
 
         ## Import

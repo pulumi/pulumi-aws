@@ -26,15 +26,16 @@ namespace Pulumi.Aws.Synthetics
     /// {
     ///     var some = new Aws.Synthetics.Canary("some", new()
     ///     {
+    ///         Name = "some-canary",
     ///         ArtifactS3Location = "s3://some-bucket/",
     ///         ExecutionRoleArn = "some-role",
     ///         Handler = "exports.handler",
+    ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///         RuntimeVersion = "syn-1.0",
     ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
     ///         {
     ///             Expression = "rate(0 minute)",
     ///         },
-    ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///     });
     /// 
     /// });

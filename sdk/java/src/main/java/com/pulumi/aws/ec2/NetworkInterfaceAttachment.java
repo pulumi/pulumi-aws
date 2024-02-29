@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new NetworkInterfaceAttachment(&#34;test&#34;, NetworkInterfaceAttachmentArgs.builder()        
- *             .instanceId(aws_instance.test().id())
- *             .networkInterfaceId(aws_network_interface.test().id())
+ *             .instanceId(testAwsInstance.id())
+ *             .networkInterfaceId(testAwsNetworkInterface.id())
  *             .deviceIndex(0)
  *             .build());
  * 

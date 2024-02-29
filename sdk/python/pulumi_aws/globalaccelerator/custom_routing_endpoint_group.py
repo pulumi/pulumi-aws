@@ -191,14 +191,14 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
+            listener_arn=example_aws_globalaccelerator_custom_routing_listener["id"],
             destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
                 from_port=80,
                 to_port=8080,
                 protocols=["TCP"],
             )],
             endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
+                endpoint_id=example_aws_subnet["id"],
             )])
         ```
 
@@ -233,14 +233,14 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
+            listener_arn=example_aws_globalaccelerator_custom_routing_listener["id"],
             destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
                 from_port=80,
                 to_port=8080,
                 protocols=["TCP"],
             )],
             endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
+                endpoint_id=example_aws_subnet["id"],
             )])
         ```
 

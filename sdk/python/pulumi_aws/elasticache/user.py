@@ -348,11 +348,11 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+            passwords=["password123456789"])
         ```
 
         ```python
@@ -360,13 +360,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
                 type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
 
         ```python
@@ -374,17 +374,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="password",
                 passwords=[
                     "password1",
                     "password2",
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
 
         ## Import
@@ -425,11 +425,11 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+            passwords=["password123456789"])
         ```
 
         ```python
@@ -437,13 +437,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
                 type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
 
         ```python
@@ -451,17 +451,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="password",
                 passwords=[
                     "password1",
                     "password2",
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
 
         ## Import

@@ -28,20 +28,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGeofenceCollection, err := location.NewGeofenceCollection(ctx, "exampleGeofenceCollection", &location.GeofenceCollectionArgs{
+//			example, err := location.NewGeofenceCollection(ctx, "example", &location.GeofenceCollectionArgs{
 //				CollectionName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTracker, err := location.NewTracker(ctx, "exampleTracker", &location.TrackerArgs{
+//			exampleTracker, err := location.NewTracker(ctx, "example", &location.TrackerArgs{
 //				TrackerName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = location.NewTrackerAssociation(ctx, "exampleTrackerAssociation", &location.TrackerAssociationArgs{
-//				ConsumerArn: exampleGeofenceCollection.CollectionArn,
+//			_, err = location.NewTrackerAssociation(ctx, "example", &location.TrackerAssociationArgs{
+//				ConsumerArn: example.CollectionArn,
 //				TrackerName: exampleTracker.TrackerName,
 //			})
 //			if err != nil {

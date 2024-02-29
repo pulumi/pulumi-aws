@@ -58,9 +58,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;)
+ *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;),
+ *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;)
  *             ))
  *             .build());
  * 

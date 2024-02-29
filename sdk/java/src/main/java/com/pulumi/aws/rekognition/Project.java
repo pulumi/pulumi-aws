@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;example-project&#34;)
  *             .autoUpdate(&#34;ENABLED&#34;)
  *             .feature(&#34;CONTENT_MODERATION&#34;)
  *             .build());

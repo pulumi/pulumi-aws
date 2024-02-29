@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;);
  * 
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .priority(100)
  *             .actions(ListenerRuleActionArgs.builder()
  *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.static().arn())
+ *                 .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                 .build())
  *             .conditions(            
  *                 ListenerRuleConditionArgs.builder()
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .priority(99)
  *             .actions(ListenerRuleActionArgs.builder()
  *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.static().arn())
+ *                 .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                 .build())
  *             .conditions(ListenerRuleConditionArgs.builder()
  *                 .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
@@ -109,11 +109,11 @@ import javax.annotation.Nullable;
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .arn(aws_lb_target_group.main().arn())
+ *                             .arn(main.arn())
  *                             .weight(80)
  *                             .build(),
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .arn(aws_lb_target_group.canary().arn())
+ *                             .arn(canary.arn())
  *                             .weight(20)
  *                             .build())
  *                     .stickiness(ListenerRuleActionForwardStickinessArgs.builder()
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 ListenerRuleActionArgs.builder()
  *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(aws_lb_target_group.static().arn())
+ *                     .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                     .build())
  *             .build());
  * 
@@ -208,7 +208,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 ListenerRuleActionArgs.builder()
  *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(aws_lb_target_group.static().arn())
+ *                     .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                     .build())
  *             .build());
  * 

@@ -24,6 +24,41 @@ import javax.annotation.Nullable;
  * Provides an S3 object resource.
  * 
  * ## Example Usage
+ * ### Uploading a file to a bucket
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(&#34;your_bucket_name&#34;)
+ *             .key(&#34;new_object_key&#34;)
+ *             .source(new FileAsset(&#34;path/to/file&#34;))
+ *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
+ *                 .input(&#34;path/to/file&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Encrypting with KMS Key
  * ```java
  * package generated_program;
@@ -34,6 +69,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
@@ -57,9 +93,11 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -82,6 +120,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
@@ -100,9 +139,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -125,6 +166,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
@@ -143,9 +185,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -176,7 +220,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -192,10 +235,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -215,9 +259,7 @@ import javax.annotation.Nullable;
  *             .objectLockMode(&#34;GOVERNANCE&#34;)
  *             .objectLockRetainUntilDate(&#34;2021-12-31T23:59:60Z&#34;)
  *             .forceDestroy(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -235,6 +277,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
@@ -253,7 +296,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
  * 
  *         var examplebucketObject = new BucketObjectv2(&#34;examplebucketObject&#34;, BucketObjectv2Args.builder()        
  *             .key(&#34;someobject&#34;)

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
  *     document: `{
  *   "AWSPolicyFormatVersion": "2015-10-01",
@@ -26,7 +27,6 @@ import * as utilities from "../utilities";
  *   },
  *   "StartEndpoint": "endpoint-start-NkPh"
  * }
- *
  * `,
  * });
  * ```

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Certificate("test", new()
     ///     {
+    ///         Name = "test",
     ///         DomainName = "testdomain.com",
     ///         SubjectAlternativeNames = new[]
     ///         {

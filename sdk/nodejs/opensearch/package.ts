@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Manages an AWS Opensearch Package.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const myOpensearchPackages = new aws.s3.BucketV2("my_opensearch_packages", {bucket: "my-opensearch-packages"});
+ * const example = new aws.s3.BucketObjectv2("example", {
+ *     bucket: myOpensearchPackages.bucket,
+ *     key: "example.txt",
+ *     source: new pulumi.asset.FileAsset("./example.txt"),
+ *     etag: std.filemd5({
+ *         input: "./example.txt",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const examplePackage = new aws.opensearch.Package("example", {
+ *     packageName: "example-txt",
+ *     packageSource: {
+ *         s3BucketName: myOpensearchPackages.bucket,
+ *         s3Key: example.key,
+ *     },
+ *     packageType: "TXT-DICTIONARY",
+ * });
+ * ```
  *
  * ## Import
  *

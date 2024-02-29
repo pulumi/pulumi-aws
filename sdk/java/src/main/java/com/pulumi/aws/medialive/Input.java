@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleInputSecurityGroup = new InputSecurityGroup(&#34;exampleInputSecurityGroup&#34;, InputSecurityGroupArgs.builder()        
+ *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
  *                 .cidr(&#34;10.0.0.8/32&#34;)
  *                 .build())
@@ -58,7 +58,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInput = new Input(&#34;exampleInput&#34;, InputArgs.builder()        
- *             .inputSecurityGroups(exampleInputSecurityGroup.id())
+ *             .name(&#34;example-input&#34;)
+ *             .inputSecurityGroups(example.id())
  *             .type(&#34;UDP_PUSH&#34;)
  *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
  *             .build());

@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
 //				ClusterName:       pulumi.String("cluster-example"),
-//				IamRoleArn:        pulumi.Any(data.Aws_iam_role.Example.Arn),
+//				IamRoleArn:        pulumi.Any(example.Arn),
 //				NodeType:          pulumi.String("dax.r4.large"),
 //				ReplicationFactor: pulumi.Int(1),
 //			})

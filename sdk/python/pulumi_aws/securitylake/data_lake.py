@@ -222,7 +222,7 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
+            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
                 encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
@@ -252,7 +252,7 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
+            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
                 encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
@@ -291,7 +291,7 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
+            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
                 encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
@@ -321,7 +321,7 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
+            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
                 encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(

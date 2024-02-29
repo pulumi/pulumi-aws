@@ -27,10 +27,10 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var example = new Aws.AutoScaling.TrafficSourceAttachment("example", new()
     ///     {
-    ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
+    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
     ///         TrafficSource = new Aws.AutoScaling.Inputs.TrafficSourceAttachmentTrafficSourceArgs
     ///         {
-    ///             Identifier = aws_lb_target_group.Example.Arn,
+    ///             Identifier = exampleAwsLbTargetGroup.Arn,
     ///             Type = "elbv2",
     ///         },
     ///     });

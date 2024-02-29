@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.transfer.Access("example", {
  *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
- *     serverId: aws_transfer_server.example.id,
- *     role: aws_iam_role.example.arn,
- *     homeDirectory: `/${aws_s3_bucket.example.id}/`,
+ *     serverId: exampleAwsTransferServer.id,
+ *     role: exampleAwsIamRole.arn,
+ *     homeDirectory: `/${exampleAwsS3Bucket.id}/`,
  * });
  * ```
  * ### Basic EFS
@@ -32,9 +32,9 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.transfer.Access("test", {
  *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
- *     serverId: aws_transfer_server.test.id,
- *     role: aws_iam_role.test.arn,
- *     homeDirectory: `/${aws_efs_file_system.test.id}/`,
+ *     serverId: testAwsTransferServer.id,
+ *     role: testAwsIamRole.arn,
+ *     homeDirectory: `/${testAwsEfsFileSystem.id}/`,
  *     posixProfile: {
  *         gid: 1000,
  *         uid: 1000,

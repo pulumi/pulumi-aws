@@ -552,9 +552,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
@@ -605,9 +605,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
@@ -658,9 +658,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
@@ -711,9 +711,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
@@ -764,9 +764,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
@@ -817,9 +817,9 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }

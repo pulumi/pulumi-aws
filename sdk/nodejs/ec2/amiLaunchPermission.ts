@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     accountId: "123456789012",
  *     imageId: "ami-12345678",
+ *     accountId: "123456789012",
  * });
  * ```
  * ### Public Access
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     group: "all",
  *     imageId: "ami-12345678",
+ *     group: "all",
  * });
  * ```
  * ### Organization Access

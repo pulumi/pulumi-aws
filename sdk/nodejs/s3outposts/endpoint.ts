@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3outposts.Endpoint("example", {
- *     outpostId: data.aws_outposts_outpost.example.id,
- *     securityGroupId: aws_security_group.example.id,
- *     subnetId: aws_subnet.example.id,
+ *     outpostId: exampleAwsOutpostsOutpost.id,
+ *     securityGroupId: exampleAwsSecurityGroup.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
  *

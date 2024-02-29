@@ -15,9 +15,13 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoModel = new aws.apigateway.Model("myDemoModel", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoModel = new aws.apigateway.Model("MyDemoModel", {
  *     restApi: myDemoAPI.id,
+ *     name: "user",
  *     description: "a JSON schema",
  *     contentType: "application/json",
  *     schema: JSON.stringify({

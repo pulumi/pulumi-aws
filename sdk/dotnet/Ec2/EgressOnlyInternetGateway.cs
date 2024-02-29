@@ -25,15 +25,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///         AssignGeneratedIpv6CidrBlock = true,
     ///     });
     /// 
-    ///     var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new()
+    ///     var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("example", new()
     ///     {
-    ///         VpcId = exampleVpc.Id,
+    ///         VpcId = example.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },

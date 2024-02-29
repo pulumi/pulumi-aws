@@ -18,8 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
- *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     name: "serviceB-route",
+ *     meshName: simple.id,
+ *     virtualRouterName: servicebAwsAppmeshVirtualRouter.name,
  *     spec: {
  *         httpRoute: {
  *             match: {
@@ -28,11 +29,11 @@ import * as utilities from "../utilities";
  *             action: {
  *                 weightedTargets: [
  *                     {
- *                         virtualNode: aws_appmesh_virtual_node.serviceb1.name,
+ *                         virtualNode: serviceb1.name,
  *                         weight: 90,
  *                     },
  *                     {
- *                         virtualNode: aws_appmesh_virtual_node.serviceb2.name,
+ *                         virtualNode: serviceb2.name,
  *                         weight: 10,
  *                     },
  *                 ],
@@ -48,8 +49,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
- *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     name: "serviceB-route",
+ *     meshName: simple.id,
+ *     virtualRouterName: servicebAwsAppmeshVirtualRouter.name,
  *     spec: {
  *         httpRoute: {
  *             match: {
@@ -65,7 +67,7 @@ import * as utilities from "../utilities";
  *             },
  *             action: {
  *                 weightedTargets: [{
- *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     virtualNode: servicebAwsAppmeshVirtualNode.name,
  *                     weight: 100,
  *                 }],
  *             },
@@ -80,8 +82,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
- *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     name: "serviceB-route",
+ *     meshName: simple.id,
+ *     virtualRouterName: servicebAwsAppmeshVirtualRouter.name,
  *     spec: {
  *         httpRoute: {
  *             match: {
@@ -97,7 +100,7 @@ import * as utilities from "../utilities";
  *             },
  *             action: {
  *                 weightedTargets: [{
- *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     virtualNode: servicebAwsAppmeshVirtualNode.name,
  *                     weight: 100,
  *                 }],
  *             },
@@ -112,13 +115,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
- *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     name: "serviceB-route",
+ *     meshName: simple.id,
+ *     virtualRouterName: servicebAwsAppmeshVirtualRouter.name,
  *     spec: {
  *         tcpRoute: {
  *             action: {
  *                 weightedTargets: [{
- *                     virtualNode: aws_appmesh_virtual_node.serviceb1.name,
+ *                     virtualNode: serviceb1.name,
  *                     weight: 100,
  *                 }],
  *             },

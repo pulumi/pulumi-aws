@@ -20,10 +20,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const us_east_1 = new aws.Provider("us-east-1", {region: "us-east-1"});
- * const us_west_2 = new aws.Provider("us-west-2", {region: "us-west-2"});
- * const us_east_1Table = new aws.dynamodb.Table("us-east-1Table", {
+ * const us_east_1 = new aws.dynamodb.Table("us-east-1", {
  *     hashKey: "myAttribute",
+ *     name: "myTable",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     readCapacity: 1,
@@ -32,11 +31,10 @@ import * as utilities from "../utilities";
  *         name: "myAttribute",
  *         type: "S",
  *     }],
- * }, {
- *     provider: aws["us-east-1"],
  * });
- * const us_west_2Table = new aws.dynamodb.Table("us-west-2Table", {
+ * const us_west_2 = new aws.dynamodb.Table("us-west-2", {
  *     hashKey: "myAttribute",
+ *     name: "myTable",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     readCapacity: 1,
@@ -45,21 +43,16 @@ import * as utilities from "../utilities";
  *         name: "myAttribute",
  *         type: "S",
  *     }],
- * }, {
- *     provider: aws["us-west-2"],
  * });
- * const myTable = new aws.dynamodb.GlobalTable("myTable", {replicas: [
- *     {
- *         regionName: "us-east-1",
- *     },
- *     {
- *         regionName: "us-west-2",
- *     },
- * ]}, {
- *     provider: aws["us-east-1"],
- *     dependsOn: [
- *         us_east_1Table,
- *         us_west_2Table,
+ * const myTable = new aws.dynamodb.GlobalTable("myTable", {
+ *     name: "myTable",
+ *     replicas: [
+ *         {
+ *             regionName: "us-east-1",
+ *         },
+ *         {
+ *             regionName: "us-west-2",
+ *         },
  *     ],
  * });
  * ```

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.LookupGatewayRoute(ctx, &appmesh.LookupGatewayRouteArgs{
-//				MeshName:           "test-mesh",
 //				Name:               "test-route",
+//				MeshName:           "test-mesh",
 //				VirtualGatewayName: "test-gateway",
 //			}, nil)
 //			if err != nil {

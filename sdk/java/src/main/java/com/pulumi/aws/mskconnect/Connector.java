@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .kafkaconnectVersion(&#34;2.7.1&#34;)
  *             .capacity(ConnectorCapacityArgs.builder()
  *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
@@ -82,13 +83,13 @@ import javax.annotation.Nullable;
  *             ))
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
- *                     .bootstrapServers(aws_msk_cluster.example().bootstrap_brokers_tls())
+ *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
  *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
- *                         .securityGroups(aws_security_group.example().id())
+ *                         .securityGroups(exampleAwsSecurityGroup.id())
  *                         .subnets(                        
- *                             aws_subnet.example1().id(),
- *                             aws_subnet.example2().id(),
- *                             aws_subnet.example3().id())
+ *                             example1.id(),
+ *                             example2.id(),
+ *                             example3.id())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -100,11 +101,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .plugins(ConnectorPluginArgs.builder()
  *                 .customPlugin(ConnectorPluginCustomPluginArgs.builder()
- *                     .arn(aws_mskconnect_custom_plugin.example().arn())
- *                     .revision(aws_mskconnect_custom_plugin.example().latest_revision())
+ *                     .arn(exampleAwsMskconnectCustomPlugin.arn())
+ *                     .revision(exampleAwsMskconnectCustomPlugin.latestRevision())
  *                     .build())
  *                 .build())
- *             .serviceExecutionRoleArn(aws_iam_role.example().arn())
+ *             .serviceExecutionRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

@@ -192,12 +192,14 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
+        example = aws.fsx.OpenZfsSnapshot("example",
+            name="example",
+            volume_id=example_open_zfs_file_system.root_volume_id)
         ```
         ### Child volume Example
 
@@ -205,13 +207,17 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
+        example_open_zfs_volume = aws.fsx.OpenZfsVolume("example",
+            name="example",
+            parent_volume_id=example_open_zfs_file_system.root_volume_id)
+        example = aws.fsx.OpenZfsSnapshot("example",
+            name="example",
+            volume_id=example_open_zfs_volume.id)
         ```
 
         ## Import
@@ -245,12 +251,14 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
+        example = aws.fsx.OpenZfsSnapshot("example",
+            name="example",
+            volume_id=example_open_zfs_file_system.root_volume_id)
         ```
         ### Child volume Example
 
@@ -258,13 +266,17 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
+        example_open_zfs_volume = aws.fsx.OpenZfsVolume("example",
+            name="example",
+            parent_volume_id=example_open_zfs_file_system.root_volume_id)
+        example = aws.fsx.OpenZfsSnapshot("example",
+            name="example",
+            volume_id=example_open_zfs_volume.id)
         ```
 
         ## Import

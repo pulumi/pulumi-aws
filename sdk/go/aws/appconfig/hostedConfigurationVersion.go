@@ -45,8 +45,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
+//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
+//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
 //				Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
 //				ContentType:            pulumi.String("application/json"),
 //				Content:                pulumi.String(json0),
@@ -118,8 +118,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
+//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
+//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
 //				Description:            pulumi.String("Example Feature Flag Configuration Version"),
 //				ContentType:            pulumi.String("application/json"),
 //				Content:                pulumi.String(json0),

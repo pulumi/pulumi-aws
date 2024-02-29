@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
@@ -54,6 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .predicates(RulePredicateArgs.builder()
  *                 .type(&#34;IPMatch&#34;)

@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
- *             .assertedControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
+ *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
+ *             .name(&#34;daisyguttridge&#34;)
  *             .waitPeriodMs(5000)
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
@@ -80,10 +81,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
+ *             .name(&#34;i_o&#34;)
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
  *             .waitPeriodMs(5000)
- *             .gatingControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .targetControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
+ *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)

@@ -23,15 +23,16 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
+    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("example", new()
     ///     {
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         Name = "my-tf-kx-environment",
+    ///         KmsKeyId = example.Arn,
     ///     });
     /// 
     /// });
@@ -46,21 +47,22 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
+    ///         Name = "my-tf-kx-environment",
     ///         Description = "Environment description",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,
@@ -88,21 +90,22 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
+    ///         Name = "my-tf-kx-environment",
     ///         Description = "Environment description",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,

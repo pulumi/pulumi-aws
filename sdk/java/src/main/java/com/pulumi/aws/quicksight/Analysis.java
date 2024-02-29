@@ -50,11 +50,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Analysis(&#34;example&#34;, AnalysisArgs.builder()        
  *             .analysisId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .sourceEntity(AnalysisSourceEntityArgs.builder()
  *                 .sourceTemplate(AnalysisSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
+ *                     .arn(source.arn())
  *                     .dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(aws_quicksight_data_set.dataset().arn())
+ *                         .dataSetArn(dataset.arn())
  *                         .dataSetPlaceholder(&#34;1&#34;)
  *                         .build())
  *                     .build())
@@ -89,6 +90,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Analysis(&#34;example&#34;, AnalysisArgs.builder()        
  *             .analysisId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 

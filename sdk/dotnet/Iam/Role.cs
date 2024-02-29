@@ -28,21 +28,22 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test_role", new()
     ///     {
+    ///         Name = "test_role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                         ["service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -92,6 +93,7 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var instance = new Aws.Iam.Role("instance", new()
     ///     {
+    ///         Name = "instance_role",
     ///         Path = "/system/",
     ///         AssumeRolePolicy = instanceAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
@@ -131,7 +133,8 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -139,17 +142,17 @@ namespace Pulumi.Aws.Iam
     ///                 Name = "my_inline_policy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Action"] = new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ec2:Describe*",
     ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
+    ///                             ["effect"] = "Allow",
+    ///                             ["resource"] = "*",
     ///                         },
     ///                     },
     ///                 }),
@@ -178,11 +181,12 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         InlinePolicies = new[]
     ///         {
     ///             null,
     ///         },
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///     });
     /// 
     /// });
@@ -200,43 +204,45 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policyOne = new Aws.Iam.Policy("policyOne", new()
+    ///     var policyOne = new Aws.Iam.Policy("policy_one", new()
     ///     {
+    ///         Name = "policy-618033",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var policyTwo = new Aws.Iam.Policy("policyTwo", new()
+    ///     var policyTwo = new Aws.Iam.Policy("policy_two", new()
     ///     {
+    ///         Name = "policy-381966",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:ListAllMyBuckets",
     ///                         "s3:ListBucket",
     ///                         "s3:HeadBucket",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
@@ -244,7 +250,8 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         ManagedPolicyArns = new[]
     ///         {
     ///             policyOne.Arn,
@@ -268,7 +275,8 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         ManagedPolicyArns = new[] {},
     ///     });
     /// 

@@ -560,12 +560,15 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test = aws.lightsail.Bucket("test",
+            name="test-bucket",
+            bundle_id="small_1_0")
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
+                name=test.name,
+                region_name=test.region,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
@@ -600,15 +603,17 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
                 name=test_instance.name,
@@ -616,8 +621,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
+            ))
         ```
         ### lb origin example
 
@@ -632,29 +636,31 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
+                name=test.name,
                 region_name=available.id,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
 
         ## Import
@@ -701,12 +707,15 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test = aws.lightsail.Bucket("test",
+            name="test-bucket",
+            bundle_id="small_1_0")
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
+                name=test.name,
+                region_name=test.region,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
@@ -741,15 +750,17 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
                 name=test_instance.name,
@@ -757,8 +768,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
+            ))
         ```
         ### lb origin example
 
@@ -773,29 +783,31 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
+                name=test.name,
                 region_name=available.id,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
 
         ## Import

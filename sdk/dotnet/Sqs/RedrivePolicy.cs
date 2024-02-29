@@ -28,23 +28,27 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue");
+    ///     var q = new Aws.Sqs.Queue("q", new()
+    ///     {
+    ///         Name = "examplequeue",
+    ///     });
     /// 
     ///     var ddl = new Aws.Sqs.Queue("ddl", new()
     ///     {
+    ///         Name = "examplequeue-ddl",
     ///         RedriveAllowPolicy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 queue.Arn,
+    ///                 q.Arn,
     ///             },
     ///         })),
     ///     });
     /// 
-    ///     var redrivePolicy = new Aws.Sqs.RedrivePolicy("redrivePolicy", new()
+    ///     var qRedrivePolicy = new Aws.Sqs.RedrivePolicy("q", new()
     ///     {
-    ///         QueueUrl = queue.Id,
+    ///         QueueUrl = q.Id,
     ///         RedrivePolicyName = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["deadLetterTargetArn"] = ddl.Arn,

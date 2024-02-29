@@ -746,9 +746,10 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            node_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config=aws.eks.NodeGroupScalingConfigArgs(
                 desired_size=1,
                 max_size=2,
@@ -756,12 +757,7 @@ class NodeGroup(pulumi.CustomResource):
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
-                    aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
-                ]))
+            ))
         ```
         ### Ignoring Changes to Desired Size
 
@@ -771,10 +767,30 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configurations ...
         example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArgs(
             desired_size=2,
         ))
+        ```
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
         ### Example IAM Role for EKS Node Group
 
@@ -783,25 +799,44 @@ class NodeGroup(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-node-group-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
             role=example.name)
-        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy",
+        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
             role=example.name)
         example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
             policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
             role=example.name)
+        ```
+        ### Example Subnets for EKS Node Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        available = aws.get_availability_zones(state="available")
+        example = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.ec2.Subnet(f"example-{range['value']}",
+                availability_zone=available.names[range["value"]],
+                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
+                    newbits=8,
+                    netnum=range["value"]).result,
+                vpc_id=example_aws_vpc["id"]))
         ```
 
         ## Import
@@ -852,9 +887,10 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            node_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config=aws.eks.NodeGroupScalingConfigArgs(
                 desired_size=1,
                 max_size=2,
@@ -862,12 +898,7 @@ class NodeGroup(pulumi.CustomResource):
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
-                    aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
-                ]))
+            ))
         ```
         ### Ignoring Changes to Desired Size
 
@@ -877,10 +908,30 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configurations ...
         example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArgs(
             desired_size=2,
         ))
+        ```
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
         ### Example IAM Role for EKS Node Group
 
@@ -889,25 +940,44 @@ class NodeGroup(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-node-group-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
             role=example.name)
-        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy",
+        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
             role=example.name)
         example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
             policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
             role=example.name)
+        ```
+        ### Example Subnets for EKS Node Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        available = aws.get_availability_zones(state="available")
+        example = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.ec2.Subnet(f"example-{range['value']}",
+                availability_zone=available.names[range["value"]],
+                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
+                    newbits=8,
+                    netnum=range["value"]).result,
+                vpc_id=example_aws_vpc["id"]))
         ```
 
         ## Import

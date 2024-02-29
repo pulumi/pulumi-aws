@@ -24,8 +24,9 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.DeploymentStrategy("example", new()
     ///     {
-    ///         DeploymentDurationInMinutes = 3,
+    ///         Name = "example-deployment-strategy-tf",
     ///         Description = "Example Deployment Strategy",
+    ///         DeploymentDurationInMinutes = 3,
     ///         FinalBakeTimeInMinutes = 4,
     ///         GrowthFactor = 10,
     ///         GrowthType = "LINEAR",

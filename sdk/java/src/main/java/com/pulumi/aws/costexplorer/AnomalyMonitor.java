@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceMonitor = new AnomalyMonitor(&#34;serviceMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .monitorDimension(&#34;SERVICE&#34;)
+ *             .name(&#34;AWSServiceMonitor&#34;)
  *             .monitorType(&#34;DIMENSIONAL&#34;)
+ *             .monitorDimension(&#34;SERVICE&#34;)
  *             .build());
  * 
  *     }
@@ -75,18 +76,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
+ *             .name(&#34;AWSCustomAnomalyMonitor&#34;)
  *             .monitorType(&#34;CUSTOM&#34;)
  *             .monitorSpecification(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;And&#34;, null),
- *                     jsonProperty(&#34;CostCategories&#34;, null),
- *                     jsonProperty(&#34;Dimensions&#34;, null),
- *                     jsonProperty(&#34;Not&#34;, null),
- *                     jsonProperty(&#34;Or&#34;, null),
- *                     jsonProperty(&#34;Tags&#34;, jsonObject(
- *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
- *                         jsonProperty(&#34;MatchOptions&#34;, null),
- *                         jsonProperty(&#34;Values&#34;, jsonArray(&#34;10000&#34;))
+ *                     jsonProperty(&#34;and&#34;, null),
+ *                     jsonProperty(&#34;costCategories&#34;, null),
+ *                     jsonProperty(&#34;dimensions&#34;, null),
+ *                     jsonProperty(&#34;not&#34;, null),
+ *                     jsonProperty(&#34;or&#34;, null),
+ *                     jsonProperty(&#34;tags&#34;, jsonObject(
+ *                         jsonProperty(&#34;key&#34;, &#34;CostCenter&#34;),
+ *                         jsonProperty(&#34;matchOptions&#34;, null),
+ *                         jsonProperty(&#34;values&#34;, jsonArray(&#34;10000&#34;))
  *                     ))
  *                 )))
  *             .build());

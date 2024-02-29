@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www.example.com",
  *     type: "A",
  *     ttl: 300,
- *     records: [aws_eip.lb.public_ip],
+ *     records: [lb.publicIp],
  * });
  * ```
  * ### Weighted routing policy
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const www_dev = new aws.route53.Record("www-dev", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www",
  *     type: "CNAME",
  *     ttl: 5,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     records: ["dev.example.com"],
  * });
  * const www_live = new aws.route53.Record("www-live", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www",
  *     type: "CNAME",
  *     ttl: 5,
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www.example.com",
  *     type: "CNAME",
  *     ttl: 300,
@@ -90,6 +90,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.elb.LoadBalancer("main", {
+ *     name: "foobar-elb",
  *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
  *         instancePort: 80,
@@ -99,7 +100,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "example.com",
  *     type: "A",
  *     aliases: [{
@@ -117,18 +118,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ * const example = new aws.route53.Zone("example", {name: "test.example.com"});
+ * const exampleRecord = new aws.route53.Record("example", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
  *     ttl: 172800,
  *     type: "NS",
- *     zoneId: exampleZone.zoneId,
+ *     zoneId: example.zoneId,
  *     records: [
- *         exampleZone.nameServers[0],
- *         exampleZone.nameServers[1],
- *         exampleZone.nameServers[2],
- *         exampleZone.nameServers[3],
+ *         example.nameServers[0],
+ *         example.nameServers[1],
+ *         example.nameServers[2],
+ *         example.nameServers[3],
  *     ],
  * });
  * ```

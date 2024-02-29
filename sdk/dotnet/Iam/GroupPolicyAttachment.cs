@@ -24,10 +24,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @group = new Aws.Iam.Group("group");
+    ///     var @group = new Aws.Iam.Group("group", new()
+    ///     {
+    ///         Name = "test-group",
+    ///     });
     /// 
     ///     var policy = new Aws.Iam.Policy("policy", new()
     ///     {
+    ///         Name = "test-policy",
     ///         Description = "A test policy",
     ///         PolicyDocument = "{ ... policy JSON ... }",
     ///     });

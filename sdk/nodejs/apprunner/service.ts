@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     serviceName: "example",
  *     sourceConfiguration: {
  *         authenticationConfiguration: {
- *             connectionArn: aws_apprunner_connection.example.arn,
+ *             connectionArn: exampleAwsApprunnerConnection.arn,
  *         },
  *         codeRepository: {
  *             codeConfiguration: {
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         egressConfiguration: {
  *             egressType: "VPC",
- *             vpcConnectorArn: aws_apprunner_vpc_connector.connector.arn,
+ *             vpcConnectorArn: connector.arn,
  *         },
  *     },
  *     tags: {
@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
- *         autoDeploymentsEnabled: false,
  *         imageRepository: {
  *             imageConfiguration: {
  *                 port: "8000",
@@ -68,6 +67,7 @@ import * as utilities from "../utilities";
  *             imageIdentifier: "public.ecr.aws/aws-containers/hello-app-runner:latest",
  *             imageRepositoryType: "ECR_PUBLIC",
  *         },
+ *         autoDeploymentsEnabled: false,
  *     },
  *     tags: {
  *         Name: "example-apprunner-service",
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration", {
+ * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("example", {
  *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
  * });
- * const exampleService = new aws.apprunner.Service("exampleService", {
+ * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     observabilityConfiguration: {
  *         observabilityConfigurationArn: exampleObservabilityConfiguration.arn,

@@ -47,9 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .buildId(aws_gamelift_build.example().id())
+ *             .buildId(exampleAwsGameliftBuild.id())
  *             .ec2InstanceType(&#34;t2.micro&#34;)
  *             .fleetType(&#34;ON_DEMAND&#34;)
+ *             .name(&#34;example-fleet-name&#34;)
  *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
  *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
  *                     .concurrentExecutions(1)

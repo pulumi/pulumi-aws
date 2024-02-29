@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.devicefarm.Project;
+ * import com.pulumi.aws.devicefarm.ProjectArgs;
  * import com.pulumi.aws.devicefarm.NetworkProfile;
  * import com.pulumi.aws.devicefarm.NetworkProfileArgs;
  * import java.util.List;
@@ -44,10 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleNetworkProfile = new NetworkProfile(&#34;exampleNetworkProfile&#34;, NetworkProfileArgs.builder()        
- *             .projectArn(exampleProject.arn())
+ *             .name(&#34;example&#34;)
+ *             .projectArn(example.arn())
  *             .build());
  * 
  *     }

@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.sagemaker.getPrebuiltEcrImage({
- *     imageTag: "2.2-1.0.11.0",
  *     repositoryName: "sagemaker-scikit-learn",
+ *     imageTag: "2.2-1.0.11.0",
  * });
  * ```
  */
@@ -91,8 +91,8 @@ export interface GetPrebuiltEcrImageResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.sagemaker.getPrebuiltEcrImage({
- *     imageTag: "2.2-1.0.11.0",
  *     repositoryName: "sagemaker-scikit-learn",
+ *     imageTag: "2.2-1.0.11.0",
  * });
  * ```
  */

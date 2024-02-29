@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("guardduty.amazonaws.com"),
 //				},
@@ -38,15 +38,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewDetector(ctx, "exampleDetector", nil)
+//			_, err = guardduty.NewDetector(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &guardduty.OrganizationAdminAccountArgs{
+//			_, err = guardduty.NewOrganizationAdminAccount(ctx, "example", &guardduty.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

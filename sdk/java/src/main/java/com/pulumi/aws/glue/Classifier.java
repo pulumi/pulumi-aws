@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
  *                 .allowSingleColumn(false)
  *                 .containsHeader(&#34;PRESENT&#34;)
@@ -87,6 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
  *                 .classification(&#34;example&#34;)
  *                 .grokPattern(&#34;example&#34;)
@@ -120,6 +122,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
  *                 .jsonPath(&#34;example&#34;)
  *                 .build())
@@ -152,6 +155,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
  *                 .classification(&#34;example&#34;)
  *                 .rowTag(&#34;example&#34;)

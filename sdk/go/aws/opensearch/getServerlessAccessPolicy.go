@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.LookupServerlessAccessPolicy(ctx, &opensearch.LookupServerlessAccessPolicyArgs{
-//				Name: aws_opensearchserverless_access_policy.Example.Name,
-//				Type: aws_opensearchserverless_access_policy.Example.Type,
+//				Name: exampleAwsOpensearchserverlessAccessPolicy.Name,
+//				Type: exampleAwsOpensearchserverlessAccessPolicy.Type,
 //			}, nil)
 //			if err != nil {
 //				return err

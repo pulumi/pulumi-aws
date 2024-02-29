@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s&#34;, aws_dynamodb_table.example().name()))
+ *             .resourceId(String.format(&#34;table/%s&#34;, example.name()))
  *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
  *             .serviceNamespace(&#34;dynamodb&#34;)
  *             .build());
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *         var dynamodbIndexReadTarget = new Target(&#34;dynamodbIndexReadTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, aws_dynamodb_table.example().name(),var_.index_name()))
+ *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, example.name(),indexName))
  *             .scalableDimension(&#34;dynamodb:index:ReadCapacityUnits&#34;)
  *             .serviceNamespace(&#34;dynamodb&#34;)
  *             .build());
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
+ *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
  *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
  *             .serviceNamespace(&#34;ecs&#34;)
  *             .build());
@@ -146,11 +146,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
- *             .maxCapacity(15)
- *             .minCapacity(1)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
  *             .serviceNamespace(&#34;rds&#34;)
+ *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
+ *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
+ *             .minCapacity(1)
+ *             .maxCapacity(15)
  *             .build());
  * 
  *     }
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
+ *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
  *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
  *             .serviceNamespace(&#34;ecs&#34;)
  *             .build());
@@ -212,11 +212,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(8)
- *             .minCapacity(1)
- *             .resourceId(aws_msk_cluster.example().arn())
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
  *             .serviceNamespace(&#34;kafka&#34;)
+ *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
+ *             .resourceId(example.arn())
+ *             .minCapacity(1)
+ *             .maxCapacity(8)
  *             .build());
  * 
  *     }

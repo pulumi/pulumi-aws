@@ -31,7 +31,7 @@ import (
 // {
 // Name: "transit-gateway-id",
 // Values: interface{}{
-// aws_ec2_transit_gateway.Example.Id,
+// exampleAwsEc2TransitGateway.Id,
 // },
 // },
 // {

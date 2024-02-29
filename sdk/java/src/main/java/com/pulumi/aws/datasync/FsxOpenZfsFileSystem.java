@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FsxOpenZfsFileSystem(&#34;example&#34;, FsxOpenZfsFileSystemArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_openzfs_file_system.example().arn())
- *             .securityGroupArns(aws_security_group.example().arn())
+ *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .protocol(FsxOpenZfsFileSystemProtocolArgs.builder()
  *                 .nfs(FsxOpenZfsFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs.builder()

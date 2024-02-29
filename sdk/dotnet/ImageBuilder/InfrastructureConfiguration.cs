@@ -25,25 +25,26 @@ namespace Pulumi.Aws.ImageBuilder
     ///     var example = new Aws.ImageBuilder.InfrastructureConfiguration("example", new()
     ///     {
     ///         Description = "example description",
-    ///         InstanceProfileName = aws_iam_instance_profile.Example.Name,
+    ///         InstanceProfileName = exampleAwsIamInstanceProfile.Name,
     ///         InstanceTypes = new[]
     ///         {
     ///             "t2.nano",
     ///             "t3.micro",
     ///         },
-    ///         KeyPair = aws_key_pair.Example.Key_name,
+    ///         KeyPair = exampleAwsKeyPair.KeyName,
+    ///         Name = "example",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
-    ///         SubnetId = aws_subnet.Main.Id,
+    ///         SnsTopicArn = exampleAwsSnsTopic.Arn,
+    ///         SubnetId = main.Id,
     ///         TerminateInstanceOnFailure = true,
     ///         Logging = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingArgs
     ///         {
     ///             S3Logs = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingS3LogsArgs
     ///             {
-    ///                 S3BucketName = aws_s3_bucket.Example.Bucket,
+    ///                 S3BucketName = exampleAwsS3Bucket.Bucket,
     ///                 S3KeyPrefix = "logs",
     ///             },
     ///         },

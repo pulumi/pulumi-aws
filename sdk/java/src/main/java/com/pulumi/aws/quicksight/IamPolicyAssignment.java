@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  *         var example = new IamPolicyAssignment(&#34;example&#34;, IamPolicyAssignmentArgs.builder()        
  *             .assignmentName(&#34;example&#34;)
  *             .assignmentStatus(&#34;ENABLED&#34;)
- *             .policyArn(aws_iam_policy.example().arn())
+ *             .policyArn(exampleAwsIamPolicy.arn())
  *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
- *                 .users(aws_quicksight_user.example().user_name())
+ *                 .users(exampleAwsQuicksightUser.userName())
  *                 .build())
  *             .build());
  * 

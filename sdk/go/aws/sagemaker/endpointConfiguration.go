@@ -31,10 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
+//				Name: pulumi.String("my-endpoint-config"),
 //				ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
 //					&sagemaker.EndpointConfigurationProductionVariantArgs{
 //						VariantName:          pulumi.String("variant-1"),
-//						ModelName:            pulumi.Any(aws_sagemaker_model.M.Name),
+//						ModelName:            pulumi.Any(m.Name),
 //						InitialInstanceCount: pulumi.Int(1),
 //						InstanceType:         pulumi.String("ml.t2.medium"),
 //					},

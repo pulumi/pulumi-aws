@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.acmpca.CertificateAuthority("example", {
+ *     usageMode: "SHORT_LIVED_CERTIFICATE",
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -44,7 +45,6 @@ import * as utilities from "../utilities";
  *             commonName: "example.com",
  *         },
  *     },
- *     usageMode: "SHORT_LIVED_CERTIFICATE",
  * });
  * ```
  * ### Enable Certificate Revocation List
@@ -53,7 +53,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const example = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
@@ -63,8 +66,8 @@ import * as utilities from "../utilities";
  *             "s3:PutObjectAcl",
  *         ],
  *         resources: [
- *             exampleBucketV2.arn,
- *             pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *             example.arn,
+ *             pulumi.interpolate`${example.arn}/*`,
  *         ],
  *         principals: [{
  *             identifiers: ["acm-pca.amazonaws.com"],
@@ -72,11 +75,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: example.id,
  *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
  * });
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -89,12 +92,10 @@ import * as utilities from "../utilities";
  *             customCname: "crl.example.com",
  *             enabled: true,
  *             expirationInDays: 7,
- *             s3BucketName: exampleBucketV2.id,
+ *             s3BucketName: example.id,
  *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
  *

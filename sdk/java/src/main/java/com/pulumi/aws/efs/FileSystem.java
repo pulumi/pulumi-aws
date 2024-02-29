@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new FileSystem(&#34;foo&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;MyProduct&#34;))
  *             .build());
  * 
@@ -79,6 +80,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fooWithLifecylePolicy = new FileSystem(&#34;fooWithLifecylePolicy&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
  *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
  *                 .transitionToIa(&#34;AFTER_30_DAYS&#34;)
  *                 .build())

@@ -27,12 +27,6 @@ namespace Pulumi.Aws.SsmContacts
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
@@ -55,12 +49,6 @@ namespace Pulumi.Aws.SsmContacts
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
     ///         },
     ///     });
     /// 

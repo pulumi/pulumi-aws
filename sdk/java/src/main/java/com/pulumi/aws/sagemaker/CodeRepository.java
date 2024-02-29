@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
  * import com.pulumi.aws.secretsmanager.SecretVersion;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.sagemaker.CodeRepository;
  * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
  * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,10 +81,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
+ *         var example = new Secret(&#34;example&#34;, SecretArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
- *             .secretId(exampleSecret.id())
+ *             .secretId(example.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;username&#34;, &#34;example&#34;),
@@ -96,11 +98,9 @@ import javax.annotation.Nullable;
  *             .codeRepositoryName(&#34;example&#34;)
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
- *                 .secretArn(exampleSecret.arn())
+ *                 .secretArn(example.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleSecretVersion)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -411,6 +411,38 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Theme("example",
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT",
+            configuration=aws.quicksight.ThemeConfigurationArgs(
+                data_color_palette=aws.quicksight.ThemeConfigurationDataColorPaletteArgs(
+                    colors=[
+                        "#FFFFFF",
+                        "#111111",
+                        "#222222",
+                        "#333333",
+                        "#444444",
+                        "#555555",
+                        "#666666",
+                        "#777777",
+                        "#888888",
+                        "#999999",
+                    ],
+                    empty_fill_color="#FFFFFF",
+                    min_max_gradients=[
+                        "#FFFFFF",
+                        "#111111",
+                    ],
+                ),
+            ))
+        ```
 
         ## Import
 
@@ -443,6 +475,38 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Theme("example",
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT",
+            configuration=aws.quicksight.ThemeConfigurationArgs(
+                data_color_palette=aws.quicksight.ThemeConfigurationDataColorPaletteArgs(
+                    colors=[
+                        "#FFFFFF",
+                        "#111111",
+                        "#222222",
+                        "#333333",
+                        "#444444",
+                        "#555555",
+                        "#666666",
+                        "#777777",
+                        "#888888",
+                        "#999999",
+                    ],
+                    empty_fill_color="#FFFFFF",
+                    min_max_gradients=[
+                        "#FFFFFF",
+                        "#111111",
+                    ],
+                ),
+            ))
+        ```
 
         ## Import
 

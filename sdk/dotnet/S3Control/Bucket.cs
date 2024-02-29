@@ -27,7 +27,7 @@ namespace Pulumi.Aws.S3Control
     ///     var example = new Aws.S3Control.Bucket("example", new()
     ///     {
     ///         BucketName = "example",
-    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
+    ///         OutpostId = exampleAwsOutpostsOutpost.Id,
     ///     });
     /// 
     /// });

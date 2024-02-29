@@ -205,6 +205,59 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone() {
         return getAvailabilityZone(GetAvailabilityZoneArgs.Empty, InvokeOptions.Empty);
@@ -221,6 +274,59 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain() {
@@ -239,6 +345,59 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args) {
         return getAvailabilityZone(args, InvokeOptions.Empty);
@@ -255,6 +414,59 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args) {
@@ -273,6 +485,59 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
@@ -289,6 +554,59 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args, InvokeOptions options) {
@@ -1057,6 +1375,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1078,14 +1397,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1111,7 +1432,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1135,6 +1456,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1156,14 +1478,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1189,7 +1513,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1213,6 +1537,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1234,14 +1559,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1267,7 +1594,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1291,6 +1618,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1312,14 +1640,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1345,7 +1675,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1369,6 +1699,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1390,14 +1721,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1423,7 +1756,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1447,6 +1780,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1468,14 +1802,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1501,7 +1837,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -1779,40 +2115,6 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags() {
@@ -1847,40 +2149,6 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getDefaultTags();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
      * 
      *     }
      * }
@@ -1923,40 +2191,6 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args) {
@@ -1991,40 +2225,6 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getDefaultTags();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
      * 
      *     }
      * }
@@ -2067,40 +2267,6 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOptions options) {
@@ -2135,40 +2301,6 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getDefaultTags();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
      * 
      *     }
      * }
@@ -2214,6 +2346,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2271,6 +2404,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2328,6 +2462,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2385,6 +2520,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2438,9 +2574,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2484,9 +2620,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2530,9 +2666,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2576,9 +2712,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2622,9 +2758,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2668,9 +2804,9 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 

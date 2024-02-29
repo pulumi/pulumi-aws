@@ -359,7 +359,7 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_instance = aws.rds.Instance("defaultInstance",
+        default = aws.rds.Instance("default",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.17",
@@ -369,11 +369,12 @@ class EventSubscription(pulumi.CustomResource):
             password="bar",
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.6")
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.rds.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="rds-events")
+        default_event_subscription = aws.rds.EventSubscription("default",
+            name="rds-event-sub",
             sns_topic=default_topic.arn,
             source_type="db-instance",
-            source_ids=[default_instance.identifier],
+            source_ids=[default.identifier],
             event_categories=[
                 "availability",
                 "deletion",
@@ -422,7 +423,7 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_instance = aws.rds.Instance("defaultInstance",
+        default = aws.rds.Instance("default",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.17",
@@ -432,11 +433,12 @@ class EventSubscription(pulumi.CustomResource):
             password="bar",
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.6")
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.rds.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="rds-events")
+        default_event_subscription = aws.rds.EventSubscription("default",
+            name="rds-event-sub",
             sns_topic=default_topic.arn,
             source_type="db-instance",
-            source_ids=[default_instance.identifier],
+            source_ids=[default.identifier],
             event_categories=[
                 "availability",
                 "deletion",

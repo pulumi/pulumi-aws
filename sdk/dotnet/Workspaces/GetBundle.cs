@@ -48,8 +48,8 @@ namespace Pulumi.Aws.Workspaces
         /// {
         ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         Name = "Value with Windows 10 and Office 2016",
         ///         Owner = "AMAZON",
+        ///         Name = "Value with Windows 10 and Office 2016",
         ///     });
         /// 
         /// });
@@ -97,8 +97,8 @@ namespace Pulumi.Aws.Workspaces
         /// {
         ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         Name = "Value with Windows 10 and Office 2016",
         ///         Owner = "AMAZON",
+        ///         Name = "Value with Windows 10 and Office 2016",
         ///     });
         /// 
         /// });

@@ -23,15 +23,16 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const testRole = new aws.iam.Role("test_role", {
+ *     name: "test_role",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -56,6 +57,7 @@ import {PolicyDocument} from "./index";
  *     }],
  * });
  * const instance = new aws.iam.Role("instance", {
+ *     name: "instance_role",
  *     path: "/system/",
  *     assumeRolePolicy: instanceAssumeRolePolicy.then(instanceAssumeRolePolicy => instanceAssumeRolePolicy.json),
  * });
@@ -75,16 +77,17 @@ import {PolicyDocument} from "./index";
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     inlinePolicies: [
  *         {
  *             name: "my_inline_policy",
  *             policy: JSON.stringify({
- *                 Version: "2012-10-17",
- *                 Statement: [{
- *                     Action: ["ec2:Describe*"],
- *                     Effect: "Allow",
- *                     Resource: "*",
+ *                 version: "2012-10-17",
+ *                 statement: [{
+ *                     action: ["ec2:Describe*"],
+ *                     effect: "Allow",
+ *                     resource: "*",
  *                 }],
  *             }),
  *         },
@@ -104,8 +107,9 @@ import {PolicyDocument} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
  *     inlinePolicies: [{}],
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  * });
  * ```
  * ### Example of Exclusive Managed Policies
@@ -116,28 +120,35 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const policyOne = new aws.iam.Policy("policyOne", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: ["ec2:Describe*"],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
- * const policyTwo = new aws.iam.Policy("policyTwo", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: [
- *             "s3:ListAllMyBuckets",
- *             "s3:ListBucket",
- *             "s3:HeadBucket",
- *         ],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
+ * const policyOne = new aws.iam.Policy("policy_one", {
+ *     name: "policy-618033",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
+ * const policyTwo = new aws.iam.Policy("policy_two", {
+ *     name: "policy-381966",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
+ *                 "s3:ListAllMyBuckets",
+ *                 "s3:ListBucket",
+ *                 "s3:HeadBucket",
+ *             ],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     managedPolicyArns: [
  *         policyOne.arn,
  *         policyTwo.arn,
@@ -153,7 +164,8 @@ import {PolicyDocument} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     managedPolicyArns: [],
  * });
  * ```

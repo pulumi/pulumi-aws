@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.7.22",
         ///         LicenseModel = "general-public-license",
+        ///         StorageType = "standard",
         ///         PreferredInstanceClasses = new[]
         ///         {
         ///             "db.r6.xlarge",
         ///             "db.m4.large",
         ///             "db.t3.small",
         ///         },
-        ///         StorageType = "standard",
         ///     });
         /// 
         /// });
@@ -99,13 +99,13 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.7.22",
         ///         LicenseModel = "general-public-license",
+        ///         StorageType = "standard",
         ///         PreferredInstanceClasses = new[]
         ///         {
         ///             "db.r6.xlarge",
         ///             "db.m4.large",
         ///             "db.t3.small",
         ///         },
-        ///         StorageType = "standard",
         ///     });
         /// 
         /// });

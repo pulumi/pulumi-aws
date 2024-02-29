@@ -12,15 +12,18 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.iot.Authorizer("example", {
- *     authorizerFunctionArn: aws_lambda_function.example.arn,
+ *     name: "example",
+ *     authorizerFunctionArn: exampleAwsLambdaFunction.arn,
  *     signingDisabled: false,
  *     status: "ACTIVE",
  *     tokenKeyName: "Token-Header",
  *     tokenSigningPublicKeys: {
- *         Key1: fs.readFileSync("test-fixtures/iot-authorizer-signing-key.pem", "utf8"),
+ *         Key1: std.file({
+ *             input: "test-fixtures/iot-authorizer-signing-key.pem",
+ *         }).then(invoke => invoke.result),
  *     },
  * });
  * ```

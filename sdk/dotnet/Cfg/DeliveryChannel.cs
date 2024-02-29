@@ -24,9 +24,16 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
+    ///     var b = new Aws.S3.BucketV2("b", new()
     ///     {
+    ///         Bucket = "example-awsconfig",
     ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var foo = new Aws.Cfg.DeliveryChannel("foo", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = b.Bucket,
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -55,28 +62,19 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var r = new Aws.Iam.Role("r", new()
     ///     {
+    ///         Name = "awsconfig-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()
+    ///     var fooRecorder = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = role.Arn,
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///     });
     /// 
-    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new()
-    ///     {
-    ///         S3BucketName = bucketV2.Bucket,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             fooRecorder,
-    ///         },
-    ///     });
-    /// 
-    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -89,17 +87,18 @@ namespace Pulumi.Aws.Cfg
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     bucketV2.Arn,
-    ///                     $"{bucketV2.Arn}/*",
+    ///                     b.Arn,
+    ///                     $"{b.Arn}/*",
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     var pRolePolicy = new Aws.Iam.RolePolicy("p", new()
     ///     {
-    ///         Role = role.Id,
-    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "awsconfig-example",
+    ///         Role = r.Id,
+    ///         Policy = p.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

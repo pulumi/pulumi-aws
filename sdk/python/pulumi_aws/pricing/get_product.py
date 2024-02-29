@@ -89,7 +89,8 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="c5.xlarge",
@@ -118,15 +119,15 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
                 field="capacitystatus",
                 value="Used",
             ),
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="ds1.xlarge",
@@ -135,8 +136,7 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
                 field="location",
                 value="US East (N. Virginia)",
             ),
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
 
 
@@ -170,7 +170,8 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="c5.xlarge",
@@ -199,15 +200,15 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
                 field="capacitystatus",
                 value="Used",
             ),
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="ds1.xlarge",
@@ -216,8 +217,7 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
                 field="location",
                 value="US East (N. Virginia)",
             ),
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
 
 

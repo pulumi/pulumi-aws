@@ -24,23 +24,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var example = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("example", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("example", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         TransitGatewayId = example.Id,
     ///         Type = exampleCustomerGateway.Type,
     ///     });
     /// 
-    ///     var exampleTag = new Aws.Ec2.Tag("exampleTag", new()
+    ///     var exampleTag = new Aws.Ec2.Tag("example", new()
     ///     {
     ///         ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
     ///         Key = "Name",

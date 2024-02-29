@@ -54,8 +54,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-//				Name:  pulumi.StringRef("Value with Windows 10 and Office 2016"),
 //				Owner: pulumi.StringRef("AMAZON"),
+//				Name:  pulumi.StringRef("Value with Windows 10 and Office 2016"),
 //			}, nil)
 //			if err != nil {
 //				return err

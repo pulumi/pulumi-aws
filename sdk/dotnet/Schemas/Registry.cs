@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Schemas
     /// {
     ///     var test = new Aws.Schemas.Registry("test", new()
     ///     {
+    ///         Name = "my_own_registry",
     ///         Description = "A custom schema registry",
     ///     });
     /// 

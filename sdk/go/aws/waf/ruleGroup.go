@@ -28,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRule, err := waf.NewRule(ctx, "exampleRule", &waf.RuleArgs{
+//			example, err := waf.NewRule(ctx, "example", &waf.RuleArgs{
+//				Name:       pulumi.String("example"),
 //				MetricName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = waf.NewRuleGroup(ctx, "exampleRuleGroup", &waf.RuleGroupArgs{
+//			_, err = waf.NewRuleGroup(ctx, "example", &waf.RuleGroupArgs{
+//				Name:       pulumi.String("example"),
 //				MetricName: pulumi.String("example"),
 //				ActivatedRules: waf.RuleGroupActivatedRuleArray{
 //					&waf.RuleGroupActivatedRuleArgs{
@@ -42,7 +44,7 @@ import (
 //							Type: pulumi.String("COUNT"),
 //						},
 //						Priority: pulumi.Int(50),
-//						RuleId:   exampleRule.ID(),
+//						RuleId:   example.ID(),
 //					},
 //				},
 //			})

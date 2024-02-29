@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpc.getSecurityGroupRule({
- *     securityGroupRuleId: _var.security_group_rule_id,
+ *     securityGroupRuleId: securityGroupRuleId,
  * });
  * ```
  */
@@ -111,7 +111,7 @@ export interface GetSecurityGroupRuleResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpc.getSecurityGroupRule({
- *     securityGroupRuleId: _var.security_group_rule_id,
+ *     securityGroupRuleId: securityGroupRuleId,
  * });
  * ```
  */

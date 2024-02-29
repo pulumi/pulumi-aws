@@ -112,9 +112,9 @@ import javax.annotation.Nullable;
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .addressAllocationIds(aws_eip.example().id())
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
+ *                 .addressAllocationIds(exampleAwsEip.id())
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .identityProviderType(&#34;AWS_DIRECTORY_SERVICE&#34;)
- *             .directoryId(aws_directory_service_directory.example().id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .build());
  * 
  *     }
@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .identityProviderType(&#34;AWS_LAMBDA&#34;)
- *             .function(aws_lambda_identity_provider.example().arn())
+ *             .function(exampleAwsLambdaIdentityProvider.arn())
  *             .build());
  * 
  *     }
@@ -207,15 +207,15 @@ import javax.annotation.Nullable;
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .protocols(            
  *                 &#34;FTP&#34;,
  *                 &#34;FTPS&#34;)
- *             .certificate(aws_acm_certificate.example().arn())
+ *             .certificate(exampleAwsAcmCertificate.arn())
  *             .identityProviderType(&#34;API_GATEWAY&#34;)
- *             .url(String.format(&#34;%s%s&#34;, aws_api_gateway_deployment.example().invoke_url(),aws_api_gateway_resource.example().path()))
+ *             .url(String.format(&#34;%s%s&#34;, exampleAwsApiGatewayDeployment.invokeUrl(),exampleAwsApiGatewayResource.path()))
  *             .build());
  * 
  *     }
@@ -249,7 +249,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var transferLogGroup = new LogGroup(&#34;transferLogGroup&#34;, LogGroupArgs.builder()        
+ *         var transfer = new LogGroup(&#34;transfer&#34;, LogGroupArgs.builder()        
  *             .namePrefix(&#34;transfer_test_&#34;)
  *             .build());
  * 
@@ -274,7 +274,7 @@ import javax.annotation.Nullable;
  *             .endpointType(&#34;PUBLIC&#34;)
  *             .loggingRole(iamForTransfer.arn())
  *             .protocols(&#34;SFTP&#34;)
- *             .structuredLogDestinations(transferLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .structuredLogDestinations(transfer.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
  *     }

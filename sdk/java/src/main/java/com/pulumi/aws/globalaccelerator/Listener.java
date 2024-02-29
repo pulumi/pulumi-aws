@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccelerator = new Accelerator(&#34;exampleAccelerator&#34;, AcceleratorArgs.builder()        
+ *         var example = new Accelerator(&#34;example&#34;, AcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .acceleratorArn(exampleAccelerator.id())
+ *             .acceleratorArn(example.id())
  *             .clientAffinity(&#34;SOURCE_IP&#34;)
  *             .protocol(&#34;TCP&#34;)
  *             .portRanges(ListenerPortRangeArgs.builder()

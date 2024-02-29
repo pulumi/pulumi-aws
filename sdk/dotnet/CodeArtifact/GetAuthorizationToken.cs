@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
         ///     });
         /// 
         /// });

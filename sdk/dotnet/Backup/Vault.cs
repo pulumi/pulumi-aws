@@ -24,7 +24,8 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Vault("example", new()
     ///     {
-    ///         KmsKeyArn = aws_kms_key.Example.Arn,
+    ///         Name = "example_backup_vault",
+    ///         KmsKeyArn = exampleAwsKmsKey.Arn,
     ///     });
     /// 
     /// });

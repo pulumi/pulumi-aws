@@ -54,7 +54,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleControl, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
+//			example, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
 //				Name: "1. Risk Management",
 //				Type: "Standard",
 //			}, nil)
@@ -68,13 +68,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = auditmanager.NewFramework(ctx, "exampleFramework", &auditmanager.FrameworkArgs{
+//			_, err = auditmanager.NewFramework(ctx, "example", &auditmanager.FrameworkArgs{
+//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: *pulumi.String(exampleControl.Id),
+//								Id: *pulumi.String(example.Id),
 //							},
 //						},
 //					},

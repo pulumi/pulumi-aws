@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,7 +52,8 @@ import javax.annotation.Nullable;
  *         var entities = new BucketObjectv2(&#34;entities&#34;);
  * 
  *         var example = new EntityRecognizer(&#34;example&#34;, EntityRecognizerArgs.builder()        
- *             .dataAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode(&#34;en&#34;)
  *             .inputDataConfig(EntityRecognizerInputDataConfigArgs.builder()
  *                 .entityTypes(                
@@ -64,15 +64,13 @@ import javax.annotation.Nullable;
  *                         .type(&#34;ENTITY_2&#34;)
  *                         .build())
  *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
- *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.documents().bucket(),id)))
+ *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, documentsAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
- *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.entities().bucket(),id)))
+ *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, entitiesAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

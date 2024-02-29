@@ -24,6 +24,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// {
     ///     var example = new Aws.ServiceDiscovery.PublicDnsNamespace("example", new()
     ///     {
+    ///         Name = "hoge.example.com",
     ///         Description = "example",
     ///     });
     /// 

@@ -34,18 +34,20 @@ import (
 // if err != nil {
 // return err
 // }
-// billingLogs, err := s3.NewBucketV2(ctx, "billingLogs", nil)
+// billingLogs, err := s3.NewBucketV2(ctx, "billing_logs", &s3.BucketV2Args{
+// Bucket: pulumi.String("my-billing-tf-test-bucket"),
+// })
 // if err != nil {
 // return err
 // }
-// _, err = s3.NewBucketAclV2(ctx, "billingLogsAcl", &s3.BucketAclV2Args{
+// _, err = s3.NewBucketAclV2(ctx, "billing_logs_acl", &s3.BucketAclV2Args{
 // Bucket: billingLogs.ID(),
 // Acl: pulumi.String("private"),
 // })
 // if err != nil {
 // return err
 // }
-// allowBillingLoggingPolicyDocument := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// allowBillingLogging := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // billingLogsArn := _args[0].(string)
 // billingLogsArn1 := _args[1].(string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
@@ -88,10 +90,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allowBillingLoggingBucketPolicy", &s3.BucketPolicyArgs{
+// _, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
 // Bucket: billingLogs.ID(),
-// Policy: allowBillingLoggingPolicyDocument.ApplyT(func(allowBillingLoggingPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowBillingLoggingPolicyDocument.Json, nil
+// Policy: allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowBillingLogging.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {

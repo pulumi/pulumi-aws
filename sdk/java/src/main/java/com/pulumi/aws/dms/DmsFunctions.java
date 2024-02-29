@@ -53,7 +53,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
@@ -91,7 +91,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
@@ -129,7 +129,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
@@ -167,7 +167,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
@@ -356,7 +356,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
@@ -393,7 +393,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
@@ -430,7 +430,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
@@ -467,7 +467,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
@@ -505,7 +505,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
@@ -543,7 +543,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
@@ -581,7 +581,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
@@ -619,7 +619,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
@@ -657,7 +657,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
@@ -695,7 +695,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
@@ -733,7 +733,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
@@ -771,7 +771,7 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }

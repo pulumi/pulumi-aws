@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example-pool"),
 //				AutoVerifiedAttributes: pulumi.StringArray{
 //					pulumi.String("email"),
 //				},
@@ -36,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
+//			_, err = cognito.NewIdentityProvider(ctx, "example_provider", &cognito.IdentityProviderArgs{
 //				UserPoolId:   example.ID(),
 //				ProviderName: pulumi.String("Google"),
 //				ProviderType: pulumi.String("Google"),

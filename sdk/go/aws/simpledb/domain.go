@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := simpledb.NewDomain(ctx, "users", nil)
+//			_, err := simpledb.NewDomain(ctx, "users", &simpledb.DomainArgs{
+//				Name: pulumi.String("users"),
+//			})
 //			if err != nil {
 //				return err
 //			}

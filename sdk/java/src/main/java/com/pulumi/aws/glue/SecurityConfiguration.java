@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityConfiguration(&#34;example&#34;, SecurityConfigurationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
  *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
  *                     .cloudwatchEncryptionMode(&#34;DISABLED&#34;)
@@ -52,7 +53,7 @@ import javax.annotation.Nullable;
  *                     .jobBookmarksEncryptionMode(&#34;DISABLED&#34;)
  *                     .build())
  *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
- *                     .kmsKeyArn(data.aws_kms_key().example().arn())
+ *                     .kmsKeyArn(exampleAwsKmsKey.arn())
  *                     .s3EncryptionMode(&#34;SSE-KMS&#34;)
  *                     .build())
  *                 .build())

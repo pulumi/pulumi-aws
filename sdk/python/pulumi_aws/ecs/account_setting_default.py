@@ -123,7 +123,9 @@ class AccountSettingDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        test = aws.ecs.AccountSettingDefault("test",
+            name="taskLongArnFormat",
+            value="enabled")
         ```
 
         ## Import
@@ -158,7 +160,9 @@ class AccountSettingDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        test = aws.ecs.AccountSettingDefault("test",
+            name="taskLongArnFormat",
+            value="enabled")
         ```
 
         ## Import

@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directconnect.GatewayAssociationProposal("example", {
- *     dxGatewayId: aws_dx_gateway.example.id,
- *     dxGatewayOwnerAccountId: aws_dx_gateway.example.owner_account_id,
- *     associatedGatewayId: aws_vpn_gateway.example.id,
+ *     dxGatewayId: exampleAwsDxGateway.id,
+ *     dxGatewayOwnerAccountId: exampleAwsDxGateway.ownerAccountId,
+ *     associatedGatewayId: exampleAwsVpnGateway.id,
  * });
  * ```
  *

@@ -29,16 +29,16 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         CdcStartTime = "1993-05-21T05:50:00Z",
     ///         MigrationType = "full-load",
-    ///         ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
+    ///         ReplicationInstanceArn = test_dms_replication_instance_tf.ReplicationInstanceArn,
     ///         ReplicationTaskId = "test-dms-replication-task-tf",
     ///         ReplicationTaskSettings = "...",
-    ///         SourceEndpointArn = aws_dms_endpoint.Test_dms_source_endpoint_tf.Endpoint_arn,
+    ///         SourceEndpointArn = test_dms_source_endpoint_tf.EndpointArn,
     ///         TableMappings = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
     ///         Tags = 
     ///         {
     ///             { "Name", "test" },
     ///         },
-    ///         TargetEndpointArn = aws_dms_endpoint.Test_dms_target_endpoint_tf.Endpoint_arn,
+    ///         TargetEndpointArn = test_dms_target_endpoint_tf.EndpointArn,
     ///     });
     /// 
     /// });

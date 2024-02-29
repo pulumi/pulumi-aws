@@ -42,8 +42,8 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
 //				Description: pulumi.String("Back off, man. I'm a scientist."),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
+//				PortfolioId: pulumi.Any(exampleAwsServicecatalogPortfolio.Id),
+//				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				Type:        pulumi.String("LAUNCH"),
 //				Parameters:  pulumi.String(json0),
 //			})

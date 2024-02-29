@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Role.Arn),
+//				Name:         pulumi.String("my-notebook-instance"),
+//				RoleArn:      pulumi.Any(role.Arn),
 //				InstanceType: pulumi.String("ml.t2.medium"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo"),
@@ -68,7 +69,8 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:               pulumi.Any(aws_iam_role.Role.Arn),
+//				Name:                  pulumi.String("my-notebook-instance"),
+//				RoleArn:               pulumi.Any(role.Arn),
 //				InstanceType:          pulumi.String("ml.t2.medium"),
 //				DefaultCodeRepository: example.CodeRepositoryName,
 //				Tags: pulumi.StringMap{

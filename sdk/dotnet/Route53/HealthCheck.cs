@@ -25,16 +25,16 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.HealthCheck("example", new()
     ///     {
-    ///         FailureThreshold = 5,
     ///         Fqdn = "example.com",
     ///         Port = 80,
-    ///         RequestInterval = 30,
+    ///         Type = "HTTP",
     ///         ResourcePath = "/",
+    ///         FailureThreshold = 5,
+    ///         RequestInterval = 30,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-test-health-check" },
     ///         },
-    ///         Type = "HTTP",
     ///     });
     /// 
     /// });
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Route53
     ///         ChildHealthThreshold = 1,
     ///         ChildHealthchecks = new[]
     ///         {
-    ///             aws_route53_health_check.Child.Id,
+    ///             child.Id,
     ///         },
     ///         Tags = 
     ///         {
@@ -100,6 +100,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
+    ///         Name = "test-foobar5",
     ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
     ///         EvaluationPeriods = 2,
     ///         MetricName = "CPUUtilization",

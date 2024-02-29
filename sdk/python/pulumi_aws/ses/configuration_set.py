@@ -250,7 +250,7 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test")
+        test = aws.ses.ConfigurationSet("test", name="some-configuration-set-test")
         ```
         ### Require TLS Connections
 
@@ -258,9 +258,11 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
-            tls_policy="Require",
-        ))
+        test = aws.ses.ConfigurationSet("test",
+            name="some-configuration-set-test",
+            delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
+                tls_policy="Require",
+            ))
         ```
         ### Tracking Options
 
@@ -268,9 +270,11 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
-            custom_redirect_domain="sub.example.com",
-        ))
+        test = aws.ses.ConfigurationSet("test",
+            name="some-configuration-set-test",
+            tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
+                custom_redirect_domain="sub.example.com",
+            ))
         ```
 
         ## Import
@@ -307,7 +311,7 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test")
+        test = aws.ses.ConfigurationSet("test", name="some-configuration-set-test")
         ```
         ### Require TLS Connections
 
@@ -315,9 +319,11 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
-            tls_policy="Require",
-        ))
+        test = aws.ses.ConfigurationSet("test",
+            name="some-configuration-set-test",
+            delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
+                tls_policy="Require",
+            ))
         ```
         ### Tracking Options
 
@@ -325,9 +331,11 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
-            custom_redirect_domain="sub.example.com",
-        ))
+        test = aws.ses.ConfigurationSet("test",
+            name="some-configuration-set-test",
+            tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
+                custom_redirect_domain="sub.example.com",
+            ))
         ```
 
         ## Import

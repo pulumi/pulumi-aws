@@ -29,11 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
+//				Name: pulumi.String("custom_query"),
 //				LogGroupNames: pulumi.StringArray{
 //					pulumi.String("/aws/logGroup1"),
 //					pulumi.String("/aws/logGroup2"),
 //				},
-//				QueryString: pulumi.String("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n"),
+//				QueryString: pulumi.String("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n"),
 //			})
 //			if err != nil {
 //				return err

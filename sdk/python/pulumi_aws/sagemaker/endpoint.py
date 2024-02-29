@@ -215,8 +215,9 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
+        e = aws.sagemaker.Endpoint("e",
+            name="my-endpoint",
+            endpoint_config_name=ec["name"],
             tags={
                 "Name": "foo",
             })
@@ -254,8 +255,9 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
+        e = aws.sagemaker.Endpoint("e",
+            name="my-endpoint",
+            endpoint_config_name=ec["name"],
             tags={
                 "Name": "foo",
             })

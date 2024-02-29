@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .featureGroupName(&#34;example&#34;)
  *             .recordIdentifierFeatureName(&#34;example&#34;)
  *             .eventTimeFeatureName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(test.arn())
  *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
  *                 .featureName(&#34;example&#34;)
  *                 .featureType(&#34;String&#34;)

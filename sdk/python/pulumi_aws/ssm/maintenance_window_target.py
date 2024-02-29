@@ -245,11 +245,13 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="INSTANCE",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -264,11 +266,13 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="RESOURCE_GROUP",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -312,11 +316,13 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="INSTANCE",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -331,11 +337,13 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="RESOURCE_GROUP",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(

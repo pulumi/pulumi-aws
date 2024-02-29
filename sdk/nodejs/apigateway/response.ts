@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.apigateway.RestApi("main", {});
+ * const main = new aws.apigateway.RestApi("main", {name: "MyDemoAPI"});
  * const test = new aws.apigateway.Response("test", {
  *     restApiId: main.id,
  *     statusCode: "401",

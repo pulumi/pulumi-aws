@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * const _default = new aws.quicksight.DataSource("default", {
  *     dataSourceId: "example-id",
+ *     name: "My Cool Data in S3",
  *     parameters: {
  *         s3: {
  *             manifestFileLocation: {

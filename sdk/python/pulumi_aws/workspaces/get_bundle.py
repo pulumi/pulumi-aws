@@ -151,8 +151,8 @@ def get_bundle(bundle_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
-        owner="AMAZON")
+    example = aws.workspaces.get_bundle(owner="AMAZON",
+        name="Value with Windows 10 and Office 2016")
     ```
 
 
@@ -201,8 +201,8 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
-        owner="AMAZON")
+    example = aws.workspaces.get_bundle(owner="AMAZON",
+        name="Value with Windows 10 and Office 2016")
     ```
 
 

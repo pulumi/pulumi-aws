@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivschat.NewRoom(ctx, "example", nil)
+//			_, err := ivschat.NewRoom(ctx, "example", &ivschat.RoomArgs{
+//				Name: pulumi.String("tf-room"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,24 +54,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket-"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoggingConfiguration, err := ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
+//			exampleLoggingConfiguration, err := ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
+//				Name: pulumi.String("tf-ivschat-loggingconfiguration"),
 //				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
 //					S3: &ivschat.LoggingConfigurationDestinationConfigurationS3Args{
-//						BucketName: exampleBucketV2.ID(),
+//						BucketName: example.ID(),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ivschat.NewRoom(ctx, "exampleRoom", &ivschat.RoomArgs{
+//			_, err = ivschat.NewRoom(ctx, "example", &ivschat.RoomArgs{
+//				Name: pulumi.String("tf-ivschat-room"),
 //				LoggingConfigurationIdentifiers: pulumi.StringArray{
 //					exampleLoggingConfiguration.Arn,
 //				},

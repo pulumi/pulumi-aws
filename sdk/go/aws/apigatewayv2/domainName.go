@@ -36,7 +36,7 @@ import (
 //			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 //				DomainName: pulumi.String("ws-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
@@ -64,10 +64,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
+//			example, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 //				DomainName: pulumi.String("http-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
@@ -75,16 +75,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				Name:   exampleDomainName.DomainName,
+//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
+//				Name:   example.DomainName,
 //				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//						Name: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
 //							return &domainNameConfiguration.TargetDomainName, nil
 //						}).(pulumi.StringPtrOutput),
-//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//						ZoneId: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
 //							return &domainNameConfiguration.HostedZoneId, nil
 //						}).(pulumi.StringPtrOutput),
 //						EvaluateTargetHealth: pulumi.Bool(false),

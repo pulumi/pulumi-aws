@@ -25,10 +25,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new()
+    ///     var testLambdaAlias = new Aws.Lambda.Alias("test_lambda_alias", new()
     ///     {
+    ///         Name = "my_alias",
     ///         Description = "a sample description",
-    ///         FunctionName = aws_lambda_function.Lambda_function_test.Arn,
+    ///         FunctionName = lambdaFunctionTest.Arn,
     ///         FunctionVersion = "1",
     ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
     ///         {

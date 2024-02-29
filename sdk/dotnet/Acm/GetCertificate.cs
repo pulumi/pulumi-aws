@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Acm
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Find a certificate that is issued
         ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",
@@ -37,16 +38,18 @@ namespace Pulumi.Aws.Acm
         ///         },
         ///     });
         /// 
+        ///     // Find a certificate issued by (not imported into) ACM
         ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",
-        ///         MostRecent = true,
         ///         Types = new[]
         ///         {
         ///             "AMAZON_ISSUED",
         ///         },
+        ///         MostRecent = true,
         ///     });
         /// 
+        ///     // Find a RSA 4096 bit certificate
         ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",
@@ -81,6 +84,7 @@ namespace Pulumi.Aws.Acm
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Find a certificate that is issued
         ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",
@@ -90,16 +94,18 @@ namespace Pulumi.Aws.Acm
         ///         },
         ///     });
         /// 
+        ///     // Find a certificate issued by (not imported into) ACM
         ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",
-        ///         MostRecent = true,
         ///         Types = new[]
         ///         {
         ///             "AMAZON_ISSUED",
         ///         },
+        ///         MostRecent = true,
         ///     });
         /// 
+        ///     // Find a RSA 4096 bit certificate
         ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
         ///         Domain = "tf.example.com",

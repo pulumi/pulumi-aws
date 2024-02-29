@@ -65,6 +65,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;cluster-example&#34;)
  *             .engine(&#34;memcached&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheNodes(2)
@@ -98,11 +99,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;cluster-example&#34;)
  *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;3.2.10&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheNodes(1)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
+ *             .engineVersion(&#34;3.2.10&#34;)
  *             .port(6379)
  *             .build());
  * 
@@ -134,7 +136,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replica = new Cluster(&#34;replica&#34;, ClusterArgs.builder()        
- *             .replicationGroupId(aws_elasticache_replication_group.example().id())
+ *             .clusterId(&#34;cluster-example&#34;)
+ *             .replicationGroupId(example.id())
  *             .build());
  * 
  *     }
@@ -164,6 +167,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;mycluster&#34;)
  *             .engine(&#34;redis&#34;)
  *             .nodeType(&#34;cache.t3.micro&#34;)
  *             .numCacheNodes(1)
@@ -171,13 +175,13 @@ import javax.annotation.Nullable;
  *             .applyImmediately(true)
  *             .logDeliveryConfigurations(            
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
+ *                     .destination(example.name())
  *                     .destinationType(&#34;cloudwatch-logs&#34;)
  *                     .logFormat(&#34;text&#34;)
  *                     .logType(&#34;slow-log&#34;)
  *                     .build(),
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .destinationType(&#34;kinesis-firehose&#34;)
  *                     .logFormat(&#34;json&#34;)
  *                     .logType(&#34;engine-log&#34;)

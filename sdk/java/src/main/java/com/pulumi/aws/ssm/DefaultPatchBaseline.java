@@ -42,10 +42,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var examplePatchBaseline = new PatchBaseline(&#34;examplePatchBaseline&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .approvedPatches(&#34;KB123456&#34;)
  *             .build());
  * 
- *         var exampleDefaultPatchBaseline = new DefaultPatchBaseline(&#34;exampleDefaultPatchBaseline&#34;, DefaultPatchBaselineArgs.builder()        
+ *         var example = new DefaultPatchBaseline(&#34;example&#34;, DefaultPatchBaselineArgs.builder()        
  *             .baselineId(examplePatchBaseline.id())
  *             .operatingSystem(examplePatchBaseline.operatingSystem())
  *             .build());

@@ -24,14 +24,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
  *     configuration: {
- *         id: aws_mq_configuration.test.id,
- *         revision: aws_mq_configuration.test.latest_revision,
+ *         id: test.id,
+ *         revision: test.latestRevision,
  *     },
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",
  *     hostInstanceType: "mq.t2.micro",
- *     securityGroups: [aws_security_group.test.id],
+ *     securityGroups: [testAwsSecurityGroup.id],
  *     users: [{
  *         username: "ExampleUser",
  *         password: "MindTheGap",
@@ -47,15 +48,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
  *     configuration: {
- *         id: aws_mq_configuration.test.id,
- *         revision: aws_mq_configuration.test.latest_revision,
+ *         id: test.id,
+ *         revision: test.latestRevision,
  *     },
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",
  *     storageType: "ebs",
  *     hostInstanceType: "mq.m5.large",
- *     securityGroups: [aws_security_group.test.id],
+ *     securityGroups: [testAwsSecurityGroup.id],
  *     users: [{
  *         username: "ExampleUser",
  *         password: "MindTheGap",

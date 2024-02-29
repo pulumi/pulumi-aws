@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.detective.OrganizationAdminAccount;
  * import com.pulumi.aws.detective.OrganizationAdminAccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,16 +40,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(&#34;detective.amazonaws.com&#34;)
  *             .featureSet(&#34;ALL&#34;)
  *             .build());
  * 
  *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .accountId(&#34;123456789012&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

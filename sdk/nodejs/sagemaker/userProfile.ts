@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.UserProfile("example", {
- *     domainId: aws_sagemaker_domain.test.id,
+ *     domainId: test.id,
  *     userProfileName: "example",
  * });
  * ```

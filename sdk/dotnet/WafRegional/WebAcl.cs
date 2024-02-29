@@ -25,6 +25,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -37,6 +38,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -51,6 +53,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var wafacl = new Aws.WafRegional.WebAcl("wafacl", new()
     ///     {
+    ///         Name = "tfWebACL",
     ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -85,6 +88,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
     ///         MetricName = "example",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -95,7 +99,7 @@ namespace Pulumi.Aws.WafRegional
     ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
     ///             {
     ///                 Priority = 1,
-    ///                 RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                 RuleId = exampleAwsWafregionalRuleGroup.Id,
     ///                 Type = "GROUP",
     ///                 OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
@@ -119,12 +123,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
     ///         LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]

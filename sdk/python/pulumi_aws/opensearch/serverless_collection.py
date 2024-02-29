@@ -330,7 +330,8 @@ class ServerlessCollection(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
+        example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -339,7 +340,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
 
         ## Import
@@ -381,7 +382,8 @@ class ServerlessCollection(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
+        example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -390,7 +392,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
 
         ## Import

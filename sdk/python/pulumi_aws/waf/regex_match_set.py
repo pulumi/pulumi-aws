@@ -126,18 +126,22 @@ class RegexMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_regex_pattern_set = aws.waf.RegexPatternSet("exampleRegexPatternSet", regex_pattern_strings=[
-            "one",
-            "two",
-        ])
-        example_regex_match_set = aws.waf.RegexMatchSet("exampleRegexMatchSet", regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
-            field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
-                data="User-Agent",
-                type="HEADER",
-            ),
-            regex_pattern_set_id=example_regex_pattern_set.id,
-            text_transformation="NONE",
-        )])
+        example_regex_pattern_set = aws.waf.RegexPatternSet("example",
+            name="example",
+            regex_pattern_strings=[
+                "one",
+                "two",
+            ])
+        example = aws.waf.RegexMatchSet("example",
+            name="example",
+            regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
+                field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
+                    data="User-Agent",
+                    type="HEADER",
+                ),
+                regex_pattern_set_id=example_regex_pattern_set.id,
+                text_transformation="NONE",
+            )])
         ```
 
         ## Import
@@ -168,18 +172,22 @@ class RegexMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_regex_pattern_set = aws.waf.RegexPatternSet("exampleRegexPatternSet", regex_pattern_strings=[
-            "one",
-            "two",
-        ])
-        example_regex_match_set = aws.waf.RegexMatchSet("exampleRegexMatchSet", regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
-            field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
-                data="User-Agent",
-                type="HEADER",
-            ),
-            regex_pattern_set_id=example_regex_pattern_set.id,
-            text_transformation="NONE",
-        )])
+        example_regex_pattern_set = aws.waf.RegexPatternSet("example",
+            name="example",
+            regex_pattern_strings=[
+                "one",
+                "two",
+            ])
+        example = aws.waf.RegexMatchSet("example",
+            name="example",
+            regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
+                field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
+                    data="User-Agent",
+                    type="HEADER",
+                ),
+                regex_pattern_set_id=example_regex_pattern_set.id,
+                text_transformation="NONE",
+            )])
         ```
 
         ## Import

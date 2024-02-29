@@ -21,19 +21,29 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.CloudFront.Function("test", new()
     ///     {
+    ///         Name = "test",
     ///         Runtime = "cloudfront-js-2.0",
     ///         Comment = "my function",
     ///         Publish = true,
-    ///         Code = File.ReadAllText($"{path.Module}/function.js"),
+    ///         Code = Std.File.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/function.js",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

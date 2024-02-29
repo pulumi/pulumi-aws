@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
@@ -24,11 +24,12 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
+ * const defaultTopic = new aws.sns.Topic("default", {name: "rds-events"});
+ * const defaultEventSubscription = new aws.rds.EventSubscription("default", {
+ *     name: "rds-event-sub",
  *     snsTopic: defaultTopic.arn,
  *     sourceType: "db-instance",
- *     sourceIds: [defaultInstance.identifier],
+ *     sourceIds: [_default.identifier],
  *     eventCategories: [
  *         "availability",
  *         "deletion",

@@ -289,6 +289,52 @@ class VpcIpam(pulumi.CustomResource):
         """
         Provides an IPAM resource.
 
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        main = aws.ec2.VpcIpam("main",
+            description="My IPAM",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=current.name,
+            )],
+            tags={
+                "Test": "Main",
+            })
+        ```
+
+        Shared with multiple operating_regions:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        # ensure current provider region is an operating_regions entry
+        all_ipam_regions = not_implemented("distinct(concat([data.aws_region.current.name],var.ipam_regions))")
+        main = aws.ec2.VpcIpam("main",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=entry["value"],
+            ) for entry in [{"key": k, "value": v} for k, v in all_ipam_regions]],
+            description="multi region ipam")
+        current = aws.get_region()
+        config = pulumi.Config()
+        ipam_regions = config.get_object("ipamRegions")
+        if ipam_regions is None:
+            ipam_regions = [
+                "us-east-1",
+                "us-west-2",
+            ]
+        ```
+
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
@@ -312,6 +358,52 @@ class VpcIpam(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IPAM resource.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        main = aws.ec2.VpcIpam("main",
+            description="My IPAM",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=current.name,
+            )],
+            tags={
+                "Test": "Main",
+            })
+        ```
+
+        Shared with multiple operating_regions:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        # ensure current provider region is an operating_regions entry
+        all_ipam_regions = not_implemented("distinct(concat([data.aws_region.current.name],var.ipam_regions))")
+        main = aws.ec2.VpcIpam("main",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=entry["value"],
+            ) for entry in [{"key": k, "value": v} for k, v in all_ipam_regions]],
+            description="multi region ipam")
+        current = aws.get_region()
+        config = pulumi.Config()
+        ipam_regions = config.get_object("ipamRegions")
+        if ipam_regions is None:
+            ipam_regions = [
+                "us-east-1",
+                "us-west-2",
+            ]
+        ```
 
         ## Import
 

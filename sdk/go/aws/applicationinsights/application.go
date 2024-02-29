@@ -32,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ResourceTypeFilters": []string{
+//				"resourceTypeFilters": []string{
 //					"AWS::EC2::Instance",
 //				},
-//				"TagFilters": []map[string]interface{}{
+//				"tagFilters": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Key": "Stage",
-//						"Values": []string{
+//						"key": "Stage",
+//						"values": []string{
 //							"Test",
 //						},
 //					},
@@ -48,7 +48,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", &resourcegroups.GroupArgs{
+//			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
+//				Name: pulumi.String("example"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(json0),
 //				},
@@ -56,7 +57,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = applicationinsights.NewApplication(ctx, "exampleApplication", &applicationinsights.ApplicationArgs{
+//			_, err = applicationinsights.NewApplication(ctx, "example", &applicationinsights.ApplicationArgs{
 //				ResourceGroupName: exampleGroup.Name,
 //			})
 //			if err != nil {

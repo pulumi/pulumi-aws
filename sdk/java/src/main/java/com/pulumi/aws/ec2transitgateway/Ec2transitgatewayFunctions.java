@@ -85,7 +85,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -130,7 +130,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -175,7 +175,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -220,7 +220,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -265,7 +265,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -310,7 +310,7 @@ public final class Ec2transitgatewayFunctions {
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(aws_ec2_transit_gateway.example().id())
+     *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
      *                     .name(&#34;resource-type&#34;)
@@ -1247,8 +1247,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -1286,8 +1286,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -1325,8 +1325,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -1364,8 +1364,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -1403,8 +1403,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -1442,8 +1442,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .dxGatewayId(aws_dx_gateway.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .dxGatewayId(exampleAwsDxGateway.id())
      *             .build());
      * 
      *     }
@@ -2771,7 +2771,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTableAssociations(GetRouteTableAssociationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2809,7 +2809,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTableAssociations(GetRouteTableAssociationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2847,7 +2847,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTableAssociations(GetRouteTableAssociationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2885,7 +2885,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTableAssociations(GetRouteTableAssociationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2923,7 +2923,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTablePropagations(GetRouteTablePropagationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2961,7 +2961,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTablePropagations(GetRouteTablePropagationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -2999,7 +2999,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTablePropagations(GetRouteTablePropagationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -3037,7 +3037,7 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTablePropagations(GetRouteTablePropagationsArgs.builder()
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
      *             .build());
      * 
      *     }
@@ -3078,7 +3078,7 @@ public final class Ec2transitgatewayFunctions {
      *                 .name(&#34;type&#34;)
      *                 .values(&#34;propagated&#34;)
      *                 .build())
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
@@ -3119,7 +3119,7 @@ public final class Ec2transitgatewayFunctions {
      *                 .name(&#34;type&#34;)
      *                 .values(&#34;propagated&#34;)
      *                 .build())
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
@@ -3160,7 +3160,7 @@ public final class Ec2transitgatewayFunctions {
      *                 .name(&#34;type&#34;)
      *                 .values(&#34;propagated&#34;)
      *                 .build())
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
@@ -3201,7 +3201,7 @@ public final class Ec2transitgatewayFunctions {
      *                 .name(&#34;type&#34;)
      *                 .values(&#34;propagated&#34;)
      *                 .build())
-     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
@@ -4135,8 +4135,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }
@@ -4208,8 +4208,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }
@@ -4281,8 +4281,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }
@@ -4354,8 +4354,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }
@@ -4427,8 +4427,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }
@@ -4500,8 +4500,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
-     *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
-     *             .vpnConnectionId(aws_vpn_connection.example().id())
+     *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+     *             .vpnConnectionId(exampleAwsVpnConnection.id())
      *             .build());
      * 
      *     }

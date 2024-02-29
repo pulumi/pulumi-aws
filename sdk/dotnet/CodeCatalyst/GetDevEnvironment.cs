@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CodeCatalyst
         ///     {
         ///         SpaceName = "myspace",
         ///         ProjectName = "myproject",
-        ///         EnvId = aws_codecatalyst_dev_environment.Example.Id,
+        ///         EnvId = exampleAwsCodecatalystDevEnvironment.Id,
         ///     });
         /// 
         /// });
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.CodeCatalyst
         ///     {
         ///         SpaceName = "myspace",
         ///         ProjectName = "myproject",
-        ///         EnvId = aws_codecatalyst_dev_environment.Example.Id,
+        ///         EnvId = exampleAwsCodecatalystDevEnvironment.Id,
         ///     });
         /// 
         /// });

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.accessanalyzer.ArchiveRule("example", {
  *     analyzerName: "example-analyzer",
+ *     ruleName: "example-rule",
  *     filters: [
  *         {
  *             criteria: "condition.aws:UserId",
@@ -33,7 +34,6 @@ import * as utilities from "../utilities";
  *             eqs: ["false"],
  *         },
  *     ],
- *     ruleName: "example-rule",
  * });
  * ```
  *

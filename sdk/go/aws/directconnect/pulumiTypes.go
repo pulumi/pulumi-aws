@@ -19,20 +19,6 @@ type GetRouterConfigurationRouter struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// Router operating system
 	Software string `pulumi:"software"`
@@ -60,20 +46,6 @@ type GetRouterConfigurationRouterArgs struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
 	// Router operating system
 	Software pulumi.StringInput `pulumi:"software"`
@@ -143,23 +115,6 @@ func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringOutput {
 // ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 //
 // There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetRouterConfigurationRouterOutput) RouterTypeIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
 }

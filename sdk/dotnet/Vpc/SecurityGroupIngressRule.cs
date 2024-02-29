@@ -29,19 +29,20 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup", new()
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", new()
+    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("example", new()
     ///     {
-    ///         SecurityGroupId = exampleSecurityGroup.Id,
+    ///         SecurityGroupId = example.Id,
     ///         CidrIpv4 = "10.0.0.0/8",
     ///         FromPort = 80,
     ///         IpProtocol = "tcp",

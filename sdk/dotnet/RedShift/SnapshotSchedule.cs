@@ -22,11 +22,11 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var @default = new Aws.RedShift.SnapshotSchedule("default", new()
     ///     {
+    ///         Identifier = "tf-redshift-snapshot-schedule",
     ///         Definitions = new[]
     ///         {
     ///             "rate(12 hours)",
     ///         },
-    ///         Identifier = "tf-redshift-snapshot-schedule",
     ///     });
     /// 
     /// });

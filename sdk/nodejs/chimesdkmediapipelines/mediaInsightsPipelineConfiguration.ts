@@ -18,7 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kinesis.Stream("example", {shardCount: 2});
+ * const example = new aws.kinesis.Stream("example", {
+ *     name: "example",
+ *     shardCount: 2,
+ * });
  * const mediaPipelinesAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -29,8 +32,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const callAnalyticsRole = new aws.iam.Role("callAnalyticsRole", {assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json)});
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
+ * const callAnalyticsRole = new aws.iam.Role("call_analytics_role", {
+ *     name: "CallAnalyticsRole",
+ *     assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json),
+ * });
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyBasicConfiguration",
  *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     elements: [
  *         {
@@ -70,9 +77,13 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const postCallRole = new aws.iam.Role("postCallRole", {assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json)});
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const postCallRole = new aws.iam.Role("post_call_role", {
+ *     name: "PostCallAccessRole",
+ *     assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json),
+ * });
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyCallAnalyticsConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeCallAnalyticsProcessor",
@@ -102,7 +113,7 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
@@ -114,8 +125,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.call_analytics_role.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyRealTimeAlertConfiguration",
+ *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeCallAnalyticsProcessor",
@@ -126,7 +138,7 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
@@ -168,8 +180,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyTranscribeConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeProcessor",
@@ -190,7 +203,7 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
@@ -202,8 +215,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyVoiceAnalyticsConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  *     elements: [
  *         {
  *             type: "VoiceAnalyticsProcessor",
@@ -233,7 +247,7 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.test.arn,
+ *                 insightsTarget: test.arn,
  *             },
  *         },
  *     ],
@@ -245,8 +259,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyS3RecordingConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  *     elements: [{
  *         type: "S3RecordingSink",
  *         s3RecordingSinkConfiguration: {

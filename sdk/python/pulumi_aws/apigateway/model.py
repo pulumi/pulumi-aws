@@ -206,9 +206,12 @@ class Model(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_model = aws.apigateway.Model("MyDemoModel",
             rest_api=my_demo_api.id,
+            name="user",
             description="a JSON schema",
             content_type="application/json",
             schema=json.dumps({
@@ -248,9 +251,12 @@ class Model(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_model = aws.apigateway.Model("MyDemoModel",
             rest_api=my_demo_api.id,
+            name="user",
             description="a JSON schema",
             content_type="application/json",
             schema=json.dumps({

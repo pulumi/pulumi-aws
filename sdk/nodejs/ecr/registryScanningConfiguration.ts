@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const configuration = new aws.ecr.RegistryScanningConfiguration("configuration", {
+ *     scanType: "ENHANCED",
  *     rules: [{
+ *         scanFrequency: "CONTINUOUS_SCAN",
  *         repositoryFilters: [{
  *             filter: "example",
  *             filterType: "WILDCARD",
  *         }],
- *         scanFrequency: "CONTINUOUS_SCAN",
  *     }],
- *     scanType: "ENHANCED",
  * });
  * ```
  * ### Multiple rules
@@ -35,23 +35,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecr.RegistryScanningConfiguration("test", {
+ *     scanType: "ENHANCED",
  *     rules: [
  *         {
+ *             scanFrequency: "SCAN_ON_PUSH",
  *             repositoryFilters: [{
  *                 filter: "*",
  *                 filterType: "WILDCARD",
  *             }],
- *             scanFrequency: "SCAN_ON_PUSH",
  *         },
  *         {
+ *             scanFrequency: "CONTINUOUS_SCAN",
  *             repositoryFilters: [{
  *                 filter: "example",
  *                 filterType: "WILDCARD",
  *             }],
- *             scanFrequency: "CONTINUOUS_SCAN",
  *         },
  *     ],
- *     scanType: "ENHANCED",
  * });
  * ```
  *

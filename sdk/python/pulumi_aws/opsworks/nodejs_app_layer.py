@@ -833,7 +833,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.NodejsAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.NodejsAppLayer("app", stack_id=main["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -875,7 +875,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.NodejsAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.NodejsAppLayer("app", stack_id=main["id"])
         ```
 
         :param str resource_name: The name of the resource.

@@ -10,12 +10,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const example = new aws.worklink.Fleet("example", {});
+ * const example = new aws.worklink.Fleet("example", {name: "example"});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
- *     fleetArn: aws_worklink_fleet.test.arn,
- *     certificate: fs.readFileSync("certificate.pem", "utf8"),
+ *     fleetArn: testAwsWorklinkFleet.arn,
+ *     certificate: std.file({
+ *         input: "certificate.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

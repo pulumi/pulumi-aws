@@ -185,10 +185,11 @@ class ServiceAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
+            description="Motor generator unit",
+            name="MGU",
             definition=aws.servicecatalog.ServiceActionDefinitionArgs(
                 name="AWS-RestartEC2Instance",
-            ),
-            description="Motor generator unit")
+            ))
         ```
 
         ## Import
@@ -225,10 +226,11 @@ class ServiceAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
+            description="Motor generator unit",
+            name="MGU",
             definition=aws.servicecatalog.ServiceActionDefinitionArgs(
                 name="AWS-RestartEC2Instance",
-            ),
-            description="Motor generator unit")
+            ))
         ```
 
         ## Import

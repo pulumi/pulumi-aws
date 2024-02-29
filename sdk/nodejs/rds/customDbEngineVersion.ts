@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const example = new aws.kms.Key("example", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("example", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
  *     engineVersion: "19.cdb_cev1",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     manifest: `  {
  * 	"databaseInstallationFileNames":["V982063-01.zip"]
  *   }
@@ -36,23 +36,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * function computeFilebase64sha256(path: string): string {
- * 	const fileData = Buffer.from(fs.readFileSync(path, 'binary'))
- * 	return crypto.createHash('sha256').update(fileData).digest('hex')
- * }
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const example = new aws.kms.Key("example", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("example", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
  *     engineVersion: "19.cdb_cev1",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     filename: "manifest_1915_GI.json",
- *     manifestHash: computeFilebase64sha256(manifest_1915_GI.json),
+ *     manifestHash: std.filebase64sha256({
+ *         input: json,
+ *     }).then(invoke => invoke.result),
  *     tags: {
  *         Name: "example",
  *         Key: "value",
@@ -79,6 +75,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiCopy("example", {
+ *     name: "sqlserver-se-2019-15.00.4249.2",
  *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-east-1",

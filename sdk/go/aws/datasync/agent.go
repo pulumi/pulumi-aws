@@ -31,6 +31,73 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
 //				IpAddress: pulumi.String("1.2.3.4"),
+//				Name:      pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With VPC Endpoints
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ServiceName: pulumi.String(fmt.Sprintf("com.amazonaws.%v.datasync", current.Name)),
+//				VpcId:       pulumi.Any(exampleAwsVpc.Id),
+//				SecurityGroupIds: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Id,
+//				},
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				VpcEndpointType: pulumi.String("Interface"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.LookupNetworkInterface(ctx, &ec2.LookupNetworkInterfaceArgs{
+//				Id: pulumi.StringRef(notImplemented("tolist(aws_vpc_endpoint.example.network_interface_ids)")[0]),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
+//				IpAddress: pulumi.String("1.2.3.4"),
+//				SecurityGroupArns: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Arn,
+//				},
+//				SubnetArns: pulumi.StringArray{
+//					exampleAwsSubnet.Arn,
+//				},
+//				VpcEndpointId:       exampleVpcEndpoint.ID(),
+//				PrivateLinkEndpoint: *pulumi.String(example.PrivateIp),
+//				Name:                pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

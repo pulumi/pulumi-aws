@@ -33,26 +33,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Id": "testBucketPolicy",
-//				"Statement": []map[string]interface{}{
+//				"id": "testBucketPolicy",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
-//						"Effect": "Deny",
-//						"Principal": map[string]interface{}{
+//						"action": "s3-outposts:PutBucketLifecycleConfiguration",
+//						"effect": "Deny",
+//						"principal": map[string]interface{}{
 //							"AWS": "*",
 //						},
-//						"Resource": aws_s3control_bucket.Example.Arn,
-//						"Sid":      "statement1",
+//						"resource": exampleAwsS3controlBucket.Arn,
+//						"sid":      "statement1",
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Bucket: pulumi.Any(exampleAwsS3controlBucket.Arn),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {

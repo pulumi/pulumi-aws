@@ -64,17 +64,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup&#34;)
- *             .role(exampleRole.name())
+ *             .role(example.name())
  *             .build());
  * 
  *         var exampleSelection = new Selection(&#34;exampleSelection&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(exampleRole.arn())
+ *             .iamRoleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -104,8 +105,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .planId(aws_backup_plan.example().id())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;my_example_backup_selection&#34;)
+ *             .planId(exampleAwsBackupPlan.id())
  *             .selectionTags(SelectionSelectionTagArgs.builder()
  *                 .type(&#34;STRINGEQUALS&#34;)
  *                 .key(&#34;foo&#34;)
@@ -140,8 +142,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .planId(aws_backup_plan.example().id())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;my_example_backup_selection&#34;)
+ *             .planId(exampleAwsBackupPlan.id())
  *             .resources(&#34;*&#34;)
  *             .conditions(SelectionConditionArgs.builder()
  *                 .stringEquals(SelectionConditionStringEqualArgs.builder()
@@ -189,12 +192,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .planId(aws_backup_plan.example().id())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;my_example_backup_selection&#34;)
+ *             .planId(exampleAwsBackupPlan.id())
  *             .resources(            
- *                 aws_db_instance.example().arn(),
- *                 aws_ebs_volume.example().arn(),
- *                 aws_efs_file_system.example().arn())
+ *                 exampleAwsDbInstance.arn(),
+ *                 exampleAwsEbsVolume.arn(),
+ *                 exampleAwsEfsFileSystem.arn())
  *             .build());
  * 
  *     }
@@ -223,12 +227,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .planId(aws_backup_plan.example().id())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;my_example_backup_selection&#34;)
+ *             .planId(exampleAwsBackupPlan.id())
  *             .notResources(            
- *                 aws_db_instance.example().arn(),
- *                 aws_ebs_volume.example().arn(),
- *                 aws_efs_file_system.example().arn())
+ *                 exampleAwsDbInstance.arn(),
+ *                 exampleAwsEbsVolume.arn(),
+ *                 exampleAwsEfsFileSystem.arn())
  *             .build());
  * 
  *     }

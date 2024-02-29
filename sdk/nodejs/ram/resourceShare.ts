@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ram.ResourceShare("example", {
+ *     name: "example",
  *     allowExternalPrincipals: true,
  *     tags: {
  *         Environment: "Production",

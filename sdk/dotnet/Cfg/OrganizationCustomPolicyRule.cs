@@ -27,21 +27,21 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.OrganizationCustomPolicyRule("example", new()
     ///     {
+    ///         Name = "example_rule_name",
     ///         PolicyRuntime = "guard-2.x.x",
-    ///         PolicyText = @"  let status = ['ACTIVE']
+    ///         PolicyText = @"let status = ['ACTIVE']
     /// 
-    ///   rule tableisactive when
-    ///       resourceType == ""AWS::DynamoDB::Table"" {
-    ///       configuration.tableStatus == %status
-    ///   }
+    /// rule tableisactive when
+    ///     resourceType == ""AWS::DynamoDB::Table"" {
+    ///     configuration.tableStatus == %status
+    /// }
     /// 
-    ///   rule checkcompliance when
-    ///       resourceType == ""AWS::DynamoDB::Table""
-    ///       tableisactive {
-    ///           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-    ///           %pitr == ""ENABLED""
-    ///       }
-    /// 
+    /// rule checkcompliance when
+    ///     resourceType == ""AWS::DynamoDB::Table""
+    ///     tableisactive {
+    ///         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+    ///         %pitr == ""ENABLED""
+    ///     }
     /// ",
     ///         ResourceTypesScopes = new[]
     ///         {

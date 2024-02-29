@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
  */
@@ -83,7 +83,7 @@ export interface GetCodeSigningConfigResult {
  * import * as aws from "@pulumi/aws";
  *
  * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
  */

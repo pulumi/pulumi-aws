@@ -270,12 +270,14 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a")
-        example_subnet_group = aws.memorydb.SubnetGroup("exampleSubnetGroup", subnet_ids=[example_subnet.id])
+        example_subnet_group = aws.memorydb.SubnetGroup("example",
+            name="my-subnet-group",
+            subnet_ids=[example_subnet.id])
         ```
 
         ## Import
@@ -313,12 +315,14 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a")
-        example_subnet_group = aws.memorydb.SubnetGroup("exampleSubnetGroup", subnet_ids=[example_subnet.id])
+        example_subnet_group = aws.memorydb.SubnetGroup("example",
+            name="my-subnet-group",
+            subnet_ids=[example_subnet.id])
         ```
 
         ## Import

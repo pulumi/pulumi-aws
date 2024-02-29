@@ -31,14 +31,14 @@ namespace Pulumi.Aws.Elb
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
-        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
         ///         Type = "A",
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
         ///             {
-        ///                 Name = aws_elb.Main.Dns_name,
+        ///                 Name = mainAwsElb.DnsName,
         ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
         ///                 EvaluateTargetHealth = true,
         ///             },
@@ -73,14 +73,14 @@ namespace Pulumi.Aws.Elb
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
-        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
         ///         Type = "A",
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
         ///             {
-        ///                 Name = aws_elb.Main.Dns_name,
+        ///                 Name = mainAwsElb.DnsName,
         ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
         ///                 EvaluateTargetHealth = true,
         ///             },

@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.sagemaker.HumanTaskUI("example", {
  *     humanTaskUiName: "example",
  *     uiTemplate: {
- *         content: fs.readFileSync("sagemaker-human-task-ui-template.html", "utf8"),
+ *         content: std.file({
+ *             input: "sagemaker-human-task-ui-template.html",
+ *         }).then(invoke => invoke.result),
  *     },
  * });
  * ```

@@ -28,10 +28,10 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         AlarmDescription = "This is a composite alarm!",
     ///         AlarmName = "example-composite-alarm",
-    ///         AlarmActions = aws_sns_topic.Example.Arn,
-    ///         OkActions = aws_sns_topic.Example.Arn,
-    ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
-    /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
+    ///         AlarmActions = exampleAwsSnsTopic.Arn,
+    ///         OkActions = exampleAwsSnsTopic.Arn,
+    ///         AlarmRule = @$"ALARM({alpha.AlarmName}) OR
+    /// ALARM({bravo.AlarmName})
     /// ",
     ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
     ///         {

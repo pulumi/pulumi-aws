@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpcNetworkPerformanceMetricSubscription("example", {
- *     destination: "us-west-1",
  *     source: "us-east-1",
+ *     destination: "us-west-1",
  * });
  * ```
  */

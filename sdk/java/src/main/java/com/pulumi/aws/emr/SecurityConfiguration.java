@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new SecurityConfiguration(&#34;foo&#34;, SecurityConfigurationArgs.builder()        
+ *             .name(&#34;emrsc_other&#34;)
  *             .configuration(&#34;&#34;&#34;
  * {
  *   &#34;EncryptionConfiguration&#34;: {
@@ -55,7 +56,6 @@ import javax.annotation.Nullable;
  *     &#34;EnableAtRestEncryption&#34;: true
  *   }
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 

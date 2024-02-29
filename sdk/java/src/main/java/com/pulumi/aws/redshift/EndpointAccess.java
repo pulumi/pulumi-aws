@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointAccess(&#34;example&#34;, EndpointAccessArgs.builder()        
  *             .endpointName(&#34;example&#34;)
- *             .subnetGroupName(aws_redshift_subnet_group.example().id())
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+ *             .subnetGroupName(exampleAwsRedshiftSubnetGroup.id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .build());
  * 
  *     }

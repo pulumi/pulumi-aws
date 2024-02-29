@@ -155,13 +155,16 @@ class KeyGroup(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+        example = aws.cloudfront.PublicKey("example",
             comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            encoded_key=std.file(input="public_key.pem").result,
+            name="example-key")
+        example_key_group = aws.cloudfront.KeyGroup("example",
             comment="example key group",
-            items=[example_public_key.id])
+            items=[example.id],
+            name="example-key-group")
         ```
 
         ## Import
@@ -192,13 +195,16 @@ class KeyGroup(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+        example = aws.cloudfront.PublicKey("example",
             comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            encoded_key=std.file(input="public_key.pem").result,
+            name="example-key")
+        example_key_group = aws.cloudfront.KeyGroup("example",
             comment="example key group",
-            items=[example_public_key.id])
+            items=[example.id],
+            name="example-key-group")
         ```
 
         ## Import

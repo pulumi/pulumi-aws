@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
- *             .quotaCode(&#34;L-2ACBD22F&#34;)
  *             .region(&#34;us-east-1&#34;)
+ *             .quotaCode(&#34;L-2ACBD22F&#34;)
  *             .serviceCode(&#34;lambda&#34;)
  *             .value(&#34;80&#34;)
  *             .build());

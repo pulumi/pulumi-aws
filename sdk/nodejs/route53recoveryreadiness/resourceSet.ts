@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceSetName: my_cw_alarm_set,
  *     resourceSetType: "AWS::CloudWatch::Alarm",
  *     resources: [{
- *         resourceArn: aws_cloudwatch_metric_alarm.example.arn,
+ *         resourceArn: exampleAwsCloudwatchMetricAlarm.arn,
  *     }],
  * });
  * ```

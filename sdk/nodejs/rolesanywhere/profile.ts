@@ -13,25 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const test = new aws.iam.Role("test", {
+ *     name: "test",
  *     path: "/",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "sts:AssumeRole",
  *                 "sts:TagSession",
  *                 "sts:SetSourceIdentity",
  *             ],
- *             Principal: {
- *                 Service: "rolesanywhere.amazonaws.com",
+ *             principal: {
+ *                 service: "rolesanywhere.amazonaws.com",
  *             },
- *             Effect: "Allow",
- *             Sid: "",
+ *             effect: "Allow",
+ *             sid: "",
  *         }],
  *     }),
  * });
- * const testProfile = new aws.rolesanywhere.Profile("testProfile", {roleArns: [testRole.arn]});
+ * const testProfile = new aws.rolesanywhere.Profile("test", {
+ *     name: "example",
+ *     roleArns: [test.arn],
+ * });
  * ```
  *
  * ## Import

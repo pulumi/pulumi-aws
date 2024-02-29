@@ -17,18 +17,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,
  *     requireTls: true,
- *     roleArn: aws_iam_role.example.arn,
- *     vpcSecurityGroupIds: [aws_security_group.example.id],
- *     vpcSubnetIds: [aws_subnet.example.id],
+ *     roleArn: exampleAwsIamRole.arn,
+ *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
  *     auths: [{
  *         authScheme: "SECRETS",
  *         description: "example",
  *         iamAuth: "DISABLED",
- *         secretArn: aws_secretsmanager_secret.example.arn,
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
  *     }],
  *     tags: {
  *         Name: "example",

@@ -25,10 +25,11 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsSlot("example", new()
     ///     {
-    ///         BotId = aws_lexv2models_bot.Example.Id,
-    ///         BotVersion = aws_lexv2models_bot_version.Example.Bot_version,
-    ///         IntentId = aws_lexv2models_intent.Example.Id,
-    ///         LocaleId = aws_lexv2models_bot_locale.Example.Locale_id,
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = exampleAwsLexv2modelsBotVersion.BotVersion,
+    ///         IntentId = exampleAwsLexv2modelsIntent.Id,
+    ///         LocaleId = exampleAwsLexv2modelsBotLocale.LocaleId,
+    ///         Name = "example",
     ///     });
     /// 
     /// });

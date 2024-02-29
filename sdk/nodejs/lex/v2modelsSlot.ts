@@ -18,10 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsSlot("example", {
- *     botId: aws_lexv2models_bot.example.id,
- *     botVersion: aws_lexv2models_bot_version.example.bot_version,
- *     intentId: aws_lexv2models_intent.example.id,
- *     localeId: aws_lexv2models_bot_locale.example.locale_id,
+ *     botId: exampleAwsLexv2modelsBot.id,
+ *     botVersion: exampleAwsLexv2modelsBotVersion.botVersion,
+ *     intentId: exampleAwsLexv2modelsIntent.id,
+ *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
+ *     name: "example",
  * });
  * ```
  *

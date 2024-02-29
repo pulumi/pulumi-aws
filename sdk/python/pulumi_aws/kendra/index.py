@@ -530,9 +530,10 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             description="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             tags={
                 "Key1": "Value1",
             })
@@ -544,8 +545,9 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             capacity_units=aws.kendra.IndexCapacityUnitsArgs(
                 query_capacity_units=2,
                 storage_capacity_units=2,
@@ -558,9 +560,10 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=data["aws_kms_key"]["this"]["arn"],
+                kms_key_id=this["arn"],
             ))
         ```
         ### With user group resolution configuration
@@ -570,7 +573,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
                 user_group_resolution_mode="AWS_SSO",
             ))
@@ -585,7 +589,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -797,7 +802,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1064,7 +1070,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
                 json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
                     group_attribute_field="groups",
@@ -1113,9 +1120,10 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             description="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             tags={
                 "Key1": "Value1",
             })
@@ -1127,8 +1135,9 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             capacity_units=aws.kendra.IndexCapacityUnitsArgs(
                 query_capacity_units=2,
                 storage_capacity_units=2,
@@ -1141,9 +1150,10 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=data["aws_kms_key"]["this"]["arn"],
+                kms_key_id=this["arn"],
             ))
         ```
         ### With user group resolution configuration
@@ -1153,7 +1163,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
                 user_group_resolution_mode="AWS_SSO",
             ))
@@ -1168,7 +1179,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1380,7 +1392,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1647,7 +1660,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
                 json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
                     group_attribute_field="groups",

@@ -25,12 +25,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example1.Name,
+    ///                 JobName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -39,7 +40,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     JobName = example2.Name,
     ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
@@ -60,12 +61,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "ON_DEMAND",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example.Name,
+    ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
     ///     });
@@ -84,13 +86,14 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Schedule = "cron(15 12 * * ? *)",
     ///         Type = "SCHEDULED",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example.Name,
+    ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
     ///     });
@@ -111,12 +114,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 CrawlerName = aws_glue_crawler.Example1.Name,
+    ///                 CrawlerName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -125,7 +129,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     JobName = example2.Name,
     ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
@@ -148,12 +152,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example1.Name,
+    ///                 JobName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -162,7 +167,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     CrawlerName = aws_glue_crawler.Example2.Name,
+    ///                     CrawlerName = example2.Name,
     ///                     CrawlState = "SUCCEEDED",
     ///                 },
     ///             },

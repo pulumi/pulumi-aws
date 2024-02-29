@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const hoge = new aws.directconnect.Connection("hoge", {
+ *     name: "tf-dx-connection",
  *     bandwidth: "1Gbps",
  *     location: "EqDC2",
  * });
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directconnect.Connection("example", {
+ *     name: "tf-dx-connection",
  *     bandwidth: "10Gbps",
  *     location: "EqDA2",
  *     requestMacsec: true,
@@ -40,10 +42,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directconnect.Connection("example", {
+ *     name: "tf-dx-connection",
  *     bandwidth: "10Gbps",
- *     encryptionMode: "must_encrypt",
  *     location: "EqDC2",
  *     requestMacsec: true,
+ *     encryptionMode: "must_encrypt",
  * });
  * ```
  *

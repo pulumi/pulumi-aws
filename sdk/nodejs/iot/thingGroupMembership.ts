@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.ThingGroupMembership("example", {
- *     overrideDynamicGroup: true,
- *     thingGroupName: "example-group",
  *     thingName: "example-thing",
+ *     thingGroupName: "example-group",
+ *     overrideDynamicGroup: true,
  * });
  * ```
  *

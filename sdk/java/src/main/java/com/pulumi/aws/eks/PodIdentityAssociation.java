@@ -68,20 +68,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;eks-pod-identity-example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleS3 = new RolePolicyAttachment(&#34;exampleS3&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess&#34;)
- *             .role(exampleRole.name())
+ *             .role(example.name())
  *             .build());
  * 
  *         var examplePodIdentityAssociation = new PodIdentityAssociation(&#34;examplePodIdentityAssociation&#34;, PodIdentityAssociationArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .namespace(&#34;example&#34;)
  *             .serviceAccount(&#34;example-sa&#34;)
- *             .roleArn(exampleRole.arn())
+ *             .roleArn(example.arn())
  *             .build());
  * 
  *     }

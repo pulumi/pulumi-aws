@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.cloudwatch.LogMetricFilter;
  * import com.pulumi.aws.cloudwatch.LogMetricFilterArgs;
  * import com.pulumi.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
@@ -41,9 +42,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dada = new LogGroup(&#34;dada&#34;);
+ *         var dada = new LogGroup(&#34;dada&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;MyApp/access.log&#34;)
+ *             .build());
  * 
  *         var yada = new LogMetricFilter(&#34;yada&#34;, LogMetricFilterArgs.builder()        
+ *             .name(&#34;MyAppAccessCount&#34;)
  *             .pattern(&#34;&#34;)
  *             .logGroupName(dada.name())
  *             .metricTransformation(LogMetricFilterMetricTransformationArgs.builder()

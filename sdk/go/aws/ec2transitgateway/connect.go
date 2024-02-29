@@ -30,17 +30,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
+//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
+//				VpcId:            pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
 //				TransportAttachmentId: example.ID(),
-//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -30,16 +30,16 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
+        ///     var test = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
         ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         IpamPoolId = testAwsVpcIpamPool.Id,
         ///         NetmaskLength = 28,
         ///     });
         /// 
-        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("test", new()
         ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///         IpamPoolId = testAwsVpcIpamPool.Id,
+        ///         Cidr = test.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
         ///     });
         /// 
         /// });
@@ -69,16 +69,16 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
+        ///     var test = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
         ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         IpamPoolId = testAwsVpcIpamPool.Id,
         ///         NetmaskLength = 28,
         ///     });
         /// 
-        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("test", new()
         ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///         IpamPoolId = testAwsVpcIpamPool.Id,
+        ///         Cidr = test.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
         ///     });
         /// 
         /// });

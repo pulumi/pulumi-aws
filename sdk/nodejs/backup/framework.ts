@@ -18,16 +18,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Framework("example", {
+ * const example = new aws.backup.Framework("Example", {
+ *     name: "exampleFramework",
+ *     description: "this is an example framework",
  *     controls: [
  *         {
+ *             name: "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
  *             inputParameters: [{
  *                 name: "requiredRetentionDays",
  *                 value: "35",
  *             }],
- *             name: "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
  *         },
  *         {
+ *             name: "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
  *             inputParameters: [
  *                 {
  *                     name: "requiredFrequencyUnit",
@@ -42,7 +45,6 @@ import * as utilities from "../utilities";
  *                     value: "1",
  *                 },
  *             ],
- *             name: "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
  *         },
  *         {
  *             name: "BACKUP_RECOVERY_POINT_ENCRYPTED",
@@ -57,6 +59,7 @@ import * as utilities from "../utilities";
  *             name: "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
  *         },
  *         {
+ *             name: "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
  *             inputParameters: [
  *                 {
  *                     name: "maxRetentionDays",
@@ -67,12 +70,12 @@ import * as utilities from "../utilities";
  *                     value: "1",
  *                 },
  *             ],
- *             name: "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
  *             scope: {
  *                 complianceResourceTypes: ["EBS"],
  *             },
  *         },
  *         {
+ *             name: "BACKUP_LAST_RECOVERY_POINT_CREATED",
  *             inputParameters: [
  *                 {
  *                     name: "recoveryPointAgeUnit",
@@ -83,13 +86,11 @@ import * as utilities from "../utilities";
  *                     value: "1",
  *                 },
  *             ],
- *             name: "BACKUP_LAST_RECOVERY_POINT_CREATED",
  *             scope: {
  *                 complianceResourceTypes: ["EBS"],
  *             },
  *         },
  *     ],
- *     description: "this is an example framework",
  *     tags: {
  *         Name: "Example Framework",
  *     },

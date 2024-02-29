@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.Rds.Cluster("defaultCluster", new()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
     ///         AvailabilityZones = new[]
@@ -46,30 +46,24 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "13.4",
     ///     });
     /// 
-    ///     var defaultClusterInstance = new Aws.Rds.ClusterInstance("defaultClusterInstance", new()
+    ///     var defaultClusterInstance = new Aws.Rds.ClusterInstance("default", new()
     ///     {
     ///         Identifier = "aurora-instance-demo",
-    ///         ClusterIdentifier = defaultCluster.ClusterIdentifier,
-    ///         Engine = defaultCluster.Engine,
+    ///         ClusterIdentifier = @default.ClusterIdentifier,
+    ///         Engine = @default.Engine,
     ///         InstanceClass = "db.r6g.large",
     ///     });
     /// 
-    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     var defaultKey = new Aws.Kms.Key("default", new()
     ///     {
     ///         Description = "AWS KMS Key to encrypt Database Activity Stream",
     ///     });
     /// 
-    ///     var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("defaultClusterActivityStream", new()
+    ///     var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("default", new()
     ///     {
-    ///         ResourceArn = defaultCluster.Arn,
+    ///         ResourceArn = @default.Arn,
     ///         Mode = "async",
     ///         KmsKeyId = defaultKey.KeyId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             defaultClusterInstance,
-    ///         },
     ///     });
     /// 
     /// });

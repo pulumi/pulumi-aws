@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Component(&#34;example&#34;, ComponentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .platform(&#34;Linux&#34;)
- *             .uri(String.format(&#34;s3://%s/%s&#34;, aws_s3_object.example().bucket(),aws_s3_object.example().key()))
+ *             .uri(String.format(&#34;s3://%s/%s&#34;, exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
  *             .version(&#34;1.0.0&#34;)
  *             .build());
  * 

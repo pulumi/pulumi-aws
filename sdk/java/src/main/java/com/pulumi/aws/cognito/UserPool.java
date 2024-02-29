@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,7 +56,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;mypool&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -89,7 +92,7 @@ import javax.annotation.Nullable;
  *             .smsAuthenticationMessage(&#34;Your code is {####}&#34;)
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
  *                 .externalId(&#34;example&#34;)
- *                 .snsCallerArn(aws_iam_role.example().arn())
+ *                 .snsCallerArn(exampleAwsIamRole.arn())
  *                 .snsRegion(&#34;us-east-1&#34;)
  *                 .build())
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
@@ -124,6 +127,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new UserPool(&#34;test&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;mypool&#34;)
  *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
  *                 .recoveryMechanisms(                
  *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()

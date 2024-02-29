@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.OptionGroup("example", new()
     ///     {
+    ///         Name = "option-group-test",
     ///         OptionGroupDescription = "Option Group",
     ///         EngineName = "sqlserver-ee",
     ///         MajorEngineVersion = "11.00",
@@ -54,7 +55,7 @@ namespace Pulumi.Aws.Rds
     ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
     ///                     {
     ///                         Name = "IAM_ROLE_ARN",
-    ///                         Value = aws_iam_role.Example.Arn,
+    ///                         Value = exampleAwsIamRole.Arn,
     ///                     },
     ///                 },
     ///             },

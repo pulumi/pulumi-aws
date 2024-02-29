@@ -646,7 +646,8 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             tags={
                 "Name": "foo",
@@ -664,7 +665,8 @@ class NotebookInstance(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             default_code_repository=example.code_repository_name,
             tags={
@@ -717,7 +719,8 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             tags={
                 "Name": "foo",
@@ -735,7 +738,8 @@ class NotebookInstance(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             default_code_repository=example.code_repository_name,
             tags={

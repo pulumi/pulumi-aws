@@ -17,15 +17,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.ContainerRecipe("example", {
+ *     name: "example",
  *     version: "1.0.0",
  *     containerType: "DOCKER",
  *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
  *     targetRepository: {
- *         repositoryName: aws_ecr_repository.example.name,
+ *         repositoryName: exampleAwsEcrRepository.name,
  *         service: "ECR",
  *     },
  *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",

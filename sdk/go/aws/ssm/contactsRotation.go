@@ -29,8 +29,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
 //				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
+//					exampleAwsSsmcontactsContact.Arn,
 //				},
+//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
 //					NumberOfOnCalls:      pulumi.Int(1),
 //					RecurrenceMultiplier: pulumi.Int(1),
@@ -42,9 +43,7 @@ import (
 //					},
 //				},
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -69,8 +68,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
 //				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
+//					exampleAwsSsmcontactsContact.Arn,
 //				},
+//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
 //					NumberOfOnCalls:      pulumi.Int(1),
 //					RecurrenceMultiplier: pulumi.Int(1),
@@ -114,9 +114,7 @@ import (
 //					"key1": pulumi.String("tag1"),
 //					"key2": pulumi.String("tag2"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -141,8 +139,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
 //				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
+//					exampleAwsSsmcontactsContact.Arn,
 //				},
+//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
 //					NumberOfOnCalls:      pulumi.Int(1),
 //					RecurrenceMultiplier: pulumi.Int(1),
@@ -164,9 +163,7 @@ import (
 //					},
 //				},
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

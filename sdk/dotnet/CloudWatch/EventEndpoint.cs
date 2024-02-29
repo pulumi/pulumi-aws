@@ -26,16 +26,17 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var @this = new Aws.CloudWatch.EventEndpoint("this", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Replication.Arn,
+    ///         Name = "global-endpoint",
+    ///         RoleArn = replication.Arn,
     ///         EventBuses = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
     ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Primary.Arn,
+    ///                 EventBusArn = primary.Arn,
     ///             },
     ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
     ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Secondary.Arn,
+    ///                 EventBusArn = secondary.Arn,
     ///             },
     ///         },
     ///         ReplicationConfig = new Aws.CloudWatch.Inputs.EventEndpointReplicationConfigArgs
@@ -48,7 +49,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             {
     ///                 Primary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs
     ///                 {
-    ///                     HealthCheck = aws_route53_health_check.Primary.Arn,
+    ///                     HealthCheck = primaryAwsRoute53HealthCheck.Arn,
     ///                 },
     ///                 Secondary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs
     ///                 {

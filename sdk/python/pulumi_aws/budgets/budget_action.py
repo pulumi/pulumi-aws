@@ -381,14 +381,15 @@ class BudgetAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        example_policy = aws.iam.Policy("examplePolicy",
+        example_policy = aws.iam.Policy("example",
+            name="example",
             description="My example policy",
-            policy=example_policy_document.json)
+            policy=example.json)
         current = aws.get_partition()
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
@@ -398,14 +399,17 @@ class BudgetAction(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_budget = aws.budgets.Budget("exampleBudget",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_budget = aws.budgets.Budget("example",
+            name="example",
             budget_type="USAGE",
             limit_amount="10.0",
             limit_unit="dollars",
             time_period_start="2006-01-02_15:04",
             time_unit="MONTHLY")
-        example_budget_action = aws.budgets.BudgetAction("exampleBudgetAction",
+        example_budget_action = aws.budgets.BudgetAction("example",
             budget_name=example_budget.name,
             action_type="APPLY_IAM_POLICY",
             approval_model="AUTOMATIC",
@@ -462,14 +466,15 @@ class BudgetAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        example_policy = aws.iam.Policy("examplePolicy",
+        example_policy = aws.iam.Policy("example",
+            name="example",
             description="My example policy",
-            policy=example_policy_document.json)
+            policy=example.json)
         current = aws.get_partition()
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
@@ -479,14 +484,17 @@ class BudgetAction(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_budget = aws.budgets.Budget("exampleBudget",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_budget = aws.budgets.Budget("example",
+            name="example",
             budget_type="USAGE",
             limit_amount="10.0",
             limit_unit="dollars",
             time_period_start="2006-01-02_15:04",
             time_unit="MONTHLY")
-        example_budget_action = aws.budgets.BudgetAction("exampleBudgetAction",
+        example_budget_action = aws.budgets.BudgetAction("example",
             budget_name=example_budget.name,
             action_type="APPLY_IAM_POLICY",
             approval_model="AUTOMATIC",

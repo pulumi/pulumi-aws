@@ -44,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
  *         var postgres_rotator = new CloudFormationStack(&#34;postgres-rotator&#34;, CloudFormationStackArgs.builder()        
+ *             .name(&#34;postgres-rotator&#34;)
  *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser&#34;)
  *             .capabilities(            
  *                 &#34;CAPABILITY_IAM&#34;,
  *                 &#34;CAPABILITY_RESOURCE_POLICY&#34;)
  *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;endpoint&#34;, String.format(&#34;secretsmanager.%s.%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix()))),
- *                 Map.entry(&#34;functionName&#34;, &#34;func-postgres-rotator&#34;)
+ *                 Map.entry(&#34;functionName&#34;, &#34;func-postgres-rotator&#34;),
+ *                 Map.entry(&#34;endpoint&#34;, String.format(&#34;secretsmanager.%s.%s&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
  *             ))
  *             .build());
  * 

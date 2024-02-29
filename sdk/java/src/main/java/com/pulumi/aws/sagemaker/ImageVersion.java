@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ImageVersion(&#34;test&#34;, ImageVersionArgs.builder()        
- *             .imageName(aws_sagemaker_image.test().id())
+ *             .imageName(testAwsSagemakerImage.id())
  *             .baseImage(&#34;012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest&#34;)
  *             .build());
  * 

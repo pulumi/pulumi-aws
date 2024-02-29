@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ebs
     /// {
     ///     var example = new Aws.Ebs.DefaultKmsKey("example", new()
     ///     {
-    ///         KeyArn = aws_kms_key.Example.Arn,
+    ///         KeyArn = exampleAwsKmsKey.Arn,
     ///     });
     /// 
     /// });

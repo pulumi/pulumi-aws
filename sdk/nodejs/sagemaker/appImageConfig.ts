@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  * const test = new aws.sagemaker.AppImageConfig("test", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
- *         fileSystemConfig: {},
  *         kernelSpec: {
  *             name: "example",
  *         },
+ *         fileSystemConfig: {},
  *     },
  * });
  * ```

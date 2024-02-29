@@ -86,17 +86,20 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
     ///         {
     ///             Type = "APPMESH",
@@ -118,17 +121,20 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -142,8 +148,8 @@ namespace Pulumi.Aws.Ecs
     ///                     DriverOpts = 
     ///                     {
     ///                         { "type", "nfs" },
-    ///                         { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
-    ///                         { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
+    ///                         { "device", $"{fs.DnsName}:/" },
+    ///                         { "o", $"addr={fs.DnsName},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
     ///                     },
     ///                 },
     ///             },
@@ -156,17 +162,20 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -174,13 +183,13 @@ namespace Pulumi.Aws.Ecs
     ///                 Name = "service-storage",
     ///                 EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
     ///                 {
-    ///                     FileSystemId = aws_efs_file_system.Fs.Id,
+    ///                     FileSystemId = fs.Id,
     ///                     RootDirectory = "/opt/data",
     ///                     TransitEncryption = "ENABLED",
     ///                     TransitEncryptionPort = 2999,
     ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
     ///                     {
-    ///                         AccessPointId = aws_efs_access_point.Test.Id,
+    ///                         AccessPointId = test.Id,
     ///                         Iam = "ENABLED",
     ///                     },
     ///                 },
@@ -194,28 +203,31 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.SecretsManager.SecretVersion("test", new()
     ///     {
-    ///         SecretId = aws_secretsmanager_secret.Test.Id,
+    ///         SecretId = testAwsSecretsmanagerSecret.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["username"] = "admin",
-    ///             ["password"] = aws_directory_service_directory.Test.Password,
+    ///             ["password"] = testAwsDirectoryServiceDirectory.Password,
     ///         }),
     ///     });
     /// 
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -223,12 +235,12 @@ namespace Pulumi.Aws.Ecs
     ///                 Name = "service-storage",
     ///                 FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
     ///                 {
-    ///                     FileSystemId = aws_fsx_windows_file_system.Test.Id,
+    ///                     FileSystemId = testAwsFsxWindowsFileSystem.Id,
     ///                     RootDirectory = "\\data",
     ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
     ///                     {
     ///                         CredentialsParameter = test.Arn,
-    ///                         Domain = aws_directory_service_directory.Test.Name,
+    ///                         Domain = testAwsDirectoryServiceDirectory.Name,
     ///                     },
     ///                 },
     ///             },
@@ -249,6 +261,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
+    ///         Family = "test",
     ///         ContainerDefinitions = @"[
     ///   {
     ///     ""cpu"": 10,
@@ -275,9 +288,7 @@ namespace Pulumi.Aws.Ecs
     ///         ]
     ///   }
     /// ]
-    /// 
     /// ",
-    ///         Family = "test",
     ///         InferenceAccelerators = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
@@ -302,6 +313,14 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
+    ///         Family = "test",
+    ///         RequiresCompatibilities = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
+    ///         NetworkMode = "awsvpc",
+    ///         Cpu = "1024",
+    ///         Memory = "2048",
     ///         ContainerDefinitions = @"[
     ///   {
     ///     ""name"": ""iis"",
@@ -311,20 +330,11 @@ namespace Pulumi.Aws.Ecs
     ///     ""essential"": true
     ///   }
     /// ]
-    /// 
     /// ",
-    ///         Cpu = "1024",
-    ///         Family = "test",
-    ///         Memory = "2048",
-    ///         NetworkMode = "awsvpc",
-    ///         RequiresCompatibilities = new[]
-    ///         {
-    ///             "FARGATE",
-    ///         },
     ///         RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
     ///         {
-    ///             CpuArchitecture = "X86_64",
     ///             OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
+    ///             CpuArchitecture = "X86_64",
     ///         },
     ///     });
     /// 

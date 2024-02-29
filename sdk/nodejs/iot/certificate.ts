@@ -13,10 +13,12 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("/my/csr.pem", "utf8"),
+ *     csr: std.file({
+ *         input: "/my/csr.pem",
+ *     }).then(invoke => invoke.result),
  *     active: true,
  * });
  * ```
@@ -33,10 +35,12 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const cert = new aws.iot.Certificate("cert", {
- *     certificatePem: fs.readFileSync("/my/cert.pem", "utf8"),
+ *     certificatePem: std.file({
+ *         input: "/my/cert.pem",
+ *     }).then(invoke => invoke.result),
  *     active: true,
  * });
  * ```

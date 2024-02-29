@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;patch-baseline&#34;)
  *             .approvedPatches(&#34;KB123456&#34;)
  *             .build());
  * 
@@ -68,8 +69,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import com.pulumi.aws.ssm.inputs.PatchBaselineGlobalFilterArgs;
+ * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,6 +85,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;patch-baseline&#34;)
+ *             .description(&#34;Patch Baseline Description&#34;)
+ *             .approvedPatches(            
+ *                 &#34;KB123456&#34;,
+ *                 &#34;KB456789&#34;)
+ *             .rejectedPatches(&#34;KB987654&#34;)
+ *             .globalFilters(            
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;PRODUCT&#34;)
+ *                     .values(&#34;WindowsServer2008&#34;)
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;CLASSIFICATION&#34;)
+ *                     .values(&#34;ServicePacks&#34;)
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;MSRC_SEVERITY&#34;)
+ *                     .values(&#34;Low&#34;)
+ *                     .build())
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
@@ -115,24 +135,6 @@ import javax.annotation.Nullable;
  *                         .values(&#34;WindowsServer2012&#34;)
  *                         .build())
  *                     .build())
- *             .approvedPatches(            
- *                 &#34;KB123456&#34;,
- *                 &#34;KB456789&#34;)
- *             .description(&#34;Patch Baseline Description&#34;)
- *             .globalFilters(            
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;PRODUCT&#34;)
- *                     .values(&#34;WindowsServer2008&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;CLASSIFICATION&#34;)
- *                     .values(&#34;ServicePacks&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;MSRC_SEVERITY&#34;)
- *                     .values(&#34;Low&#34;)
- *                     .build())
- *             .rejectedPatches(&#34;KB987654&#34;)
  *             .build());
  * 
  *     }
@@ -162,6 +164,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var windowsOsApps = new PatchBaseline(&#34;windowsOsApps&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;WindowsOSAndMicrosoftApps&#34;)
+ *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
+ *             .operatingSystem(&#34;WINDOWS&#34;)
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
@@ -193,8 +198,6 @@ import javax.annotation.Nullable;
  *                                 &#34;Office 2016&#34;)
  *                             .build())
  *                     .build())
- *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
- *             .operatingSystem(&#34;WINDOWS&#34;)
  *             .build());
  * 
  *     }
@@ -226,9 +229,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var al201709 = new PatchBaseline(&#34;al201709&#34;, PatchBaselineArgs.builder()        
  *             .approvalRules()
+ *             .name(&#34;Amazon-Linux-2017.09&#34;)
  *             .description(&#34;My patch repository for Amazon Linux 2017.09&#34;)
  *             .operatingSystem(&#34;AMAZON_LINUX&#34;)
  *             .sources(PatchBaselineSourceArgs.builder()
+ *                 .name(&#34;My-AL2017.09&#34;)
+ *                 .products(&#34;AmazonLinux2017.09&#34;)
  *                 .configuration(&#34;&#34;&#34;
  * [amzn-main]
  * name=amzn-main-Base
@@ -244,10 +250,7 @@ import javax.annotation.Nullable;
  * retries=3
  * timeout=5
  * report_instanceid=yes
- * 
  *                 &#34;&#34;&#34;)
- *                 .name(&#34;My-AL2017.09&#34;)
- *                 .products(&#34;AmazonLinux2017.09&#34;)
  *                 .build())
  *             .build());
  * 

@@ -139,9 +139,10 @@ class CidrLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
-        example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
-            cidr_collection_id=example_cidr_collection.id,
+        example = aws.route53.CidrCollection("example", name="collection-1")
+        example_cidr_location = aws.route53.CidrLocation("example",
+            cidr_collection_id=example.id,
+            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",
@@ -177,9 +178,10 @@ class CidrLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
-        example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
-            cidr_collection_id=example_cidr_collection.id,
+        example = aws.route53.CidrCollection("example", name="collection-1")
+        example_cidr_location = aws.route53.CidrLocation("example",
+            cidr_collection_id=example.id,
+            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",

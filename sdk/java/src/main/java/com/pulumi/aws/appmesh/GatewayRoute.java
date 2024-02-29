@@ -48,14 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GatewayRoute(&#34;example&#34;, GatewayRouteArgs.builder()        
+ *             .name(&#34;example-gateway-route&#34;)
  *             .meshName(&#34;example-service-mesh&#34;)
- *             .virtualGatewayName(aws_appmesh_virtual_gateway.example().name())
+ *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())
  *             .spec(GatewayRouteSpecArgs.builder()
  *                 .httpRoute(GatewayRouteSpecHttpRouteArgs.builder()
  *                     .action(GatewayRouteSpecHttpRouteActionArgs.builder()
  *                         .target(GatewayRouteSpecHttpRouteActionTargetArgs.builder()
  *                             .virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs.builder()
- *                                 .virtualServiceName(aws_appmesh_virtual_service.example().name())
+ *                                 .virtualServiceName(exampleAwsAppmeshVirtualService.name())
  *                                 .build())
  *                             .build())
  *                         .build())

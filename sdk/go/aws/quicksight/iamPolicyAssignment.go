@@ -32,10 +32,10 @@ import (
 //			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
 //				AssignmentName:   pulumi.String("example"),
 //				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(aws_iam_policy.Example.Arn),
+//				PolicyArn:        pulumi.Any(exampleAwsIamPolicy.Arn),
 //				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
 //					Users: pulumi.StringArray{
-//						aws_quicksight_user.Example.User_name,
+//						exampleAwsQuicksightUser.UserName,
 //					},
 //				},
 //			})

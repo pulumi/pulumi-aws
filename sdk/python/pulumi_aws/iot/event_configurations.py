@@ -77,17 +77,17 @@ class EventConfigurations(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
+            "THING": True,
+            "THING_GROUP": False,
+            "THING_TYPE": False,
+            "THING_GROUP_MEMBERSHIP": False,
+            "THING_GROUP_HIERARCHY": False,
+            "THING_TYPE_ASSOCIATION": False,
             "JOB": False,
             "JOB_EXECUTION": False,
             "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+            "CERTIFICATE": True,
+            "CA_CERTIFICATE": False,
         })
         ```
 
@@ -121,17 +121,17 @@ class EventConfigurations(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
+            "THING": True,
+            "THING_GROUP": False,
+            "THING_TYPE": False,
+            "THING_GROUP_MEMBERSHIP": False,
+            "THING_GROUP_HIERARCHY": False,
+            "THING_TYPE_ASSOCIATION": False,
             "JOB": False,
             "JOB_EXECUTION": False,
             "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+            "CERTIFICATE": True,
+            "CA_CERTIFICATE": False,
         })
         ```
 

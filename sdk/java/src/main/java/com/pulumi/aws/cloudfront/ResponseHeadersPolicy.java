@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
+ *             .name(&#34;example-policy&#34;)
  *             .comment(&#34;test comment&#34;)
  *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
  *                 .accessControlAllowCredentials(true)
@@ -98,6 +99,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
+ *             .name(&#34;example-headers-policy&#34;)
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(                
  *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
@@ -142,6 +144,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
+ *             .name(&#34;example-headers-policy&#34;)
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
  *                     .header(&#34;X-Permitted-Cross-Domain-Policies&#34;)

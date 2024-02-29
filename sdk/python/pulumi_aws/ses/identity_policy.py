@@ -139,8 +139,8 @@ class IdentityPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "SES:SendEmail",
                 "SES:SendRawEmail",
@@ -151,9 +151,10 @@ class IdentityPolicy(pulumi.CustomResource):
                 type="AWS",
             )],
         )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
+        example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
+            name="example",
+            policy=example.json)
         ```
 
         ## Import
@@ -185,8 +186,8 @@ class IdentityPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "SES:SendEmail",
                 "SES:SendRawEmail",
@@ -197,9 +198,10 @@ class IdentityPolicy(pulumi.CustomResource):
                 type="AWS",
             )],
         )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
+        example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
+            name="example",
+            policy=example.json)
         ```
 
         ## Import

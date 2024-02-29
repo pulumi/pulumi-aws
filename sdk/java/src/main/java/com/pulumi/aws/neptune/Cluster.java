@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .applyImmediately(true)
- *             .backupRetentionPeriod(5)
  *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
  *             .engine(&#34;neptune&#34;)
- *             .iamDatabaseAuthenticationEnabled(true)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .skipFinalSnapshot(true)
+ *             .iamDatabaseAuthenticationEnabled(true)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *     }

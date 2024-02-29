@@ -18,6 +18,55 @@ import (
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+//				ClusterName:   pulumi.String("example"),
+//				NodeGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var exampleTag []*autoscaling.Tag
+//			for index := 0; index < notImplemented("toset(\n[forasginflatten(\n[forresourcesinaws_eks_node_group.example.resources:resources.autoscaling_groups]\n):asg.name]\n)"); index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := autoscaling.NewTag(ctx, fmt.Sprintf("example-%v", key0), &autoscaling.TagArgs{
+//					AutoscalingGroupName: pulumi.Any(val0),
+//					Tag: &autoscaling.TagTagArgs{
+//						Key:               pulumi.String("k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType"),
+//						Value:             pulumi.String("SPOT"),
+//						PropagateAtLaunch: pulumi.Bool(false),
+//					},
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				exampleTag = append(exampleTag, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:

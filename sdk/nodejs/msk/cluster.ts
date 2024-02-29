@@ -23,26 +23,26 @@ import * as utilities from "../utilities";
  * const azs = aws.getAvailabilityZones({
  *     state: "available",
  * });
- * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
+ * const subnetAz1 = new aws.ec2.Subnet("subnet_az1", {
  *     availabilityZone: azs.then(azs => azs.names?.[0]),
  *     cidrBlock: "192.168.0.0/24",
  *     vpcId: vpc.id,
  * });
- * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
+ * const subnetAz2 = new aws.ec2.Subnet("subnet_az2", {
  *     availabilityZone: azs.then(azs => azs.names?.[1]),
  *     cidrBlock: "192.168.1.0/24",
  *     vpcId: vpc.id,
  * });
- * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
+ * const subnetAz3 = new aws.ec2.Subnet("subnet_az3", {
  *     availabilityZone: azs.then(azs => azs.names?.[2]),
  *     cidrBlock: "192.168.2.0/24",
  *     vpcId: vpc.id,
  * });
  * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
  * const kms = new aws.kms.Key("kms", {description: "example"});
- * const test = new aws.cloudwatch.LogGroup("test", {});
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const test = new aws.cloudwatch.LogGroup("test", {name: "msk_broker_logs"});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "msk-broker-logs-bucket"});
+ * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
@@ -56,8 +56,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
+ * const firehoseRole = new aws.iam.Role("firehose_role", {
+ *     name: "firehose_test_role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ *     name: "kinesis-firehose-msk-broker-logs-stream",
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: firehoseRole.arn,
@@ -68,6 +72,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.msk.Cluster("example", {
+ *     clusterName: "example",
  *     kafkaVersion: "3.2.0",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
@@ -128,14 +133,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.msk.Cluster("example", {
+ *     clusterName: "example",
  *     kafkaVersion: "2.7.1",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.4xlarge",
  *         clientSubnets: [
- *             aws_subnet.subnet_az1.id,
- *             aws_subnet.subnet_az2.id,
- *             aws_subnet.subnet_az3.id,
+ *             subnetAz1.id,
+ *             subnetAz2.id,
+ *             subnetAz3.id,
  *         ],
  *         storageInfo: {
  *             ebsStorageInfo: {
@@ -146,7 +152,7 @@ import * as utilities from "../utilities";
  *                 volumeSize: 1000,
  *             },
  *         },
- *         securityGroups: [aws_security_group.sg.id],
+ *         securityGroups: [sg.id],
  *     },
  * });
  * ```

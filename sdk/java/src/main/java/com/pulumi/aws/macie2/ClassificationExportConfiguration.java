@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.ClassificationExportConfiguration;
  * import com.pulumi.aws.macie2.ClassificationExportConfigurationArgs;
  * import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,17 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration(&#34;exampleClassificationExportConfiguration&#34;, ClassificationExportConfigurationArgs.builder()        
  *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
- *                 .bucketName(aws_s3_bucket.example().bucket())
+ *                 .bucketName(exampleAwsS3Bucket.bucket())
  *                 .keyPrefix(&#34;exampleprefix/&#34;)
- *                 .kmsKeyArn(aws_kms_key.example().arn())
+ *                 .kmsKeyArn(exampleAwsKmsKey.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

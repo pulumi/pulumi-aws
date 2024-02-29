@@ -30,12 +30,13 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
+// // Declare the data source
 // pcs, err := ec2.GetVpcPeeringConnections(ctx, &ec2.GetVpcPeeringConnectionsArgs{
 // Filters: []ec2.GetVpcPeeringConnectionsFilter{
 // {
 // Name: "requester-vpc-info.vpc-id",
 // Values: interface{}{
-// aws_vpc.Foo.Id,
+// foo.Id,
 // },
 // },
 // },
@@ -43,6 +44,7 @@ import (
 // if err != nil {
 // return err
 // }
+// // get the details of each resource
 // _ := "TODO: For expression";
 // return nil
 // })

@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new()
+    ///     var testLatest = new Aws.Lambda.FunctionUrl("test_latest", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         FunctionName = test.FunctionName,
     ///         AuthorizationType = "NONE",
     ///     });
     /// 
-    ///     var testLive = new Aws.Lambda.FunctionUrl("testLive", new()
+    ///     var testLive = new Aws.Lambda.FunctionUrl("test_live", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         FunctionName = test.FunctionName,
     ///         Qualifier = "my_alias",
     ///         AuthorizationType = "AWS_IAM",
     ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs

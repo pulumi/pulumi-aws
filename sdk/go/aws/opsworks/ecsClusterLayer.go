@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewEcsClusterLayer(ctx, "example", &opsworks.EcsClusterLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Example.Id),
-//				EcsClusterArn: pulumi.Any(aws_ecs_cluster.Example.Arn),
+//				StackId:       pulumi.Any(exampleAwsOpsworksStack.Id),
+//				EcsClusterArn: pulumi.Any(exampleAwsEcsCluster.Arn),
 //			})
 //			if err != nil {
 //				return err

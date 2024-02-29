@@ -24,9 +24,12 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic");
+    ///     var awsSnsTopic = new Aws.Sns.Topic("aws_sns_topic", new()
+    ///     {
+    ///         Name = "glacier-sns-topic",
+    ///     });
     /// 
-    ///     var myArchivePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var myArchive = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,8 +61,9 @@ namespace Pulumi.Aws.Glacier
     ///         },
     ///     });
     /// 
-    ///     var myArchiveVault = new Aws.Glacier.Vault("myArchiveVault", new()
+    ///     var myArchiveVault = new Aws.Glacier.Vault("my_archive", new()
     ///     {
+    ///         Name = "MyArchive",
     ///         Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///         {
     ///             SnsTopic = awsSnsTopic.Arn,
@@ -69,7 +73,7 @@ namespace Pulumi.Aws.Glacier
     ///                 "InventoryRetrievalCompleted",
     ///             },
     ///         },
-    ///         AccessPolicy = myArchivePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicy = myArchive.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Tags = 
     ///         {
     ///             { "Test", "MyArchive" },

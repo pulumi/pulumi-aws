@@ -24,9 +24,10 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var example = new Aws.GameLift.Fleet("example", new()
     ///     {
-    ///         BuildId = aws_gamelift_build.Example.Id,
+    ///         BuildId = exampleAwsGameliftBuild.Id,
     ///         Ec2InstanceType = "t2.micro",
     ///         FleetType = "ON_DEMAND",
+    ///         Name = "example-fleet-name",
     ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
     ///         {
     ///             ServerProcesses = new[]

@@ -307,13 +307,13 @@ class ConnectPeer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
+        example = aws.ec2transitgateway.Connect("example",
+            transport_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
+        example_connect_peer = aws.ec2transitgateway.ConnectPeer("example",
             peer_address="10.1.2.3",
             inside_cidr_blocks=["169.254.100.0/29"],
-            transit_gateway_attachment_id=example_connect.id)
+            transit_gateway_attachment_id=example.id)
         ```
 
         ## Import
@@ -348,13 +348,13 @@ class ConnectPeer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
+        example = aws.ec2transitgateway.Connect("example",
+            transport_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
+        example_connect_peer = aws.ec2transitgateway.ConnectPeer("example",
             peer_address="10.1.2.3",
             inside_cidr_blocks=["169.254.100.0/29"],
-            transit_gateway_attachment_id=example_connect.id)
+            transit_gateway_attachment_id=example.id)
         ```
 
         ## Import

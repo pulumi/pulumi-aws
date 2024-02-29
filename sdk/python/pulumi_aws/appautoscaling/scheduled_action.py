@@ -353,16 +353,17 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_target = aws.appautoscaling.Target("dynamodbTarget",
+        dynamodb = aws.appautoscaling.Target("dynamodb",
             max_capacity=100,
             min_capacity=5,
             resource_id="table/tableName",
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
-        dynamodb_scheduled_action = aws.appautoscaling.ScheduledAction("dynamodbScheduledAction",
-            service_namespace=dynamodb_target.service_namespace,
-            resource_id=dynamodb_target.resource_id,
-            scalable_dimension=dynamodb_target.scalable_dimension,
+        dynamodb_scheduled_action = aws.appautoscaling.ScheduledAction("dynamodb",
+            name="dynamodb",
+            service_namespace=dynamodb.service_namespace,
+            resource_id=dynamodb.resource_id,
+            scalable_dimension=dynamodb.scalable_dimension,
             schedule="at(2006-01-02T15:04:05)",
             scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
                 min_capacity=1,
@@ -375,16 +376,17 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs = aws.appautoscaling.Target("ecs",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
-        ecs_scheduled_action = aws.appautoscaling.ScheduledAction("ecsScheduledAction",
-            service_namespace=ecs_target.service_namespace,
-            resource_id=ecs_target.resource_id,
-            scalable_dimension=ecs_target.scalable_dimension,
+        ecs_scheduled_action = aws.appautoscaling.ScheduledAction("ecs",
+            name="ecs",
+            service_namespace=ecs.service_namespace,
+            resource_id=ecs.resource_id,
+            scalable_dimension=ecs.scalable_dimension,
             schedule="at(2006-01-02T15:04:05)",
             scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
                 min_capacity=1,
@@ -420,16 +422,17 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_target = aws.appautoscaling.Target("dynamodbTarget",
+        dynamodb = aws.appautoscaling.Target("dynamodb",
             max_capacity=100,
             min_capacity=5,
             resource_id="table/tableName",
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
-        dynamodb_scheduled_action = aws.appautoscaling.ScheduledAction("dynamodbScheduledAction",
-            service_namespace=dynamodb_target.service_namespace,
-            resource_id=dynamodb_target.resource_id,
-            scalable_dimension=dynamodb_target.scalable_dimension,
+        dynamodb_scheduled_action = aws.appautoscaling.ScheduledAction("dynamodb",
+            name="dynamodb",
+            service_namespace=dynamodb.service_namespace,
+            resource_id=dynamodb.resource_id,
+            scalable_dimension=dynamodb.scalable_dimension,
             schedule="at(2006-01-02T15:04:05)",
             scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
                 min_capacity=1,
@@ -442,16 +445,17 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs = aws.appautoscaling.Target("ecs",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
-        ecs_scheduled_action = aws.appautoscaling.ScheduledAction("ecsScheduledAction",
-            service_namespace=ecs_target.service_namespace,
-            resource_id=ecs_target.resource_id,
-            scalable_dimension=ecs_target.scalable_dimension,
+        ecs_scheduled_action = aws.appautoscaling.ScheduledAction("ecs",
+            name="ecs",
+            service_namespace=ecs.service_namespace,
+            resource_id=ecs.resource_id,
+            scalable_dimension=ecs.scalable_dimension,
             schedule="at(2006-01-02T15:04:05)",
             scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
                 min_capacity=1,

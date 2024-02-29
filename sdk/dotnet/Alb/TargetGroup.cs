@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Alb
     /// 
     ///     var test = new Aws.LB.TargetGroup("test", new()
     ///     {
+    ///         Name = "tf-example-lb-tg",
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         VpcId = main.Id,
@@ -56,6 +57,7 @@ namespace Pulumi.Aws.Alb
     /// 
     ///     var ip_example = new Aws.LB.TargetGroup("ip-example", new()
     ///     {
+    ///         Name = "tf-example-lb-tg",
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         TargetType = "ip",
@@ -76,6 +78,7 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var lambda_example = new Aws.LB.TargetGroup("lambda-example", new()
     ///     {
+    ///         Name = "tf-example-lb-tg",
     ///         TargetType = "lambda",
     ///     });
     /// 
@@ -93,10 +96,11 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var alb_example = new Aws.LB.TargetGroup("alb-example", new()
     ///     {
+    ///         Name = "tf-example-lb-alb-tg",
     ///         TargetType = "alb",
     ///         Port = 80,
     ///         Protocol = "TCP",
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///     });
     /// 
     /// });
@@ -113,9 +117,10 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
     ///     {
+    ///         Name = "tf-example-lb-nlb-tg",
     ///         Port = 25,
     ///         Protocol = "TCP",
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         TargetHealthStates = new[]
     ///         {
     ///             new Aws.LB.Inputs.TargetGroupTargetHealthStateArgs

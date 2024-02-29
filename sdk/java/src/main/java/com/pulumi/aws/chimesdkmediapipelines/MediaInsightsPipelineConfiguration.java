@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .shardCount(2)
  *             .build());
  * 
@@ -70,10 +71,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var callAnalyticsRole = new Role(&#34;callAnalyticsRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;CallAnalyticsRole&#34;)
  *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name(&#34;MyBasicConfiguration&#34;)
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
@@ -141,11 +144,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var postCallRole = new Role(&#34;postCallRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;PostCallAccessRole&#34;)
  *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyCallAnalyticsConfiguration&#34;)
+ *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
@@ -174,7 +179,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -209,7 +214,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.call_analytics_role().arn())
+ *             .name(&#34;MyRealTimeAlertConfiguration&#34;)
+ *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
@@ -220,7 +226,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .realTimeAlertConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs.builder()
@@ -282,7 +288,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyTranscribeConfiguration&#34;)
+ *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeProcessor&#34;)
@@ -303,7 +310,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -340,7 +347,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyVoiceAnalyticsConfiguration&#34;)
+ *             .resourceAccessRoleArn(example.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;VoiceAnalyticsProcessor&#34;)
@@ -370,7 +378,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.test().arn())
+ *                         .insightsTarget(test.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -403,7 +411,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyS3RecordingConfiguration&#34;)
+ *             .resourceAccessRoleArn(example.arn())
  *             .elements(MediaInsightsPipelineConfigurationElementArgs.builder()
  *                 .type(&#34;S3RecordingSink&#34;)
  *                 .s3RecordingSinkConfiguration(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs.builder()

@@ -212,17 +212,19 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
+                allow_single_column=False,
+                contains_header="PRESENT",
+                delimiter=",",
+                disable_value_trimming=False,
+                headers=[
+                    "example1",
+                    "example2",
+                ],
+                quote_symbol="'",
+            ))
         ```
         ### Grok Classifier
 
@@ -230,10 +232,12 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
+                classification="example",
+                grok_pattern="example",
+            ))
         ```
         ### JSON Classifier
 
@@ -241,9 +245,11 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            json_classifier=aws.glue.ClassifierJsonClassifierArgs(
+                json_path="example",
+            ))
         ```
         ### XML Classifier
 
@@ -251,10 +257,12 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
+                classification="example",
+                row_tag="example",
+            ))
         ```
 
         ## Import
@@ -291,17 +299,19 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
+                allow_single_column=False,
+                contains_header="PRESENT",
+                delimiter=",",
+                disable_value_trimming=False,
+                headers=[
+                    "example1",
+                    "example2",
+                ],
+                quote_symbol="'",
+            ))
         ```
         ### Grok Classifier
 
@@ -309,10 +319,12 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
+                classification="example",
+                grok_pattern="example",
+            ))
         ```
         ### JSON Classifier
 
@@ -320,9 +332,11 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            json_classifier=aws.glue.ClassifierJsonClassifierArgs(
+                json_path="example",
+            ))
         ```
         ### XML Classifier
 
@@ -330,10 +344,12 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
+                classification="example",
+                row_tag="example",
+            ))
         ```
 
         ## Import

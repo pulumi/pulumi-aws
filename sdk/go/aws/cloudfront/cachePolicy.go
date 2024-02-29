@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewCachePolicy(ctx, "example", &cloudfront.CachePolicyArgs{
+//				Name:       pulumi.String("example-policy"),
 //				Comment:    pulumi.String("test comment"),
 //				DefaultTtl: pulumi.Int(50),
 //				MaxTtl:     pulumi.Int(100),

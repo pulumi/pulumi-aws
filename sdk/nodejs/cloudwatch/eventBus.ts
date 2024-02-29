@@ -15,17 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
+ * const messenger = new aws.cloudwatch.EventBus("messenger", {name: "chat-messages"});
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplepartnerEventSource = aws.cloudwatch.getEventSource({
+ * const examplepartner = aws.cloudwatch.getEventSource({
  *     namePrefix: "aws.partner/examplepartner.com",
  * });
- * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartnerEventBus", {eventSourceName: examplepartnerEventSource.then(examplepartnerEventSource => examplepartnerEventSource.name)});
+ * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartner", {
+ *     name: examplepartner.then(examplepartner => examplepartner.name),
+ *     eventSourceName: examplepartner.then(examplepartner => examplepartner.name),
+ * });
  * ```
  *
  * ## Import

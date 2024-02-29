@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.devicefarm.Project;
+ * import com.pulumi.aws.devicefarm.ProjectArgs;
  * import com.pulumi.aws.devicefarm.Upload;
  * import com.pulumi.aws.devicefarm.UploadArgs;
  * import java.util.List;
@@ -42,10 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleProject = new Project(&#34;exampleProject&#34;);
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleUpload = new Upload(&#34;exampleUpload&#34;, UploadArgs.builder()        
- *             .projectArn(exampleProject.arn())
+ *             .name(&#34;example&#34;)
+ *             .projectArn(example.arn())
  *             .type(&#34;APPIUM_JAVA_TESTNG_TEST_SPEC&#34;)
  *             .build());
  * 

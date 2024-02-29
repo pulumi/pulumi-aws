@@ -27,31 +27,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
+//			_default, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
 //				AddonName:         "vpc-cni",
-//				KubernetesVersion: aws_eks_cluster.Example.Version,
+//				KubernetesVersion: example.Version,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			latestAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
+//			latest, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
 //				AddonName:         "vpc-cni",
-//				KubernetesVersion: aws_eks_cluster.Example.Version,
+//				KubernetesVersion: example.Version,
 //				MostRecent:        pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewAddon(ctx, "vpcCni", &eks.AddonArgs{
-//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
+//			_, err = eks.NewAddon(ctx, "vpc_cni", &eks.AddonArgs{
+//				ClusterName:  pulumi.Any(example.Name),
 //				AddonName:    pulumi.String("vpc-cni"),
-//				AddonVersion: *pulumi.String(latestAddonVersion.Version),
+//				AddonVersion: *pulumi.String(latest.Version),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("default", defaultAddonVersion.Version)
-//			ctx.Export("latest", latestAddonVersion.Version)
+//			ctx.Export("default", _default.Version)
+//			ctx.Export("latest", latest.Version)
 //			return nil
 //		})
 //	}

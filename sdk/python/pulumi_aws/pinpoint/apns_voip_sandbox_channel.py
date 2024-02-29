@@ -374,12 +374,13 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox",
+        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=std.file(input="./certificate.pem").result,
+            private_key=std.file(input="./private_key.key").result)
         ```
 
         ## Import
@@ -426,12 +427,13 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox",
+        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=std.file(input="./certificate.pem").result,
+            private_key=std.file(input="./private_key.key").result)
         ```
 
         ## Import

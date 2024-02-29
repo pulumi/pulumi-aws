@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -44,9 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *             .build());
  * 
- *         final var allowAccessFromAnotherAccountPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var allowAccessFromAnotherAccount = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type(&#34;AWS&#34;)
@@ -63,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy(&#34;allowAccessFromAnotherAccountBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(example.id())
- *             .policy(allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccountPolicyDocument -&gt; allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccount -&gt; allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

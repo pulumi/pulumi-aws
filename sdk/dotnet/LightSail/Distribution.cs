@@ -25,18 +25,20 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testBucket = new Aws.LightSail.Bucket("testBucket", new()
+    ///     var test = new Aws.LightSail.Bucket("test", new()
     ///     {
+    ///         Name = "test-bucket",
     ///         BundleId = "small_1_0",
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
-    ///             Name = testBucket.Name,
-    ///             RegionName = testBucket.Region,
+    ///             Name = test.Name,
+    ///             RegionName = test.Region,
     ///         },
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
@@ -94,23 +96,28 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp");
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testStaticIp = new Aws.LightSail.StaticIp("test", new()
     ///     {
+    ///         Name = "test-static-ip",
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
+    ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "micro_1_0",
     ///     });
     /// 
-    ///     var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new()
+    ///     var test = new Aws.LightSail.StaticIpAttachment("test", new()
     ///     {
     ///         StaticIpName = testStaticIp.Name,
     ///         InstanceName = testInstance.Name,
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
@@ -120,12 +127,6 @@ namespace Pulumi.Aws.LightSail
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
     ///             Behavior = "cache",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testStaticIpAttachment,
     ///         },
     ///     });
     /// 
@@ -159,8 +160,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -169,36 +171,32 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
     ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("testLbAttachment", new()
+    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("test", new()
     ///     {
-    ///         LbName = testLb.Name,
+    ///         LbName = test.Name,
     ///         InstanceName = testInstance.Name,
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
-    ///             Name = testLb.Name,
+    ///             Name = test.Name,
     ///             RegionName = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Id),
     ///         },
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
     ///             Behavior = "cache",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testLbAttachment,
     ///         },
     ///     });
     /// 

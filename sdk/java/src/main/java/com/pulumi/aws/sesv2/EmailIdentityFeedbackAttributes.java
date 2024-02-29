@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes(&#34;exampleEmailIdentityFeedbackAttributes&#34;, EmailIdentityFeedbackAttributesArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
+ *             .emailIdentity(example.emailIdentity())
  *             .emailForwardingEnabled(true)
  *             .build());
  * 

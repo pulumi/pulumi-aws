@@ -26,11 +26,11 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.FileSystemAssociation("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_fsx_windows_file_system.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsFsxWindowsFileSystem.Arn,
     ///         Username = "Admin",
     ///         Password = "avoid-plaintext-passwords",
-    ///         AuditDestinationArn = aws_s3_bucket.Example.Arn,
+    ///         AuditDestinationArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
@@ -50,51 +50,44 @@ namespace Pulumi.Aws.StorageGateway
     ///         Name = "/aws/service/storagegateway/ami/FILE_S3/latest",
     ///     });
     /// 
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
+    ///     var test = new Aws.Ec2.Instance("test", new()
     ///     {
     ///         Ami = awsServiceStoragegatewayAmiFILES3Latest.Apply(getParameterResult =&gt; getParameterResult.Value),
     ///         AssociatePublicIpAddress = true,
-    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType.InstanceType&gt;(data.Aws_ec2_instance_type_offering.Available.Instance_type),
+    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType.InstanceType&gt;(available.InstanceType),
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
-    ///         SubnetId = aws_subnet.Test[0].Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_route.Test,
-    ///             aws_vpc_dhcp_options_association.Test,
-    ///         },
+    ///         SubnetId = testAwsSubnet[0].Id,
     ///     });
     /// 
-    ///     var testGateway = new Aws.StorageGateway.Gateway("testGateway", new()
+    ///     var testGateway = new Aws.StorageGateway.Gateway("test", new()
     ///     {
-    ///         GatewayIpAddress = testInstance.PublicIp,
+    ///         GatewayIpAddress = test.PublicIp,
     ///         GatewayName = "test-sgw",
     ///         GatewayTimezone = "GMT",
     ///         GatewayType = "FILE_FSX_SMB",
     ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
     ///         {
-    ///             DomainName = aws_directory_service_directory.Test.Name,
-    ///             Password = aws_directory_service_directory.Test.Password,
+    ///             DomainName = testAwsDirectoryServiceDirectory.Name,
+    ///             Password = testAwsDirectoryServiceDirectory.Password,
     ///             Username = "Admin",
     ///         },
     ///     });
     /// 
-    ///     var testWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("testWindowsFileSystem", new()
+    ///     var testWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("test", new()
     ///     {
-    ///         ActiveDirectoryId = aws_directory_service_directory.Test.Id,
+    ///         ActiveDirectoryId = testAwsDirectoryServiceDirectory.Id,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///         SkipFinalBackup = true,
     ///         StorageCapacity = 32,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test[0].Id,
+    ///             testAwsSubnet[0].Id,
     ///         },
     ///         ThroughputCapacity = 8,
     ///     });
@@ -104,12 +97,12 @@ namespace Pulumi.Aws.StorageGateway
     ///         GatewayArn = testGateway.Arn,
     ///         LocationArn = testWindowsFileSystem.Arn,
     ///         Username = "Admin",
-    ///         Password = aws_directory_service_directory.Test.Password,
+    ///         Password = testAwsDirectoryServiceDirectory.Password,
     ///         CacheAttributes = new Aws.StorageGateway.Inputs.FileSystemAssociationCacheAttributesArgs
     ///         {
     ///             CacheStaleTimeoutInSeconds = 400,
     ///         },
-    ///         AuditDestinationArn = aws_cloudwatch_log_group.Test.Arn,
+    ///         AuditDestinationArn = testAwsCloudwatchLogGroup.Arn,
     ///     });
     /// 
     /// });

@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new ObjectCopy(&#34;test&#34;, ObjectCopyArgs.builder()        
  *             .bucket(&#34;destination_bucket&#34;)
- *             .grants(ObjectCopyGrantArgs.builder()
- *                 .permissions(&#34;READ&#34;)
- *                 .type(&#34;Group&#34;)
- *                 .uri(&#34;http://acs.amazonaws.com/groups/global/AllUsers&#34;)
- *                 .build())
  *             .key(&#34;destination_key&#34;)
  *             .source(&#34;source_bucket/source_key&#34;)
+ *             .grants(ObjectCopyGrantArgs.builder()
+ *                 .uri(&#34;http://acs.amazonaws.com/groups/global/AllUsers&#34;)
+ *                 .type(&#34;Group&#34;)
+ *                 .permissions(&#34;READ&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }

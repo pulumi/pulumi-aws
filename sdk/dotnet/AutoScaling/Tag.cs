@@ -16,6 +16,50 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     {
+    ///         ClusterName = "example",
+    ///         NodeGroupName = "example",
+    ///     });
+    /// 
+    ///     var exampleTag = new List&lt;Aws.AutoScaling.Tag&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; NotImplemented(@"toset(
+    /// [forasginflatten(
+    /// [forresourcesinaws_eks_node_group.example.resources:resources.autoscaling_groups]
+    /// ):asg.name]
+    /// )"); rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleTag.Add(new Aws.AutoScaling.Tag($"example-{range.Value}", new()
+    ///         {
+    ///             AutoscalingGroupName = range.Value,
+    ///             TagDetails = new Aws.AutoScaling.Inputs.TagTagArgs
+    ///             {
+    ///                 Key = "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+    ///                 Value = "SPOT",
+    ///                 PropagateAtLaunch = false,
+    ///             },
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:

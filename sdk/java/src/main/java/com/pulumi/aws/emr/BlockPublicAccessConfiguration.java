@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  *         var example = new BlockPublicAccessConfiguration(&#34;example&#34;, BlockPublicAccessConfigurationArgs.builder()        
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                 .maxRange(22)
  *                 .minRange(22)
+ *                 .maxRange(22)
  *                 .build())
  *             .build());
  * 
@@ -116,12 +116,12 @@ import javax.annotation.Nullable;
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(            
  *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                     .maxRange(22)
  *                     .minRange(22)
+ *                     .maxRange(22)
  *                     .build(),
  *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                     .maxRange(101)
  *                     .minRange(100)
+ *                     .maxRange(101)
  *                     .build())
  *             .build());
  * 

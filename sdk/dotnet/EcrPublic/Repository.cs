@@ -17,26 +17,14 @@ namespace Pulumi.Aws.EcrPublic
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var usEast1 = new Aws.Provider("usEast1", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
     ///     var foo = new Aws.EcrPublic.Repository("foo", new()
     ///     {
     ///         RepositoryName = "bar",
@@ -48,7 +36,10 @@ namespace Pulumi.Aws.EcrPublic
     ///                 "ARM",
     ///             },
     ///             Description = "Description",
-    ///             LogoImageBlob = ReadFileBase64(image.Png),
+    ///             LogoImageBlob = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = png,
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             OperatingSystems = new[]
     ///             {
     ///                 "Linux",
@@ -59,9 +50,6 @@ namespace Pulumi.Aws.EcrPublic
     ///         {
     ///             { "env", "production" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
     /// });

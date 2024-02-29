@@ -1353,10 +1353,15 @@ class LaunchTemplate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         foo = aws.ec2.LaunchTemplate("foo",
+            name="foo",
             block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
                 device_name="/dev/sdf",
                 ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
@@ -1419,7 +1424,7 @@ class LaunchTemplate(pulumi.CustomResource):
                     "Name": "test",
                 },
             )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
+            user_data=std.filebase64(input=f"{not_implemented('path.module')}/example.sh").result)
         ```
 
         ## Import
@@ -1492,10 +1497,15 @@ class LaunchTemplate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         foo = aws.ec2.LaunchTemplate("foo",
+            name="foo",
             block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
                 device_name="/dev/sdf",
                 ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
@@ -1558,7 +1568,7 @@ class LaunchTemplate(pulumi.CustomResource):
                     "Name": "test",
                 },
             )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
+            user_data=std.filebase64(input=f"{not_implemented('path.module')}/example.sh").result)
         ```
 
         ## Import

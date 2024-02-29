@@ -18,8 +18,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Deployment("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
+ *     apiId: exampleAwsApigatewayv2Api.id,
  *     description: "Example deployment",
+ * });
+ * ```
+ * ### Redeployment Triggers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = new aws.apigatewayv2.Deployment("example", {
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     description: "Example deployment",
+ *     triggers: {
+ *         redeployment: std.join({
+ *             separator: ",",
+ *             input: notImplemented(`tolist([
+ * jsonencode(aws_apigatewayv2_integration.example),
+ * jsonencode(aws_apigatewayv2_route.example),
+ * ])`),
+ *         }).then(invoke => std.sha1({
+ *             input: invoke.result,
+ *         })).then(invoke => invoke.result),
+ *     },
  * });
  * ```
  *

@@ -528,10 +528,10 @@ class LayerVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
-            compatible_runtimes=["nodejs16.x"],
+        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
-            layer_name="lambda_layer_name")
+            layer_name="lambda_layer_name",
+            compatible_runtimes=["nodejs16.x"])
         ```
         ## Specifying the Deployment Package
 
@@ -587,10 +587,10 @@ class LayerVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
-            compatible_runtimes=["nodejs16.x"],
+        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
-            layer_name="lambda_layer_name")
+            layer_name="lambda_layer_name",
+            compatible_runtimes=["nodejs16.x"])
         ```
         ## Specifying the Deployment Package
 

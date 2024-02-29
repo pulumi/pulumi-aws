@@ -51,10 +51,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
  *             .build());
@@ -100,10 +102,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
  *             .settings(            

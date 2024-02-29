@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudsearch.Domain;
+ * import com.pulumi.aws.cloudsearch.DomainArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicy;
@@ -43,9 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;);
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .name(&#34;example-domain&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;search_only&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -66,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy(&#34;exampleDomainServiceAccessPolicy&#34;, DomainServiceAccessPolicyArgs.builder()        
  *             .domainName(exampleDomain.id())
- *             .accessPolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .accessPolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

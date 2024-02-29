@@ -35,12 +35,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
+//			q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
+//				Name: pulumi.String("examplequeue"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			ddl, err := sqs.NewQueue(ctx, "ddl", &sqs.QueueArgs{
-//				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Name: pulumi.String("examplequeue-ddl"),
+//				RedriveAllowPolicy: q.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"redrivePermission": "byQueue",
@@ -58,8 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sqs.NewRedrivePolicy(ctx, "redrivePolicy", &sqs.RedrivePolicyArgs{
-//				QueueUrl: queue.ID(),
+//			_, err = sqs.NewRedrivePolicy(ctx, "q", &sqs.RedrivePolicyArgs{
+//				QueueUrl: q.ID(),
 //				RedrivePolicy: ddl.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{

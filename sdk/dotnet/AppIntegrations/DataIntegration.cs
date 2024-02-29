@@ -24,8 +24,9 @@ namespace Pulumi.Aws.AppIntegrations
     /// {
     ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
-    ///         KmsKey = aws_kms_key.Test.Arn,
+    ///         KmsKey = test.Arn,
     ///         SourceUri = "Salesforce://AppFlow/example",
     ///         ScheduleConfig = new Aws.AppIntegrations.Inputs.DataIntegrationScheduleConfigArgs
     ///         {

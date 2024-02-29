@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -55,17 +55,21 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "my test kms key",
     ///         DeletionWindowInDays = 7,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "my-test",
+    ///     });
+    /// 
+    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("example", new()
+    ///     {
+    ///         Name = "my test report group",
     ///         Type = "TEST",
     ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {

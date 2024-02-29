@@ -96,7 +96,7 @@ def get_connections(device_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_connections(global_network_id=global_network_id,
         tags={
             "Env": "test",
         })
@@ -136,7 +136,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_connections(global_network_id=global_network_id,
         tags={
             "Env": "test",
         })

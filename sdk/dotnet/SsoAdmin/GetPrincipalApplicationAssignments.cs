@@ -16,6 +16,33 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
+        ///     {
+        ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.test.arns)")[0],
+        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
+        ///         PrincipalType = "USER",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrincipalApplicationAssignmentsResult> InvokeAsync(GetPrincipalApplicationAssignmentsArgs args, InvokeOptions? options = null)
@@ -26,6 +53,33 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
+        ///     {
+        ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.test.arns)")[0],
+        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
+        ///         PrincipalType = "USER",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrincipalApplicationAssignmentsResult> Invoke(GetPrincipalApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)

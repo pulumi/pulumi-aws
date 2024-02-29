@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.VpcIpamResourceDiscoveryAssociation("test", new()
     ///     {
-    ///         IpamId = aws_vpc_ipam.Test.Id,
-    ///         IpamResourceDiscoveryId = aws_vpc_ipam_resource_discovery.Test.Id,
+    ///         IpamId = testAwsVpcIpam.Id,
+    ///         IpamResourceDiscoveryId = testAwsVpcIpamResourceDiscovery.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "test" },

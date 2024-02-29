@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var example = new Aws.Workspaces.Workspace("example", new()
     ///     {
-    ///         DirectoryId = aws_workspaces_directory.Example.Id,
+    ///         DirectoryId = exampleAwsWorkspacesDirectory.Id,
     ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
     ///         UserName = "john.doe",
     ///         RootVolumeEncryptionEnabled = true,

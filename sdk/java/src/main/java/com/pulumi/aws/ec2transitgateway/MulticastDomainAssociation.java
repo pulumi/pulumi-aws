@@ -44,22 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
+ *         var example = new TransitGateway(&#34;example&#34;, TransitGatewayArgs.builder()        
  *             .multicastSupport(&#34;enable&#34;)
  *             .build());
  * 
  *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
- *             .subnetIds(aws_subnet.example().id())
- *             .transitGatewayId(exampleTransitGateway.id())
- *             .vpcId(aws_vpc.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .transitGatewayId(example.id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *         var exampleMulticastDomain = new MulticastDomain(&#34;exampleMulticastDomain&#34;, MulticastDomainArgs.builder()        
- *             .transitGatewayId(exampleTransitGateway.id())
+ *             .transitGatewayId(example.id())
  *             .build());
  * 
  *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation(&#34;exampleMulticastDomainAssociation&#34;, MulticastDomainAssociationArgs.builder()        
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
  *             .transitGatewayMulticastDomainId(exampleMulticastDomain.id())
  *             .build());

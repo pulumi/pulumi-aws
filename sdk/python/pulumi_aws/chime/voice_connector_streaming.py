@@ -208,10 +208,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming",
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
+        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             data_retention=7,
             streaming_notification_targets=["SQS"])
         ```
@@ -221,7 +223,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -230,9 +234,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=2)
-        example_media_insights_pipeline_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration",
+        example_role = aws.iam.Role("example",
+            name="ExampleResourceAccessRole",
+            assume_role_policy=assume_role.json)
+        example_stream = aws.kinesis.Stream("example",
+            name="ExampleStream",
+            shard_count=2)
+        example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
+            name="ExampleConfig",
             resource_access_role_arn=example_role.arn,
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
@@ -248,14 +257,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                     ),
                 ),
             ])
-        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming",
+        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             data_retention=7,
             streaming_notification_targets=["SQS"],
             media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs(
                 disabled=False,
-                configuration_arn=example_media_insights_pipeline_configuration.arn,
+                configuration_arn=example.arn,
             ))
         ```
 
@@ -291,10 +300,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming",
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
+        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             data_retention=7,
             streaming_notification_targets=["SQS"])
         ```
@@ -304,7 +315,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -313,9 +326,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=2)
-        example_media_insights_pipeline_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration",
+        example_role = aws.iam.Role("example",
+            name="ExampleResourceAccessRole",
+            assume_role_policy=assume_role.json)
+        example_stream = aws.kinesis.Stream("example",
+            name="ExampleStream",
+            shard_count=2)
+        example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
+            name="ExampleConfig",
             resource_access_role_arn=example_role.arn,
             elements=[
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
@@ -331,14 +349,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                     ),
                 ),
             ])
-        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming",
+        default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
             disabled=False,
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id,
             data_retention=7,
             streaming_notification_targets=["SQS"],
             media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs(
                 disabled=False,
-                configuration_arn=example_media_insights_pipeline_configuration.arn,
+                configuration_arn=example.arn,
             ))
         ```
 

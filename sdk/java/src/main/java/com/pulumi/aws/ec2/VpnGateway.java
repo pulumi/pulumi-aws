@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
  *             .build());
  * 

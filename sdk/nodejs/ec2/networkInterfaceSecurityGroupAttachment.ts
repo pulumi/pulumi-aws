@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {tags: {
  *     type: "test-security-group",
  * }});
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
  *     securityGroupId: sg.id,
  *     networkInterfaceId: instance.primaryNetworkInterfaceId,
  * });
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {tags: {
  *     type: "test-security-group",
  * }});
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
  *     securityGroupId: sg.id,
  *     networkInterfaceId: instance.then(instance => instance.networkInterfaceId),
  * });

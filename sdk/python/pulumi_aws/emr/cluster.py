@@ -80,7 +80,6 @@ class ClusterArgs:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input['ClusterCoreInstanceFleetArgs'] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
@@ -288,7 +287,6 @@ class ClusterArgs:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """
@@ -619,7 +617,6 @@ class _ClusterState:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input['ClusterCoreInstanceFleetArgs'] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
@@ -841,7 +838,6 @@ class _ClusterState:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """
@@ -1205,6 +1201,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
+            name="emr-test-arn",
             release_label="emr-4.6.0",
             applications=["Spark"],
             additional_info=\"\"\"{
@@ -1217,10 +1214,10 @@ class Cluster(pulumi.CustomResource):
             termination_protection=False,
             keep_job_flow_alive_when_no_steps=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=aws_subnet["main"]["id"],
-                emr_managed_master_security_group=aws_security_group["sg"]["id"],
-                emr_managed_slave_security_group=aws_security_group["sg"]["id"],
-                instance_profile=aws_iam_instance_profile["emr_profile"]["arn"],
+                subnet_id=main["id"],
+                emr_managed_master_security_group=sg["id"],
+                emr_managed_slave_security_group=sg["id"],
+                instance_profile=emr_profile["arn"],
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -1307,7 +1304,7 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         \"\"\",
-            service_role=aws_iam_role["iam_emr_service_role"]["arn"])
+            service_role=iam_emr_service_role["arn"])
         ```
 
         The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
@@ -1403,6 +1400,7 @@ class Cluster(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
@@ -1414,7 +1412,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
@@ -1435,14 +1432,12 @@ class Cluster(pulumi.CustomResource):
         # This configuration is for illustrative purposes and highlights
         # only relevant configurations for working with this functionality.
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
-        # ... other configuration ...
-        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
-        # ... other configuration ...
-        example_cluster = aws.emr.Cluster("exampleCluster",
+        example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
+        example_cluster = aws.emr.Cluster("example",
             release_label="emr-5.24.1",
             termination_protection=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=example_subnet.id,
+                subnet_id=example.id,
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_count=3,
@@ -1489,7 +1484,6 @@ class Cluster(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
@@ -1536,6 +1530,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
+            name="emr-test-arn",
             release_label="emr-4.6.0",
             applications=["Spark"],
             additional_info=\"\"\"{
@@ -1548,10 +1543,10 @@ class Cluster(pulumi.CustomResource):
             termination_protection=False,
             keep_job_flow_alive_when_no_steps=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=aws_subnet["main"]["id"],
-                emr_managed_master_security_group=aws_security_group["sg"]["id"],
-                emr_managed_slave_security_group=aws_security_group["sg"]["id"],
-                instance_profile=aws_iam_instance_profile["emr_profile"]["arn"],
+                subnet_id=main["id"],
+                emr_managed_master_security_group=sg["id"],
+                emr_managed_slave_security_group=sg["id"],
+                instance_profile=emr_profile["arn"],
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -1638,7 +1633,7 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         \"\"\",
-            service_role=aws_iam_role["iam_emr_service_role"]["arn"])
+            service_role=iam_emr_service_role["arn"])
         ```
 
         The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
@@ -1734,6 +1729,7 @@ class Cluster(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
@@ -1745,7 +1741,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
@@ -1766,14 +1761,12 @@ class Cluster(pulumi.CustomResource):
         # This configuration is for illustrative purposes and highlights
         # only relevant configurations for working with this functionality.
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
-        # ... other configuration ...
-        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
-        # ... other configuration ...
-        example_cluster = aws.emr.Cluster("exampleCluster",
+        example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
+        example_cluster = aws.emr.Cluster("example",
             release_label="emr-5.24.1",
             termination_protection=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=example_subnet.id,
+                subnet_id=example.id,
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_count=3,
@@ -1962,7 +1955,6 @@ class Cluster(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
@@ -2120,7 +2112,6 @@ class Cluster(pulumi.CustomResource):
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
         """

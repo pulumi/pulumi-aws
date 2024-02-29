@@ -31,15 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Name:             pulumi.String("test-lb-tf"),
 //				Internal:         pulumi.Bool(false),
 //				LoadBalancerType: pulumi.String("application"),
 //				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Lb_sg.Id,
+//					lbSg.Id,
 //				},
 //				Subnets:                  "TODO: For expression",
 //				EnableDeletionProtection: pulumi.Bool(true),
 //				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Lb_logs.Id),
+//					Bucket:  pulumi.Any(lbLogs.Id),
 //					Prefix:  pulumi.String("test-lb"),
 //					Enabled: pulumi.Bool(true),
 //				},
@@ -70,6 +71,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Name:                     pulumi.String("test-lb-tf"),
 //				Internal:                 pulumi.Bool(false),
 //				LoadBalancerType:         pulumi.String("network"),
 //				Subnets:                  "TODO: For expression",
@@ -101,15 +103,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:             pulumi.String("example"),
 //				LoadBalancerType: pulumi.String("network"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example1.Id),
+//						SubnetId:     pulumi.Any(example1AwsSubnet.Id),
+//						AllocationId: pulumi.Any(example1.Id),
 //					},
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example2.Id),
+//						SubnetId:     pulumi.Any(example2AwsSubnet.Id),
+//						AllocationId: pulumi.Any(example2.Id),
 //					},
 //				},
 //			})
@@ -136,14 +139,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:             pulumi.String("example"),
 //				LoadBalancerType: pulumi.String("network"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+//						SubnetId:           pulumi.Any(example1.Id),
 //						PrivateIpv4Address: pulumi.String("10.0.1.15"),
 //					},
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+//						SubnetId:           pulumi.Any(example2.Id),
 //						PrivateIpv4Address: pulumi.String("10.0.2.15"),
 //					},
 //				},

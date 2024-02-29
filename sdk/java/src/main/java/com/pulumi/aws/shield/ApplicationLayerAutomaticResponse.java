@@ -19,48 +19,6 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponse;
- * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentPartition = AwsFunctions.getPartition();
- * 
- *         final var distributionId = config.get(&#34;distributionId&#34;);
- *         var example = new ApplicationLayerAutomaticResponse(&#34;example&#34;, ApplicationLayerAutomaticResponseArgs.builder()        
- *             .action(&#34;COUNT&#34;)
- *             .resourceArn(String.format(&#34;arn:%s:cloudfront:%s:distribution/%s&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),distributionId))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  */
 @ResourceType(type="aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")

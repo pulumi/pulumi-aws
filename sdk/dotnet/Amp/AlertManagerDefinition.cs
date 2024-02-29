@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
+    ///     var demo = new Aws.Amp.Workspace("demo");
     /// 
-    ///     var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demoAlertManagerDefinition", new()
+    ///     var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demo", new()
     ///     {
-    ///         WorkspaceId = demoWorkspace.Id,
+    ///         WorkspaceId = demo.Id,
     ///         Definition = @"alertmanager_config: |
     ///   route:
     ///     receiver: 'default'

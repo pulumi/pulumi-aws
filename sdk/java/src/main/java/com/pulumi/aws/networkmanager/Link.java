@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Link(&#34;example&#34;, LinkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .siteId(aws_networkmanager_site.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .siteId(exampleAwsNetworkmanagerSite.id())
  *             .bandwidth(LinkBandwidthArgs.builder()
  *                 .uploadSpeed(10)
  *                 .downloadSpeed(50)

@@ -38,23 +38,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
+ *     name: "dms-vpc-role",
  *     description: "Allows DMS to manage VPC",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "dms.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "dms.amazonaws.com",
  *             },
- *             Action: "sts:AssumeRole",
+ *             action: "sts:AssumeRole",
  *         }],
  *     }),
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const example = new aws.iam.RolePolicyAttachment("example", {
  *     role: dms_vpc_role.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
  * });
- * const exampleReplicationSubnetGroup = new aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", {
+ * const exampleReplicationSubnetGroup = new aws.dms.ReplicationSubnetGroup("example", {
  *     replicationSubnetGroupDescription: "Example",
  *     replicationSubnetGroupId: "example-id",
  *     subnetIds: [
@@ -64,8 +65,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "example-id",
  *     },
- * }, {
- *     dependsOn: [exampleRolePolicyAttachment],
  * });
  * ```
  *

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .subdirectory(&#34;/exported/path&#34;)
  *             .user(&#34;Guest&#34;)
  *             .password(&#34;ANotGreatPassword&#34;)
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .build());
  * 
  *     }

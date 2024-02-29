@@ -209,6 +209,7 @@ class Host(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Host("example",
+            name="example-host",
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```
@@ -246,6 +247,7 @@ class Host(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Host("example",
+            name="example-host",
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```

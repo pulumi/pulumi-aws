@@ -35,21 +35,21 @@ namespace Pulumi.Aws.Msk
     ///         State = "available",
     ///     });
     /// 
-    ///     var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new()
+    ///     var subnetAz1 = new Aws.Ec2.Subnet("subnet_az1", new()
     ///     {
     ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         CidrBlock = "192.168.0.0/24",
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new()
+    ///     var subnetAz2 = new Aws.Ec2.Subnet("subnet_az2", new()
     ///     {
     ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
     ///         CidrBlock = "192.168.1.0/24",
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new()
+    ///     var subnetAz3 = new Aws.Ec2.Subnet("subnet_az3", new()
     ///     {
     ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[2]),
     ///         CidrBlock = "192.168.2.0/24",
@@ -66,11 +66,17 @@ namespace Pulumi.Aws.Msk
     ///         Description = "example",
     ///     });
     /// 
-    ///     var test = new Aws.CloudWatch.LogGroup("test");
+    ///     var test = new Aws.CloudWatch.LogGroup("test", new()
+    ///     {
+    ///         Name = "msk_broker_logs",
+    ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "msk-broker-logs-bucket",
+    ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
@@ -102,13 +108,15 @@ namespace Pulumi.Aws.Msk
     ///         },
     ///     });
     /// 
-    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
+    ///     var firehoseRole = new Aws.Iam.Role("firehose_role", new()
     ///     {
+    ///         Name = "firehose_test_role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
+    ///         Name = "kinesis-firehose-msk-broker-logs-stream",
     ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
@@ -123,6 +131,7 @@ namespace Pulumi.Aws.Msk
     /// 
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
+    ///         ClusterName = "example",
     ///         KafkaVersion = "3.2.0",
     ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
@@ -211,6 +220,7 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
+    ///         ClusterName = "example",
     ///         KafkaVersion = "2.7.1",
     ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
@@ -218,9 +228,9 @@ namespace Pulumi.Aws.Msk
     ///             InstanceType = "kafka.m5.4xlarge",
     ///             ClientSubnets = new[]
     ///             {
-    ///                 aws_subnet.Subnet_az1.Id,
-    ///                 aws_subnet.Subnet_az2.Id,
-    ///                 aws_subnet.Subnet_az3.Id,
+    ///                 subnetAz1.Id,
+    ///                 subnetAz2.Id,
+    ///                 subnetAz3.Id,
     ///             },
     ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
     ///             {
@@ -236,7 +246,7 @@ namespace Pulumi.Aws.Msk
     ///             },
     ///             SecurityGroups = new[]
     ///             {
-    ///                 aws_security_group.Sg.Id,
+    ///                 sg.Id,
     ///             },
     ///         },
     ///     });

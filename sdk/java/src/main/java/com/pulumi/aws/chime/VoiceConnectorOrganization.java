@@ -45,13 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .requireEncryption(true)
  *             .build());
  * 
  *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization(&#34;defaultVoiceConnectorOrganization&#34;, VoiceConnectorOrganizationArgs.builder()        
  *             .disabled(false)
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .routes(            
  *                 VoiceConnectorOrganizationRouteArgs.builder()
  *                     .host(&#34;127.0.0.1&#34;)

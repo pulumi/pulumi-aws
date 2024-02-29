@@ -47,7 +47,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisAmi = aws.ec2.getAmi({
+ * const this = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [
@@ -61,8 +61,8 @@ import {InstanceProfile} from "../iam";
  *         },
  *     ],
  * });
- * const thisInstance = new aws.ec2.Instance("thisInstance", {
- *     ami: thisAmi.then(thisAmi => thisAmi.id),
+ * const thisInstance = new aws.ec2.Instance("this", {
+ *     ami: _this.then(_this => _this.id),
  *     instanceMarketOptions: {
  *         spotOptions: {
  *             maxPrice: "0.0031",
@@ -80,13 +80,13 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myVpc = new aws.ec2.Vpc("myVpc", {
+ * const myVpc = new aws.ec2.Vpc("my_vpc", {
  *     cidrBlock: "172.16.0.0/16",
  *     tags: {
  *         Name: "tf-example",
  *     },
  * });
- * const mySubnet = new aws.ec2.Subnet("mySubnet", {
+ * const mySubnet = new aws.ec2.Subnet("my_subnet", {
  *     vpcId: myVpc.id,
  *     cidrBlock: "172.16.10.0/24",
  *     availabilityZone: "us-west-2a",
@@ -94,18 +94,18 @@ import {InstanceProfile} from "../iam";
  *         Name: "tf-example",
  *     },
  * });
- * const fooNetworkInterface = new aws.ec2.NetworkInterface("fooNetworkInterface", {
+ * const foo = new aws.ec2.NetworkInterface("foo", {
  *     subnetId: mySubnet.id,
  *     privateIps: ["172.16.10.100"],
  *     tags: {
  *         Name: "primary_network_interface",
  *     },
  * });
- * const fooInstance = new aws.ec2.Instance("fooInstance", {
+ * const fooInstance = new aws.ec2.Instance("foo", {
  *     ami: "ami-005e54dee72cc1d00",
  *     instanceType: "t2.micro",
  *     networkInterfaces: [{
- *         networkInterfaceId: fooNetworkInterface.id,
+ *         networkInterfaceId: foo.id,
  *         deviceIndex: 0,
  *     }],
  *     creditSpecification: {
@@ -119,14 +119,14 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "172.16.0.0/16",
  *     tags: {
  *         Name: "tf-example",
  *     },
  * });
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: example.id,
  *     cidrBlock: "172.16.10.0/24",
  *     availabilityZone: "us-east-2a",
  *     tags: {
@@ -141,7 +141,7 @@ import {InstanceProfile} from "../iam";
  *         values: ["al2023-ami-2023.*-x86_64"],
  *     }],
  * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
+ * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
  *     instanceType: "c6a.2xlarge",
  *     subnetId: exampleSubnet.id,
@@ -166,8 +166,8 @@ import {InstanceProfile} from "../iam";
  *
  * const _this = new aws.ec2.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
- *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
  *     instanceType: "m5.large",
+ *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
  *     tenancy: "host",
  * });
  * ```

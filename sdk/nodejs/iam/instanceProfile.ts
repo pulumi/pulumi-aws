@@ -26,10 +26,14 @@ import {Role} from "./index";
  *     }],
  * });
  * const role = new aws.iam.Role("role", {
+ *     name: "test_role",
  *     path: "/",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
+ * const testProfile = new aws.iam.InstanceProfile("test_profile", {
+ *     name: "test_profile",
+ *     role: role.name,
+ * });
  * ```
  *
  * ## Import

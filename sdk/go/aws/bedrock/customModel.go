@@ -29,17 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleModel, err := bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
+//			example, err := bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
 //				ModelId: "amazon.titan-text-express-v1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bedrock.NewCustomModel(ctx, "exampleCustomModel", &bedrock.CustomModelArgs{
+//			_, err = bedrock.NewCustomModel(ctx, "example", &bedrock.CustomModelArgs{
 //				CustomModelName:     pulumi.String("example-model"),
 //				JobName:             pulumi.String("example-job-1"),
-//				BaseModelIdentifier: *pulumi.String(exampleModel.ModelArn),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
+//				BaseModelIdentifier: *pulumi.String(example.ModelArn),
+//				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //				Hyperparameters: pulumi.StringMap{
 //					"epochCount":              pulumi.String("1"),
 //					"batchSize":               pulumi.String("1"),
@@ -47,10 +47,10 @@ import (
 //					"learningRateWarmupSteps": pulumi.String("0"),
 //				},
 //				OutputDataConfig: &bedrock.CustomModelOutputDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/", aws_s3_bucket.Output.Id)),
+//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/", output.Id)),
 //				},
 //				TrainingDataConfig: &bedrock.CustomModelTrainingDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/train.jsonl", aws_s3_bucket.Training.Id)),
+//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/train.jsonl", training.Id)),
 //				},
 //			})
 //			if err != nil {

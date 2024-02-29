@@ -24,9 +24,10 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         NodeRoleArn = aws_iam_role.Example.Arn,
-    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 1,
@@ -36,14 +37,6 @@ namespace Pulumi.Aws.Eks
     ///         UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
     ///         {
     ///             MaxUnavailable = 1,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSWorkerNodePolicy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKS_CNI_Policy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEC2ContainerRegistryReadOnly,
     ///         },
     ///     });
     /// 
@@ -61,13 +54,47 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configurations ...
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 2,
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Tracking the latest EKS Node Group AMI releases
+    /// 
+    /// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eksAmiReleaseVersion = Aws.Ssm.GetParameter.Invoke(new()
+    ///     {
+    ///         Name = $"/aws/service/eks/optimized-ami/{exampleAwsEksCluster.Version}/amazon-linux-2/recommended/release_version",
+    ///     });
+    /// 
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     {
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         Version = exampleAwsEksCluster.Version,
+    ///         ReleaseVersion = NotImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });
@@ -85,21 +112,22 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-node-group-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                         ["service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
@@ -109,7 +137,7 @@ namespace Pulumi.Aws.Eks
     ///         Role = example.Name,
     ///     });
     /// 
-    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new()
+    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     ///         Role = example.Name,
@@ -121,6 +149,40 @@ namespace Pulumi.Aws.Eks
     ///         Role = example.Name,
     ///     });
     /// 
+    /// });
+    /// ```
+    /// ### Example Subnets for EKS Node Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var example = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         example.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
+    ///         {
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             CidrBlock = Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = exampleAwsVpc.CidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             VpcId = exampleAwsVpc.Id,
+    ///         }));
+    ///     }
     /// });
     /// ```
     /// 

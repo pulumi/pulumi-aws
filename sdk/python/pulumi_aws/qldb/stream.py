@@ -309,14 +309,14 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qldb.Stream("example",
+            ledger_name="existing-ledger-name",
+            stream_name="sample-ledger-stream",
+            role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
-            ledger_name="existing-ledger-name",
-            role_arn="sample-role-arn",
-            stream_name="sample-ledger-stream",
             tags={
                 "example": "tag",
             })
@@ -348,14 +348,14 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qldb.Stream("example",
+            ledger_name="existing-ledger-name",
+            stream_name="sample-ledger-stream",
+            role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
-            ledger_name="existing-ledger-name",
-            role_arn="sample-role-arn",
-            stream_name="sample-ledger-stream",
             tags={
                 "example": "tag",
             })

@@ -47,8 +47,9 @@ import javax.annotation.Nullable;
  *             .eventCategories(            
  *                 &#34;creation&#34;,
  *                 &#34;failure&#34;)
- *             .snsTopicArn(aws_sns_topic.example().arn())
- *             .sourceIds(aws_dms_replication_task.example().replication_task_id())
+ *             .name(&#34;my-favorite-event-subscription&#34;)
+ *             .snsTopicArn(exampleAwsSnsTopic.arn())
+ *             .sourceIds(exampleAwsDmsReplicationTask.replicationTaskId())
  *             .sourceType(&#34;replication-task&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());

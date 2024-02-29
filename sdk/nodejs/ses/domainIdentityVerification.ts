@@ -20,16 +20,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
- *     zoneId: aws_route53_zone.example.zone_id,
+ * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     name: pulumi.interpolate`_amazonses.${example.id}`,
  *     type: "TXT",
  *     ttl: 600,
  *     records: [example.verificationToken],
  * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("exampleVerification", {domain: example.id}, {
- *     dependsOn: [exampleAmazonsesVerificationRecord],
- * });
+ * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id});
  * ```
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {

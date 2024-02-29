@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Disabled",
  *     },
@@ -67,14 +67,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "yotto"});
+ * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleBucketVersioningV2.id,
  *     key: "droeloe",
  *     source: new pulumi.asset.FileAsset("example.txt"),

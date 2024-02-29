@@ -388,9 +388,10 @@ class DomainConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot = aws.iot.DomainConfiguration("iot",
+            name="iot-",
             domain_name="iot.example.com",
             service_type="DATA",
-            server_certificate_arns=[aws_acm_certificate["cert"]["arn"]])
+            server_certificate_arns=[cert["arn"]])
         ```
 
         ## Import
@@ -428,9 +429,10 @@ class DomainConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot = aws.iot.DomainConfiguration("iot",
+            name="iot-",
             domain_name="iot.example.com",
             service_type="DATA",
-            server_certificate_arns=[aws_acm_certificate["cert"]["arn"]])
+            server_certificate_arns=[cert["arn"]])
         ```
 
         ## Import

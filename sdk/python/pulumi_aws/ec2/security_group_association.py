@@ -147,9 +147,9 @@ class SecurityGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sgEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            security_group_id=aws_security_group["sg"]["id"])
+        sg_ec2 = aws.ec2.SecurityGroupAssociation("sg_ec2",
+            vpc_endpoint_id=ec2["id"],
+            security_group_id=sg["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,9 +181,9 @@ class SecurityGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sgEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            security_group_id=aws_security_group["sg"]["id"])
+        sg_ec2 = aws.ec2.SecurityGroupAssociation("sg_ec2",
+            vpc_endpoint_id=ec2["id"],
+            security_group_id=sg["id"])
         ```
 
         :param str resource_name: The name of the resource.

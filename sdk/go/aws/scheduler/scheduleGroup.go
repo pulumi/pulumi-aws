@@ -31,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewScheduleGroup(ctx, "example", nil)
+//			_, err := scheduler.NewScheduleGroup(ctx, "example", &scheduler.ScheduleGroupArgs{
+//				Name: pulumi.String("my-schedule-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}

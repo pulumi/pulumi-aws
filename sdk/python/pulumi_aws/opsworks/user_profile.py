@@ -172,8 +172,8 @@ class UserProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_profile = aws.opsworks.UserProfile("myProfile",
-            user_arn=aws_iam_user["user"]["arn"],
+        my_profile = aws.opsworks.UserProfile("my_profile",
+            user_arn=user["arn"],
             ssh_username="my_user")
         ```
 
@@ -199,8 +199,8 @@ class UserProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_profile = aws.opsworks.UserProfile("myProfile",
-            user_arn=aws_iam_user["user"]["arn"],
+        my_profile = aws.opsworks.UserProfile("my_profile",
+            user_arn=user["arn"],
             ssh_username="my_user")
         ```
 

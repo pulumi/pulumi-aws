@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 .forwardWhenQueryArgProfileIsUnknown(true)
  *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
- *                         .profileId(aws_cloudfront_field_level_encryption_profile.test().id())
+ *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
  *                         .queryArg(&#34;Arg1&#34;)
  *                         .build())
  *                     .build())

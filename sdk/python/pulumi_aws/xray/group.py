@@ -213,8 +213,8 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            filter_expression="responsetime > 5",
             group_name="example",
+            filter_expression="responsetime > 5",
             insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
                 insights_enabled=True,
                 notifications_enabled=True,
@@ -252,8 +252,8 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            filter_expression="responsetime > 5",
             group_name="example",
+            filter_expression="responsetime > 5",
             insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
                 insights_enabled=True,
                 notifications_enabled=True,

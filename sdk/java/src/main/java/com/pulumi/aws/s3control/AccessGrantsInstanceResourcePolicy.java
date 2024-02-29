@@ -40,10 +40,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccessGrantsInstance = new AccessGrantsInstance(&#34;exampleAccessGrantsInstance&#34;);
+ *         var example = new AccessGrantsInstance(&#34;example&#34;);
  * 
  *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy(&#34;exampleAccessGrantsInstanceResourcePolicy&#34;, AccessGrantsInstanceResourcePolicyArgs.builder()        
- *             .policy(exampleAccessGrantsInstance.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -&gt; &#34;&#34;&#34;
+ *             .policy(example.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Id&#34;: &#34;S3AccessGrantsPolicy&#34;,
@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  *     &#34;Resource&#34;: &#34;%s&#34;
  *   }]
  * }
- * 
  * &#34;, accessGrantsInstanceArn)))
  *             .build());
  * 

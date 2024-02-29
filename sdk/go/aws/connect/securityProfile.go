@@ -30,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
-//				Description: pulumi.String("example description"),
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example description"),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("BasicAgentAccess"),
 //					pulumi.String("OutboundCallAccess"),

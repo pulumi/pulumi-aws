@@ -28,11 +28,12 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("my_container_service", new()
     ///     {
-    ///         IsDisabled = false,
+    ///         Name = "container-service-1",
     ///         Power = "nano",
     ///         Scale = 1,
+    ///         IsDisabled = false,
     ///         Tags = 
     ///         {
     ///             { "foo1", "bar1" },
@@ -52,7 +53,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("my_container_service", new()
     ///     {
     ///         PublicDomainNames = new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesArgs
     ///         {
@@ -82,8 +83,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
-    ///     var defaultContainerService = new Aws.LightSail.ContainerService("defaultContainerService", new()
+    ///     var defaultContainerService = new Aws.LightSail.ContainerService("default", new()
     ///     {
     ///         PrivateRegistryAccess = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessArgs
     ///         {
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var defaultPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var @default = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -121,10 +121,10 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("defaultRepositoryPolicy", new()
+    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("default", new()
     ///     {
-    ///         Repository = aws_ecr_repository.Default.Name,
-    ///         Policy = defaultPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Repository = defaultAwsEcrRepository.Name,
+    ///         Policy = @default.Apply(@default =&gt; @default.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     });
     /// 
     /// });

@@ -274,13 +274,13 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         nlb = aws.ec2.TrafficMirrorTarget("nlb",
             description="NLB target",
-            network_load_balancer_arn=aws_lb["lb"]["arn"])
+            network_load_balancer_arn=lb["arn"])
         eni = aws.ec2.TrafficMirrorTarget("eni",
             description="ENI target",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"])
+            network_interface_id=test["primaryNetworkInterfaceId"])
         gwlb = aws.ec2.TrafficMirrorTarget("gwlb",
             description="GWLB target",
-            gateway_load_balancer_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            gateway_load_balancer_endpoint_id=example["id"])
         ```
 
         ## Import
@@ -321,13 +321,13 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         nlb = aws.ec2.TrafficMirrorTarget("nlb",
             description="NLB target",
-            network_load_balancer_arn=aws_lb["lb"]["arn"])
+            network_load_balancer_arn=lb["arn"])
         eni = aws.ec2.TrafficMirrorTarget("eni",
             description="ENI target",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"])
+            network_interface_id=test["primaryNetworkInterfaceId"])
         gwlb = aws.ec2.TrafficMirrorTarget("gwlb",
             description="GWLB target",
-            gateway_load_balancer_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            gateway_load_balancer_endpoint_id=example["id"])
         ```
 
         ## Import

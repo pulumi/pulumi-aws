@@ -30,11 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "exampleSourceBucketV2", nil)
+//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "example_source", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-source"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSourcePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			exampleSource, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
@@ -61,14 +63,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
 //				Bucket: exampleSourceBucketV2.ID(),
-//				Policy: *pulumi.String(exampleSourcePolicyDocument.Json),
+//				Policy: *pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleSourceBucketV2.ID(),
 //				Key:    pulumi.String("example_source.csv"),
 //				Source: pulumi.NewFileAsset("example_source.csv"),
@@ -76,11 +78,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "exampleDestinationBucketV2", nil)
+//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "example_destination", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-destination"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			exampleDestination, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
@@ -111,14 +115,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
 //				Bucket: exampleDestinationBucketV2.ID(),
-//				Policy: *pulumi.String(exampleDestinationPolicyDocument.Json),
+//				Policy: *pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appflow.NewFlow(ctx, "exampleFlow", &appflow.FlowArgs{
+//			_, err = appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
+//				Name: pulumi.String("example"),
 //				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
 //					ConnectorType: pulumi.String("S3"),
 //					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{

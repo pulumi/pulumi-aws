@@ -15,6 +15,36 @@ import (
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
+//				Options: &datasync.TaskOptionsArgs{
+//					BytesPerSecond: -1,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### With Scheduling
 //
 // ```go
@@ -31,8 +61,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Schedule: &datasync.TaskScheduleArgs{
 //					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
 //				},
@@ -61,8 +92,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Excludes: &datasync.TaskExcludesArgs{
 //					FilterType: pulumi.String("SIMPLE_PATTERN"),
 //					Value:      pulumi.String("/folder1|/folder2"),

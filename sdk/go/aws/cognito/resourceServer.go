@@ -29,12 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			pool, err := cognito.NewUserPool(ctx, "pool", &cognito.UserPoolArgs{
+//				Name: pulumi.String("pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
 //				Identifier: pulumi.String("https://example.com"),
+//				Name:       pulumi.String("example"),
 //				UserPoolId: pool.ID(),
 //			})
 //			if err != nil {
@@ -59,12 +62,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			pool, err := cognito.NewUserPool(ctx, "pool", &cognito.UserPoolArgs{
+//				Name: pulumi.String("pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
 //				Identifier: pulumi.String("https://example.com"),
+//				Name:       pulumi.String("example"),
 //				Scopes: cognito.ResourceServerScopeArray{
 //					&cognito.ResourceServerScopeArgs{
 //						ScopeName:        pulumi.String("sample-scope"),

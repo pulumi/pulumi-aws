@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .domainName(&#34;testdomain.com&#34;)
  *             .subjectAlternativeNames(&#34;www.testdomain.com&#34;)
  *             .build());

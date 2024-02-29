@@ -407,7 +407,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.organizations.Account("account", email="john@doe.org")
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org")
         ```
 
         ## Import
@@ -451,7 +453,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.organizations.Account("account", email="john@doe.org")
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org")
         ```
 
         ## Import

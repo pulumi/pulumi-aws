@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     as2Config: {
  *         compression: "DISABLED",
  *         encryptionAlgorithm: "AWS128_CBC",
  *         messageSubject: "For Connector",
- *         localProfileId: aws_transfer_profile.local.profile_id,
+ *         localProfileId: local.profileId,
  *         mdnResponse: "NONE",
  *         mdnSigningAlgorithm: "NONE",
- *         partnerProfileId: aws_transfer_profile.partner.profile_id,
+ *         partnerProfileId: partner.profileId,
  *         signingAlgorithm: "NONE",
  *     },
  *     url: "http://www.test.com",
@@ -39,10 +39,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     sftpConfig: {
  *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],
- *         userSecretId: aws_secretsmanager_secret.example.id,
+ *         userSecretId: exampleAwsSecretsmanagerSecret.id,
  *     },
  *     url: "sftp://test.com",
  * });

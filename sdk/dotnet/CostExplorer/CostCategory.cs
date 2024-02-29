@@ -24,67 +24,68 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.CostCategory("test", new()
     ///     {
+    ///         Name = "NAME",
+    ///         RuleVersion = "CostCategoryExpression.v1",
     ///         Rules = new[]
     ///         {
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
+    ///                 Value = "production",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
     ///                     {
     ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
     ///                         Values = new[]
     ///                         {
     ///                             "-prod",
     ///                         },
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "ENDS_WITH",
+    ///                         },
     ///                     },
     ///                 },
-    ///                 Value = "production",
     ///             },
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
+    ///                 Value = "staging",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
     ///                     {
     ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
     ///                         Values = new[]
     ///                         {
     ///                             "-stg",
     ///                         },
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "ENDS_WITH",
+    ///                         },
     ///                     },
     ///                 },
-    ///                 Value = "staging",
     ///             },
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
+    ///                 Value = "testing",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
     ///                     {
     ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
     ///                         Values = new[]
     ///                         {
     ///                             "-dev",
     ///                         },
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "ENDS_WITH",
+    ///                         },
     ///                     },
     ///                 },
-    ///                 Value = "testing",
     ///             },
     ///         },
-    ///         RuleVersion = "CostCategoryExpression.v1",
     ///     });
     /// 
     /// });

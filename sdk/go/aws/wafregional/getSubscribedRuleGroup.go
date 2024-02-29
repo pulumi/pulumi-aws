@@ -39,7 +39,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ...
 //			_, err = wafregional.NewWebAcl(ctx, "acl", &wafregional.WebAclArgs{
 //				Rules: wafregional.WebAclRuleArray{
 //					&wafregional.WebAclRuleArgs{

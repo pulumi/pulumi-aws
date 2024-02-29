@@ -29,6 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.GetSnapshotIds(ctx, &ebs.GetSnapshotIdsArgs{
+//				Owners: []string{
+//					"self",
+//				},
 //				Filters: []ebs.GetSnapshotIdsFilter{
 //					{
 //						Name: "volume-size",
@@ -42,9 +45,6 @@ import (
 //							"Example",
 //						},
 //					},
-//				},
-//				Owners: []string{
-//					"self",
 //				},
 //			}, nil)
 //			if err != nil {

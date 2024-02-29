@@ -431,14 +431,15 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        example = aws.ec2.SecurityGroup("example",
+            name="example",
             description="example",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "example",
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
-            security_group_id=example_security_group.id,
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("example",
+            security_group_id=example.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
@@ -488,14 +489,15 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        example = aws.ec2.SecurityGroup("example",
+            name="example",
             description="example",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "example",
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
-            security_group_id=example_security_group.id,
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("example",
+            security_group_id=example.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",

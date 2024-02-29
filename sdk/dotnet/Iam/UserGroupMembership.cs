@@ -27,11 +27,20 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var user1 = new Aws.Iam.User("user1");
+    ///     var user1 = new Aws.Iam.User("user1", new()
+    ///     {
+    ///         Name = "user1",
+    ///     });
     /// 
-    ///     var group1 = new Aws.Iam.Group("group1");
+    ///     var group1 = new Aws.Iam.Group("group1", new()
+    ///     {
+    ///         Name = "group1",
+    ///     });
     /// 
-    ///     var group2 = new Aws.Iam.Group("group2");
+    ///     var group2 = new Aws.Iam.Group("group2", new()
+    ///     {
+    ///         Name = "group2",
+    ///     });
     /// 
     ///     var example1 = new Aws.Iam.UserGroupMembership("example1", new()
     ///     {
@@ -43,7 +52,10 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var group3 = new Aws.Iam.Group("group3");
+    ///     var group3 = new Aws.Iam.Group("group3", new()
+    ///     {
+    ///         Name = "group3",
+    ///     });
     /// 
     ///     var example2 = new Aws.Iam.UserGroupMembership("example2", new()
     ///     {

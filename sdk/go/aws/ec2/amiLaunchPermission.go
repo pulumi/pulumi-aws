@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-//				AccountId: pulumi.String("123456789012"),
 //				ImageId:   pulumi.String("ami-12345678"),
+//				AccountId: pulumi.String("123456789012"),
 //			})
 //			if err != nil {
 //				return err
@@ -56,8 +56,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-//				Group:   pulumi.String("all"),
 //				ImageId: pulumi.String("ami-12345678"),
+//				Group:   pulumi.String("all"),
 //			})
 //			if err != nil {
 //				return err

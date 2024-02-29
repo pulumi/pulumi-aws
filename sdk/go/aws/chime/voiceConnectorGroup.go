@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("connector-test-1"),
 //				RequireEncryption: pulumi.Bool(true),
 //				AwsRegion:         pulumi.String("us-east-1"),
 //			})
@@ -37,6 +38,7 @@ import (
 //				return err
 //			}
 //			vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("connector-test-2"),
 //				RequireEncryption: pulumi.Bool(true),
 //				AwsRegion:         pulumi.String("us-west-2"),
 //			})
@@ -44,6 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
+//				Name: pulumi.String("test-group"),
 //				Connectors: chime.VoiceConnectorGroupConnectorArray{
 //					&chime.VoiceConnectorGroupConnectorArgs{
 //						VoiceConnectorId: vc1.ID(),

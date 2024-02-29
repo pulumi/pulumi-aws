@@ -42,9 +42,9 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
- *         addressAllocationIds: [aws_eip.example.id],
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
+ *         addressAllocationIds: [exampleAwsEip.id],
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         vpcId: exampleAwsVpc.id,
  *     },
  * });
  * ```
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.transfer.Server("example", {
  *     identityProviderType: "AWS_DIRECTORY_SERVICE",
- *     directoryId: aws_directory_service_directory.example.id,
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  * });
  * ```
  * ### AWS Lambda authentication
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.transfer.Server("example", {
  *     identityProviderType: "AWS_LAMBDA",
- *     "function": aws_lambda_identity_provider.example.arn,
+ *     "function": exampleAwsLambdaIdentityProvider.arn,
  * });
  * ```
  * ### Protocols
@@ -79,16 +79,16 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         vpcId: exampleAwsVpc.id,
  *     },
  *     protocols: [
  *         "FTP",
  *         "FTPS",
  *     ],
- *     certificate: aws_acm_certificate.example.arn,
+ *     certificate: exampleAwsAcmCertificate.arn,
  *     identityProviderType: "API_GATEWAY",
- *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
+ *     url: `${exampleAwsApiGatewayDeployment.invokeUrl}${exampleAwsApiGatewayResource.path}`,
  * });
  * ```
  * ### Using Structured Logging Destinations
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const transferLogGroup = new aws.cloudwatch.LogGroup("transferLogGroup", {namePrefix: "transfer_test_"});
+ * const transfer = new aws.cloudwatch.LogGroup("transfer", {namePrefix: "transfer_test_"});
  * const transferAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -108,16 +108,16 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForTransfer = new aws.iam.Role("iamForTransfer", {
+ * const iamForTransfer = new aws.iam.Role("iam_for_transfer", {
  *     namePrefix: "iam_for_transfer_",
  *     assumeRolePolicy: transferAssumeRole.then(transferAssumeRole => transferAssumeRole.json),
  *     managedPolicyArns: ["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"],
  * });
- * const transferServer = new aws.transfer.Server("transferServer", {
+ * const transferServer = new aws.transfer.Server("transfer", {
  *     endpointType: "PUBLIC",
  *     loggingRole: iamForTransfer.arn,
  *     protocols: ["SFTP"],
- *     structuredLogDestinations: [pulumi.interpolate`${transferLogGroup.arn}:*`],
+ *     structuredLogDestinations: [pulumi.interpolate`${transfer.arn}:*`],
  * });
  * ```
  *

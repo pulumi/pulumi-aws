@@ -27,10 +27,59 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var example = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {
-    ///         SecretId = aws_secretsmanager_secret.Example.Id,
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
     ///         SecretString = "example-string-to-protect",
     ///     });
     /// 
+    /// });
+    /// ```
+    /// ### Key-Value Pairs
+    /// 
+    /// Secrets Manager also accepts key-value pairs in JSON.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var example = config.GetObject&lt;Dictionary&lt;string, string&gt;&gt;("example") ?? 
+    ///     {
+    ///         { "key1", "value1" },
+    ///         { "key2", "value2" },
+    ///     };
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         SecretString = JsonSerializer.Serialize(example),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Reading key-value pairs from JSON back into a native map
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["example"] = NotImplemented("jsondecode(aws_secretsmanager_secret_version.example.secret_string)").Key1,
+    ///     };
     /// });
     /// ```
     /// 

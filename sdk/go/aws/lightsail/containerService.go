@@ -34,10 +34,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
-//				IsDisabled: pulumi.Bool(false),
+//			_, err := lightsail.NewContainerService(ctx, "my_container_service", &lightsail.ContainerServiceArgs{
+//				Name:       pulumi.String("container-service-1"),
 //				Power:      pulumi.String("nano"),
 //				Scale:      pulumi.Int(1),
+//				IsDisabled: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"foo1": pulumi.String("bar1"),
 //					"foo2": pulumi.String(""),
@@ -65,7 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
+//			_, err := lightsail.NewContainerService(ctx, "my_container_service", &lightsail.ContainerServiceArgs{
 //				PublicDomainNames: &lightsail.ContainerServicePublicDomainNamesArgs{
 //					Certificates: lightsail.ContainerServicePublicDomainNamesCertificateArray{
 //						&lightsail.ContainerServicePublicDomainNamesCertificateArgs{
@@ -100,8 +101,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// // ... other configuration ...
-// defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
+// defaultContainerService, err := lightsail.NewContainerService(ctx, "default", &lightsail.ContainerServiceArgs{
 // PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
 // EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
 // IsActive: pulumi.Bool(true),
@@ -111,7 +111,7 @@ import (
 // if err != nil {
 // return err
 // }
-// defaultPolicyDocument := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
+// _default := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -132,10 +132,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = ecr.NewRepositoryPolicy(ctx, "defaultRepositoryPolicy", &ecr.RepositoryPolicyArgs{
-// Repository: pulumi.Any(aws_ecr_repository.Default.Name),
-// Policy: defaultPolicyDocument.ApplyT(func(defaultPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &defaultPolicyDocument.Json, nil
+// _, err = ecr.NewRepositoryPolicy(ctx, "default", &ecr.RepositoryPolicyArgs{
+// Repository: pulumi.Any(defaultAwsEcrRepository.Name),
+// Policy: _default.ApplyT(func(_default iam.GetPolicyDocumentResult) (*string, error) {
+// return &default.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {

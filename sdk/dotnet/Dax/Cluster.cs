@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dax
     ///     var bar = new Aws.Dax.Cluster("bar", new()
     ///     {
     ///         ClusterName = "cluster-example",
-    ///         IamRoleArn = data.Aws_iam_role.Example.Arn,
+    ///         IamRoleArn = example.Arn,
     ///         NodeType = "dax.r4.large",
     ///         ReplicationFactor = 1,
     ///     });

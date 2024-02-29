@@ -96,21 +96,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalationPlan", &ssmcontacts.ContactArgs{
+//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalation_plan", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("escalation-plan-alias"),
 //				Type:  pulumi.String("ESCALATION"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			contactOne, err := ssmcontacts.NewContact(ctx, "contactOne", &ssmcontacts.ContactArgs{
+//			contactOne, err := ssmcontacts.NewContact(ctx, "contact_one", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			contactTwo, err := ssmcontacts.NewContact(ctx, "contactTwo", &ssmcontacts.ContactArgs{
+//			contactTwo, err := ssmcontacts.NewContact(ctx, "contact_two", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
@@ -138,7 +138,7 @@ import (
 //							&ssmcontacts.PlanStageTargetArgs{
 //								ChannelTargetInfo: &ssmcontacts.PlanStageTargetChannelTargetInfoArgs{
 //									RetryIntervalInMinutes: pulumi.Int(2),
-//									ContactChannelId:       pulumi.Any(aws_ssmcontacts_contact_channel.Channel.Arn),
+//									ContactChannelId:       pulumi.Any(channel.Arn),
 //								},
 //							},
 //						},

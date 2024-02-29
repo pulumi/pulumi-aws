@@ -22,46 +22,22 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary");
+    ///     var primary = new Aws.GuardDuty.Detector("primary");
     /// 
-    ///     var member = new Aws.Provider("member");
+    ///     var memberDetector = new Aws.GuardDuty.Detector("member");
     /// 
-    ///     var primaryDetector = new Aws.GuardDuty.Detector("primaryDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Member,
-    ///     });
-    /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
-    ///     {
-    ///         AccountId = memberDetector.AccountId,
-    ///         DetectorId = primaryDetector.Id,
-    ///         Email = "required@example.com",
-    ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberInviteAccepter = new Aws.GuardDuty.InviteAccepter("memberInviteAccepter", new()
+    ///     var member = new Aws.GuardDuty.InviteAccepter("member", new()
     ///     {
     ///         DetectorId = memberDetector.Id,
-    ///         MasterAccountId = primaryDetector.AccountId,
-    ///     }, new CustomResourceOptions
+    ///         MasterAccountId = primary.AccountId,
+    ///     });
+    /// 
+    ///     var memberMember = new Aws.GuardDuty.Member("member", new()
     ///     {
-    ///         Provider = aws.Member,
-    ///         DependsOn = new[]
-    ///         {
-    ///             memberMember,
-    ///         },
+    ///         AccountId = memberDetector.AccountId,
+    ///         DetectorId = primary.Id,
+    ///         Email = "required@example.com",
+    ///         Invite = true,
     ///     });
     /// 
     /// });

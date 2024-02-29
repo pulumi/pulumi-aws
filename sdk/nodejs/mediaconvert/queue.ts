@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.mediaconvert.Queue("test", {});
+ * const test = new aws.mediaconvert.Queue("test", {name: "tf-test-queue"});
  * ```
  *
  * ## Import

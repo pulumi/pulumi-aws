@@ -278,8 +278,9 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
+            name="example",
             description="example",
-            kms_key=aws_kms_key["test"]["arn"],
+            kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
                 first_execution_from="1439788442681",
@@ -324,8 +325,9 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
+            name="example",
             description="example",
-            kms_key=aws_kms_key["test"]["arn"],
+            kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
                 first_execution_from="1439788442681",

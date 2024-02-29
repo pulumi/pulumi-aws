@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new V2modelsBotVersion(&#34;test&#34;, V2modelsBotVersionArgs.builder()        
- *             .botId(aws_lexv2models.test().id())
+ *             .botId(testAwsLexv2models.id())
  *             .localeSpecification(Map.of(&#34;en_US&#34;, Map.of(&#34;sourceBotVersion&#34;, &#34;DRAFT&#34;)))
  *             .build());
  * 

@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewIngestion(ctx, "example", &quicksight.IngestionArgs{
-//				DataSetId:     pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
+//				DataSetId:     pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
 //				IngestionId:   pulumi.String("example-id"),
 //				IngestionType: pulumi.String("FULL_REFRESH"),
 //			})

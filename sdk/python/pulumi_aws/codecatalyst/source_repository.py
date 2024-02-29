@@ -182,6 +182,7 @@ class SourceRepository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codecatalyst.SourceRepository("example",
+            name="example-repo",
             project_name="example-project",
             space_name="example-space")
         ```
@@ -220,6 +221,7 @@ class SourceRepository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codecatalyst.SourceRepository("example",
+            name="example-repo",
             project_name="example-project",
             space_name="example-space")
         ```

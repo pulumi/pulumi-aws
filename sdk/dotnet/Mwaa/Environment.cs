@@ -28,16 +28,17 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
@@ -60,16 +61,17 @@ namespace Pulumi.Aws.Mwaa
     ///             { "core.parallelism", "1" },
     ///         },
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
@@ -89,7 +91,7 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
     ///         {
     ///             DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
@@ -118,15 +120,16 @@ namespace Pulumi.Aws.Mwaa
     ///                 LogLevel = "CRITICAL",
     ///             },
     ///         },
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
@@ -144,16 +147,17 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

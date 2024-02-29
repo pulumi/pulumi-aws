@@ -102,8 +102,8 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+        vpn_connection_id=example_aws_vpn_connection["id"])
     ```
     ### Filter
 
@@ -157,8 +157,8 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+        vpn_connection_id=example_aws_vpn_connection["id"])
     ```
     ### Filter
 

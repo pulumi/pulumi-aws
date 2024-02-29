@@ -191,9 +191,10 @@ class ResourceServer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
+            name="example",
             user_pool_id=pool.id)
         ```
         ### Create a resource server with sample-scope
@@ -202,9 +203,10 @@ class ResourceServer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
+            name="example",
             scopes=[aws.cognito.ResourceServerScopeArgs(
                 scope_name="sample-scope",
                 scope_description="a Sample Scope Description",
@@ -243,9 +245,10 @@ class ResourceServer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
+            name="example",
             user_pool_id=pool.id)
         ```
         ### Create a resource server with sample-scope
@@ -254,9 +257,10 @@ class ResourceServer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
+            name="example",
             scopes=[aws.cognito.ResourceServerScopeArgs(
                 scope_name="sample-scope",
                 scope_description="a Sample Scope Description",

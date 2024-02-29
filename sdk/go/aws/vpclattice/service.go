@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name:             pulumi.String("example"),
 //				AuthType:         pulumi.String("AWS_IAM"),
 //				CustomDomainName: pulumi.String("example.com"),
 //			})

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var example = new StackSetInstance(&#34;example&#34;, StackSetInstanceArgs.builder()        
  *             .accountId(&#34;123456789012&#34;)
  *             .region(&#34;us-east-1&#34;)
- *             .stackSetName(aws_cloudformation_stack_set.example().name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
  *     }
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(aws_iam_role.AWSCloudFormationStackSetAdministrationRole().arn())
+ *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.arn())
  *                     .type(&#34;AWS&#34;)
  *                     .build())
  *                 .build())
@@ -98,9 +98,10 @@ import javax.annotation.Nullable;
  * 
  *         var aWSCloudFormationStackSetExecutionRole = new Role(&#34;aWSCloudFormationStackSetExecutionRole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;AWSCloudFormationStackSetExecutionRole&#34;)
  *             .build());
  * 
- *         final var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;cloudformation:*&#34;,
@@ -112,7 +113,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy(&#34;aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;MinimumExecutionPolicy&#34;)
+ *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .role(aWSCloudFormationStackSetExecutionRole.name())
  *             .build());
  * 
@@ -144,10 +146,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new StackSetInstance(&#34;example&#34;, StackSetInstanceArgs.builder()        
  *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
- *                 .organizationalUnitIds(aws_organizations_organization.example().roots()[0].id())
+ *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
  *                 .build())
  *             .region(&#34;us-east-1&#34;)
- *             .stackSetName(aws_cloudformation_stack_set.example().name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
  *     }

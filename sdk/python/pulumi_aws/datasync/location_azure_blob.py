@@ -358,7 +358,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationAzureBlob("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
+            agent_arns=[example_aws_datasync_agent["arn"]],
             authentication_type="SAS",
             container_url="https://example.com/path",
             sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArgs(
@@ -403,7 +403,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationAzureBlob("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
+            agent_arns=[example_aws_datasync_agent["arn"]],
             authentication_type="SAS",
             container_url="https://example.com/path",
             sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArgs(

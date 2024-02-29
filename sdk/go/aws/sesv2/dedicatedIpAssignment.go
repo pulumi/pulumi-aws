@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewDedicatedIpAssignment(ctx, "example", &sesv2.DedicatedIpAssignmentArgs{
-//				DestinationPoolName: pulumi.String("my-pool"),
 //				Ip:                  pulumi.String("0.0.0.0"),
+//				DestinationPoolName: pulumi.String("my-pool"),
 //			})
 //			if err != nil {
 //				return err

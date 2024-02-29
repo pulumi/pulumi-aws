@@ -191,7 +191,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             key_name="test-key",
             key_role="VIEWER",
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=test["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,7 +221,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             key_name="test-key",
             key_role="VIEWER",
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=test["id"])
         ```
 
         :param str resource_name: The name of the resource.

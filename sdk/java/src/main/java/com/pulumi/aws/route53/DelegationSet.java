@@ -47,10 +47,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var primary = new Zone(&#34;primary&#34;, ZoneArgs.builder()        
+ *             .name(&#34;mydomain.com&#34;)
  *             .delegationSetId(main.id())
  *             .build());
  * 
  *         var secondary = new Zone(&#34;secondary&#34;, ZoneArgs.builder()        
+ *             .name(&#34;coolcompany.io&#34;)
  *             .delegationSetId(main.id())
  *             .build());
  * 

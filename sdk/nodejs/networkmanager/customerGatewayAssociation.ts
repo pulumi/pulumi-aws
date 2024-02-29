@@ -14,36 +14,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {description: "example"});
- * const exampleSite = new aws.networkmanager.Site("exampleSite", {globalNetworkId: exampleGlobalNetwork.id});
- * const exampleDevice = new aws.networkmanager.Device("exampleDevice", {
- *     globalNetworkId: exampleGlobalNetwork.id,
+ * const example = new aws.networkmanager.GlobalNetwork("example", {description: "example"});
+ * const exampleSite = new aws.networkmanager.Site("example", {globalNetworkId: example.id});
+ * const exampleDevice = new aws.networkmanager.Device("example", {
+ *     globalNetworkId: example.id,
  *     siteId: exampleSite.id,
  * });
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
  *     type: "ipsec.1",
  * });
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
  *     transitGatewayId: exampleTransitGateway.id,
  *     type: exampleCustomerGateway.type,
  *     staticRoutesOnly: true,
  * });
- * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration", {
- *     globalNetworkId: exampleGlobalNetwork.id,
+ * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("example", {
+ *     globalNetworkId: example.id,
  *     transitGatewayArn: exampleTransitGateway.arn,
- * }, {
- *     dependsOn: [exampleVpnConnection],
  * });
- * const exampleCustomerGatewayAssociation = new aws.networkmanager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", {
- *     globalNetworkId: exampleGlobalNetwork.id,
+ * const exampleCustomerGatewayAssociation = new aws.networkmanager.CustomerGatewayAssociation("example", {
+ *     globalNetworkId: example.id,
  *     customerGatewayArn: exampleCustomerGateway.arn,
  *     deviceId: exampleDevice.id,
- * }, {
- *     dependsOn: [exampleTransitGatewayRegistration],
  * });
  * ```
  *

@@ -45,18 +45,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
+//				Engine:            pulumi.String("aurora-mysql"),
+//				EngineVersion:     pulumi.String("5.7.mysql_aurora.2.03.2"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
 //					pulumi.String("us-west-2c"),
 //				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 //				DatabaseName:          pulumi.String("mydb"),
-//				Engine:                pulumi.String("aurora-mysql"),
-//				EngineVersion:         pulumi.String("5.7.mysql_aurora.2.03.2"),
-//				MasterPassword:        pulumi.String("bar"),
 //				MasterUsername:        pulumi.String("foo"),
+//				MasterPassword:        pulumi.String("bar"),
+//				BackupRetentionPeriod: pulumi.Int(5),
 //				PreferredBackupWindow: pulumi.String("07:00-09:00"),
 //			})
 //			if err != nil {
@@ -82,16 +82,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
 //					pulumi.String("us-west-2c"),
 //				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 //				DatabaseName:          pulumi.String("mydb"),
-//				MasterPassword:        pulumi.String("bar"),
 //				MasterUsername:        pulumi.String("foo"),
+//				MasterPassword:        pulumi.String("bar"),
+//				BackupRetentionPeriod: pulumi.Int(5),
 //				PreferredBackupWindow: pulumi.String("07:00-09:00"),
 //			})
 //			if err != nil {
@@ -117,17 +117,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "postgresql", &rds.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
+//				Engine:            pulumi.String("aurora-postgresql"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
 //					pulumi.String("us-west-2c"),
 //				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 //				DatabaseName:          pulumi.String("mydb"),
-//				Engine:                pulumi.String("aurora-postgresql"),
-//				MasterPassword:        pulumi.String("bar"),
 //				MasterUsername:        pulumi.String("foo"),
+//				MasterPassword:        pulumi.String("bar"),
+//				BackupRetentionPeriod: pulumi.Int(5),
 //				PreferredBackupWindow: pulumi.String("07:00-09:00"),
 //			})
 //			if err != nil {
@@ -157,19 +157,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
-//				AllocatedStorage: pulumi.Int(100),
+//				ClusterIdentifier: pulumi.String("example"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
 //					pulumi.String("us-west-2c"),
 //				},
-//				ClusterIdentifier:      pulumi.String("example"),
-//				DbClusterInstanceClass: pulumi.String("db.r6gd.xlarge"),
 //				Engine:                 pulumi.String("mysql"),
-//				Iops:                   pulumi.Int(1000),
-//				MasterPassword:         pulumi.String("mustbeeightcharaters"),
-//				MasterUsername:         pulumi.String("test"),
+//				DbClusterInstanceClass: pulumi.String("db.r6gd.xlarge"),
 //				StorageType:            pulumi.String("io1"),
+//				AllocatedStorage:       pulumi.Int(100),
+//				Iops:                   pulumi.Int(1000),
+//				MasterUsername:         pulumi.String("test"),
+//				MasterPassword:         pulumi.String("mustbeeightcharaters"),
 //			})
 //			if err != nil {
 //				return err
@@ -200,7 +200,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", &rds.ClusterArgs{
+//			example, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("example"),
 //				Engine:            pulumi.String("aurora-postgresql"),
 //				EngineMode:        pulumi.String("provisioned"),
@@ -217,11 +217,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterInstance(ctx, "exampleClusterInstance", &rds.ClusterInstanceArgs{
-//				ClusterIdentifier: exampleCluster.ID(),
+//			_, err = rds.NewClusterInstance(ctx, "example", &rds.ClusterInstanceArgs{
+//				ClusterIdentifier: example.ID(),
 //				InstanceClass:     pulumi.String("db.serverless"),
-//				Engine:            exampleCluster.Engine,
-//				EngineVersion:     exampleCluster.EngineVersion,
+//				Engine:            example.Engine,
+//				EngineVersion:     example.EngineVersion,
 //			})
 //			if err != nil {
 //				return err
@@ -317,23 +317,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleClusterSnapshot, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
+//			example, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
 //				DbClusterIdentifier: pulumi.StringRef("example-original-cluster"),
 //				MostRecent:          pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", &rds.ClusterArgs{
+//			exampleCluster, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
 //				Engine:             pulumi.String("aurora"),
 //				EngineVersion:      pulumi.String("5.6.mysql_aurora.1.22.4"),
 //				ClusterIdentifier:  pulumi.String("example"),
-//				SnapshotIdentifier: *pulumi.String(exampleClusterSnapshot.Id),
+//				SnapshotIdentifier: *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewGlobalCluster(ctx, "exampleGlobalCluster", &rds.GlobalClusterArgs{
+//			_, err = rds.NewGlobalCluster(ctx, "example", &rds.GlobalClusterArgs{
 //				GlobalClusterIdentifier:   pulumi.String("example"),
 //				SourceDbClusterIdentifier: exampleCluster.Arn,
 //				ForceDestroy:              pulumi.Bool(true),

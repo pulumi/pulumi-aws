@@ -47,8 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ClusterParameterGroup(&#34;default&#34;, ClusterParameterGroupArgs.builder()        
- *             .description(&#34;RDS default cluster parameter group&#34;)
+ *             .name(&#34;rds-cluster-pg&#34;)
  *             .family(&#34;aurora5.6&#34;)
+ *             .description(&#34;RDS default cluster parameter group&#34;)
  *             .parameters(            
  *                 ClusterParameterGroupParameterArgs.builder()
  *                     .name(&#34;character_set_server&#34;)

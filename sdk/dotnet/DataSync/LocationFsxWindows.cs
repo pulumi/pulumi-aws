@@ -24,12 +24,12 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationFsxWindows("example", new()
     ///     {
-    ///         FsxFilesystemArn = aws_fsx_windows_file_system.Example.Arn,
+    ///         FsxFilesystemArn = exampleAwsFsxWindowsFileSystem.Arn,
     ///         User = "SomeUser",
     ///         Password = "SuperSecretPassw0rd",
     ///         SecurityGroupArns = new[]
     ///         {
-    ///             aws_security_group.Example.Arn,
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///     });
     /// 

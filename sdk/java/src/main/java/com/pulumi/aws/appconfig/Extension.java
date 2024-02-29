@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -50,9 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;);
+ *         var testTopic = new Topic(&#34;testTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;test&#34;)
+ *             .build());
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -63,10 +66,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;test&#34;)
+ *             .assumeRolePolicy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testExtension = new Extension(&#34;testExtension&#34;, ExtensionArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .description(&#34;test description&#34;)
  *             .actionPoints(ExtensionActionPointArgs.builder()
  *                 .point(&#34;ON_DEPLOYMENT_COMPLETE&#34;)

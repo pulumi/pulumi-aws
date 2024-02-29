@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
+//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
 //				BotVersion:                   pulumi.String("DRAFT"),
 //				LocaleId:                     pulumi.String("en_US"),
 //				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
@@ -58,7 +58,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
+//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
 //				BotVersion:                   pulumi.String("DRAFT"),
 //				LocaleId:                     pulumi.String("en_US"),
 //				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),

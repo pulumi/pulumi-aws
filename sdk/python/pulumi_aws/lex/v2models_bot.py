@@ -404,6 +404,7 @@ class V2modelsBot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
+            name="example",
             data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
                 child_directed="boolean",
             )],
@@ -453,6 +454,7 @@ class V2modelsBot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
+            name="example",
             data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
                 child_directed="boolean",
             )],

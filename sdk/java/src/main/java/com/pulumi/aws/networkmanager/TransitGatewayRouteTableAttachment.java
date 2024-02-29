@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TransitGatewayRouteTableAttachment(&#34;example&#34;, TransitGatewayRouteTableAttachmentArgs.builder()        
- *             .peeringId(aws_networkmanager_transit_gateway_peering.example().id())
- *             .transitGatewayRouteTableArn(aws_ec2_transit_gateway_route_table.example().arn())
+ *             .peeringId(exampleAwsNetworkmanagerTransitGatewayPeering.id())
+ *             .transitGatewayRouteTableArn(exampleAwsEc2TransitGatewayRouteTable.arn())
  *             .build());
  * 
  *     }

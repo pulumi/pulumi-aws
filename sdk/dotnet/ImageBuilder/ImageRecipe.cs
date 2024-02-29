@@ -41,7 +41,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
@@ -57,7 +57,8 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 },
     ///             },
     ///         },
-    ///         ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",
+    ///         Name = "example",
+    ///         ParentImage = $"arn:{current.Partition}:imagebuilder:{currentAwsRegion.Name}:aws:image/amazon-linux-2-x86/x.x.x",
     ///         Version = "1.0.0",
     ///     });
     /// 

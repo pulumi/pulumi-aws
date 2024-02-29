@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = autoscaling.NewNotification(ctx, "slackNotifications", &autoscaling.NotificationArgs{
+//			_, err = autoscaling.NewNotification(ctx, "slack_notifications", &autoscaling.NotificationArgs{
 //				GroupNames: interface{}(groups.Names),
 //				Notifications: pulumi.StringArray{
 //					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),

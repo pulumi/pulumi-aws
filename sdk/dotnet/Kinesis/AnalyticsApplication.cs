@@ -28,20 +28,22 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         Name = "kinesis-test",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("testApplication", new()
+    ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("test_application", new()
     ///     {
+    ///         Name = "kinesis-analytics-application-test",
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
     ///             NamePrefix = "test_prefix",
     ///             KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///             {
     ///                 ResourceArn = testStream.Arn,
-    ///                 RoleArn = aws_iam_role.Test.Arn,
+    ///                 RoleArn = test.Arn,
     ///             },
     ///             Parallelism = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsParallelismArgs
     ///             {
@@ -85,34 +87,41 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         LogGroupName = exampleLogGroup.Name,
+    ///         Name = "analytics",
     ///     });
     /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("example", new()
     ///     {
+    ///         Name = "example-kinesis-application",
+    ///         LogGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
+    ///     {
+    ///         Name = "example-kinesis-stream",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
+    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
+    ///         Name = "example-kinesis-delivery-stream",
     ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
-    ///             BucketArn = aws_s3_bucket.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             BucketArn = exampleAwsS3Bucket.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     ///     var test = new Aws.Kinesis.AnalyticsApplication("test", new()
     ///     {
+    ///         Name = "example-application",
     ///         CloudwatchLoggingOptions = new Aws.Kinesis.Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs
     ///         {
     ///             LogStreamArn = exampleLogStream.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
@@ -142,7 +151,7 @@ namespace Pulumi.Aws.Kinesis
     ///             KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///             {
     ///                 ResourceArn = exampleStream.Arn,
-    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///                 RoleArn = exampleAwsIamRole.Arn,
     ///             },
     ///             StartingPositionConfigurations = new[]
     ///             {
@@ -164,7 +173,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 KinesisFirehose = new Aws.Kinesis.Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs
     ///                 {
     ///                     ResourceArn = exampleFirehoseDeliveryStream.Arn,
-    ///                     RoleArn = aws_iam_role.Example.Arn,
+    ///                     RoleArn = exampleAwsIamRole.Arn,
     ///                 },
     ///             },
     ///         },

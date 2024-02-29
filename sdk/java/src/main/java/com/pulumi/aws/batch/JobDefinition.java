@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;my_test_batch_job_definition&#34;)
  *             .type(&#34;container&#34;)
  *             .containerProperties(serializeJson(
  *                 jsonObject(
@@ -117,6 +118,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;tf_test_batch_job_definition_multinode&#34;)
  *             .type(&#34;multinode&#34;)
  *             .nodeProperties(serializeJson(
  *                 jsonObject(
@@ -155,7 +157,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Job Definitionn of type EKS
- * 
  * ```java
  * package generated_program;
  * 
@@ -183,13 +184,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34; tf_test_batch_job_definition_eks&#34;)
+ *             .type(&#34;container&#34;)
  *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
  *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
+ *                     .hostNetwork(true)
  *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainersArgs.builder()
- *                         .command(                        
+ *                         .image(&#34;public.ecr.aws/amazonlinux/amazonlinux:1&#34;)
+ *                         .commands(                        
  *                             &#34;sleep&#34;,
  *                             &#34;60&#34;)
- *                         .image(&#34;public.ecr.aws/amazonlinux/amazonlinux:1&#34;)
  *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.builder()
  *                             .limits(Map.ofEntries(
  *                                 Map.entry(&#34;cpu&#34;, &#34;1&#34;),
@@ -197,13 +201,11 @@ import javax.annotation.Nullable;
  *                             ))
  *                             .build())
  *                         .build())
- *                     .hostNetwork(true)
  *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
  *                         .labels(Map.of(&#34;environment&#34;, &#34;test&#34;))
  *                         .build())
  *                     .build())
  *                 .build())
- *             .type(&#34;container&#34;)
  *             .build());
  * 
  *     }
@@ -249,6 +251,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;my_test_batch_exec_role&#34;)
  *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -258,6 +261,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;my_test_batch_job_definition&#34;)
  *             .type(&#34;container&#34;)
  *             .platformCapabilities(&#34;FARGATE&#34;)
  *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; serializeJson(

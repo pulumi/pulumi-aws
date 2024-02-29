@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
@@ -57,12 +58,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("Example Description"),
 //				DataDelivery: &evidently.ProjectDataDeliveryArgs{
 //					CloudwatchLogs: &evidently.ProjectDataDeliveryCloudwatchLogsArgs{
 //						LogGroup: pulumi.String("example-log-group-name"),
 //					},
 //				},
-//				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
 //				},
@@ -90,13 +92,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("Example Description"),
 //				DataDelivery: &evidently.ProjectDataDeliveryArgs{
 //					S3Destination: &evidently.ProjectDataDeliveryS3DestinationArgs{
 //						Bucket: pulumi.String("example-bucket-name"),
 //						Prefix: pulumi.String("example"),
 //					},
 //				},
-//				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
 //				},

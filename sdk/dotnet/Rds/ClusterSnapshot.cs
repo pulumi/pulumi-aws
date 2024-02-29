@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.ClusterSnapshot("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsRdsCluster.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
     ///     });
     /// 

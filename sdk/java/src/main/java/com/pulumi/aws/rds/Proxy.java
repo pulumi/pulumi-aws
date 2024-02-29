@@ -46,18 +46,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Proxy(&#34;example&#34;, ProxyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .debugLogging(false)
  *             .engineFamily(&#34;MYSQL&#34;)
  *             .idleClientTimeout(1800)
  *             .requireTls(true)
- *             .roleArn(aws_iam_role.example().arn())
- *             .vpcSecurityGroupIds(aws_security_group.example().id())
- *             .vpcSubnetIds(aws_subnet.example().id())
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcSubnetIds(exampleAwsSubnet.id())
  *             .auths(ProxyAuthArgs.builder()
  *                 .authScheme(&#34;SECRETS&#34;)
  *                 .description(&#34;example&#34;)
  *                 .iamAuth(&#34;DISABLED&#34;)
- *                 .secretArn(aws_secretsmanager_secret.example().arn())
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),

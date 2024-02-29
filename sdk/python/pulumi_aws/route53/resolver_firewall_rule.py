@@ -335,17 +335,21 @@ class ResolverFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_domain_list = aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList",
+        example = aws.route53.ResolverFirewallDomainList("example",
+            name="example",
             domains=["example.com"],
             tags={})
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", tags={})
-        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("exampleResolverFirewallRule",
+        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("example",
+            name="example",
+            tags={})
+        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("example",
+            name="example",
             action="BLOCK",
             block_override_dns_type="CNAME",
             block_override_domain="example.com",
             block_override_ttl=1,
             block_response="OVERRIDE",
-            firewall_domain_list_id=example_resolver_firewall_domain_list.id,
+            firewall_domain_list_id=example.id,
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```
@@ -387,17 +391,21 @@ class ResolverFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_domain_list = aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList",
+        example = aws.route53.ResolverFirewallDomainList("example",
+            name="example",
             domains=["example.com"],
             tags={})
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", tags={})
-        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("exampleResolverFirewallRule",
+        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("example",
+            name="example",
+            tags={})
+        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("example",
+            name="example",
             action="BLOCK",
             block_override_dns_type="CNAME",
             block_override_domain="example.com",
             block_override_ttl=1,
             block_response="OVERRIDE",
-            firewall_domain_list_id=example_resolver_firewall_domain_list.id,
+            firewall_domain_list_id=example.id,
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```

@@ -105,13 +105,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConfigurationSet = new ConfigurationSet(&#34;exampleConfigurationSet&#34;, ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
  *             .configurationSetName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
- *             .configurationSetName(exampleConfigurationSet.configurationSetName())
+ *             .configurationSetName(example.configurationSetName())
  *             .build());
  * 
  *     }
@@ -141,11 +141,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
+ *             .emailIdentity(&#34;example.com&#34;)
  *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
  *                 .domainSigningPrivateKey(&#34;MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...&#34;)
  *                 .domainSigningSelector(&#34;example&#34;)
  *                 .build())
- *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *     }

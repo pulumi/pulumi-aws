@@ -25,9 +25,10 @@ namespace Pulumi.Aws.Account
     ///     var operations = new Aws.Account.AlternativeContact("operations", new()
     ///     {
     ///         AlternateContactType = "OPERATIONS",
+    ///         Name = "Example",
+    ///         Title = "Example",
     ///         EmailAddress = "test@example.com",
     ///         PhoneNumber = "+1234567890",
-    ///         Title = "Example",
     ///     });
     /// 
     /// });

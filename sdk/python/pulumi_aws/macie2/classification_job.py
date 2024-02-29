@@ -479,16 +479,16 @@ class ClassificationJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
+        test = aws.macie2.Account("test")
+        test_classification_job = aws.macie2.ClassificationJob("test",
             job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
                 bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_account]))
+            ))
         ```
 
         ## Import
@@ -528,16 +528,16 @@ class ClassificationJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
+        test = aws.macie2.Account("test")
+        test_classification_job = aws.macie2.ClassificationJob("test",
             job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
                 bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_account]))
+            ))
         ```
 
         ## Import

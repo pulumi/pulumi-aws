@@ -13,16 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {resourceQuery: {
- *     query: JSON.stringify({
- *         ResourceTypeFilters: ["AWS::EC2::Instance"],
- *         TagFilters: [{
- *             Key: "Stage",
- *             Values: ["Test"],
- *         }],
- *     }),
- * }});
- * const exampleApplication = new aws.applicationinsights.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
+ * const exampleGroup = new aws.resourcegroups.Group("example", {
+ *     name: "example",
+ *     resourceQuery: {
+ *         query: JSON.stringify({
+ *             resourceTypeFilters: ["AWS::EC2::Instance"],
+ *             tagFilters: [{
+ *                 key: "Stage",
+ *                 values: ["Test"],
+ *             }],
+ *         }),
+ *     },
+ * });
+ * const example = new aws.applicationinsights.Application("example", {resourceGroupName: exampleGroup.name});
  * ```
  *
  * ## Import

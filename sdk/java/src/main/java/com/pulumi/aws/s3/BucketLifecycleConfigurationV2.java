@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .status(&#34;Enabled&#34;)
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter()
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
  *                     .id(&#34;rule-1&#34;)
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -272,7 +272,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -364,7 +364,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -405,7 +405,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.bucket().id())
+ *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id(&#34;rule-1&#34;)
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
@@ -430,6 +430,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
@@ -442,7 +443,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -456,7 +456,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-bucket&#34;)
+ *             .build());
  * 
  *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
@@ -503,7 +505,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new BucketV2(&#34;versioningBucket&#34;);
+ *         var versioningBucket = new BucketV2(&#34;versioningBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-versioning-bucket&#34;)
+ *             .build());
  * 
  *         var versioningBucketAcl = new BucketAclV2(&#34;versioningBucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(versioningBucket.id())
@@ -538,9 +542,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(versioning)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+ *             .name(&#34;white-hart&#34;)
  *             .settings(ClusterSettingArgs.builder()
  *                 .name(&#34;containerInsights&#34;)
  *                 .value(&#34;enabled&#34;)
@@ -65,6 +66,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.ecs.Cluster;
  * import com.pulumi.aws.ecs.ClusterArgs;
  * import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
@@ -83,17 +85,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()
- *                     .kmsKeyId(exampleKey.arn())
+ *                     .kmsKeyId(example.arn())
  *                     .logging(&#34;OVERRIDE&#34;)
  *                     .logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.builder()
  *                         .cloudWatchEncryptionEnabled(true)

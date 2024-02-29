@@ -50,12 +50,14 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
+    ///         Name = "test_role",
     ///         Path = "/",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testProfile = new Aws.Iam.InstanceProfile("testProfile", new()
+    ///     var testProfile = new Aws.Iam.InstanceProfile("test_profile", new()
     ///     {
+    ///         Name = "test_profile",
     ///         Role = role.Name,
     ///     });
     /// 

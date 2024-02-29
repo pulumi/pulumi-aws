@@ -136,6 +136,26 @@ class Tag(pulumi.CustomResource):
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        replica = aws.get_region()
+        current = aws.get_region()
+        example = aws.dynamodb.Table("example", replicas=[aws.dynamodb.TableReplicaArgs(
+            region_name=replica.name,
+        )])
+        test = aws.dynamodb.Tag("test",
+            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+                search=current.name,
+                replace=replica.name)).apply(lambda invoke: invoke.result),
+            key="testkey",
+            value="testvalue")
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
@@ -162,6 +182,26 @@ class Tag(pulumi.CustomResource):
         > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        replica = aws.get_region()
+        current = aws.get_region()
+        example = aws.dynamodb.Table("example", replicas=[aws.dynamodb.TableReplicaArgs(
+            region_name=replica.name,
+        )])
+        test = aws.dynamodb.Tag("test",
+            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+                search=current.name,
+                replace=replica.name)).apply(lambda invoke: invoke.result),
+            key="testkey",
+            value="testvalue")
+        ```
 
         ## Import
 

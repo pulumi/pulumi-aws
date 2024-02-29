@@ -51,7 +51,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id:     pulumi.String("rule-1"),
@@ -84,7 +84,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id:     pulumi.String("rule-1"),
@@ -118,7 +118,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -153,7 +153,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -196,7 +196,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -235,7 +235,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -276,7 +276,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -318,7 +318,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -354,7 +354,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
+//				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("rule-1"),
@@ -391,11 +391,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -446,18 +448,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			versioningBucket, err := s3.NewBucketV2(ctx, "versioningBucket", nil)
+//			versioningBucket, err := s3.NewBucketV2(ctx, "versioning_bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-versioning-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "versioningBucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "versioning_bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: versioningBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			versioning, err := s3.NewBucketVersioningV2(ctx, "versioning", &s3.BucketVersioningV2Args{
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning", &s3.BucketVersioningV2Args{
 //				Bucket: versioningBucket.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
@@ -490,9 +494,7 @@ import (
 //						Status: pulumi.String("Enabled"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				versioning,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

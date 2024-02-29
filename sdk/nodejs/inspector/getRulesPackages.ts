@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {
  *     test: "test",
  * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
+ * const assessment = new aws.inspector.AssessmentTarget("assessment", {
+ *     name: "test",
+ *     resourceGroupArn: group.arn,
+ * });
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
+ *     name: "Test",
+ *     targetArn: assessment.arn,
  *     duration: 60,
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
@@ -59,14 +64,19 @@ export interface GetRulesPackagesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {
  *     test: "test",
  * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
+ * const assessment = new aws.inspector.AssessmentTarget("assessment", {
+ *     name: "test",
+ *     resourceGroupArn: group.arn,
+ * });
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
+ *     name: "Test",
+ *     targetArn: assessment.arn,
  *     duration: 60,
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });

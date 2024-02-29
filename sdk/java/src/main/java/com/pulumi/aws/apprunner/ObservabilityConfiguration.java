@@ -46,10 +46,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ObservabilityConfiguration(&#34;example&#34;, ObservabilityConfigurationArgs.builder()        
  *             .observabilityConfigurationName(&#34;example&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-observability-configuration&#34;))
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor(&#34;AWSXRAY&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-observability-configuration&#34;))
  *             .build());
  * 
  *     }

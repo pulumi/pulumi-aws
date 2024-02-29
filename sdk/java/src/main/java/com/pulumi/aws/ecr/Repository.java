@@ -46,10 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
+ *             .imageTagMutability(&#34;MUTABLE&#34;)
  *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
  *                 .scanOnPush(true)
  *                 .build())
- *             .imageTagMutability(&#34;MUTABLE&#34;)
  *             .build());
  * 
  *     }

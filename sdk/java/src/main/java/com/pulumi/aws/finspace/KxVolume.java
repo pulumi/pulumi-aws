@@ -46,7 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxVolume(&#34;example&#34;, KxVolumeArgs.builder()        
- *             .environmentId(aws_finspace_kx_environment.example().id())
+ *             .name(&#34;my-tf-kx-volume&#34;)
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .availabilityZones(&#34;use1-az2&#34;)
  *             .azMode(&#34;SINGLE&#34;)
  *             .type(&#34;NAS_1&#34;)

@@ -478,12 +478,11 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=example_aws_launch_template["id"],
             ),
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         Full usage:
@@ -513,20 +512,19 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=example_aws_launch_template["id"],
                 version="1",
             ),
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "example",
             },
             vpc_subnets=[
                 "subnet-12345678",
                 "subnet-23456789",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
+            ])
         ```
         ### Example IAM Role for GameLift Game Server Group
 
@@ -546,10 +544,12 @@ class GameServerGroup(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.Role("example",
+            assume_role_policy=assume_role.json,
+            name="gamelift-game-server-group-example")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-            role=example_role.name)
+            role=example.name)
         ```
 
         ## Import
@@ -607,12 +607,11 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=example_aws_launch_template["id"],
             ),
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         Full usage:
@@ -642,20 +641,19 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=example_aws_launch_template["id"],
                 version="1",
             ),
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "example",
             },
             vpc_subnets=[
                 "subnet-12345678",
                 "subnet-23456789",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
+            ])
         ```
         ### Example IAM Role for GameLift Game Server Group
 
@@ -675,10 +673,12 @@ class GameServerGroup(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.Role("example",
+            assume_role_policy=assume_role.json,
+            name="gamelift-game-server-group-example")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-            role=example_role.name)
+            role=example.name)
         ```
 
         ## Import

@@ -73,7 +73,8 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;kmeans&#34;)
  *             .build());
  * 
- *         var exampleModel = new Model(&#34;exampleModel&#34;, ModelArgs.builder()        
+ *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
+ *             .name(&#34;my-model&#34;)
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
  *                 .image(test.applyValue(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))

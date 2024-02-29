@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var task = new Aws.Emr.InstanceFleet("task", new()
     ///     {
-    ///         ClusterId = aws_emr_cluster.Cluster.Id,
+    ///         ClusterId = cluster.Id,
     ///         InstanceTypeConfigs = new[]
     ///         {
     ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Emr
     ///                 },
     ///             },
     ///         },
+    ///         Name = "task fleet",
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,
     ///     });

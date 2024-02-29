@@ -40,7 +40,7 @@ public final class DirectoryserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectoryserviceFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(aws_directory_service_directory.main().id())
+     *             .directoryId(main.id())
      *             .build());
      * 
      *     }
@@ -77,7 +77,7 @@ public final class DirectoryserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectoryserviceFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(aws_directory_service_directory.main().id())
+     *             .directoryId(main.id())
      *             .build());
      * 
      *     }
@@ -114,7 +114,7 @@ public final class DirectoryserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectoryserviceFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(aws_directory_service_directory.main().id())
+     *             .directoryId(main.id())
      *             .build());
      * 
      *     }
@@ -151,7 +151,7 @@ public final class DirectoryserviceFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectoryserviceFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(aws_directory_service_directory.main().id())
+     *             .directoryId(main.id())
      *             .build());
      * 
      *     }

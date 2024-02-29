@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2;
  * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2Args;
  * import java.util.List;
@@ -42,7 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mybucket = new BucketV2(&#34;mybucket&#34;);
+ *         var mybucket = new BucketV2(&#34;mybucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;mybucket&#34;)
+ *             .build());
  * 
  *         var example = new BucketAccelerateConfigurationV2(&#34;example&#34;, BucketAccelerateConfigurationV2Args.builder()        
  *             .bucket(mybucket.id())

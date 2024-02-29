@@ -245,10 +245,11 @@ class VpcIngressConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.VpcIngressConnection("example",
-            service_arn=aws_apprunner_service["example"]["arn"],
+            name="example",
+            service_arn=example_aws_apprunner_service["arn"],
             ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
-                vpc_id=aws_default_vpc["default"]["id"],
-                vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
+                vpc_id=default["id"],
+                vpc_endpoint_id=apprunner["id"],
             ),
             tags={
                 "foo": "bar",
@@ -286,10 +287,11 @@ class VpcIngressConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.VpcIngressConnection("example",
-            service_arn=aws_apprunner_service["example"]["arn"],
+            name="example",
+            service_arn=example_aws_apprunner_service["arn"],
             ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
-                vpc_id=aws_default_vpc["default"]["id"],
-                vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
+                vpc_id=default["id"],
+                vpc_endpoint_id=apprunner["id"],
             ),
             tags={
                 "foo": "bar",

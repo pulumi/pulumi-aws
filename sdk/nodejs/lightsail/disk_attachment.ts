@@ -20,17 +20,19 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testDisk = new aws.lightsail.Disk("testDisk", {
+ * const test = new aws.lightsail.Disk("test", {
+ *     name: "test-disk",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testInstance = new aws.lightsail.Instance("test", {
+ *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testDisk_attachment = new aws.lightsail.Disk_attachment("testDisk_attachment", {
- *     diskName: testDisk.name,
+ * const testDisk_attachment = new aws.lightsail.Disk_attachment("test", {
+ *     diskName: test.name,
  *     instanceName: testInstance.name,
  *     diskPath: "/dev/xvdf",
  * });

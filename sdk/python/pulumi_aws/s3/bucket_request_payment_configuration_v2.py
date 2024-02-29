@@ -144,7 +144,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketRequestPaymentConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             payer="Requester")
         ```
 
@@ -191,7 +191,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketRequestPaymentConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             payer="Requester")
         ```
 

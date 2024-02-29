@@ -23,15 +23,15 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var example = new Aws.CloudWatch.LogGroup("example");
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
     ///     {
     ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
     ///         {
     ///             CloudwatchLogs = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs
     ///             {
-    ///                 LogGroupName = exampleLogGroup.Name,
+    ///                 LogGroupName = example.Name,
     ///             },
     ///         },
     ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
     ///         BucketPrefix = "tf-ivschat-logging-bucket",
     ///     });
@@ -79,13 +79,15 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "firehose_example_role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
+    ///     var example = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
+    ///         Name = "pulumi-kinesis-firehose-extended-s3-example-stream",
     ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
@@ -98,19 +100,19 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
     ///     {
     ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
     ///         {
     ///             Firehose = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs
     ///             {
-    ///                 DeliveryStreamName = exampleFirehoseDeliveryStream.Name,
+    ///                 DeliveryStreamName = example.Name,
     ///             },
     ///         },
     ///     });

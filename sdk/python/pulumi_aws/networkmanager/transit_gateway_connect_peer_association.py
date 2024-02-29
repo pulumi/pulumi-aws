@@ -173,9 +173,9 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.TransitGatewayConnectPeerAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"],
-            transit_gateway_connect_peer_arn=aws_ec2_transit_gateway_connect_peer["example"]["arn"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            device_id=example_aws_networkmanager_device["id"],
+            transit_gateway_connect_peer_arn=example_aws_ec2_transit_gateway_connect_peer["arn"])
         ```
 
         ## Import
@@ -210,9 +210,9 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.TransitGatewayConnectPeerAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"],
-            transit_gateway_connect_peer_arn=aws_ec2_transit_gateway_connect_peer["example"]["arn"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            device_id=example_aws_networkmanager_device["id"],
+            transit_gateway_connect_peer_arn=example_aws_ec2_transit_gateway_connect_peer["arn"])
         ```
 
         ## Import

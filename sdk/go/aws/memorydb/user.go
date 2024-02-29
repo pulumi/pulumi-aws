@@ -32,19 +32,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
-//				Length: pulumi.Int(16),
+//			example, err := random.NewPassword(ctx, "example", &random.PasswordArgs{
+//				Length: 16,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
+//			_, err = memorydb.NewUser(ctx, "example", &memorydb.UserArgs{
 //				UserName:     pulumi.String("my-user"),
 //				AccessString: pulumi.String("on ~* &* +@all"),
 //				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
-//						exampleRandomPassword.Result,
+//						example.Result,
 //					},
 //				},
 //			})

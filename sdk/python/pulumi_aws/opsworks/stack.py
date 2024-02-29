@@ -830,9 +830,10 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.opsworks.Stack("main",
+            name="awesome-stack",
             region="us-west-1",
-            service_role_arn=aws_iam_role["opsworks"]["arn"],
-            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
+            service_role_arn=opsworks_aws_iam_role["arn"],
+            default_instance_profile_arn=opsworks["arn"],
             tags={
                 "Name": "foobar-stack",
             },
@@ -897,9 +898,10 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.opsworks.Stack("main",
+            name="awesome-stack",
             region="us-west-1",
-            service_role_arn=aws_iam_role["opsworks"]["arn"],
-            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
+            service_role_arn=opsworks_aws_iam_role["arn"],
+            default_instance_profile_arn=opsworks["arn"],
             tags={
                 "Name": "foobar-stack",
             },

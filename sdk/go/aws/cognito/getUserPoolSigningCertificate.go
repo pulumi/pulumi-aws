@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.GetUserPoolSigningCertificate(ctx, &cognito.GetUserPoolSigningCertificateArgs{
-//				UserPoolId: aws_cognito_user_pool.My_pool.Id,
+//				UserPoolId: myPool.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

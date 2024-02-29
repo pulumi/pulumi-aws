@@ -371,15 +371,15 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="default",
             database_name="default")
-        # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="redshift-events")
+        default_event_subscription = aws.redshift.EventSubscription("default",
+            name="redshift-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="cluster",
-            source_ids=[default_cluster.id],
+            source_ids=[default.id],
             severity="INFO",
             event_categories=[
                 "configuration",
@@ -426,15 +426,15 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="default",
             database_name="default")
-        # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="redshift-events")
+        default_event_subscription = aws.redshift.EventSubscription("default",
+            name="redshift-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="cluster",
-            source_ids=[default_cluster.id],
+            source_ids=[default.id],
             severity="INFO",
             event_categories=[
                 "configuration",

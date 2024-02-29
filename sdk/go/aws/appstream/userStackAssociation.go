@@ -28,20 +28,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
+//			test, err := appstream.NewStack(ctx, "test", &appstream.StackArgs{
+//				Name: pulumi.String("STACK NAME"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
+//			testUser, err := appstream.NewUser(ctx, "test", &appstream.UserArgs{
 //				AuthenticationType: pulumi.String("USERPOOL"),
 //				UserName:           pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
+//			_, err = appstream.NewUserStackAssociation(ctx, "test", &appstream.UserStackAssociationArgs{
 //				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          testStack.Name,
+//				StackName:          test.Name,
 //				UserName:           testUser.UserName,
 //			})
 //			if err != nil {

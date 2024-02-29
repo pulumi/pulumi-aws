@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.Repository;
+ * import com.pulumi.aws.ecr.RepositoryArgs;
  * import com.pulumi.aws.ecr.LifecyclePolicy;
  * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
  * import java.util.List;
@@ -44,7 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
+ *             .build());
  * 
  *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
  *             .repository(foo.name())
@@ -80,6 +83,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.Repository;
+ * import com.pulumi.aws.ecr.RepositoryArgs;
  * import com.pulumi.aws.ecr.LifecyclePolicy;
  * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
  * import java.util.List;
@@ -95,7 +99,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
+ *             .build());
  * 
  *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
  *             .repository(foo.name())

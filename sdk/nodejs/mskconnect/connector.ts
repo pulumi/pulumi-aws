@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mskconnect.Connector("example", {
+ *     name: "example",
  *     kafkaconnectVersion: "2.7.1",
  *     capacity: {
  *         autoscaling: {
@@ -39,13 +40,13 @@ import * as utilities from "../utilities";
  *     },
  *     kafkaCluster: {
  *         apacheKafkaCluster: {
- *             bootstrapServers: aws_msk_cluster.example.bootstrap_brokers_tls,
+ *             bootstrapServers: exampleAwsMskCluster.bootstrapBrokersTls,
  *             vpc: {
- *                 securityGroups: [aws_security_group.example.id],
+ *                 securityGroups: [exampleAwsSecurityGroup.id],
  *                 subnets: [
- *                     aws_subnet.example1.id,
- *                     aws_subnet.example2.id,
- *                     aws_subnet.example3.id,
+ *                     example1.id,
+ *                     example2.id,
+ *                     example3.id,
  *                 ],
  *             },
  *         },
@@ -58,11 +59,11 @@ import * as utilities from "../utilities";
  *     },
  *     plugins: [{
  *         customPlugin: {
- *             arn: aws_mskconnect_custom_plugin.example.arn,
- *             revision: aws_mskconnect_custom_plugin.example.latest_revision,
+ *             arn: exampleAwsMskconnectCustomPlugin.arn,
+ *             revision: exampleAwsMskconnectCustomPlugin.latestRevision,
  *         },
  *     }],
- *     serviceExecutionRoleArn: aws_iam_role.example.arn,
+ *     serviceExecutionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

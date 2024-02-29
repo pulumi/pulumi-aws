@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Ram
     /// {
     ///     var example = new Aws.Ram.ResourceAssociation("example", new()
     ///     {
-    ///         ResourceArn = aws_subnet.Example.Arn,
-    ///         ResourceShareArn = aws_ram_resource_share.Example.Arn,
+    ///         ResourceArn = exampleAwsSubnet.Arn,
+    ///         ResourceShareArn = exampleAwsRamResourceShare.Arn,
     ///     });
     /// 
     /// });

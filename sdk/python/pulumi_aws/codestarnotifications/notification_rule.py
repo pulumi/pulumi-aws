@@ -315,7 +315,7 @@ class NotificationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
-        notif = aws.sns.Topic("notif")
+        notif = aws.sns.Topic("notif", name="notification")
         notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sns:Publish"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -330,6 +330,7 @@ class NotificationRule(pulumi.CustomResource):
         commits = aws.codestarnotifications.NotificationRule("commits",
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
+            name="example-code-repo-commits",
             resource=code.arn,
             targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
                 address=notif.arn,
@@ -371,7 +372,7 @@ class NotificationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
-        notif = aws.sns.Topic("notif")
+        notif = aws.sns.Topic("notif", name="notification")
         notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sns:Publish"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -386,6 +387,7 @@ class NotificationRule(pulumi.CustomResource):
         commits = aws.codestarnotifications.NotificationRule("commits",
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
+            name="example-code-repo-commits",
             resource=code.arn,
             targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
                 address=notif.arn,

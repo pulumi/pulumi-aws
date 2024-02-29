@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -45,8 +45,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = organizations.NewPolicy(ctx, "examplePolicy", &organizations.PolicyArgs{
-//				Content: *pulumi.String(examplePolicyDocument.Json),
+//			_, err = organizations.NewPolicy(ctx, "example", &organizations.PolicyArgs{
+//				Name:    pulumi.String("example"),
+//				Content: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

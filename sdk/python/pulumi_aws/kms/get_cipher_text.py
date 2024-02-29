@@ -99,7 +99,7 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    oauth_config = aws.kms.Key("oauthConfig",
+    oauth_config = aws.kms.Key("oauth_config",
         description="oauth config",
         is_enabled=True)
     oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,
@@ -147,7 +147,7 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     import pulumi
     import pulumi_aws as aws
 
-    oauth_config = aws.kms.Key("oauthConfig",
+    oauth_config = aws.kms.Key("oauth_config",
         description="oauth config",
         is_enabled=True)
     oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector.ResourceGroup("example", {tags: {
- *     Env: "bar",
  *     Name: "foo",
+ *     Env: "bar",
  * }});
  * ```
  */

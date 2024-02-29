@@ -16,22 +16,26 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.Iot.Authorizer("example", new()
     ///     {
-    ///         AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
+    ///         Name = "example",
+    ///         AuthorizerFunctionArn = exampleAwsLambdaFunction.Arn,
     ///         SigningDisabled = false,
     ///         Status = "ACTIVE",
     ///         TokenKeyName = "Token-Header",
     ///         TokenSigningPublicKeys = 
     ///         {
-    ///             { "Key1", File.ReadAllText("test-fixtures/iot-authorizer-signing-key.pem") },
+    ///             { "Key1", Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "test-fixtures/iot-authorizer-signing-key.pem",
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 

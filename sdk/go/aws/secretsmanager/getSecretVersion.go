@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId: data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -56,12 +56,37 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId:     data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId:     example.Id,
 //				VersionStage: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Handling Key-Value Secret Strings in JSON
+//
+// # Reading key-value pairs from JSON back into a native map
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ctx.Export("example", notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1)
 //			return nil
 //		})
 //	}

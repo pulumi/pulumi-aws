@@ -47,8 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var custlayer = new CustomLayer(&#34;custlayer&#34;, CustomLayerArgs.builder()        
+ *             .name(&#34;My Awesome Custom Layer&#34;)
  *             .shortName(&#34;awesome&#34;)
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .build());
  * 
  *     }

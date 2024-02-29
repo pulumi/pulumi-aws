@@ -51,52 +51,53 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContactFlowModule(&#34;example&#34;, ContactFlowModuleArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;Example Contact Flow Module Description&#34;)
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2019-10-30&#34;),
- *                     jsonProperty(&#34;StartAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                     jsonProperty(&#34;Actions&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2019-10-30&#34;),
+ *                     jsonProperty(&#34;startAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
+ *                     jsonProperty(&#34;actions&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                                 jsonProperty(&#34;Text&#34;, &#34;Hello contact flow module&#34;)
+ *                             jsonProperty(&#34;identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
+ *                             jsonProperty(&#34;parameters&#34;, jsonObject(
+ *                                 jsonProperty(&#34;text&#34;, &#34;Hello contact flow module&#34;)
  *                             )),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
- *                                 jsonProperty(&#34;NextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                                 jsonProperty(&#34;Errors&#34;, jsonArray(
+ *                             jsonProperty(&#34;transitions&#34;, jsonObject(
+ *                                 jsonProperty(&#34;nextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
+ *                                 jsonProperty(&#34;errors&#34;, jsonArray(
  *                                 )),
- *                                 jsonProperty(&#34;Conditions&#34;, jsonArray(
+ *                                 jsonProperty(&#34;conditions&#34;, jsonArray(
  *                                 ))
  *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;MessageParticipant&#34;)
+ *                             jsonProperty(&#34;type&#34;, &#34;MessageParticipant&#34;)
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;DisconnectParticipant&#34;),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
+ *                             jsonProperty(&#34;identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
+ *                             jsonProperty(&#34;type&#34;, &#34;DisconnectParticipant&#34;),
+ *                             jsonProperty(&#34;parameters&#34;, jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
+ *                             jsonProperty(&#34;transitions&#34;, jsonObject(
  * 
  *                             ))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Settings&#34;, jsonObject(
- *                         jsonProperty(&#34;InputParameters&#34;, jsonArray(
+ *                     jsonProperty(&#34;settings&#34;, jsonObject(
+ *                         jsonProperty(&#34;inputParameters&#34;, jsonArray(
  *                         )),
- *                         jsonProperty(&#34;OutputParameters&#34;, jsonArray(
+ *                         jsonProperty(&#34;outputParameters&#34;, jsonArray(
  *                         )),
- *                         jsonProperty(&#34;Transitions&#34;, jsonArray(
+ *                         jsonProperty(&#34;transitions&#34;, jsonArray(
  *                             jsonObject(
- *                                 jsonProperty(&#34;DisplayName&#34;, &#34;Success&#34;),
- *                                 jsonProperty(&#34;ReferenceName&#34;, &#34;Success&#34;),
- *                                 jsonProperty(&#34;Description&#34;, &#34;&#34;)
+ *                                 jsonProperty(&#34;displayName&#34;, &#34;Success&#34;),
+ *                                 jsonProperty(&#34;referenceName&#34;, &#34;Success&#34;),
+ *                                 jsonProperty(&#34;description&#34;, &#34;&#34;)
  *                             ), 
  *                             jsonObject(
- *                                 jsonProperty(&#34;DisplayName&#34;, &#34;Error&#34;),
- *                                 jsonProperty(&#34;ReferenceName&#34;, &#34;Error&#34;),
- *                                 jsonProperty(&#34;Description&#34;, &#34;&#34;)
+ *                                 jsonProperty(&#34;displayName&#34;, &#34;Error&#34;),
+ *                                 jsonProperty(&#34;referenceName&#34;, &#34;Error&#34;),
+ *                                 jsonProperty(&#34;description&#34;, &#34;&#34;)
  *                             )
  *                         ))
  *                     ))

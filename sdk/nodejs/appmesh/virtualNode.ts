@@ -29,7 +29,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -56,9 +57,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicediscovery.HttpNamespace("example", {});
+ * const example = new aws.servicediscovery.HttpNamespace("example", {name: "example-ns"});
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -90,7 +92,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -126,7 +129,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {

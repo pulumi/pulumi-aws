@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
-//				DbClusterIdentifier: pulumi.Any(aws_rds_cluster.Example.Id),
+//				DbClusterIdentifier: pulumi.Any(exampleAwsRdsCluster.Id),
 //				FeatureName:         pulumi.String("S3_INTEGRATION"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

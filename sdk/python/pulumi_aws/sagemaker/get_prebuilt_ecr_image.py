@@ -122,8 +122,8 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
+    test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="sagemaker-scikit-learn",
+        image_tag="2.2-1.0.11.0")
     ```
 
 
@@ -169,8 +169,8 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
+    test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="sagemaker-scikit-learn",
+        image_tag="2.2-1.0.11.0")
     ```
 
 

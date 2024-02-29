@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
- *             .roleArn(aws_iam_role.role().arn())
+ *             .name(&#34;my-notebook-instance&#34;)
+ *             .roleArn(role.arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
  *             .build());
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
- *             .roleArn(aws_iam_role.role().arn())
+ *             .name(&#34;my-notebook-instance&#34;)
+ *             .roleArn(role.arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
  *             .defaultCodeRepository(example.codeRepositoryName())
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))

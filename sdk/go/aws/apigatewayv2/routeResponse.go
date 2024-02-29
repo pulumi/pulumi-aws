@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
-//				ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
+//				ApiId:            pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				RouteId:          pulumi.Any(exampleAwsApigatewayv2Route.Id),
 //				RouteResponseKey: pulumi.String("$default"),
 //			})
 //			if err != nil {

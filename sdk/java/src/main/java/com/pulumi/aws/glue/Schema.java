@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
  *             .schemaName(&#34;example&#34;)
- *             .registryArn(aws_glue_registry.test().arn())
+ *             .registryArn(test.arn())
  *             .dataFormat(&#34;AVRO&#34;)
  *             .compatibility(&#34;NONE&#34;)
  *             .schemaDefinition(&#34;{\&#34;type\&#34;: \&#34;record\&#34;, \&#34;name\&#34;: \&#34;r1\&#34;, \&#34;fields\&#34;: [ {\&#34;name\&#34;: \&#34;f1\&#34;, \&#34;type\&#34;: \&#34;int\&#34;}, {\&#34;name\&#34;: \&#34;f2\&#34;, \&#34;type\&#34;: \&#34;string\&#34;} ]}&#34;)

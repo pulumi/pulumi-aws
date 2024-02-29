@@ -394,11 +394,12 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.ConfigurationProfile("example",
-            application_id=aws_appconfig_application["example"]["id"],
+            application_id=example_aws_appconfig_application["id"],
             description="Example Configuration Profile",
+            name="example-configuration-profile-tf",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
+                content=example_aws_lambda_function["arn"],
                 type="LAMBDA",
             )],
             tags={
@@ -442,11 +443,12 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.ConfigurationProfile("example",
-            application_id=aws_appconfig_application["example"]["id"],
+            application_id=example_aws_appconfig_application["id"],
             description="Example Configuration Profile",
+            name="example-configuration-profile-tf",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
+                content=example_aws_lambda_function["arn"],
                 type="LAMBDA",
             )],
             tags={

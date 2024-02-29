@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var configuration = new RegistryScanningConfiguration(&#34;configuration&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .scanType(&#34;ENHANCED&#34;)
  *             .rules(RegistryScanningConfigurationRuleArgs.builder()
+ *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                     .filter(&#34;example&#34;)
  *                     .filterType(&#34;WILDCARD&#34;)
  *                     .build())
- *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                 .build())
- *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 
  *     }
@@ -81,22 +81,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RegistryScanningConfiguration(&#34;test&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .scanType(&#34;ENHANCED&#34;)
  *             .rules(            
  *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter(&#34;*&#34;)
  *                         .filterType(&#34;WILDCARD&#34;)
  *                         .build())
- *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
  *                     .build(),
  *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter(&#34;example&#34;)
  *                         .filterType(&#34;WILDCARD&#34;)
  *                         .build())
- *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                     .build())
- *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 
  *     }

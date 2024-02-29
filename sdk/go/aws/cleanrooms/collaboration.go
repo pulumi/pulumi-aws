@@ -30,19 +30,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewCollaboration(ctx, "testCollaboration", &cleanrooms.CollaborationArgs{
-//				CreatorDisplayName: pulumi.String("Creator "),
+//			_, err := cleanrooms.NewCollaboration(ctx, "test_collaboration", &cleanrooms.CollaborationArgs{
+//				Name: pulumi.String("pulumi-example-collaboration"),
 //				CreatorMemberAbilities: pulumi.StringArray{
 //					pulumi.String("CAN_QUERY"),
 //					pulumi.String("CAN_RECEIVE_RESULTS"),
 //				},
+//				CreatorDisplayName: pulumi.String("Creator "),
+//				Description:        pulumi.String("I made this collaboration with Pulumi!"),
+//				QueryLogStatus:     pulumi.String("DISABLED"),
 //				DataEncryptionMetadata: &cleanrooms.CollaborationDataEncryptionMetadataArgs{
 //					AllowClearText:                        pulumi.Bool(true),
 //					AllowDuplicates:                       pulumi.Bool(true),
 //					AllowJoinsOnColumnsWithDifferentNames: pulumi.Bool(true),
 //					PreserveNulls:                         pulumi.Bool(false),
 //				},
-//				Description: pulumi.String("I made this collaboration with Pulumi!"),
 //				Members: cleanrooms.CollaborationMemberArray{
 //					&cleanrooms.CollaborationMemberArgs{
 //						AccountId:       pulumi.String("123456789012"),
@@ -50,7 +52,6 @@ import (
 //						MemberAbilities: pulumi.StringArray{},
 //					},
 //				},
-//				QueryLogStatus: pulumi.String("DISABLED"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("Pulumi"),
 //				},

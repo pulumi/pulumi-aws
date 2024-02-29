@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserGroup, err := elasticache.NewUserGroup(ctx, "exampleUserGroup", &elasticache.UserGroupArgs{
+//			example, err := elasticache.NewUserGroup(ctx, "example", &elasticache.UserGroupArgs{
 //				Engine:      pulumi.String("REDIS"),
 //				UserGroupId: pulumi.String("userGroupId"),
 //				UserIds: pulumi.StringArray{
@@ -52,7 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := elasticache.NewUser(ctx, "exampleUser", &elasticache.UserArgs{
+//			exampleUser, err := elasticache.NewUser(ctx, "example", &elasticache.UserArgs{
 //				UserId:       pulumi.String("exampleUserID"),
 //				UserName:     pulumi.String("exampleuser"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
@@ -64,8 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticache.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache.UserGroupAssociationArgs{
-//				UserGroupId: exampleUserGroup.UserGroupId,
+//			_, err = elasticache.NewUserGroupAssociation(ctx, "example", &elasticache.UserGroupAssociationArgs{
+//				UserGroupId: example.UserGroupId,
 //				UserId:      exampleUser.UserId,
 //			})
 //			if err != nil {

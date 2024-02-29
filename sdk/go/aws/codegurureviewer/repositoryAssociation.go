@@ -30,17 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
+//			example, err := kms.NewKey(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleRepository, err := codecommit.NewRepository(ctx, "exampleRepository", &codecommit.RepositoryArgs{
+//			exampleRepository, err := codecommit.NewRepository(ctx, "example", &codecommit.RepositoryArgs{
 //				RepositoryName: pulumi.String("example-repo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "exampleRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
+//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "example", &codegurureviewer.RepositoryAssociationArgs{
 //				Repository: &codegurureviewer.RepositoryAssociationRepositoryArgs{
 //					Codecommit: &codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs{
 //						Name: exampleRepository.RepositoryName,
@@ -48,7 +48,7 @@ import (
 //				},
 //				KmsKeyDetails: &codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs{
 //					EncryptionOption: pulumi.String("CUSTOMER_MANAGED_CMK"),
-//					KmsKeyId:         exampleKey.KeyId,
+//					KmsKeyId:         example.KeyId,
 //				},
 //			})
 //			if err != nil {

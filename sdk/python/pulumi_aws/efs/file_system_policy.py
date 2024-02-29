@@ -147,8 +147,8 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
+        policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -166,9 +166,9 @@ class FileSystemPolicy(pulumi.CustomResource):
                 values=["true"],
             )],
         )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
-            policy=policy_policy_document.json)
+            policy=policy.json)
         ```
 
         ## Import
@@ -202,8 +202,8 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
+        policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -221,9 +221,9 @@ class FileSystemPolicy(pulumi.CustomResource):
                 values=["true"],
             )],
         )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
-            policy=policy_policy_document.json)
+            policy=policy.json)
         ```
 
         ## Import

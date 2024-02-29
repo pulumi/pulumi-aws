@@ -626,10 +626,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
         ### Using Tiering Policy
 
@@ -640,10 +641,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
                 name="AUTO",
                 cooling_period=31,
@@ -694,10 +696,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
         ### Using Tiering Policy
 
@@ -708,10 +711,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
                 name="AUTO",
                 cooling_period=31,

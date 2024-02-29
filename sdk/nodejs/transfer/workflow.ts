@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         customStepDetails: {
  *             name: "example",
  *             sourceFileLocation: "${original.file}",
- *             target: aws_lambda_function.example.arn,
+ *             target: exampleAwsLambdaFunction.arn,
  *             timeoutSeconds: 60,
  *         },
  *         type: "CUSTOM",

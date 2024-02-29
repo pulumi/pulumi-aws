@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroupEgressRule(&#34;example&#34;, SecurityGroupEgressRuleArgs.builder()        
- *             .securityGroupId(aws_security_group.example().id())
+ *             .securityGroupId(exampleAwsSecurityGroup.id())
  *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
  *             .fromPort(80)
  *             .ipProtocol(&#34;tcp&#34;)

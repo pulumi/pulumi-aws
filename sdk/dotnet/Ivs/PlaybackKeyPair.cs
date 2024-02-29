@@ -17,16 +17,19 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
     ///     {
-    ///         PublicKey = File.ReadAllText("./public-key.pem"),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./public-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

@@ -48,13 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedPrefixList(&#34;example&#34;, ManagedPrefixListArgs.builder()        
+ *             .name(&#34;All VPC CIDR-s&#34;)
  *             .addressFamily(&#34;IPv4&#34;)
  *             .maxEntries(5)
  *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
  *             .build());
  * 
  *         var entry1 = new ManagedPrefixListEntry(&#34;entry1&#34;, ManagedPrefixListEntryArgs.builder()        
- *             .cidr(aws_vpc.example().cidr_block())
+ *             .cidr(exampleAwsVpc.cidrBlock())
  *             .description(&#34;Primary&#34;)
  *             .prefixListId(example.id())
  *             .build());

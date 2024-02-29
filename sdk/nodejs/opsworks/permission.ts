@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
+ * const myStackPermission = new aws.opsworks.Permission("my_stack_permission", {
  *     allowSsh: true,
  *     allowSudo: true,
  *     level: "iam_only",
- *     userArn: aws_iam_user.user.arn,
- *     stackId: aws_opsworks_stack.stack.id,
+ *     userArn: user.arn,
+ *     stackId: stack.id,
  * });
  * ```
  */

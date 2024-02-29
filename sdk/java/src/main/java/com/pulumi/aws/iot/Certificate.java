@@ -43,7 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .csr(Files.readString(Paths.get(&#34;/my/csr.pem&#34;)))
+ *             .csr(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/my/csr.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
@@ -102,7 +104,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .certificatePem(Files.readString(Paths.get(&#34;/my/cert.pem&#34;)))
+ *             .certificatePem(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/my/cert.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 

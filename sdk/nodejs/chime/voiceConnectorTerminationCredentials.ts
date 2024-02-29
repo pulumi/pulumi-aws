@@ -18,8 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("default", {
  *     disabled: true,
  *     cpsLimit: 1,
  *     cidrAllowLists: ["50.35.78.96/31"],
@@ -27,16 +30,14 @@ import * as utilities from "../utilities";
  *         "US",
  *         "CA",
  *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  * });
- * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", {
- *     voiceConnectorId: defaultVoiceConnector.id,
+ * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("default", {
+ *     voiceConnectorId: _default.id,
  *     credentials: [{
  *         username: "test",
  *         password: "test!",
  *     }],
- * }, {
- *     dependsOn: [defaultVoiceConnectorTermination],
  * });
  * ```
  *

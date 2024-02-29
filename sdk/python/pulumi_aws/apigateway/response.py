@@ -205,7 +205,7 @@ class Response(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
+        main = aws.apigateway.RestApi("main", name="MyDemoAPI")
         test = aws.apigateway.Response("test",
             rest_api_id=main.id,
             status_code="401",
@@ -249,7 +249,7 @@ class Response(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
+        main = aws.apigateway.RestApi("main", name="MyDemoAPI")
         test = aws.apigateway.Response("test",
             rest_api_id=main.id,
             status_code="401",

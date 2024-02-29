@@ -188,9 +188,9 @@ class BackendEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp")
-        example_backend_environment = aws.amplify.BackendEnvironment("exampleBackendEnvironment",
-            app_id=example_app.id,
+        example = aws.amplify.App("example", name="example")
+        example_backend_environment = aws.amplify.BackendEnvironment("example",
+            app_id=example.id,
             environment_name="example",
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")
@@ -226,9 +226,9 @@ class BackendEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp")
-        example_backend_environment = aws.amplify.BackendEnvironment("exampleBackendEnvironment",
-            app_id=example_app.id,
+        example = aws.amplify.App("example", name="example")
+        example_backend_environment = aws.amplify.BackendEnvironment("example",
+            app_id=example.id,
             environment_name="example",
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")

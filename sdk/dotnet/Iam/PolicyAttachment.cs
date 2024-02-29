@@ -28,7 +28,10 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var user = new Aws.Iam.User("user");
+    ///     var user = new Aws.Iam.User("user", new()
+    ///     {
+    ///         Name = "test-user",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -58,12 +61,16 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
+    ///         Name = "test-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var @group = new Aws.Iam.Group("group");
+    ///     var @group = new Aws.Iam.Group("group", new()
+    ///     {
+    ///         Name = "test-group",
+    ///     });
     /// 
-    ///     var policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -82,14 +89,16 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var policyPolicy = new Aws.Iam.Policy("policyPolicy", new()
+    ///     var policyPolicy = new Aws.Iam.Policy("policy", new()
     ///     {
+    ///         Name = "test-policy",
     ///         Description = "A test policy",
-    ///         PolicyDocument = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var test_attach = new Aws.Iam.PolicyAttachment("test-attach", new()
     ///     {
+    ///         Name = "test-attachment",
     ///         Users = new[]
     ///         {
     ///             user.Name,

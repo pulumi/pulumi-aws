@@ -24,15 +24,16 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-websocket-api",
     ///         ProtocolType = "WEBSOCKET",
     ///         RouteSelectionExpression = "$request.body.action",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         RouteKey = "$default",
     ///     });
     /// 
@@ -48,22 +49,23 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-http-api",
     ///         ProtocolType = "HTTP",
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         IntegrationType = "HTTP_PROXY",
     ///         IntegrationMethod = "ANY",
     ///         IntegrationUri = "https://example.com/{proxy}",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         RouteKey = "ANY /example/{proxy+}",
     ///         Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
     ///     });

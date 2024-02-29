@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
 //				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
 //					TemporaryPasswordValidityDays: pulumi.Int(7),
 //					MinimumLength:                 pulumi.Int(6),
@@ -40,21 +41,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			exampleUser, err := cognito.NewUser(ctx, "example", &cognito.UserArgs{
+//				UserPoolId: example.ID(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "example", &cognito.UserGroupArgs{
+//				UserPoolId: example.ID(),
+//				Name:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			_, err = cognito.NewUserInGroup(ctx, "example", &cognito.UserInGroupArgs{
+//				UserPoolId: example.ID(),
 //				GroupName:  exampleUserGroup.Name,
 //				Username:   exampleUser.Username,
 //			})

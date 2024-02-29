@@ -30,24 +30,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Parameters": map[string]interface{}{
-//					"VPCCidr": map[string]interface{}{
-//						"Type":        "String",
-//						"Default":     "10.0.0.0/16",
-//						"Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+//				"parameters": map[string]interface{}{
+//					"vPCCidr": map[string]interface{}{
+//						"type":        "String",
+//						"default":     "10.0.0.0/16",
+//						"description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
 //					},
 //				},
-//				"Resources": map[string]interface{}{
+//				"resources": map[string]interface{}{
 //					"myVpc": map[string]interface{}{
-//						"Type": "AWS::EC2::VPC",
-//						"Properties": map[string]interface{}{
-//							"CidrBlock": map[string]interface{}{
+//						"type": "AWS::EC2::VPC",
+//						"properties": map[string]interface{}{
+//							"cidrBlock": map[string]interface{}{
 //								"Ref": "VPCCidr",
 //							},
-//							"Tags": []map[string]interface{}{
+//							"tags": []map[string]interface{}{
 //								map[string]interface{}{
-//									"Key":   "Name",
-//									"Value": "Primary_CF_VPC",
+//									"key":   "Name",
+//									"value": "Primary_CF_VPC",
 //								},
 //							},
 //						},
@@ -59,6 +59,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
+//				Name: pulumi.String("networking-stack"),
 //				Parameters: pulumi.StringMap{
 //					"VPCCidr": pulumi.String("10.0.0.0/16"),
 //				},

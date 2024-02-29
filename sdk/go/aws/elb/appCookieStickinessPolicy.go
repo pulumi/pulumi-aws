@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("test-lb"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
@@ -45,6 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
+//				Name:         pulumi.String("foo_policy"),
 //				LoadBalancer: lb.Name,
 //				LbPort:       pulumi.Int(80),
 //				CookieName:   pulumi.String("MyAppCookie"),

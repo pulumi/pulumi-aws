@@ -53,14 +53,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Ami(&#34;example&#34;, AmiArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .virtualizationType(&#34;hvm&#34;)
+ *             .rootDeviceName(&#34;/dev/xvda&#34;)
+ *             .imdsSupport(&#34;v2.0&#34;)
  *             .ebsBlockDevices(AmiEbsBlockDeviceArgs.builder()
  *                 .deviceName(&#34;/dev/xvda&#34;)
  *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
  *                 .volumeSize(8)
  *                 .build())
- *             .imdsSupport(&#34;v2.0&#34;)
- *             .rootDeviceName(&#34;/dev/xvda&#34;)
- *             .virtualizationType(&#34;hvm&#34;)
  *             .build());
  * 
  *     }

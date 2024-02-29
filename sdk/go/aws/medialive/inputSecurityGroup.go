@@ -30,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
 //				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
 //					&medialive.InputSecurityGroupWhitelistRuleArgs{
 //						Cidr: pulumi.String("10.0.0.8/32"),
 //					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"ENVIRONMENT": pulumi.String("prod"),
 //				},
 //			})
 //			if err != nil {

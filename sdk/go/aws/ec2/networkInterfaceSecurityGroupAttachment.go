@@ -78,7 +78,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 //				SecurityGroupId:    sg.ID(),
 //				NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
 //			})
@@ -121,7 +121,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 //				SecurityGroupId:    sg.ID(),
 //				NetworkInterfaceId: *pulumi.String(instance.NetworkInterfaceId),
 //			})

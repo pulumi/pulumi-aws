@@ -11,6 +11,20 @@ import * as utilities from "../utilities";
  * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
  * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
  * server configured.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.eks.getCluster({
+ *     name: "example",
+ * });
+ * const exampleGetClusterAuth = aws.eks.getClusterAuth({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
 
@@ -51,6 +65,20 @@ export interface GetClusterAuthResult {
  * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
  * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
  * server configured.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.eks.getCluster({
+ *     name: "example",
+ * });
+ * const exampleGetClusterAuth = aws.eks.getClusterAuth({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterAuthResult> {
     return pulumi.output(args).apply((a: any) => getClusterAuth(a, opts))

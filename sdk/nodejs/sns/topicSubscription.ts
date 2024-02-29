@@ -27,10 +27,10 @@ import {Topic} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
- *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
- *     protocol: "sqs",
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
  *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
+ *     protocol: "sqs",
+ *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
  * });
  * ```
  *
@@ -40,9 +40,9 @@ import {Topic} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {});
- * const userUpdatesQueue = new aws.sqs.Queue("userUpdatesQueue", {});
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
+ * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
+ * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {name: "user-updates-queue"});
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
  *     topic: userUpdates.arn,
  *     protocol: "sqs",
  *     endpoint: userUpdatesQueue.arn,
@@ -56,18 +56,18 @@ import {Topic} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const sns = config.getObject<{account-id?: string, display_name?: string, name?: string, region?: string, role-name?: string}>("sns") || {
+ * const sns = config.getObject("sns") || {
  *     "account-id": "111111111111",
- *     "role-name": "service/service",
+ *     displayName: "example",
  *     name: "example-sns-topic",
- *     display_name: "example",
  *     region: "us-west-1",
- * };
- * const sqs = config.getObject<{account-id?: string, name?: string, region?: string, role-name?: string}>("sqs") || {
- *     "account-id": "222222222222",
  *     "role-name": "service/service",
+ * };
+ * const sqs = config.getObject("sqs") || {
+ *     "account-id": "222222222222",
  *     name: "example-sqs-queue",
  *     region: "us-east-1",
+ *     "role-name": "service/service",
  * };
  * const sns-topic-policy = aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
@@ -134,45 +134,19 @@ import {Topic} from "./index";
  *         }],
  *     }],
  * });
- * // provider to manage SNS topics
- * const awsSns = new aws.Provider("awsSns", {
- *     region: sns.region,
- *     assumeRole: {
- *         roleArn: `arn:aws:iam::${sns["account-id"]}:role/${sns["role-name"]}`,
- *         sessionName: `sns-${sns.region}`,
- *     },
- * });
- * // provider to manage SQS queues
- * const awsSqs = new aws.Provider("awsSqs", {
- *     region: sqs.region,
- *     assumeRole: {
- *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
- *         sessionName: `sqs-${sqs.region}`,
- *     },
- * });
- * // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
- * const sns2sqs = new aws.Provider("sns2sqs", {
- *     region: sns.region,
- *     assumeRole: {
- *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
- *         sessionName: `sns2sqs-${sns.region}`,
- *     },
- * });
- * const sns_topicTopic = new aws.sns.Topic("sns-topicTopic", {
+ * const sns_topic = new aws.sns.Topic("sns-topic", {
+ *     name: sns.name,
  *     displayName: sns.display_name,
  *     policy: sns_topic_policy.then(sns_topic_policy => sns_topic_policy.json),
- * }, {
- *     provider: aws.sns,
  * });
- * const sqs_queue = new aws.sqs.Queue("sqs-queue", {policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json)}, {
- *     provider: aws.sqs,
+ * const sqs_queue = new aws.sqs.Queue("sqs-queue", {
+ *     name: sqs.name,
+ *     policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json),
  * });
- * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topicTopicSubscription", {
- *     topic: sns_topicTopic.arn,
+ * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topic", {
+ *     topic: sns_topic.arn,
  *     protocol: "sqs",
  *     endpoint: sqs_queue.arn,
- * }, {
- *     provider: aws.sns2sqs,
  * });
  * ```
  *

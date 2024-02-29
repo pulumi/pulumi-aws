@@ -26,12 +26,13 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Template("example", new()
     ///     {
     ///         TemplateId = "example-id",
+    ///         Name = "example-name",
     ///         VersionDescription = "version",
     ///         SourceEntity = new Aws.Quicksight.Inputs.TemplateSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.TemplateSourceEntitySourceTemplateArgs
     ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
+    ///                 Arn = source.Arn,
     ///             },
     ///         },
     ///     });

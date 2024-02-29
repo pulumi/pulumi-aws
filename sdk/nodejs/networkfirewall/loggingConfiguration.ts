@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
- *                 bucketName: aws_s3_bucket.example.bucket,
+ *                 bucketName: exampleAwsS3Bucket.bucket,
  *                 prefix: "/example",
  *             },
  *             logDestinationType: "S3",
@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
- *                 logGroup: aws_cloudwatch_log_group.example.name,
+ *                 logGroup: exampleAwsCloudwatchLogGroup.name,
  *             },
  *             logDestinationType: "CloudWatchLogs",
  *             logType: "ALERT",
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
- *                 deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
+ *                 deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             },
  *             logDestinationType: "KinesisDataFirehose",
  *             logType: "ALERT",

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftserverless.GetCredentials(ctx, &redshiftserverless.GetCredentialsArgs{
-//				WorkgroupName: aws_redshiftserverless_workgroup.Example.Workgroup_name,
+//				WorkgroupName: exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
 //			}, nil)
 //			if err != nil {
 //				return err

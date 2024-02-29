@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var wafrule = new Aws.Waf.RateBasedRule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         RateKey = "IP",
     ///         RateLimit = 100,
@@ -47,12 +49,6 @@ namespace Pulumi.Aws.Waf
     ///                 Negated = false,
     ///                 Type = "IPMatch",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
     ///         },
     ///     });
     /// 

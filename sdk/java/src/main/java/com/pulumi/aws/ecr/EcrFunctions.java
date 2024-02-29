@@ -276,8 +276,8 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
@@ -314,8 +314,8 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
@@ -352,8 +352,8 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
@@ -390,8 +390,8 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }

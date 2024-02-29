@@ -236,8 +236,8 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
+        my_archive = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="add-read-only-perm",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -250,7 +250,8 @@ class Vault(pulumi.CustomResource):
             ],
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
+        my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -258,7 +259,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=my_archive_policy_document.json,
+            access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
             })
@@ -297,8 +298,8 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
+        my_archive = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="add-read-only-perm",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -311,7 +312,8 @@ class Vault(pulumi.CustomResource):
             ],
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
+        my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -319,7 +321,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=my_archive_policy_document.json,
+            access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
             })

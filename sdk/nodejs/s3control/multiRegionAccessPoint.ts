@@ -19,14 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primaryRegion = new aws.Provider("primaryRegion", {region: "us-east-1"});
- * const secondaryRegion = new aws.Provider("secondaryRegion", {region: "us-west-2"});
- * const fooBucket = new aws.s3.BucketV2("fooBucket", {}, {
- *     provider: aws.primary_region,
- * });
- * const barBucket = new aws.s3.BucketV2("barBucket", {}, {
- *     provider: aws.secondary_region,
- * });
+ * const fooBucket = new aws.s3.BucketV2("foo_bucket", {bucket: "example-bucket-foo"});
+ * const barBucket = new aws.s3.BucketV2("bar_bucket", {bucket: "example-bucket-bar"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
  *     name: "example",
  *     regions: [

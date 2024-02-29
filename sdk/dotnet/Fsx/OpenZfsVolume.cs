@@ -25,7 +25,8 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OpenZfsVolume("test", new()
     ///     {
-    ///         ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
+    ///         Name = "testvolume",
+    ///         ParentVolumeId = testAwsFsxOpenzfsFileSystem.RootVolumeId,
     ///     });
     /// 
     /// });

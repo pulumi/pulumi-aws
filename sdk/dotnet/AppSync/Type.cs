@@ -22,14 +22,15 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleType = new Aws.AppSync.Type("exampleType", new()
+    ///     var exampleType = new Aws.AppSync.Type("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         Format = "SDL",
     ///         Definition = @"type Mutation
     /// 

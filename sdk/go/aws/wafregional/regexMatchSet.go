@@ -27,7 +27,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRegexPatternSet, err := wafregional.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &wafregional.RegexPatternSetArgs{
+//			exampleRegexPatternSet, err := wafregional.NewRegexPatternSet(ctx, "example", &wafregional.RegexPatternSetArgs{
+//				Name: pulumi.String("example"),
 //				RegexPatternStrings: pulumi.StringArray{
 //					pulumi.String("one"),
 //					pulumi.String("two"),
@@ -36,7 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = wafregional.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &wafregional.RegexMatchSetArgs{
+//			_, err = wafregional.NewRegexMatchSet(ctx, "example", &wafregional.RegexMatchSetArgs{
+//				Name: pulumi.String("example"),
 //				RegexMatchTuples: wafregional.RegexMatchSetRegexMatchTupleArray{
 //					&wafregional.RegexMatchSetRegexMatchTupleArgs{
 //						FieldToMatch: &wafregional.RegexMatchSetRegexMatchTupleFieldToMatchArgs{

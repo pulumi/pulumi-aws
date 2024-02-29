@@ -128,8 +128,8 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         sdk_type="android",
         parameters={
             "groupId": "example",
@@ -177,8 +177,8 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         sdk_type="android",
         parameters={
             "groupId": "example",

@@ -33,9 +33,9 @@ namespace Pulumi.Aws.Ses
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
+    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("example_amazonses_verification_record", new()
     ///     {
-    ///         ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
     ///         Type = "TXT",
     ///         Ttl = 600,
@@ -45,15 +45,9 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///     });
     /// 
-    ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("exampleVerification", new()
+    ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("example_verification", new()
     ///     {
     ///         Domain = example.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAmazonsesVerificationRecord,
-    ///         },
     ///     });
     /// 
     /// });

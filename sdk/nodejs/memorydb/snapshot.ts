@@ -18,7 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.memorydb.Snapshot("example", {clusterName: aws_memorydb_cluster.example.name});
+ * const example = new aws.memorydb.Snapshot("example", {
+ *     clusterName: exampleAwsMemorydbCluster.name,
+ *     name: "my-snapshot",
+ * });
  * ```
  *
  * ## Import

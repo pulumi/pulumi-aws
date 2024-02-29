@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupId: "example-primary",
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
@@ -31,11 +32,10 @@ import * as utilities from "../utilities";
  *     primaryReplicationGroupId: primary.id,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupId: "example-secondary",
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
  * });
  * ```
  * ### Managing Redis Engine Versions
@@ -57,6 +57,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupId: "example-primary",
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "6.0",
@@ -69,11 +70,10 @@ import * as utilities from "../utilities";
  *     engineVersion: "6.2",
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupId: "example-secondary",
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
  * });
  * ```
  *

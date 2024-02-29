@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizer({
- *     restApiId: aws_api_gateway_rest_api.example.id,
- *     authorizerId: data.aws_api_gateway_authorizers.example.ids[0],
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
+ *     authorizerId: exampleAwsApiGatewayAuthorizers.ids[0],
  * });
  * ```
  */
@@ -99,8 +99,8 @@ export interface GetAuthorizerResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizer({
- *     restApiId: aws_api_gateway_rest_api.example.id,
- *     authorizerId: data.aws_api_gateway_authorizers.example.ids[0],
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
+ *     authorizerId: exampleAwsApiGatewayAuthorizers.ids[0],
  * });
  * ```
  */

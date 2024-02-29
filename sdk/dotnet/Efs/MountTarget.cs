@@ -27,16 +27,16 @@ namespace Pulumi.Aws.Efs
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var alphaSubnet = new Aws.Ec2.Subnet("alphaSubnet", new()
+    ///     var alphaSubnet = new Aws.Ec2.Subnet("alpha", new()
     ///     {
     ///         VpcId = foo.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var alphaMountTarget = new Aws.Efs.MountTarget("alphaMountTarget", new()
+    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
     ///     {
-    ///         FileSystemId = aws_efs_file_system.Foo.Id,
+    ///         FileSystemId = fooAwsEfsFileSystem.Id,
     ///         SubnetId = alphaSubnet.Id,
     ///     });
     /// 

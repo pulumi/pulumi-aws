@@ -32,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
 //					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
-//						Destination: pulumi.Any(aws_sqs_queue.Example.Arn),
+//						Destination: pulumi.Any(exampleAwsSqsQueue.Arn),
 //					},
 //					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
-//						Destination: pulumi.Any(aws_sns_topic.Example.Arn),
+//						Destination: pulumi.Any(exampleAwsSnsTopic.Arn),
 //					},
 //				},
 //			})
@@ -65,7 +65,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName:             pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName:             pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				MaximumEventAgeInSeconds: pulumi.Int(60),
 //				MaximumRetryAttempts:     pulumi.Int(0),
 //			})
@@ -92,8 +92,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_alias.Example.Name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
+//				Qualifier:    pulumi.Any(exampleAwsLambdaAlias.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -118,7 +118,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				Qualifier:    pulumi.String("$LATEST"),
 //			})
 //			if err != nil {
@@ -144,8 +144,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_function.Example.Version),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:    pulumi.Any(exampleAwsLambdaFunction.Version),
 //			})
 //			if err != nil {
 //				return err

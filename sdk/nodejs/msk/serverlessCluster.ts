@@ -12,6 +12,28 @@ import * as utilities from "../utilities";
  *
  * > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.msk.ServerlessCluster("example", {
+ *     clusterName: "Example",
+ *     vpcConfigs: [{
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     }],
+ *     clientAuthentication: {
+ *         sasl: {
+ *             iam: {
+ *                 enabled: true,
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:

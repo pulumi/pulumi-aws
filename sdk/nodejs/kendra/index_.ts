@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
+ *     name: "example",
  *     description: "example",
  *     edition: "DEVELOPER_EDITION",
- *     roleArn: aws_iam_role["this"].arn,
+ *     roleArn: _this.arn,
  *     tags: {
  *         Key1: "Value1",
  *     },
@@ -33,8 +34,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
+ *     name: "example",
  *     edition: "DEVELOPER_EDITION",
- *     roleArn: aws_iam_role["this"].arn,
+ *     roleArn: _this.arn,
  *     capacityUnits: {
  *         queryCapacityUnits: 2,
  *         storageCapacityUnits: 2,
@@ -48,9 +50,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
+ *     name: "example",
+ *     roleArn: thisAwsIamRole.arn,
  *     serverSideEncryptionConfiguration: {
- *         kmsKeyId: data.aws_kms_key["this"].arn,
+ *         kmsKeyId: _this.arn,
  *     },
  * });
  * ```
@@ -61,7 +64,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
+ *     name: "example",
+ *     roleArn: _this.arn,
  *     userGroupResolutionConfiguration: {
  *         userGroupResolutionMode: "AWS_SSO",
  *     },
@@ -77,7 +81,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
+ *     name: "example",
+ *     roleArn: _this.arn,
  *     documentMetadataConfigurationUpdates: [
  *         {
  *             name: "_authors",
@@ -290,7 +295,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
+ *     name: "example",
+ *     roleArn: _this.arn,
  *     documentMetadataConfigurationUpdates: [
  *         {
  *             name: "_authors",
@@ -558,7 +564,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
+ *     name: "example",
+ *     roleArn: _this.arn,
  *     userTokenConfigurations: {
  *         jsonTokenTypeConfiguration: {
  *             groupAttributeField: "groups",

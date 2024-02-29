@@ -16,10 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("default", {
  *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  *     routes: [
  *         {
  *             host: "127.0.0.1",

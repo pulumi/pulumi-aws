@@ -218,16 +218,16 @@ class UserGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
+        test = aws.elasticache.User("test",
             user_id="testUserId",
             user_name="default",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
             passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
+        test_user_group = aws.elasticache.UserGroup("test",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
+            user_ids=[test.user_id])
         ```
 
         ## Import
@@ -262,16 +262,16 @@ class UserGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
+        test = aws.elasticache.User("test",
             user_id="testUserId",
             user_name="default",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
             passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
+        test_user_group = aws.elasticache.UserGroup("test",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
+            user_ids=[test.user_id])
         ```
 
         ## Import

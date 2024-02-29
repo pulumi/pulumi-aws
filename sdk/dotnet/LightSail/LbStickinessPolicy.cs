@@ -22,8 +22,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -32,9 +33,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLbStickinessPolicy = new Aws.LightSail.LbStickinessPolicy("testLbStickinessPolicy", new()
+    ///     var testLbStickinessPolicy = new Aws.LightSail.LbStickinessPolicy("test", new()
     ///     {
-    ///         LbName = testLb.Name,
+    ///         LbName = test.Name,
     ///         CookieDuration = 900,
     ///         Enabled = true,
     ///     });

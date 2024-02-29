@@ -24,8 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration, including potentially other tags ...
-    ///     var testGroup = new Aws.AutoScaling.Group("testGroup", new()
+    ///     var test = new Aws.AutoScaling.Group("test", new()
     ///     {
     ///         Tags = new[]
     ///         {
@@ -38,11 +37,12 @@ namespace Pulumi.Aws.Ecs
     ///         },
     ///     });
     /// 
-    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new()
+    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("test", new()
     ///     {
+    ///         Name = "test",
     ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///         {
-    ///             AutoScalingGroupArn = testGroup.Arn,
+    ///             AutoScalingGroupArn = test.Arn,
     ///             ManagedTerminationProtection = "ENABLED",
     ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///             {

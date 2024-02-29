@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
- *             .service(aws_ecs_service.example().id())
- *             .cluster(aws_ecs_cluster.example().id())
- *             .taskDefinition(aws_ecs_task_definition.example().arn())
+ *             .service(exampleAwsEcsService.id())
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
  *             .loadBalancers(TaskSetLoadBalancerArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.example().arn())
+ *                 .targetGroupArn(exampleAwsLbTargetGroup.arn())
  *                 .containerName(&#34;mongo&#34;)
  *                 .containerPort(8080)
  *                 .build())
@@ -67,7 +67,6 @@ import javax.annotation.Nullable;
  * ### Ignoring Changes to Scale
  * 
  * You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
- * 
  * ```java
  * package generated_program;
  * 
@@ -91,7 +90,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
- *             .lifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scale(TaskSetScaleArgs.builder()
  *                 .value(50)
  *                 .build())

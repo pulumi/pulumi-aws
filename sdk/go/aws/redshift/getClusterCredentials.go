@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.GetClusterCredentials(ctx, &redshift.GetClusterCredentialsArgs{
-//				ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
-//				DbUser:            aws_redshift_cluster.Example.Master_username,
+//				ClusterIdentifier: exampleAwsRedshiftCluster.ClusterIdentifier,
+//				DbUser:            exampleAwsRedshiftCluster.MasterUsername,
 //			}, nil)
 //			if err != nil {
 //				return err

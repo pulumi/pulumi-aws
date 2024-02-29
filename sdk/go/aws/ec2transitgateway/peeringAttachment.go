@@ -30,43 +30,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "local", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
+//			peer, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			peerRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			localTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "localTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			local, err := ec2transitgateway.NewTransitGateway(ctx, "local", &ec2transitgateway.TransitGatewayArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Local TGW"),
 //				},
-//			}, pulumi.Provider(aws.Local))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peerTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peer", &ec2transitgateway.TransitGatewayArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Peer TGW"),
 //				},
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
 //				PeerAccountId:        peerTransitGateway.OwnerId,
-//				PeerRegion:           *pulumi.String(peerRegion.Name),
+//				PeerRegion:           *pulumi.String(peer.Name),
 //				PeerTransitGatewayId: peerTransitGateway.ID(),
-//				TransitGatewayId:     localTransitGateway.ID(),
+//				TransitGatewayId:     local.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("TGW Peering Requestor"),
 //				},

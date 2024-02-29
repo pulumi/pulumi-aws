@@ -18,12 +18,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGateways = aws.ec2.getLocalGateways({
- *     tags: {
- *         service: "production",
- *     },
- * });
- * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGateways({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
  */
 export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewaysResult> {
@@ -80,12 +84,16 @@ export interface GetLocalGatewaysResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGateways = aws.ec2.getLocalGateways({
- *     tags: {
- *         service: "production",
- *     },
- * });
- * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGateways({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
  */
 export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewaysResult> {

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const test = new aws.fsx.OntapFileSystem("test", {
  *     storageCapacity: 1024,
  *     subnetIds: [
- *         aws_subnet.test1.id,
- *         aws_subnet.test2.id,
+ *         test1.id,
+ *         test2.id,
  *     ],
  *     deploymentType: "MULTI_AZ_1",
  *     throughputCapacity: 512,
- *     preferredSubnetId: aws_subnet.test1.id,
+ *     preferredSubnetId: test1.id,
  * });
  * ```
  *

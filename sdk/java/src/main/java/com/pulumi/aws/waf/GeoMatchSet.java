@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var geoMatchSet = new GeoMatchSet(&#34;geoMatchSet&#34;, GeoMatchSetArgs.builder()        
+ *             .name(&#34;geo_match_set&#34;)
  *             .geoMatchConstraints(            
  *                 GeoMatchSetGeoMatchConstraintArgs.builder()
  *                     .type(&#34;Country&#34;)

@@ -207,8 +207,8 @@ class AuthorizationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.AuthorizationRule("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            target_network_cidr=aws_subnet["example"]["cidr_block"],
+            client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
+            target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
 
@@ -254,8 +254,8 @@ class AuthorizationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.AuthorizationRule("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            target_network_cidr=aws_subnet["example"]["cidr_block"],
+            client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
+            target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
 

@@ -1353,14 +1353,18 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
         lambda_ = archive.get_file(type="zip",
             source_file="lambda.js",
             output_path="lambda_function_payload.zip")
-        test_lambda = aws.lambda_.Function("testLambda",
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
+            source_code_hash=lambda_.output_base64sha256,
             runtime="nodejs18.x",
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
@@ -1374,9 +1378,8 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
-        # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        example = aws.lambda_.LayerVersion("example")
+        example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
         ### Lambda Ephemeral Storage
 
@@ -1394,9 +1397,12 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
             runtime="nodejs18.x",
@@ -1413,16 +1419,11 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # EFS file system
-        efs_for_lambda = aws.efs.FileSystem("efsForLambda", tags={
+        efs_for_lambda = aws.efs.FileSystem("efs_for_lambda", tags={
             "Name": "efs_for_lambda",
         })
-        # Mount target connects the file system to the subnet
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=efs_for_lambda.id,
-            subnet_id=aws_subnet["subnet_for_lambda"]["id"],
-            security_groups=[aws_security_group["sg_for_lambda"]["id"]])
         # EFS access point used by lambda file system
-        access_point_for_lambda = aws.efs.AccessPoint("accessPointForLambda",
+        access_point_for_lambda = aws.efs.AccessPoint("access_point_for_lambda",
             file_system_id=efs_for_lambda.id,
             root_directory=aws.efs.AccessPointRootDirectoryArgs(
                 path="/lambda",
@@ -1437,17 +1438,20 @@ class Function(pulumi.CustomResource):
                 uid=1000,
             ))
         # A lambda function connected to an EFS file system
-        # ... other configuration ...
         example = aws.lambda_.Function("example",
             file_system_config=aws.lambda_.FunctionFileSystemConfigArgs(
                 arn=access_point_for_lambda.arn,
                 local_mount_path="/mnt/efs",
             ),
             vpc_config=aws.lambda_.FunctionVpcConfigArgs(
-                subnet_ids=[aws_subnet["subnet_for_lambda"]["id"]],
-                security_group_ids=[aws_security_group["sg_for_lambda"]["id"]],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+                subnet_ids=[subnet_for_lambda["id"]],
+                security_group_ids=[sg_for_lambda["id"]],
+            ))
+        # Mount target connects the file system to the subnet
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=efs_for_lambda.id,
+            subnet_id=subnet_for_lambda["id"],
+            security_groups=[sg_for_lambda["id"]])
         ```
         ### Lambda retries
 
@@ -1464,10 +1468,18 @@ class Function(pulumi.CustomResource):
         lambda_function_name = config.get("lambdaFunctionName")
         if lambda_function_name is None:
             lambda_function_name = "lambda_function_name"
+        test_lambda = aws.lambda_.Function("test_lambda",
+            name=lambda_function_name,
+            logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+                log_format="Text",
+            ))
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-        example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/lambda/{lambda_function_name}",
+            retention_in_days=14)
+        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+        lambda_logging = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -1476,20 +1488,14 @@ class Function(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*:*:*"],
         )])
-        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+        lambda_logging_policy = aws.iam.Policy("lambda_logging",
+            name="lambda_logging",
             path="/",
             description="IAM policy for logging from a lambda",
-            policy=lambda_logging_policy_document.json)
-        lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            policy=lambda_logging.json)
+        lambda_logs = aws.iam.RolePolicyAttachment("lambda_logs",
+            role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", logging_config=aws.lambda_.FunctionLoggingConfigArgs(
-            log_format="Text",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[
-                lambda_logs,
-                example,
-            ]))
         ```
         ## Specifying the Deployment Package
 
@@ -1578,14 +1584,18 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
         lambda_ = archive.get_file(type="zip",
             source_file="lambda.js",
             output_path="lambda_function_payload.zip")
-        test_lambda = aws.lambda_.Function("testLambda",
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
+            source_code_hash=lambda_.output_base64sha256,
             runtime="nodejs18.x",
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
@@ -1599,9 +1609,8 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
-        # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        example = aws.lambda_.LayerVersion("example")
+        example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
         ### Lambda Ephemeral Storage
 
@@ -1619,9 +1628,12 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
             runtime="nodejs18.x",
@@ -1638,16 +1650,11 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # EFS file system
-        efs_for_lambda = aws.efs.FileSystem("efsForLambda", tags={
+        efs_for_lambda = aws.efs.FileSystem("efs_for_lambda", tags={
             "Name": "efs_for_lambda",
         })
-        # Mount target connects the file system to the subnet
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=efs_for_lambda.id,
-            subnet_id=aws_subnet["subnet_for_lambda"]["id"],
-            security_groups=[aws_security_group["sg_for_lambda"]["id"]])
         # EFS access point used by lambda file system
-        access_point_for_lambda = aws.efs.AccessPoint("accessPointForLambda",
+        access_point_for_lambda = aws.efs.AccessPoint("access_point_for_lambda",
             file_system_id=efs_for_lambda.id,
             root_directory=aws.efs.AccessPointRootDirectoryArgs(
                 path="/lambda",
@@ -1662,17 +1669,20 @@ class Function(pulumi.CustomResource):
                 uid=1000,
             ))
         # A lambda function connected to an EFS file system
-        # ... other configuration ...
         example = aws.lambda_.Function("example",
             file_system_config=aws.lambda_.FunctionFileSystemConfigArgs(
                 arn=access_point_for_lambda.arn,
                 local_mount_path="/mnt/efs",
             ),
             vpc_config=aws.lambda_.FunctionVpcConfigArgs(
-                subnet_ids=[aws_subnet["subnet_for_lambda"]["id"]],
-                security_group_ids=[aws_security_group["sg_for_lambda"]["id"]],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+                subnet_ids=[subnet_for_lambda["id"]],
+                security_group_ids=[sg_for_lambda["id"]],
+            ))
+        # Mount target connects the file system to the subnet
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=efs_for_lambda.id,
+            subnet_id=subnet_for_lambda["id"],
+            security_groups=[sg_for_lambda["id"]])
         ```
         ### Lambda retries
 
@@ -1689,10 +1699,18 @@ class Function(pulumi.CustomResource):
         lambda_function_name = config.get("lambdaFunctionName")
         if lambda_function_name is None:
             lambda_function_name = "lambda_function_name"
+        test_lambda = aws.lambda_.Function("test_lambda",
+            name=lambda_function_name,
+            logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+                log_format="Text",
+            ))
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-        example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/lambda/{lambda_function_name}",
+            retention_in_days=14)
+        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+        lambda_logging = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -1701,20 +1719,14 @@ class Function(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*:*:*"],
         )])
-        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+        lambda_logging_policy = aws.iam.Policy("lambda_logging",
+            name="lambda_logging",
             path="/",
             description="IAM policy for logging from a lambda",
-            policy=lambda_logging_policy_document.json)
-        lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            policy=lambda_logging.json)
+        lambda_logs = aws.iam.RolePolicyAttachment("lambda_logs",
+            role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", logging_config=aws.lambda_.FunctionLoggingConfigArgs(
-            log_format="Text",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[
-                lambda_logs,
-                example,
-            ]))
         ```
         ## Specifying the Deployment Package
 

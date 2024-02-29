@@ -24,8 +24,8 @@ namespace Pulumi.Aws.CodeCommit
     /// {
     ///     var test = new Aws.CodeCommit.Repository("test", new()
     ///     {
-    ///         Description = "This is the Sample App Repository",
     ///         RepositoryName = "MyTestRepository",
+    ///         Description = "This is the Sample App Repository",
     ///     });
     /// 
     /// });
@@ -40,13 +40,13 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testKey = new Aws.Kms.Key("testKey", new()
+    ///     var testKey = new Aws.Kms.Key("test", new()
     ///     {
     ///         Description = "test",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var testRepository = new Aws.CodeCommit.Repository("testRepository", new()
+    ///     var test = new Aws.CodeCommit.Repository("test", new()
     ///     {
     ///         RepositoryName = "MyTestRepository",
     ///         Description = "This is the Sample App Repository",

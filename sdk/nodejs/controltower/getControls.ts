@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisOrganization = aws.organizations.getOrganization({});
- * const thisOrganizationalUnits = thisOrganization.then(thisOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: thisOrganization.roots?.[0]?.id,
+ * const this = aws.organizations.getOrganization({});
+ * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
+ *     parentId: _this.roots?.[0]?.id,
  * }));
- * const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits => aws.controltower.getControls({
+ * const thisGetControls = thisGetOrganizationalUnits.then(thisGetOrganizationalUnits => aws.controltower.getControls({
  *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
  * }));
  * ```
@@ -63,11 +63,11 @@ export interface GetControlsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisOrganization = aws.organizations.getOrganization({});
- * const thisOrganizationalUnits = thisOrganization.then(thisOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: thisOrganization.roots?.[0]?.id,
+ * const this = aws.organizations.getOrganization({});
+ * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
+ *     parentId: _this.roots?.[0]?.id,
  * }));
- * const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits => aws.controltower.getControls({
+ * const thisGetControls = thisGetOrganizationalUnits.then(thisGetOrganizationalUnits => aws.controltower.getControls({
  *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
  * }));
  * ```

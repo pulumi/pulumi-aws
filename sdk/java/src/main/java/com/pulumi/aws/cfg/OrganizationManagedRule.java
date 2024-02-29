@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationManagedRule;
  * import com.pulumi.aws.cfg.OrganizationManagedRuleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,16 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
  *             .featureSet(&#34;ALL&#34;)
  *             .build());
  * 
  *         var exampleOrganizationManagedRule = new OrganizationManagedRule(&#34;exampleOrganizationManagedRule&#34;, OrganizationManagedRuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleIdentifier(&#34;IAM_PASSWORD_POLICY&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

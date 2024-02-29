@@ -21,7 +21,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -30,11 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "alternate", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.6.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
@@ -42,35 +37,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", &route53.ZoneArgs{
+//			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
-//						VpcId: exampleVpc.ID(),
+//						VpcId: example.ID(),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			alternateVpc, err := ec2.NewVpc(ctx, "alternateVpc", &ec2.VpcArgs{
+//			alternate, err := ec2.NewVpc(ctx, "alternate", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.7.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53.VpcAssociationAuthorizationArgs{
-//				VpcId:  alternateVpc.ID(),
+//			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "example", &route53.VpcAssociationAuthorizationArgs{
+//				VpcId:  alternate.ID(),
 //				ZoneId: exampleZone.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
+//			_, err = route53.NewZoneAssociation(ctx, "example", &route53.ZoneAssociationArgs{
 //				VpcId:  exampleVpcAssociationAuthorization.VpcId,
 //				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}

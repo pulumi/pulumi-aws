@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
+    ///     var testSp = new Aws.Signer.SigningProfile("test_sp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///     });
     /// 
-    ///     var buildSigningJob = new Aws.Signer.SigningJob("buildSigningJob", new()
+    ///     var buildSigningJob = new Aws.Signer.SigningJob("build_signing_job", new()
     ///     {
     ///         ProfileName = testSp.Name,
     ///         Source = new Aws.Signer.Inputs.SigningJobSourceArgs

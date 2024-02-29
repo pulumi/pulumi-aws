@@ -16,6 +16,38 @@ import (
 // invocation type.
 //
 // > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.LookupInvocation(ctx, &lambda.LookupInvocationArgs{
+//				FunctionName: lambdaFunctionTest.FunctionName,
+//				Input:        "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\"\n}\n",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("resultEntry", notImplemented("jsondecode(data.aws_lambda_invocation.example.result)").Key1)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInvocationResult

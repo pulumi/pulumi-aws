@@ -33,7 +33,7 @@ import (
 //				KeyName:       pulumi.String("test-key"),
 //				KeyRole:       pulumi.String("VIEWER"),
 //				SecondsToLive: pulumi.Int(3600),
-//				WorkspaceId:   pulumi.Any(aws_grafana_workspace.Test.Id),
+//				WorkspaceId:   pulumi.Any(test.Id),
 //			})
 //			if err != nil {
 //				return err

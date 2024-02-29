@@ -43,16 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repositoryName(&#34;test&#34;)
  *             .build());
  * 
  *         var testTrigger = new Trigger(&#34;testTrigger&#34;, TriggerArgs.builder()        
- *             .repositoryName(testRepository.repositoryName())
+ *             .repositoryName(test.repositoryName())
  *             .triggers(TriggerTriggerArgs.builder()
  *                 .name(&#34;all&#34;)
  *                 .events(&#34;all&#34;)
- *                 .destinationArn(aws_sns_topic.test().arn())
+ *                 .destinationArn(testAwsSnsTopic.arn())
  *                 .build())
  *             .build());
  * 

@@ -51,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
@@ -63,7 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewModel(ctx, "exampleModel", &sagemaker.ModelArgs{
+//			_, err = sagemaker.NewModel(ctx, "example", &sagemaker.ModelArgs{
+//				Name:             pulumi.String("my-model"),
 //				ExecutionRoleArn: exampleRole.Arn,
 //				PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
 //					Image: *pulumi.String(test.RegistryPath),

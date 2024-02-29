@@ -29,18 +29,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.route53.Zone;
  * import com.pulumi.aws.route53.QueryLog;
  * import com.pulumi.aws.route53.QueryLogArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,17 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us_east_1 = new Provider(&#34;us-east-1&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
+ *         var exampleCom = new Zone(&#34;exampleCom&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
  *             .build());
  * 
  *         var awsRoute53ExampleCom = new LogGroup(&#34;awsRoute53ExampleCom&#34;, LogGroupArgs.builder()        
+ *             .name(exampleCom.name().applyValue(name -&gt; String.format(&#34;/aws/route53/%s&#34;, name)))
  *             .retentionInDays(30)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
+ *             .build());
  * 
- *         final var route53-query-logging-policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
@@ -78,20 +75,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy(&#34;route53-query-logging-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(route53_query_logging_policyPolicyDocument.json())
+ *             .policyDocument(route53_query_logging_policy.json())
  *             .policyName(&#34;route53-query-logging-policy&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
- * 
- *         var exampleComZone = new Zone(&#34;exampleComZone&#34;);
+ *             .build());
  * 
  *         var exampleComQueryLog = new QueryLog(&#34;exampleComQueryLog&#34;, QueryLogArgs.builder()        
  *             .cloudwatchLogGroupArn(awsRoute53ExampleCom.arn())
- *             .zoneId(exampleComZone.zoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(route53_query_logging_policyLogResourcePolicy)
- *                 .build());
+ *             .zoneId(exampleCom.zoneId())
+ *             .build());
  * 
  *     }
  * }

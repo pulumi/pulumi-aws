@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
+//				Name:         pulumi.String("My App Portfolio"),
 //				Description:  pulumi.String("List of my organizations apps"),
 //				ProviderName: pulumi.String("Brett"),
 //			})

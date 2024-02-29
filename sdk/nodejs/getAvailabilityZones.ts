@@ -24,13 +24,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
+ * // e.g., Create subnets in the first two available availability zones
  * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
- * // ...
  * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
- * // ...
  * ```
  * ### By Filter
  *
@@ -151,13 +151,13 @@ export interface GetAvailabilityZonesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
+ * // e.g., Create subnets in the first two available availability zones
  * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
- * // ...
  * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
- * // ...
  * ```
  * ### By Filter
  *

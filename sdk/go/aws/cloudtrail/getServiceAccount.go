@@ -38,12 +38,13 @@ import (
 // return err
 // }
 // bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// Bucket: pulumi.String("tf-cloudtrail-logging-test-bucket"),
 // ForceDestroy: pulumi.Bool(true),
 // })
 // if err != nil {
 // return err
 // }
-// allowCloudtrailLoggingPolicyDocument := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// allowCloudtrailLogging := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // bucketArn := _args[0].(string)
 // bucketArn1 := _args[1].(string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
@@ -87,10 +88,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allowCloudtrailLoggingBucketPolicy", &s3.BucketPolicyArgs{
+// _, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
 // Bucket: bucket.ID(),
-// Policy: allowCloudtrailLoggingPolicyDocument.ApplyT(func(allowCloudtrailLoggingPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowCloudtrailLoggingPolicyDocument.Json, nil
+// Policy: allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowCloudtrailLogging.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {

@@ -46,16 +46,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-application-tf&#34;)
  *             .description(&#34;Example AppConfig Application&#34;)
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Application&#34;))
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;example-environment-tf&#34;)
  *             .description(&#34;Example AppConfig Environment&#34;)
  *             .applicationId(exampleApplication.id())
  *             .monitors(EnvironmentMonitorArgs.builder()
- *                 .alarmArn(aws_cloudwatch_metric_alarm.example().arn())
- *                 .alarmRoleArn(aws_iam_role.example().arn())
+ *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
+ *                 .alarmRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Environment&#34;))
  *             .build());

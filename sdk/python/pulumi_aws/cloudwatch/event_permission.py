@@ -216,7 +216,7 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+        dev_account_access = aws.cloudwatch.EventPermission("DevAccountAccess",
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
@@ -226,13 +226,13 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+        organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
+                value=example["id"],
             ))
         ```
 
@@ -273,7 +273,7 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+        dev_account_access = aws.cloudwatch.EventPermission("DevAccountAccess",
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
@@ -283,13 +283,13 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+        organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
+                value=example["id"],
             ))
         ```
 

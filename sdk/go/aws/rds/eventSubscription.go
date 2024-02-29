@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
+//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:   pulumi.Int(10),
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
@@ -43,15 +43,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			defaultTopic, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//				Name: pulumi.String("rds-events"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
+//			_, err = rds.NewEventSubscription(ctx, "default", &rds.EventSubscriptionArgs{
+//				Name:       pulumi.String("rds-event-sub"),
 //				SnsTopic:   defaultTopic.Arn,
 //				SourceType: pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
-//					defaultInstance.Identifier,
+//					_default.Identifier,
 //				},
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("availability"),

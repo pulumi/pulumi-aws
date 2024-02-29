@@ -88,7 +88,7 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
     ```
 
 
@@ -118,7 +118,7 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
     ```
 
 

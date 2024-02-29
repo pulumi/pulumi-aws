@@ -30,25 +30,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
+//				Name:           pulumi.String("example"),
 //				GenerateSecret: pulumi.Bool(true),
 //				UserPoolId:     exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example"),
 //				UserPoolId: exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewWorkforce(ctx, "exampleWorkforce", &sagemaker.WorkforceArgs{
+//			_, err = sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
 //				WorkforceName: pulumi.String("example"),
 //				CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
 //					ClientId: exampleUserPoolClient.ID(),
@@ -78,6 +81,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
+//				WorkforceName: pulumi.String("example"),
 //				OidcConfig: &sagemaker.WorkforceOidcConfigArgs{
 //					AuthorizationEndpoint: pulumi.String("https://example.com"),
 //					ClientId:              pulumi.String("example"),
@@ -88,7 +92,6 @@ import (
 //					TokenEndpoint:         pulumi.String("https://example.com"),
 //					UserInfoEndpoint:      pulumi.String("https://example.com"),
 //				},
-//				WorkforceName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

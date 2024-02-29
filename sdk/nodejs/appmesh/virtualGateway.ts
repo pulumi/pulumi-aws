@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appmesh.VirtualGateway("example", {
+ *     name: "example-virtual-gateway",
  *     meshName: "example-service-mesh",
  *     spec: {
  *         listeners: [{
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appmesh.VirtualGateway("example", {
+ *     name: "example-virtual-gateway",
  *     meshName: "example-service-mesh",
  *     spec: {
  *         listeners: [{
@@ -49,7 +51,7 @@ import * as utilities from "../utilities";
  *             tls: {
  *                 certificate: {
  *                     acm: {
- *                         certificateArn: aws_acm_certificate.example.arn,
+ *                         certificateArn: exampleAwsAcmCertificate.arn,
  *                     },
  *                 },
  *                 mode: "STRICT",

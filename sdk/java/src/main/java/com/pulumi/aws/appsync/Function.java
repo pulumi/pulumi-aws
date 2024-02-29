@@ -47,8 +47,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;example&#34;)
  *             .schema(&#34;&#34;&#34;
  * type Mutation {
  *   putPost(id: ID!, title: String!): Post
@@ -71,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
+ *             .apiId(example.id())
  *             .name(&#34;example&#34;)
  *             .type(&#34;HTTP&#34;)
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunction = new Function(&#34;exampleFunction&#34;, FunctionArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
+ *             .apiId(example.id())
  *             .dataSource(exampleDataSource.name())
  *             .name(&#34;example&#34;)
  *             .requestMappingTemplate(&#34;&#34;&#34;
@@ -129,10 +130,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
- *             .apiId(aws_appsync_graphql_api.example().id())
- *             .dataSource(aws_appsync_datasource.example().name())
+ *             .apiId(exampleAwsAppsyncGraphqlApi.id())
+ *             .dataSource(exampleAwsAppsyncDatasource.name())
  *             .name(&#34;example&#34;)
- *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .code(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;some-code-dir&#34;)
+ *                 .build()).result())
  *             .runtime(FunctionRuntimeArgs.builder()
  *                 .name(&#34;APPSYNC_JS&#34;)
  *                 .runtimeVersion(&#34;1.0.0&#34;)

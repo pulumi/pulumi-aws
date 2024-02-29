@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Schema("example", {
  *     schemaName: "example",
- *     registryArn: aws_glue_registry.test.arn,
+ *     registryArn: test.arn,
  *     dataFormat: "AVRO",
  *     compatibility: "NONE",
  *     schemaDefinition: "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",

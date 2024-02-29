@@ -27,13 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleIndex, err := resourceexplorer.NewIndex(ctx, "exampleIndex", &resourceexplorer.IndexArgs{
+//			_, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
 //				Type: pulumi.String("LOCAL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = resourceexplorer.NewView(ctx, "exampleView", &resourceexplorer.ViewArgs{
+//			_, err = resourceexplorer.NewView(ctx, "example", &resourceexplorer.ViewArgs{
+//				Name: pulumi.String("exampleview"),
 //				Filters: &resourceexplorer.ViewFiltersArgs{
 //					FilterString: pulumi.String("resourcetype:ec2:instance"),
 //				},
@@ -42,9 +43,7 @@ import (
 //						Name: pulumi.String("tags"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleIndex,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

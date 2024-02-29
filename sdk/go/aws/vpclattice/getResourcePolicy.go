@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.LookupResourcePolicy(ctx, &vpclattice.LookupResourcePolicyArgs{
-//				ResourceArn: aws_vpclattice_service_network.Example.Arn,
+//				ResourceArn: exampleAwsVpclatticeServiceNetwork.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err

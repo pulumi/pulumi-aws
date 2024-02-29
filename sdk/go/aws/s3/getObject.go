@@ -82,11 +82,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
 //				S3Bucket:        *pulumi.String(lambda.Bucket),
 //				S3Key:           *pulumi.String(lambda.Key),
 //				S3ObjectVersion: *pulumi.String(lambda.VersionId),
-//				Role:            pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
+//				Name:            pulumi.String("lambda_function_name"),
+//				Role:            pulumi.Any(iamForLambda.Arn),
 //				Handler:         pulumi.String("exports.test"),
 //			})
 //			if err != nil {

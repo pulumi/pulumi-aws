@@ -59,15 +59,15 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
     ///         EmailIdentityDetails = "example.com",
-    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         ConfigurationSetName = example.ConfigurationSetName,
     ///     });
     /// 
     /// });
@@ -84,12 +84,12 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
+    ///         EmailIdentityDetails = "example.com",
     ///         DkimSigningAttributes = new Aws.SesV2.Inputs.EmailIdentityDkimSigningAttributesArgs
     ///         {
     ///             DomainSigningPrivateKey = "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
     ///             DomainSigningSelector = "example",
     ///         },
-    ///         EmailIdentityDetails = "example.com",
     ///     });
     /// 
     /// });

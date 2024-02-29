@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
+//				Name:     pulumi.String("mytestbucket"),
 //				BundleId: pulumi.String("small_1_0"),
 //			})
 //			if err != nil {

@@ -555,13 +555,13 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             manifest=\"\"\"  {
         	"databaseInstallationFileNames":["V982063-01.zip"]
           }
@@ -575,24 +575,18 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
-        import hashlib
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        def computeFilebase64sha256(path):
-        	fileData = open(path).read().encode()
-        	hashedData = hashlib.sha256(fileData.encode()).digest()
-        	return base64.b64encode(hashedData).decode()
-
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             filename="manifest_1915_GI.json",
-            manifest_hash=computeFilebase64sha256(manifest_1915__gi["json"]),
+            manifest_hash=std.filebase64sha256(input=json).result,
             tags={
                 "Name": "example",
                 "Key": "value",
@@ -617,6 +611,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="sqlserver-se-2019-15.00.4249.2",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-east-1")
@@ -666,13 +661,13 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             manifest=\"\"\"  {
         	"databaseInstallationFileNames":["V982063-01.zip"]
           }
@@ -686,24 +681,18 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
-        import hashlib
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        def computeFilebase64sha256(path):
-        	fileData = open(path).read().encode()
-        	hashedData = hashlib.sha256(fileData.encode()).digest()
-        	return base64.b64encode(hashedData).decode()
-
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             filename="manifest_1915_GI.json",
-            manifest_hash=computeFilebase64sha256(manifest_1915__gi["json"]),
+            manifest_hash=std.filebase64sha256(input=json).result,
             tags={
                 "Name": "example",
                 "Key": "value",
@@ -728,6 +717,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="sqlserver-se-2019-15.00.4249.2",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-east-1")

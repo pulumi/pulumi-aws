@@ -62,10 +62,10 @@ import (
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
 //				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					FileSystemConfig: nil,
 //					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
 //						Name: pulumi.String("example"),
 //					},
+//					FileSystemConfig: nil,
 //				},
 //			})
 //			if err != nil {

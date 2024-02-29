@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.connect.UserHierarchyGroup("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
  *     tags: {
  *         Name: "Example User Hierarchy Group",
  *     },
@@ -35,12 +36,14 @@ import * as utilities from "../utilities";
  *
  * const parent = new aws.connect.UserHierarchyGroup("parent", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "parent",
  *     tags: {
  *         Name: "Example User Hierarchy Group Parent",
  *     },
  * });
  * const child = new aws.connect.UserHierarchyGroup("child", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "child",
  *     parentGroupId: parent.hierarchyGroupId,
  *     tags: {
  *         Name: "Example User Hierarchy Group Child",

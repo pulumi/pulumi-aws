@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResolverRuleAssociation(&#34;example&#34;, ResolverRuleAssociationArgs.builder()        
- *             .resolverRuleId(aws_route53_resolver_rule.sys().id())
- *             .vpcId(aws_vpc.foo().id())
+ *             .resolverRuleId(sys.id())
+ *             .vpcId(foo.id())
  *             .build());
  * 
  *     }

@@ -23,35 +23,37 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lb = new Aws.Iam.User("lb", new()
     ///     {
+    ///         Name = "loadbalancer",
     ///         Path = "/system/",
     ///     });
     /// 
-    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     var lbRo = new Aws.Iam.UserPolicy("lb_ro", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         Name = "test",
+    ///         User = lb.Name,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lb", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         User = lb.Name,
     ///     });
     /// 
     /// });

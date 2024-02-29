@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
@@ -93,6 +94,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Resource;
  * import com.pulumi.aws.apigateway.ResourceArgs;
  * import com.pulumi.aws.apigateway.Method;
@@ -124,7 +126,9 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var myregion = config.get(&#34;myregion&#34;);
  *         final var accountId = config.get(&#34;accountId&#34;);
- *         var api = new RestApi(&#34;api&#34;);
+ *         var api = new RestApi(&#34;api&#34;, RestApiArgs.builder()        
+ *             .name(&#34;myapi&#34;)
+ *             .build());
  * 
  *         var resource = new Resource(&#34;resource&#34;, ResourceArgs.builder()        
  *             .pathPart(&#34;resource&#34;)
@@ -151,14 +155,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;myrole&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var lambda = new Function(&#34;lambda&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;lambda.zip&#34;))
+ *             .name(&#34;mylambda&#34;)
  *             .role(role.arn())
  *             .handler(&#34;lambda.lambda_handler&#34;)
  *             .runtime(&#34;python3.7&#34;)
+ *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input(&#34;lambda.zip&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var integration = new Integration(&#34;integration&#34;, IntegrationArgs.builder()        
@@ -171,6 +180,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var apigwLambda = new Permission(&#34;apigwLambda&#34;, PermissionArgs.builder()        
+ *             .statementId(&#34;AllowExecutionFromAPIGateway&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(lambda.name())
  *             .principal(&#34;apigateway.amazonaws.com&#34;)
@@ -187,7 +197,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  * ## VPC Link
- * 
  * ```java
  * package generated_program;
  * 
@@ -199,6 +208,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.VpcLink;
  * import com.pulumi.aws.apigateway.VpcLinkArgs;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Resource;
  * import com.pulumi.aws.apigateway.ResourceArgs;
  * import com.pulumi.aws.apigateway.Method;
@@ -221,17 +231,21 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var name = config.get(&#34;name&#34;);
  *         final var subnetId = config.get(&#34;subnetId&#34;);
- *         var testLoadBalancer = new LoadBalancer(&#34;testLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var test = new LoadBalancer(&#34;test&#34;, LoadBalancerArgs.builder()        
+ *             .name(name)
  *             .internal(true)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnets(subnetId)
  *             .build());
  * 
  *         var testVpcLink = new VpcLink(&#34;testVpcLink&#34;, VpcLinkArgs.builder()        
- *             .targetArn(testLoadBalancer.arn())
+ *             .name(name)
+ *             .targetArn(test.arn())
  *             .build());
  * 
- *         var testRestApi = new RestApi(&#34;testRestApi&#34;);
+ *         var testRestApi = new RestApi(&#34;testRestApi&#34;, RestApiArgs.builder()        
+ *             .name(name)
+ *             .build());
  * 
  *         var testResource = new Resource(&#34;testResource&#34;, ResourceArgs.builder()        
  *             .restApi(testRestApi.id())

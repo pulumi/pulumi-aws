@@ -17,19 +17,22 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.Kms.CustomKeyStore("test", new()
     ///     {
-    ///         CloudHsmClusterId = @var.Cloud_hsm_cluster_id,
+    ///         CloudHsmClusterId = cloudHsmClusterId,
     ///         CustomKeyStoreName = "kms-custom-key-store-test",
     ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = File.ReadAllText("anchor-certificate.crt"),
+    ///         TrustAnchorCertificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "anchor-certificate.crt",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

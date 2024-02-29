@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
  *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [{
- *         maxRange: 22,
  *         minRange: 22,
+ *         maxRange: 22,
  *     }],
  * });
  * ```
@@ -49,12 +49,12 @@ import * as utilities from "../utilities";
  *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [
  *         {
- *             maxRange: 22,
  *             minRange: 22,
+ *             maxRange: 22,
  *         },
  *         {
- *             maxRange: 101,
  *             minRange: 100,
+ *             maxRange: 101,
  *         },
  *     ],
  * });

@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .assetType(&#34;S3_SNAPSHOT&#34;)
  *             .description(&#34;example&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

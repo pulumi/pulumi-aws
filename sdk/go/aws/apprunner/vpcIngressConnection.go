@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewVpcIngressConnection(ctx, "example", &apprunner.VpcIngressConnectionArgs{
-//				ServiceArn: pulumi.Any(aws_apprunner_service.Example.Arn),
+//				Name:       pulumi.String("example"),
+//				ServiceArn: pulumi.Any(exampleAwsApprunnerService.Arn),
 //				IngressVpcConfiguration: &apprunner.VpcIngressConnectionIngressVpcConfigurationArgs{
-//					VpcId:         pulumi.Any(aws_default_vpc.Default.Id),
-//					VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Apprunner.Id),
+//					VpcId:         pulumi.Any(_default.Id),
+//					VpcEndpointId: pulumi.Any(apprunner.Id),
 //				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),

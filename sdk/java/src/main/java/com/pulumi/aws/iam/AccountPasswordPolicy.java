@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var strict = new AccountPasswordPolicy(&#34;strict&#34;, AccountPasswordPolicyArgs.builder()        
- *             .allowUsersToChangePassword(true)
  *             .minimumPasswordLength(8)
  *             .requireLowercaseCharacters(true)
  *             .requireNumbers(true)
- *             .requireSymbols(true)
  *             .requireUppercaseCharacters(true)
+ *             .requireSymbols(true)
+ *             .allowUsersToChangePassword(true)
  *             .build());
  * 
  *     }

@@ -35,14 +35,14 @@ namespace Pulumi.Aws.DirectoryService
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet("bar", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
@@ -86,14 +86,14 @@ namespace Pulumi.Aws.DirectoryService
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet("bar", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",

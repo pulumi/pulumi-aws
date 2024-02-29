@@ -231,11 +231,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.get_connection(name="tf-dx-connection")
-        example_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
+        example = aws.directconnect.get_connection(name="tf-dx-connection")
+        example_get_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
         test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example_connection.id,
-            secret_arn=example_secret.arn)
+            connection_id=example.id,
+            secret_arn=example_get_secret.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,11 +280,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.get_connection(name="tf-dx-connection")
-        example_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
+        example = aws.directconnect.get_connection(name="tf-dx-connection")
+        example_get_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
         test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example_connection.id,
-            secret_arn=example_secret.arn)
+            connection_id=example.id,
+            secret_arn=example_get_secret.arn)
         ```
 
         :param str resource_name: The name of the resource.

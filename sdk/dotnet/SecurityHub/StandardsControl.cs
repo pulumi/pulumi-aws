@@ -28,28 +28,16 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cisAwsFoundationsBenchmark", new()
+    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cis_aws_foundations_benchmark", new()
     ///     {
     ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
     ///     });
     /// 
-    ///     var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", new()
+    ///     var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse", new()
     ///     {
     ///         StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
     ///         ControlStatus = "DISABLED",
     ///         DisabledReason = "We handle password policies within Okta",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             cisAwsFoundationsBenchmark,
-    ///         },
     ///     });
     /// 
     /// });

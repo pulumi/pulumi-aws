@@ -30,18 +30,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
+//			_, err = rds.NewCustomDbEngineVersion(ctx, "example", &rds.CustomDbEngineVersionArgs{
 //				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
 //				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
 //				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
+//				KmsKeyId:                              example.Arn,
 //				Manifest:                              pulumi.String("  {\n	\"databaseInstallationFileNames\":[\"V982063-01.zip\"]\n  }\n"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -63,40 +63,35 @@ import (
 //
 // import (
 //
-//	"crypto/sha256"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64sha256OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			hashedData := sha256.Sum256([]byte(fileData))
-//			return base64.StdEncoding.EncodeToString(hashedData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
+//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
+//				Input: json,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewCustomDbEngineVersion(ctx, "example", &rds.CustomDbEngineVersionArgs{
 //				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
 //				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
 //				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
+//				KmsKeyId:                              example.Arn,
 //				Filename:                              pulumi.String("manifest_1915_GI.json"),
-//				ManifestHash:                          filebase64sha256OrPanic(manifest_1915_GI.Json),
+//				ManifestHash:                          invokeFilebase64sha256.Result,
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //					"Key":  pulumi.String("value"),
@@ -154,6 +149,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
+//				Name:            pulumi.String("sqlserver-se-2019-15.00.4249.2"),
 //				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
 //				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
 //				SourceAmiRegion: pulumi.String("us-east-1"),

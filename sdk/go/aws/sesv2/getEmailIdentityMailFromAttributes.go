@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.LookupEmailIdentity(ctx, &sesv2.LookupEmailIdentityArgs{
+//			example, err := sesv2.LookupEmailIdentity(ctx, &sesv2.LookupEmailIdentityArgs{
 //				EmailIdentity: "example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sesv2.LookupEmailIdentityMailFromAttributes(ctx, &sesv2.LookupEmailIdentityMailFromAttributesArgs{
-//				EmailIdentity: exampleEmailIdentity.EmailIdentity,
+//				EmailIdentity: example.EmailIdentity,
 //			}, nil)
 //			if err != nil {
 //				return err

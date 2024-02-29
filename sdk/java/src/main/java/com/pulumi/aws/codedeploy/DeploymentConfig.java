@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
  *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
  *                 .type(&#34;HOST_COUNT&#34;)
@@ -58,10 +58,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(aws_codedeploy_app.foo_app().name())
+ *             .appName(fooApp.name())
  *             .deploymentGroupName(&#34;bar&#34;)
- *             .serviceRoleArn(aws_iam_role.foo_role().arn())
- *             .deploymentConfigName(fooDeploymentConfig.id())
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
  *                 .key(&#34;filterkey&#34;)
  *                 .type(&#34;KEY_AND_VALUE&#34;)
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
  *             .computePlatform(&#34;Lambda&#34;)
  *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
@@ -126,10 +126,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(aws_codedeploy_app.foo_app().name())
+ *             .appName(fooApp.name())
  *             .deploymentGroupName(&#34;bar&#34;)
- *             .serviceRoleArn(aws_iam_role.foo_role().arn())
- *             .deploymentConfigName(fooDeploymentConfig.id())
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .events(&#34;DEPLOYMENT_STOP_ON_ALARM&#34;)

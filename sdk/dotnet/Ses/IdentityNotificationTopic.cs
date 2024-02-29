@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.IdentityNotificationTopic("test", new()
     ///     {
-    ///         TopicArn = aws_sns_topic.Example.Arn,
+    ///         TopicArn = exampleAwsSnsTopic.Arn,
     ///         NotificationType = "Bounce",
-    ///         Identity = aws_ses_domain_identity.Example.Domain,
+    ///         Identity = example.Domain,
     ///         IncludeOriginalHeaders = true,
     ///     });
     /// 

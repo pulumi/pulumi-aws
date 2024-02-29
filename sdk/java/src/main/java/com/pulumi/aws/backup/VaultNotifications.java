@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
@@ -44,9 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;);
+ *         var testTopic = new Topic(&#34;testTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;backup-vault-events&#34;)
+ *             .build());
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId(&#34;__default_policy_ID&#34;)
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;SNS:Publish&#34;)
@@ -62,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var testTopicPolicy = new TopicPolicy(&#34;testTopicPolicy&#34;, TopicPolicyArgs.builder()        
  *             .arn(testTopic.arn())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var testVaultNotifications = new VaultNotifications(&#34;testVaultNotifications&#34;, VaultNotificationsArgs.builder()        

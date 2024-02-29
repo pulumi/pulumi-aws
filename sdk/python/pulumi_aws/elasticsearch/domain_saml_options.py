@@ -117,8 +117,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain = aws.elasticsearch.Domain("exampleDomain",
+        example = aws.elasticsearch.Domain("example",
+            domain_name="example",
             elasticsearch_version="1.5",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
@@ -129,13 +131,13 @@ class DomainSamlOptions(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             })
-        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
+        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
                 enabled=True,
                 idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
                     entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
+                    metadata_content=std.file(input="./saml-metadata.xml").result,
                 ),
             ))
         ```
@@ -170,8 +172,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain = aws.elasticsearch.Domain("exampleDomain",
+        example = aws.elasticsearch.Domain("example",
+            domain_name="example",
             elasticsearch_version="1.5",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
@@ -182,13 +186,13 @@ class DomainSamlOptions(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             })
-        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
+        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
                 enabled=True,
                 idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
                     entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
+                    metadata_content=std.file(input="./saml-metadata.xml").result,
                 ),
             ))
         ```

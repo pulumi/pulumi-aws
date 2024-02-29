@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-1"});
- * const primaryKey = new aws.kms.Key("primaryKey", {
+ * const primary = new aws.kms.Key("primary", {
  *     description: "Multi-Region primary key",
  *     deletionWindowInDays: 30,
  *     multiRegion: true,
- * }, {
- *     provider: aws.primary,
  * });
  * const replica = new aws.kms.ReplicaKey("replica", {
  *     description: "Multi-Region replica key",
  *     deletionWindowInDays: 7,
- *     primaryKeyArn: primaryKey.arn,
+ *     primaryKeyArn: primary.arn,
  * });
  * ```
  *

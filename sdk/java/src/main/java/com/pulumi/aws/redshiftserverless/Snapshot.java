@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
- *             .namespaceName(aws_redshiftserverless_workgroup.example().namespace_name())
+ *             .namespaceName(exampleAwsRedshiftserverlessWorkgroup.namespaceName())
  *             .snapshotName(&#34;example&#34;)
  *             .build());
  * 

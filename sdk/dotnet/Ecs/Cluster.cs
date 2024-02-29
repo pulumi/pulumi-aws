@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var foo = new Aws.Ecs.Cluster("foo", new()
     ///     {
+    ///         Name = "white-hart",
     ///         Settings = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ClusterSettingArgs
@@ -46,21 +47,25 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var test = new Aws.Ecs.Cluster("test", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
     ///         {
     ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
     ///             {
-    ///                 KmsKeyId = exampleKey.Arn,
+    ///                 KmsKeyId = example.Arn,
     ///                 Logging = "OVERRIDE",
     ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
     ///                 {

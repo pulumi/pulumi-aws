@@ -17,13 +17,20 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
  *
  * const test = new aws.cloudfront.Function("test", {
+ *     name: "test",
  *     runtime: "cloudfront-js-2.0",
  *     comment: "my function",
  *     publish: true,
- *     code: fs.readFileSync(`${path.module}/function.js`, "utf8"),
+ *     code: std.file({
+ *         input: `${notImplemented("path.module")}/function.js`,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

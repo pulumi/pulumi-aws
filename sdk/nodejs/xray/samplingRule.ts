@@ -14,20 +14,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.SamplingRule("example", {
+ *     ruleName: "example",
+ *     priority: 9999,
+ *     version: 1,
+ *     reservoirSize: 1,
+ *     fixedRate: 0.05,
+ *     urlPath: "*",
+ *     host: "*",
+ *     httpMethod: "*",
+ *     serviceType: "*",
+ *     serviceName: "*",
+ *     resourceArn: "*",
  *     attributes: {
  *         Hello: "Tris",
  *     },
- *     fixedRate: 0.05,
- *     host: "*",
- *     httpMethod: "*",
- *     priority: 9999,
- *     reservoirSize: 1,
- *     resourceArn: "*",
- *     ruleName: "example",
- *     serviceName: "*",
- *     serviceType: "*",
- *     urlPath: "*",
- *     version: 1,
  * });
  * ```
  *

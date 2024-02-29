@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ssm
     ///         Priority = 1,
     ///         TaskArn = "AWS-RestartEC2Instance",
     ///         TaskType = "AUTOMATION",
-    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ssm
     ///                 Key = "InstanceIds",
     ///                 Values = new[]
     ///                 {
-    ///                     aws_instance.Example.Id,
+    ///                     exampleAwsInstance.Id,
     ///                 },
     ///             },
     ///         },
@@ -54,10 +54,55 @@ namespace Pulumi.Aws.Ssm
     ///                         Name = "InstanceId",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_instance.Example.Id,
+    ///                             exampleAwsInstance.Id,
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Lambda Tasks
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
+    ///     {
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = exampleAwsLambdaFunction.Arn,
+    ///         TaskType = "LAMBDA",
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     exampleAwsInstance.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             LambdaParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs
+    ///             {
+    ///                 ClientContext = Std.Base64encode.Invoke(new()
+    ///                 {
+    ///                     Input = "{\"key1\":\"value1\"}",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 Payload = "{\"key1\":\"value1\"}",
     ///             },
     ///         },
     ///     });
@@ -81,7 +126,7 @@ namespace Pulumi.Aws.Ssm
     ///         Priority = 1,
     ///         TaskArn = "AWS-RunShellScript",
     ///         TaskType = "RUN_COMMAND",
-    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -89,7 +134,7 @@ namespace Pulumi.Aws.Ssm
     ///                 Key = "InstanceIds",
     ///                 Values = new[]
     ///                 {
-    ///                     aws_instance.Example.Id,
+    ///                     exampleAwsInstance.Id,
     ///                 },
     ///             },
     ///         },
@@ -97,13 +142,13 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
     ///             {
-    ///                 OutputS3Bucket = aws_s3_bucket.Example.Id,
+    ///                 OutputS3Bucket = exampleAwsS3Bucket.Id,
     ///                 OutputS3KeyPrefix = "output",
-    ///                 ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///                 ServiceRoleArn = exampleAwsIamRole.Arn,
     ///                 TimeoutSeconds = 600,
     ///                 NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
     ///                 {
-    ///                     NotificationArn = aws_sns_topic.Example.Arn,
+    ///                     NotificationArn = exampleAwsSnsTopic.Arn,
     ///                     NotificationEvents = new[]
     ///                     {
     ///                         "All",
@@ -142,9 +187,9 @@ namespace Pulumi.Aws.Ssm
     ///         MaxConcurrency = "2",
     ///         MaxErrors = "1",
     ///         Priority = 1,
-    ///         TaskArn = aws_sfn_activity.Example.Id,
+    ///         TaskArn = exampleAwsSfnActivity.Id,
     ///         TaskType = "STEP_FUNCTIONS",
-    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -152,7 +197,7 @@ namespace Pulumi.Aws.Ssm
     ///                 Key = "InstanceIds",
     ///                 Values = new[]
     ///                 {
-    ///                     aws_instance.Example.Id,
+    ///                     exampleAwsInstance.Id,
     ///                 },
     ///             },
     ///         },

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleControl = Aws.Auditmanager.GetControl.Invoke(new()
+        ///     var example = Aws.Auditmanager.GetControl.Invoke(new()
         ///     {
         ///         Name = "1. Risk Management",
         ///         Type = "Standard",
@@ -59,8 +59,9 @@ namespace Pulumi.Aws.Auditmanager
         ///         Type = "Standard",
         ///     });
         /// 
-        ///     var exampleFramework = new Aws.Auditmanager.Framework("exampleFramework", new()
+        ///     var exampleFramework = new Aws.Auditmanager.Framework("example", new()
         ///     {
+        ///         Name = "example",
         ///         ControlSets = new[]
         ///         {
         ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -70,7 +71,7 @@ namespace Pulumi.Aws.Auditmanager
         ///                 {
         ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
         ///                     {
-        ///                         Id = exampleControl.Apply(getControlResult =&gt; getControlResult.Id),
+        ///                         Id = example.Apply(getControlResult =&gt; getControlResult.Id),
         ///                     },
         ///                 },
         ///             },
@@ -132,7 +133,7 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleControl = Aws.Auditmanager.GetControl.Invoke(new()
+        ///     var example = Aws.Auditmanager.GetControl.Invoke(new()
         ///     {
         ///         Name = "1. Risk Management",
         ///         Type = "Standard",
@@ -144,8 +145,9 @@ namespace Pulumi.Aws.Auditmanager
         ///         Type = "Standard",
         ///     });
         /// 
-        ///     var exampleFramework = new Aws.Auditmanager.Framework("exampleFramework", new()
+        ///     var exampleFramework = new Aws.Auditmanager.Framework("example", new()
         ///     {
+        ///         Name = "example",
         ///         ControlSets = new[]
         ///         {
         ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -155,7 +157,7 @@ namespace Pulumi.Aws.Auditmanager
         ///                 {
         ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
         ///                     {
-        ///                         Id = exampleControl.Apply(getControlResult =&gt; getControlResult.Id),
+        ///                         Id = example.Apply(getControlResult =&gt; getControlResult.Id),
         ///                     },
         ///                 },
         ///             },

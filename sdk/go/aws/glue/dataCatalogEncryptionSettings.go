@@ -31,12 +31,12 @@ import (
 //			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
 //				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
 //					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
-//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
+//						AwsKmsKeyId:                       pulumi.Any(test.Arn),
 //						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
 //					},
 //					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
 //						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
-//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
+//						SseAwsKmsKeyId:        pulumi.Any(test.Arn),
 //					},
 //				},
 //			})

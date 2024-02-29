@@ -5316,21 +5316,9 @@ class LaunchTemplateInstanceRequirements(dict):
         :param 'LaunchTemplateInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         :param 'LaunchTemplateInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```python
-               import pulumi
-               ```
         :param 'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -5340,24 +5328,12 @@ class LaunchTemplateInstanceRequirements(dict):
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```python
-               import pulumi
-               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```python
-               import pulumi
-               ```
         :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -5444,10 +5420,6 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -5456,10 +5428,6 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -5476,10 +5444,6 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -5524,10 +5488,6 @@ class LaunchTemplateInstanceRequirements(dict):
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -5546,10 +5506,6 @@ class LaunchTemplateInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -5566,10 +5522,6 @@ class LaunchTemplateInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -12870,21 +12822,9 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```python
-               import pulumi
-               ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -12894,24 +12834,12 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```python
-               import pulumi
-               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```python
-               import pulumi
-               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```python
-               import pulumi
-               ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
@@ -12986,10 +12914,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -12998,10 +12922,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -13018,10 +12938,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -13066,10 +12982,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -13088,10 +13000,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -13108,10 +13016,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "local_storage_types")
 

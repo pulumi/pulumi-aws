@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HostedConfigurationVersion(&#34;example&#34;, HostedConfigurationVersionArgs.builder()        
- *             .applicationId(aws_appconfig_application.example().id())
- *             .configurationProfileId(aws_appconfig_configuration_profile.example().configuration_profile_id())
+ *             .applicationId(exampleAwsAppconfigApplication.id())
+ *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
  *             .description(&#34;Example Freeform Hosted Configuration Version&#34;)
  *             .contentType(&#34;application/json&#34;)
  *             .content(serializeJson(
@@ -87,8 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HostedConfigurationVersion(&#34;example&#34;, HostedConfigurationVersionArgs.builder()        
- *             .applicationId(aws_appconfig_application.example().id())
- *             .configurationProfileId(aws_appconfig_configuration_profile.example().configuration_profile_id())
+ *             .applicationId(exampleAwsAppconfigApplication.id())
+ *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
  *             .description(&#34;Example Feature Flag Configuration Version&#34;)
  *             .contentType(&#34;application/json&#34;)
  *             .content(serializeJson(

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupResourcePolicy(ctx, &networkfirewall.LookupResourcePolicyArgs{
-//				ResourceArn: _var.Resource_policy_arn,
+//				ResourceArn: resourcePolicyArn,
 //			}, nil)
 //			if err != nil {
 //				return err

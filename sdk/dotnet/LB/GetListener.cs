@@ -37,6 +37,7 @@ namespace Pulumi.Aws.LB
         ///         Arn = listenerArn,
         ///     });
         /// 
+        ///     // get listener from load_balancer_arn and port
         ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "default-public",
@@ -82,6 +83,7 @@ namespace Pulumi.Aws.LB
         ///         Arn = listenerArn,
         ///     });
         /// 
+        ///     // get listener from load_balancer_arn and port
         ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "default-public",

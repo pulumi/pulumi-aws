@@ -312,11 +312,11 @@ class FileSystemAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.FileSystemAssociation("example",
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"],
-            location_arn=aws_fsx_windows_file_system["example"]["arn"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"],
+            location_arn=example_aws_fsx_windows_file_system["arn"],
             username="Admin",
             password="avoid-plaintext-passwords",
-            audit_destination_arn=aws_s3_bucket["example"]["arn"])
+            audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
         ## Required Services Example
 
@@ -325,42 +325,38 @@ class FileSystemAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_service_storagegateway_ami_files3_latest = aws.ssm.get_parameter(name="/aws/service/storagegateway/ami/FILE_S3/latest")
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
-            vpc_security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_id=aws_subnet["test"][0]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_route["test"],
-                    aws_vpc_dhcp_options_association["test"],
-                ]))
-        test_gateway = aws.storagegateway.Gateway("testGateway",
-            gateway_ip_address=test_instance.public_ip,
+            instance_type=aws.ec2/instancetype.InstanceType(available["instanceType"]),
+            vpc_security_group_ids=[test_aws_security_group["id"]],
+            subnet_id=test_aws_subnet[0]["id"])
+        test_gateway = aws.storagegateway.Gateway("test",
+            gateway_ip_address=test.public_ip,
             gateway_name="test-sgw",
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name=aws_directory_service_directory["test"]["name"],
-                password=aws_directory_service_directory["test"]["password"],
+                domain_name=test_aws_directory_service_directory["name"],
+                password=test_aws_directory_service_directory["password"],
                 username="Admin",
             ))
-        test_windows_file_system = aws.fsx.WindowsFileSystem("testWindowsFileSystem",
-            active_directory_id=aws_directory_service_directory["test"]["id"],
-            security_group_ids=[aws_security_group["test"]["id"]],
+        test_windows_file_system = aws.fsx.WindowsFileSystem("test",
+            active_directory_id=test_aws_directory_service_directory["id"],
+            security_group_ids=[test_aws_security_group["id"]],
             skip_final_backup=True,
             storage_capacity=32,
-            subnet_ids=[aws_subnet["test"][0]["id"]],
+            subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
-            password=aws_directory_service_directory["test"]["password"],
+            password=test_aws_directory_service_directory["password"],
             cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArgs(
                 cache_stale_timeout_in_seconds=400,
             ),
-            audit_destination_arn=aws_cloudwatch_log_group["test"]["arn"])
+            audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
         ## Import
@@ -399,11 +395,11 @@ class FileSystemAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.FileSystemAssociation("example",
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"],
-            location_arn=aws_fsx_windows_file_system["example"]["arn"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"],
+            location_arn=example_aws_fsx_windows_file_system["arn"],
             username="Admin",
             password="avoid-plaintext-passwords",
-            audit_destination_arn=aws_s3_bucket["example"]["arn"])
+            audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
         ## Required Services Example
 
@@ -412,42 +408,38 @@ class FileSystemAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_service_storagegateway_ami_files3_latest = aws.ssm.get_parameter(name="/aws/service/storagegateway/ami/FILE_S3/latest")
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
-            vpc_security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_id=aws_subnet["test"][0]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_route["test"],
-                    aws_vpc_dhcp_options_association["test"],
-                ]))
-        test_gateway = aws.storagegateway.Gateway("testGateway",
-            gateway_ip_address=test_instance.public_ip,
+            instance_type=aws.ec2/instancetype.InstanceType(available["instanceType"]),
+            vpc_security_group_ids=[test_aws_security_group["id"]],
+            subnet_id=test_aws_subnet[0]["id"])
+        test_gateway = aws.storagegateway.Gateway("test",
+            gateway_ip_address=test.public_ip,
             gateway_name="test-sgw",
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name=aws_directory_service_directory["test"]["name"],
-                password=aws_directory_service_directory["test"]["password"],
+                domain_name=test_aws_directory_service_directory["name"],
+                password=test_aws_directory_service_directory["password"],
                 username="Admin",
             ))
-        test_windows_file_system = aws.fsx.WindowsFileSystem("testWindowsFileSystem",
-            active_directory_id=aws_directory_service_directory["test"]["id"],
-            security_group_ids=[aws_security_group["test"]["id"]],
+        test_windows_file_system = aws.fsx.WindowsFileSystem("test",
+            active_directory_id=test_aws_directory_service_directory["id"],
+            security_group_ids=[test_aws_security_group["id"]],
             skip_final_backup=True,
             storage_capacity=32,
-            subnet_ids=[aws_subnet["test"][0]["id"]],
+            subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
-            password=aws_directory_service_directory["test"]["password"],
+            password=test_aws_directory_service_directory["password"],
             cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArgs(
                 cache_stale_timeout_in_seconds=400,
             ),
-            audit_destination_arn=aws_cloudwatch_log_group["test"]["arn"])
+            audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
         ## Import

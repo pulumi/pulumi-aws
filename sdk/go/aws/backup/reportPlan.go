@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
+//				Name:        pulumi.String("example_name"),
 //				Description: pulumi.String("example description"),
 //				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
 //					Formats: pulumi.StringArray{

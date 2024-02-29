@@ -314,8 +314,9 @@ class EventSubscription(pulumi.CustomResource):
                 "creation",
                 "failure",
             ],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            source_ids=[aws_dms_replication_task["example"]["replication_task_id"]],
+            name="my-favorite-event-subscription",
+            sns_topic_arn=example_aws_sns_topic["arn"],
+            source_ids=[example_aws_dms_replication_task["replicationTaskId"]],
             source_type="replication-task",
             tags={
                 "Name": "example",
@@ -361,8 +362,9 @@ class EventSubscription(pulumi.CustomResource):
                 "creation",
                 "failure",
             ],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            source_ids=[aws_dms_replication_task["example"]["replication_task_id"]],
+            name="my-favorite-event-subscription",
+            sns_topic_arn=example_aws_sns_topic["arn"],
+            source_ids=[example_aws_dms_replication_task["replicationTaskId"]],
             source_type="replication-task",
             tags={
                 "Name": "example",

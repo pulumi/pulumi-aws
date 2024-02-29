@@ -43,14 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testLocalDisk = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(aws_volume_attachment.test().device_name())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+ *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *         var testUploadBuffer = new UploadBuffer(&#34;testUploadBuffer&#34;, UploadBufferArgs.builder()        
- *             .diskPath(testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *             .diskPath(test.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }
@@ -81,13 +81,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(aws_volume_attachment.test().device_name())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *         var example = new UploadBuffer(&#34;example&#34;, UploadBufferArgs.builder()        
- *             .diskId(data.aws_storagegateway_local_disk().example().id())
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
+ *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }

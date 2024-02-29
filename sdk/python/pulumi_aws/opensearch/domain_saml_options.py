@@ -117,8 +117,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain = aws.opensearch.Domain("exampleDomain",
+        example = aws.opensearch.Domain("example",
+            domain_name="example",
             engine_version="OpenSearch_1.1",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
@@ -129,13 +131,13 @@ class DomainSamlOptions(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
+        example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
                 enabled=True,
                 idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
                     entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
+                    metadata_content=std.file(input="./saml-metadata.xml").result,
                 ),
             ))
         ```
@@ -170,8 +172,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_domain = aws.opensearch.Domain("exampleDomain",
+        example = aws.opensearch.Domain("example",
+            domain_name="example",
             engine_version="OpenSearch_1.1",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
@@ -182,13 +186,13 @@ class DomainSamlOptions(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
+        example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
                 enabled=True,
                 idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
                     entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
+                    metadata_content=std.file(input="./saml-metadata.xml").result,
                 ),
             ))
         ```

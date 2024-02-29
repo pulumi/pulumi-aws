@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
+//				Name:             pulumi.String("example-host"),
 //				ProviderEndpoint: pulumi.String("https://example.com"),
 //				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
 //			})

@@ -47,15 +47,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Framework(&#34;example&#34;, FrameworkArgs.builder()        
+ *             .name(&#34;exampleFramework&#34;)
+ *             .description(&#34;this is an example framework&#34;)
  *             .controls(            
  *                 FrameworkControlArgs.builder()
+ *                     .name(&#34;BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK&#34;)
  *                     .inputParameters(FrameworkControlInputParameterArgs.builder()
  *                         .name(&#34;requiredRetentionDays&#34;)
  *                         .value(&#34;35&#34;)
  *                         .build())
- *                     .name(&#34;BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK&#34;)
  *                     .build(),
  *                 FrameworkControlArgs.builder()
+ *                     .name(&#34;BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK&#34;)
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name(&#34;requiredFrequencyUnit&#34;)
@@ -69,7 +72,6 @@ import javax.annotation.Nullable;
  *                             .name(&#34;requiredFrequencyValue&#34;)
  *                             .value(&#34;1&#34;)
  *                             .build())
- *                     .name(&#34;BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK&#34;)
  *                     .build(),
  *                 FrameworkControlArgs.builder()
  *                     .name(&#34;BACKUP_RECOVERY_POINT_ENCRYPTED&#34;)
@@ -84,6 +86,7 @@ import javax.annotation.Nullable;
  *                     .name(&#34;BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED&#34;)
  *                     .build(),
  *                 FrameworkControlArgs.builder()
+ *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK&#34;)
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name(&#34;maxRetentionDays&#34;)
@@ -93,12 +96,12 @@ import javax.annotation.Nullable;
  *                             .name(&#34;minRetentionDays&#34;)
  *                             .value(&#34;1&#34;)
  *                             .build())
- *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK&#34;)
  *                     .scope(FrameworkControlScopeArgs.builder()
  *                         .complianceResourceTypes(&#34;EBS&#34;)
  *                         .build())
  *                     .build(),
  *                 FrameworkControlArgs.builder()
+ *                     .name(&#34;BACKUP_LAST_RECOVERY_POINT_CREATED&#34;)
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name(&#34;recoveryPointAgeUnit&#34;)
@@ -108,12 +111,10 @@ import javax.annotation.Nullable;
  *                             .name(&#34;recoveryPointAgeValue&#34;)
  *                             .value(&#34;1&#34;)
  *                             .build())
- *                     .name(&#34;BACKUP_LAST_RECOVERY_POINT_CREATED&#34;)
  *                     .scope(FrameworkControlScopeArgs.builder()
  *                         .complianceResourceTypes(&#34;EBS&#34;)
  *                         .build())
  *                     .build())
- *             .description(&#34;this is an example framework&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Framework&#34;))
  *             .build());
  * 

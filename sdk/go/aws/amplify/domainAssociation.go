@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
 //				CustomRules: amplify.AppCustomRuleArray{
 //					&amplify.AppCustomRuleArgs{
 //						Source: pulumi.String("https://example.com"),
@@ -41,14 +42,14 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      exampleApp.ID(),
+//				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
-//				AppId:      exampleApp.ID(),
+//			_, err = amplify.NewDomainAssociation(ctx, "example", &amplify.DomainAssociationArgs{
+//				AppId:      example.ID(),
 //				DomainName: pulumi.String("example.com"),
 //				SubDomains: amplify.DomainAssociationSubDomainArray{
 //					&amplify.DomainAssociationSubDomainArgs{

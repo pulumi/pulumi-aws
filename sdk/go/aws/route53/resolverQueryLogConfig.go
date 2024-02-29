@@ -29,7 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-//				DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//				Name:           pulumi.String("example"),
+//				DestinationArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Prod"),
 //				},

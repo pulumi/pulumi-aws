@@ -149,7 +149,7 @@ def get_service(cluster_arn: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.ecs.get_service(service_name="example",
-        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
+        cluster_arn=example_aws_ecs_cluster["arn"])
     ```
 
 
@@ -192,7 +192,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     example = aws.ecs.get_service(service_name="example",
-        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
+        cluster_arn=example_aws_ecs_cluster["arn"])
     ```
 
 

@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewImageBuilder(ctx, "testFleet", &appstream.ImageBuilderArgs{
+//			_, err := appstream.NewImageBuilder(ctx, "test_fleet", &appstream.ImageBuilderArgs{
+//				Name:                        pulumi.String("Name"),
 //				Description:                 pulumi.String("Description of a ImageBuilder"),
 //				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
 //				EnableDefaultInternetAccess: pulumi.Bool(false),
@@ -36,7 +37,7 @@ import (
 //				InstanceType:                pulumi.String("stream.standard.large"),
 //				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						example.Id,
 //					},
 //				},
 //				Tags: pulumi.StringMap{

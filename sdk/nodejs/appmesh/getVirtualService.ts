@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualService({
- *     meshName: "example-mesh",
  *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
  * });
  * ```
  *
@@ -113,8 +113,8 @@ export interface GetVirtualServiceResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualService({
- *     meshName: "example-mesh",
  *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
  * });
  * ```
  *

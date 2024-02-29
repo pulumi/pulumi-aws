@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "my_test_batch_job_definition",
     ///         Type = "container",
     ///         ContainerProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -103,6 +104,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "tf_test_batch_job_definition_multinode",
     ///         Type = "multinode",
     ///         NodeProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -146,6 +148,55 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// ### Job Definitionn of type EKS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Name = " tf_test_batch_job_definition_eks",
+    ///         Type = "container",
+    ///         EksProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesArgs
+    ///         {
+    ///             PodProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesArgs
+    ///             {
+    ///                 HostNetwork = true,
+    ///                 Containers = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs
+    ///                 {
+    ///                     Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                     Commands = new[]
+    ///                     {
+    ///                         "sleep",
+    ///                         "60",
+    ///                     },
+    ///                     Resources = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs
+    ///                     {
+    ///                         Limits = 
+    ///                         {
+    ///                             { "cpu", "1" },
+    ///                             { "memory", "1024Mi" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
+    ///                 {
+    ///                     Labels = 
+    ///                     {
+    ///                         { "environment", "test" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Fargate Platform Capability
     /// 
     /// ```csharp
@@ -182,12 +233,13 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new()
+    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecs_task_execution_role", new()
     ///     {
+    ///         Name = "my_test_batch_exec_role",
     ///         AssumeRolePolicy = assumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new()
+    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecs_task_execution_role_policy", new()
     ///     {
     ///         Role = ecsTaskExecutionRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
@@ -195,6 +247,7 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "my_test_batch_job_definition",
     ///         Type = "container",
     ///         PlatformCapabilities = new[]
     ///         {

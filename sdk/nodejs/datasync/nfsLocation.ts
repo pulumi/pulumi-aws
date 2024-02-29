@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     serverHostname: "nfs.example.com",
  *     subdirectory: "/exported/path",
  *     onPremConfig: {
- *         agentArns: [aws_datasync_agent.example.arn],
+ *         agentArns: [exampleAwsDatasyncAgent.arn],
  *     },
  * });
  * ```

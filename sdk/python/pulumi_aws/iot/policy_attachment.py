@@ -105,15 +105,18 @@ class PolicyAttachment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        pubsub = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["iot:*"],
             resources=["*"],
         )])
-        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
+        pubsub_policy = aws.iot.Policy("pubsub",
+            name="PubSubToAnyTopic",
+            policy=pubsub.json)
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+            csr=std.file(input="csr.pem").result,
             active=True)
         att = aws.iot.PolicyAttachment("att",
             policy=pubsub_policy.name,
@@ -139,15 +142,18 @@ class PolicyAttachment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        pubsub = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["iot:*"],
             resources=["*"],
         )])
-        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
+        pubsub_policy = aws.iot.Policy("pubsub",
+            name="PubSubToAnyTopic",
+            policy=pubsub.json)
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+            csr=std.file(input="csr.pem").result,
             active=True)
         att = aws.iot.PolicyAttachment("att",
             policy=pubsub_policy.name,

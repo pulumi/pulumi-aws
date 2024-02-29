@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getRouteTablePropagations({
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
  */
@@ -76,7 +76,7 @@ export interface GetRouteTablePropagationsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getRouteTablePropagations({
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
  */

@@ -332,7 +332,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
+                cidr_block=mainvpc_aws_default_vpc["cidrBlock"],
                 from_port=0,
                 to_port=0,
             )])
@@ -347,7 +347,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default", default_network_acl_id=mainvpc.default_network_acl_id)
-        # no rules defined, deny all traffic in this ACL
         ```
         ### Managing Subnets In A Default Network ACL
 
@@ -363,7 +362,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         default = aws.ec2.DefaultNetworkAcl("default")
         ```
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
@@ -449,7 +447,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
+                cidr_block=mainvpc_aws_default_vpc["cidrBlock"],
                 from_port=0,
                 to_port=0,
             )])
@@ -464,7 +462,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default", default_network_acl_id=mainvpc.default_network_acl_id)
-        # no rules defined, deny all traffic in this ACL
         ```
         ### Managing Subnets In A Default Network ACL
 
@@ -480,7 +477,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         default = aws.ec2.DefaultNetworkAcl("default")
         ```
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration

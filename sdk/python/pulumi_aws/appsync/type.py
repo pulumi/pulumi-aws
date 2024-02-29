@@ -186,9 +186,11 @@ class Type(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_type = aws.appsync.Type("exampleType",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_type = aws.appsync.Type("example",
+            api_id=example.id,
             format="SDL",
             definition=\"\"\"type Mutation
 
@@ -228,9 +230,11 @@ class Type(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_type = aws.appsync.Type("exampleType",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_type = aws.appsync.Type("example",
+            api_id=example.id,
             format="SDL",
             definition=\"\"\"type Mutation
 

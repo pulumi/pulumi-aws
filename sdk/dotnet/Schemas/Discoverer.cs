@@ -24,7 +24,10 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
+    ///     var messenger = new Aws.CloudWatch.EventBus("messenger", new()
+    ///     {
+    ///         Name = "chat-messages",
+    ///     });
     /// 
     ///     var test = new Aws.Schemas.Discoverer("test", new()
     ///     {

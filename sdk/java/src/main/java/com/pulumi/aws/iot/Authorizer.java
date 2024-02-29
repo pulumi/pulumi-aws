@@ -43,11 +43,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
- *             .authorizerFunctionArn(aws_lambda_function.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .authorizerFunctionArn(exampleAwsLambdaFunction.arn())
  *             .signingDisabled(false)
  *             .status(&#34;ACTIVE&#34;)
  *             .tokenKeyName(&#34;Token-Header&#34;)
- *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, Files.readString(Paths.get(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;))))
+ *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;)
+ *                 .build()).result()))
  *             .build());
  * 
  *     }

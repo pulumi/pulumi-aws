@@ -8,6 +8,20 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iot.TopicRuleDestination("example", {vpcConfiguration: {
+ *     roleArn: exampleAwsIamRole.arn,
+ *     securityGroups: [exampleAwsSecurityGroup.id],
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *     vpcId: exampleAwsVpc.id,
+ * }});
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:

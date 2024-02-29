@@ -25,9 +25,9 @@ namespace Pulumi.Aws.MskConnect
     /// {
     ///     var example = new Aws.MskConnect.WorkerConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         PropertiesFileContent = @"key.converter=org.apache.kafka.connect.storage.StringConverter
     /// value.converter=org.apache.kafka.connect.storage.StringConverter
-    /// 
     /// ",
     ///     });
     /// 

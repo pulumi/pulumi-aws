@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
         ///     {
-        ///         InstanceId = aws_connect_instance.Test.Id,
+        ///         InstanceId = testAwsConnectInstance.Id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
         ///     {
-        ///         InstanceId = aws_connect_instance.Test.Id,
+        ///         InstanceId = testAwsConnectInstance.Id,
         ///     });
         /// 
         /// });

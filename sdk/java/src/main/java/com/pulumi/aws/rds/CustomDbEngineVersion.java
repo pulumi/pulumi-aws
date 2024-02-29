@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;KMS symmetric key for RDS Custom for Oracle&#34;)
  *             .build());
  * 
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .databaseInstallationFilesS3Prefix(&#34;1915_GI/&#34;)
  *             .engine(&#34;custom-oracle-ee-cdb&#34;)
  *             .engineVersion(&#34;19.cdb_cev1&#34;)
- *             .kmsKeyId(exampleKey.arn())
+ *             .kmsKeyId(example.arn())
  *             .manifest(&#34;&#34;&#34;
  *   {
  * 	&#34;databaseInstallationFileNames&#34;:[&#34;V982063-01.zip&#34;]
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;KMS symmetric key for RDS Custom for Oracle&#34;)
  *             .build());
  * 
@@ -100,9 +100,11 @@ import javax.annotation.Nullable;
  *             .databaseInstallationFilesS3Prefix(&#34;1915_GI/&#34;)
  *             .engine(&#34;custom-oracle-ee-cdb&#34;)
  *             .engineVersion(&#34;19.cdb_cev1&#34;)
- *             .kmsKeyId(exampleKey.arn())
+ *             .kmsKeyId(example.arn())
  *             .filename(&#34;manifest_1915_GI.json&#34;)
- *             .manifestHash(computeFileBase64Sha256(manifest_1915_GI.json()))
+ *             .manifestHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input(json)
+ *                 .build()).result())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
  *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
@@ -168,6 +170,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AmiCopy(&#34;example&#34;, AmiCopyArgs.builder()        
+ *             .name(&#34;sqlserver-se-2019-15.00.4249.2&#34;)
  *             .description(&#34;A copy of ami-xxxxxxxx&#34;)
  *             .sourceAmiId(&#34;ami-xxxxxxxx&#34;)
  *             .sourceAmiRegion(&#34;us-east-1&#34;)

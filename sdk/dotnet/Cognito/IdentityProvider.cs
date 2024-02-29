@@ -24,13 +24,14 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         Name = "example-pool",
     ///         AutoVerifiedAttributes = new[]
     ///         {
     ///             "email",
     ///         },
     ///     });
     /// 
-    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
+    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("example_provider", new()
     ///     {
     ///         UserPoolId = example.Id,
     ///         ProviderName = "Google",

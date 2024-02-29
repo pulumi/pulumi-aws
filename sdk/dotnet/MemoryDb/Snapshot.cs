@@ -26,7 +26,8 @@ namespace Pulumi.Aws.MemoryDb
     /// {
     ///     var example = new Aws.MemoryDb.Snapshot("example", new()
     ///     {
-    ///         ClusterName = aws_memorydb_cluster.Example.Name,
+    ///         ClusterName = exampleAwsMemorydbCluster.Name,
+    ///         Name = "my-snapshot",
     ///     });
     /// 
     /// });

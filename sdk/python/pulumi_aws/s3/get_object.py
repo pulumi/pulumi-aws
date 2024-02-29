@@ -434,11 +434,12 @@ def get_object(bucket: Optional[str] = None,
 
     lambda_ = aws.s3.get_object(bucket="ourcorp-lambda-functions",
         key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
+    test_lambda = aws.lambda_.Function("test_lambda",
         s3_bucket=lambda_.bucket,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        name="lambda_function_name",
+        role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
 
@@ -536,11 +537,12 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
 
     lambda_ = aws.s3.get_object(bucket="ourcorp-lambda-functions",
         key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
+    test_lambda = aws.lambda_.Function("test_lambda",
         s3_bucket=lambda_.bucket,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        name="lambda_function_name",
+        role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
 

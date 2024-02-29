@@ -27,11 +27,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
+//			example, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleNetworkInterfaces.Ids)
+//			ctx.Export("example", example.Ids)
 //			return nil
 //		})
 //	}
@@ -81,12 +81,12 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
+// example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
 // Filters: []ec2.GetNetworkInterfacesFilter{
 // {
 // Name: "subnet-id",
 // Values: interface{}{
-// aws_subnet.Test.Id,
+// test.Id,
 // },
 // },
 // },
@@ -94,7 +94,7 @@ import (
 // if err != nil {
 // return err
 // }
-// ctx.Export("example", exampleNetworkInterfaces.Ids)
+// ctx.Export("example", example.Ids)
 // return nil
 // })
 // }

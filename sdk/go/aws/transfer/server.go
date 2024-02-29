@@ -88,12 +88,12 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					AddressAllocationIds: pulumi.StringArray{
-//						aws_eip.Example.Id,
+//						exampleAwsEip.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						exampleAwsSubnet.Id,
 //					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
+//					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
@@ -120,7 +120,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("AWS_DIRECTORY_SERVICE"),
-//				DirectoryId:          pulumi.Any(aws_directory_service_directory.Example.Id),
+//				DirectoryId:          pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -146,7 +146,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("AWS_LAMBDA"),
-//				Function:             pulumi.Any(aws_lambda_identity_provider.Example.Arn),
+//				Function:             pulumi.Any(exampleAwsLambdaIdentityProvider.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -176,17 +176,17 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						exampleAwsSubnet.Id,
 //					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
+//					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("FTP"),
 //					pulumi.String("FTPS"),
 //				},
-//				Certificate:          pulumi.Any(aws_acm_certificate.Example.Arn),
+//				Certificate:          pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				IdentityProviderType: pulumi.String("API_GATEWAY"),
-//				Url:                  pulumi.String(fmt.Sprintf("%v%v", aws_api_gateway_deployment.Example.Invoke_url, aws_api_gateway_resource.Example.Path)),
+//				Url:                  pulumi.String(fmt.Sprintf("%v%v", exampleAwsApiGatewayDeployment.InvokeUrl, exampleAwsApiGatewayResource.Path)),
 //			})
 //			if err != nil {
 //				return err
@@ -214,7 +214,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transferLogGroup, err := cloudwatch.NewLogGroup(ctx, "transferLogGroup", &cloudwatch.LogGroupArgs{
+//			transfer, err := cloudwatch.NewLogGroup(ctx, "transfer", &cloudwatch.LogGroupArgs{
 //				NamePrefix: pulumi.String("transfer_test_"),
 //			})
 //			if err != nil {
@@ -241,7 +241,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			iamForTransfer, err := iam.NewRole(ctx, "iamForTransfer", &iam.RoleArgs{
+//			iamForTransfer, err := iam.NewRole(ctx, "iam_for_transfer", &iam.RoleArgs{
 //				NamePrefix:       pulumi.String("iam_for_transfer_"),
 //				AssumeRolePolicy: *pulumi.String(transferAssumeRole.Json),
 //				ManagedPolicyArns: pulumi.StringArray{
@@ -251,14 +251,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewServer(ctx, "transferServer", &transfer.ServerArgs{
+//			_, err = transfer.NewServer(ctx, "transfer", &transfer.ServerArgs{
 //				EndpointType: pulumi.String("PUBLIC"),
 //				LoggingRole:  iamForTransfer.Arn,
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("SFTP"),
 //				},
 //				StructuredLogDestinations: pulumi.StringArray{
-//					transferLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//					transfer.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},

@@ -311,8 +311,8 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"],
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth=aws.networkmanager.LinkBandwidthArgs(
                 upload_speed=10,
                 download_speed=50,
@@ -354,8 +354,8 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"],
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth=aws.networkmanager.LinkBandwidthArgs(
                 upload_speed=10,
                 download_speed=50,

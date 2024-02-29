@@ -52,13 +52,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var this_ = new EventEndpoint(&#34;this&#34;, EventEndpointArgs.builder()        
- *             .roleArn(aws_iam_role.replication().arn())
+ *             .name(&#34;global-endpoint&#34;)
+ *             .roleArn(replication.arn())
  *             .eventBuses(            
  *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(aws_cloudwatch_event_bus.primary().arn())
+ *                     .eventBusArn(primary.arn())
  *                     .build(),
  *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(aws_cloudwatch_event_bus.secondary().arn())
+ *                     .eventBusArn(secondary.arn())
  *                     .build())
  *             .replicationConfig(EventEndpointReplicationConfigArgs.builder()
  *                 .state(&#34;DISABLED&#34;)
@@ -66,7 +67,7 @@ import javax.annotation.Nullable;
  *             .routingConfig(EventEndpointRoutingConfigArgs.builder()
  *                 .failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs.builder()
  *                     .primary(EventEndpointRoutingConfigFailoverConfigPrimaryArgs.builder()
- *                         .healthCheck(aws_route53_health_check.primary().arn())
+ *                         .healthCheck(primaryAwsRoute53HealthCheck.arn())
  *                         .build())
  *                     .secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs.builder()
  *                         .route(&#34;us-east-2&#34;)

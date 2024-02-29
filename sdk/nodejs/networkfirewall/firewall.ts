@@ -10,6 +10,26 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Network Firewall Firewall Resource
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.Firewall("example", {
+ *     name: "example",
+ *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetMappings: [{
+ *         subnetId: exampleAwsSubnet.id,
+ *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:

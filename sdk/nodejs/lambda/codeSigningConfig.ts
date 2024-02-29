@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const newCsc = new aws.lambda.CodeSigningConfig("newCsc", {
+ * const newCsc = new aws.lambda.CodeSigningConfig("new_csc", {
  *     allowedPublishers: {
  *         signingProfileVersionArns: [
- *             aws_signer_signing_profile.example1.arn,
- *             aws_signer_signing_profile.example2.arn,
+ *             example1.arn,
+ *             example2.arn,
  *         ],
  *     },
  *     policies: {

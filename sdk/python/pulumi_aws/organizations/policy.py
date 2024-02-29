@@ -277,12 +277,14 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["*"],
             resources=["*"],
         )])
-        example_policy = aws.organizations.Policy("examplePolicy", content=example_policy_document.json)
+        example_policy = aws.organizations.Policy("example",
+            name="example",
+            content=example.json)
         ```
 
         ## Import
@@ -317,12 +319,14 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["*"],
             resources=["*"],
         )])
-        example_policy = aws.organizations.Policy("examplePolicy", content=example_policy_document.json)
+        example_policy = aws.organizations.Policy("example",
+            name="example",
+            content=example.json)
         ```
 
         ## Import

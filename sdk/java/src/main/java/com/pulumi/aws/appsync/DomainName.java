@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;api.example.com&#34;)
- *             .certificateArn(aws_acm_certificate.example().arn())
+ *             .certificateArn(exampleAwsAcmCertificate.arn())
  *             .build());
  * 
  *     }

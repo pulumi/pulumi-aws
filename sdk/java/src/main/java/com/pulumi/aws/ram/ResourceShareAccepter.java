@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.ram.ResourceShare;
  * import com.pulumi.aws.ram.ResourceShareArgs;
  * import com.pulumi.aws.AwsFunctions;
@@ -38,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ram.PrincipalAssociationArgs;
  * import com.pulumi.aws.ram.ResourceShareAccepter;
  * import com.pulumi.aws.ram.ResourceShareAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,25 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alternate = new Provider(&#34;alternate&#34;, ProviderArgs.builder()        
- *             .profile(&#34;profile1&#34;)
- *             .build());
- * 
  *         var senderShare = new ResourceShare(&#34;senderShare&#34;, ResourceShareArgs.builder()        
+ *             .name(&#34;tf-test-resource-share&#34;)
  *             .allowExternalPrincipals(true)
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-resource-share&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         final var receiver = AwsFunctions.getCallerIdentity();
  * 
  *         var senderInvite = new PrincipalAssociation(&#34;senderInvite&#34;, PrincipalAssociationArgs.builder()        
  *             .principal(receiver.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .resourceShareArn(senderShare.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         var receiverAccept = new ResourceShareAccepter(&#34;receiverAccept&#34;, ResourceShareAccepterArgs.builder()        
  *             .shareArn(senderInvite.resourceShareArn())

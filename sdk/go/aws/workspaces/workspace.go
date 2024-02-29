@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
-//				DirectoryId:                 pulumi.Any(aws_workspaces_directory.Example.Id),
+//				DirectoryId:                 pulumi.Any(exampleAwsWorkspacesDirectory.Id),
 //				BundleId:                    *pulumi.String(valueWindows10.Id),
 //				UserName:                    pulumi.String("john.doe"),
 //				RootVolumeEncryptionEnabled: pulumi.Bool(true),

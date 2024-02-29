@@ -19,6 +19,59 @@ import javax.annotation.Nullable;
  * Manages an AWS Opensearch Package.
  * 
  * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.opensearch.Package;
+ * import com.pulumi.aws.opensearch.PackageArgs;
+ * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myOpensearchPackages = new BucketV2(&#34;myOpensearchPackages&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-opensearch-packages&#34;)
+ *             .build());
+ * 
+ *         var example = new BucketObjectv2(&#34;example&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(myOpensearchPackages.bucket())
+ *             .key(&#34;example.txt&#34;)
+ *             .source(new FileAsset(&#34;./example.txt&#34;))
+ *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
+ *                 .input(&#34;./example.txt&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         var examplePackage = new Package(&#34;examplePackage&#34;, PackageArgs.builder()        
+ *             .packageName(&#34;example-txt&#34;)
+ *             .packageSource(PackagePackageSourceArgs.builder()
+ *                 .s3BucketName(myOpensearchPackages.bucket())
+ *                 .s3Key(example.key())
+ *                 .build())
+ *             .packageType(&#34;TXT-DICTIONARY&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

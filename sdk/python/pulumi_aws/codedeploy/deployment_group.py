@@ -682,16 +682,18 @@ class DeploymentGroup(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
+        example = aws.iam.Role("example",
+            name="example-role",
+            assume_role_policy=assume_role.json)
+        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("AWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example_role.name)
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+            role=example.name)
+        example_application = aws.codedeploy.Application("example", name="example-app")
+        example_topic = aws.sns.Topic("example", name="example-topic")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
             app_name=example_application.name,
             deployment_group_name="example-group",
-            service_role_arn=example_role.arn,
+            service_role_arn=example.arn,
             ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
                 ec2_tag_filters=[
                     aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
@@ -727,12 +729,14 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication", compute_platform="ECS")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
+        example = aws.codedeploy.Application("example",
+            compute_platform="ECS",
+            name="example")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
+            app_name=example.name,
             deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
             deployment_group_name="example",
-            service_role_arn=aws_iam_role["example"]["arn"],
+            service_role_arn=example_aws_iam_role["arn"],
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_FAILURE"],
@@ -751,20 +755,20 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
+                cluster_name=example_aws_ecs_cluster["name"],
+                service_name=example_aws_ecs_service["name"],
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
                     prod_traffic_route=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs(
-                        listener_arns=[aws_lb_listener["example"]["arn"]],
+                        listener_arns=[example_aws_lb_listener["arn"]],
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
+                            name=blue["name"],
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
+                            name=green["name"],
                         ),
                     ],
                 ),
@@ -776,18 +780,18 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
+        example = aws.codedeploy.Application("example", name="example-app")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
+            app_name=example.name,
             deployment_group_name="example-group",
-            service_role_arn=aws_iam_role["example"]["arn"],
+            service_role_arn=example_aws_iam_role["arn"],
             deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
                 deployment_option="WITH_TRAFFIC_CONTROL",
                 deployment_type="BLUE_GREEN",
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
+                    name=example_aws_elb["name"],
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
@@ -857,16 +861,18 @@ class DeploymentGroup(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
+        example = aws.iam.Role("example",
+            name="example-role",
+            assume_role_policy=assume_role.json)
+        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("AWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example_role.name)
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+            role=example.name)
+        example_application = aws.codedeploy.Application("example", name="example-app")
+        example_topic = aws.sns.Topic("example", name="example-topic")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
             app_name=example_application.name,
             deployment_group_name="example-group",
-            service_role_arn=example_role.arn,
+            service_role_arn=example.arn,
             ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
                 ec2_tag_filters=[
                     aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
@@ -902,12 +908,14 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication", compute_platform="ECS")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
+        example = aws.codedeploy.Application("example",
+            compute_platform="ECS",
+            name="example")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
+            app_name=example.name,
             deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
             deployment_group_name="example",
-            service_role_arn=aws_iam_role["example"]["arn"],
+            service_role_arn=example_aws_iam_role["arn"],
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_FAILURE"],
@@ -926,20 +934,20 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
+                cluster_name=example_aws_ecs_cluster["name"],
+                service_name=example_aws_ecs_service["name"],
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
                     prod_traffic_route=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs(
-                        listener_arns=[aws_lb_listener["example"]["arn"]],
+                        listener_arns=[example_aws_lb_listener["arn"]],
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
+                            name=blue["name"],
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
+                            name=green["name"],
                         ),
                     ],
                 ),
@@ -951,18 +959,18 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
+        example = aws.codedeploy.Application("example", name="example-app")
+        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
+            app_name=example.name,
             deployment_group_name="example-group",
-            service_role_arn=aws_iam_role["example"]["arn"],
+            service_role_arn=example_aws_iam_role["arn"],
             deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
                 deployment_option="WITH_TRAFFIC_CONTROL",
                 deployment_type="BLUE_GREEN",
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
+                    name=example_aws_elb["name"],
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(

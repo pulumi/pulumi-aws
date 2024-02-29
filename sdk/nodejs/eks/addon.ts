@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  *     addonName: "vpc-cni",
  * });
  * ```
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  *     addonName: "coredns",
  *     addonVersion: "v1.10.1-eksbuild.1",
  *     resolveConflictsOnUpdate: "PRESERVE",
@@ -35,42 +35,49 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Example add-on usage with custom configurationValues
- *
- * Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
- *
- * > **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
- *
- * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
- * This below is an example for extracting the `configurationValues` schema for `coredns`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * Example to create a `coredns` managed addon with custom `configurationValues`.
+ * ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ * import * as tls from "@pulumi/tls";
  *
- * const example = new aws.eks.Addon("example", {
- *     clusterName: "mycluster",
- *     addonName: "coredns",
- *     addonVersion: "v1.10.1-eksbuild.1",
- *     resolveConflictsOnCreate: "OVERWRITE",
- *     configurationValues: JSON.stringify({
- *         replicaCount: 4,
- *         resources: {
- *             limits: {
- *                 cpu: "100m",
- *                 memory: "150Mi",
- *             },
- *             requests: {
- *                 cpu: "100m",
- *                 memory: "150Mi",
- *             },
- *         },
- *     }),
+ * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
+ *     url: identities[0].oidcs?.[0]?.issuer,
+ * }));
+ * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
+ *     clientIdLists: ["sts.amazonaws.com"],
+ *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
+ *     url: exampleCluster.identities.apply(identities => identities[0].oidcs?.[0]?.issuer),
+ * });
+ * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         effect: "Allow",
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: std.replaceOutput({
+ *                 text: exampleOpenIdConnectProvider.url,
+ *                 search: "https://",
+ *                 replace: "",
+ *             }).apply(invoke => `${invoke.result}:sub`),
+ *             values: ["system:serviceaccount:kube-system:aws-node"],
+ *         }],
+ *         principals: [{
+ *             identifiers: [exampleOpenIdConnectProvider.arn],
+ *             type: "Federated",
+ *         }],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
+ *     name: "example-vpc-cni-role",
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+ *     role: exampleRole.name,
  * });
  * ```
  *

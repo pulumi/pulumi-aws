@@ -24,21 +24,15 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccessGrantsInstance = new Aws.S3Control.AccessGrantsInstance("exampleAccessGrantsInstance");
+    ///     var example = new Aws.S3Control.AccessGrantsInstance("example");
     /// 
-    ///     var exampleAccessGrantsLocation = new Aws.S3Control.AccessGrantsLocation("exampleAccessGrantsLocation", new()
+    ///     var exampleAccessGrantsLocation = new Aws.S3Control.AccessGrantsLocation("example", new()
     ///     {
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         LocationScope = $"s3://{aws_s3_bucket.Example.Bucket}/prefixA*",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccessGrantsInstance,
-    ///         },
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         LocationScope = $"s3://{exampleAwsS3Bucket.Bucket}/prefixA*",
     ///     });
     /// 
-    ///     var exampleAccessGrant = new Aws.S3Control.AccessGrant("exampleAccessGrant", new()
+    ///     var exampleAccessGrant = new Aws.S3Control.AccessGrant("example", new()
     ///     {
     ///         AccessGrantsLocationId = exampleAccessGrantsLocation.AccessGrantsLocationId,
     ///         Permission = "READ",
@@ -49,7 +43,7 @@ namespace Pulumi.Aws.S3Control
     ///         Grantee = new Aws.S3Control.Inputs.AccessGrantGranteeArgs
     ///         {
     ///             GranteeType = "IAM",
-    ///             GranteeIdentifier = aws_iam_user.Example.Arn,
+    ///             GranteeIdentifier = exampleAwsIamUser.Arn,
     ///         },
     ///     });
     /// 

@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Quicksight
     ///     {
     ///         AssignmentName = "example",
     ///         AssignmentStatus = "ENABLED",
-    ///         PolicyArn = aws_iam_policy.Example.Arn,
+    ///         PolicyArn = exampleAwsIamPolicy.Arn,
     ///         Identities = new Aws.Quicksight.Inputs.IamPolicyAssignmentIdentitiesArgs
     ///         {
     ///             Users = new[]
     ///             {
-    ///                 aws_quicksight_user.Example.User_name,
+    ///                 exampleAwsQuicksightUser.UserName,
     ///             },
     ///         },
     ///     });

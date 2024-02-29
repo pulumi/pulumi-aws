@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
  *     passwordLength: 50,
+ *     excludeNumbers: true,
  * });
  * ```
  */
@@ -104,8 +104,8 @@ export interface GetRandomPasswordResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
  *     passwordLength: 50,
+ *     excludeNumbers: true,
  * });
  * ```
  */

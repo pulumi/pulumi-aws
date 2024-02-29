@@ -49,14 +49,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Schedule(&#34;example&#34;, ScheduleArgs.builder()        
+ *             .name(&#34;my-schedule&#34;)
  *             .groupName(&#34;default&#34;)
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode(&#34;OFF&#34;)
  *                 .build())
  *             .scheduleExpression(&#34;rate(1 hours)&#34;)
  *             .target(ScheduleTargetArgs.builder()
- *                 .arn(aws_sqs_queue.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
+ *                 .arn(exampleAwsSqsQueue.arn())
+ *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
@@ -89,20 +90,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;);
+ *         var example = new Queue(&#34;example&#34;);
  * 
  *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
+ *             .name(&#34;my-schedule&#34;)
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode(&#34;OFF&#34;)
  *                 .build())
  *             .scheduleExpression(&#34;rate(1 hours)&#34;)
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn(&#34;arn:aws:scheduler:::aws-sdk:sqs:sendMessage&#34;)
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .input(exampleQueue.url().applyValue(url -&gt; serializeJson(
+ *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .input(example.url().applyValue(url -&gt; serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;MessageBody&#34;, &#34;Greetings, programs!&#34;),
- *                         jsonProperty(&#34;QueueUrl&#34;, url)
+ *                         jsonProperty(&#34;messageBody&#34;, &#34;Greetings, programs!&#34;),
+ *                         jsonProperty(&#34;queueUrl&#34;, url)
  *                     ))))
  *                 .build())
  *             .build());

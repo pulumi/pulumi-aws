@@ -24,11 +24,7 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var example = new Aws.AppStream.Stack("example", new()
     ///     {
-    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             SettingsGroup = "SettingsGroup",
-    ///         },
+    ///         Name = "stack name",
     ///         Description = "stack description",
     ///         DisplayName = "stack display name",
     ///         FeedbackUrl = "http://your-domain/feedback",
@@ -39,10 +35,6 @@ namespace Pulumi.Aws.AppStream
     ///             {
     ///                 ConnectorType = "HOMEFOLDERS",
     ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "TagName", "TagValue" },
     ///         },
     ///         UserSettings = new[]
     ///         {
@@ -81,6 +73,15 @@ namespace Pulumi.Aws.AppStream
     ///                 Action = "PRINTING_TO_LOCAL_DEVICE",
     ///                 Permission = "ENABLED",
     ///             },
+    ///         },
+    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             SettingsGroup = "SettingsGroup",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "TagName", "TagValue" },
     ///         },
     ///     });
     /// 

@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var foo = new Aws.Ssm.Parameter("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         Type = "String",
     ///         Value = "bar",
     ///     });
@@ -52,16 +53,17 @@ namespace Pulumi.Aws.Ssm
     ///         InstanceClass = "db.t2.micro",
     ///         DbName = "mydb",
     ///         Username = "foo",
-    ///         Password = @var.Database_master_password,
+    ///         Password = databaseMasterPassword,
     ///         DbSubnetGroupName = "my_database_subnet_group",
     ///         ParameterGroupName = "default.mysql5.7",
     ///     });
     /// 
     ///     var secret = new Aws.Ssm.Parameter("secret", new()
     ///     {
+    ///         Name = "/production/database/password/master",
     ///         Description = "The parameter description",
     ///         Type = "SecureString",
-    ///         Value = @var.Database_master_password,
+    ///         Value = databaseMasterPassword,
     ///         Tags = 
     ///         {
     ///             { "environment", "production" },

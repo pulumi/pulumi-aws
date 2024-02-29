@@ -25,8 +25,9 @@ namespace Pulumi.Aws.MediaLive
     /// {
     ///     var example = new Aws.MediaLive.Channel("example", new()
     ///     {
+    ///         Name = "example-channel",
     ///         ChannelClass = "STANDARD",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         InputSpecification = new Aws.MediaLive.Inputs.ChannelInputSpecificationArgs
     ///         {
     ///             Codec = "AVC",
@@ -38,7 +39,7 @@ namespace Pulumi.Aws.MediaLive
     ///             new Aws.MediaLive.Inputs.ChannelInputAttachmentArgs
     ///             {
     ///                 InputAttachmentName = "example-input",
-    ///                 InputId = aws_medialive_input.Example.Id,
+    ///                 InputId = exampleAwsMedialiveInput.Id,
     ///             },
     ///         },
     ///         Destinations = new[]
@@ -50,11 +51,11 @@ namespace Pulumi.Aws.MediaLive
     ///                 {
     ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main.Id}/test1",
+    ///                         Url = $"s3://{main.Id}/test1",
     ///                     },
     ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main2.Id}/test2",
+    ///                         Url = $"s3://{main2.Id}/test2",
     ///                     },
     ///                 },
     ///             },

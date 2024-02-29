@@ -97,14 +97,13 @@ class DomainIdentityVerification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
+            zone_id=example_aws_route53_zone["zoneId"],
             name=example.id.apply(lambda id: f"_amazonses.{id}"),
             type="TXT",
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
-        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
+        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -133,14 +132,13 @@ class DomainIdentityVerification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
+            zone_id=example_aws_route53_zone["zoneId"],
             name=example.id.apply(lambda id: f"_amazonses.{id}"),
             type="TXT",
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
-        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
+        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
         ```
 
         :param str resource_name: The name of the resource.

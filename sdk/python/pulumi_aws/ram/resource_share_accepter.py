@@ -190,19 +190,17 @@ class ResourceShareAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alternate = aws.Provider("alternate", profile="profile1")
-        sender_share = aws.ram.ResourceShare("senderShare",
+        sender_share = aws.ram.ResourceShare("sender_share",
+            name="tf-test-resource-share",
             allow_external_principals=True,
             tags={
                 "Name": "tf-test-resource-share",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+            })
         receiver = aws.get_caller_identity()
-        sender_invite = aws.ram.PrincipalAssociation("senderInvite",
+        sender_invite = aws.ram.PrincipalAssociation("sender_invite",
             principal=receiver.account_id,
-            resource_share_arn=sender_share.arn,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
+            resource_share_arn=sender_share.arn)
+        receiver_accept = aws.ram.ResourceShareAccepter("receiver_accept", share_arn=sender_invite.resource_share_arn)
         ```
 
         ## Import
@@ -236,19 +234,17 @@ class ResourceShareAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alternate = aws.Provider("alternate", profile="profile1")
-        sender_share = aws.ram.ResourceShare("senderShare",
+        sender_share = aws.ram.ResourceShare("sender_share",
+            name="tf-test-resource-share",
             allow_external_principals=True,
             tags={
                 "Name": "tf-test-resource-share",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+            })
         receiver = aws.get_caller_identity()
-        sender_invite = aws.ram.PrincipalAssociation("senderInvite",
+        sender_invite = aws.ram.PrincipalAssociation("sender_invite",
             principal=receiver.account_id,
-            resource_share_arn=sender_share.arn,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
+            resource_share_arn=sender_share.arn)
+        receiver_accept = aws.ram.ResourceShareAccepter("receiver_accept", share_arn=sender_invite.resource_share_arn)
         ```
 
         ## Import

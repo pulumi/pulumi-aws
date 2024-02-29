@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.CarrierGateway("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example-carrier-gateway" },

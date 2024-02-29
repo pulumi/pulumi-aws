@@ -199,19 +199,20 @@ class IpGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
             description="Contractors IP access control group",
             rules=[
                 aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
                     source="150.24.14.0/24",
+                    description="NY",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
                     source="125.191.14.85/32",
+                    description="LA",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
                     source="44.98.100.0/24",
+                    description="STL",
                 ),
             ])
         ```
@@ -247,19 +248,20 @@ class IpGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
             description="Contractors IP access control group",
             rules=[
                 aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
                     source="150.24.14.0/24",
+                    description="NY",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
                     source="125.191.14.85/32",
+                    description="LA",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
                     source="44.98.100.0/24",
+                    description="STL",
                 ),
             ])
         ```

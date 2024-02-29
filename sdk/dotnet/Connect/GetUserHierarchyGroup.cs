@@ -49,8 +49,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
@@ -99,8 +99,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });

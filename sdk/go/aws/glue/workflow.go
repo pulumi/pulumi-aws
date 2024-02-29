@@ -29,11 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := glue.NewWorkflow(ctx, "example", nil)
+//			example, err := glue.NewWorkflow(ctx, "example", &glue.WorkflowArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-start"),
 //				Type:         pulumi.String("ON_DEMAND"),
 //				WorkflowName: example.Name,
 //				Actions: glue.TriggerActionArray{
@@ -46,6 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-inner"),
 //				Type:         pulumi.String("CONDITIONAL"),
 //				WorkflowName: example.Name,
 //				Predicate: &glue.TriggerPredicateArgs{

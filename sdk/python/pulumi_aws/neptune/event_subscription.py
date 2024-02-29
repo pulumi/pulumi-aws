@@ -357,7 +357,7 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
+        default = aws.neptune.Cluster("default",
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
             backup_retention_period=5,
@@ -366,12 +366,13 @@ class EventSubscription(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
+            cluster_identifier=default.id,
             engine="neptune",
             instance_class="db.r4.large",
             apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="neptune-events")
+        default_event_subscription = aws.neptune.EventSubscription("default",
+            name="neptune-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="db-instance",
             source_ids=[example.id],
@@ -426,7 +427,7 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
+        default = aws.neptune.Cluster("default",
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
             backup_retention_period=5,
@@ -435,12 +436,13 @@ class EventSubscription(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
+            cluster_identifier=default.id,
             engine="neptune",
             instance_class="db.r4.large",
             apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="neptune-events")
+        default_event_subscription = aws.neptune.EventSubscription("default",
+            name="neptune-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="db-instance",
             source_ids=[example.id],

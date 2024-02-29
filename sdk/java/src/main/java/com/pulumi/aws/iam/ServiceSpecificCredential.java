@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.ServiceSpecificCredential;
  * import com.pulumi.aws.iam.ServiceSpecificCredentialArgs;
  * import java.util.List;
@@ -41,11 +42,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;);
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleServiceSpecificCredential = new ServiceSpecificCredential(&#34;exampleServiceSpecificCredential&#34;, ServiceSpecificCredentialArgs.builder()        
  *             .serviceName(&#34;codecommit.amazonaws.com&#34;)
- *             .userName(exampleUser.name())
+ *             .userName(example.name())
  *             .build());
  * 
  *     }

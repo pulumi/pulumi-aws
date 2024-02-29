@@ -24,17 +24,17 @@ namespace Pulumi.Aws.AppRunner
     /// {
     ///     var connector = new Aws.AppRunner.VpcConnector("connector", new()
     ///     {
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg1",
-    ///             "sg2",
-    ///         },
+    ///         VpcConnectorName = "name",
     ///         Subnets = new[]
     ///         {
     ///             "subnet1",
     ///             "subnet2",
     ///         },
-    ///         VpcConnectorName = "name",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             "sg1",
+    ///             "sg2",
+    ///         },
     ///     });
     /// 
     /// });

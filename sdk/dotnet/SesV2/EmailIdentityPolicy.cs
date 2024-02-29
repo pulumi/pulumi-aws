@@ -23,16 +23,16 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
     ///         EmailIdentityDetails = "testing@example.com",
     ///     });
     /// 
-    ///     var exampleEmailIdentityPolicy = new Aws.SesV2.EmailIdentityPolicy("exampleEmailIdentityPolicy", new()
+    ///     var exampleEmailIdentityPolicy = new Aws.SesV2.EmailIdentityPolicy("example", new()
     ///     {
-    ///         EmailIdentity = exampleEmailIdentity.EmailIdentityDetails,
+    ///         EmailIdentity = example.EmailIdentityDetails,
     ///         PolicyName = "example",
-    ///         Policy = exampleEmailIdentity.Arn.Apply(arn =&gt; @$"{{
+    ///         Policy = example.Arn.Apply(arn =&gt; @$"{{
     ///   ""Id"":""ExampleAuthorizationPolicy"",
     ///   ""Version"":""2012-10-17"",
     ///   ""Statement"":[

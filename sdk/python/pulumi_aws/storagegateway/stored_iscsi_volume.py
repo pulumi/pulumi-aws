@@ -520,11 +520,11 @@ class StoredIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.StoredIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
             preserve_existing_data=False,
-            disk_id=data["aws_storagegateway_local_disk"]["test"]["id"])
+            disk_id=test["id"])
         ```
         ### Create Stored iSCSI Volume From Snapshot
 
@@ -533,12 +533,12 @@ class StoredIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.StoredIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
             preserve_existing_data=False,
-            disk_id=data["aws_storagegateway_local_disk"]["test"]["id"])
+            disk_id=test["id"])
         ```
 
         ## Import
@@ -580,11 +580,11 @@ class StoredIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.StoredIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
             preserve_existing_data=False,
-            disk_id=data["aws_storagegateway_local_disk"]["test"]["id"])
+            disk_id=test["id"])
         ```
         ### Create Stored iSCSI Volume From Snapshot
 
@@ -593,12 +593,12 @@ class StoredIscsiVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.StoredIscsiVolume("example",
-            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
-            network_interface_id=aws_instance["example"]["private_ip"],
-            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
+            network_interface_id=example_aws_instance["privateIp"],
+            snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
             preserve_existing_data=False,
-            disk_id=data["aws_storagegateway_local_disk"]["test"]["id"])
+            disk_id=test["id"])
         ```
 
         ## Import

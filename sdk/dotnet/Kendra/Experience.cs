@@ -25,9 +25,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Experience("example", new()
     ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         IndexId = exampleAwsKendraIndex.Id,
     ///         Description = "My Kendra Experience",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
     ///         {
     ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
@@ -35,7 +36,7 @@ namespace Pulumi.Aws.Kendra
     ///                 DirectPutContent = true,
     ///                 FaqIds = new[]
     ///                 {
-    ///                     aws_kendra_faq.Example.Faq_id,
+    ///                     exampleAwsKendraFaq.FaqId,
     ///                 },
     ///             },
     ///             UserIdentityConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationUserIdentityConfigurationArgs

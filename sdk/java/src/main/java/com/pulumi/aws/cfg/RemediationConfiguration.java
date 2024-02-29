@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var thisRule = new Rule(&#34;thisRule&#34;, RuleArgs.builder()        
+ *         var this_ = new Rule(&#34;this&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .source(RuleSourceArgs.builder()
  *                 .owner(&#34;AWS&#34;)
  *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
@@ -62,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var thisRemediationConfiguration = new RemediationConfiguration(&#34;thisRemediationConfiguration&#34;, RemediationConfigurationArgs.builder()        
- *             .configRuleName(thisRule.name())
+ *             .configRuleName(this_.name())
  *             .resourceType(&#34;AWS::S3::Bucket&#34;)
  *             .targetType(&#34;SSM_DOCUMENT&#34;)
  *             .targetId(&#34;AWS-EnableS3BucketEncryption&#34;)

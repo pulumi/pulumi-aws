@@ -43,6 +43,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
+    ///         ClusterId = "cluster-example",
     ///         Engine = "memcached",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheNodes = 2,
@@ -64,11 +65,12 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
+    ///         ClusterId = "cluster-example",
     ///         Engine = "redis",
-    ///         EngineVersion = "3.2.10",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheNodes = 1,
     ///         ParameterGroupName = "default.redis3.2",
+    ///         EngineVersion = "3.2.10",
     ///         Port = 6379,
     ///     });
     /// 
@@ -88,7 +90,8 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var replica = new Aws.ElastiCache.Cluster("replica", new()
     ///     {
-    ///         ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
+    ///         ClusterId = "cluster-example",
+    ///         ReplicationGroupId = example.Id,
     ///     });
     /// 
     /// });
@@ -105,6 +108,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.Cluster("test", new()
     ///     {
+    ///         ClusterId = "mycluster",
     ///         Engine = "redis",
     ///         NodeType = "cache.t3.micro",
     ///         NumCacheNodes = 1,
@@ -114,19 +118,81 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 Destination = example.Name,
     ///                 DestinationType = "cloudwatch-logs",
     ///                 LogFormat = "text",
     ///                 LogType = "slow-log",
     ///             },
     ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 Destination = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 DestinationType = "kinesis-firehose",
     ///                 LogFormat = "json",
     ///                 LogType = "engine-log",
     ///             },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Elasticache Cluster in Outpost
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.Outposts.GetOutposts.Invoke();
+    /// 
+    ///     var exampleGetOutpost = Aws.Outposts.GetOutpost.Invoke(new()
+    ///     {
+    ///         Id = NotImplemented("tolist(data.aws_outposts_outposts.example.ids)")[0],
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "my-subnet" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetGroup = new Aws.ElastiCache.SubnetGroup("example", new()
+    ///     {
+    ///         Name = "my-cache-subnet",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.ElastiCache.Cluster("example", new()
+    ///     {
+    ///         ClusterId = "cluster-example",
+    ///         OutpostMode = "single-outpost",
+    ///         PreferredOutpostArn = exampleGetOutpost.Apply(getOutpostResult =&gt; getOutpostResult.Arn),
+    ///         Engine = "memcached",
+    ///         NodeType = "cache.r5.large",
+    ///         NumCacheNodes = 2,
+    ///         ParameterGroupName = "default.memcached1.4",
+    ///         Port = 11211,
+    ///         SubnetGroupName = exampleSubnetGroup.Name,
     ///     });
     /// 
     /// });

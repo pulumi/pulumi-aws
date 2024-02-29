@@ -109,6 +109,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
+            name="emr-sample-cluster",
             release_label="emr-5.30.0",
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -116,7 +117,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
                 instance_type="c4.large",
             ))
-        # skip ...
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
             compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(
@@ -157,6 +157,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
+            name="emr-sample-cluster",
             release_label="emr-5.30.0",
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -164,7 +165,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
                 instance_type="c4.large",
             ))
-        # skip ...
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
             compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(

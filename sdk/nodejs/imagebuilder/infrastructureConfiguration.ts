@@ -18,19 +18,20 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.imagebuilder.InfrastructureConfiguration("example", {
  *     description: "example description",
- *     instanceProfileName: aws_iam_instance_profile.example.name,
+ *     instanceProfileName: exampleAwsIamInstanceProfile.name,
  *     instanceTypes: [
  *         "t2.nano",
  *         "t3.micro",
  *     ],
- *     keyPair: aws_key_pair.example.key_name,
- *     securityGroupIds: [aws_security_group.example.id],
- *     snsTopicArn: aws_sns_topic.example.arn,
- *     subnetId: aws_subnet.main.id,
+ *     keyPair: exampleAwsKeyPair.keyName,
+ *     name: "example",
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     snsTopicArn: exampleAwsSnsTopic.arn,
+ *     subnetId: main.id,
  *     terminateInstanceOnFailure: true,
  *     logging: {
  *         s3Logs: {
- *             s3BucketName: aws_s3_bucket.example.bucket,
+ *             s3BucketName: exampleAwsS3Bucket.bucket,
  *             s3KeyPrefix: "logs",
  *         },
  *     },

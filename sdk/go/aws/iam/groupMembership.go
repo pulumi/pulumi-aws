@@ -35,19 +35,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
+//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
+//				Name: pulumi.String("test-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			userOne, err := iam.NewUser(ctx, "userOne", nil)
+//			userOne, err := iam.NewUser(ctx, "user_one", &iam.UserArgs{
+//				Name: pulumi.String("test-user"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			userTwo, err := iam.NewUser(ctx, "userTwo", nil)
+//			userTwo, err := iam.NewUser(ctx, "user_two", &iam.UserArgs{
+//				Name: pulumi.String("test-user-two"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
+//				Name: pulumi.String("tf-testing-group-membership"),
 //				Users: pulumi.StringArray{
 //					userOne.Name,
 //					userTwo.Name,

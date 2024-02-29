@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
+//			myIPSet, err := s3.NewBucketObjectv2(ctx, "MyIPSet", &s3.BucketObjectv2Args{
 //				Content: pulumi.String("10.0.0.0/8\n"),
 //				Bucket:  bucket.ID(),
 //				Key:     pulumi.String("MyIPSet"),
@@ -60,11 +60,12 @@ import (
 //					key := _args[1].(string)
 //					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
+//				Name: pulumi.String("MyIPSet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})

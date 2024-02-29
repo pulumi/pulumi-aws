@@ -12,6 +12,38 @@ namespace Pulumi.Aws.NetworkFirewall
     /// <summary>
     /// Provides an AWS Network Firewall Firewall Resource
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         SubnetMappings = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
+    ///             {
+    ///                 SubnetId = exampleAwsSubnet.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:

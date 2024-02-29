@@ -314,7 +314,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
@@ -357,7 +357,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })

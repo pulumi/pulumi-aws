@@ -63,15 +63,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
+ *             .name(&#34;kinesis-test&#34;)
  *             .shardCount(1)
  *             .build());
  * 
  *         var testApplication = new AnalyticsApplication(&#34;testApplication&#34;, AnalyticsApplicationArgs.builder()        
+ *             .name(&#34;kinesis-analytics-application-test&#34;)
  *             .inputs(AnalyticsApplicationInputsArgs.builder()
  *                 .namePrefix(&#34;test_prefix&#34;)
  *                 .kinesisStream(AnalyticsApplicationInputsKinesisStreamArgs.builder()
  *                     .resourceArn(testStream.arn())
- *                     .roleArn(aws_iam_role.test().arn())
+ *                     .roleArn(test.arn())
  *                     .build())
  *                 .parallelism(AnalyticsApplicationInputsParallelismArgs.builder()
  *                     .count(1)
@@ -105,6 +107,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.cloudwatch.LogStream;
  * import com.pulumi.aws.cloudwatch.LogStreamArgs;
  * import com.pulumi.aws.kinesis.Stream;
@@ -137,28 +140,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;analytics&#34;)
+ *             .build());
  * 
  *         var exampleLogStream = new LogStream(&#34;exampleLogStream&#34;, LogStreamArgs.builder()        
- *             .logGroupName(exampleLogGroup.name())
+ *             .name(&#34;example-kinesis-application&#34;)
+ *             .logGroupName(example.name())
  *             .build());
  * 
  *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
+ *             .name(&#34;example-kinesis-stream&#34;)
  *             .shardCount(1)
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;example-kinesis-delivery-stream&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .bucketArn(aws_s3_bucket.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
+ *                 .bucketArn(exampleAwsS3Bucket.arn())
+ *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
  *         var test = new AnalyticsApplication(&#34;test&#34;, AnalyticsApplicationArgs.builder()        
+ *             .name(&#34;example-application&#34;)
  *             .cloudwatchLoggingOptions(AnalyticsApplicationCloudwatchLoggingOptionsArgs.builder()
  *                 .logStreamArn(exampleLogStream.arn())
- *                 .roleArn(aws_iam_role.example().arn())
+ *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .inputs(AnalyticsApplicationInputsArgs.builder()
  *                 .namePrefix(&#34;example_prefix&#34;)
@@ -178,7 +187,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .kinesisStream(AnalyticsApplicationInputsKinesisStreamArgs.builder()
  *                     .resourceArn(exampleStream.arn())
- *                     .roleArn(aws_iam_role.example().arn())
+ *                     .roleArn(exampleAwsIamRole.arn())
  *                     .build())
  *                 .startingPositionConfigurations(AnalyticsApplicationInputsStartingPositionConfigurationArgs.builder()
  *                     .startingPosition(&#34;NOW&#34;)
@@ -191,7 +200,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .kinesisFirehose(AnalyticsApplicationOutputKinesisFirehoseArgs.builder()
  *                     .resourceArn(exampleFirehoseDeliveryStream.arn())
- *                     .roleArn(aws_iam_role.example().arn())
+ *                     .roleArn(exampleAwsIamRole.arn())
  *                     .build())
  *                 .build())
  *             .startApplication(true)

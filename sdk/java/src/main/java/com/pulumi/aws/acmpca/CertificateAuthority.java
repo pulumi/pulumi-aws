@@ -88,6 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
+ *             .usageMode(&#34;SHORT_LIVED_CERTIFICATE&#34;)
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm(&#34;RSA_4096&#34;)
  *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
@@ -95,7 +96,6 @@ import javax.annotation.Nullable;
  *                     .commonName(&#34;example.com&#34;)
  *                     .build())
  *                 .build())
- *             .usageMode(&#34;SHORT_LIVED_CERTIFICATE&#34;)
  *             .build());
  * 
  *     }
@@ -120,7 +120,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,7 +133,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
@@ -146,8 +146,8 @@ import javax.annotation.Nullable;
  *                     &#34;s3:PutObject&#34;,
  *                     &#34;s3:PutObjectAcl&#34;)
  *                 .resources(                
- *                     exampleBucketV2.arn(),
- *                     exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     example.arn(),
+ *                     example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(&#34;acm-pca.amazonaws.com&#34;)
  *                     .type(&#34;Service&#34;)
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(acmpcaBucketAccess -&gt; acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
@@ -173,13 +173,11 @@ import javax.annotation.Nullable;
  *                     .customCname(&#34;crl.example.com&#34;)
  *                     .enabled(true)
  *                     .expirationInDays(7)
- *                     .s3BucketName(exampleBucketV2.id())
+ *                     .s3BucketName(example.id())
  *                     .s3ObjectAcl(&#34;BUCKET_OWNER_FULL_CONTROL&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

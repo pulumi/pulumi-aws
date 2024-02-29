@@ -25,11 +25,12 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "example",
+    ///         ElasticsearchVersion = "7.10",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r4.large.elasticsearch",
     ///         },
-    ///         ElasticsearchVersion = "7.10",
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
@@ -52,16 +53,17 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var config = new Config();
     ///     var domain = config.Get("domain") ?? "tf-test";
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
-    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         DomainName = domain,
+    ///         AccessPolicies = Output.Tuple(current, currentGetCallerIdentity).Apply(values =&gt;
     ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
+    ///             var current = values.Item1;
+    ///             var currentGetCallerIdentity = values.Item2;
     ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -69,7 +71,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///       ""Action"": ""es:*"",
     ///       ""Principal"": ""*"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
+    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
     ///       ""Condition"": {{
     ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
     ///       }}
@@ -92,9 +94,12 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -126,14 +131,13 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new()
+    ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("example", new()
     ///     {
     ///         PolicyName = "example",
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     // .. other configuration ...
-    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.ElasticSearch.Domain("example", new()
     ///     {
     ///         LogPublishingOptions = new[]
     ///         {
@@ -160,7 +164,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///     var config = new Config();
     ///     var vpc = config.RequireObject&lt;dynamic&gt;("vpc");
     ///     var domain = config.Get("domain") ?? "tf-test";
-    ///     var selectedVpc = Aws.Ec2.GetVpc.Invoke(new()
+    ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
     ///     {
     ///         Tags = 
     ///         {
@@ -168,7 +172,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var selectedSubnets = Aws.Ec2.GetSubnets.Invoke(new()
+    ///     var selectedGetSubnets = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
     ///         Filters = new[]
     ///         {
@@ -177,7 +181,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///                 Name = "vpc-id",
     ///                 Values = new[]
     ///                 {
-    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///                     selected.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///                 },
     ///             },
     ///         },
@@ -187,14 +191,15 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var esSecurityGroup = new Aws.Ec2.SecurityGroup("esSecurityGroup", new()
+    ///     var es = new Aws.Ec2.SecurityGroup("es", new()
     ///     {
+    ///         Name = $"{vpc}-elasticsearch-{domain}",
     ///         Description = "Managed by Pulumi",
-    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -204,19 +209,20 @@ namespace Pulumi.Aws.ElasticSearch
     ///                 Protocol = "tcp",
     ///                 CidrBlocks = new[]
     ///                 {
-    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
+    ///                     selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("esServiceLinkedRole", new()
+    ///     var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("es", new()
     ///     {
     ///         AwsServiceName = "opensearchservice.amazonaws.com",
     ///     });
     /// 
-    ///     var esDomain = new Aws.ElasticSearch.Domain("esDomain", new()
+    ///     var esDomain = new Aws.ElasticSearch.Domain("es", new()
     ///     {
+    ///         DomainName = domain,
     ///         ElasticsearchVersion = "6.3",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
@@ -227,22 +233,22 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
-    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
+    ///                 selectedGetSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
+    ///                 selectedGetSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 esSecurityGroup.Id,
+    ///                 es.Id,
     ///             },
     ///         },
     ///         AdvancedOptions = 
     ///         {
     ///             { "rest.action.multi.allow_explicit_index", "true" },
     ///         },
-    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         AccessPolicies = Output.Tuple(current, currentGetCallerIdentity).Apply(values =&gt;
     ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
+    ///             var current = values.Item1;
+    ///             var currentGetCallerIdentity = values.Item2;
     ///             return @$"{{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
@@ -250,7 +256,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 			""Action"": ""es:*"",
     /// 			""Principal"": ""*"",
     /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
+    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
     /// 		}}
     /// 	]
     /// }}
@@ -259,12 +265,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             esServiceLinkedRole,
     ///         },
     ///     });
     /// 

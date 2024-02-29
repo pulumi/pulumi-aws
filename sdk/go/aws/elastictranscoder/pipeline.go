@@ -29,14 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elastictranscoder.NewPipeline(ctx, "bar", &elastictranscoder.PipelineArgs{
-//				InputBucket: pulumi.Any(aws_s3_bucket.Input_bucket.Id),
-//				Role:        pulumi.Any(aws_iam_role.Test_role.Arn),
+//				InputBucket: pulumi.Any(inputBucket.Id),
+//				Name:        pulumi.String("aws_elastictranscoder_pipeline_my_test_"),
+//				Role:        pulumi.Any(testRole.Arn),
 //				ContentConfig: &elastictranscoder.PipelineContentConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Content_bucket.Id),
+//					Bucket:       pulumi.Any(contentBucket.Id),
 //					StorageClass: pulumi.String("Standard"),
 //				},
 //				ThumbnailConfig: &elastictranscoder.PipelineThumbnailConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Thumb_bucket.Id),
+//					Bucket:       pulumi.Any(thumbBucket.Id),
 //					StorageClass: pulumi.String("Standard"),
 //				},
 //			})

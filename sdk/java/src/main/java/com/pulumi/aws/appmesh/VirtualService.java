@@ -46,11 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;servicea.simpleapp.local&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualNode(VirtualServiceSpecProviderVirtualNodeArgs.builder()
- *                         .virtualNodeName(aws_appmesh_virtual_node.serviceb1().name())
+ *                         .virtualNodeName(serviceb1.name())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -85,11 +86,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;servicea.simpleapp.local&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualRouter(VirtualServiceSpecProviderVirtualRouterArgs.builder()
- *                         .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *                         .virtualRouterName(serviceb.name())
  *                         .build())
  *                     .build())
  *                 .build())

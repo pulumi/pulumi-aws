@@ -475,7 +475,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -487,7 +487,8 @@ class ImageRecipe(pulumi.CustomResource):
                     ),
                 ],
             )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            name="example",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
 
@@ -539,7 +540,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -551,7 +552,8 @@ class ImageRecipe(pulumi.CustomResource):
                     ),
                 ],
             )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            name="example",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
 

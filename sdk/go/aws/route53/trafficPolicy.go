@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
+//				Name:    pulumi.String("example"),
 //				Comment: pulumi.String("example comment"),
 //				Document: pulumi.String(`{
 //	  "AWSPolicyFormatVersion": "2015-10-01",

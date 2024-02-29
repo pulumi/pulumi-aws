@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessLifecyclePolicy("example", {
+ *     name: "example",
  *     type: "retention",
  *     policy: JSON.stringify({
  *         Rules: [

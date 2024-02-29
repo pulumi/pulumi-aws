@@ -41,14 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;testing@example.com&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy(&#34;exampleEmailIdentityPolicy&#34;, EmailIdentityPolicyArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
+ *             .emailIdentity(example.emailIdentity())
  *             .policyName(&#34;example&#34;)
- *             .policy(exampleEmailIdentity.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .policy(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Id&#34;:&#34;ExampleAuthorizationPolicy&#34;,
  *   &#34;Version&#34;:&#34;2012-10-17&#34;,

@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.CachePolicy("example", {
+ *     name: "example-policy",
  *     comment: "test comment",
  *     defaultTtl: 50,
  *     maxTtl: 100,

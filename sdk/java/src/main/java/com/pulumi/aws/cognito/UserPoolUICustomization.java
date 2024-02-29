@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.cognito.UserPoolDomainArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
@@ -47,21 +48,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleUserPoolDomain = new UserPoolDomain(&#34;exampleUserPoolDomain&#34;, UserPoolDomainArgs.builder()        
  *             .domain(&#34;example&#34;)
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *         var exampleUserPoolClient = new UserPoolClient(&#34;exampleUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .name(&#34;example&#34;)
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *         var exampleUserPoolUICustomization = new UserPoolUICustomization(&#34;exampleUserPoolUICustomization&#34;, UserPoolUICustomizationArgs.builder()        
  *             .clientId(exampleUserPoolClient.id())
  *             .css(&#34;.label-customizable {font-weight: 400;}&#34;)
- *             .imageFile(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;logo.png&#34;))))
+ *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;logo.png&#34;)
+ *                 .build()).result())
  *             .userPoolId(exampleUserPoolDomain.userPoolId())
  *             .build());
  * 
@@ -76,6 +82,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.cognito.UserPoolDomainArgs;
  * import com.pulumi.aws.cognito.UserPoolUICustomization;
@@ -93,16 +100,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleUserPoolDomain = new UserPoolDomain(&#34;exampleUserPoolDomain&#34;, UserPoolDomainArgs.builder()        
  *             .domain(&#34;example&#34;)
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *         var exampleUserPoolUICustomization = new UserPoolUICustomization(&#34;exampleUserPoolUICustomization&#34;, UserPoolUICustomizationArgs.builder()        
  *             .css(&#34;.label-customizable {font-weight: 400;}&#34;)
- *             .imageFile(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;logo.png&#34;))))
+ *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;logo.png&#34;)
+ *                 .build()).result())
  *             .userPoolId(exampleUserPoolDomain.userPoolId())
  *             .build());
  * 

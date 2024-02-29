@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Example.Arn,
+    ///             exampleAwsLb.Arn,
     ///         },
     ///     });
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     ///         AcceptanceRequired = false,
     ///         GatewayLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Example.Arn,
+    ///             exampleAwsLb.Arn,
     ///         },
     ///     });
     /// 

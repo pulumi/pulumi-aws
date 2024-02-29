@@ -31,8 +31,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
 //				AwsRegion: pulumi.String("us-east-1"),
+//				Name:      pulumi.String("example-sip-media-application"),
 //				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
-//					LambdaArn: pulumi.Any(aws_lambda_function.Test.Arn),
+//					LambdaArn: pulumi.Any(test.Arn),
 //				},
 //			})
 //			if err != nil {

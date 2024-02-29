@@ -16,16 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example",
  *     description: "My example policy",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * const current = aws.getPartition({});
  * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
@@ -38,15 +39,19 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleBudget = new aws.budgets.Budget("exampleBudget", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleBudget = new aws.budgets.Budget("example", {
+ *     name: "example",
  *     budgetType: "USAGE",
  *     limitAmount: "10.0",
  *     limitUnit: "dollars",
  *     timePeriodStart: "2006-01-02_15:04",
  *     timeUnit: "MONTHLY",
  * });
- * const exampleBudgetAction = new aws.budgets.BudgetAction("exampleBudgetAction", {
+ * const exampleBudgetAction = new aws.budgets.BudgetAction("example", {
  *     budgetName: exampleBudget.name,
  *     actionType: "APPLY_IAM_POLICY",
  *     approvalModel: "AUTOMATIC",

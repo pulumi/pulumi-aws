@@ -115,8 +115,8 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+            vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
 
@@ -149,8 +149,8 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+            vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
 

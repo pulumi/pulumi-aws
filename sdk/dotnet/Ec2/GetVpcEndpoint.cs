@@ -27,16 +27,17 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
         ///     {
         ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = aws_route_table.Private.Id,
+        ///         RouteTableId = @private.Id,
         ///     });
         /// 
         /// });
@@ -63,16 +64,17 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
         ///     {
         ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = aws_route_table.Private.Id,
+        ///         RouteTableId = @private.Id,
         ///     });
         /// 
         /// });

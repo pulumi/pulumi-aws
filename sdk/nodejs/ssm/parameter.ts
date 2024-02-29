@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ssm.Parameter("foo", {
+ *     name: "foo",
  *     type: "String",
  *     value: "bar",
  * });
@@ -38,14 +39,15 @@ import * as utilities from "../utilities";
  *     instanceClass: "db.t2.micro",
  *     dbName: "mydb",
  *     username: "foo",
- *     password: _var.database_master_password,
+ *     password: databaseMasterPassword,
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.7",
  * });
  * const secret = new aws.ssm.Parameter("secret", {
+ *     name: "/production/database/password/master",
  *     description: "The parameter description",
  *     type: "SecureString",
- *     value: _var.database_master_password,
+ *     value: databaseMasterPassword,
  *     tags: {
  *         environment: "production",
  *     },

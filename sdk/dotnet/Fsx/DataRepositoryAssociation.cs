@@ -24,29 +24,29 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "my-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
+    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 1200,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///         DeploymentType = "PERSISTENT_2",
     ///         PerUnitStorageThroughput = 125,
     ///     });
     /// 
-    ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", new()
+    ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("example", new()
     ///     {
     ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///         DataRepositoryPath = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}"),
+    ///         DataRepositoryPath = example.Id.Apply(id =&gt; $"s3://{id}"),
     ///         FileSystemPath = "/my-bucket",
     ///         S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
     ///         {

@@ -32,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewCustomDomainAssociation(ctx, "example", &apprunner.CustomDomainAssociationArgs{
 //				DomainName: pulumi.String("example.com"),
-//				ServiceArn: pulumi.Any(aws_apprunner_service.Example.Arn),
+//				ServiceArn: pulumi.Any(exampleAwsApprunnerService.Arn),
 //			})
 //			if err != nil {
 //				return err

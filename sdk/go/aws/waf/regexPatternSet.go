@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
+//				Name: pulumi.String("my_waf_regex_pattern_set"),
 //				RegexPatternStrings: pulumi.StringArray{
 //					pulumi.String("one"),
 //					pulumi.String("two"),

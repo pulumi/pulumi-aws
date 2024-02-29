@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBot(&#34;example&#34;, V2modelsBotArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
  *                 .childDirected(&#34;boolean&#34;)
  *                 .build())

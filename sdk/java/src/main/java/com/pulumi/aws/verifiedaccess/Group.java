@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance_trust_provider_attachment.test().verifiedaccess_instance_id())
+ *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
  *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 

@@ -29,8 +29,8 @@ namespace Pulumi.Aws.ServiceCatalog
     ///     var example = new Aws.ServiceCatalog.Constraint("example", new()
     ///     {
     ///         Description = "Back off, man. I'm a scientist.",
-    ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,
-    ///         ProductId = aws_servicecatalog_product.Example.Id,
+    ///         PortfolioId = exampleAwsServicecatalogPortfolio.Id,
+    ///         ProductId = exampleAwsServicecatalogProduct.Id,
     ///         Type = "LAUNCH",
     ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {

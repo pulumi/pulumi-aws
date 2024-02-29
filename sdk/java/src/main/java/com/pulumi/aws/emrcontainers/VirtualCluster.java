@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VirtualCluster(&#34;example&#34;, VirtualClusterArgs.builder()        
  *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
- *                 .id(aws_eks_cluster.example().name())
+ *                 .id(exampleAwsEksCluster.name())
  *                 .type(&#34;EKS&#34;)
  *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
  *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

@@ -214,7 +214,7 @@ class CustomLogSource(pulumi.CustomResource):
             event_classes=["FILE_ACTIVITY"],
             configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
                 crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=aws_iam_role["custom_log"]["arn"],
+                    role_arn=custom_log["arn"],
                 ),
                 provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
                     external_id="example-id",
@@ -260,7 +260,7 @@ class CustomLogSource(pulumi.CustomResource):
             event_classes=["FILE_ACTIVITY"],
             configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
                 crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=aws_iam_role["custom_log"]["arn"],
+                    role_arn=custom_log["arn"],
                 ),
                 provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
                     external_id="example-id",

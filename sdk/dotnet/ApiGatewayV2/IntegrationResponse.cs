@@ -26,8 +26,8 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.IntegrationResponse("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         IntegrationId = aws_apigatewayv2_integration.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         IntegrationId = exampleAwsApigatewayv2Integration.Id,
     ///         IntegrationResponseKey = "/200/",
     ///     });
     /// 

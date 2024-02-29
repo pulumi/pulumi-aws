@@ -24,9 +24,10 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
     ///     {
-    ///         HostedZoneId = "Z033120931TAQO548OGJC",
+    ///         Name = "test.example.com",
     ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
     ///         TrafficPolicyVersion = 1,
+    ///         HostedZoneId = "Z033120931TAQO548OGJC",
     ///         Ttl = 360,
     ///     });
     /// 

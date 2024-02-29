@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -63,9 +64,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSourceBucketV2 = new BucketV2(&#34;exampleSourceBucketV2&#34;);
+ *         var exampleSourceBucketV2 = new BucketV2(&#34;exampleSourceBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-source&#34;)
+ *             .build());
  * 
- *         final var exampleSourcePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var exampleSource = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;AllowAppFlowSourceActions&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -84,18 +87,20 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSourceBucketPolicy = new BucketPolicy(&#34;exampleSourceBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(exampleSourceBucketV2.id())
- *             .policy(exampleSourcePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(exampleSource.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var example = new BucketObjectv2(&#34;example&#34;, BucketObjectv2Args.builder()        
  *             .bucket(exampleSourceBucketV2.id())
  *             .key(&#34;example_source.csv&#34;)
  *             .source(new FileAsset(&#34;example_source.csv&#34;))
  *             .build());
  * 
- *         var exampleDestinationBucketV2 = new BucketV2(&#34;exampleDestinationBucketV2&#34;);
+ *         var exampleDestinationBucketV2 = new BucketV2(&#34;exampleDestinationBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-destination&#34;)
+ *             .build());
  * 
- *         final var exampleDestinationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var exampleDestination = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;AllowAppFlowDestinationActions&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -118,10 +123,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDestinationBucketPolicy = new BucketPolicy(&#34;exampleDestinationBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(exampleDestinationBucketV2.id())
- *             .policy(exampleDestinationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(exampleDestination.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleFlow = new Flow(&#34;exampleFlow&#34;, FlowArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .sourceFlowConfig(FlowSourceFlowConfigArgs.builder()
  *                 .connectorType(&#34;S3&#34;)
  *                 .sourceConnectorProperties(FlowSourceFlowConfigSourceConnectorPropertiesArgs.builder()

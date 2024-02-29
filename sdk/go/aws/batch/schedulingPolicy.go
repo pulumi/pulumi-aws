@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
+//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
 //					ComputeReservation: pulumi.Int(1),
 //					ShareDecaySeconds:  pulumi.Int(3600),

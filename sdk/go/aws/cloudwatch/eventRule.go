@@ -42,18 +42,22 @@ import (
 // }
 // json0 := string(tmpJSON0)
 // console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
+// Name: pulumi.String("capture-aws-sign-in"),
 // Description: pulumi.String("Capture each AWS Console Sign In"),
 // EventPattern: pulumi.String(json0),
 // })
 // if err != nil {
 // return err
 // }
-// awsLogins, err := sns.NewTopic(ctx, "awsLogins", nil)
+// awsLogins, err := sns.NewTopic(ctx, "aws_logins", &sns.TopicArgs{
+// Name: pulumi.String("aws-console-logins"),
+// })
 // if err != nil {
 // return err
 // }
 // _, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
 // Rule: console.Name,
+// TargetId: pulumi.String("SendToSNS"),
 // Arn: awsLogins.Arn,
 // })
 // if err != nil {

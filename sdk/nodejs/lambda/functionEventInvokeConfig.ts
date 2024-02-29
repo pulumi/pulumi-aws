@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
  *     destinationConfig: {
  *         onFailure: {
- *             destination: aws_sqs_queue.example.arn,
+ *             destination: exampleAwsSqsQueue.arn,
  *         },
  *         onSuccess: {
- *             destination: aws_sns_topic.example.arn,
+ *             destination: exampleAwsSnsTopic.arn,
  *         },
  *     },
  * });
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
  *     maximumEventAgeInSeconds: 60,
  *     maximumRetryAttempts: 0,
  * });
@@ -50,10 +50,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
- *     qualifier: aws_lambda_alias.example.name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
+ *     qualifier: exampleAwsLambdaAlias.name,
  * });
- * // ... other configuration ...
  * ```
  * ### Configuration for Function Latest Unpublished Version
  *
@@ -62,10 +61,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     qualifier: "$LATEST",
  * });
- * // ... other configuration ...
  * ```
  * ### Configuration for Function Published Version
  *
@@ -74,10 +72,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
- *     qualifier: aws_lambda_function.example.version,
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: exampleAwsLambdaFunction.version,
  * });
- * // ... other configuration ...
  * ```
  *
  * ## Import

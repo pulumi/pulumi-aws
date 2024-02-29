@@ -24,7 +24,8 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var example = new Aws.Organizations.OrganizationalUnit("example", new()
     ///     {
-    ///         ParentId = aws_organizations_organization.Example.Roots[0].Id,
+    ///         Name = "example",
+    ///         ParentId = exampleAwsOrganizationsOrganization.Roots[0].Id,
     ///     });
     /// 
     /// });

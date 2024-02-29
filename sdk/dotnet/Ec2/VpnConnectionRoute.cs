@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpn_gateway", new()
     ///     {
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customer_gateway", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.0.0.1",

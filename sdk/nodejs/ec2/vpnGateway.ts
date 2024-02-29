@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {
- *     vpcId: aws_vpc.main.id,
+ * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {
+ *     vpcId: main.id,
  *     tags: {
  *         Name: "main",
  *     },

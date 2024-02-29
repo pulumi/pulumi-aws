@@ -31,15 +31,18 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     {
+        ///         Bucket = "my-elb-tf-test-bucket",
+        ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowElbLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -69,14 +72,15 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///     });
         /// 
-        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_elb_logging", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowElbLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
         ///         AvailabilityZones = new[]
         ///         {
         ///             "us-west-2a",
@@ -126,15 +130,18 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     {
+        ///         Bucket = "my-elb-tf-test-bucket",
+        ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowElbLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -164,14 +171,15 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///     });
         /// 
-        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_elb_logging", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowElbLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
         ///         AvailabilityZones = new[]
         ///         {
         ///             "us-west-2a",

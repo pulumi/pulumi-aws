@@ -25,14 +25,14 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
     ///         Engine = "REDIS",
     ///         Passwords = new[]
     ///         {
     ///             "password123456789",
     ///         },
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });
@@ -48,14 +48,14 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
+    ///         Engine = "REDIS",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "iam",
     ///         },
-    ///         Engine = "REDIS",
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });
@@ -71,19 +71,19 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
+    ///         Engine = "REDIS",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
+    ///             Type = "password",
     ///             Passwords = new[]
     ///             {
     ///                 "password1",
     ///                 "password2",
     ///             },
-    ///             Type = "password",
     ///         },
-    ///         Engine = "REDIS",
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });

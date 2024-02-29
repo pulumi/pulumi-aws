@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxLustreFileSystem.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //			})
 //			if err != nil {

@@ -122,8 +122,8 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.backup.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -141,9 +141,9 @@ class VaultPolicy(pulumi.CustomResource):
             ],
             resources=[example_vault.arn],
         )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+        example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import
@@ -174,8 +174,8 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.backup.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -193,9 +193,9 @@ class VaultPolicy(pulumi.CustomResource):
             ],
             resources=[example_vault.arn],
         )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+        example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import

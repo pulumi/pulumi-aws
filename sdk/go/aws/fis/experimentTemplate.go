@@ -34,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
 //				Description: pulumi.String("example"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				StopConditions: fis.ExperimentTemplateStopConditionArray{
 //					&fis.ExperimentTemplateStopConditionArgs{
 //						Source: pulumi.String("none"),

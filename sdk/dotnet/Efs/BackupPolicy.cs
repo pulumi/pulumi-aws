@@ -23,7 +23,10 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs");
+    ///     var fs = new Aws.Efs.FileSystem("fs", new()
+    ///     {
+    ///         CreationToken = "my-product",
+    ///     });
     /// 
     ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
     ///     {

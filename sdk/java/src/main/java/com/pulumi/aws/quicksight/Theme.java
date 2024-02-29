@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -49,6 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Theme(&#34;example&#34;, ThemeArgs.builder()        
+ *             .themeId(&#34;example&#34;)
+ *             .name(&#34;example&#34;)
  *             .baseThemeId(&#34;MIDNIGHT&#34;)
  *             .configuration(ThemeConfigurationArgs.builder()
  *                 .dataColorPalette(ThemeConfigurationDataColorPaletteArgs.builder()
@@ -64,12 +65,11 @@ import javax.annotation.Nullable;
  *                         &#34;#888888&#34;,
  *                         &#34;#999999&#34;)
  *                     .emptyFillColor(&#34;#FFFFFF&#34;)
- *                     .minMaxGradient(                    
+ *                     .minMaxGradients(                    
  *                         &#34;#FFFFFF&#34;,
  *                         &#34;#111111&#34;)
  *                     .build())
  *                 .build())
- *             .themeId(&#34;example&#34;)
  *             .build());
  * 
  *     }

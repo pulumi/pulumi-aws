@@ -29,8 +29,14 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
+ * const r = new aws.iam.Role("r", {
+ *     name: "awsconfig-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: r.arn,
+ * });
  * ```
  * ### Exclude Resources Types Usage
  *
@@ -39,7 +45,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: aws_iam_role.r.arn,
+ *     name: "example",
+ *     roleArn: r.arn,
  *     recordingGroup: {
  *         allSupported: false,
  *         exclusionByResourceTypes: [{
@@ -58,7 +65,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: aws_iam_role.r.arn,
+ *     name: "example",
+ *     roleArn: r.arn,
  *     recordingGroup: {
  *         allSupported: false,
  *         includeGlobalResourceTypes: false,

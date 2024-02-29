@@ -38,9 +38,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewProvisioningArtifact(ctx, "example", &servicecatalog.ProvisioningArtifactArgs{
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
+//				Name:        pulumi.String("example"),
+//				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
-//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", aws_s3_bucket.Example.Bucket_regional_domain_name, aws_s3_object.Example.Key)),
+//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", exampleAwsS3Bucket.BucketRegionalDomainName, exampleAwsS3Object.Key)),
 //			})
 //			if err != nil {
 //				return err

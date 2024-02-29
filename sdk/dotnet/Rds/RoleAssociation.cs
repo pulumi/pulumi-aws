@@ -29,9 +29,9 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.RoleAssociation("example", new()
     ///     {
-    ///         DbInstanceIdentifier = aws_db_instance.Example.Identifier,
+    ///         DbInstanceIdentifier = exampleAwsDbInstance.Identifier,
     ///         FeatureName = "S3_INTEGRATION",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

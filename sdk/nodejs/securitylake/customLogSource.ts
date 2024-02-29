@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     eventClasses: ["FILE_ACTIVITY"],
  *     configuration: {
  *         crawlerConfiguration: {
- *             roleArn: aws_iam_role.custom_log.arn,
+ *             roleArn: customLog.arn,
  *         },
  *         providerIdentity: {
  *             externalId: "example-id",

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .build());
  * 
  *     }
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .description(&#34;example&#34;)
  *             .build());
  * 
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
  *             .build());
  * 
@@ -172,11 +172,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -241,11 +241,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
@@ -265,7 +265,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -293,7 +293,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -335,19 +334,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_west_2().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_west_2().arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_east_1().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_east_1().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;alternate&#34;)
- *                 .build());
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(                
@@ -384,7 +381,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -406,7 +403,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -432,19 +428,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_west_2().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_west_2().arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(aws_subnet.example_us_east_1().stream().map(element -&gt; element.arn()).collect(toList()))
- *             .vpcArn(aws_vpc.example_us_east_1().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;alternate&#34;)
- *                 .build());
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .build());
  * 
- *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .asnRanges(&#34;65022-65534&#34;)
  *                 .edgeLocations(                
@@ -479,7 +473,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -559,28 +553,6 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Export(name="createBasePolicy", refs={Boolean.class}, tree="[0]")
@@ -588,28 +560,6 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Output<Optional<Boolean>> createBasePolicy() {

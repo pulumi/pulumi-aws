@@ -23,7 +23,10 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test");
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     {
+    ///         Name = "some-configuration-set-test",
+    ///     });
     /// 
     /// });
     /// ```
@@ -39,6 +42,7 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
+    ///         Name = "some-configuration-set-test",
     ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
     ///             TlsPolicy = "Require",
@@ -59,6 +63,7 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
+    ///         Name = "some-configuration-set-test",
     ///         TrackingOptions = new Aws.Ses.Inputs.ConfigurationSetTrackingOptionsArgs
     ///         {
     ///             CustomRedirectDomain = "sub.example.com",

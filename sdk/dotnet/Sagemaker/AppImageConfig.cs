@@ -52,11 +52,11 @@ namespace Pulumi.Aws.Sagemaker
     ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             FileSystemConfig = null,
     ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
     ///             {
     ///                 Name = "example",
     ///             },
+    ///             FileSystemConfig = null,
     ///         },
     ///     });
     /// 

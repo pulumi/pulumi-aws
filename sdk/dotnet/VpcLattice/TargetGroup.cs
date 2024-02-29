@@ -25,10 +25,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///         },
@@ -48,10 +49,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "IP",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             IpAddressType = "IPV4",
     ///             Port = 443,
     ///             Protocol = "HTTPS",
@@ -91,10 +93,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "ALB",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///             ProtocolVersion = "HTTP1",
@@ -117,6 +120,7 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "LAMBDA",
     ///     });
     /// 

@@ -334,7 +334,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
 
         ## Import
@@ -367,7 +367,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
 
         ## Import

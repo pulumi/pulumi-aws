@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkAcls = Aws.Ec2.GetNetworkAcls.Invoke(new()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkAcls.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
         ///     };
         /// });
         /// ```
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///         Tags = 
         ///         {
         ///             { "Tier", "Private" },
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "association.subnet-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_subnet.Test.Id,
+        ///                     test.Id,
         ///                 },
         ///             },
         ///         },
@@ -111,14 +111,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkAcls = Aws.Ec2.GetNetworkAcls.Invoke(new()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleNetworkAcls.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
+        ///         ["example"] = example.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
         ///     };
         /// });
         /// ```
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///         Tags = 
         ///         {
         ///             { "Tier", "Private" },
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = @var.Vpc_id,
+        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "association.subnet-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_subnet.Test.Id,
+        ///                     test.Id,
         ///                 },
         ///             },
         ///         },

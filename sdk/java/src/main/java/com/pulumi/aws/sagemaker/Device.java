@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Device(&#34;example&#34;, DeviceArgs.builder()        
- *             .deviceFleetName(aws_sagemaker_device_fleet.example().device_fleet_name())
+ *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
  *             .device(DeviceDeviceArgs.builder()
  *                 .deviceName(&#34;example&#34;)
  *                 .build())

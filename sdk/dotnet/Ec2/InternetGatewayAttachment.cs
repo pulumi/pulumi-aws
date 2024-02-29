@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("exampleInternetGateway");
+    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("example");
     /// 
-    ///     var exampleInternetGatewayAttachment = new Aws.Ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", new()
+    ///     var example = new Aws.Ec2.InternetGatewayAttachment("example", new()
     ///     {
     ///         InternetGatewayId = exampleInternetGateway.Id,
     ///         VpcId = exampleVpc.Id,

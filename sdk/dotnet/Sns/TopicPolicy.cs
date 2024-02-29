@@ -24,7 +24,10 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Sns.Topic("test");
+    ///     var test = new Aws.Sns.Topic("test", new()
+    ///     {
+    ///         Name = "my-topic-with-policy",
+    ///     });
     /// 
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -53,7 +56,7 @@ namespace Pulumi.Aws.Sns
     ///                         Variable = "AWS:SourceOwner",
     ///                         Values = new[]
     ///                         {
-    ///                             @var.Account_id,
+    ///                             account_id,
     ///                         },
     ///                     },
     ///                 },

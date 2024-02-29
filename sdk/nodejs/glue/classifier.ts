@@ -19,17 +19,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {csvClassifier: {
- *     allowSingleColumn: false,
- *     containsHeader: "PRESENT",
- *     delimiter: ",",
- *     disableValueTrimming: false,
- *     headers: [
- *         "example1",
- *         "example2",
- *     ],
- *     quoteSymbol: "'",
- * }});
+ * const example = new aws.glue.Classifier("example", {
+ *     name: "example",
+ *     csvClassifier: {
+ *         allowSingleColumn: false,
+ *         containsHeader: "PRESENT",
+ *         delimiter: ",",
+ *         disableValueTrimming: false,
+ *         headers: [
+ *             "example1",
+ *             "example2",
+ *         ],
+ *         quoteSymbol: "'",
+ *     },
+ * });
  * ```
  * ### Grok Classifier
  *
@@ -37,10 +40,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {grokClassifier: {
- *     classification: "example",
- *     grokPattern: "example",
- * }});
+ * const example = new aws.glue.Classifier("example", {
+ *     name: "example",
+ *     grokClassifier: {
+ *         classification: "example",
+ *         grokPattern: "example",
+ *     },
+ * });
  * ```
  * ### JSON Classifier
  *
@@ -48,9 +54,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {jsonClassifier: {
- *     jsonPath: "example",
- * }});
+ * const example = new aws.glue.Classifier("example", {
+ *     name: "example",
+ *     jsonClassifier: {
+ *         jsonPath: "example",
+ *     },
+ * });
  * ```
  * ### XML Classifier
  *
@@ -58,10 +67,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {xmlClassifier: {
- *     classification: "example",
- *     rowTag: "example",
- * }});
+ * const example = new aws.glue.Classifier("example", {
+ *     name: "example",
+ *     xmlClassifier: {
+ *         classification: "example",
+ *         rowTag: "example",
+ *     },
+ * });
  * ```
  *
  * ## Import

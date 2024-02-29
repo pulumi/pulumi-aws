@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Access("example", new()
     ///     {
     ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = aws_transfer_server.Example.Id,
-    ///         Role = aws_iam_role.Example.Arn,
-    ///         HomeDirectory = $"/{aws_s3_bucket.Example.Id}/",
+    ///         ServerId = exampleAwsTransferServer.Id,
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{exampleAwsS3Bucket.Id}/",
     ///     });
     /// 
     /// });
@@ -46,9 +46,9 @@ namespace Pulumi.Aws.Transfer
     ///     var test = new Aws.Transfer.Access("test", new()
     ///     {
     ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = aws_transfer_server.Test.Id,
-    ///         Role = aws_iam_role.Test.Arn,
-    ///         HomeDirectory = $"/{aws_efs_file_system.Test.Id}/",
+    ///         ServerId = testAwsTransferServer.Id,
+    ///         Role = testAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///         PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
     ///         {
     ///             Gid = 1000,

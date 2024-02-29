@@ -26,9 +26,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Queue" },
@@ -49,9 +50,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         QuickConnectIds = new[]
     ///         {
     ///             "12345678-abcd-1234-abcd-123456789012",
@@ -76,9 +78,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         OutboundCallerConfig = new Aws.Connect.Inputs.QueueOutboundCallerConfigArgs
     ///         {
     ///             OutboundCallerIdName = "example",

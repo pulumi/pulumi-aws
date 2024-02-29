@@ -31,19 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": []string{
 //								"12345678901",
 //							},
 //						},
-//						"Action": []string{
+//						"action": []string{
 //							"redshift-serverless:RestoreFromSnapshot",
 //						},
-//						"Sid": "",
+//						"sid": "",
 //					},
 //				},
 //			})
@@ -52,7 +52,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = redshiftserverless.NewResourcePolicy(ctx, "example", &redshiftserverless.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_redshiftserverless_snapshot.Example.Arn),
+//				ResourceArn: pulumi.Any(exampleAwsRedshiftserverlessSnapshot.Arn),
 //				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {

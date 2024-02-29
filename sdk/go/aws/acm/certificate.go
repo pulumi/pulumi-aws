@@ -65,11 +65,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName: pulumi.String("example.com"),
+//				DomainName:       pulumi.String("example.com"),
+//				ValidationMethod: pulumi.String("DNS"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},
-//				ValidationMethod: pulumi.String("DNS"),
 //			})
 //			if err != nil {
 //				return err
@@ -126,15 +126,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
+//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
+//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
-//				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
+//				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: &tls.SelfSignedCertSubjectArgs{
 //					CommonName:   pulumi.String("example.com"),
 //					Organization: pulumi.String("ACME Examples, Inc"),
@@ -150,7 +150,7 @@ import (
 //				return err
 //			}
 //			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				PrivateKey:      examplePrivateKey.PrivateKeyPem,
+//				PrivateKey:      example.PrivateKeyPem,
 //				CertificateBody: exampleSelfSignedCert.CertPem,
 //			})
 //			if err != nil {
@@ -187,7 +187,7 @@ import (
 //					},
 //					Ttl:    pulumi.Int(60),
 //					Type:   route53.RecordType(val0),
-//					ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//					ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				})
 //				if err != nil {
 //					return err

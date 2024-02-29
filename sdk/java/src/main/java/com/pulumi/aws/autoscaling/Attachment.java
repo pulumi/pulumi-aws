@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
- *             .autoscalingGroupName(aws_autoscaling_group.example().id())
- *             .elb(aws_elb.example().id())
+ *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
+ *             .elb(exampleAwsElb.id())
  *             .build());
  * 
  *     }
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
- *             .autoscalingGroupName(aws_autoscaling_group.example().id())
- *             .lbTargetGroupArn(aws_lb_target_group.example().arn())
+ *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
+ *             .lbTargetGroupArn(exampleAwsLbTargetGroup.arn())
  *             .build());
  * 
  *     }

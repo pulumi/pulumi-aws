@@ -311,7 +311,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.Channel("example")
+        example = aws.ivs.Channel("example", name="channel-1")
         ```
 
         ## Import
@@ -347,7 +347,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.Channel("example")
+        example = aws.ivs.Channel("example", name="channel-1")
         ```
 
         ## Import

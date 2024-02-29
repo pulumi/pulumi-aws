@@ -46,15 +46,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .name(&#34;test-foobar5&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
  *             .evaluationPeriods(2)
- *             .insufficientDataActions()
  *             .metricName(&#34;CPUUtilization&#34;)
  *             .namespace(&#34;AWS/EC2&#34;)
  *             .period(120)
  *             .statistic(&#34;Average&#34;)
  *             .threshold(80)
+ *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .insufficientDataActions()
  *             .build());
  * 
  *     }
@@ -84,14 +85,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var batPolicy = new Policy(&#34;batPolicy&#34;, PolicyArgs.builder()        
+ *         var bat = new Policy(&#34;bat&#34;, PolicyArgs.builder()        
+ *             .name(&#34;foobar3-test&#34;)
  *             .scalingAdjustment(4)
  *             .adjustmentType(&#34;ChangeInCapacity&#34;)
  *             .cooldown(300)
- *             .autoscalingGroupName(aws_autoscaling_group.bar().name())
+ *             .autoscalingGroupName(bar.name())
  *             .build());
  * 
  *         var batMetricAlarm = new MetricAlarm(&#34;batMetricAlarm&#34;, MetricAlarmArgs.builder()        
+ *             .name(&#34;test-foobar5&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
  *             .evaluationPeriods(2)
  *             .metricName(&#34;CPUUtilization&#34;)
@@ -99,9 +102,9 @@ import javax.annotation.Nullable;
  *             .period(120)
  *             .statistic(&#34;Average&#34;)
  *             .threshold(80)
- *             .dimensions(Map.of(&#34;AutoScalingGroupName&#34;, aws_autoscaling_group.bar().name()))
+ *             .dimensions(Map.of(&#34;AutoScalingGroupName&#34;, bar.name()))
  *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
- *             .alarmActions(batPolicy.arn())
+ *             .alarmActions(bat.arn())
  *             .build());
  * 
  *     }
@@ -133,40 +136,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
- *             .alarmDescription(&#34;Request error rate has exceeded 10%&#34;)
+ *             .name(&#34;test-foobar&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
  *             .evaluationPeriods(2)
+ *             .threshold(10)
+ *             .alarmDescription(&#34;Request error rate has exceeded 10%&#34;)
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .expression(&#34;m2/m1*100&#34;)
  *                     .id(&#34;e1&#34;)
+ *                     .expression(&#34;m2/m1*100&#34;)
  *                     .label(&#34;Error Rate&#34;)
  *                     .returnData(&#34;true&#34;)
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id(&#34;m1&#34;)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .metricName(&#34;RequestCount&#34;)
  *                         .namespace(&#34;AWS/ApplicationELB&#34;)
  *                         .period(120)
  *                         .stat(&#34;Sum&#34;)
  *                         .unit(&#34;Count&#34;)
+ *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .build())
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id(&#34;m2&#34;)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .metricName(&#34;HTTPCode_ELB_5XX_Count&#34;)
  *                         .namespace(&#34;AWS/ApplicationELB&#34;)
  *                         .period(120)
  *                         .stat(&#34;Sum&#34;)
  *                         .unit(&#34;Count&#34;)
+ *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .build())
  *                     .build())
- *             .threshold(10)
  *             .build());
  * 
  *     }
@@ -196,30 +200,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xxAnomalyDetection = new MetricAlarm(&#34;xxAnomalyDetection&#34;, MetricAlarmArgs.builder()        
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .name(&#34;test-foobar&#34;)
  *             .comparisonOperator(&#34;GreaterThanUpperThreshold&#34;)
  *             .evaluationPeriods(2)
+ *             .thresholdMetricId(&#34;e1&#34;)
+ *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .expression(&#34;ANOMALY_DETECTION_BAND(m1)&#34;)
  *                     .id(&#34;e1&#34;)
+ *                     .expression(&#34;ANOMALY_DETECTION_BAND(m1)&#34;)
  *                     .label(&#34;CPUUtilization (Expected)&#34;)
  *                     .returnData(&#34;true&#34;)
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id(&#34;m1&#34;)
+ *                     .returnData(&#34;true&#34;)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;InstanceId&#34;, &#34;i-abc123&#34;))
  *                         .metricName(&#34;CPUUtilization&#34;)
  *                         .namespace(&#34;AWS/EC2&#34;)
  *                         .period(120)
  *                         .stat(&#34;Average&#34;)
  *                         .unit(&#34;Count&#34;)
+ *                         .dimensions(Map.of(&#34;InstanceId&#34;, &#34;i-abc123&#34;))
  *                         .build())
- *                     .returnData(&#34;true&#34;)
  *                     .build())
- *             .thresholdMetricId(&#34;e1&#34;)
  *             .build());
  * 
  *     }
@@ -249,20 +254,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var nlbHealthyhosts = new MetricAlarm(&#34;nlbHealthyhosts&#34;, MetricAlarmArgs.builder()        
+ *             .name(&#34;alarmname&#34;)
  *             .comparisonOperator(&#34;LessThanThreshold&#34;)
  *             .evaluationPeriods(1)
  *             .metricName(&#34;HealthyHostCount&#34;)
  *             .namespace(&#34;AWS/NetworkELB&#34;)
  *             .period(60)
  *             .statistic(&#34;Average&#34;)
- *             .threshold(var_.logstash_servers_count())
+ *             .threshold(logstashServersCount)
  *             .alarmDescription(&#34;Number of healthy nodes in Target Group&#34;)
  *             .actionsEnabled(&#34;true&#34;)
- *             .alarmActions(aws_sns_topic.sns().arn())
- *             .okActions(aws_sns_topic.sns().arn())
+ *             .alarmActions(sns.arn())
+ *             .okActions(sns.arn())
  *             .dimensions(Map.ofEntries(
- *                 Map.entry(&#34;TargetGroup&#34;, aws_lb_target_group.lb-tg().arn_suffix()),
- *                 Map.entry(&#34;LoadBalancer&#34;, aws_lb.lb().arn_suffix())
+ *                 Map.entry(&#34;TargetGroup&#34;, lb_tg.arnSuffix()),
+ *                 Map.entry(&#34;LoadBalancer&#34;, lb.arnSuffix())
  *             ))
  *             .build());
  * 

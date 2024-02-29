@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewMesh(ctx, "simple", nil)
+//			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+//				Name: pulumi.String("simpleapp"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,6 +54,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+//				Name: pulumi.String("simpleapp"),
 //				Spec: &appmesh.MeshSpecArgs{
 //					EgressFilter: &appmesh.MeshSpecEgressFilterArgs{
 //						Type: pulumi.String("ALLOW_ALL"),

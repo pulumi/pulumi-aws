@@ -562,21 +562,22 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole",
+        example_role = aws.iam.Role("example",
+            name="example",
             path="/",
-            assume_role_policy=example_policy_document.json)
-        example_domain = aws.sagemaker.Domain("exampleDomain",
+            assume_role_policy=example.json)
+        example_domain = aws.sagemaker.Domain("example",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
                 execution_role=example_role.arn,
             ))
@@ -587,26 +588,26 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_image = aws.sagemaker.Image("exampleImage",
+        example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["example"]["arn"])
-        example_app_image_config = aws.sagemaker.AppImageConfig("exampleAppImageConfig",
+            role_arn=example_aws_iam_role["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("example",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
             ))
-        example_image_version = aws.sagemaker.ImageVersion("exampleImageVersion",
-            image_name=example_image.id,
+        example_image_version = aws.sagemaker.ImageVersion("example",
+            image_name=example.id,
             base_image="base-image")
-        example_domain = aws.sagemaker.Domain("exampleDomain",
+        example_domain = aws.sagemaker.Domain("example",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["example"]["arn"],
+                execution_role=example_aws_iam_role["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
                         app_image_config_name=example_app_image_config.app_image_config_name,
@@ -657,21 +658,22 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole",
+        example_role = aws.iam.Role("example",
+            name="example",
             path="/",
-            assume_role_policy=example_policy_document.json)
-        example_domain = aws.sagemaker.Domain("exampleDomain",
+            assume_role_policy=example.json)
+        example_domain = aws.sagemaker.Domain("example",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
                 execution_role=example_role.arn,
             ))
@@ -682,26 +684,26 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_image = aws.sagemaker.Image("exampleImage",
+        example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["example"]["arn"])
-        example_app_image_config = aws.sagemaker.AppImageConfig("exampleAppImageConfig",
+            role_arn=example_aws_iam_role["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("example",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
             ))
-        example_image_version = aws.sagemaker.ImageVersion("exampleImageVersion",
-            image_name=example_image.id,
+        example_image_version = aws.sagemaker.ImageVersion("example",
+            image_name=example.id,
             base_image="base-image")
-        example_domain = aws.sagemaker.Domain("exampleDomain",
+        example_domain = aws.sagemaker.Domain("example",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["example"]["arn"],
+                execution_role=example_aws_iam_role["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
                         app_image_config_name=example_app_image_config.app_image_config_name,

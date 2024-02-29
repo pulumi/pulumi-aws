@@ -25,11 +25,15 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRegistry = new Aws.Schemas.Registry("testRegistry");
-    /// 
-    ///     var testSchema = new Aws.Schemas.Schema("testSchema", new()
+    ///     var test = new Aws.Schemas.Registry("test", new()
     ///     {
-    ///         RegistryName = testRegistry.Name,
+    ///         Name = "my_own_registry",
+    ///     });
+    /// 
+    ///     var testSchema = new Aws.Schemas.Schema("test", new()
+    ///     {
+    ///         Name = "my_schema",
+    ///         RegistryName = test.Name,
     ///         Type = "OpenApi3",
     ///         Description = "The schema definition for my event",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

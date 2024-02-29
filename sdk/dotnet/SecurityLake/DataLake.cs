@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.DataLake("example", new()
     ///     {
-    ///         MetaStoreManagerRoleArn = aws_iam_role.Meta_store_manager.Arn,
+    ///         MetaStoreManagerRoleArn = metaStoreManager.Arn,
     ///         Configuration = new Aws.SecurityLake.Inputs.DataLakeConfigurationArgs
     ///         {
     ///             Region = "eu-west-1",
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.DataLake("example", new()
     ///     {
-    ///         MetaStoreManagerRoleArn = aws_iam_role.Meta_store_manager.Arn,
+    ///         MetaStoreManagerRoleArn = metaStoreManager.Arn,
     ///         Configuration = new Aws.SecurityLake.Inputs.DataLakeConfigurationArgs
     ///         {
     ///             Region = "eu-west-1",

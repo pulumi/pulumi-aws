@@ -45,12 +45,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testConfiguredTable = new ConfiguredTable(&#34;testConfiguredTable&#34;, ConfiguredTableArgs.builder()        
+ *             .name(&#34;pulumi-example-table&#34;)
+ *             .description(&#34;I made this table with Pulumi!&#34;)
+ *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
  *             .allowedColumns(            
  *                 &#34;column1&#34;,
  *                 &#34;column2&#34;,
  *                 &#34;column3&#34;)
- *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
- *             .description(&#34;I made this table with Pulumi!&#34;)
  *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
  *                 .databaseName(&#34;example_database&#34;)
  *                 .tableName(&#34;example_table&#34;)

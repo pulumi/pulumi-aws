@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getCredentials({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
  */
@@ -80,7 +80,7 @@ export interface GetCredentialsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getCredentials({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
  */

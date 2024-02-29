@@ -19,10 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -40,11 +41,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     hierarchyGroupId: aws_connect_user_hierarchy_group.example.hierarchy_group_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     hierarchyGroupId: exampleAwsConnectUserHierarchyGroup.hierarchyGroupId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -62,10 +64,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         email: "example@example.com",
  *         firstName: "example",
@@ -84,10 +87,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     phoneConfig: {
  *         afterContactWorkTimeLimit: 0,
  *         phoneType: "SOFT_PHONE",
@@ -101,12 +105,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
  *     securityProfileIds: [
- *         aws_connect_security_profile.example.security_profile_id,
- *         aws_connect_security_profile.example2.security_profile_id,
+ *         exampleAwsConnectSecurityProfile.securityProfileId,
+ *         example2.securityProfileId,
  *     ],
  *     phoneConfig: {
  *         afterContactWorkTimeLimit: 0,

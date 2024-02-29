@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     targetName: "example",
  *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
+ *     diskId: test.id,
  * });
  * ```
  * ### Create Stored iSCSI Volume From Snapshot
@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     snapshotId: aws_ebs_snapshot.example.id,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     snapshotId: exampleAwsEbsSnapshot.id,
  *     targetName: "example",
  *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
+ *     diskId: test.id,
  * });
  * ```
  *

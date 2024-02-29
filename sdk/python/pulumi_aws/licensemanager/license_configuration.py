@@ -329,6 +329,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
             description="Example",
             license_count=10,
             license_count_hard_limit=True,
@@ -386,6 +387,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
             description="Example",
             license_count=10,
             license_count_hard_limit=True,

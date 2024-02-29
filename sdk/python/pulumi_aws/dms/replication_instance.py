@@ -680,6 +680,12 @@ class ReplicationInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # Database Migration Service requires the below IAM Roles to be created before
+        # replication instances can be created. See the DMS Documentation for
+        # additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+        #  * dms-vpc-role
+        #  * dms-cloudwatch-logs-role
+        #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -687,15 +693,21 @@ class ReplicationInstance(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint", assume_role_policy=dms_assume_role.json)
+        dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-access-for-endpoint")
         dms_access_for_endpoint__amazon_dms_redshift_s3_role = aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
             role=dms_access_for_endpoint.name)
-        dms_cloudwatch_logs_role = aws.iam.Role("dms-cloudwatch-logs-role", assume_role_policy=dms_assume_role.json)
+        dms_cloudwatch_logs_role = aws.iam.Role("dms-cloudwatch-logs-role",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-cloudwatch-logs-role")
         dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role = aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
             role=dms_cloudwatch_logs_role.name)
-        dms_vpc_role = aws.iam.Role("dms-vpc-role", assume_role_policy=dms_assume_role.json)
+        dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-vpc-role")
         dms_vpc_role__amazon_dmsvpc_management_role = aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
             role=dms_vpc_role.name)
@@ -712,16 +724,11 @@ class ReplicationInstance(pulumi.CustomResource):
             publicly_accessible=True,
             replication_instance_class="dms.t2.micro",
             replication_instance_id="test-dms-replication-instance-tf",
-            replication_subnet_group_id=aws_dms_replication_subnet_group["test-dms-replication-subnet-group-tf"]["id"],
+            replication_subnet_group_id=test_dms_replication_subnet_group_tf["id"],
             tags={
                 "Name": "test",
             },
-            vpc_security_group_ids=["sg-12345678"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    dms_access_for_endpoint__amazon_dms_redshift_s3_role,
-                    dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role,
-                    dms_vpc_role__amazon_dmsvpc_management_role,
-                ]))
+            vpc_security_group_ids=["sg-12345678"])
         ```
 
         ## Import
@@ -778,6 +785,12 @@ class ReplicationInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # Database Migration Service requires the below IAM Roles to be created before
+        # replication instances can be created. See the DMS Documentation for
+        # additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+        #  * dms-vpc-role
+        #  * dms-cloudwatch-logs-role
+        #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -785,15 +798,21 @@ class ReplicationInstance(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint", assume_role_policy=dms_assume_role.json)
+        dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-access-for-endpoint")
         dms_access_for_endpoint__amazon_dms_redshift_s3_role = aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
             role=dms_access_for_endpoint.name)
-        dms_cloudwatch_logs_role = aws.iam.Role("dms-cloudwatch-logs-role", assume_role_policy=dms_assume_role.json)
+        dms_cloudwatch_logs_role = aws.iam.Role("dms-cloudwatch-logs-role",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-cloudwatch-logs-role")
         dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role = aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
             role=dms_cloudwatch_logs_role.name)
-        dms_vpc_role = aws.iam.Role("dms-vpc-role", assume_role_policy=dms_assume_role.json)
+        dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            assume_role_policy=dms_assume_role.json,
+            name="dms-vpc-role")
         dms_vpc_role__amazon_dmsvpc_management_role = aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
             role=dms_vpc_role.name)
@@ -810,16 +829,11 @@ class ReplicationInstance(pulumi.CustomResource):
             publicly_accessible=True,
             replication_instance_class="dms.t2.micro",
             replication_instance_id="test-dms-replication-instance-tf",
-            replication_subnet_group_id=aws_dms_replication_subnet_group["test-dms-replication-subnet-group-tf"]["id"],
+            replication_subnet_group_id=test_dms_replication_subnet_group_tf["id"],
             tags={
                 "Name": "test",
             },
-            vpc_security_group_ids=["sg-12345678"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    dms_access_for_endpoint__amazon_dms_redshift_s3_role,
-                    dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role,
-                    dms_vpc_role__amazon_dmsvpc_management_role,
-                ]))
+            vpc_security_group_ids=["sg-12345678"])
         ```
 
         ## Import

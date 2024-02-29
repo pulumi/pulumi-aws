@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myFilter = new Filter(&#34;myFilter&#34;, FilterArgs.builder()        
+ *             .name(&#34;MyFilter&#34;)
  *             .action(&#34;ARCHIVE&#34;)
- *             .detectorId(aws_guardduty_detector.example().id())
+ *             .detectorId(example.id())
  *             .rank(1)
  *             .findingCriteria(FilterFindingCriteriaArgs.builder()
  *                 .criterions(                

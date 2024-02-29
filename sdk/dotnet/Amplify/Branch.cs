@@ -22,7 +22,10 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
@@ -34,6 +37,35 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             { "REACT_APP_API_SERVER", "https://api.example.com" },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Basic Authentication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
+    /// 
+    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///         EnableBasicAuth = true,
+    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "username:password",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -51,7 +83,10 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
@@ -61,9 +96,10 @@ namespace Pulumi.Aws.Amplify
     ///     });
     /// 
     ///     // EventBridge Rule for Amplify notifications
-    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new()
+    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplify_app_master", new()
     ///     {
-    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
+    ///         Name = master.BranchName.Apply(branchName =&gt; $"amplify-{app.Id}-{branchName}-branch-notification"),
+    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {app.Id} Branch: {branchName}"),
     ///         EventPattern = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["detail"] = new Dictionary&lt;string, object?&gt;
@@ -94,11 +130,16 @@ namespace Pulumi.Aws.Amplify
     ///         })),
     ///     });
     /// 
-    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic");
+    ///     // SNS Topic for Amplify notifications
+    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplify_app_master", new()
+    ///     {
+    ///         Name = master.BranchName.Apply(branchName =&gt; $"amplify-{app.Id}_{branchName}"),
+    ///     });
     /// 
-    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplifyAppMasterEventTarget", new()
+    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplify_app_master", new()
     ///     {
     ///         Rule = amplifyAppMasterEventRule.Name,
+    ///         TargetId = master.BranchName,
     ///         Arn = amplifyAppMasterTopic.Arn,
     ///         InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
     ///         {
@@ -114,8 +155,7 @@ namespace Pulumi.Aws.Amplify
     ///         },
     ///     });
     /// 
-    ///     // SNS Topic for Amplify notifications
-    ///     var amplifyAppMasterPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var amplifyAppMaster = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -146,10 +186,10 @@ namespace Pulumi.Aws.Amplify
     ///         },
     ///     });
     /// 
-    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplifyAppMasterTopicPolicy", new()
+    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplify_app_master", new()
     ///     {
     ///         Arn = amplifyAppMasterTopic.Arn,
-    ///         Policy = amplifyAppMasterPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = amplifyAppMaster.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var @this = new Aws.Sns.TopicSubscription("this", new()

@@ -168,8 +168,8 @@ def get_gateway_route(mesh_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_gateway_route(mesh_name="test-mesh",
-        name="test-route",
+    test = aws.appmesh.get_gateway_route(name="test-route",
+        mesh_name="test-mesh",
         virtual_gateway_name="test-gateway")
     ```
 
@@ -219,8 +219,8 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_gateway_route(mesh_name="test-mesh",
-        name="test-route",
+    test = aws.appmesh.get_gateway_route(name="test-route",
+        mesh_name="test-mesh",
         virtual_gateway_name="test-gateway")
     ```
 

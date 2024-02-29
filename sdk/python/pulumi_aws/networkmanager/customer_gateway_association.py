@@ -172,30 +172,28 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
-        example_device = aws.networkmanager.Device("exampleDevice",
-            global_network_id=example_global_network.id,
+        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
+        example_device = aws.networkmanager.Device("example",
+            global_network_id=example.id,
             site_id=example_site.id)
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+        example_customer_gateway = aws.ec2.CustomerGateway("example",
             bgp_asn="65000",
             ip_address="172.83.124.10",
             type="ipsec.1")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_vpn_connection = aws.ec2.VpnConnection("example",
             customer_gateway_id=example_customer_gateway.id,
             transit_gateway_id=example_transit_gateway.id,
             type=example_customer_gateway.type,
             static_routes_only=True)
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
-            global_network_id=example_global_network.id,
-            transit_gateway_arn=example_transit_gateway.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
-        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation",
-            global_network_id=example_global_network.id,
+        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
+            global_network_id=example.id,
+            transit_gateway_arn=example_transit_gateway.arn)
+        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
+            global_network_id=example.id,
             customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
+            device_id=example_device.id)
         ```
 
         ## Import
@@ -229,30 +227,28 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
-        example_device = aws.networkmanager.Device("exampleDevice",
-            global_network_id=example_global_network.id,
+        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
+        example_device = aws.networkmanager.Device("example",
+            global_network_id=example.id,
             site_id=example_site.id)
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+        example_customer_gateway = aws.ec2.CustomerGateway("example",
             bgp_asn="65000",
             ip_address="172.83.124.10",
             type="ipsec.1")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_vpn_connection = aws.ec2.VpnConnection("example",
             customer_gateway_id=example_customer_gateway.id,
             transit_gateway_id=example_transit_gateway.id,
             type=example_customer_gateway.type,
             static_routes_only=True)
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
-            global_network_id=example_global_network.id,
-            transit_gateway_arn=example_transit_gateway.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
-        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation",
-            global_network_id=example_global_network.id,
+        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
+            global_network_id=example.id,
+            transit_gateway_arn=example_transit_gateway.arn)
+        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
+            global_network_id=example.id,
             customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
+            device_id=example_device.id)
         ```
 
         ## Import

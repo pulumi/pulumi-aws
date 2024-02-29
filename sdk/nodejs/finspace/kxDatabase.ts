@@ -14,13 +14,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleKxDatabase = new aws.finspace.KxDatabase("exampleKxDatabase", {
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("example", {
+ *     name: "my-tf-kx-environment",
+ *     kmsKeyId: example.arn,
+ * });
+ * const exampleKxDatabase = new aws.finspace.KxDatabase("example", {
  *     environmentId: exampleKxEnvironment.id,
+ *     name: "my-tf-kx-database",
  *     description: "Example database description",
  * });
  * ```

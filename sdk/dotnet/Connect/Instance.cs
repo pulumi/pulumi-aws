@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Instance("test", new()
     ///     {
-    ///         DirectoryId = aws_directory_service_directory.Test.Id,
+    ///         DirectoryId = testAwsDirectoryServiceDirectory.Id,
     ///         IdentityManagementType = "EXISTING_DIRECTORY",
     ///         InboundCallsEnabled = true,
     ///         InstanceAlias = "friendly-name-connect",

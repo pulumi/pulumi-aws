@@ -148,8 +148,8 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_secret = aws.secretsmanager.Secret("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -159,9 +159,9 @@ class SecretPolicy(pulumi.CustomResource):
             actions=["secretsmanager:GetSecretValue"],
             resources=["*"],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import
@@ -196,8 +196,8 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_secret = aws.secretsmanager.Secret("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -207,9 +207,9 @@ class SecretPolicy(pulumi.CustomResource):
             actions=["secretsmanager:GetSecretValue"],
             resources=["*"],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import

@@ -17,13 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAnomalyMonitor = new aws.costexplorer.AnomalyMonitor("testAnomalyMonitor", {
+ * const test = new aws.costexplorer.AnomalyMonitor("test", {
+ *     name: "AWSServiceMonitor",
  *     monitorType: "DIMENSIONAL",
  *     monitorDimension: "SERVICE",
  * });
- * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("testAnomalySubscription", {
+ * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("test", {
+ *     name: "DAILYSUBSCRIPTION",
  *     frequency: "DAILY",
- *     monitorArnLists: [testAnomalyMonitor.arn],
+ *     monitorArnLists: [test.arn],
  *     subscribers: [{
  *         type: "EMAIL",
  *         address: "abc@example.com",
@@ -38,8 +40,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalySubscription("test", {
+ *     name: "AWSServiceMonitor",
  *     frequency: "DAILY",
- *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
+ *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
  *     subscribers: [{
  *         type: "EMAIL",
  *         address: "abc@example.com",
@@ -60,8 +63,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalySubscription("test", {
+ *     name: "AWSServiceMonitor",
  *     frequency: "DAILY",
- *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
+ *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
  *     subscribers: [{
  *         type: "EMAIL",
  *         address: "abc@example.com",
@@ -92,7 +96,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const costAnomalyUpdates = new aws.sns.Topic("costAnomalyUpdates", {});
+ * const costAnomalyUpdates = new aws.sns.Topic("cost_anomaly_updates", {name: "CostAnomalyUpdates"});
  * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [
@@ -122,7 +126,7 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "AWS:SourceOwner",
- *                 values: [_var["account-id"]],
+ *                 values: [account_id],
  *             }],
  *             effect: "Allow",
  *             principals: [{
@@ -137,19 +141,19 @@ import * as utilities from "../utilities";
  *     arn: costAnomalyUpdates.arn,
  *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
- * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomalyMonitor", {
+ * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomaly_monitor", {
+ *     name: "AWSServiceMonitor",
  *     monitorType: "DIMENSIONAL",
  *     monitorDimension: "SERVICE",
  * });
- * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtimeSubscription", {
+ * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtime_subscription", {
+ *     name: "RealtimeAnomalySubscription",
  *     frequency: "IMMEDIATE",
  *     monitorArnLists: [anomalyMonitor.arn],
  *     subscribers: [{
  *         type: "SNS",
  *         address: costAnomalyUpdates.arn,
  *     }],
- * }, {
- *     dependsOn: [_default],
  * });
  * ```
  *

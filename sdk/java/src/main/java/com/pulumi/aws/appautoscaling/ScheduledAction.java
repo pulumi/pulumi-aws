@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbTarget = new Target(&#34;dynamodbTarget&#34;, TargetArgs.builder()        
+ *         var dynamodb = new Target(&#34;dynamodb&#34;, TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
  *             .resourceId(&#34;table/tableName&#34;)
@@ -53,9 +53,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dynamodbScheduledAction = new ScheduledAction(&#34;dynamodbScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .serviceNamespace(dynamodbTarget.serviceNamespace())
- *             .resourceId(dynamodbTarget.resourceId())
- *             .scalableDimension(dynamodbTarget.scalableDimension())
+ *             .name(&#34;dynamodb&#34;)
+ *             .serviceNamespace(dynamodb.serviceNamespace())
+ *             .resourceId(dynamodb.resourceId())
+ *             .scalableDimension(dynamodb.scalableDimension())
  *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
  *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
  *                 .minCapacity(1)
@@ -91,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
+ *         var ecs = new Target(&#34;ecs&#34;, TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
  *             .resourceId(&#34;service/clusterName/serviceName&#34;)
@@ -100,9 +101,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ecsScheduledAction = new ScheduledAction(&#34;ecsScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .serviceNamespace(ecsTarget.serviceNamespace())
- *             .resourceId(ecsTarget.resourceId())
- *             .scalableDimension(ecsTarget.scalableDimension())
+ *             .name(&#34;ecs&#34;)
+ *             .serviceNamespace(ecs.serviceNamespace())
+ *             .resourceId(ecs.resourceId())
+ *             .scalableDimension(ecs.scalableDimension())
  *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
  *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
  *                 .minCapacity(1)

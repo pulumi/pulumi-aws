@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Ivs
     /// {
     ///     var example = new Aws.Ivs.RecordingConfiguration("example", new()
     ///     {
+    ///         Name = "recording_configuration-1",
     ///         DestinationConfiguration = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationArgs
     ///         {
     ///             S3 = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationS3Args

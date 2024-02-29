@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -72,7 +73,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
@@ -91,10 +94,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
@@ -125,8 +129,8 @@ import javax.annotation.Nullable;
  *                             .test(&#34;StringEquals&#34;)
  *                             .variable(&#34;ec2:Subnet&#34;)
  *                             .values(                            
- *                                 aws_subnet.example1().arn(),
- *                                 aws_subnet.example2().arn())
+ *                                 example1.arn(),
+ *                                 example2.arn())
  *                             .build(),
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test(&#34;StringEquals&#34;)
@@ -145,10 +149,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.name())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;test-project&#34;)
  *             .description(&#34;test_codebuild_project&#34;)
  *             .buildTimeout(5)
  *             .serviceRole(exampleRole.arn())
@@ -195,18 +200,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceVersion(&#34;master&#34;)
  *             .vpcConfig(ProjectVpcConfigArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .subnets(                
- *                     aws_subnet.example1().id(),
- *                     aws_subnet.example2().id())
+ *                     example1.id(),
+ *                     example2.id())
  *                 .securityGroupIds(                
- *                     aws_security_group.example1().id(),
- *                     aws_security_group.example2().id())
+ *                     example1AwsSecurityGroup.id(),
+ *                     example2AwsSecurityGroup.id())
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
  *             .build());
  * 
  *         var project_with_cache = new Project(&#34;project-with-cache&#34;, ProjectArgs.builder()        
+ *             .name(&#34;test-project-cache&#34;)
  *             .description(&#34;test_codebuild_project_cache&#34;)
  *             .buildTimeout(5)
  *             .queuedTimeout(5)

@@ -16,6 +16,45 @@ import (
 //
 // > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk.NewServerlessCluster(ctx, "example", &msk.ServerlessClusterArgs{
+// ClusterName: pulumi.String("Example"),
+// VpcConfigs: msk.ServerlessClusterVpcConfigArray{
+// &msk.ServerlessClusterVpcConfigArgs{
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46),
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// },
+// },
+// ClientAuthentication: &msk.ServerlessClusterClientAuthenticationArgs{
+// Sasl: &msk.ServerlessClusterClientAuthenticationSaslArgs{
+// Iam: &msk.ServerlessClusterClientAuthenticationSaslIamArgs{
+// Enabled: pulumi.Bool(true),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:

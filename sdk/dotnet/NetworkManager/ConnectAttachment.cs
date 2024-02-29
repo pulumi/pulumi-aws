@@ -13,6 +13,78 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS Network Manager ConnectAttachment.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///     });
+    /// 
+    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
+    ///     {
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
+    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
+    ///         {
+    ///             Protocol = "GRE",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Usage with attachment accepter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///     });
+    /// 
+    ///     var exampleAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("example", new()
+    ///     {
+    ///         AttachmentId = example.Id,
+    ///         AttachmentType = example.AttachmentType,
+    ///     });
+    /// 
+    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
+    ///     {
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
+    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
+    ///         {
+    ///             Protocol = "GRE",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()
+    ///     {
+    ///         AttachmentId = exampleConnectAttachment.Id,
+    ///         AttachmentType = exampleConnectAttachment.AttachmentType,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

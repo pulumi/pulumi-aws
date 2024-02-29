@@ -290,12 +290,12 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         most_recent=True)
     # Use the last snapshot of the dev database before it was destroyed to create
     # a new dev database.
-    aurora_cluster = aws.rds.Cluster("auroraCluster",
+    aurora = aws.rds.Cluster("aurora",
         cluster_identifier="development_cluster",
         snapshot_identifier=development_final_snapshot.id,
         db_subnet_group_name="my_db_subnet_group")
-    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
-        cluster_identifier=aurora_cluster.id,
+    aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
+        cluster_identifier=aurora.id,
         instance_class="db.t2.small",
         db_subnet_group_name="my_db_subnet_group")
     ```
@@ -375,12 +375,12 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
         most_recent=True)
     # Use the last snapshot of the dev database before it was destroyed to create
     # a new dev database.
-    aurora_cluster = aws.rds.Cluster("auroraCluster",
+    aurora = aws.rds.Cluster("aurora",
         cluster_identifier="development_cluster",
         snapshot_identifier=development_final_snapshot.id,
         db_subnet_group_name="my_db_subnet_group")
-    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
-        cluster_identifier=aurora_cluster.id,
+    aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
+        cluster_identifier=aurora.id,
         instance_class="db.t2.small",
         db_subnet_group_name="my_db_subnet_group")
     ```

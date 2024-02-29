@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
     ///     {
-    ///         BotId = aws_lexv2models_bot.Example.Id,
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
     ///         BotVersion = "DRAFT",
     ///         LocaleId = "en_US",
     ///         NLuIntentConfidenceThreshold = 0.7,
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
     ///     {
-    ///         BotId = aws_lexv2models_bot.Example.Id,
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
     ///         BotVersion = "DRAFT",
     ///         LocaleId = "en_US",
     ///         NLuIntentConfidenceThreshold = 0.7,

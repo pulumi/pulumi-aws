@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
  *             .admins(            
- *                 aws_iam_user.test().arn(),
- *                 aws_iam_role.test().arn())
+ *                 test.arn(),
+ *                 testAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -81,18 +81,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
  *             .admins(            
- *                 aws_iam_user.test().arn(),
- *                 aws_iam_role.test().arn())
+ *                 test.arn(),
+ *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
  *                     &#34;SELECT&#34;,
  *                     &#34;ALTER&#34;,
  *                     &#34;DROP&#34;)
- *                 .principal(aws_iam_user.test().arn())
+ *                 .principal(test.arn())
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
  *                 .permissions(&#34;ALL&#34;)
- *                 .principal(aws_iam_role.test().arn())
+ *                 .principal(testAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
@@ -125,23 +125,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
  *             .admins(            
- *                 aws_iam_user.test().arn(),
- *                 aws_iam_role.test().arn())
+ *                 test.arn(),
+ *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
  *                     &#34;SELECT&#34;,
  *                     &#34;ALTER&#34;,
  *                     &#34;DROP&#34;)
- *                 .principal(aws_iam_user.test().arn())
+ *                 .principal(test.arn())
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
  *                 .permissions(&#34;ALL&#34;)
- *                 .principal(aws_iam_role.test().arn())
+ *                 .principal(testAwsIamRole.arn())
  *                 .build())
  *             .allowExternalDataFiltering(true)
  *             .externalDataFilteringAllowLists(            
- *                 data.aws_caller_identity().current().account_id(),
- *                 data.aws_caller_identity().third_party().account_id())
+ *                 current.accountId(),
+ *                 thirdParty.accountId())
  *             .authorizedSessionTagValueLists(&#34;Amazon EMR&#34;)
  *             .build());
  * 

@@ -230,7 +230,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
+    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=example_aws_ec2_network_insights_analysis["id"])
     ```
 
 
@@ -277,7 +277,7 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
+    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=example_aws_ec2_network_insights_analysis["id"])
     ```
 
 

@@ -32,7 +32,7 @@ import (
 //			_, err := auditmanager.NewFrameworkShare(ctx, "example", &auditmanager.FrameworkShareArgs{
 //				DestinationAccount: pulumi.String("012345678901"),
 //				DestinationRegion:  pulumi.String("us-east-1"),
-//				FrameworkId:        pulumi.Any(aws_auditmanager_framework.Example.Id),
+//				FrameworkId:        pulumi.Any(exampleAwsAuditmanagerFramework.Id),
 //			})
 //			if err != nil {
 //				return err

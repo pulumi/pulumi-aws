@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ecs.getService({
  *     serviceName: "example",
- *     clusterArn: data.aws_ecs_cluster.example.arn,
+ *     clusterArn: exampleAwsEcsCluster.arn,
  * });
  * ```
  */
@@ -95,7 +95,7 @@ export interface GetServiceResult {
  *
  * const example = aws.ecs.getService({
  *     serviceName: "example",
- *     clusterArn: data.aws_ecs_cluster.example.arn,
+ *     clusterArn: exampleAwsEcsCluster.arn,
  * });
  * ```
  */

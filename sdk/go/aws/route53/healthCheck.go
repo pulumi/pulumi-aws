@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
-//				FailureThreshold: pulumi.Int(5),
 //				Fqdn:             pulumi.String("example.com"),
 //				Port:             pulumi.Int(80),
-//				RequestInterval:  pulumi.Int(30),
+//				Type:             pulumi.String("HTTP"),
 //				ResourcePath:     pulumi.String("/"),
+//				FailureThreshold: pulumi.Int(5),
+//				RequestInterval:  pulumi.Int(30),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test-health-check"),
 //				},
-//				Type: pulumi.String("HTTP"),
 //			})
 //			if err != nil {
 //				return err
@@ -97,7 +97,7 @@ import (
 //				Type:                 pulumi.String("CALCULATED"),
 //				ChildHealthThreshold: pulumi.Int(1),
 //				ChildHealthchecks: pulumi.StringArray{
-//					aws_route53_health_check.Child.Id,
+//					child.Id,
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test-calculated-health-check"),
@@ -127,6 +127,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foobar, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
+//				Name:               pulumi.String("test-foobar5"),
 //				ComparisonOperator: pulumi.String("GreaterThanOrEqualToThreshold"),
 //				EvaluationPeriods:  pulumi.Int(2),
 //				MetricName:         pulumi.String("CPUUtilization"),

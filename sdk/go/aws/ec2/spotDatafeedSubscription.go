@@ -32,12 +32,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
+//			_, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tf-spot-datafeed"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: defaultBucketV2.ID(),
+//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "default", &ec2.SpotDatafeedSubscriptionArgs{
+//				Bucket: _default.ID(),
 //				Prefix: pulumi.String("my_subdirectory"),
 //			})
 //			if err != nil {

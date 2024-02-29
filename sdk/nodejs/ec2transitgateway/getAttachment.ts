@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     filters: [
  *         {
  *             name: "transit-gateway-id",
- *             values: [aws_ec2_transit_gateway.example.id],
+ *             values: [exampleAwsEc2TransitGateway.id],
  *         },
  *         {
  *             name: "resource-type",
@@ -123,7 +123,7 @@ export interface GetAttachmentResult {
  *     filters: [
  *         {
  *             name: "transit-gateway-id",
- *             values: [aws_ec2_transit_gateway.example.id],
+ *             values: [exampleAwsEc2TransitGateway.id],
  *         },
  *         {
  *             name: "resource-type",

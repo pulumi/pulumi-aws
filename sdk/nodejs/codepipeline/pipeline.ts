@@ -16,8 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
- * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {});
+ * const example = new aws.codestarconnections.Connection("example", {
+ *     name: "example-connection",
+ *     providerType: "GitHub",
+ * });
+ * const codepipelineBucket = new aws.s3.BucketV2("codepipeline_bucket", {bucket: "test-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -28,11 +31,15 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
+ *     name: "test-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const s3kmskey = aws.kms.getAlias({
  *     name: "alias/myKmsKey",
  * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
+ *     name: "tf-test-pipeline",
  *     roleArn: codepipelineRole.arn,
  *     artifactStores: [{
  *         location: codepipelineBucket.bucket,
@@ -94,14 +101,14 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelineBucketPab = new aws.s3.BucketPublicAccessBlock("codepipelineBucketPab", {
+ * const codepipelineBucketPab = new aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab", {
  *     bucket: codepipelineBucket.id,
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
  *     ignorePublicAcls: true,
  *     restrictPublicBuckets: true,
  * });
- * const codepipelinePolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const codepipelinePolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -132,9 +139,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipelinePolicyRolePolicy", {
+ * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
+ *     name: "codepipeline_policy",
  *     role: codepipelineRole.id,
- *     policy: codepipelinePolicyPolicyDocument.apply(codepipelinePolicyPolicyDocument => codepipelinePolicyPolicyDocument.json),
+ *     policy: codepipelinePolicy.apply(codepipelinePolicy => codepipelinePolicy.json),
  * });
  * ```
  *

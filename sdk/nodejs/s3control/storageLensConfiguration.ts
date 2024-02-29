@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *             },
  *             s3BucketDestination: {
  *                 accountId: current.then(current => current.accountId),
- *                 arn: aws_s3_bucket.target.arn,
+ *                 arn: target.arn,
  *                 format: "CSV",
  *                 outputSchemaVersion: "V_1",
  *                 encryption: {
@@ -47,8 +47,8 @@ import * as utilities from "../utilities";
  *         },
  *         exclude: {
  *             buckets: [
- *                 aws_s3_bucket.b1.arn,
- *                 aws_s3_bucket.b2.arn,
+ *                 b1.arn,
+ *                 b2.arn,
  *             ],
  *             regions: ["us-east-2"],
  *         },

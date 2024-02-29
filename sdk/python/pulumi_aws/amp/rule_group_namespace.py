@@ -139,9 +139,10 @@ class RuleGroupNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
-            workspace_id=demo_workspace.id,
+        demo = aws.amp.Workspace("demo")
+        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demo",
+            name="rules",
+            workspace_id=demo.id,
             data=\"\"\"groups:
           - name: test
             rules:
@@ -179,9 +180,10 @@ class RuleGroupNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
-            workspace_id=demo_workspace.id,
+        demo = aws.amp.Workspace("demo")
+        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demo",
+            name="rules",
+            workspace_id=demo.id,
             data=\"\"\"groups:
           - name: test
             rules:

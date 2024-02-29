@@ -68,14 +68,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
  *             .automaticFailoverEnabled(true)
+ *             .preferredCacheClusterAzs(            
+ *                 &#34;us-west-2a&#34;,
+ *                 &#34;us-west-2b&#34;)
+ *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheClusters(2)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
  *             .port(6379)
- *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
  *             .build());
  * 
  *     }
@@ -115,6 +116,7 @@ import javax.annotation.Nullable;
  *             .preferredCacheClusterAzs(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;)
+ *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheClusters(2)
@@ -122,8 +124,9 @@ import javax.annotation.Nullable;
  *             .port(6379)
  *             .build());
  * 
- *         for (var i = 0; i &lt; (1 == true); i++) {
+ *         for (var i = 0; i &lt; 1; i++) {
  *             new Cluster(&#34;replica-&#34; + i, ClusterArgs.builder()            
+ *                 .clusterId(String.format(&#34;tf-rep-group-1-%s&#34;, range.value()))
  *                 .replicationGroupId(example.id())
  *                 .build());
  * 
@@ -157,12 +160,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var baz = new ReplicationGroup(&#34;baz&#34;, ReplicationGroupArgs.builder()        
- *             .automaticFailoverEnabled(true)
+ *             .replicationGroupId(&#34;tf-redis-cluster&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.t2.small&#34;)
- *             .numNodeGroups(2)
- *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
  *             .port(6379)
+ *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
+ *             .automaticFailoverEnabled(true)
+ *             .numNodeGroups(2)
  *             .replicasPerNodeGroup(1)
  *             .build());
  * 
@@ -193,6 +197,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationGroup(&#34;test&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;myreplicaciongroup&#34;)
  *             .description(&#34;test description&#34;)
  *             .nodeType(&#34;cache.t3.small&#34;)
  *             .port(6379)
@@ -202,13 +207,13 @@ import javax.annotation.Nullable;
  *             .snapshotWindow(&#34;01:00-02:00&#34;)
  *             .logDeliveryConfigurations(            
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
+ *                     .destination(example.name())
  *                     .destinationType(&#34;cloudwatch-logs&#34;)
  *                     .logFormat(&#34;text&#34;)
  *                     .logType(&#34;slow-log&#34;)
  *                     .build(),
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .destinationType(&#34;kinesis-firehose&#34;)
  *                     .logFormat(&#34;json&#34;)
  *                     .logType(&#34;engine-log&#34;)
@@ -237,7 +242,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -252,23 +256,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-primary&#34;)
  *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
  *             .numCacheClusters(1)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
  *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
  *             .primaryReplicationGroupId(primary.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-secondary&#34;)
  *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
@@ -300,12 +302,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example&#34;)
  *             .description(&#34;example with authentication&#34;)
  *             .nodeType(&#34;cache.t2.micro&#34;)
  *             .numCacheClusters(1)
  *             .port(6379)
- *             .subnetGroupName(aws_elasticache_subnet_group.example().name())
- *             .securityGroupIds(aws_security_group.example().id())
+ *             .subnetGroupName(exampleAwsElasticacheSubnetGroup.name())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .parameterGroupName(&#34;default.redis5.0&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .transitEncryptionEnabled(true)

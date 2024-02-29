@@ -23,16 +23,17 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("testConfiguredTable", new()
+    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("test_configured_table", new()
     ///     {
+    ///         Name = "pulumi-example-table",
+    ///         Description = "I made this table with Pulumi!",
+    ///         AnalysisMethod = "DIRECT_QUERY",
     ///         AllowedColumns = new[]
     ///         {
     ///             "column1",
     ///             "column2",
     ///             "column3",
     ///         },
-    ///         AnalysisMethod = "DIRECT_QUERY",
-    ///         Description = "I made this table with Pulumi!",
     ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
     ///         {
     ///             DatabaseName = "example_database",

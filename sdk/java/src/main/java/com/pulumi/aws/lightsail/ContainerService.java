@@ -51,9 +51,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myContainerService = new ContainerService(&#34;myContainerService&#34;, ContainerServiceArgs.builder()        
- *             .isDisabled(false)
+ *             .name(&#34;container-service-1&#34;)
  *             .power(&#34;nano&#34;)
  *             .scale(1)
+ *             .isDisabled(false)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;foo1&#34;, &#34;bar1&#34;),
  *                 Map.entry(&#34;foo2&#34;, &#34;&#34;)
@@ -134,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var defaultPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var default = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -148,8 +149,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repository(aws_ecr_repository.default().name())
- *             .policy(defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(defaultPolicyDocument -&gt; defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .repository(defaultAwsEcrRepository.name())
+ *             .policy(default_.applyValue(default_ -&gt; default_.json()))
  *             .build());
  * 
  *     }

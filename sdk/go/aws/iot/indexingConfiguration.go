@@ -29,6 +29,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewIndexingConfiguration(ctx, "example", &iot.IndexingConfigurationArgs{
 //				ThingIndexingConfiguration: &iot.IndexingConfigurationThingIndexingConfigurationArgs{
+//					ThingIndexingMode:             pulumi.String("REGISTRY_AND_SHADOW"),
+//					ThingConnectivityIndexingMode: pulumi.String("STATUS"),
+//					DeviceDefenderIndexingMode:    pulumi.String("VIOLATIONS"),
+//					NamedShadowIndexingMode:       pulumi.String("ON"),
+//					Filter: &iot.IndexingConfigurationThingIndexingConfigurationFilterArgs{
+//						NamedShadowNames: pulumi.StringArray{
+//							pulumi.String("thing1shadow"),
+//						},
+//					},
 //					CustomFields: iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArray{
 //						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
 //							Name: pulumi.String("shadow.desired.power"),
@@ -47,15 +56,6 @@ import (
 //							Type: pulumi.String("Number"),
 //						},
 //					},
-//					DeviceDefenderIndexingMode: pulumi.String("VIOLATIONS"),
-//					Filter: &iot.IndexingConfigurationThingIndexingConfigurationFilterArgs{
-//						NamedShadowNames: pulumi.StringArray{
-//							pulumi.String("thing1shadow"),
-//						},
-//					},
-//					NamedShadowIndexingMode:       pulumi.String("ON"),
-//					ThingConnectivityIndexingMode: pulumi.String("STATUS"),
-//					ThingIndexingMode:             pulumi.String("REGISTRY_AND_SHADOW"),
 //				},
 //			})
 //			if err != nil {

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.AccessGrantsInstance;
  * import com.pulumi.aws.s3control.AccessGrantsLocation;
  * import com.pulumi.aws.s3control.AccessGrantsLocationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,14 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccessGrantsInstance = new AccessGrantsInstance(&#34;exampleAccessGrantsInstance&#34;);
+ *         var example = new AccessGrantsInstance(&#34;example&#34;);
  * 
  *         var exampleAccessGrantsLocation = new AccessGrantsLocation(&#34;exampleAccessGrantsLocation&#34;, AccessGrantsLocationArgs.builder()        
- *             .iamRoleArn(aws_iam_role.example().arn())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .locationScope(&#34;s3://&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccessGrantsInstance)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

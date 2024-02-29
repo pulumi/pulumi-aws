@@ -33,19 +33,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sns.NewTopic(ctx, "example", nil)
+//			example, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
+//				Name: pulumi.String("example-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			bar, err := autoscaling.NewGroup(ctx, "bar", nil)
+//			bar, err := autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name: pulumi.String("foobar1-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			foo, err := autoscaling.NewGroup(ctx, "foo", nil)
+//			foo, err := autoscaling.NewGroup(ctx, "foo", &autoscaling.GroupArgs{
+//				Name: pulumi.String("barfoo-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
+//			_, err = autoscaling.NewNotification(ctx, "example_notifications", &autoscaling.NotificationArgs{
 //				GroupNames: pulumi.StringArray{
 //					bar.Name,
 //					foo.Name,

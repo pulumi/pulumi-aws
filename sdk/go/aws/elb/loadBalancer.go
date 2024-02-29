@@ -39,6 +39,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new load balancer
 //			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("foobar-elb"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
@@ -72,7 +73,7 @@ import (
 //					Interval:           pulumi.Int(30),
 //				},
 //				Instances: pulumi.StringArray{
-//					aws_instance.Foo.Id,
+//					foo.Id,
 //				},
 //				CrossZoneLoadBalancing:    pulumi.Bool(true),
 //				IdleTimeout:               pulumi.Int(400),

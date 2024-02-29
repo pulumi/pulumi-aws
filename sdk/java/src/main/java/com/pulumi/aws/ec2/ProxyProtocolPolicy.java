@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;test-lb&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()

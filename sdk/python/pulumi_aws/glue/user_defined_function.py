@@ -303,10 +303,11 @@ class UserDefinedFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
-            catalog_id=example_catalog_database.catalog_id,
-            database_name=example_catalog_database.name,
+        example = aws.glue.CatalogDatabase("example", name="my_database")
+        example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            name="my_func",
+            catalog_id=example.catalog_id,
+            database_name=example.name,
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",
@@ -349,10 +350,11 @@ class UserDefinedFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
-            catalog_id=example_catalog_database.catalog_id,
-            database_name=example_catalog_database.name,
+        example = aws.glue.CatalogDatabase("example", name="my_database")
+        example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            name="my_func",
+            catalog_id=example.catalog_id,
+            database_name=example.name,
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",

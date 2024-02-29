@@ -141,20 +141,21 @@ class AuthPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService",
+        example = aws.vpclattice.Service("example",
+            name="example-vpclattice-service",
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
-            resource_identifier=example_service.arn,
+        example_auth_policy = aws.vpclattice.AuthPolicy("example",
+            resource_identifier=example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "*",
+                    "effect": "Allow",
+                    "principal": "*",
+                    "resource": "*",
+                    "condition": {
+                        "stringNotEqualsIgnoreCase": {
                             "aws:PrincipalType": "anonymous",
                         },
                     },
@@ -193,20 +194,21 @@ class AuthPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService",
+        example = aws.vpclattice.Service("example",
+            name="example-vpclattice-service",
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
-            resource_identifier=example_service.arn,
+        example_auth_policy = aws.vpclattice.AuthPolicy("example",
+            resource_identifier=example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "*",
+                    "effect": "Allow",
+                    "principal": "*",
+                    "resource": "*",
+                    "condition": {
+                        "stringNotEqualsIgnoreCase": {
                             "aws:PrincipalType": "anonymous",
                         },
                     },

@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
+    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambda_layer", new()
     ///     {
+    ///         Code = new FileArchive("lambda_layer_payload.zip"),
+    ///         LayerName = "lambda_layer_name",
     ///         CompatibleRuntimes = new[]
     ///         {
     ///             "nodejs16.x",
     ///         },
-    ///         Code = new FileArchive("lambda_layer_payload.zip"),
-    ///         LayerName = "lambda_layer_name",
     ///     });
     /// 
     /// });

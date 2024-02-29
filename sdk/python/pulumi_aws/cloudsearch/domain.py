@@ -276,29 +276,30 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            index_fields=[
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    analysis_scheme="_en_default_",
-                    highlight=False,
-                    name="headline",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    type="text",
-                ),
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    facet=True,
-                    name="price",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    source_fields="headline",
-                    type="double",
-                ),
-            ],
+            name="example-domain",
             scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
                 desired_instance_type="search.medium",
-            ))
+            ),
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="headline",
+                    type="text",
+                    search=True,
+                    return_=True,
+                    sort=True,
+                    highlight=False,
+                    analysis_scheme="_en_default_",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="price",
+                    type="double",
+                    search=True,
+                    facet=True,
+                    return_=True,
+                    sort=True,
+                    source_fields="headline",
+                ),
+            ])
         ```
 
         ## Import
@@ -335,29 +336,30 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            index_fields=[
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    analysis_scheme="_en_default_",
-                    highlight=False,
-                    name="headline",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    type="text",
-                ),
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    facet=True,
-                    name="price",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    source_fields="headline",
-                    type="double",
-                ),
-            ],
+            name="example-domain",
             scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
                 desired_instance_type="search.medium",
-            ))
+            ),
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="headline",
+                    type="text",
+                    search=True,
+                    return_=True,
+                    sort=True,
+                    highlight=False,
+                    analysis_scheme="_en_default_",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="price",
+                    type="double",
+                    search=True,
+                    facet=True,
+                    return_=True,
+                    sort=True,
+                    source_fields="headline",
+                ),
+            ])
         ```
 
         ## Import

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *             region: example.then(example => example.names?.[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
  *     }],
@@ -34,16 +34,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [
  *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *                 region: example.then(example => example.names?.[0]),
  *                 registryId: current.then(current => current.accountId),
  *             },
  *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[1]),
+ *                 region: example.then(example => example.names?.[1]),
  *                 registryId: current.then(current => current.accountId),
  *             },
  *         ],
@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *             region: example.then(example => example.names?.[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
  *         repositoryFilters: [{

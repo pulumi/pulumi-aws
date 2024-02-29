@@ -26,13 +26,16 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = .Select(__value =&gt; 
-        ///     {
+        ///     var example = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     }).ToList();
+        ///     });
         /// 
         /// });
         /// ```
@@ -57,13 +60,16 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = .Select(__value =&gt; 
-        ///     {
+        ///     var example = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     }).ToList();
+        ///     });
         /// 
         /// });
         /// ```

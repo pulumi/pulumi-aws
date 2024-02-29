@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directoryservice.RadiusSettings("example", {
- *     directoryId: aws_directory_service_directory.example.id,
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  *     authenticationProtocol: "PAP",
  *     displayLabel: "example",
  *     radiusPort: 1812,

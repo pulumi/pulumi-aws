@@ -24,6 +24,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         Distributions = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                     {
     ///                         { "CostCenter", "IT" },
     ///                     },
+    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
     ///                     {
     ///                         UserIds = new[]
@@ -41,7 +43,6 @@ namespace Pulumi.Aws.ImageBuilder
     ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                 },
     ///                 LaunchTemplateConfigurations = new[]
     ///                 {

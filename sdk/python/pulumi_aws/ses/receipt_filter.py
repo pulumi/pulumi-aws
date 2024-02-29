@@ -156,6 +156,7 @@ class ReceiptFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         filter = aws.ses.ReceiptFilter("filter",
+            name="block-spammer",
             cidr="10.10.10.10",
             policy="Block")
         ```
@@ -190,6 +191,7 @@ class ReceiptFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         filter = aws.ses.ReceiptFilter("filter",
+            name="block-spammer",
             cidr="10.10.10.10",
             policy="Block")
         ```

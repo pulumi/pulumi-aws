@@ -20,6 +20,176 @@ import (
 // See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
 //
 // ## Example Usage
+// ### Basic Dynamic Scaling
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscalingplans"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				NamePrefix:          pulumi.String("example"),
+//				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
+//				AvailabilityZones: pulumi.StringArray{
+//					*pulumi.String(available.Names[0]),
+//				},
+//				MinSize: pulumi.Int(0),
+//				MaxSize: pulumi.Int(3),
+//				Tags: autoscaling.GroupTagArray{
+//					&autoscaling.GroupTagArgs{
+//						Key:               pulumi.String("application"),
+//						Value:             pulumi.String("example"),
+//						PropagateAtLaunch: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
+//				Name: pulumi.String("example-dynamic-cost-optimization"),
+//				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
+//					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
+//						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
+//							Key: pulumi.String("application"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
+//				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
+//					&autoscalingplans.ScalingPlanScalingInstructionArgs{
+//						MaxCapacity:       pulumi.Int(3),
+//						MinCapacity:       pulumi.Int(0),
+//						ResourceId:        notImplemented("format(\"autoScalingGroup/%s\",aws_autoscaling_group.example.name)"),
+//						ScalableDimension: pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
+//						ServiceNamespace:  pulumi.String("autoscaling"),
+//						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
+//							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
+//								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
+//									PredefinedScalingMetricType: pulumi.String("ASGAverageCPUUtilization"),
+//								},
+//								TargetValue: pulumi.Float64(70),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Basic Predictive Scaling
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscalingplans"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				NamePrefix:          pulumi.String("example"),
+//				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
+//				AvailabilityZones: pulumi.StringArray{
+//					*pulumi.String(available.Names[0]),
+//				},
+//				MinSize: pulumi.Int(0),
+//				MaxSize: pulumi.Int(3),
+//				Tags: autoscaling.GroupTagArray{
+//					&autoscaling.GroupTagArgs{
+//						Key:               pulumi.String("application"),
+//						Value:             pulumi.String("example"),
+//						PropagateAtLaunch: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
+//				Name: pulumi.String("example-predictive-cost-optimization"),
+//				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
+//					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
+//						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
+//							Key: pulumi.String("application"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
+//				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
+//					&autoscalingplans.ScalingPlanScalingInstructionArgs{
+//						DisableDynamicScaling: pulumi.Bool(true),
+//						MaxCapacity:           pulumi.Int(3),
+//						MinCapacity:           pulumi.Int(0),
+//						ResourceId:            notImplemented("format(\"autoScalingGroup/%s\",aws_autoscaling_group.example.name)"),
+//						ScalableDimension:     pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
+//						ServiceNamespace:      pulumi.String("autoscaling"),
+//						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
+//							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
+//								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
+//									PredefinedScalingMetricType: pulumi.String("ASGAverageCPUUtilization"),
+//								},
+//								TargetValue: pulumi.Float64(70),
+//							},
+//						},
+//						PredictiveScalingMaxCapacityBehavior: pulumi.String("SetForecastCapacityToMaxCapacity"),
+//						PredictiveScalingMode:                pulumi.String("ForecastAndScale"),
+//						PredefinedLoadMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{
+//							PredefinedLoadMetricType: pulumi.String("ASGTotalCPUUtilization"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

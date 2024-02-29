@@ -14,25 +14,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
  * const example = new aws.msk.ClusterPolicy("example", {
- *     clusterArn: aws_msk_cluster.example.arn,
+ *     clusterArn: exampleAwsMskCluster.arn,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "ExampleMskClusterPolicy",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "ExampleMskClusterPolicy",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "kafka:Describe*",
  *                 "kafka:Get*",
  *                 "kafka:CreateVpcConnection",
  *                 "kafka:GetBootstrapBrokers",
  *             ],
- *             Resource: aws_msk_cluster.example.arn,
+ *             resource: exampleAwsMskCluster.arn,
  *         }],
  *     }),
  * });

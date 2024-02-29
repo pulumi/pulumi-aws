@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
  *             .cdcStartTime(&#34;1993-05-21T05:50:00Z&#34;)
  *             .migrationType(&#34;full-load&#34;)
- *             .replicationInstanceArn(aws_dms_replication_instance.test-dms-replication-instance-tf().replication_instance_arn())
+ *             .replicationInstanceArn(test_dms_replication_instance_tf.replicationInstanceArn())
  *             .replicationTaskId(&#34;test-dms-replication-task-tf&#34;)
  *             .replicationTaskSettings(&#34;...&#34;)
- *             .sourceEndpointArn(aws_dms_endpoint.test-dms-source-endpoint-tf().endpoint_arn())
+ *             .sourceEndpointArn(test_dms_source_endpoint_tf.endpointArn())
  *             .tableMappings(&#34;{\&#34;rules\&#34;:[{\&#34;rule-type\&#34;:\&#34;selection\&#34;,\&#34;rule-id\&#34;:\&#34;1\&#34;,\&#34;rule-name\&#34;:\&#34;1\&#34;,\&#34;object-locator\&#34;:{\&#34;schema-name\&#34;:\&#34;%\&#34;,\&#34;table-name\&#34;:\&#34;%\&#34;},\&#34;rule-action\&#34;:\&#34;include\&#34;}]}&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *             .targetEndpointArn(aws_dms_endpoint.test-dms-target-endpoint-tf().endpoint_arn())
+ *             .targetEndpointArn(test_dms_target_endpoint_tf.endpointArn())
  *             .build());
  * 
  *     }

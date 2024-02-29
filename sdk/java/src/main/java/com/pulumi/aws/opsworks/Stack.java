@@ -44,9 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Stack(&#34;main&#34;, StackArgs.builder()        
+ *             .name(&#34;awesome-stack&#34;)
  *             .region(&#34;us-west-1&#34;)
- *             .serviceRoleArn(aws_iam_role.opsworks().arn())
- *             .defaultInstanceProfileArn(aws_iam_instance_profile.opsworks().arn())
+ *             .serviceRoleArn(opsworksAwsIamRole.arn())
+ *             .defaultInstanceProfileArn(opsworks.arn())
  *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-stack&#34;))
  *             .customJson(&#34;&#34;&#34;
  * {

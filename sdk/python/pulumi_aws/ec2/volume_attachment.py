@@ -286,7 +286,7 @@ class VolumeAttachment(pulumi.CustomResource):
         example = aws.ebs.Volume("example",
             availability_zone="us-west-2a",
             size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebsAtt",
+        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
             device_name="/dev/sdh",
             volume_id=example.id,
             instance_id=web.id)
@@ -346,7 +346,7 @@ class VolumeAttachment(pulumi.CustomResource):
         example = aws.ebs.Volume("example",
             availability_zone="us-west-2a",
             size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebsAtt",
+        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
             device_name="/dev/sdh",
             volume_id=example.id,
             instance_id=web.id)

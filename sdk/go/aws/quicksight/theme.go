@@ -15,6 +15,54 @@ import (
 // Resource for managing a QuickSight Theme.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewTheme(ctx, "example", &quicksight.ThemeArgs{
+//				ThemeId:     pulumi.String("example"),
+//				Name:        pulumi.String("example"),
+//				BaseThemeId: pulumi.String("MIDNIGHT"),
+//				Configuration: &quicksight.ThemeConfigurationArgs{
+//					DataColorPalette: &quicksight.ThemeConfigurationDataColorPaletteArgs{
+//						Colors: pulumi.StringArray{
+//							pulumi.String("#FFFFFF"),
+//							pulumi.String("#111111"),
+//							pulumi.String("#222222"),
+//							pulumi.String("#333333"),
+//							pulumi.String("#444444"),
+//							pulumi.String("#555555"),
+//							pulumi.String("#666666"),
+//							pulumi.String("#777777"),
+//							pulumi.String("#888888"),
+//							pulumi.String("#999999"),
+//						},
+//						EmptyFillColor: pulumi.String("#FFFFFF"),
+//						MinMaxGradients: pulumi.StringArray{
+//							pulumi.String("#FFFFFF"),
+//							pulumi.String("#111111"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

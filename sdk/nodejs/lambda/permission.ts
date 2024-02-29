@@ -16,29 +16,35 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "lambda.amazonaws.com",
- *         },
- *     }],
- * })});
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "lambda.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
+ *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "exports.handler",
  *     runtime: "nodejs16.x",
  * });
- * const testAlias = new aws.lambda.Alias("testAlias", {
+ * const testAlias = new aws.lambda.Alias("test_alias", {
+ *     name: "testalias",
  *     description: "a sample description",
  *     functionName: testLambda.name,
  *     functionVersion: "$LATEST",
  * });
- * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
+ * const allowCloudwatch = new aws.lambda.Permission("allow_cloudwatch", {
+ *     statementId: "AllowExecutionFromCloudWatch",
  *     action: "lambda:InvokeFunction",
  *     "function": testLambda.name,
  *     principal: "events.amazonaws.com",
@@ -52,32 +58,37 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "lambda.amazonaws.com",
- *         },
- *     }],
- * })});
+ * const _default = new aws.sns.Topic("default", {name: "call-lambda-maybe"});
+ * const defaultRole = new aws.iam.Role("default", {
+ *     name: "iam_for_lambda_with_sns",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "lambda.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
+ *     name: "lambda_called_from_sns",
  *     role: defaultRole.arn,
  *     handler: "exports.handler",
  *     runtime: "python3.7",
  * });
- * const withSns = new aws.lambda.Permission("withSns", {
+ * const withSns = new aws.lambda.Permission("with_sns", {
+ *     statementId: "AllowExecutionFromSNS",
  *     action: "lambda:InvokeFunction",
  *     "function": func.name,
  *     principal: "sns.amazonaws.com",
- *     sourceArn: defaultTopic.arn,
+ *     sourceArn: _default.arn,
  * });
  * const lambda = new aws.sns.TopicSubscription("lambda", {
- *     topic: defaultTopic.arn,
+ *     topic: _default.arn,
  *     protocol: "lambda",
  *     endpoint: func.arn,
  * });
@@ -88,8 +99,12 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
+ *     statementId: "AllowMyDemoAPIInvoke",
  *     action: "lambda:InvokeFunction",
  *     "function": "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
@@ -102,7 +117,7 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultLogGroup = new aws.cloudwatch.LogGroup("defaultLogGroup", {});
+ * const _default = new aws.cloudwatch.LogGroup("default", {name: "/default"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -113,25 +128,28 @@ import {Function} from "./index";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const loggingFunction = new aws.lambda.Function("loggingFunction", {
+ * const defaultRole = new aws.iam.Role("default", {
+ *     name: "iam_for_lambda_called_from_cloudwatch_logs",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const loggingFunction = new aws.lambda.Function("logging", {
  *     code: new pulumi.asset.FileArchive("lamba_logging.zip"),
+ *     name: "lambda_called_from_cloudwatch_logs",
  *     handler: "exports.handler",
  *     role: defaultRole.arn,
  *     runtime: "python3.7",
  * });
- * const loggingPermission = new aws.lambda.Permission("loggingPermission", {
+ * const logging = new aws.lambda.Permission("logging", {
  *     action: "lambda:InvokeFunction",
  *     "function": loggingFunction.name,
  *     principal: "logs.eu-west-1.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${defaultLogGroup.arn}:*`,
+ *     sourceArn: pulumi.interpolate`${_default.arn}:*`,
  * });
- * const loggingLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter", {
+ * const loggingLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("logging", {
  *     destinationArn: loggingFunction.arn,
  *     filterPattern: "",
- *     logGroup: defaultLogGroup.name,
- * }, {
- *     dependsOn: [loggingPermission],
+ *     logGroup: _default.name,
+ *     name: "logging_default",
  * });
  * ```
  * ### With Cross-Account Invocation Policy
@@ -140,13 +158,13 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const urlFunctionUrl = new aws.lambda.FunctionUrl("urlFunctionUrl", {
- *     functionName: aws_lambda_function.example.function_name,
+ * const url = new aws.lambda.FunctionUrl("url", {
+ *     functionName: example.functionName,
  *     authorizationType: "AWS_IAM",
  * });
- * const urlPermission = new aws.lambda.Permission("urlPermission", {
+ * const urlPermission = new aws.lambda.Permission("url", {
  *     action: "lambda:InvokeFunctionUrl",
- *     "function": aws_lambda_function.example.function_name,
+ *     "function": example.functionName,
  *     principal: "arn:aws:iam::444455556666:role/example",
  *     sourceAccount: "444455556666",
  *     functionUrlAuthType: "AWS_IAM",
@@ -162,7 +180,7 @@ import {Function} from "./index";
  *
  * const logging = new aws.lambda.Permission("logging", {
  *     action: "lambda:InvokeFunction",
- *     "function": aws_lambda_function.example.function_name,
+ *     "function": example.functionName,
  *     principal: "events.amazonaws.com",
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  * });

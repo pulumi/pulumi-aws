@@ -16,17 +16,18 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var foo_app = new Aws.OpsWorks.Application("foo-app", new()
     ///     {
+    ///         Name = "foobar application",
     ///         ShortName = "foobar",
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///         Type = "rails",
     ///         Description = "This is a Rails application",
     ///         Domains = new[]
@@ -57,8 +58,14 @@ namespace Pulumi.Aws.OpsWorks
     ///         {
     ///             new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
     ///             {
-    ///                 PrivateKey = File.ReadAllText("./foobar.key"),
-    ///                 Certificate = File.ReadAllText("./foobar.crt"),
+    ///                 PrivateKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "./foobar.key",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 Certificate = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "./foobar.crt",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///         DocumentRoot = "public",

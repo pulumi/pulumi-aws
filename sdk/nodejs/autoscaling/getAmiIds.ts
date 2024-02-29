@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
+ * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
  *     groupNames: groups.then(groups => groups.names),
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -105,7 +105,7 @@ export interface GetAmiIdsResult {
  *         },
  *     ],
  * });
- * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
+ * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
  *     groupNames: groups.then(groups => groups.names),
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",

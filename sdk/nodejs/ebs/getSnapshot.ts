@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolume = aws.ebs.getSnapshot({
+ *     mostRecent: true,
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -27,8 +29,6 @@ import * as utilities from "../utilities";
  *             values: ["Example"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["self"],
  * });
  * ```
  */
@@ -158,6 +158,8 @@ export interface GetSnapshotResult {
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolume = aws.ebs.getSnapshot({
+ *     mostRecent: true,
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -168,8 +170,6 @@ export interface GetSnapshotResult {
  *             values: ["Example"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["self"],
  * });
  * ```
  */

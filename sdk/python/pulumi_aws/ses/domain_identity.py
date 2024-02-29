@@ -130,7 +130,7 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
             zone_id="ABCDEFGHIJ123",
             name="_amazonses.example.com",
             type="TXT",
@@ -175,7 +175,7 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
             zone_id="ABCDEFGHIJ123",
             name="_amazonses.example.com",
             type="TXT",

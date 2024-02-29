@@ -27,7 +27,10 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         RepositoryName = "example-code-repo",
     ///     });
     /// 
-    ///     var notif = new Aws.Sns.Topic("notif");
+    ///     var notif = new Aws.Sns.Topic("notif", new()
+    ///     {
+    ///         Name = "notification",
+    ///     });
     /// 
     ///     var notifAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -71,6 +74,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         {
     ///             "codecommit-repository-comments-on-commits",
     ///         },
+    ///         Name = "example-code-repo-commits",
     ///         Resource = code.Arn,
     ///         Targets = new[]
     ///         {

@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const centos = aws.ssm.getPatchBaseline({
+ *     owner: "AWS",
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
- *     owner: "AWS",
  * });
  * ```
  *
@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
  *     owner: "Self",
+ *     namePrefix: "MyCustomBaseline",
+ *     defaultBaseline: true,
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
  */
@@ -143,9 +143,9 @@ export interface GetPatchBaselineResult {
  * import * as aws from "@pulumi/aws";
  *
  * const centos = aws.ssm.getPatchBaseline({
+ *     owner: "AWS",
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
- *     owner: "AWS",
  * });
  * ```
  *
@@ -156,10 +156,10 @@ export interface GetPatchBaselineResult {
  * import * as aws from "@pulumi/aws";
  *
  * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
  *     owner: "Self",
+ *     namePrefix: "MyCustomBaseline",
+ *     defaultBaseline: true,
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
  */

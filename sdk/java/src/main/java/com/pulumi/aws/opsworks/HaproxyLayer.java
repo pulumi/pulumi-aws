@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new HaproxyLayer(&#34;lb&#34;, HaproxyLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .statsPassword(&#34;foobarbaz&#34;)
  *             .build());
  * 

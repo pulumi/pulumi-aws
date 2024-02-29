@@ -22,7 +22,10 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.CidrCollection("example");
+    ///     var example = new Aws.Route53.CidrCollection("example", new()
+    ///     {
+    ///         Name = "collection-1",
+    ///     });
     /// 
     /// });
     /// ```

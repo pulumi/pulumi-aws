@@ -15,23 +15,23 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// 	
-    /// string ReadFileBase64(string path) 
+    /// object NotImplemented(string errorMessage) 
     /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    ///     throw new System.NotImplementedException(errorMessage);
     /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var foo = new Aws.Ec2.LaunchTemplate("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         BlockDeviceMappings = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingArgs
@@ -128,7 +128,10 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         UserData = ReadFileBase64($"{path.Module}/example.sh"),
+    ///         UserData = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/example.sh",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

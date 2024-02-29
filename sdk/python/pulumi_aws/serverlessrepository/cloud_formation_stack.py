@@ -276,17 +276,18 @@ class CloudFormationStack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
+        current = aws.get_partition()
+        current_get_region = aws.get_region()
         postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
+            name="postgres-rotator",
             application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
             capabilities=[
                 "CAPABILITY_IAM",
                 "CAPABILITY_RESOURCE_POLICY",
             ],
             parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
                 "functionName": "func-postgres-rotator",
+                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
 
@@ -322,17 +323,18 @@ class CloudFormationStack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
+        current = aws.get_partition()
+        current_get_region = aws.get_region()
         postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
+            name="postgres-rotator",
             application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
             capabilities=[
                 "CAPABILITY_IAM",
                 "CAPABILITY_RESOURCE_POLICY",
             ],
             parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
                 "functionName": "func-postgres-rotator",
+                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
 

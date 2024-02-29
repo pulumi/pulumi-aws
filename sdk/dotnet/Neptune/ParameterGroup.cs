@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Neptune
     ///     var example = new Aws.Neptune.ParameterGroup("example", new()
     ///     {
     ///         Family = "neptune1",
+    ///         Name = "example",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs

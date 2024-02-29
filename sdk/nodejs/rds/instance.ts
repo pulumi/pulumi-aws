@@ -58,10 +58,101 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7",
  *     instanceClass: "db.t3.micro",
- *     parameterGroupName: "default.mysql5.7",
- *     password: "foobarbaz",
- *     skipFinalSnapshot: true,
  *     username: "foo",
+ *     password: "foobarbaz",
+ *     parameterGroupName: "default.mysql5.7",
+ *     skipFinalSnapshot: true,
+ * });
+ * ```
+ * ### RDS Custom for Oracle Usage with Replica
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Lookup the available instance classes for the custom engine for the region being operated in
+ * const custom-oracle = aws.rds.getOrderableDbInstance({
+ *     engine: "custom-oracle-ee",
+ *     engineVersion: "19.c.ee.002",
+ *     licenseModel: "bring-your-own-license",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.r5.xlarge",
+ *         "db.r5.2xlarge",
+ *         "db.r5.4xlarge",
+ *     ],
+ * });
+ * // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+ * const byId = aws.kms.getKey({
+ *     keyId: "example-ef278353ceba4a5a97de6784565b9f78",
+ * });
+ * const _default = new aws.rds.Instance("default", {
+ *     allocatedStorage: 50,
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     dbSubnetGroupName: dbSubnetGroupName,
+ *     engine: custom_oracle.then(custom_oracle => custom_oracle.engine),
+ *     engineVersion: custom_oracle.then(custom_oracle => custom_oracle.engineVersion),
+ *     identifier: "ee-instance-demo",
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     licenseModel: custom_oracle.then(custom_oracle => custom_oracle.licenseModel),
+ *     multiAz: false,
+ *     password: "avoid-plaintext-passwords",
+ *     username: "test",
+ *     storageEncrypted: true,
+ * });
+ * const test_replica = new aws.rds.Instance("test-replica", {
+ *     replicateSourceDb: _default.identifier,
+ *     replicaMode: "mounted",
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     identifier: "ee-instance-replica",
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     multiAz: false,
+ *     skipFinalSnapshot: true,
+ *     storageEncrypted: true,
+ * });
+ * ```
+ * ### RDS Custom for SQL Server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Lookup the available instance classes for the custom engine for the region being operated in
+ * const custom-sqlserver = aws.rds.getOrderableDbInstance({
+ *     engine: "custom-sqlserver-se",
+ *     engineVersion: "15.00.4249.2.v1",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.r5.xlarge",
+ *         "db.r5.2xlarge",
+ *         "db.r5.4xlarge",
+ *     ],
+ * });
+ * // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+ * const byId = aws.kms.getKey({
+ *     keyId: "example-ef278353ceba4a5a97de6784565b9f78",
+ * });
+ * const example = new aws.rds.Instance("example", {
+ *     allocatedStorage: 500,
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomSQLServerInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     dbSubnetGroupName: dbSubnetGroupName,
+ *     engine: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engine),
+ *     engineVersion: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engineVersion),
+ *     identifier: "sql-instance-demo",
+ *     instanceClass: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     multiAz: false,
+ *     password: "avoid-plaintext-passwords",
+ *     storageEncrypted: true,
+ *     username: "test",
  * });
  * ```
  * ### RDS Db2 Usage
@@ -70,10 +161,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
  * const default = aws.rds.getEngineVersion({
  *     engine: "db2-se",
  * });
- * const exampleOrderableDbInstance = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
+ * // Lookup the available instance classes for the engine in the region being operated in
+ * const example = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
  *     engine: _default.engine,
  *     engineVersion: _default1.version,
  *     licenseModel: "bring-your-own-license",
@@ -85,7 +178,8 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
- * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
+ * const exampleParameterGroup = new aws.rds.ParameterGroup("example", {
+ *     name: "db-db2-params",
  *     family: _default.then(_default => _default.parameterGroupFamily),
  *     parameters: [
  *         {
@@ -101,14 +195,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Create the RDS Db2 instance, use the data sources defined to set attributes
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ * const exampleInstance = new aws.rds.Instance("example", {
  *     allocatedStorage: 100,
  *     backupRetentionPeriod: 7,
  *     dbName: "test",
- *     engine: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engine),
- *     engineVersion: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engineVersion),
+ *     engine: example.then(example => example.engine),
+ *     engineVersion: example.then(example => example.engineVersion),
  *     identifier: "db2-instance-demo",
- *     instanceClass: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
+ *     instanceClass: example.then(example => example.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
  *     parameterGroupName: exampleParameterGroup.name,
  *     password: "avoid-plaintext-passwords",
  *     username: "test",
@@ -144,8 +238,8 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.7",
  *     instanceClass: "db.t3.micro",
  *     manageMasterUserPassword: true,
- *     parameterGroupName: "default.mysql5.7",
  *     username: "foo",
+ *     parameterGroupName: "default.mysql5.7",
  * });
  * ```
  * ### Managed Master Passwords via Secrets Manager, specific KMS Key

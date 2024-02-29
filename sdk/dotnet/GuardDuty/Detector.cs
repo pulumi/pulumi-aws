@@ -24,10 +24,15 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDetector = new Aws.GuardDuty.Detector("myDetector", new()
+    ///     var myDetector = new Aws.GuardDuty.Detector("MyDetector", new()
     ///     {
+    ///         Enable = true,
     ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///         {
+    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
+    ///             {
+    ///                 Enable = true,
+    ///             },
     ///             Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
     ///             {
     ///                 AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
@@ -45,12 +50,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                     },
     ///                 },
     ///             },
-    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
-    ///             {
-    ///                 Enable = true,
-    ///             },
     ///         },
-    ///         Enable = true,
     ///     });
     /// 
     /// });

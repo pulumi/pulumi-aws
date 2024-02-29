@@ -37,19 +37,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -58,16 +58,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			exampleProtection, err := shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example-protection"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentGetPartition.Partition, current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "exampleHealthCheck", &route53.HealthCheckArgs{
-//				IpAddress:        exampleEip.PublicIp,
+//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
+//				IpAddress:        example.PublicIp,
 //				Port:             pulumi.Int(80),
 //				Type:             pulumi.String("HTTP"),
 //				ResourcePath:     pulumi.String("/ready"),
@@ -80,7 +81,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "exampleProtectionHealthCheckAssociation", &shield.ProtectionHealthCheckAssociationArgs{
+//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "example", &shield.ProtectionHealthCheckAssociationArgs{
 //				HealthCheckArn:     exampleHealthCheck.Arn,
 //				ShieldProtectionId: exampleProtection.ID(),
 //			})

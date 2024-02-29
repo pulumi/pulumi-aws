@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UsageLimit(&#34;example&#34;, UsageLimitArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .featureType(&#34;concurrency-scaling&#34;)
  *             .limitType(&#34;time&#34;)
  *             .amount(60)

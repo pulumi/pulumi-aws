@@ -27,13 +27,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
+    ///         BucketName = "my-tf-test-bucket",
     ///         Acl = "private",
     ///         Tags = 
     ///         {
-    ///             { "Environment", "Dev" },
     ///             { "Name", "My bucket" },
+    ///             { "Environment", "Dev" },
     ///         },
     ///     });
     /// 
@@ -43,17 +44,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
+    ///         BucketName = "s3-website-test.mydomain.com",
     ///         Acl = "public-read",
-    ///         Policy = File.ReadAllText("policy.json"),
+    ///         Policy = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "policy.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Website = new Aws.S3.Inputs.BucketWebsiteArgs
     ///         {
     ///             IndexDocument = "index.html",
@@ -82,8 +87,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
+    ///         BucketName = "s3-website-test.mydomain.com",
     ///         Acl = "public-read",
     ///         CorsRules = new[]
     ///         {
@@ -123,8 +129,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
+    ///         BucketName = "my-tf-test-bucket",
     ///         Acl = "private",
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
@@ -144,13 +151,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var logBucket = new Aws.S3.Bucket("logBucket", new()
+    ///     var logBucket = new Aws.S3.Bucket("log_bucket", new()
     ///     {
+    ///         BucketName = "my-tf-log-bucket",
     ///         Acl = "log-delivery-write",
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
+    ///         BucketName = "my-tf-test-bucket",
     ///         Acl = "private",
     ///         Loggings = new[]
     ///         {
@@ -176,22 +185,19 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
+    ///         BucketName = "my-bucket",
     ///         Acl = "private",
     ///         LifecycleRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
-    ///                 Enabled = true,
-    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
-    ///                 {
-    ///                     Days = 90,
-    ///                 },
     ///                 Id = "log",
+    ///                 Enabled = true,
     ///                 Prefix = "log/",
     ///                 Tags = 
     ///                 {
-    ///                     { "autoclean", "true" },
     ///                     { "rule", "log" },
+    ///                     { "autoclean", "true" },
     ///                 },
     ///                 Transitions = new[]
     ///                 {
@@ -206,32 +212,38 @@ namespace Pulumi.Aws.S3
     ///                         StorageClass = "GLACIER",
     ///                     },
     ///                 },
+    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
+    ///                 {
+    ///                     Days = 90,
+    ///                 },
     ///             },
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
+    ///                 Id = "tmp",
+    ///                 Prefix = "tmp/",
     ///                 Enabled = true,
     ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
     ///                 {
     ///                     Date = "2016-01-12",
     ///                 },
-    ///                 Id = "tmp",
-    ///                 Prefix = "tmp/",
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var versioningBucket = new Aws.S3.Bucket("versioningBucket", new()
+    ///     var versioningBucket = new Aws.S3.Bucket("versioning_bucket", new()
     ///     {
+    ///         BucketName = "my-versioning-bucket",
     ///         Acl = "private",
+    ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
     ///         LifecycleRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
+    ///                 Prefix = "config/",
     ///                 Enabled = true,
-    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs
-    ///                 {
-    ///                     Days = 90,
-    ///                 },
     ///                 NoncurrentVersionTransitions = new[]
     ///                 {
     ///                     new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionTransitionArgs
@@ -245,12 +257,11 @@ namespace Pulumi.Aws.S3
     ///                         StorageClass = "GLACIER",
     ///                     },
     ///                 },
-    ///                 Prefix = "config/",
+    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs
+    ///                 {
+    ///                     Days = 90,
+    ///                 },
     ///             },
-    ///         },
-    ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
-    ///         {
-    ///             Enabled = true,
     ///         },
     ///     });
     /// 
@@ -268,13 +279,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var central = new Aws.Provider("central", new()
+    ///     var replication = new Aws.Iam.Role("replication", new()
     ///     {
-    ///         Region = "eu-central-1",
-    ///     });
-    /// 
-    ///     var replicationRole = new Aws.Iam.Role("replicationRole", new()
-    ///     {
+    ///         Name = "tf-iam-role-replication-12345",
     ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -293,6 +300,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var destination = new Aws.S3.Bucket("destination", new()
     ///     {
+    ///         BucketName = "tf-test-bucket-destination-12345",
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
@@ -301,6 +309,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var source = new Aws.S3.Bucket("source", new()
     ///     {
+    ///         BucketName = "tf-test-bucket-source-12345",
     ///         Acl = "private",
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
@@ -308,7 +317,7 @@ namespace Pulumi.Aws.S3
     ///         },
     ///         ReplicationConfiguration = new Aws.S3.Inputs.BucketReplicationConfigurationArgs
     ///         {
-    ///             Role = replicationRole.Arn,
+    ///             Role = replication.Arn,
     ///             Rules = new[]
     ///             {
     ///                 new Aws.S3.Inputs.BucketReplicationConfigurationRuleArgs
@@ -337,13 +346,11 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
     ///     });
     /// 
-    ///     var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new()
+    ///     var replicationPolicy = new Aws.Iam.Policy("replication", new()
     ///     {
+    ///         Name = "tf-iam-role-policy-replication-12345",
     ///         PolicyDocument = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
     ///         {
     ///             var sourceArn = values.Item1;
@@ -388,9 +395,9 @@ namespace Pulumi.Aws.S3
     ///         }),
     ///     });
     /// 
-    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replicationRolePolicyAttachment", new()
+    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replication", new()
     ///     {
-    ///         Role = replicationRole.Name,
+    ///         Role = replication.Name,
     ///         PolicyArn = replicationPolicy.Arn,
     ///     });
     /// 
@@ -414,6 +421,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
     ///     {
+    ///         BucketName = "mybucket",
     ///         ServerSideEncryptionConfiguration = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationArgs
     ///         {
     ///             Rule = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
@@ -443,6 +451,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
+    ///         BucketName = "mybucket",
     ///         Grants = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketGrantArgs

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
+ * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
  *     vpcId: main.id,
  *     cidrBlock: "172.20.0.0/16",
  * });

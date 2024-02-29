@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id});
+ * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id});
  * ```
  */
 export class Group extends pulumi.CustomResource {

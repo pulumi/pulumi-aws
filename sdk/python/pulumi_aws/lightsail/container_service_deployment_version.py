@@ -218,7 +218,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                     success_codes="200-499",
                 ),
             ),
-            service_name=aws_lightsail_container_service["example"]["name"])
+            service_name=example_aws_lightsail_container_service["name"])
         ```
 
         ## Import
@@ -279,7 +279,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                     success_codes="200-499",
                 ),
             ),
-            service_name=aws_lightsail_container_service["example"]["name"])
+            service_name=example_aws_lightsail_container_service["name"])
         ```
 
         ## Import

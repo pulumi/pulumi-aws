@@ -25,11 +25,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ServiceNetworkVpcAssociation("example", new()
     ///     {
-    ///         VpcIdentifier = aws_vpc.Example.Id,
-    ///         ServiceNetworkIdentifier = aws_vpclattice_service_network.Example.Id,
+    ///         VpcIdentifier = exampleAwsVpc.Id,
+    ///         ServiceNetworkIdentifier = exampleAwsVpclatticeServiceNetwork.Id,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///     });
     /// 

@@ -29,11 +29,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
 // Engine: pulumi.String("memcached"),
+// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -46,10 +47,10 @@ import (
 // },
 // },
 // Description: pulumi.String("Test Server"),
-// KmsKeyId: pulumi.Any(aws_kms_key.Test.Arn),
+// KmsKeyId: pulumi.Any(test.Arn),
 // MajorEngineVersion: pulumi.String("1.6"),
 // SecurityGroupIds: pulumi.StringArray{
-// aws_security_group.Test.Id,
+// testAwsSecurityGroup.Id,
 // },
 // SubnetIds: toPulumiArray(splat0),
 // })
@@ -81,11 +82,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
 // Engine: pulumi.String("redis"),
+// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -99,11 +101,11 @@ import (
 // },
 // DailySnapshotTime: pulumi.String("09:00"),
 // Description: pulumi.String("Test Server"),
-// KmsKeyId: pulumi.Any(aws_kms_key.Test.Arn),
+// KmsKeyId: pulumi.Any(test.Arn),
 // MajorEngineVersion: pulumi.String("7"),
 // SnapshotRetentionLimit: pulumi.Int(1),
 // SecurityGroupIds: pulumi.StringArray{
-// aws_security_group.Test.Id,
+// testAwsSecurityGroup.Id,
 // },
 // SubnetIds: toPulumiArray(splat0),
 // })

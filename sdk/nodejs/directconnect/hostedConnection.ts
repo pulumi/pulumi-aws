@@ -14,8 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const hosted = new aws.directconnect.HostedConnection("hosted", {
- *     bandwidth: "100Mbps",
  *     connectionId: "dxcon-ffabc123",
+ *     bandwidth: "100Mbps",
+ *     name: "tf-dx-hosted-connection",
  *     ownerAccountId: "123456789012",
  *     vlan: 1,
  * });

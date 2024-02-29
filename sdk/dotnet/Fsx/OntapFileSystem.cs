@@ -28,12 +28,12 @@ namespace Pulumi.Aws.Fsx
     ///         StorageCapacity = 1024,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test1.Id,
-    ///             aws_subnet.Test2.Id,
+    ///             test1.Id,
+    ///             test2.Id,
     ///         },
     ///         DeploymentType = "MULTI_AZ_1",
     ///         ThroughputCapacity = 512,
-    ///         PreferredSubnetId = aws_subnet.Test1.Id,
+    ///         PreferredSubnetId = test1.Id,
     ///     });
     /// 
     /// });

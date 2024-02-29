@@ -292,7 +292,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterEndpoint("example",
-            cluster_identifier=aws_neptune_cluster["test"]["cluster_identifier"],
+            cluster_identifier=test["clusterIdentifier"],
             cluster_endpoint_identifier="example",
             endpoint_type="READER")
         ```
@@ -330,7 +330,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterEndpoint("example",
-            cluster_identifier=aws_neptune_cluster["test"]["cluster_identifier"],
+            cluster_identifier=test["clusterIdentifier"],
             cluster_endpoint_identifier="example",
             endpoint_type="READER")
         ```

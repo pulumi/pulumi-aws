@@ -29,7 +29,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {
         ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
         ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
+        ///         TableName = example.Name,
         ///         ExpressionAttributeNames = 
         ///         {
         ///             { "#P", "Percentile" },
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {
         ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
         ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
+        ///         TableName = example.Name,
         ///         ExpressionAttributeNames = 
         ///         {
         ///             { "#P", "Percentile" },

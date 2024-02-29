@@ -91,21 +91,21 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=local_domain["domainName"],
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=remote_domain["domainName"],
             ))
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
+        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 
         ## Import
@@ -136,21 +136,21 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=local_domain["domainName"],
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=remote_domain["domainName"],
             ))
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
+        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 
         ## Import

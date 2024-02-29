@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Pattern = "{\"Price\":[{\"numeric\":[\"&gt;\",10,\"&lt;=\",20]}]}",
     ///         Tags = 
     ///         {
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Pattern = @"  {
     ///     ""Price"": [
     ///       {
@@ -53,7 +55,6 @@ namespace Pulumi.Aws.Evidently
     ///       }
     ///     ]
     ///   }
-    ///   
     /// ",
     ///         Tags = 
     ///         {
@@ -75,8 +76,9 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
-    ///         Description = "example",
+    ///         Name = "example",
     ///         Pattern = "{\"Price\":[{\"numeric\":[\"&gt;\",10,\"&lt;=\",20]}]}",
+    ///         Description = "example",
     ///     });
     /// 
     /// });

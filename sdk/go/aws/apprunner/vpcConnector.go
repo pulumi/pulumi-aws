@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewVpcConnector(ctx, "connector", &apprunner.VpcConnectorArgs{
-//				SecurityGroups: pulumi.StringArray{
-//					pulumi.String("sg1"),
-//					pulumi.String("sg2"),
-//				},
+//				VpcConnectorName: pulumi.String("name"),
 //				Subnets: pulumi.StringArray{
 //					pulumi.String("subnet1"),
 //					pulumi.String("subnet2"),
 //				},
-//				VpcConnectorName: pulumi.String("name"),
+//				SecurityGroups: pulumi.StringArray{
+//					pulumi.String("sg1"),
+//					pulumi.String("sg2"),
+//				},
 //			})
 //			if err != nil {
 //				return err

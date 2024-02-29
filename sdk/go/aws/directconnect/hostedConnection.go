@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewHostedConnection(ctx, "hosted", &directconnect.HostedConnectionArgs{
-//				Bandwidth:      pulumi.String("100Mbps"),
 //				ConnectionId:   pulumi.String("dxcon-ffabc123"),
+//				Bandwidth:      pulumi.String("100Mbps"),
+//				Name:           pulumi.String("tf-dx-hosted-connection"),
 //				OwnerAccountId: pulumi.String("123456789012"),
 //				Vlan:           pulumi.Int(1),
 //			})

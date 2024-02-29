@@ -33,12 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -46,8 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3.BucketObjectLockConfigurationV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "example", &s3.BucketObjectLockConfigurationV2Args{
+//				Bucket: example.ID(),
 //				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
 //					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
 //						Mode: pulumi.String("COMPLIANCE"),

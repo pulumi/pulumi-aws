@@ -524,13 +524,14 @@ class Studio(pulumi.CustomResource):
 
         example = aws.emr.Studio("example",
             auth_mode="SSO",
-            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
-            engine_security_group_id=aws_security_group["test"]["id"],
-            service_role=aws_iam_role["test"]["arn"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            user_role=aws_iam_role["test"]["arn"],
-            vpc_id=aws_vpc["test"]["id"],
-            workspace_security_group_id=aws_security_group["test"]["id"])
+            default_s3_location=f"s3://{test['bucket']}/test",
+            engine_security_group_id=test_aws_security_group["id"],
+            name="example",
+            service_role=test_aws_iam_role["arn"],
+            subnet_ids=[test_aws_subnet["id"]],
+            user_role=test_aws_iam_role["arn"],
+            vpc_id=test_aws_vpc["id"],
+            workspace_security_group_id=test_aws_security_group["id"])
         ```
 
         ## Import
@@ -576,13 +577,14 @@ class Studio(pulumi.CustomResource):
 
         example = aws.emr.Studio("example",
             auth_mode="SSO",
-            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
-            engine_security_group_id=aws_security_group["test"]["id"],
-            service_role=aws_iam_role["test"]["arn"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            user_role=aws_iam_role["test"]["arn"],
-            vpc_id=aws_vpc["test"]["id"],
-            workspace_security_group_id=aws_security_group["test"]["id"])
+            default_s3_location=f"s3://{test['bucket']}/test",
+            engine_security_group_id=test_aws_security_group["id"],
+            name="example",
+            service_role=test_aws_iam_role["arn"],
+            subnet_ids=[test_aws_subnet["id"]],
+            user_role=test_aws_iam_role["arn"],
+            vpc_id=test_aws_vpc["id"],
+            workspace_security_group_id=test_aws_security_group["id"])
         ```
 
         ## Import

@@ -45,11 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testQueue = new JobQueue(&#34;testQueue&#34;, JobQueueArgs.builder()        
+ *             .name(&#34;tf-test-batch-job-queue&#34;)
  *             .state(&#34;ENABLED&#34;)
  *             .priority(1)
  *             .computeEnvironments(            
- *                 aws_batch_compute_environment.test_environment_1().arn(),
- *                 aws_batch_compute_environment.test_environment_2().arn())
+ *                 testEnvironment1.arn(),
+ *                 testEnvironment2.arn())
  *             .build());
  * 
  *     }
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSchedulingPolicy = new SchedulingPolicy(&#34;exampleSchedulingPolicy&#34;, SchedulingPolicyArgs.builder()        
+ *         var example = new SchedulingPolicy(&#34;example&#34;, SchedulingPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)
  *                 .shareDecaySeconds(3600)
@@ -92,12 +94,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJobQueue = new JobQueue(&#34;exampleJobQueue&#34;, JobQueueArgs.builder()        
- *             .schedulingPolicyArn(exampleSchedulingPolicy.arn())
+ *             .name(&#34;tf-test-batch-job-queue&#34;)
+ *             .schedulingPolicyArn(example.arn())
  *             .state(&#34;ENABLED&#34;)
  *             .priority(1)
  *             .computeEnvironments(            
- *                 aws_batch_compute_environment.test_environment_1().arn(),
- *                 aws_batch_compute_environment.test_environment_2().arn())
+ *                 testEnvironment1.arn(),
+ *                 testEnvironment2.arn())
  *             .build());
  * 
  *     }

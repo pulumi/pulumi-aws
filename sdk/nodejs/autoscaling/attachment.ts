@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *
  * // Create a new load balancer attachment
  * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     elb: aws_elb.example.id,
+ *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
+ *     elb: exampleAwsElb.id,
  * });
  * ```
  *
@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  *
  * // Create a new ALB Target Group attachment
  * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     lbTargetGroupArn: aws_lb_target_group.example.arn,
+ *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
+ *     lbTargetGroupArn: exampleAwsLbTargetGroup.arn,
  * });
  * ```
  */

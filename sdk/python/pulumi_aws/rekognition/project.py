@@ -193,6 +193,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rekognition.Project("example",
+            name="example-project",
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```
@@ -229,6 +230,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rekognition.Project("example",
+            name="example-project",
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```

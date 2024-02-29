@@ -108,10 +108,6 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.backup.RegionSettings("test",
-            resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
-            },
             resource_type_opt_in_preference={
                 "Aurora": True,
                 "DocumentDB": True,
@@ -124,6 +120,10 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+            },
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
             })
         ```
 
@@ -156,10 +156,6 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.backup.RegionSettings("test",
-            resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
-            },
             resource_type_opt_in_preference={
                 "Aurora": True,
                 "DocumentDB": True,
@@ -172,6 +168,10 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+            },
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
             })
         ```
 

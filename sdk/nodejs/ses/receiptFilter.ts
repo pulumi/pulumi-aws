@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const filter = new aws.ses.ReceiptFilter("filter", {
+ *     name: "block-spammer",
  *     cidr: "10.10.10.10",
  *     policy: "Block",
  * });

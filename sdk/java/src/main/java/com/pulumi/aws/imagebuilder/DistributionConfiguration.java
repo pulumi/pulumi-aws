@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DistributionConfiguration(&#34;example&#34;, DistributionConfigurationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .distributions(DistributionConfigurationDistributionArgs.builder()
  *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()
  *                     .amiTags(Map.of(&#34;CostCenter&#34;, &#34;IT&#34;))
+ *                     .name(&#34;example-{{ imagebuilder:buildDate }}&#34;)
  *                     .launchPermission(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.builder()
  *                         .userIds(&#34;123456789012&#34;)
  *                         .build())
- *                     .name(&#34;example-{{ imagebuilder:buildDate }}&#34;)
  *                     .build())
  *                 .launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.builder()
  *                     .launchTemplateId(&#34;lt-0aaa1bcde2ff3456&#34;)

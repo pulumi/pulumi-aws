@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecretRotation(&#34;example&#34;, SecretRotationArgs.builder()        
- *             .secretId(aws_secretsmanager_secret.example().id())
- *             .rotationLambdaArn(aws_lambda_function.example().arn())
+ *             .secretId(exampleAwsSecretsmanagerSecret.id())
+ *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
  *             .rotationRules(SecretRotationRotationRulesArgs.builder()
  *                 .automaticallyAfterDays(30)
  *                 .build())

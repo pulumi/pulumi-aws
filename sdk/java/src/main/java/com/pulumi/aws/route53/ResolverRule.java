@@ -76,8 +76,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fwd = new ResolverRule(&#34;fwd&#34;, ResolverRuleArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
+ *             .name(&#34;example&#34;)
  *             .ruleType(&#34;FORWARD&#34;)
- *             .resolverEndpointId(aws_route53_resolver_endpoint.foo().id())
+ *             .resolverEndpointId(foo.id())
  *             .targetIps(ResolverRuleTargetIpArgs.builder()
  *                 .ip(&#34;123.45.67.89&#34;)
  *                 .build())

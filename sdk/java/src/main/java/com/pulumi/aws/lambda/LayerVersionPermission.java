@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambdaLayerPermission = new LayerVersionPermission(&#34;lambdaLayerPermission&#34;, LayerVersionPermissionArgs.builder()        
- *             .action(&#34;lambda:GetLayerVersion&#34;)
  *             .layerName(&#34;arn:aws:lambda:us-west-2:123456654321:layer:test_layer1&#34;)
- *             .principal(&#34;111111111111&#34;)
- *             .statementId(&#34;dev-account&#34;)
  *             .versionNumber(1)
+ *             .principal(&#34;111111111111&#34;)
+ *             .action(&#34;lambda:GetLayerVersion&#34;)
+ *             .statementId(&#34;dev-account&#34;)
  *             .build());
  * 
  *     }

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *             successCodes: "200-499",
  *         },
  *     },
- *     serviceName: aws_lightsail_container_service.example.name,
+ *     serviceName: exampleAwsLightsailContainerService.name,
  * });
  * ```
  *

@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
+//			_, err = transfer.NewTag(ctx, "zone_id", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
 //				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
 //				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),

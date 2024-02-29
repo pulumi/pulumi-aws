@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getSpotPrice({
+ *     instanceType: "t3.medium",
  *     availabilityZone: "us-west-2a",
  *     filters: [{
  *         name: "product-description",
  *         values: ["Linux/UNIX"],
  *     }],
- *     instanceType: "t3.medium",
  * });
  * ```
  */
@@ -85,12 +85,12 @@ export interface GetSpotPriceResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getSpotPrice({
+ *     instanceType: "t3.medium",
  *     availabilityZone: "us-west-2a",
  *     filters: [{
  *         name: "product-description",
  *         values: ["Linux/UNIX"],
  *     }],
- *     instanceType: "t3.medium",
  * });
  * ```
  */

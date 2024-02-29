@@ -296,6 +296,51 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * ### With a Lifecycle Pre-Condition
+     * 
+     * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var instanceType = &#34;r7g.large&#34;;
+     * 
+     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     * 
+     *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
+     *             .releaseLabel(releaseLabel)
+     *             .build());
+     * 
+     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *             .releaseLabel(releaseLabel)
+     *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
+     *                 .instanceType(instanceType)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args) {
@@ -329,6 +374,51 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With a Lifecycle Pre-Condition
+     * 
+     * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var instanceType = &#34;r7g.large&#34;;
+     * 
+     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     * 
+     *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
+     *             .releaseLabel(releaseLabel)
+     *             .build());
+     * 
+     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *             .releaseLabel(releaseLabel)
+     *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
+     *                 .instanceType(instanceType)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -372,6 +462,51 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * ### With a Lifecycle Pre-Condition
+     * 
+     * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var instanceType = &#34;r7g.large&#34;;
+     * 
+     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     * 
+     *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
+     *             .releaseLabel(releaseLabel)
+     *             .build());
+     * 
+     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *             .releaseLabel(releaseLabel)
+     *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
+     *                 .instanceType(instanceType)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args, InvokeOptions options) {
@@ -405,6 +540,51 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With a Lifecycle Pre-Condition
+     * 
+     * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var instanceType = &#34;r7g.large&#34;;
+     * 
+     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     * 
+     *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
+     *             .releaseLabel(releaseLabel)
+     *             .build());
+     * 
+     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *             .releaseLabel(releaseLabel)
+     *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
+     *                 .instanceType(instanceType)
+     *                 .build())
      *             .build());
      * 
      *     }

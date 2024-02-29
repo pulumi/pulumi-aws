@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = new aws.auditmanager.FrameworkShare("example", {
  *     destinationAccount: "012345678901",
  *     destinationRegion: "us-east-1",
- *     frameworkId: aws_auditmanager_framework.example.id,
+ *     frameworkId: exampleAwsAuditmanagerFramework.id,
  * });
  * ```
  *

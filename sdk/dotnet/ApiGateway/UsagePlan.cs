@@ -17,22 +17,14 @@ namespace Pulumi.Aws.ApiGateway
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeSHA1(string input) 
-    /// {
-    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
-    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -59,45 +51,50 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
     ///     var development = new Aws.ApiGateway.Stage("development", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "development",
     ///     });
     /// 
     ///     var production = new Aws.ApiGateway.Stage("production", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "production",
     ///     });
     /// 
-    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new()
+    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("example", new()
     ///     {
+    ///         Name = "my-usage-plan",
     ///         Description = "my description",
     ///         ProductCode = "MYCODE",
     ///         ApiStages = new[]
     ///         {
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
+    ///                 ApiId = example.Id,
     ///                 Stage = development.StageName,
     ///             },
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
+    ///                 ApiId = example.Id,
     ///                 Stage = production.StageName,
     ///             },
     ///         },

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var monitor = new Aws.OpsWorks.GangliaLayer("monitor", new()
     ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///         Password = "foobarbaz",
     ///     });
     /// 

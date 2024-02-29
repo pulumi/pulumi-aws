@@ -25,9 +25,9 @@ namespace Pulumi.Aws.AppStream
     ///     var example = new Aws.AppStream.User("example", new()
     ///     {
     ///         AuthenticationType = "USERPOOL",
+    ///         UserName = "EMAIL",
     ///         FirstName = "FIRST NAME",
     ///         LastName = "LAST NAME",
-    ///         UserName = "EMAIL",
     ///     });
     /// 
     /// });

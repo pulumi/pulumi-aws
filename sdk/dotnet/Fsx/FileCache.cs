@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Fsx
     ///         },
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test1.Id,
+    ///             test1.Id,
     ///         },
     ///         StorageCapacity = 1200,
     ///     });

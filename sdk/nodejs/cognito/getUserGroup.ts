@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cognito.getUserGroup({
- *     name: "example",
  *     userPoolId: "us-west-2_aaaaaaaaa",
+ *     name: "example",
  * });
  * ```
  */
@@ -77,8 +77,8 @@ export interface GetUserGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cognito.getUserGroup({
- *     name: "example",
  *     userPoolId: "us-west-2_aaaaaaaaa",
+ *     name: "example",
  * });
  * ```
  */

@@ -26,17 +26,21 @@ import {Application} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultBucketObjectv2 = new aws.s3.BucketObjectv2("defaultBucketObjectv2", {
- *     bucket: defaultBucketV2.id,
+ * const _default = new aws.s3.BucketV2("default", {bucket: "tftest.applicationversion.bucket"});
+ * const defaultBucketObjectv2 = new aws.s3.BucketObjectv2("default", {
+ *     bucket: _default.id,
  *     key: "beanstalk/go-v1.zip",
  *     source: new pulumi.asset.FileAsset("go-v1.zip"),
  * });
- * const defaultApplication = new aws.elasticbeanstalk.Application("defaultApplication", {description: "tf-test-desc"});
- * const defaultApplicationVersion = new aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion", {
+ * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
+ *     name: "tf-test-name",
+ *     description: "tf-test-desc",
+ * });
+ * const defaultApplicationVersion = new aws.elasticbeanstalk.ApplicationVersion("default", {
+ *     name: "tf-test-version-label",
  *     application: "tf-test-name",
  *     description: "application version",
- *     bucket: defaultBucketV2.id,
+ *     bucket: _default.id,
  *     key: defaultBucketObjectv2.id,
  * });
  * ```

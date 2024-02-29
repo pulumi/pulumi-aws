@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Rds
     ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         clusterInstances.Add(new Aws.Rds.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         clusterInstances.Add(new Aws.Rds.ClusterInstance($"cluster_instances-{range.Value}", new()
     ///         {
     ///             Identifier = $"aurora-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,

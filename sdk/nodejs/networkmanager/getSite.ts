@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getSite({
- *     globalNetworkId: _var.global_network_id,
- *     siteId: _var.site_id,
+ *     globalNetworkId: globalNetworkId,
+ *     siteId: siteId,
  * });
  * ```
  */
@@ -87,8 +87,8 @@ export interface GetSiteResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getSite({
- *     globalNetworkId: _var.global_network_id,
- *     siteId: _var.site_id,
+ *     globalNetworkId: globalNetworkId,
+ *     siteId: siteId,
  * });
  * ```
  */

@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  *             .replicationConfigIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
  *             .resourceIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
  *             .replicationType(&#34;cdc&#34;)
- *             .sourceEndpointArn(aws_dms_endpoint.source().endpoint_arn())
- *             .targetEndpointArn(aws_dms_endpoint.target().endpoint_arn())
+ *             .sourceEndpointArn(source.endpointArn())
+ *             .targetEndpointArn(target.endpointArn())
  *             .tableMappings(&#34;&#34;&#34;
  *   {
  *     &#34;rules&#34;:[{&#34;rule-type&#34;:&#34;selection&#34;,&#34;rule-id&#34;:&#34;1&#34;,&#34;rule-name&#34;:&#34;1&#34;,&#34;rule-action&#34;:&#34;include&#34;,&#34;object-locator&#34;:{&#34;schema-name&#34;:&#34;%%&#34;,&#34;table-name&#34;:&#34;%%&#34;}}]
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .startReplication(true)
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
- *                 .replicationSubnetGroupId(aws_dms_replication_subnet_group.default().replication_subnet_group_id())
+ *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
  *                 .maxCapacityUnits(&#34;64&#34;)
  *                 .minCapacityUnits(&#34;2&#34;)
  *                 .preferredMaintenanceWindow(&#34;sun:23:45-mon:00:30&#34;)

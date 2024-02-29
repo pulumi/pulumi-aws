@@ -39,14 +39,12 @@ import (
 //					},
 //				},
 //				LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
-//					Id: pulumi.Any(aws_launch_template.Example.Id),
+//					Id: pulumi.Any(exampleAwsLaunchTemplate.Id),
 //				},
 //				MaxSize: pulumi.Int(1),
 //				MinSize: pulumi.Int(1),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Example,
-//			}))
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -91,12 +89,12 @@ import (
 //					},
 //				},
 //				LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
-//					Id:      pulumi.Any(aws_launch_template.Example.Id),
+//					Id:      pulumi.Any(exampleAwsLaunchTemplate.Id),
 //					Version: pulumi.String("1"),
 //				},
 //				MaxSize: pulumi.Int(1),
 //				MinSize: pulumi.Int(1),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},
@@ -104,9 +102,7 @@ import (
 //					pulumi.String("subnet-12345678"),
 //					pulumi.String("subnet-23456789"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -158,15 +154,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				Name:             pulumi.String("gamelift-game-server-group-example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/GameLiftGameServerGroupPolicy", current.Partition)),
-//				Role:      exampleRole.Name,
+//				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err

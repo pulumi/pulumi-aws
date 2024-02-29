@@ -31,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -56,22 +58,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+//			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
 //				IamRoleArn:     exampleRole.Arn,
 //				LogDestination: exampleLogGroup.Arn,
 //				TrafficType:    pulumi.String("ALL"),
-//				VpcId:          pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:          pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -91,9 +94,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("example"),
 //				Role:   exampleRole.ID(),
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
+//				Policy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -118,15 +122,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+//			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
 //				LogDestination:     exampleBucketV2.Arn,
 //				LogDestinationType: pulumi.String("s3"),
 //				TrafficType:        pulumi.String("ALL"),
-//				VpcId:              pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:              pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -151,15 +157,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+//			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
 //				LogDestination:     exampleBucketV2.Arn,
 //				LogDestinationType: pulumi.String("s3"),
 //				TrafficType:        pulumi.String("ALL"),
-//				VpcId:              pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:              pulumi.Any(exampleAwsVpc.Id),
 //				DestinationOptions: &ec2.FlowLogDestinationOptionsArgs{
 //					FileFormat:       pulumi.String("parquet"),
 //					PerHourPartition: pulumi.Bool(true),

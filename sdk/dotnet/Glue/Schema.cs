@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue
     ///     var example = new Aws.Glue.Schema("example", new()
     ///     {
     ///         SchemaName = "example",
-    ///         RegistryArn = aws_glue_registry.Test.Arn,
+    ///         RegistryArn = test.Arn,
     ///         DataFormat = "AVRO",
     ///         Compatibility = "NONE",
     ///         SchemaDefinition = "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",

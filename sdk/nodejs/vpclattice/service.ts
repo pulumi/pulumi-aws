@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.Service("example", {
+ *     name: "example",
  *     authType: "AWS_IAM",
  *     customDomainName: "example.com",
  * });

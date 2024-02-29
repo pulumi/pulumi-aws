@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OptionGroup(&#34;example&#34;, OptionGroupArgs.builder()        
+ *             .name(&#34;option-group-test&#34;)
  *             .optionGroupDescription(&#34;Option Group&#34;)
  *             .engineName(&#34;sqlserver-ee&#34;)
  *             .majorEngineVersion(&#34;11.00&#34;)
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  *                     .optionName(&#34;SQLSERVER_BACKUP_RESTORE&#34;)
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name(&#34;IAM_ROLE_ARN&#34;)
- *                         .value(aws_iam_role.example().arn())
+ *                         .value(exampleAwsIamRole.arn())
  *                         .build())
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()

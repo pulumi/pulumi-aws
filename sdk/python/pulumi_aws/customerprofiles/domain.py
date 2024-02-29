@@ -329,46 +329,50 @@ class Domain(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "Customer Profiles SQS policy",
-                "Effect": "Allow",
-                "Action": ["sqs:SendMessage"],
-                "Resource": "*",
-                "Principal": {
-                    "Service": "profile.amazonaws.com",
-                },
-            }],
-        }))
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.sqs.Queue("example",
+            name="example",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles SQS policy",
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": "*",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
+                    },
+                }],
+            }))
+        example_key = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=10)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles S3 policy",
+                    "effect": "Allow",
+                    "action": [
                         "s3:GetObject",
                         "s3:PutObject",
                         "s3:ListBucket",
                     ],
-                    "Resource": [
+                    "resource": [
                         example_bucket_v2.arn,
                         example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))
         test = aws.customerprofiles.Domain("test",
             domain_name=example,
-            dead_letter_queue_url=example_queue.id,
+            dead_letter_queue_url=example.id,
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```
@@ -418,46 +422,50 @@ class Domain(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "Customer Profiles SQS policy",
-                "Effect": "Allow",
-                "Action": ["sqs:SendMessage"],
-                "Resource": "*",
-                "Principal": {
-                    "Service": "profile.amazonaws.com",
-                },
-            }],
-        }))
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.sqs.Queue("example",
+            name="example",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles SQS policy",
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": "*",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
+                    },
+                }],
+            }))
+        example_key = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=10)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles S3 policy",
+                    "effect": "Allow",
+                    "action": [
                         "s3:GetObject",
                         "s3:PutObject",
                         "s3:ListBucket",
                     ],
-                    "Resource": [
+                    "resource": [
                         example_bucket_v2.arn,
                         example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))
         test = aws.customerprofiles.Domain("test",
             domain_name=example,
-            dead_letter_queue_url=example_queue.id,
+            dead_letter_queue_url=example.id,
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```

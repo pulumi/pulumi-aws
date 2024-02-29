@@ -30,14 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				AllocationId: pulumi.Any(exampleAwsEip.Id),
+//				SubnetId:     pulumi.Any(exampleAwsSubnet.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("gw NAT"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_internet_gateway.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -61,10 +59,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				AllocationId: pulumi.Any(exampleAwsEip.Id),
+//				SubnetId:     pulumi.Any(exampleAwsSubnet.Id),
 //				SecondaryAllocationIds: pulumi.StringArray{
-//					aws_eip.Secondary.Id,
+//					secondary.Id,
 //				},
 //				SecondaryPrivateIpAddresses: pulumi.StringArray{
 //					pulumi.String("10.0.1.5"),
@@ -94,7 +92,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
 //				ConnectivityType: pulumi.String("private"),
-//				SubnetId:         pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:         pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -120,7 +118,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
 //				ConnectivityType:               pulumi.String("private"),
-//				SubnetId:                       pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:                       pulumi.Any(exampleAwsSubnet.Id),
 //				SecondaryPrivateIpAddressCount: pulumi.Int(7),
 //			})
 //			if err != nil {

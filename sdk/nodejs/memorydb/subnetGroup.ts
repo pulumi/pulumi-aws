@@ -15,13 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
+ * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: example.id,
  *     cidrBlock: "10.0.0.0/24",
  *     availabilityZone: "us-west-2a",
  * });
- * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("exampleSubnetGroup", {subnetIds: [exampleSubnet.id]});
+ * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("example", {
+ *     name: "my-subnet-group",
+ *     subnetIds: [exampleSubnet.id],
+ * });
  * ```
  *
  * ## Import

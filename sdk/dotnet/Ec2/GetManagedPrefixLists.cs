@@ -13,12 +13,82 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following returns all managed prefix lists filtered by tags
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testEnv = Aws.Ec2.GetManagedPrefixLists.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        ///     var testEnvGetManagedPrefixList = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedPrefixListsResult> InvokeAsync(GetManagedPrefixListsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following returns all managed prefix lists filtered by tags
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testEnv = Aws.Ec2.GetManagedPrefixLists.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        ///     var testEnvGetManagedPrefixList = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedPrefixListsResult> Invoke(GetManagedPrefixListsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsInvokeArgs(), options.WithDefaults());

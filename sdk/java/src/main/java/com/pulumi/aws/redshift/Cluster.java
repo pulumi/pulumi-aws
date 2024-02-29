@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .clusterType(&#34;single-node&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .masterPassword(&#34;Mustbe8characters&#34;)
  *             .masterUsername(&#34;exampleuser&#34;)
+ *             .masterPassword(&#34;Mustbe8characters&#34;)
  *             .nodeType(&#34;dc1.large&#34;)
+ *             .clusterType(&#34;single-node&#34;)
  *             .build());
  * 
  *     }
@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .clusterType(&#34;single-node&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .manageMasterPassword(true)
  *             .masterUsername(&#34;exampleuser&#34;)
  *             .nodeType(&#34;dc1.large&#34;)
+ *             .clusterType(&#34;single-node&#34;)
+ *             .manageMasterPassword(true)
  *             .build());
  * 
  *     }
