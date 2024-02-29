@@ -6,11 +6,14 @@ package com.pulumi.aws.batch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
 import com.pulumi.aws.batch.inputs.GetComputeEnvironmentPlainArgs;
+import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+import com.pulumi.aws.batch.inputs.GetJobDefinitionPlainArgs;
 import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
 import com.pulumi.aws.batch.inputs.GetJobQueuePlainArgs;
 import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
 import com.pulumi.aws.batch.inputs.GetSchedulingPolicyPlainArgs;
 import com.pulumi.aws.batch.outputs.GetComputeEnvironmentResult;
+import com.pulumi.aws.batch.outputs.GetJobDefinitionResult;
 import com.pulumi.aws.batch.outputs.GetJobQueueResult;
 import com.pulumi.aws.batch.outputs.GetSchedulingPolicyResult;
 import com.pulumi.core.Output;
@@ -171,6 +174,414 @@ public final class BatchFunctions {
      */
     public static CompletableFuture<GetComputeEnvironmentResult> getComputeEnvironmentPlain(GetComputeEnvironmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:batch/getComputeEnvironment:getComputeEnvironment", TypeShape.of(GetComputeEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetJobDefinitionResult> getJobDefinition() {
+        return getJobDefinition(GetJobDefinitionArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain() {
+        return getJobDefinitionPlain(GetJobDefinitionPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetJobDefinitionResult> getJobDefinition(GetJobDefinitionArgs args) {
+        return getJobDefinition(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain(GetJobDefinitionPlainArgs args) {
+        return getJobDefinitionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetJobDefinitionResult> getJobDefinition(GetJobDefinitionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:batch/getJobDefinition:getJobDefinition", TypeShape.of(GetJobDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Batch Job Definition.
+     * 
+     * ## Example Usage
+     * ### Lookup via Arn
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Lookup via Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .revision(2)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain(GetJobDefinitionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:batch/getJobDefinition:getJobDefinition", TypeShape.of(GetJobDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The Batch Job Queue data source allows access to details of a specific

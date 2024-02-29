@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -26,6 +27,7 @@ public final class GetTargetGroupResult {
      */
     private String id;
     private Boolean lambdaMultiValueHeadersEnabled;
+    private List<String> loadBalancerArns;
     private String loadBalancingAlgorithmType;
     private String loadBalancingAnomalyMitigation;
     private String loadBalancingCrossZoneEnabled;
@@ -66,6 +68,9 @@ public final class GetTargetGroupResult {
     }
     public Boolean lambdaMultiValueHeadersEnabled() {
         return this.lambdaMultiValueHeadersEnabled;
+    }
+    public List<String> loadBalancerArns() {
+        return this.loadBalancerArns;
     }
     public String loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
@@ -126,6 +131,7 @@ public final class GetTargetGroupResult {
         private GetTargetGroupHealthCheck healthCheck;
         private String id;
         private Boolean lambdaMultiValueHeadersEnabled;
+        private List<String> loadBalancerArns;
         private String loadBalancingAlgorithmType;
         private String loadBalancingAnomalyMitigation;
         private String loadBalancingCrossZoneEnabled;
@@ -150,6 +156,7 @@ public final class GetTargetGroupResult {
     	      this.healthCheck = defaults.healthCheck;
     	      this.id = defaults.id;
     	      this.lambdaMultiValueHeadersEnabled = defaults.lambdaMultiValueHeadersEnabled;
+    	      this.loadBalancerArns = defaults.loadBalancerArns;
     	      this.loadBalancingAlgorithmType = defaults.loadBalancingAlgorithmType;
     	      this.loadBalancingAnomalyMitigation = defaults.loadBalancingAnomalyMitigation;
     	      this.loadBalancingCrossZoneEnabled = defaults.loadBalancingCrossZoneEnabled;
@@ -221,6 +228,17 @@ public final class GetTargetGroupResult {
             }
             this.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder loadBalancerArns(List<String> loadBalancerArns) {
+            if (loadBalancerArns == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancerArns");
+            }
+            this.loadBalancerArns = loadBalancerArns;
+            return this;
+        }
+        public Builder loadBalancerArns(String... loadBalancerArns) {
+            return loadBalancerArns(List.of(loadBalancerArns));
         }
         @CustomType.Setter
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
@@ -343,6 +361,7 @@ public final class GetTargetGroupResult {
             _resultValue.healthCheck = healthCheck;
             _resultValue.id = id;
             _resultValue.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            _resultValue.loadBalancerArns = loadBalancerArns;
             _resultValue.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
             _resultValue.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             _resultValue.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;

@@ -66,6 +66,10 @@ export interface GetSubnetGroupResult {
      * Map of tags assigned to the subnet group.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     */
+    readonly vpcId: string;
 }
 /**
  * Provides information about a ElastiCache Subnet Group.

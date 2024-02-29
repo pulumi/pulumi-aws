@@ -92,7 +92,8 @@ class _SubnetGroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
@@ -100,6 +101,7 @@ class _SubnetGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -118,6 +120,8 @@ class _SubnetGroupState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -190,6 +194,18 @@ class _SubnetGroupState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class SubnetGroup(pulumi.CustomResource):
@@ -317,6 +333,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["vpc_id"] = None
         super(SubnetGroup, __self__).__init__(
             'aws:elasticache/subnetGroup:SubnetGroup',
             resource_name,
@@ -332,7 +349,8 @@ class SubnetGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SubnetGroup':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'SubnetGroup':
         """
         Get an existing SubnetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -345,6 +363,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,6 +375,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["vpc_id"] = vpc_id
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -405,4 +425,12 @@ class SubnetGroup(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        """
+        return pulumi.get(self, "vpc_id")
 

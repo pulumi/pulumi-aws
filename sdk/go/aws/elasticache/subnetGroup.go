@@ -88,6 +88,8 @@ type SubnetGroup struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +141,8 @@ type subnetGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
@@ -155,6 +159,8 @@ type SubnetGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -300,6 +306,11 @@ func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type SubnetGroupArrayOutput struct{ *pulumi.OutputState }

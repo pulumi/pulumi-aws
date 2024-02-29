@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 6 Dec 2023 23:44:25 -0500
-Subject: [PATCH 33/45] DisableTagSchemaCheck for PF provider
+Subject: [PATCH 33/46] DisableTagSchemaCheck for PF provider
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index acde512855..f277744dbf 100644
+index be3bc32ec2..3af242e72b 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -408,8 +408,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -412,8 +412,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  			if v.Tags != nil {
  				// The resource has opted in to transparent tagging.
  				// Ensure that the schema look OK.

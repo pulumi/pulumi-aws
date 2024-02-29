@@ -119,6 +119,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the deployment config.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
@@ -152,6 +156,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentConfigState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
             resourceInputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
@@ -163,6 +168,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
             resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentConfigId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -174,6 +180,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeploymentConfig resources.
  */
 export interface DeploymentConfigState {
+    /**
+     * The ARN of the deployment config.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */

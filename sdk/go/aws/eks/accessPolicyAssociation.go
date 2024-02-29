@@ -64,7 +64,7 @@ type AccessPolicyAssociation struct {
 	AccessScope AccessPolicyAssociationAccessScopeOutput `pulumi:"accessScope"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt pulumi.StringOutput `pulumi:"associatedAt"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
@@ -120,7 +120,7 @@ type accessPolicyAssociationState struct {
 	AccessScope *AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt *string `pulumi:"associatedAt"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
 	ModifiedAt *string `pulumi:"modifiedAt"`
@@ -135,7 +135,7 @@ type AccessPolicyAssociationState struct {
 	AccessScope AccessPolicyAssociationAccessScopePtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
 	ModifiedAt pulumi.StringPtrInput
@@ -152,7 +152,7 @@ func (AccessPolicyAssociationState) ElementType() reflect.Type {
 type accessPolicyAssociationArgs struct {
 	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The ARN of the access policy that you're associating.
 	PolicyArn string `pulumi:"policyArn"`
@@ -164,7 +164,7 @@ type accessPolicyAssociationArgs struct {
 type AccessPolicyAssociationArgs struct {
 	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScopeInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// The ARN of the access policy that you're associating.
 	PolicyArn pulumi.StringInput
@@ -269,7 +269,7 @@ func (o AccessPolicyAssociationOutput) AssociatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.AssociatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 func (o AccessPolicyAssociationOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }

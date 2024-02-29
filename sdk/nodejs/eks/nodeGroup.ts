@@ -128,7 +128,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly capacityType!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
@@ -168,7 +168,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly releaseVersion!: pulumi.Output<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     public readonly remoteAccess!: pulumi.Output<outputs.eks.NodeGroupRemoteAccess | undefined>;
     /**
@@ -308,7 +308,7 @@ export interface NodeGroupState {
      */
     capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName?: pulumi.Input<string>;
     /**
@@ -328,7 +328,7 @@ export interface NodeGroupState {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
@@ -348,7 +348,7 @@ export interface NodeGroupState {
      */
     releaseVersion?: pulumi.Input<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**
@@ -406,7 +406,7 @@ export interface NodeGroupArgs {
      */
     capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
     /**
@@ -426,7 +426,7 @@ export interface NodeGroupArgs {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
@@ -446,7 +446,7 @@ export interface NodeGroupArgs {
      */
     releaseVersion?: pulumi.Input<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**

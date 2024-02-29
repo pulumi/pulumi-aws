@@ -166,7 +166,7 @@ type Addon struct {
 	AddonVersion pulumi.StringOutput `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	//
 	// The following arguments are optional:
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -250,7 +250,7 @@ type addonState struct {
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn *string `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	//
 	// The following arguments are optional:
 	ClusterName *string `pulumi:"clusterName"`
@@ -299,7 +299,7 @@ type AddonState struct {
 	AddonVersion pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	//
 	// The following arguments are optional:
 	ClusterName pulumi.StringPtrInput
@@ -350,7 +350,7 @@ type addonArgs struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion *string `pulumi:"addonVersion"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	//
 	// The following arguments are optional:
 	ClusterName string `pulumi:"clusterName"`
@@ -390,7 +390,7 @@ type AddonArgs struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	//
 	// The following arguments are optional:
 	ClusterName pulumi.StringInput
@@ -526,7 +526,7 @@ func (o AddonOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 //
 // The following arguments are optional:
 func (o AddonOutput) ClusterName() pulumi.StringOutput {

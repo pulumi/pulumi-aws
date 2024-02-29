@@ -144,6 +144,12 @@ namespace Pulumi.Aws.CodeDeploy
     public partial class DeploymentConfig : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the deployment config.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>
         [Output("computePlatform")]
@@ -251,6 +257,12 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the deployment config.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>

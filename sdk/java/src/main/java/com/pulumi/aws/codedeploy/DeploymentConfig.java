@@ -156,6 +156,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codedeploy/deploymentConfig:DeploymentConfig")
 public class DeploymentConfig extends com.pulumi.resources.CustomResource {
     /**
+     * The ARN of the deployment config.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the deployment config.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 
      */

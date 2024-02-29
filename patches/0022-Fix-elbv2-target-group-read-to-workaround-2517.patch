@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Fri, 19 Jan 2024 17:36:47 -0500
-Subject: [PATCH 22/45] Fix elbv2 target group read to workaround #2517
+Subject: [PATCH 22/46] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index 179497a48b..ad1fc3232e 100644
+index 2ff5a14f0f..8f20da9ca9 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
-@@ -562,15 +562,15 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta i
+@@ -568,15 +568,15 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta i
  		return sdkdiag.AppendErrorf(diags, "reading ELBv2 Target Group (%s) attributes: %s", d.Id(), err)
  	}
  
@@ -27,7 +27,7 @@ index 179497a48b..ad1fc3232e 100644
  		return sdkdiag.AppendErrorf(diags, "setting target_health_state: %s", err)
  	}
  
-@@ -1340,3 +1340,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
+@@ -1346,3 +1346,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
  		}
  	}
  }

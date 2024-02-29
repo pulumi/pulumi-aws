@@ -238,6 +238,10 @@ type Pipeline struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
+	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+	ExecutionMode pulumi.StringPtrOutput `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
@@ -299,6 +303,10 @@ type pipelineState struct {
 	Arn *string `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
+	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
@@ -322,6 +330,10 @@ type PipelineState struct {
 	Arn pulumi.StringPtrInput
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
+	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
@@ -347,6 +359,10 @@ func (PipelineState) ElementType() reflect.Type {
 type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
+	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
@@ -365,6 +381,10 @@ type pipelineArgs struct {
 type PipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
+	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
@@ -474,6 +494,13 @@ func (o PipelineOutput) Arn() pulumi.StringOutput {
 // One or more artifactStore blocks. Artifact stores are documented below.
 func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineArtifactStoreArrayOutput { return v.ArtifactStores }).(PipelineArtifactStoreArrayOutput)
+}
+
+// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+//
+// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+func (o PipelineOutput) ExecutionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.ExecutionMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the pipeline.

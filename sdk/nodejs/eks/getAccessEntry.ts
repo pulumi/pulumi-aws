@@ -35,7 +35,7 @@ export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetAccessEntryArgs {
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: string;
     /**
@@ -110,7 +110,7 @@ export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulu
  */
 export interface GetAccessEntryOutputArgs {
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
     /**

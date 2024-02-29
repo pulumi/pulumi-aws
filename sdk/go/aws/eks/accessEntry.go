@@ -60,7 +60,7 @@ type AccessEntry struct {
 
 	// Amazon Resource Name (ARN) of the Access Entry.
 	AccessEntryArn pulumi.StringOutput `pulumi:"accessEntryArn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -122,7 +122,7 @@ func GetAccessEntry(ctx *pulumi.Context,
 type accessEntryState struct {
 	// Amazon Resource Name (ARN) of the Access Entry.
 	AccessEntryArn *string `pulumi:"accessEntryArn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -149,7 +149,7 @@ type accessEntryState struct {
 type AccessEntryState struct {
 	// Amazon Resource Name (ARN) of the Access Entry.
 	AccessEntryArn pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt pulumi.StringPtrInput
@@ -178,7 +178,7 @@ func (AccessEntryState) ElementType() reflect.Type {
 }
 
 type accessEntryArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
 	KubernetesGroups []string `pulumi:"kubernetesGroups"`
@@ -196,7 +196,7 @@ type accessEntryArgs struct {
 
 // The set of arguments for constructing a AccessEntry resource.
 type AccessEntryArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
 	KubernetesGroups pulumi.StringArrayInput
@@ -304,7 +304,7 @@ func (o AccessEntryOutput) AccessEntryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.AccessEntryArn }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 func (o AccessEntryOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }

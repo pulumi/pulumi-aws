@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
-Subject: [PATCH 03/45] Add S3 legacy bucket to resources
+Subject: [PATCH 03/46] Add S3 legacy bucket to resources
 
 This preserves the old S3 Resource in the SDK, by duplicating the code
 as a new service (in internal/service/s3legacy), and making an explicit
@@ -14,7 +14,7 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index ee399ccb86..d598106496 100644
+index 068e5c092d..d2039e809c 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -13,6 +13,8 @@ import (
@@ -26,7 +26,7 @@ index ee399ccb86..d598106496 100644
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
  	"github.com/hashicorp/go-cty/cty"
-@@ -250,7 +252,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -255,7 +257,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		// should use the @SDKDataSource and @SDKResource function-level annotations
  		// rather than adding directly to these maps.
  		DataSourcesMap: make(map[string]*schema.Resource),

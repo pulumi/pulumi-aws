@@ -231,7 +231,17 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
@@ -405,7 +415,17 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
@@ -497,7 +517,17 @@ export interface ServerArgs {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     securityPolicyName?: pulumi.Input<string>;
     /**

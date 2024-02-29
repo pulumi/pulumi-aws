@@ -177,6 +177,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
+        public readonly ImmutableArray<string> LoadBalancerArns;
         public readonly string LoadBalancingAlgorithmType;
         public readonly string LoadBalancingAnomalyMitigation;
         public readonly string LoadBalancingCrossZoneEnabled;
@@ -207,6 +208,8 @@ namespace Pulumi.Aws.Alb
             string id,
 
             bool lambdaMultiValueHeadersEnabled,
+
+            ImmutableArray<string> loadBalancerArns,
 
             string loadBalancingAlgorithmType,
 
@@ -243,6 +246,7 @@ namespace Pulumi.Aws.Alb
             HealthCheck = healthCheck;
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            LoadBalancerArns = loadBalancerArns;
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
             LoadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             LoadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 19/45] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/46] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -229,10 +229,10 @@ index 0000000000..f587fcbcce
 +	return diags
 +}
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index 47ffb9fa19..448999b3b4 100644
+index d0ccfcef0f..a2a5cda65f 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
-@@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -48,7 +48,7 @@ func resourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -294,7 +294,7 @@ index 539b58f81f..bc15c792e8 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index 4085c20b4f..993effd88f 100644
+index fc811f78a6..6bdc216d7e 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -333,7 +333,7 @@ index 359047d7ab..acc8ff375e 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 1a8c89f656..126e6879bd 100644
+index a66785b727..f27440d36c 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {

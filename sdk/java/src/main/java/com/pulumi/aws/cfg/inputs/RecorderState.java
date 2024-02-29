@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.inputs;
 
 import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
+import com.pulumi.aws.cfg.inputs.RecorderRecordingModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -47,6 +48,21 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Recording mode - see below.
+     * 
+     */
+    @Import(name="recordingMode")
+    private @Nullable Output<RecorderRecordingModeArgs> recordingMode;
+
+    /**
+     * @return Recording mode - see below.
+     * 
+     */
+    public Optional<Output<RecorderRecordingModeArgs>> recordingMode() {
+        return Optional.ofNullable(this.recordingMode);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      * 
      */
@@ -66,6 +82,7 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
     private RecorderState(RecorderState $) {
         this.name = $.name;
         this.recordingGroup = $.recordingGroup;
+        this.recordingMode = $.recordingMode;
         this.roleArn = $.roleArn;
     }
 
@@ -127,6 +144,27 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder recordingGroup(RecorderRecordingGroupArgs recordingGroup) {
             return recordingGroup(Output.of(recordingGroup));
+        }
+
+        /**
+         * @param recordingMode Recording mode - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingMode(@Nullable Output<RecorderRecordingModeArgs> recordingMode) {
+            $.recordingMode = recordingMode;
+            return this;
+        }
+
+        /**
+         * @param recordingMode Recording mode - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingMode(RecorderRecordingModeArgs recordingMode) {
+            return recordingMode(Output.of(recordingMode));
         }
 
         /**

@@ -19,6 +19,7 @@ class PipelineArgs:
                  artifact_stores: pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]],
                  role_arn: pulumi.Input[str],
                  stages: pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]],
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -28,6 +29,9 @@ class PipelineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -36,6 +40,8 @@ class PipelineArgs:
         pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stages", stages)
+        if execution_mode is not None:
+            pulumi.set(__self__, "execution_mode", execution_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pipeline_type is not None:
@@ -80,6 +86,20 @@ class PipelineArgs:
     @stages.setter
     def stages(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]):
         pulumi.set(self, "stages", value)
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
+
+    @execution_mode.setter
+    def execution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_mode", value)
 
     @property
     @pulumi.getter
@@ -135,6 +155,7 @@ class _PipelineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -146,6 +167,9 @@ class _PipelineState:
         Input properties used for looking up and filtering Pipeline resources.
         :param pulumi.Input[str] arn: The codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -158,6 +182,8 @@ class _PipelineState:
             pulumi.set(__self__, "arn", arn)
         if artifact_stores is not None:
             pulumi.set(__self__, "artifact_stores", artifact_stores)
+        if execution_mode is not None:
+            pulumi.set(__self__, "execution_mode", execution_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pipeline_type is not None:
@@ -199,6 +225,20 @@ class _PipelineState:
     @artifact_stores.setter
     def artifact_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]]):
         pulumi.set(self, "artifact_stores", value)
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
+
+    @execution_mode.setter
+    def execution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_mode", value)
 
     @property
     @pulumi.getter
@@ -294,6 +334,7 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -434,6 +475,9 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -593,6 +637,7 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -611,6 +656,7 @@ class Pipeline(pulumi.CustomResource):
             if artifact_stores is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_stores'")
             __props__.__dict__["artifact_stores"] = artifact_stores
+            __props__.__dict__["execution_mode"] = execution_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["pipeline_type"] = pipeline_type
             if role_arn is None and not opts.urn:
@@ -635,6 +681,7 @@ class Pipeline(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+            execution_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pipeline_type: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
@@ -651,6 +698,9 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -665,6 +715,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["artifact_stores"] = artifact_stores
+        __props__.__dict__["execution_mode"] = execution_mode
         __props__.__dict__["name"] = name
         __props__.__dict__["pipeline_type"] = pipeline_type
         __props__.__dict__["role_arn"] = role_arn
@@ -689,6 +740,16 @@ class Pipeline(pulumi.CustomResource):
         One or more artifact_store blocks. Artifact stores are documented below.
         """
         return pulumi.get(self, "artifact_stores")
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
 
     @property
     @pulumi.getter

@@ -10,6 +10,16 @@ export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool
 export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
 
+export { GetUserGroupArgs, GetUserGroupResult, GetUserGroupOutputArgs } from "./getUserGroup";
+export const getUserGroup: typeof import("./getUserGroup").getUserGroup = null as any;
+export const getUserGroupOutput: typeof import("./getUserGroup").getUserGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getUserGroup","getUserGroupOutput"], () => require("./getUserGroup"));
+
+export { GetUserGroupsArgs, GetUserGroupsResult, GetUserGroupsOutputArgs } from "./getUserGroups";
+export const getUserGroups: typeof import("./getUserGroups").getUserGroups = null as any;
+export const getUserGroupsOutput: typeof import("./getUserGroups").getUserGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getUserGroups","getUserGroupsOutput"], () => require("./getUserGroups"));
+
 export { GetUserPoolClientArgs, GetUserPoolClientResult, GetUserPoolClientOutputArgs } from "./getUserPoolClient";
 export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPoolClient = null as any;
 export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;

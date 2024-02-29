@@ -22,7 +22,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancer_arns=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetTargetGroupResult:
         if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
             raise TypeError("Expected argument 'lambda_multi_value_headers_enabled' to be a bool")
         pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
+        if load_balancer_arns and not isinstance(load_balancer_arns, list):
+            raise TypeError("Expected argument 'load_balancer_arns' to be a list")
+        pulumi.set(__self__, "load_balancer_arns", load_balancer_arns)
         if load_balancing_algorithm_type and not isinstance(load_balancing_algorithm_type, str):
             raise TypeError("Expected argument 'load_balancing_algorithm_type' to be a str")
         pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
@@ -124,6 +127,11 @@ class GetTargetGroupResult:
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> bool:
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
+
+    @property
+    @pulumi.getter(name="loadBalancerArns")
+    def load_balancer_arns(self) -> Sequence[str]:
+        return pulumi.get(self, "load_balancer_arns")
 
     @property
     @pulumi.getter(name="loadBalancingAlgorithmType")
@@ -209,6 +217,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             health_check=self.health_check,
             id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
+            load_balancer_arns=self.load_balancer_arns,
             load_balancing_algorithm_type=self.load_balancing_algorithm_type,
             load_balancing_anomaly_mitigation=self.load_balancing_anomaly_mitigation,
             load_balancing_cross_zone_enabled=self.load_balancing_cross_zone_enabled,
@@ -279,6 +288,7 @@ def get_target_group(arn: Optional[str] = None,
         health_check=pulumi.get(__ret__, 'health_check'),
         id=pulumi.get(__ret__, 'id'),
         lambda_multi_value_headers_enabled=pulumi.get(__ret__, 'lambda_multi_value_headers_enabled'),
+        load_balancer_arns=pulumi.get(__ret__, 'load_balancer_arns'),
         load_balancing_algorithm_type=pulumi.get(__ret__, 'load_balancing_algorithm_type'),
         load_balancing_anomaly_mitigation=pulumi.get(__ret__, 'load_balancing_anomaly_mitigation'),
         load_balancing_cross_zone_enabled=pulumi.get(__ret__, 'load_balancing_cross_zone_enabled'),

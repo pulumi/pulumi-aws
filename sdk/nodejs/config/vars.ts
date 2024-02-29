@@ -341,6 +341,17 @@ Object.defineProperty(exports, "token", {
 });
 
 /**
+ * The capacity of the AWS SDK's token bucket rate limiter.
+ */
+export declare const tokenBucketRateLimiterCapacity: number | undefined;
+Object.defineProperty(exports, "tokenBucketRateLimiterCapacity", {
+    get() {
+        return __config.getObject<number>("tokenBucketRateLimiterCapacity");
+    },
+    enumerable: true,
+});
+
+/**
  * Resolve an endpoint with DualStack capability
  */
 export declare const useDualstackEndpoint: boolean | undefined;

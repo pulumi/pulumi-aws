@@ -142,6 +142,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * ARNs of the Load Balancers associated with the Target Group.
+     */
+    public /*out*/ readonly loadBalancerArns!: pulumi.Output<string[]>;
+    /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
@@ -249,6 +253,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
+            resourceInputs["loadBalancerArns"] = state ? state.loadBalancerArns : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
             resourceInputs["loadBalancingAnomalyMitigation"] = state ? state.loadBalancingAnomalyMitigation : undefined;
             resourceInputs["loadBalancingCrossZoneEnabled"] = state ? state.loadBalancingCrossZoneEnabled : undefined;
@@ -293,6 +298,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnSuffix"] = undefined /*out*/;
+            resourceInputs["loadBalancerArns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -334,6 +340,10 @@ export interface TargetGroupState {
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
+    /**
+     * ARNs of the Load Balancers associated with the Target Group.
+     */
+    loadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */

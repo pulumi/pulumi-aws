@@ -194,6 +194,11 @@ public final class GetInstanceTypeResult {
      */
     private Integer maximumIpv6AddressesPerInterface;
     /**
+     * @return The maximum number of physical network cards that can be allocated to the instance.
+     * 
+     */
+    private Integer maximumNetworkCards;
+    /**
      * @return The maximum number of network interfaces for the instance type.
      * 
      */
@@ -507,6 +512,13 @@ public final class GetInstanceTypeResult {
         return this.maximumIpv6AddressesPerInterface;
     }
     /**
+     * @return The maximum number of physical network cards that can be allocated to the instance.
+     * 
+     */
+    public Integer maximumNetworkCards() {
+        return this.maximumNetworkCards;
+    }
+    /**
      * @return The maximum number of network interfaces for the instance type.
      * 
      */
@@ -647,6 +659,7 @@ public final class GetInstanceTypeResult {
         private Boolean ipv6Supported;
         private Integer maximumIpv4AddressesPerInterface;
         private Integer maximumIpv6AddressesPerInterface;
+        private Integer maximumNetworkCards;
         private Integer maximumNetworkInterfaces;
         private Integer memorySize;
         private String networkPerformance;
@@ -697,6 +710,7 @@ public final class GetInstanceTypeResult {
     	      this.ipv6Supported = defaults.ipv6Supported;
     	      this.maximumIpv4AddressesPerInterface = defaults.maximumIpv4AddressesPerInterface;
     	      this.maximumIpv6AddressesPerInterface = defaults.maximumIpv6AddressesPerInterface;
+    	      this.maximumNetworkCards = defaults.maximumNetworkCards;
     	      this.maximumNetworkInterfaces = defaults.maximumNetworkInterfaces;
     	      this.memorySize = defaults.memorySize;
     	      this.networkPerformance = defaults.networkPerformance;
@@ -990,6 +1004,14 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder maximumNetworkCards(Integer maximumNetworkCards) {
+            if (maximumNetworkCards == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "maximumNetworkCards");
+            }
+            this.maximumNetworkCards = maximumNetworkCards;
+            return this;
+        }
+        @CustomType.Setter
         public Builder maximumNetworkInterfaces(Integer maximumNetworkInterfaces) {
             if (maximumNetworkInterfaces == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "maximumNetworkInterfaces");
@@ -1157,6 +1179,7 @@ public final class GetInstanceTypeResult {
             _resultValue.ipv6Supported = ipv6Supported;
             _resultValue.maximumIpv4AddressesPerInterface = maximumIpv4AddressesPerInterface;
             _resultValue.maximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
+            _resultValue.maximumNetworkCards = maximumNetworkCards;
             _resultValue.maximumNetworkInterfaces = maximumNetworkInterfaces;
             _resultValue.memorySize = memorySize;
             _resultValue.networkPerformance = networkPerformance;

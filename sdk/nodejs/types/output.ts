@@ -10149,6 +10149,46 @@ export namespace batch {
         terminateJobsOnUpdate: boolean;
     }
 
+    export interface GetJobDefinitionEksProperty {
+        /**
+         * The properties for the Kubernetes pod resources of a job.
+         */
+        podProperties: any[];
+    }
+
+    export interface GetJobDefinitionNodeProperty {
+        /**
+         * Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+         */
+        mainNode: number;
+        /**
+         * A list of node ranges and their properties that are associated with a multi-node parallel job.
+         */
+        nodeRangeProperties: any[];
+        /**
+         * The number of nodes that are associated with a multi-node parallel job.
+         */
+        numNodes: number;
+    }
+
+    export interface GetJobDefinitionRetryStrategy {
+        /**
+         * The number of times to move a job to the RUNNABLE status.
+         */
+        attempts: number;
+        /**
+         * Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+         */
+        evaluateOnExits: any[];
+    }
+
+    export interface GetJobDefinitionTimeout {
+        /**
+         * The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+         */
+        attemptDurationSeconds: number;
+    }
+
     export interface GetJobQueueComputeEnvironmentOrder {
         computeEnvironment: string;
         order: number;
@@ -11072,6 +11112,32 @@ export namespace cfg {
 
     export interface RecorderRecordingGroupRecordingStrategy {
         useOnly?: string;
+    }
+
+    export interface RecorderRecordingMode {
+        /**
+         * Default reecording frequency. `CONTINUOUS` or `DAILY`.
+         */
+        recordingFrequency?: string;
+        /**
+         * Recording mode overrides. Detailed below.
+         */
+        recordingModeOverride?: outputs.cfg.RecorderRecordingModeRecordingModeOverride;
+    }
+
+    export interface RecorderRecordingModeRecordingModeOverride {
+        /**
+         * A description you provide of the override.
+         */
+        description?: string;
+        /**
+         * The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+         */
+        recordingFrequency: string;
+        /**
+         * A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+         */
+        resourceTypes: string[];
     }
 
     export interface RemediationConfigurationExecutionControls {
@@ -15011,7 +15077,7 @@ export namespace codepipeline {
         /**
          * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
          */
-        region: string;
+        region?: string;
         /**
          * The type of the artifact store, such as Amazon S3
          */
@@ -15177,6 +15243,25 @@ export namespace cognito {
         clientId: string;
         providerName: string;
         serverSideTokenCheck: boolean;
+    }
+
+    export interface GetUserGroupsGroup {
+        /**
+         * Description of the user group.
+         */
+        description: string;
+        /**
+         * Name of the user group.
+         */
+        groupName: string;
+        /**
+         * Precedence of the user group.
+         */
+        precedence: number;
+        /**
+         * ARN of the IAM role to be associated with the user group.
+         */
+        roleArn: string;
     }
 
     export interface GetUserPoolClientAnalyticsConfiguration {

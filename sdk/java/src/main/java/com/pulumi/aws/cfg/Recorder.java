@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cfg.RecorderArgs;
 import com.pulumi.aws.cfg.inputs.RecorderState;
 import com.pulumi.aws.cfg.outputs.RecorderRecordingGroup;
+import com.pulumi.aws.cfg.outputs.RecorderRecordingMode;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -107,6 +108,53 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Periodic Recording
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cfg.Recorder;
+ * import com.pulumi.aws.cfg.RecorderArgs;
+ * import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
+ * import com.pulumi.aws.cfg.inputs.RecorderRecordingModeArgs;
+ * import com.pulumi.aws.cfg.inputs.RecorderRecordingModeRecordingModeOverrideArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
+ *             .roleArn(aws_iam_role.r().arn())
+ *             .recordingGroup(RecorderRecordingGroupArgs.builder()
+ *                 .allSupported(false)
+ *                 .includeGlobalResourceTypes(false)
+ *                 .resourceTypes(                
+ *                     &#34;AWS::EC2::Instance&#34;,
+ *                     &#34;AWS::EC2::NetworkInterface&#34;)
+ *                 .build())
+ *             .recordingMode(RecorderRecordingModeArgs.builder()
+ *                 .recordingFrequency(&#34;CONTINUOUS&#34;)
+ *                 .recordingModeOverride(RecorderRecordingModeRecordingModeOverrideArgs.builder()
+ *                     .description(&#34;Only record EC2 network interfaces daily&#34;)
+ *                     .resourceTypes(&#34;AWS::EC2::NetworkInterface&#34;)
+ *                     .recordingFrequency(&#34;DAILY&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -146,6 +194,20 @@ public class Recorder extends com.pulumi.resources.CustomResource {
      */
     public Output<RecorderRecordingGroup> recordingGroup() {
         return this.recordingGroup;
+    }
+    /**
+     * Recording mode - see below.
+     * 
+     */
+    @Export(name="recordingMode", refs={RecorderRecordingMode.class}, tree="[0]")
+    private Output<RecorderRecordingMode> recordingMode;
+
+    /**
+     * @return Recording mode - see below.
+     * 
+     */
+    public Output<RecorderRecordingMode> recordingMode() {
+        return this.recordingMode;
     }
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.

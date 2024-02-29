@@ -78,6 +78,7 @@ export interface GetTargetGroupResult {
      */
     readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
+    readonly loadBalancerArns: string[];
     readonly loadBalancingAlgorithmType: string;
     readonly loadBalancingAnomalyMitigation: string;
     readonly loadBalancingCrossZoneEnabled: string;

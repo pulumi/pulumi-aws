@@ -256,6 +256,14 @@ namespace Pulumi.Aws.CodePipeline
         public Output<ImmutableArray<Outputs.PipelineArtifactStore>> ArtifactStores { get; private set; } = null!;
 
         /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Output("executionMode")]
+        public Output<string?> ExecutionMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Output("name")]
@@ -356,6 +364,14 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Input("executionMode")]
+        public Input<string>? ExecutionMode { get; set; }
+
+        /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("name")]
@@ -434,6 +450,14 @@ namespace Pulumi.Aws.CodePipeline
             get => _artifactStores ?? (_artifactStores = new InputList<Inputs.PipelineArtifactStoreGetArgs>());
             set => _artifactStores = value;
         }
+
+        /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Input("executionMode")]
+        public Input<string>? ExecutionMode { get; set; }
 
         /// <summary>
         /// The name of the pipeline.

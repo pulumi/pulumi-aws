@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_identity_pool import *
+from .get_user_group import *
+from .get_user_groups import *
 from .get_user_pool_client import *
 from .get_user_pool_clients import *
 from .get_user_pool_signing_certificate import *

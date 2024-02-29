@@ -1134,6 +1134,339 @@ func (o RecorderRecordingGroupRecordingStrategyArrayOutput) Index(i pulumi.IntIn
 	}).(RecorderRecordingGroupRecordingStrategyOutput)
 }
 
+type RecorderRecordingMode struct {
+	// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+	RecordingFrequency *string `pulumi:"recordingFrequency"`
+	// Recording mode overrides. Detailed below.
+	RecordingModeOverride *RecorderRecordingModeRecordingModeOverride `pulumi:"recordingModeOverride"`
+}
+
+// RecorderRecordingModeInput is an input type that accepts RecorderRecordingModeArgs and RecorderRecordingModeOutput values.
+// You can construct a concrete instance of `RecorderRecordingModeInput` via:
+//
+//	RecorderRecordingModeArgs{...}
+type RecorderRecordingModeInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingModeOutput() RecorderRecordingModeOutput
+	ToRecorderRecordingModeOutputWithContext(context.Context) RecorderRecordingModeOutput
+}
+
+type RecorderRecordingModeArgs struct {
+	// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+	RecordingFrequency pulumi.StringPtrInput `pulumi:"recordingFrequency"`
+	// Recording mode overrides. Detailed below.
+	RecordingModeOverride RecorderRecordingModeRecordingModeOverridePtrInput `pulumi:"recordingModeOverride"`
+}
+
+func (RecorderRecordingModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingMode)(nil)).Elem()
+}
+
+func (i RecorderRecordingModeArgs) ToRecorderRecordingModeOutput() RecorderRecordingModeOutput {
+	return i.ToRecorderRecordingModeOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingModeArgs) ToRecorderRecordingModeOutputWithContext(ctx context.Context) RecorderRecordingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModeOutput)
+}
+
+func (i RecorderRecordingModeArgs) ToRecorderRecordingModePtrOutput() RecorderRecordingModePtrOutput {
+	return i.ToRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingModeArgs) ToRecorderRecordingModePtrOutputWithContext(ctx context.Context) RecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModeOutput).ToRecorderRecordingModePtrOutputWithContext(ctx)
+}
+
+// RecorderRecordingModePtrInput is an input type that accepts RecorderRecordingModeArgs, RecorderRecordingModePtr and RecorderRecordingModePtrOutput values.
+// You can construct a concrete instance of `RecorderRecordingModePtrInput` via:
+//
+//	        RecorderRecordingModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecorderRecordingModePtrInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingModePtrOutput() RecorderRecordingModePtrOutput
+	ToRecorderRecordingModePtrOutputWithContext(context.Context) RecorderRecordingModePtrOutput
+}
+
+type recorderRecordingModePtrType RecorderRecordingModeArgs
+
+func RecorderRecordingModePtr(v *RecorderRecordingModeArgs) RecorderRecordingModePtrInput {
+	return (*recorderRecordingModePtrType)(v)
+}
+
+func (*recorderRecordingModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderRecordingMode)(nil)).Elem()
+}
+
+func (i *recorderRecordingModePtrType) ToRecorderRecordingModePtrOutput() RecorderRecordingModePtrOutput {
+	return i.ToRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i *recorderRecordingModePtrType) ToRecorderRecordingModePtrOutputWithContext(ctx context.Context) RecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModePtrOutput)
+}
+
+type RecorderRecordingModeOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingMode)(nil)).Elem()
+}
+
+func (o RecorderRecordingModeOutput) ToRecorderRecordingModeOutput() RecorderRecordingModeOutput {
+	return o
+}
+
+func (o RecorderRecordingModeOutput) ToRecorderRecordingModeOutputWithContext(ctx context.Context) RecorderRecordingModeOutput {
+	return o
+}
+
+func (o RecorderRecordingModeOutput) ToRecorderRecordingModePtrOutput() RecorderRecordingModePtrOutput {
+	return o.ToRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (o RecorderRecordingModeOutput) ToRecorderRecordingModePtrOutputWithContext(ctx context.Context) RecorderRecordingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecorderRecordingMode) *RecorderRecordingMode {
+		return &v
+	}).(RecorderRecordingModePtrOutput)
+}
+
+// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+func (o RecorderRecordingModeOutput) RecordingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecorderRecordingMode) *string { return v.RecordingFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Recording mode overrides. Detailed below.
+func (o RecorderRecordingModeOutput) RecordingModeOverride() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o.ApplyT(func(v RecorderRecordingMode) *RecorderRecordingModeRecordingModeOverride {
+		return v.RecordingModeOverride
+	}).(RecorderRecordingModeRecordingModeOverridePtrOutput)
+}
+
+type RecorderRecordingModePtrOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderRecordingMode)(nil)).Elem()
+}
+
+func (o RecorderRecordingModePtrOutput) ToRecorderRecordingModePtrOutput() RecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o RecorderRecordingModePtrOutput) ToRecorderRecordingModePtrOutputWithContext(ctx context.Context) RecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o RecorderRecordingModePtrOutput) Elem() RecorderRecordingModeOutput {
+	return o.ApplyT(func(v *RecorderRecordingMode) RecorderRecordingMode {
+		if v != nil {
+			return *v
+		}
+		var ret RecorderRecordingMode
+		return ret
+	}).(RecorderRecordingModeOutput)
+}
+
+// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+func (o RecorderRecordingModePtrOutput) RecordingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecorderRecordingMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recording mode overrides. Detailed below.
+func (o RecorderRecordingModePtrOutput) RecordingModeOverride() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o.ApplyT(func(v *RecorderRecordingMode) *RecorderRecordingModeRecordingModeOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingModeOverride
+	}).(RecorderRecordingModeRecordingModeOverridePtrOutput)
+}
+
+type RecorderRecordingModeRecordingModeOverride struct {
+	// A description you provide of the override.
+	Description *string `pulumi:"description"`
+	// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+	RecordingFrequency string `pulumi:"recordingFrequency"`
+	// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// RecorderRecordingModeRecordingModeOverrideInput is an input type that accepts RecorderRecordingModeRecordingModeOverrideArgs and RecorderRecordingModeRecordingModeOverrideOutput values.
+// You can construct a concrete instance of `RecorderRecordingModeRecordingModeOverrideInput` via:
+//
+//	RecorderRecordingModeRecordingModeOverrideArgs{...}
+type RecorderRecordingModeRecordingModeOverrideInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingModeRecordingModeOverrideOutput() RecorderRecordingModeRecordingModeOverrideOutput
+	ToRecorderRecordingModeRecordingModeOverrideOutputWithContext(context.Context) RecorderRecordingModeRecordingModeOverrideOutput
+}
+
+type RecorderRecordingModeRecordingModeOverrideArgs struct {
+	// A description you provide of the override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+	RecordingFrequency pulumi.StringInput `pulumi:"recordingFrequency"`
+	// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (RecorderRecordingModeRecordingModeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingModeRecordingModeOverride)(nil)).Elem()
+}
+
+func (i RecorderRecordingModeRecordingModeOverrideArgs) ToRecorderRecordingModeRecordingModeOverrideOutput() RecorderRecordingModeRecordingModeOverrideOutput {
+	return i.ToRecorderRecordingModeRecordingModeOverrideOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingModeRecordingModeOverrideArgs) ToRecorderRecordingModeRecordingModeOverrideOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModeRecordingModeOverrideOutput)
+}
+
+func (i RecorderRecordingModeRecordingModeOverrideArgs) ToRecorderRecordingModeRecordingModeOverridePtrOutput() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return i.ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingModeRecordingModeOverrideArgs) ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModeRecordingModeOverrideOutput).ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(ctx)
+}
+
+// RecorderRecordingModeRecordingModeOverridePtrInput is an input type that accepts RecorderRecordingModeRecordingModeOverrideArgs, RecorderRecordingModeRecordingModeOverridePtr and RecorderRecordingModeRecordingModeOverridePtrOutput values.
+// You can construct a concrete instance of `RecorderRecordingModeRecordingModeOverridePtrInput` via:
+//
+//	        RecorderRecordingModeRecordingModeOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecorderRecordingModeRecordingModeOverridePtrInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingModeRecordingModeOverridePtrOutput() RecorderRecordingModeRecordingModeOverridePtrOutput
+	ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(context.Context) RecorderRecordingModeRecordingModeOverridePtrOutput
+}
+
+type recorderRecordingModeRecordingModeOverridePtrType RecorderRecordingModeRecordingModeOverrideArgs
+
+func RecorderRecordingModeRecordingModeOverridePtr(v *RecorderRecordingModeRecordingModeOverrideArgs) RecorderRecordingModeRecordingModeOverridePtrInput {
+	return (*recorderRecordingModeRecordingModeOverridePtrType)(v)
+}
+
+func (*recorderRecordingModeRecordingModeOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderRecordingModeRecordingModeOverride)(nil)).Elem()
+}
+
+func (i *recorderRecordingModeRecordingModeOverridePtrType) ToRecorderRecordingModeRecordingModeOverridePtrOutput() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return i.ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *recorderRecordingModeRecordingModeOverridePtrType) ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingModeRecordingModeOverridePtrOutput)
+}
+
+type RecorderRecordingModeRecordingModeOverrideOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingModeRecordingModeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingModeRecordingModeOverride)(nil)).Elem()
+}
+
+func (o RecorderRecordingModeRecordingModeOverrideOutput) ToRecorderRecordingModeRecordingModeOverrideOutput() RecorderRecordingModeRecordingModeOverrideOutput {
+	return o
+}
+
+func (o RecorderRecordingModeRecordingModeOverrideOutput) ToRecorderRecordingModeRecordingModeOverrideOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverrideOutput {
+	return o
+}
+
+func (o RecorderRecordingModeRecordingModeOverrideOutput) ToRecorderRecordingModeRecordingModeOverridePtrOutput() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o.ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(context.Background())
+}
+
+func (o RecorderRecordingModeRecordingModeOverrideOutput) ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecorderRecordingModeRecordingModeOverride) *RecorderRecordingModeRecordingModeOverride {
+		return &v
+	}).(RecorderRecordingModeRecordingModeOverridePtrOutput)
+}
+
+// A description you provide of the override.
+func (o RecorderRecordingModeRecordingModeOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecorderRecordingModeRecordingModeOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+func (o RecorderRecordingModeRecordingModeOverrideOutput) RecordingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v RecorderRecordingModeRecordingModeOverride) string { return v.RecordingFrequency }).(pulumi.StringOutput)
+}
+
+// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+func (o RecorderRecordingModeRecordingModeOverrideOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecorderRecordingModeRecordingModeOverride) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type RecorderRecordingModeRecordingModeOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingModeRecordingModeOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderRecordingModeRecordingModeOverride)(nil)).Elem()
+}
+
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) ToRecorderRecordingModeRecordingModeOverridePtrOutput() RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o
+}
+
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) ToRecorderRecordingModeRecordingModeOverridePtrOutputWithContext(ctx context.Context) RecorderRecordingModeRecordingModeOverridePtrOutput {
+	return o
+}
+
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) Elem() RecorderRecordingModeRecordingModeOverrideOutput {
+	return o.ApplyT(func(v *RecorderRecordingModeRecordingModeOverride) RecorderRecordingModeRecordingModeOverride {
+		if v != nil {
+			return *v
+		}
+		var ret RecorderRecordingModeRecordingModeOverride
+		return ret
+	}).(RecorderRecordingModeRecordingModeOverrideOutput)
+}
+
+// A description you provide of the override.
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecorderRecordingModeRecordingModeOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) RecordingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecorderRecordingModeRecordingModeOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+func (o RecorderRecordingModeRecordingModeOverridePtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecorderRecordingModeRecordingModeOverride) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type RemediationConfigurationExecutionControls struct {
 	// Configuration block for SSM controls. See below.
 	SsmControls *RemediationConfigurationExecutionControlsSsmControls `pulumi:"ssmControls"`
@@ -2347,6 +2680,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupExclusionByResourceTypeArrayInput)(nil)).Elem(), RecorderRecordingGroupExclusionByResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupRecordingStrategyInput)(nil)).Elem(), RecorderRecordingGroupRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupRecordingStrategyArrayInput)(nil)).Elem(), RecorderRecordingGroupRecordingStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingModeInput)(nil)).Elem(), RecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingModePtrInput)(nil)).Elem(), RecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingModeRecordingModeOverrideInput)(nil)).Elem(), RecorderRecordingModeRecordingModeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingModeRecordingModeOverridePtrInput)(nil)).Elem(), RecorderRecordingModeRecordingModeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsPtrInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsSsmControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsSsmControlsArgs{})
@@ -2379,6 +2716,10 @@ func init() {
 	pulumi.RegisterOutputType(RecorderRecordingGroupExclusionByResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupRecordingStrategyOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupRecordingStrategyArrayOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingModeOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingModePtrOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingModeRecordingModeOverrideOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingModeRecordingModeOverridePtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsSsmControlsOutput{})

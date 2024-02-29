@@ -101,6 +101,46 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// ### Periodic Recording
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Aws.Cfg.Recorder("foo", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.R.Arn,
+    ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
+    ///         {
+    ///             AllSupported = false,
+    ///             IncludeGlobalResourceTypes = false,
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "AWS::EC2::Instance",
+    ///                 "AWS::EC2::NetworkInterface",
+    ///             },
+    ///         },
+    ///         RecordingMode = new Aws.Cfg.Inputs.RecorderRecordingModeArgs
+    ///         {
+    ///             RecordingFrequency = "CONTINUOUS",
+    ///             RecordingModeOverride = new Aws.Cfg.Inputs.RecorderRecordingModeRecordingModeOverrideArgs
+    ///             {
+    ///                 Description = "Only record EC2 network interfaces daily",
+    ///                 ResourceTypes = new[]
+    ///                 {
+    ///                     "AWS::EC2::NetworkInterface",
+    ///                 },
+    ///                 RecordingFrequency = "DAILY",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -124,6 +164,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Output("recordingGroup")]
         public Output<Outputs.RecorderRecordingGroup> RecordingGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Recording mode - see below.
+        /// </summary>
+        [Output("recordingMode")]
+        public Output<Outputs.RecorderRecordingMode> RecordingMode { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
@@ -190,6 +236,12 @@ namespace Pulumi.Aws.Cfg
         public Input<Inputs.RecorderRecordingGroupArgs>? RecordingGroup { get; set; }
 
         /// <summary>
+        /// Recording mode - see below.
+        /// </summary>
+        [Input("recordingMode")]
+        public Input<Inputs.RecorderRecordingModeArgs>? RecordingMode { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -214,6 +266,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("recordingGroup")]
         public Input<Inputs.RecorderRecordingGroupGetArgs>? RecordingGroup { get; set; }
+
+        /// <summary>
+        /// Recording mode - see below.
+        /// </summary>
+        [Input("recordingMode")]
+        public Input<Inputs.RecorderRecordingModeGetArgs>? RecordingMode { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.

@@ -263,6 +263,120 @@ import (
 //	}
 //
 // ```
+// ### Trigger multiple Lambda functions
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			func1, err := lambda.NewFunction(ctx, "func1", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("your-function1.zip"),
+//				Role:    iamForLambda.Arn,
+//				Handler: pulumi.String("exports.example"),
+//				Runtime: pulumi.String("go1.x"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			allowBucket1, err := lambda.NewPermission(ctx, "allowBucket1", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  func1.Arn,
+//				Principal: pulumi.String("s3.amazonaws.com"),
+//				SourceArn: bucket.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			func2, err := lambda.NewFunction(ctx, "func2", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("your-function2.zip"),
+//				Role:    iamForLambda.Arn,
+//				Handler: pulumi.String("exports.example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			allowBucket2, err := lambda.NewPermission(ctx, "allowBucket2", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  func2.Arn,
+//				Principal: pulumi.String("s3.amazonaws.com"),
+//				SourceArn: bucket.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketNotification(ctx, "bucketNotification", &s3.BucketNotificationArgs{
+//				Bucket: bucket.ID(),
+//				LambdaFunctions: s3.BucketNotificationLambdaFunctionArray{
+//					&s3.BucketNotificationLambdaFunctionArgs{
+//						LambdaFunctionArn: func1.Arn,
+//						Events: pulumi.StringArray{
+//							pulumi.String("s3:ObjectCreated:*"),
+//						},
+//						FilterPrefix: pulumi.String("AWSLogs/"),
+//						FilterSuffix: pulumi.String(".log"),
+//					},
+//					&s3.BucketNotificationLambdaFunctionArgs{
+//						LambdaFunctionArn: func2.Arn,
+//						Events: pulumi.StringArray{
+//							pulumi.String("s3:ObjectCreated:*"),
+//						},
+//						FilterPrefix: pulumi.String("OtherLogs/"),
+//						FilterSuffix: pulumi.String(".log"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				allowBucket1,
+//				allowBucket2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Add multiple notification configurations to SQS Queue
 //
 // ```go

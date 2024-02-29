@@ -3959,6 +3959,421 @@ func (o GetComputeEnvironmentUpdatePolicyArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetComputeEnvironmentUpdatePolicyOutput)
 }
 
+type GetJobDefinitionEksProperty struct {
+	// The properties for the Kubernetes pod resources of a job.
+	PodProperties []interface{} `pulumi:"podProperties"`
+}
+
+// GetJobDefinitionEksPropertyInput is an input type that accepts GetJobDefinitionEksPropertyArgs and GetJobDefinitionEksPropertyOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyInput` via:
+//
+//	GetJobDefinitionEksPropertyArgs{...}
+type GetJobDefinitionEksPropertyInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyOutput() GetJobDefinitionEksPropertyOutput
+	ToGetJobDefinitionEksPropertyOutputWithContext(context.Context) GetJobDefinitionEksPropertyOutput
+}
+
+type GetJobDefinitionEksPropertyArgs struct {
+	// The properties for the Kubernetes pod resources of a job.
+	PodProperties pulumi.ArrayInput `pulumi:"podProperties"`
+}
+
+func (GetJobDefinitionEksPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyArgs) ToGetJobDefinitionEksPropertyOutput() GetJobDefinitionEksPropertyOutput {
+	return i.ToGetJobDefinitionEksPropertyOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyArgs) ToGetJobDefinitionEksPropertyOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyOutput)
+}
+
+// GetJobDefinitionEksPropertyArrayInput is an input type that accepts GetJobDefinitionEksPropertyArray and GetJobDefinitionEksPropertyArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyArray{ GetJobDefinitionEksPropertyArgs{...} }
+type GetJobDefinitionEksPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyArrayOutput() GetJobDefinitionEksPropertyArrayOutput
+	ToGetJobDefinitionEksPropertyArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyArrayOutput
+}
+
+type GetJobDefinitionEksPropertyArray []GetJobDefinitionEksPropertyInput
+
+func (GetJobDefinitionEksPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyArray) ToGetJobDefinitionEksPropertyArrayOutput() GetJobDefinitionEksPropertyArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyArray) ToGetJobDefinitionEksPropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyOutput) ToGetJobDefinitionEksPropertyOutput() GetJobDefinitionEksPropertyOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyOutput) ToGetJobDefinitionEksPropertyOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyOutput {
+	return o
+}
+
+// The properties for the Kubernetes pod resources of a job.
+func (o GetJobDefinitionEksPropertyOutput) PodProperties() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksProperty) []interface{} { return v.PodProperties }).(pulumi.ArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyArrayOutput) ToGetJobDefinitionEksPropertyArrayOutput() GetJobDefinitionEksPropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyArrayOutput) ToGetJobDefinitionEksPropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksProperty {
+		return vs[0].([]GetJobDefinitionEksProperty)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyOutput)
+}
+
+type GetJobDefinitionNodeProperty struct {
+	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+	MainNode int `pulumi:"mainNode"`
+	// A list of node ranges and their properties that are associated with a multi-node parallel job.
+	NodeRangeProperties []interface{} `pulumi:"nodeRangeProperties"`
+	// The number of nodes that are associated with a multi-node parallel job.
+	NumNodes int `pulumi:"numNodes"`
+}
+
+// GetJobDefinitionNodePropertyInput is an input type that accepts GetJobDefinitionNodePropertyArgs and GetJobDefinitionNodePropertyOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyInput` via:
+//
+//	GetJobDefinitionNodePropertyArgs{...}
+type GetJobDefinitionNodePropertyInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyOutput() GetJobDefinitionNodePropertyOutput
+	ToGetJobDefinitionNodePropertyOutputWithContext(context.Context) GetJobDefinitionNodePropertyOutput
+}
+
+type GetJobDefinitionNodePropertyArgs struct {
+	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+	MainNode pulumi.IntInput `pulumi:"mainNode"`
+	// A list of node ranges and their properties that are associated with a multi-node parallel job.
+	NodeRangeProperties pulumi.ArrayInput `pulumi:"nodeRangeProperties"`
+	// The number of nodes that are associated with a multi-node parallel job.
+	NumNodes pulumi.IntInput `pulumi:"numNodes"`
+}
+
+func (GetJobDefinitionNodePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodeProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyArgs) ToGetJobDefinitionNodePropertyOutput() GetJobDefinitionNodePropertyOutput {
+	return i.ToGetJobDefinitionNodePropertyOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyArgs) ToGetJobDefinitionNodePropertyOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyOutput)
+}
+
+// GetJobDefinitionNodePropertyArrayInput is an input type that accepts GetJobDefinitionNodePropertyArray and GetJobDefinitionNodePropertyArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyArray{ GetJobDefinitionNodePropertyArgs{...} }
+type GetJobDefinitionNodePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyArrayOutput() GetJobDefinitionNodePropertyArrayOutput
+	ToGetJobDefinitionNodePropertyArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyArrayOutput
+}
+
+type GetJobDefinitionNodePropertyArray []GetJobDefinitionNodePropertyInput
+
+func (GetJobDefinitionNodePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodeProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyArray) ToGetJobDefinitionNodePropertyArrayOutput() GetJobDefinitionNodePropertyArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyArray) ToGetJobDefinitionNodePropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodeProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyOutput) ToGetJobDefinitionNodePropertyOutput() GetJobDefinitionNodePropertyOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyOutput) ToGetJobDefinitionNodePropertyOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyOutput {
+	return o
+}
+
+// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+func (o GetJobDefinitionNodePropertyOutput) MainNode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodeProperty) int { return v.MainNode }).(pulumi.IntOutput)
+}
+
+// A list of node ranges and their properties that are associated with a multi-node parallel job.
+func (o GetJobDefinitionNodePropertyOutput) NodeRangeProperties() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodeProperty) []interface{} { return v.NodeRangeProperties }).(pulumi.ArrayOutput)
+}
+
+// The number of nodes that are associated with a multi-node parallel job.
+func (o GetJobDefinitionNodePropertyOutput) NumNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodeProperty) int { return v.NumNodes }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionNodePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodeProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyArrayOutput) ToGetJobDefinitionNodePropertyArrayOutput() GetJobDefinitionNodePropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyArrayOutput) ToGetJobDefinitionNodePropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodeProperty {
+		return vs[0].([]GetJobDefinitionNodeProperty)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyOutput)
+}
+
+type GetJobDefinitionRetryStrategy struct {
+	// The number of times to move a job to the RUNNABLE status.
+	Attempts int `pulumi:"attempts"`
+	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+	EvaluateOnExits []interface{} `pulumi:"evaluateOnExits"`
+}
+
+// GetJobDefinitionRetryStrategyInput is an input type that accepts GetJobDefinitionRetryStrategyArgs and GetJobDefinitionRetryStrategyOutput values.
+// You can construct a concrete instance of `GetJobDefinitionRetryStrategyInput` via:
+//
+//	GetJobDefinitionRetryStrategyArgs{...}
+type GetJobDefinitionRetryStrategyInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionRetryStrategyOutput() GetJobDefinitionRetryStrategyOutput
+	ToGetJobDefinitionRetryStrategyOutputWithContext(context.Context) GetJobDefinitionRetryStrategyOutput
+}
+
+type GetJobDefinitionRetryStrategyArgs struct {
+	// The number of times to move a job to the RUNNABLE status.
+	Attempts pulumi.IntInput `pulumi:"attempts"`
+	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+	EvaluateOnExits pulumi.ArrayInput `pulumi:"evaluateOnExits"`
+}
+
+func (GetJobDefinitionRetryStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionRetryStrategy)(nil)).Elem()
+}
+
+func (i GetJobDefinitionRetryStrategyArgs) ToGetJobDefinitionRetryStrategyOutput() GetJobDefinitionRetryStrategyOutput {
+	return i.ToGetJobDefinitionRetryStrategyOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionRetryStrategyArgs) ToGetJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionRetryStrategyOutput)
+}
+
+// GetJobDefinitionRetryStrategyArrayInput is an input type that accepts GetJobDefinitionRetryStrategyArray and GetJobDefinitionRetryStrategyArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionRetryStrategyArrayInput` via:
+//
+//	GetJobDefinitionRetryStrategyArray{ GetJobDefinitionRetryStrategyArgs{...} }
+type GetJobDefinitionRetryStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionRetryStrategyArrayOutput() GetJobDefinitionRetryStrategyArrayOutput
+	ToGetJobDefinitionRetryStrategyArrayOutputWithContext(context.Context) GetJobDefinitionRetryStrategyArrayOutput
+}
+
+type GetJobDefinitionRetryStrategyArray []GetJobDefinitionRetryStrategyInput
+
+func (GetJobDefinitionRetryStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionRetryStrategy)(nil)).Elem()
+}
+
+func (i GetJobDefinitionRetryStrategyArray) ToGetJobDefinitionRetryStrategyArrayOutput() GetJobDefinitionRetryStrategyArrayOutput {
+	return i.ToGetJobDefinitionRetryStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionRetryStrategyArray) ToGetJobDefinitionRetryStrategyArrayOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionRetryStrategyArrayOutput)
+}
+
+type GetJobDefinitionRetryStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionRetryStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionRetryStrategy)(nil)).Elem()
+}
+
+func (o GetJobDefinitionRetryStrategyOutput) ToGetJobDefinitionRetryStrategyOutput() GetJobDefinitionRetryStrategyOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyOutput) ToGetJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyOutput {
+	return o
+}
+
+// The number of times to move a job to the RUNNABLE status.
+func (o GetJobDefinitionRetryStrategyOutput) Attempts() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) int { return v.Attempts }).(pulumi.IntOutput)
+}
+
+// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+func (o GetJobDefinitionRetryStrategyOutput) EvaluateOnExits() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) []interface{} { return v.EvaluateOnExits }).(pulumi.ArrayOutput)
+}
+
+type GetJobDefinitionRetryStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionRetryStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionRetryStrategy)(nil)).Elem()
+}
+
+func (o GetJobDefinitionRetryStrategyArrayOutput) ToGetJobDefinitionRetryStrategyArrayOutput() GetJobDefinitionRetryStrategyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyArrayOutput) ToGetJobDefinitionRetryStrategyArrayOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionRetryStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionRetryStrategy {
+		return vs[0].([]GetJobDefinitionRetryStrategy)[vs[1].(int)]
+	}).(GetJobDefinitionRetryStrategyOutput)
+}
+
+type GetJobDefinitionTimeout struct {
+	// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+	AttemptDurationSeconds int `pulumi:"attemptDurationSeconds"`
+}
+
+// GetJobDefinitionTimeoutInput is an input type that accepts GetJobDefinitionTimeoutArgs and GetJobDefinitionTimeoutOutput values.
+// You can construct a concrete instance of `GetJobDefinitionTimeoutInput` via:
+//
+//	GetJobDefinitionTimeoutArgs{...}
+type GetJobDefinitionTimeoutInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionTimeoutOutput() GetJobDefinitionTimeoutOutput
+	ToGetJobDefinitionTimeoutOutputWithContext(context.Context) GetJobDefinitionTimeoutOutput
+}
+
+type GetJobDefinitionTimeoutArgs struct {
+	// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+	AttemptDurationSeconds pulumi.IntInput `pulumi:"attemptDurationSeconds"`
+}
+
+func (GetJobDefinitionTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionTimeout)(nil)).Elem()
+}
+
+func (i GetJobDefinitionTimeoutArgs) ToGetJobDefinitionTimeoutOutput() GetJobDefinitionTimeoutOutput {
+	return i.ToGetJobDefinitionTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionTimeoutArgs) ToGetJobDefinitionTimeoutOutputWithContext(ctx context.Context) GetJobDefinitionTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionTimeoutOutput)
+}
+
+// GetJobDefinitionTimeoutArrayInput is an input type that accepts GetJobDefinitionTimeoutArray and GetJobDefinitionTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionTimeoutArrayInput` via:
+//
+//	GetJobDefinitionTimeoutArray{ GetJobDefinitionTimeoutArgs{...} }
+type GetJobDefinitionTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionTimeoutArrayOutput() GetJobDefinitionTimeoutArrayOutput
+	ToGetJobDefinitionTimeoutArrayOutputWithContext(context.Context) GetJobDefinitionTimeoutArrayOutput
+}
+
+type GetJobDefinitionTimeoutArray []GetJobDefinitionTimeoutInput
+
+func (GetJobDefinitionTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionTimeout)(nil)).Elem()
+}
+
+func (i GetJobDefinitionTimeoutArray) ToGetJobDefinitionTimeoutArrayOutput() GetJobDefinitionTimeoutArrayOutput {
+	return i.ToGetJobDefinitionTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionTimeoutArray) ToGetJobDefinitionTimeoutArrayOutputWithContext(ctx context.Context) GetJobDefinitionTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionTimeoutArrayOutput)
+}
+
+type GetJobDefinitionTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionTimeout)(nil)).Elem()
+}
+
+func (o GetJobDefinitionTimeoutOutput) ToGetJobDefinitionTimeoutOutput() GetJobDefinitionTimeoutOutput {
+	return o
+}
+
+func (o GetJobDefinitionTimeoutOutput) ToGetJobDefinitionTimeoutOutputWithContext(ctx context.Context) GetJobDefinitionTimeoutOutput {
+	return o
+}
+
+// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+func (o GetJobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionTimeout) int { return v.AttemptDurationSeconds }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionTimeout)(nil)).Elem()
+}
+
+func (o GetJobDefinitionTimeoutArrayOutput) ToGetJobDefinitionTimeoutArrayOutput() GetJobDefinitionTimeoutArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionTimeoutArrayOutput) ToGetJobDefinitionTimeoutArrayOutputWithContext(ctx context.Context) GetJobDefinitionTimeoutArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionTimeoutArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionTimeout {
+		return vs[0].([]GetJobDefinitionTimeout)[vs[1].(int)]
+	}).(GetJobDefinitionTimeoutOutput)
+}
+
 type GetJobQueueComputeEnvironmentOrder struct {
 	ComputeEnvironment string `pulumi:"computeEnvironment"`
 	Order              int    `pulumi:"order"`
@@ -4328,6 +4743,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairSharePolicyShareDistributionArrayInput)(nil)).Elem(), SchedulingPolicyFairSharePolicyShareDistributionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputeEnvironmentUpdatePolicyInput)(nil)).Elem(), GetComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputeEnvironmentUpdatePolicyArrayInput)(nil)).Elem(), GetComputeEnvironmentUpdatePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyInput)(nil)).Elem(), GetJobDefinitionEksPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyInput)(nil)).Elem(), GetJobDefinitionNodePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyInput)(nil)).Elem(), GetJobDefinitionRetryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyArrayInput)(nil)).Elem(), GetJobDefinitionRetryStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionTimeoutInput)(nil)).Elem(), GetJobDefinitionTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionTimeoutArrayInput)(nil)).Elem(), GetJobDefinitionTimeoutArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchedulingPolicyFairSharePolicyInput)(nil)).Elem(), GetSchedulingPolicyFairSharePolicyArgs{})
@@ -4382,6 +4805,14 @@ func init() {
 	pulumi.RegisterOutputType(SchedulingPolicyFairSharePolicyShareDistributionArrayOutput{})
 	pulumi.RegisterOutputType(GetComputeEnvironmentUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(GetComputeEnvironmentUpdatePolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionTimeoutOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionTimeoutArrayOutput{})
 	pulumi.RegisterOutputType(GetJobQueueComputeEnvironmentOrderOutput{})
 	pulumi.RegisterOutputType(GetJobQueueComputeEnvironmentOrderArrayOutput{})
 	pulumi.RegisterOutputType(GetSchedulingPolicyFairSharePolicyOutput{})

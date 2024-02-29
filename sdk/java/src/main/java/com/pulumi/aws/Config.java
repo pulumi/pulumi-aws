@@ -223,6 +223,13 @@ public final class Config {
         return Codegen.stringProp("token").config(config).get();
     }
 /**
+ * The capacity of the AWS SDK&#39;s token bucket rate limiter.
+ * 
+ */
+    public Optional<Integer> tokenBucketRateLimiterCapacity() {
+        return Codegen.integerProp("tokenBucketRateLimiterCapacity").config(config).get();
+    }
+/**
  * Resolve an endpoint with DualStack capability
  * 
  */

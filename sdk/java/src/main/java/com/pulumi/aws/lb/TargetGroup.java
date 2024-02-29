@@ -311,6 +311,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaMultiValueHeadersEnabled);
     }
     /**
+     * ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    @Export(name="loadBalancerArns", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> loadBalancerArns;
+
+    /**
+     * @return ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    public Output<List<String>> loadBalancerArns() {
+        return this.loadBalancerArns;
+    }
+    /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
