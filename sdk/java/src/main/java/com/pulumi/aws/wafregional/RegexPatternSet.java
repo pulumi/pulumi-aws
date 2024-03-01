@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RegexPatternSet(&#34;example&#34;, RegexPatternSetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .regexPatternStrings(            
  *                 &#34;one&#34;,
  *                 &#34;two&#34;)

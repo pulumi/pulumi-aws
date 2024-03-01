@@ -28,11 +28,11 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
-// DbProxyName: pulumi.Any(aws_db_proxy.Test.Name),
+// DbProxyName: pulumi.Any(test.Name),
 // DbProxyEndpointName: pulumi.String("example"),
 // VpcSubnetIds: toPulumiArray(splat0),
 // TargetRole: pulumi.String("READ_ONLY"),

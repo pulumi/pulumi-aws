@@ -108,8 +108,8 @@ def get_serverless_access_policy(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.opensearch.get_serverless_access_policy(name=aws_opensearchserverless_access_policy["example"]["name"],
-        type=aws_opensearchserverless_access_policy["example"]["type"])
+    example = aws.opensearch.get_serverless_access_policy(name=example_aws_opensearchserverless_access_policy["name"],
+        type=example_aws_opensearchserverless_access_policy["type"])
     ```
 
 
@@ -145,8 +145,8 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[str]] = None
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.opensearch.get_serverless_access_policy(name=aws_opensearchserverless_access_policy["example"]["name"],
-        type=aws_opensearchserverless_access_policy["example"]["type"])
+    example = aws.opensearch.get_serverless_access_policy(name=example_aws_opensearchserverless_access_policy["name"],
+        type=example_aws_opensearchserverless_access_policy["type"])
     ```
 
 

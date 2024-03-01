@@ -213,8 +213,8 @@ class Site(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
+        example = aws.networkmanager.GlobalNetwork("example")
+        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
         ```
 
         ## Import
@@ -247,8 +247,8 @@ class Site(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
+        example = aws.networkmanager.GlobalNetwork("example")
+        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
         ```
 
         ## Import

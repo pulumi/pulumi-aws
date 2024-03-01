@@ -139,10 +139,11 @@ class LogDestinationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_destination = aws.cloudwatch.LogDestination("testDestination",
-            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
-            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
-        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_destination = aws.cloudwatch.LogDestination("test_destination",
+            name="test_destination",
+            role_arn=iam_for_cloudwatch["arn"],
+            target_arn=kinesis_for_cloudwatch["arn"])
+        test_destination_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -151,9 +152,9 @@ class LogDestinationPolicy(pulumi.CustomResource):
             actions=["logs:PutSubscriptionFilter"],
             resources=[test_destination.arn],
         )])
-        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy",
+        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
             destination_name=test_destination.name,
-            access_policy=test_destination_policy_policy_document.json)
+            access_policy=test_destination_policy.json)
         ```
 
         ## Import
@@ -185,10 +186,11 @@ class LogDestinationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_destination = aws.cloudwatch.LogDestination("testDestination",
-            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
-            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
-        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_destination = aws.cloudwatch.LogDestination("test_destination",
+            name="test_destination",
+            role_arn=iam_for_cloudwatch["arn"],
+            target_arn=kinesis_for_cloudwatch["arn"])
+        test_destination_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -197,9 +199,9 @@ class LogDestinationPolicy(pulumi.CustomResource):
             actions=["logs:PutSubscriptionFilter"],
             resources=[test_destination.arn],
         )])
-        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy",
+        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
             destination_name=test_destination.name,
-            access_policy=test_destination_policy_policy_document.json)
+            access_policy=test_destination_policy.json)
         ```
 
         ## Import

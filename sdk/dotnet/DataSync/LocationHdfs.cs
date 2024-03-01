@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DataSync
     ///     {
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///         AuthenticationType = "SIMPLE",
     ///         SimpleUser = "example",
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DataSync
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
     ///             {
-    ///                 Hostname = aws_instance.Example.Private_dns,
+    ///                 Hostname = exampleAwsInstance.PrivateDns,
     ///                 Port = 80,
     ///             },
     ///         },

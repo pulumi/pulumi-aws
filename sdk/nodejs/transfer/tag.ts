@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {identityProviderType: "SERVICE_MANAGED"});
- * const zoneId = new aws.transfer.Tag("zoneId", {
+ * const zoneId = new aws.transfer.Tag("zone_id", {
  *     resourceArn: example.arn,
  *     key: "aws:transfer:route53HostedZoneId",
  *     value: "/hostedzone/MyHostedZoneId",

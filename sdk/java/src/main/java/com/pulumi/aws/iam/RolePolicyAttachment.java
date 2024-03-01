@@ -60,10 +60,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;test-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -72,8 +73,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policyPolicy = new Policy(&#34;policyPolicy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
- *             .policy(policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var test_attach = new RolePolicyAttachment(&#34;test-attach&#34;, RolePolicyAttachmentArgs.builder()        

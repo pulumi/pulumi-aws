@@ -248,8 +248,8 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.DataShareConsumerAssociation("example",
-            associate_entire_account=True,
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+            associate_entire_account=True)
         ```
         ### Consumer Region
 
@@ -258,8 +258,8 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.DataShareConsumerAssociation("example",
-            consumer_region="us-west-2",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+            consumer_region="us-west-2")
         ```
 
         ## Import
@@ -297,8 +297,8 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.DataShareConsumerAssociation("example",
-            associate_entire_account=True,
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+            associate_entire_account=True)
         ```
         ### Consumer Region
 
@@ -307,8 +307,8 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.DataShareConsumerAssociation("example",
-            consumer_region="us-west-2",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+            consumer_region="us-west-2")
         ```
 
         ## Import

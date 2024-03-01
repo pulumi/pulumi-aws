@@ -31,6 +31,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Database Migration Service requires the below IAM Roles to be created before
+//			// replication instances can be created. See the DMS Documentation for
+//			// additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+//			//   - dms-vpc-role
+//			//   - dms-cloudwatch-logs-role
+//			//   - dms-access-for-endpoint
 //			dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -53,6 +59,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-access-for-endpoint"),
 //			})
 //			if err != nil {
 //				return err
@@ -66,6 +73,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-cloudwatch-logs-role"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,6 +87,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-vpc-role"),
 //			})
 //			if err != nil {
 //				return err
@@ -103,18 +112,14 @@ import (
 //				PubliclyAccessible:         pulumi.Bool(true),
 //				ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
 //				ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
-//				ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.TestDmsReplicationSubnetGroupTf.Id),
+//				ReplicationSubnetGroupId:   pulumi.Any(test_dms_replication_subnet_group_tf.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test"),
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					pulumi.String("sg-12345678"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-//				dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-//				dms_vpc_role_AmazonDMSVPCManagementRole,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

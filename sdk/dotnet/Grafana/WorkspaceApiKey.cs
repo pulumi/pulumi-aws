@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Grafana
     ///         KeyName = "test-key",
     ///         KeyRole = "VIEWER",
     ///         SecondsToLive = 3600,
-    ///         WorkspaceId = aws_grafana_workspace.Test.Id,
+    ///         WorkspaceId = test.Id,
     ///     });
     /// 
     /// });

@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
+//			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Name:    pulumi.String("orders"),
 //				HashKey: pulumi.String("id"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
@@ -41,15 +42,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("order_item_changes"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "exampleKinesisStreamingDestination", &dynamodb.KinesisStreamingDestinationArgs{
+//			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "example", &dynamodb.KinesisStreamingDestinationArgs{
 //				StreamArn: exampleStream.Arn,
-//				TableName: exampleTable.Name,
+//				TableName: example.Name,
 //			})
 //			if err != nil {
 //				return err

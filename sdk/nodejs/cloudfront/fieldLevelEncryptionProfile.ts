@@ -15,14 +15,18 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
- *     encodedKey: fs.readFileSync("public_key.pem", "utf8"),
+ *     encodedKey: std.file({
+ *         input: "public_key.pem",
+ *     }).then(invoke => invoke.result),
+ *     name: "test_key",
  * });
  * const test = new aws.cloudfront.FieldLevelEncryptionProfile("test", {
  *     comment: "test comment",
+ *     name: "test profile",
  *     encryptionEntities: {
  *         items: [{
  *             publicKeyId: example.id,

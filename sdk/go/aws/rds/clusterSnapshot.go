@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewClusterSnapshot(ctx, "example", &rds.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(aws_rds_cluster.Example.Id),
+//				DbClusterIdentifier:         pulumi.Any(exampleAwsRdsCluster.Id),
 //				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
 //			})
 //			if err != nil {

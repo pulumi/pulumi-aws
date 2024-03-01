@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AccessPoint(&#34;test&#34;, AccessPointArgs.builder()        
- *             .fileSystemId(aws_efs_file_system.foo().id())
+ *             .fileSystemId(foo.id())
  *             .build());
  * 
  *     }

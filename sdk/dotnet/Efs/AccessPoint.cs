@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var test = new Aws.Efs.AccessPoint("test", new()
     ///     {
-    ///         FileSystemId = aws_efs_file_system.Foo.Id,
+    ///         FileSystemId = foo.Id,
     ///     });
     /// 
     /// });

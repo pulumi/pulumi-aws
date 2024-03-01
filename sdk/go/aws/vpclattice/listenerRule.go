@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
+//				Name:               pulumi.String("example"),
+//				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
+//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
 //				Priority:           pulumi.Int(20),
 //				Match: &vpclattice.ListenerRuleMatchArgs{
 //					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
@@ -55,11 +56,11 @@ import (
 //					Forward: &vpclattice.ListenerRuleActionForwardArgs{
 //						TargetGroups: vpclattice.ListenerRuleActionForwardTargetGroupArray{
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
+//								TargetGroupIdentifier: pulumi.Any(example.Id),
 //								Weight:                pulumi.Int(1),
 //							},
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example2.Id),
+//								TargetGroupIdentifier: pulumi.Any(example2.Id),
 //								Weight:                pulumi.Int(2),
 //							},
 //						},
@@ -89,8 +90,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
+//				Name:               pulumi.String("example"),
+//				ListenerIdentifier: pulumi.Any(example.ListenerId),
+//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
 //				Priority:           pulumi.Int(10),
 //				Match: &vpclattice.ListenerRuleMatchArgs{
 //					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{

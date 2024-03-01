@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testVolumeAttachment = new VolumeAttachment(&#34;testVolumeAttachment&#34;, VolumeAttachmentArgs.builder()        
  *             .deviceName(&#34;/dev/xvdb&#34;)
- *             .volumeId(aws_ebs_volume.test().id())
- *             .instanceId(aws_instance.test().id())
+ *             .volumeId(testAwsEbsVolume.id())
+ *             .instanceId(testAwsInstance.id())
  *             .build());
  * 
- *         final var testLocalDisk = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(testVolumeAttachment.deviceName())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+ *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *         var testCache = new Cache(&#34;testCache&#34;, CacheArgs.builder()        
- *             .diskId(testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult).applyValue(testLocalDisk -&gt; testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskId())))
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *             .diskId(test.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskId()))
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }

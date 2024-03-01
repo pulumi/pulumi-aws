@@ -33,9 +33,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
 //				LogDestinationConfigs: pulumi.StringArray{
-//					aws_kinesis_firehose_delivery_stream.Example.Arn,
+//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
 //				},
-//				ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
+//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				RedactedFields: wafv2.WebAclLoggingConfigurationRedactedFieldArray{
 //					&wafv2.WebAclLoggingConfigurationRedactedFieldArgs{
 //						SingleHeader: &wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs{
@@ -68,9 +68,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
 //				LogDestinationConfigs: pulumi.StringArray{
-//					aws_kinesis_firehose_delivery_stream.Example.Arn,
+//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
 //				},
-//				ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
+//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				LoggingFilter: &wafv2.WebAclLoggingConfigurationLoggingFilterArgs{
 //					DefaultBehavior: pulumi.String("KEEP"),
 //					Filters: wafv2.WebAclLoggingConfigurationLoggingFilterFilterArray{
@@ -111,6 +111,106 @@ import (
 //		})
 //	}
 //
+// ```
+// ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+// Name: pulumi.String("aws-waf-logs-some-uniq-suffix"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
+// LogDestinationConfigs: pulumi.StringArray{
+// exampleLogGroup.Arn,
+// },
+// ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// current, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// example := exampleLogGroup.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Version: "2012-10-17",
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: []string{
+// "delivery.logs.amazonaws.com",
+// },
+// Type: "Service",
+// },
+// },
+// Actions: []string{
+// "logs:CreateLogStream",
+// "logs:PutLogEvents",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v:*", arn),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "ArnLike",
+// Values: []string{
+// fmt.Sprintf("arn:aws:logs:%v:%v:*", current.Name, currentGetCallerIdentity.AccountId),
+// },
+// Variable: "aws:SourceArn",
+// },
+// {
+// Test: "StringEquals",
+// Values: interface{}{
+// notImplemented("tostring(data.aws_caller_identity.current.account_id)"),
+// },
+// Variable: "aws:SourceAccount",
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
+// PolicyDocument: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
+// }).(pulumi.StringPtrOutput),
+// PolicyName: pulumi.String("webacl-policy-uniq-name"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

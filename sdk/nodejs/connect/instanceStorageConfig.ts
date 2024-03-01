@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
  *         kinesisFirehoseConfig: {
- *             firehoseArn: aws_kinesis_firehose_delivery_stream.example.arn,
+ *             firehoseArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *         },
  *         storageType: "KINESIS_FIREHOSE",
  *     },
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
  *         kinesisStreamConfig: {
- *             streamArn: aws_kinesis_stream.example.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
  *         },
  *         storageType: "KINESIS_STREAM",
  *     },
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     resourceType: "MEDIA_STREAMS",
  *     storageConfig: {
  *         kinesisVideoStreamConfig: {
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *             retentionPeriodHours: 3,
  *             encryptionConfig: {
  *                 encryptionType: "KMS",
- *                 keyId: aws_kms_key.example.arn,
+ *                 keyId: exampleAwsKmsKey.arn,
  *             },
  *         },
  *         storageType: "KINESIS_VIDEO_STREAM",
@@ -75,11 +75,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {
  *         s3Config: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             bucketPrefix: "example",
  *         },
  *         storageType: "S3",
@@ -93,15 +93,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {
  *         s3Config: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             bucketPrefix: "example",
  *             encryptionConfig: {
  *                 encryptionType: "KMS",
- *                 keyId: aws_kms_key.example.arn,
+ *                 keyId: exampleAwsKmsKey.arn,
  *             },
  *         },
  *         storageType: "S3",

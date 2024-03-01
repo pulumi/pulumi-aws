@@ -22,18 +22,13 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("exampleActionTarget", new()
+    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("example", new()
     ///     {
+    ///         Name = "Send notification to chat",
     ///         Identifier = "SendToChat",
     ///         Description = "This is custom action sends selected findings to chat",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });

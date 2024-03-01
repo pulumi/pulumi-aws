@@ -18,14 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccessGrantsInstance = new aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance", {});
- * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation", {
- *     iamRoleArn: aws_iam_role.example.arn,
- *     locationScope: `s3://${aws_s3_bucket.example.bucket}/prefixA*`,
- * }, {
- *     dependsOn: [exampleAccessGrantsInstance],
+ * const example = new aws.s3control.AccessGrantsInstance("example", {});
+ * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("example", {
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     locationScope: `s3://${exampleAwsS3Bucket.bucket}/prefixA*`,
  * });
- * const exampleAccessGrant = new aws.s3control.AccessGrant("exampleAccessGrant", {
+ * const exampleAccessGrant = new aws.s3control.AccessGrant("example", {
  *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
  *     permission: "READ",
  *     accessGrantsLocationConfiguration: {
@@ -33,7 +31,7 @@ import * as utilities from "../utilities";
  *     },
  *     grantee: {
  *         granteeType: "IAM",
- *         granteeIdentifier: aws_iam_user.example.arn,
+ *         granteeIdentifier: exampleAwsIamUser.arn,
  *     },
  * });
  * ```

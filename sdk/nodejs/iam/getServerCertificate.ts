@@ -17,13 +17,16 @@ import * as utilities from "../utilities";
  *     namePrefix: "my-domain.org",
  *     latest: true,
  * });
- * const elb = new aws.elb.LoadBalancer("elb", {listeners: [{
- *     instancePort: 8000,
- *     instanceProtocol: "https",
- *     lbPort: 443,
- *     lbProtocol: "https",
- *     sslCertificateId: my_domain.then(my_domain => my_domain.arn),
- * }]});
+ * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
+ *     }],
+ * });
  * ```
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
@@ -110,13 +113,16 @@ export interface GetServerCertificateResult {
  *     namePrefix: "my-domain.org",
  *     latest: true,
  * });
- * const elb = new aws.elb.LoadBalancer("elb", {listeners: [{
- *     instancePort: 8000,
- *     instanceProtocol: "https",
- *     lbPort: 443,
- *     lbProtocol: "https",
- *     sslCertificateId: my_domain.then(my_domain => my_domain.arn),
- * }]});
+ * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
+ *     }],
+ * });
  * ```
  */
 export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {

@@ -49,8 +49,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
@@ -99,8 +99,8 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///     });
         /// 
         /// });
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///         Tags = 
         ///         {
         ///             { "Name", "gw NAT" },
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///     });
         /// 
         /// });
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///         Tags = 
         ///         {
         ///             { "Name", "gw NAT" },

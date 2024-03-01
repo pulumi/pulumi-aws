@@ -17,7 +17,10 @@ import * as utilities from "../utilities";
  *     Name: "foo",
  *     Env: "bar",
  * }});
- * const foo = new aws.inspector.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
+ * const foo = new aws.inspector.AssessmentTarget("foo", {
+ *     name: "assessment target",
+ *     resourceGroupArn: bar.arn,
+ * });
  * ```
  *
  * ## Import

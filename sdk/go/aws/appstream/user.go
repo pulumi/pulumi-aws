@@ -30,9 +30,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
 //				AuthenticationType: pulumi.String("USERPOOL"),
+//				UserName:           pulumi.String("EMAIL"),
 //				FirstName:          pulumi.String("FIRST NAME"),
 //				LastName:           pulumi.String("LAST NAME"),
-//				UserName:           pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err

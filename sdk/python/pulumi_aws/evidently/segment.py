@@ -277,6 +277,7 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
+            name="example",
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             tags={
                 "Key1": "example Segment",
@@ -289,6 +290,7 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
+            name="example",
             pattern=\"\"\"  {
             "Price": [
               {
@@ -296,7 +298,6 @@ class Segment(pulumi.CustomResource):
               }
             ]
           }
-          
         \"\"\",
             tags={
                 "Key1": "example Segment",
@@ -309,8 +310,9 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
-            description="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}")
+            name="example",
+            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
+            description="example")
         ```
 
         ## Import
@@ -345,6 +347,7 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
+            name="example",
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             tags={
                 "Key1": "example Segment",
@@ -357,6 +360,7 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
+            name="example",
             pattern=\"\"\"  {
             "Price": [
               {
@@ -364,7 +368,6 @@ class Segment(pulumi.CustomResource):
               }
             ]
           }
-          
         \"\"\",
             tags={
                 "Key1": "example Segment",
@@ -377,8 +380,9 @@ class Segment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Segment("example",
-            description="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}")
+            name="example",
+            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
+            description="example")
         ```
 
         ## Import

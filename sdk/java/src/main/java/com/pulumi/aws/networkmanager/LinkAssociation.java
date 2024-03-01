@@ -41,9 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LinkAssociation(&#34;example&#34;, LinkAssociationArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .linkId(aws_networkmanager_link.example().id())
- *             .deviceId(aws_networkmanager_device.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .linkId(exampleAwsNetworkmanagerLink.id())
+ *             .deviceId(exampleAwsNetworkmanagerDevice.id())
  *             .build());
  * 
  *     }

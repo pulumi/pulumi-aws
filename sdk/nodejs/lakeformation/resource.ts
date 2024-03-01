@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = aws.s3.getBucket({
+ * const example = aws.s3.getBucket({
  *     bucket: "an-example-bucket",
  * });
- * const exampleResource = new aws.lakeformation.Resource("exampleResource", {arn: exampleBucket.then(exampleBucket => exampleBucket.arn)});
+ * const exampleResource = new aws.lakeformation.Resource("example", {arn: example.then(example => example.arn)});
  * ```
  */
 export class Resource extends pulumi.CustomResource {

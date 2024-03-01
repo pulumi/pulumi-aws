@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const snEc2 = new aws.ec2.VpcEndpointSubnetAssociation("snEc2", {
- *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
- *     subnetId: aws_subnet.sn.id,
+ * const snEc2 = new aws.ec2.VpcEndpointSubnetAssociation("sn_ec2", {
+ *     vpcEndpointId: ec2.id,
+ *     subnetId: sn.id,
  * });
  * ```
  *

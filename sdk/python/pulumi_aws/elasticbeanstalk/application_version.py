@@ -326,16 +326,19 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_bucket_objectv2 = aws.s3.BucketObjectv2("defaultBucketObjectv2",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
+            bucket=default.id,
             key="beanstalk/go-v1.zip",
             source=pulumi.FileAsset("go-v1.zip"))
-        default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
-        default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
+        default_application = aws.elasticbeanstalk.Application("default",
+            name="tf-test-name",
+            description="tf-test-desc")
+        default_application_version = aws.elasticbeanstalk.ApplicationVersion("default",
+            name="tf-test-version-label",
             application="tf-test-name",
             description="application version",
-            bucket=default_bucket_v2.id,
+            bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
 
@@ -376,16 +379,19 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_bucket_objectv2 = aws.s3.BucketObjectv2("defaultBucketObjectv2",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
+            bucket=default.id,
             key="beanstalk/go-v1.zip",
             source=pulumi.FileAsset("go-v1.zip"))
-        default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
-        default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
+        default_application = aws.elasticbeanstalk.Application("default",
+            name="tf-test-name",
+            description="tf-test-desc")
+        default_application_version = aws.elasticbeanstalk.ApplicationVersion("default",
+            name="tf-test-version-label",
             application="tf-test-name",
             description="application version",
-            bucket=default_bucket_v2.id,
+            bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
 

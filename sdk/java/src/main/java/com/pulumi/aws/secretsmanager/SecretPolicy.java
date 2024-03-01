@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.secretsmanager.SecretPolicy;
@@ -44,9 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
+ *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;EnableAnotherAWSAccountToReadTheSecret&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -61,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

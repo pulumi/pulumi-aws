@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -41,10 +42,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     description: "example description",
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -65,16 +67,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *             description: "first-group",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *             description: "second-group",
@@ -98,9 +101,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -141,10 +145,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     randomizationSalt: "example randomization salt",
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -165,15 +170,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *         },
@@ -205,15 +211,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *         },
@@ -227,14 +234,14 @@ import * as utilities from "../utilities";
  *             segmentOverrides: [
  *                 {
  *                     evaluationOrder: 1,
- *                     segment: aws_evidently_segment.example.name,
+ *                     segment: exampleAwsEvidentlySegment.name,
  *                     weights: {
  *                         Variation2: 10000,
  *                     },
  *                 },
  *                 {
  *                     evaluationOrder: 2,
- *                     segment: aws_evidently_segment.example.name,
+ *                     segment: exampleAwsEvidentlySegment.name,
  *                     weights: {
  *                         Variation1: 40000,
  *                         Variation2: 30000,

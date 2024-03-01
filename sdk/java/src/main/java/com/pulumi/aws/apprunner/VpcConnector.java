@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var connector = new VpcConnector(&#34;connector&#34;, VpcConnectorArgs.builder()        
- *             .securityGroups(            
- *                 &#34;sg1&#34;,
- *                 &#34;sg2&#34;)
+ *             .vpcConnectorName(&#34;name&#34;)
  *             .subnets(            
  *                 &#34;subnet1&#34;,
  *                 &#34;subnet2&#34;)
- *             .vpcConnectorName(&#34;name&#34;)
+ *             .securityGroups(            
+ *                 &#34;sg1&#34;,
+ *                 &#34;sg2&#34;)
  *             .build());
  * 
  *     }

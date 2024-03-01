@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     subnetId: subnetId,
  * });
  * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
+ *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
  * const interface = route.then(route => aws.ec2.getNetworkInterface({
@@ -158,7 +158,7 @@ export interface GetRouteResult {
  *     subnetId: subnetId,
  * });
  * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
+ *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
  * const interface = route.then(route => aws.ec2.getNetworkInterface({

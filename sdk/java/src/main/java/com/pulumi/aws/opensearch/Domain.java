@@ -74,10 +74,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;example&#34;)
+ *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;r4.large.search&#34;)
  *                 .build())
- *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
  *             .build());
  * 
@@ -115,11 +116,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -127,7 +128,7 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;*&#34;)
  *                     .build())
  *                 .actions(&#34;es:*&#34;)
- *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test(&#34;IpAddress&#34;)
  *                     .variable(&#34;aws:SourceIp&#34;)
@@ -137,7 +138,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .domainName(domain)
+ *             .accessPolicies(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -151,6 +153,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
@@ -171,9 +174,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -190,7 +195,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
  *             .policyName(&#34;example&#34;)
- *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policyDocument(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
@@ -227,7 +232,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -244,30 +248,31 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var vpc = config.get(&#34;vpc&#34;);
  *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var exampleVpc = Ec2Functions.getVpc(GetVpcArgs.builder()
+ *         final var example = Ec2Functions.getVpc(GetVpcArgs.builder()
  *             .tags(Map.of(&#34;Name&#34;, vpc))
  *             .build());
  * 
- *         final var exampleSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *         final var exampleGetSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
  *                 .name(&#34;vpc-id&#34;)
- *                 .values(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *                 .values(example.applyValue(getVpcResult -&gt; getVpcResult.id()))
  *                 .build())
  *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
  *             .build());
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *             .name(String.format(&#34;%s-opensearch-%s&#34;, vpc,domain))
  *             .description(&#34;Managed by Pulumi&#34;)
- *             .vpcId(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *             .vpcId(example.applyValue(getVpcResult -&gt; getVpcResult.id()))
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+ *                 .cidrBlocks(example.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
  *                 .build())
  *             .build());
  * 
@@ -275,7 +280,7 @@ import javax.annotation.Nullable;
  *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -283,11 +288,12 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;*&#34;)
  *                     .build())
  *                 .actions(&#34;es:*&#34;)
- *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
  *                 .build())
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .domainName(domain)
  *             .engineVersion(&#34;OpenSearch_1.0&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;m4.large.search&#34;)
@@ -295,16 +301,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
- *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
+ *                     exampleGetSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
+ *                     exampleGetSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                 .securityGroupIds(exampleSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
- *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .accessPolicies(exampleGetPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleServiceLinkedRole)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -321,13 +325,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -342,32 +346,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;ggkitty&#34;)
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
  *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .anonymousAuthEnabled(true)
  *                 .enabled(false)
+ *                 .anonymousAuthEnabled(true)
  *                 .internalUserDatabaseEnabled(true)
  *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
  *                     .masterUserName(&#34;example&#34;)
  *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
  *                     .build())
  *                 .build())
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r5.large.search&#34;)
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
  *                 .build())
  *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
  *                 .enforceHttps(true)
  *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
  *                 .build())
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
  *             .ebsOptions(DomainEbsOptionsArgs.builder()
  *                 .ebsEnabled(true)
  *                 .volumeSize(10)
- *                 .build())
- *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
- *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
- *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
@@ -385,13 +390,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -406,32 +411,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;ggkitty&#34;)
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
  *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .anonymousAuthEnabled(true)
  *                 .enabled(true)
+ *                 .anonymousAuthEnabled(true)
  *                 .internalUserDatabaseEnabled(true)
  *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
  *                     .masterUserName(&#34;example&#34;)
  *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
  *                     .build())
  *                 .build())
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r5.large.search&#34;)
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
  *                 .build())
  *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
  *                 .enforceHttps(true)
  *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
  *                 .build())
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
  *             .ebsOptions(DomainEbsOptionsArgs.builder()
  *                 .ebsEnabled(true)
  *                 .volumeSize(10)
- *                 .build())
- *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
- *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
- *                 .enabled(true)
  *                 .build())
  *             .build());
  * 

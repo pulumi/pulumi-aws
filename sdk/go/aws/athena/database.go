@@ -28,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = athena.NewDatabase(ctx, "exampleDatabase", &athena.DatabaseArgs{
+//			_, err = athena.NewDatabase(ctx, "example", &athena.DatabaseArgs{
 //				Name:   pulumi.String("database_name"),
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -22,8 +22,9 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geoMatchSet", new()
+    ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geo_match_set", new()
     ///     {
+    ///         Name = "geo_match_set",
     ///         GeoMatchConstraints = new[]
     ///         {
     ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs

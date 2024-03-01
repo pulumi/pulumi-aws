@@ -29,11 +29,13 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
+// testTopic, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
+// Name: pulumi.String("backup-vault-events"),
+// })
 // if err != nil {
 // return err
 // }
-// testPolicyDocument := testTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// test := testTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
@@ -58,16 +60,16 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "testTopicPolicy", &sns.TopicPolicyArgs{
+// _, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
 // Arn: testTopic.Arn,
-// Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &testPolicyDocument.Json, nil
+// Policy: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+// return &test.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = backup.NewVaultNotifications(ctx, "testVaultNotifications", &backup.VaultNotificationsArgs{
+// _, err = backup.NewVaultNotifications(ctx, "test", &backup.VaultNotificationsArgs{
 // BackupVaultName: pulumi.String("example_backup_vault"),
 // SnsTopicArn: testTopic.Arn,
 // BackupVaultEvents: pulumi.StringArray{

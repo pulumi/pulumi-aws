@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				DataLocation: lakeformation.GetPermissionsDataLocation{
-//					Arn: aws_lakeformation_resource.Test.Arn,
+//					Arn: testAwsLakeformationResource.Arn,
 //				},
 //			}, nil)
 //			if err != nil {
@@ -59,9 +59,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				Database: lakeformation.GetPermissionsDatabase{
-//					Name:      aws_glue_catalog_database.Test.Name,
+//					Name:      testAwsGlueCatalogDatabase.Name,
 //					CatalogId: "110376042874",
 //				},
 //			}, nil)
@@ -88,7 +88,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				LfTagPolicy: lakeformation.GetPermissionsLfTagPolicy{
 //					ResourceType: "DATABASE",
 //					Expressions: []lakeformation.GetPermissionsLfTagPolicyExpression{

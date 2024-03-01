@@ -28,15 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWorkgroup, err := redshiftserverless.NewWorkgroup(ctx, "exampleWorkgroup", &redshiftserverless.WorkgroupArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_namespace.Example.Namespace_name),
+//			example, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
+//				NamespaceName: pulumi.Any(exampleAwsRedshiftserverlessNamespace.NamespaceName),
 //				WorkgroupName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshiftserverless.NewUsageLimit(ctx, "exampleUsageLimit", &redshiftserverless.UsageLimitArgs{
-//				ResourceArn: exampleWorkgroup.Arn,
+//			_, err = redshiftserverless.NewUsageLimit(ctx, "example", &redshiftserverless.UsageLimitArgs{
+//				ResourceArn: example.Arn,
 //				UsageType:   pulumi.String("serverless-compute"),
 //				Amount:      pulumi.Int(60),
 //			})

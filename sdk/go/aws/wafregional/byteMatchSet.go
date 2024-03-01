@@ -27,16 +27,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewByteMatchSet(ctx, "byteSet", &wafregional.ByteMatchSetArgs{
+//			_, err := wafregional.NewByteMatchSet(ctx, "byte_set", &wafregional.ByteMatchSetArgs{
+//				Name: pulumi.String("my_waf_byte_match_set"),
 //				ByteMatchTuples: wafregional.ByteMatchSetByteMatchTupleArray{
 //					&wafregional.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
 //						TextTransformation:   pulumi.String("NONE"),
+//						TargetString:         pulumi.String("badrefer1"),
+//						PositionalConstraint: pulumi.String("CONTAINS"),
+//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("HEADER"),
+//							Data: pulumi.String("referer"),
+//						},
 //					},
 //				},
 //			})

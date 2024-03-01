@@ -46,7 +46,7 @@ import {EngineType} from "./index";
  * });
  * const clusterInstances: aws.rds.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${range.value}`, {
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r4.large",

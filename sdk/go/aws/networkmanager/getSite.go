@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.LookupSite(ctx, &networkmanager.LookupSiteArgs{
-//				GlobalNetworkId: _var.Global_network_id,
-//				SiteId:          _var.Site_id,
+//				GlobalNetworkId: globalNetworkId,
+//				SiteId:          siteId,
 //			}, nil)
 //			if err != nil {
 //				return err

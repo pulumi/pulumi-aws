@@ -24,6 +24,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var example = new Aws.WafRegional.RegexPatternSet("example", new()
     ///     {
+    ///         Name = "example",
     ///         RegexPatternStrings = new[]
     ///         {
     ///             "one",

@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewConnection(ctx, "example", &networkmanager.ConnectionArgs{
-//				GlobalNetworkId:   pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:          pulumi.Any(aws_networkmanager_device.Example1.Id),
-//				ConnectedDeviceId: pulumi.Any(aws_networkmanager_device.Example2.Id),
+//				GlobalNetworkId:   pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				DeviceId:          pulumi.Any(example1.Id),
+//				ConnectedDeviceId: pulumi.Any(example2.Id),
 //			})
 //			if err != nil {
 //				return err

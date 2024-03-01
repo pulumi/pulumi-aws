@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
  * import com.pulumi.aws.vpclattice.Listener;
  * import com.pulumi.aws.vpclattice.ListenerArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
@@ -46,11 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleService = new Service(&#34;exampleService&#34;);
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .protocol(&#34;HTTPS&#34;)
- *             .serviceIdentifier(exampleService.id())
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
  *                     .statusCode(404)
@@ -69,6 +73,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
  * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
@@ -88,20 +93,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleService = new Service(&#34;exampleService&#34;);
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-1&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(exampleService.id())
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(ListenerDefaultActionForwardTargetGroupArgs.builder()
@@ -122,6 +131,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
  * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
@@ -141,29 +151,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleService = new Service(&#34;exampleService&#34;);
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var example1 = new TargetGroup(&#34;example1&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-1&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *         var example2 = new TargetGroup(&#34;example2&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-2&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(8080)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(exampleService.id())
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(                    

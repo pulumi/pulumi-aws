@@ -13,6 +13,31 @@ namespace Pulumi.Aws.IdentityStore
     /// Resource for managing an AWS IdentityStore Group.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = new Aws.IdentityStore.Group("this", new()
+    ///     {
+    ///         DisplayName = "Example group",
+    ///         Description = "Example description",
+    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

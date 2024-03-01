@@ -313,8 +313,9 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            asserted_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            name="daisyguttridge",
             wait_period_ms=5000,
             rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
                 inverted=False,
@@ -328,10 +329,11 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.SafetyRule("example",
+            name="i_o",
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
             wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            gating_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
+            target_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
                 inverted=False,
                 threshold=1,
@@ -375,8 +377,9 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            asserted_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            name="daisyguttridge",
             wait_period_ms=5000,
             rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
                 inverted=False,
@@ -390,10 +393,11 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.SafetyRule("example",
+            name="i_o",
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
             wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            gating_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
+            target_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
                 inverted=False,
                 threshold=1,

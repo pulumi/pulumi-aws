@@ -27,6 +27,16 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var r = new Aws.Cfg.Rule("r", new()
+    ///     {
+    ///         Name = "example",
+    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         {
+    ///             Owner = "AWS",
+    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///         },
+    ///     });
+    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -53,32 +63,19 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var rRole = new Aws.Iam.Role("r", new()
     ///     {
+    ///         Name = "my-awsconfig-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = role.Arn,
+    ///         Name = "example",
+    ///         RoleArn = rRole.Arn,
     ///     });
     /// 
-    ///     var rule = new Aws.Cfg.Rule("rule", new()
-    ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             foo,
-    ///         },
-    ///     });
-    /// 
-    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -97,10 +94,11 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     var pRolePolicy = new Aws.Iam.RolePolicy("p", new()
     ///     {
-    ///         Role = role.Id,
-    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "my-awsconfig-policy",
+    ///         Role = rRole.Id,
+    ///         Policy = p.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -117,33 +115,24 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRecorder = new Aws.Cfg.Recorder("exampleRecorder");
+    ///     var example = new Aws.Cfg.Recorder("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction");
+    ///     var exampleFunction = new Aws.Lambda.Function("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
+    ///     var examplePermission = new Aws.Lambda.Permission("example", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
     ///         Function = exampleFunction.Arn,
     ///         Principal = "config.amazonaws.com",
+    ///         StatementId = "AllowExecutionFromConfig",
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleRule = new Aws.Cfg.Rule("exampleRule", new()
+    ///     var exampleRule = new Aws.Cfg.Rule("example", new()
     ///     {
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "CUSTOM_LAMBDA",
     ///             SourceIdentifier = exampleFunction.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleRecorder,
-    ///             examplePermission,
     ///         },
     ///     });
     /// 
@@ -161,6 +150,7 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.Rule("example", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "CUSTOM_POLICY",

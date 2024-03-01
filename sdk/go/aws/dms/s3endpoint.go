@@ -39,10 +39,8 @@ import (
 //				EndpointId:           pulumi.String("donnedtipi"),
 //				EndpointType:         pulumi.String("target"),
 //				BucketName:           pulumi.String("beckut_name"),
-//				ServiceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//				ServiceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -99,7 +97,7 @@ import (
 //				EnableStatistics:                     pulumi.Bool(false),
 //				EncodingType:                         pulumi.String("plain"),
 //				EncryptionMode:                       pulumi.String("SSE_S3"),
-//				ExpectedBucketOwner:                  pulumi.Any(data.Aws_caller_identity.Current.Account_id),
+//				ExpectedBucketOwner:                  pulumi.Any(current.AccountId),
 //				ExternalTableDefinition:              pulumi.String("etd"),
 //				IgnoreHeaderRows:                     pulumi.Int(1),
 //				IncludeOpForFullLoad:                 pulumi.Bool(true),
@@ -109,15 +107,13 @@ import (
 //				PreserveTransactions:                 pulumi.Bool(false),
 //				Rfc4180:                              pulumi.Bool(false),
 //				RowGroupLength:                       pulumi.Int(11000),
-//				ServerSideEncryptionKmsKeyId:         pulumi.Any(aws_kms_key.Example.Arn),
-//				ServiceAccessRoleArn:                 pulumi.Any(aws_iam_role.Example.Arn),
+//				ServerSideEncryptionKmsKeyId:         pulumi.Any(exampleAwsKmsKey.Arn),
+//				ServiceAccessRoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
 //				TimestampColumnName:                  pulumi.String("tx_commit_time"),
 //				UseCsvNoSupValue:                     pulumi.Bool(false),
 //				UseTaskStartTimeForFullLoadTimestamp: pulumi.Bool(true),
 //				GlueCatalogGeneration:                pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

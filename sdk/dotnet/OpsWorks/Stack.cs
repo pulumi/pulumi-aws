@@ -24,9 +24,10 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var main = new Aws.OpsWorks.Stack("main", new()
     ///     {
+    ///         Name = "awesome-stack",
     ///         Region = "us-west-1",
-    ///         ServiceRoleArn = aws_iam_role.Opsworks.Arn,
-    ///         DefaultInstanceProfileArn = aws_iam_instance_profile.Opsworks.Arn,
+    ///         ServiceRoleArn = opsworksAwsIamRole.Arn,
+    ///         DefaultInstanceProfileArn = opsworks.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "foobar-stack" },

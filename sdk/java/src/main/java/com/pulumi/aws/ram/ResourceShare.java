@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceShare(&#34;example&#34;, ResourceShareArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .allowExternalPrincipals(true)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
  *             .build());

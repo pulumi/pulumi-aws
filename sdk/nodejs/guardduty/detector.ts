@@ -18,8 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDetector = new aws.guardduty.Detector("myDetector", {
+ * const myDetector = new aws.guardduty.Detector("MyDetector", {
+ *     enable: true,
  *     datasources: {
+ *         s3Logs: {
+ *             enable: true,
+ *         },
  *         kubernetes: {
  *             auditLogs: {
  *                 enable: false,
@@ -32,11 +36,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         },
- *         s3Logs: {
- *             enable: true,
- *         },
  *     },
- *     enable: true,
  * });
  * ```
  *

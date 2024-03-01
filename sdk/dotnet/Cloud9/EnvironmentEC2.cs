@@ -26,8 +26,9 @@ namespace Pulumi.Aws.Cloud9
     /// {
     ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
-    ///         ImageId = "amazonlinux-2023-x86_64",
     ///         InstanceType = "t2.micro",
+    ///         Name = "example-env",
+    ///         ImageId = "amazonlinux-2023-x86_64",
     ///     });
     /// 
     /// });
@@ -65,7 +66,7 @@ namespace Pulumi.Aws.Cloud9
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["cloud9Url"] = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}"),
+    ///         ["cloud9Url"] = example.Id.Apply(id =&gt; $"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"),
     ///     };
     /// });
     /// ```
@@ -100,7 +101,7 @@ namespace Pulumi.Aws.Cloud9
     ///         },
     ///     });
     /// 
-    ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new()
+    ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9_eip", new()
     ///     {
     ///         Instance = cloud9Instance.Apply(getInstanceResult =&gt; getInstanceResult.Id),
     ///         Domain = "vpc",

@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Synthetics
     /// {
     ///     var example = new Aws.Synthetics.GroupAssociation("example", new()
     ///     {
-    ///         GroupName = aws_synthetics_group.Example.Name,
-    ///         CanaryArn = aws_synthetics_canary.Example.Arn,
+    ///         GroupName = exampleAwsSyntheticsGroup.Name,
+    ///         CanaryArn = exampleAwsSyntheticsCanary.Arn,
     ///     });
     /// 
     /// });

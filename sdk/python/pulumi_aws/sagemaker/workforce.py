@@ -243,14 +243,15 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_user_pool_client = aws.cognito.UserPoolClient("example",
+            name="example",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
             domain="example",
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
+        example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
                 client_id=example_user_pool_client.id,
@@ -264,6 +265,7 @@ class Workforce(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
+            workforce_name="example",
             oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
                 authorization_endpoint="https://example.com",
                 client_id="example",
@@ -273,8 +275,7 @@ class Workforce(pulumi.CustomResource):
                 logout_endpoint="https://example.com",
                 token_endpoint="https://example.com",
                 user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+            ))
         ```
 
         ## Import
@@ -309,14 +310,15 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_user_pool_client = aws.cognito.UserPoolClient("example",
+            name="example",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
             domain="example",
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
+        example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
                 client_id=example_user_pool_client.id,
@@ -330,6 +332,7 @@ class Workforce(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
+            workforce_name="example",
             oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
                 authorization_endpoint="https://example.com",
                 client_id="example",
@@ -339,8 +342,7 @@ class Workforce(pulumi.CustomResource):
                 logout_endpoint="https://example.com",
                 token_endpoint="https://example.com",
                 user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+            ))
         ```
 
         ## Import

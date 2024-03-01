@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Returns all public IPv4 pools.
         ///     var example = Aws.Ec2.GetPublicIpv4Pools.Invoke();
         /// 
         /// });
@@ -82,6 +83,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Returns all public IPv4 pools.
         ///     var example = Aws.Ec2.GetPublicIpv4Pools.Invoke();
         /// 
         /// });

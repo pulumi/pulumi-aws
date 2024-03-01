@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
  *             .autoVerifiedAttributes(&#34;email&#34;)
  *             .build());
  * 

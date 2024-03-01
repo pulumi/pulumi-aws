@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
@@ -52,17 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;mybucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2(&#34;exampleBucketObjectLockConfigurationV2&#34;, BucketObjectLockConfigurationV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()
  *                     .mode(&#34;COMPLIANCE&#34;)

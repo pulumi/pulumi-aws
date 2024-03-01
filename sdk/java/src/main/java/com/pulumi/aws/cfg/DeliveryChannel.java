@@ -29,17 +29,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.cfg.DeliveryChannel;
+ * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.DeliveryChannel;
- * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,8 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
+ *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-awsconfig&#34;)
  *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var foo = new DeliveryChannel(&#34;foo&#34;, DeliveryChannelArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .s3BucketName(b.bucket())
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -68,33 +73,30 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *         var r = new Role(&#34;r&#34;, RoleArgs.builder()        
+ *             .name(&#34;awsconfig-example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(r.arn())
  *             .build());
  * 
- *         var fooDeliveryChannel = new DeliveryChannel(&#34;fooDeliveryChannel&#34;, DeliveryChannelArgs.builder()        
- *             .s3BucketName(bucketV2.bucket())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(fooRecorder)
- *                 .build());
- * 
- *         final var policyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;s3:*&#34;)
  *                 .resources(                
- *                     bucketV2.arn(),
- *                     bucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     b.arn(),
+ *                     b.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
  *                 .build())
  *             .build());
  * 
- *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyDocument -&gt; policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var pRolePolicy = new RolePolicy(&#34;pRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;awsconfig-example&#34;)
+ *             .role(r.id())
+ *             .policy(p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(p -&gt; p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

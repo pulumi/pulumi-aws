@@ -42,9 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SubnetGroup(&#34;default&#34;, SubnetGroupArgs.builder()        
+ *             .name(&#34;main&#34;)
  *             .subnetIds(            
- *                 aws_subnet.frontend().id(),
- *                 aws_subnet.backend().id())
+ *                 frontend.id(),
+ *                 backend.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;My neptune subnet group&#34;))
  *             .build());
  * 

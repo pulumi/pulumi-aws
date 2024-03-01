@@ -34,23 +34,23 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
         /// 
+        ///     // e.g., Create subnets in the first two available availability zones
         ///     var primary = new Aws.Ec2.Subnet("primary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
         ///     });
         /// 
-        ///     // ...
         ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
         ///     });
         /// 
-        ///     // ...
         /// });
         /// ```
         /// {{% /example %}}
@@ -143,23 +143,23 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
         /// 
+        ///     // e.g., Create subnets in the first two available availability zones
         ///     var primary = new Aws.Ec2.Subnet("primary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
         ///     });
         /// 
-        ///     // ...
         ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
         ///     });
         /// 
-        ///     // ...
         /// });
         /// ```
         /// {{% /example %}}

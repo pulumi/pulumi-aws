@@ -84,7 +84,7 @@ import (
 //				Enabled: pulumi.Bool(true),
 //				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
 //					Items: pulumi.StringArray{
-//						aws_cloudfront_distribution.Staging.Domain_name,
+//						staging.DomainName,
 //					},
 //					Quantity: pulumi.Int(1),
 //				},
@@ -125,7 +125,7 @@ import (
 //				Enabled: pulumi.Bool(true),
 //				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
 //					Items: pulumi.StringArray{
-//						aws_cloudfront_distribution.Staging.Domain_name,
+//						staging.DomainName,
 //					},
 //					Quantity: pulumi.Int(1),
 //				},

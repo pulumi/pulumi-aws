@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",

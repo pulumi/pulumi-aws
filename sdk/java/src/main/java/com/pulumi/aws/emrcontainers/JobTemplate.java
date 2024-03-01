@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new JobTemplate(&#34;example&#34;, JobTemplateArgs.builder()        
  *             .jobTemplateData(JobTemplateJobTemplateDataArgs.builder()
- *                 .executionRoleArn(aws_iam_role.example().arn())
+ *                 .executionRoleArn(exampleAwsIamRole.arn())
  *                 .releaseLabel(&#34;emr-6.10.0-latest&#34;)
  *                 .jobDriver(JobTemplateJobTemplateDataJobDriverArgs.builder()
  *                     .sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.builder()
@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

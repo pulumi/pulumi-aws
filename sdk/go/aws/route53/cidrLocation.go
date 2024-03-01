@@ -28,12 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", nil)
+//			example, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
+//				Name: pulumi.String("collection-1"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewCidrLocation(ctx, "exampleCidrLocation", &route53.CidrLocationArgs{
-//				CidrCollectionId: exampleCidrCollection.ID(),
+//			_, err = route53.NewCidrLocation(ctx, "example", &route53.CidrLocationArgs{
+//				CidrCollectionId: example.ID(),
+//				Name:             pulumi.String("office"),
 //				CidrBlocks: pulumi.StringArray{
 //					pulumi.String("200.5.3.0/24"),
 //					pulumi.String("200.6.3.0/24"),

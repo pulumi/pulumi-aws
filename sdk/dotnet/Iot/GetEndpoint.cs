@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetEndpoint.Invoke();
         /// 
-        ///     var agent = new Kubernetes.Index.Kubernetes_pod("agent", new()
+        ///     var agent = new Kubernetes.Index.Pod("agent", new()
         ///     {
         ///         Metadata = new[]
         ///         {
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetEndpoint.Invoke();
         /// 
-        ///     var agent = new Kubernetes.Index.Kubernetes_pod("agent", new()
+        ///     var agent = new Kubernetes.Index.Pod("agent", new()
         ///     {
         ///         Metadata = new[]
         ///         {

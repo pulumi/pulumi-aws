@@ -31,10 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -61,10 +62,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
 //				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
 //					Name:          pulumi.String("AUTO"),
 //					CoolingPeriod: pulumi.Int(31),

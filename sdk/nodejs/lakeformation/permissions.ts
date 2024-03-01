@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentSessionContext = currentCallerIdentity.then(currentCallerIdentity => aws.iam.getSessionContext({
- *     arn: currentCallerIdentity.arn,
+ * const current = aws.getCallerIdentity({});
+ * const currentGetSessionContext = current.then(current => aws.iam.getSessionContext({
+ *     arn: current.arn,
  * }));
- * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentSessionContext.then(currentSessionContext => currentSessionContext.issuerArn)]});
+ * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentGetSessionContext.then(currentGetSessionContext => currentGetSessionContext.issuerArn)]});
  * ```
  *
  * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
@@ -55,10 +55,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "sadabate"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const example = new aws.glue.CatalogDatabase("example", {name: "sadabate"});
+ * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
  *     name: "abelt",
- *     databaseName: aws_glue_catalog_database.test.name,
+ *     databaseName: test.name,
  *     storageDescriptor: {
  *         columns: [{
  *             name: "event",
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const examplePermissions = new aws.lakeformation.Permissions("examplePermissions", {
+ * const examplePermissions = new aws.lakeformation.Permissions("example", {
  *     permissions: ["SELECT"],
  *     principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
  *     tableWithColumns: {
@@ -99,10 +99,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     permissions: ["DATA_LOCATION_ACCESS"],
  *     dataLocation: {
- *         arn: aws_lakeformation_resource.example.arn,
+ *         arn: exampleAwsLakeformationResource.arn,
  *     },
  * });
  * ```
@@ -113,14 +113,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     permissions: [
  *         "CREATE_TABLE",
  *         "ALTER",
  *         "DROP",
  *     ],
  *     database: {
- *         name: aws_glue_catalog_database.example.name,
+ *         name: exampleAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
  * });
@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lakeformation.Permissions("test", {
- *     principal: aws_iam_role.sales_role.arn,
+ *     principal: salesRole.arn,
  *     permissions: [
  *         "CREATE_TABLE",
  *         "ALTER",

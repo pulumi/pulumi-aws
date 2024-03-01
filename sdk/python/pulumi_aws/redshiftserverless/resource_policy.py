@@ -108,16 +108,16 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.ResourcePolicy("example",
-            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+            resource_arn=example_aws_redshiftserverless_snapshot["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": ["12345678901"],
                     },
-                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
-                    "Sid": "",
+                    "action": ["redshift-serverless:RestoreFromSnapshot"],
+                    "sid": "",
                 }],
             }))
         ```
@@ -152,16 +152,16 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.ResourcePolicy("example",
-            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+            resource_arn=example_aws_redshiftserverless_snapshot["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": ["12345678901"],
                     },
-                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
-                    "Sid": "",
+                    "action": ["redshift-serverless:RestoreFromSnapshot"],
+                    "sid": "",
                 }],
             }))
         ```

@@ -125,10 +125,10 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork", global_network_id=aws_networkmanager_global_network["example"]["id"])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
-            core_network_id=example_core_network.id,
-            policy_document=data["aws_networkmanager_core_network_policy_document"]["example"]["json"])
+        example = aws.networkmanager.CoreNetwork("example", global_network_id=example_aws_networkmanager_global_network["id"])
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
+            core_network_id=example.id,
+            policy_document=example_aws_networkmanager_core_network_policy_document["json"])
         ```
         ### With VPC Attachment (Single Region)
 
@@ -142,7 +142,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
         base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -153,15 +153,15 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
             segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
                 name="segment",
             )])
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
             create_base_policy=True)
-        example_vpc_attachment = aws.networkmanager.VpcAttachment("exampleVpcAttachment",
+        example_vpc_attachment = aws.networkmanager.VpcAttachment("example",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example"]],
-            vpc_arn=aws_vpc["example"]["arn"])
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            vpc_arn=example_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
                     location="us-west-2",
@@ -177,9 +177,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                 destination_cidr_blocks=["0.0.0.0/0"],
                 destinations=[example_vpc_attachment.id],
             )])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### Option 2 - create_base_policy only
 
@@ -187,15 +187,15 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             create_base_policy=True)
-        example_vpc_attachment = aws.networkmanager.VpcAttachment("exampleVpcAttachment",
+        example_vpc_attachment = aws.networkmanager.VpcAttachment("example",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example"]],
-            vpc_arn=aws_vpc["example"]["arn"])
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            vpc_arn=example_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
                     location="us-west-2",
@@ -210,9 +210,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                 destination_cidr_blocks=["0.0.0.0/0"],
                 destinations=[example_vpc_attachment.id],
             )])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### With VPC Attachment (Multi-Region)
 
@@ -226,7 +226,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
         base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
@@ -243,20 +243,19 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
             segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
                 name="segment",
             )])
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
             create_base_policy=True)
-        example_us_west2 = aws.networkmanager.VpcAttachment("exampleUsWest2",
+        example_us_west2 = aws.networkmanager.VpcAttachment("example_us_west_2",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_west_2"]],
-            vpc_arn=aws_vpc["example_us_west_2"]["arn"])
-        example_us_east1 = aws.networkmanager.VpcAttachment("exampleUsEast1",
+            subnet_arns=[__item["arn"] for __item in example_us_west2_aws_subnet],
+            vpc_arn=example_us_west2_aws_vpc["arn"])
+        example_us_east1 = aws.networkmanager.VpcAttachment("example_us_east_1",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_east_1"]],
-            vpc_arn=aws_vpc["example_us_east_1"]["arn"],
-            opts=pulumi.ResourceOptions(provider="alternate"))
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
+            vpc_arn=example_us_east1_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
                     aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -291,9 +290,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                     destinations=[example_us_east1.id],
                 ),
             ])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### Option 2 - using base_policy_regions
 
@@ -301,24 +300,23 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_regions=[
                 "us-west-2",
                 "us-east-1",
             ],
             create_base_policy=True)
-        example_us_west2 = aws.networkmanager.VpcAttachment("exampleUsWest2",
+        example_us_west2 = aws.networkmanager.VpcAttachment("example_us_west_2",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_west_2"]],
-            vpc_arn=aws_vpc["example_us_west_2"]["arn"])
-        example_us_east1 = aws.networkmanager.VpcAttachment("exampleUsEast1",
+            subnet_arns=[__item["arn"] for __item in example_us_west2_aws_subnet],
+            vpc_arn=example_us_west2_aws_vpc["arn"])
+        example_us_east1 = aws.networkmanager.VpcAttachment("example_us_east_1",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_east_1"]],
-            vpc_arn=aws_vpc["example_us_east_1"]["arn"],
-            opts=pulumi.ResourceOptions(provider="alternate"))
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
+            vpc_arn=example_us_east1_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
                     aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -351,9 +349,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                     destinations=[example_us_east1.id],
                 ),
             ])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
 
         ## Import
@@ -387,10 +385,10 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork", global_network_id=aws_networkmanager_global_network["example"]["id"])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
-            core_network_id=example_core_network.id,
-            policy_document=data["aws_networkmanager_core_network_policy_document"]["example"]["json"])
+        example = aws.networkmanager.CoreNetwork("example", global_network_id=example_aws_networkmanager_global_network["id"])
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
+            core_network_id=example.id,
+            policy_document=example_aws_networkmanager_core_network_policy_document["json"])
         ```
         ### With VPC Attachment (Single Region)
 
@@ -404,7 +402,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
         base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -415,15 +413,15 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
             segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
                 name="segment",
             )])
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
             create_base_policy=True)
-        example_vpc_attachment = aws.networkmanager.VpcAttachment("exampleVpcAttachment",
+        example_vpc_attachment = aws.networkmanager.VpcAttachment("example",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example"]],
-            vpc_arn=aws_vpc["example"]["arn"])
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            vpc_arn=example_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
                     location="us-west-2",
@@ -439,9 +437,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                 destination_cidr_blocks=["0.0.0.0/0"],
                 destinations=[example_vpc_attachment.id],
             )])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### Option 2 - create_base_policy only
 
@@ -449,15 +447,15 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             create_base_policy=True)
-        example_vpc_attachment = aws.networkmanager.VpcAttachment("exampleVpcAttachment",
+        example_vpc_attachment = aws.networkmanager.VpcAttachment("example",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example"]],
-            vpc_arn=aws_vpc["example"]["arn"])
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            vpc_arn=example_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
                     location="us-west-2",
@@ -472,9 +470,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                 destination_cidr_blocks=["0.0.0.0/0"],
                 destinations=[example_vpc_attachment.id],
             )])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### With VPC Attachment (Multi-Region)
 
@@ -488,7 +486,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
         base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
@@ -505,20 +503,19 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
             segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
                 name="segment",
             )])
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
             create_base_policy=True)
-        example_us_west2 = aws.networkmanager.VpcAttachment("exampleUsWest2",
+        example_us_west2 = aws.networkmanager.VpcAttachment("example_us_west_2",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_west_2"]],
-            vpc_arn=aws_vpc["example_us_west_2"]["arn"])
-        example_us_east1 = aws.networkmanager.VpcAttachment("exampleUsEast1",
+            subnet_arns=[__item["arn"] for __item in example_us_west2_aws_subnet],
+            vpc_arn=example_us_west2_aws_vpc["arn"])
+        example_us_east1 = aws.networkmanager.VpcAttachment("example_us_east_1",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_east_1"]],
-            vpc_arn=aws_vpc["example_us_east_1"]["arn"],
-            opts=pulumi.ResourceOptions(provider="alternate"))
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
+            vpc_arn=example_us_east1_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
                     aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -553,9 +550,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                     destinations=[example_us_east1.id],
                 ),
             ])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
         ### Option 2 - using base_policy_regions
 
@@ -563,24 +560,23 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
-        example_core_network = aws.networkmanager.CoreNetwork("exampleCoreNetwork",
+        example_global_network = aws.networkmanager.GlobalNetwork("example")
+        example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_regions=[
                 "us-west-2",
                 "us-east-1",
             ],
             create_base_policy=True)
-        example_us_west2 = aws.networkmanager.VpcAttachment("exampleUsWest2",
+        example_us_west2 = aws.networkmanager.VpcAttachment("example_us_west_2",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_west_2"]],
-            vpc_arn=aws_vpc["example_us_west_2"]["arn"])
-        example_us_east1 = aws.networkmanager.VpcAttachment("exampleUsEast1",
+            subnet_arns=[__item["arn"] for __item in example_us_west2_aws_subnet],
+            vpc_arn=example_us_west2_aws_vpc["arn"])
+        example_us_east1 = aws.networkmanager.VpcAttachment("example_us_east_1",
             core_network_id=example_core_network.id,
-            subnet_arns=[__item["arn"] for __item in aws_subnet["example_us_east_1"]],
-            vpc_arn=aws_vpc["example_us_east_1"]["arn"],
-            opts=pulumi.ResourceOptions(provider="alternate"))
-        example_core_network_policy_document = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
+            vpc_arn=example_us_east1_aws_vpc["arn"])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
                 asn_ranges=["65022-65534"],
                 edge_locations=[
                     aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
@@ -613,9 +609,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                     destinations=[example_us_east1.id],
                 ),
             ])
-        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment",
+        example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
-            policy_document=example_core_network_policy_document.json)
+            policy_document=example.json)
         ```
 
         ## Import

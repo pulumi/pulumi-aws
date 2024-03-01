@@ -30,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewAccountVdmAttributes(ctx, "example", &sesv2.AccountVdmAttributesArgs{
+//				VdmEnabled: pulumi.String("ENABLED"),
 //				DashboardAttributes: &sesv2.AccountVdmAttributesDashboardAttributesArgs{
 //					EngagementMetrics: pulumi.String("ENABLED"),
 //				},
 //				GuardianAttributes: &sesv2.AccountVdmAttributesGuardianAttributesArgs{
 //					OptimizedSharedDelivery: pulumi.String("ENABLED"),
 //				},
-//				VdmEnabled: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err

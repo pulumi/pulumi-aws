@@ -28,9 +28,9 @@ namespace Pulumi.Aws.StorageGateway
     ///         {
     ///             "0.0.0.0/0",
     ///         },
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

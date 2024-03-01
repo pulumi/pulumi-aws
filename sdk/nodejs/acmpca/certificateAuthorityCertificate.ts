@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     type: "ROOT",
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const current = aws.getPartition({});
- * const exampleCertificate = new aws.acmpca.Certificate("exampleCertificate", {
+ * const exampleCertificate = new aws.acmpca.Certificate("example", {
  *     certificateAuthorityArn: exampleCertificateAuthority.arn,
  *     certificateSigningRequest: exampleCertificateAuthority.certificateSigningRequest,
  *     signingAlgorithm: "SHA512WITHRSA",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         value: "1",
  *     },
  * });
- * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", {
+ * const example = new aws.acmpca.CertificateAuthorityCertificate("example", {
  *     certificateAuthorityArn: exampleCertificateAuthority.arn,
  *     certificate: exampleCertificate.certificate,
  *     certificateChain: exampleCertificate.certificateChain,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const subordinateCertificateAuthority = new aws.acmpca.CertificateAuthority("subordinateCertificateAuthority", {
+ * const subordinateCertificateAuthority = new aws.acmpca.CertificateAuthority("subordinate", {
  *     type: "SUBORDINATE",
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_2048",
@@ -59,11 +59,10 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const rootCertificateAuthority = new aws.acmpca.CertificateAuthority("rootCertificateAuthority", {});
- * // ...
+ * const root = new aws.acmpca.CertificateAuthority("root", {});
  * const current = aws.getPartition({});
- * const subordinateCertificate = new aws.acmpca.Certificate("subordinateCertificate", {
- *     certificateAuthorityArn: rootCertificateAuthority.arn,
+ * const subordinateCertificate = new aws.acmpca.Certificate("subordinate", {
+ *     certificateAuthorityArn: root.arn,
  *     certificateSigningRequest: subordinateCertificateAuthority.certificateSigningRequest,
  *     signingAlgorithm: "SHA512WITHRSA",
  *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1`),
@@ -72,15 +71,13 @@ import * as utilities from "../utilities";
  *         value: "1",
  *     },
  * });
- * const subordinateCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate", {
+ * const subordinate = new aws.acmpca.CertificateAuthorityCertificate("subordinate", {
  *     certificateAuthorityArn: subordinateCertificateAuthority.arn,
  *     certificate: subordinateCertificate.certificate,
  *     certificateChain: subordinateCertificate.certificateChain,
  * });
- * const rootCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("rootCertificateAuthorityCertificate", {});
- * // ...
- * const rootCertificate = new aws.acmpca.Certificate("rootCertificate", {});
- * // ...
+ * const rootCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("root", {});
+ * const rootCertificate = new aws.acmpca.Certificate("root", {});
  * ```
  */
 export class CertificateAuthorityCertificate extends pulumi.CustomResource {

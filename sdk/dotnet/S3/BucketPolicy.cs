@@ -25,9 +25,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "my-tf-test-bucket",
+    ///     });
     /// 
-    ///     var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var allowAccessFromAnotherAccount = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,10 +61,10 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new()
+    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allow_access_from_another_account", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = allowAccessFromAnotherAccount.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

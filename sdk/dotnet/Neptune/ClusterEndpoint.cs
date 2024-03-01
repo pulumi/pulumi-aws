@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
+    ///         ClusterIdentifier = test.ClusterIdentifier,
     ///         ClusterEndpointIdentifier = "example",
     ///         EndpointType = "READER",
     ///     });

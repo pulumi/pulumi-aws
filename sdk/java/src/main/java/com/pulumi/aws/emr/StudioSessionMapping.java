@@ -39,10 +39,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StudioSessionMapping(&#34;example&#34;, StudioSessionMappingArgs.builder()        
- *             .studioId(aws_emr_studio.example().id())
+ *             .studioId(exampleAwsEmrStudio.id())
  *             .identityType(&#34;USER&#34;)
  *             .identityId(&#34;example&#34;)
- *             .sessionPolicyArn(aws_iam_policy.example().arn())
+ *             .sessionPolicyArn(exampleAwsIamPolicy.arn())
  *             .build());
  * 
  *     }

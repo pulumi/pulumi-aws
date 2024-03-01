@@ -58,12 +58,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *         var r = new Role(&#34;r&#34;, RoleArgs.builder()        
+ *             .name(&#34;awsconfig-example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(r.arn())
  *             .build());
  * 
  *     }
@@ -93,7 +95,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(aws_iam_role.r().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
  *                 .allSupported(false)
  *                 .exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs.builder()
@@ -134,7 +137,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(aws_iam_role.r().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
  *                 .allSupported(false)
  *                 .includeGlobalResourceTypes(false)

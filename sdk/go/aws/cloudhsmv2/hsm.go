@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cluster, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
-//				ClusterId: _var.Cloudhsm_cluster_id,
+//				ClusterId: cloudhsmClusterId,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsmV2Hsm", &cloudhsmv2.HsmArgs{
+//			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsm_v2_hsm", &cloudhsmv2.HsmArgs{
 //				SubnetId:  *pulumi.String(cluster.SubnetIds[0]),
 //				ClusterId: *pulumi.String(cluster.ClusterId),
 //			})

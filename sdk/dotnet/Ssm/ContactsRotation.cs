@@ -25,8 +25,9 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         ContactIds = new[]
     ///         {
-    ///             aws_ssmcontacts_contact.Example.Arn,
+    ///             exampleAwsSsmcontactsContact.Arn,
     ///         },
+    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
     ///             NumberOfOnCalls = 1,
@@ -41,12 +42,6 @@ namespace Pulumi.Aws.Ssm
     ///             },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
@@ -65,8 +60,9 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         ContactIds = new[]
     ///         {
-    ///             aws_ssmcontacts_contact.Example.Arn,
+    ///             exampleAwsSsmcontactsContact.Arn,
     ///         },
+    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
     ///             NumberOfOnCalls = 1,
@@ -123,12 +119,6 @@ namespace Pulumi.Aws.Ssm
     ///             { "key1", "tag1" },
     ///             { "key2", "tag2" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
@@ -147,8 +137,9 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         ContactIds = new[]
     ///         {
-    ///             aws_ssmcontacts_contact.Example.Arn,
+    ///             exampleAwsSsmcontactsContact.Arn,
     ///         },
+    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
     ///             NumberOfOnCalls = 1,
@@ -176,12 +167,6 @@ namespace Pulumi.Aws.Ssm
     ///             },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });

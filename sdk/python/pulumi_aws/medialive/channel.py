@@ -528,8 +528,9 @@ class Channel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
+            name="example-channel",
             channel_class="STANDARD",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             input_specification=aws.medialive.ChannelInputSpecificationArgs(
                 codec="AVC",
                 input_resolution="HD",
@@ -537,16 +538,16 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=example_aws_medialive_input["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
                 settings=[
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main']['id']}/test1",
+                        url=f"s3://{main['id']}/test1",
                     ),
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main2']['id']}/test2",
+                        url=f"s3://{main2['id']}/test2",
                     ),
                 ],
             )],
@@ -634,8 +635,9 @@ class Channel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
+            name="example-channel",
             channel_class="STANDARD",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             input_specification=aws.medialive.ChannelInputSpecificationArgs(
                 codec="AVC",
                 input_resolution="HD",
@@ -643,16 +645,16 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=example_aws_medialive_input["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
                 settings=[
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main']['id']}/test1",
+                        url=f"s3://{main['id']}/test1",
                     ),
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main2']['id']}/test2",
+                        url=f"s3://{main2['id']}/test2",
                     ),
                 ],
             )],

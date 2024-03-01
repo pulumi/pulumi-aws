@@ -145,8 +145,10 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
+            bucket=example.id,
+            name="EntireBucket")
         ```
         ### Add metrics configuration with S3 object filter
 
@@ -154,9 +156,10 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.BucketMetricFilterArgs(
                 prefix="documents/",
                 tags={
@@ -171,10 +174,13 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_access_point = aws.s3.AccessPoint("example-access-point", bucket=example.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example-access-point",
+            bucket=example.id,
+            name="example-access-point")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.BucketMetricFilterArgs(
                 access_point=example_access_point.arn,
                 tags={
@@ -216,8 +222,10 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
+            bucket=example.id,
+            name="EntireBucket")
         ```
         ### Add metrics configuration with S3 object filter
 
@@ -225,9 +233,10 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.BucketMetricFilterArgs(
                 prefix="documents/",
                 tags={
@@ -242,10 +251,13 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_access_point = aws.s3.AccessPoint("example-access-point", bucket=example.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example-access-point",
+            bucket=example.id,
+            name="example-access-point")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.BucketMetricFilterArgs(
                 access_point=example_access_point.arn,
                 tags={

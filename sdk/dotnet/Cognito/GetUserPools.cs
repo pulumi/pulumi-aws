@@ -26,21 +26,22 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         Name = @var.Api_gateway_name,
+        ///         Name = apiGatewayName,
         ///     });
         /// 
-        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
         ///     {
-        ///         Name = @var.Cognito_user_pool_name,
+        ///         Name = cognitoUserPoolName,
         ///     });
         /// 
         ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
         ///     {
+        ///         Name = "cognito",
         ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
         ///     });
         /// 
         /// });
@@ -66,21 +67,22 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         Name = @var.Api_gateway_name,
+        ///         Name = apiGatewayName,
         ///     });
         /// 
-        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
         ///     {
-        ///         Name = @var.Cognito_user_pool_name,
+        ///         Name = cognitoUserPoolName,
         ///     });
         /// 
         ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
         ///     {
+        ///         Name = "cognito",
         ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
         ///     });
         /// 
         /// });

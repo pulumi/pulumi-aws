@@ -559,7 +559,7 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example = aws.rds.Instance("example",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
@@ -570,10 +570,10 @@ class SnapshotCopy(pulumi.CustomResource):
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
+        example_snapshot = aws.rds.Snapshot("example",
+            db_instance_identifier=example.identifier,
             db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+        example_snapshot_copy = aws.rds.SnapshotCopy("example",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
@@ -613,7 +613,7 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example = aws.rds.Instance("example",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
@@ -624,10 +624,10 @@ class SnapshotCopy(pulumi.CustomResource):
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
+        example_snapshot = aws.rds.Snapshot("example",
+            db_instance_identifier=example.identifier,
             db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+        example_snapshot_copy = aws.rds.SnapshotCopy("example",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```

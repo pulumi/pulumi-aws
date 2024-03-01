@@ -21,7 +21,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleServerlessSecurityPolicy = new aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", {
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "encryption",
  *     policy: JSON.stringify({
  *         Rules: [{
@@ -31,9 +32,7 @@ import * as utilities from "../utilities";
  *         AWSOwnedKey: true,
  *     }),
  * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("exampleServerlessCollection", {}, {
- *     dependsOn: [exampleServerlessSecurityPolicy],
- * });
+ * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"});
  * ```
  *
  * ## Import

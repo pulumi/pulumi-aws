@@ -13,6 +13,136 @@ namespace Pulumi.Aws.Lex
     /// Provides an Amazon Lex Intent resource. For more information see
     /// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orderFlowersIntent = new Aws.Lex.Intent("order_flowers_intent", new()
+    ///     {
+    ///         ConfirmationPrompt = new Aws.Lex.Inputs.IntentConfirmationPromptArgs
+    ///         {
+    ///             MaxAttempts = 2,
+    ///             Messages = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.IntentConfirmationPromptMessageArgs
+    ///                 {
+    ///                     Content = "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
+    ///                     ContentType = "PlainText",
+    ///                 },
+    ///             },
+    ///         },
+    ///         CreateVersion = false,
+    ///         Name = "OrderFlowers",
+    ///         Description = "Intent to order a bouquet of flowers for pick up",
+    ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
+    ///         {
+    ///             Type = "ReturnIntent",
+    ///         },
+    ///         RejectionStatement = new Aws.Lex.Inputs.IntentRejectionStatementArgs
+    ///         {
+    ///             Messages = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.IntentRejectionStatementMessageArgs
+    ///                 {
+    ///                     Content = "Okay, I will not place your order.",
+    ///                     ContentType = "PlainText",
+    ///                 },
+    ///             },
+    ///         },
+    ///         SampleUtterances = new[]
+    ///         {
+    ///             "I would like to order some flowers",
+    ///             "I would like to pick up flowers",
+    ///         },
+    ///         Slots = new[]
+    ///         {
+    ///             new Aws.Lex.Inputs.IntentSlotArgs
+    ///             {
+    ///                 Description = "The type of flowers to pick up",
+    ///                 Name = "FlowerType",
+    ///                 Priority = 1,
+    ///                 SampleUtterances = new[]
+    ///                 {
+    ///                     "I would like to order {FlowerType}",
+    ///                 },
+    ///                 SlotConstraint = "Required",
+    ///                 SlotType = "FlowerTypes",
+    ///                 SlotTypeVersion = "$$LATEST",
+    ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
+    ///                 {
+    ///                     MaxAttempts = 2,
+    ///                     Messages = new[]
+    ///                     {
+    ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
+    ///                         {
+    ///                             Content = "What type of flowers would you like to order?",
+    ///                             ContentType = "PlainText",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Lex.Inputs.IntentSlotArgs
+    ///             {
+    ///                 Description = "The date to pick up the flowers",
+    ///                 Name = "PickupDate",
+    ///                 Priority = 2,
+    ///                 SampleUtterances = new[]
+    ///                 {
+    ///                     "I would like to order {FlowerType}",
+    ///                 },
+    ///                 SlotConstraint = "Required",
+    ///                 SlotType = "AMAZON.DATE",
+    ///                 SlotTypeVersion = "$$LATEST",
+    ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
+    ///                 {
+    ///                     MaxAttempts = 2,
+    ///                     Messages = new[]
+    ///                     {
+    ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
+    ///                         {
+    ///                             Content = "What day do you want the {FlowerType} to be picked up?",
+    ///                             ContentType = "PlainText",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Lex.Inputs.IntentSlotArgs
+    ///             {
+    ///                 Description = "The time to pick up the flowers",
+    ///                 Name = "PickupTime",
+    ///                 Priority = 3,
+    ///                 SampleUtterances = new[]
+    ///                 {
+    ///                     "I would like to order {FlowerType}",
+    ///                 },
+    ///                 SlotConstraint = "Required",
+    ///                 SlotType = "AMAZON.TIME",
+    ///                 SlotTypeVersion = "$$LATEST",
+    ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
+    ///                 {
+    ///                     MaxAttempts = 2,
+    ///                     Messages = new[]
+    ///                     {
+    ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
+    ///                         {
+    ///                             Content = "Pick up the {FlowerType} at what time on {PickupDate}?",
+    ///                             ContentType = "PlainText",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import intents using their name. For example:

@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeguruprofiler.NewProfilingGroup(ctx, "example", &codeguruprofiler.ProfilingGroupArgs{
+//				Name:            pulumi.String("example"),
+//				ComputePlatform: pulumi.String("Default"),
 //				AgentOrchestrationConfig: &codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs{
 //					ProfilingEnabled: pulumi.Bool(true),
 //				},
-//				ComputePlatform: pulumi.String("Default"),
 //			})
 //			if err != nil {
 //				return err

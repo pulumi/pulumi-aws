@@ -22,15 +22,15 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("example", new()
     ///     {
     ///         DomainName = "example",
-    ///         EncryptionKey = exampleKey.Arn,
+    ///         EncryptionKey = example.Arn,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
@@ -54,13 +54,13 @@ namespace Pulumi.Aws.CodeArtifact
     ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
     ///         RepositoryName = "upstream",
-    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///         Domain = testAwsCodeartifactDomain.Domain,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
     ///         RepositoryName = "example",
-    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         Domain = example.Domain,
     ///         Upstreams = new[]
     ///         {
     ///             new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
@@ -85,13 +85,13 @@ namespace Pulumi.Aws.CodeArtifact
     ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
     ///         RepositoryName = "upstream",
-    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///         Domain = testAwsCodeartifactDomain.Domain,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
     ///         RepositoryName = "example",
-    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         Domain = example.Domain,
     ///         ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
     ///         {
     ///             ExternalConnectionName = "public:npmjs",

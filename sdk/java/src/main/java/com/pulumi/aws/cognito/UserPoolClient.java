@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolClientArgs;
  * import java.util.List;
@@ -49,9 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
  *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
+ *             .name(&#34;client&#34;)
  *             .userPoolId(pool.id())
  *             .build());
  * 
@@ -66,6 +70,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolClientArgs;
  * import java.util.List;
@@ -81,9 +86,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
  *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
+ *             .name(&#34;client&#34;)
  *             .userPoolId(pool.id())
  *             .generateSecret(true)
  *             .explicitAuthFlows(&#34;ADMIN_NO_SRP_AUTH&#34;)
@@ -100,7 +108,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.pinpoint.App;
+ * import com.pulumi.aws.pinpoint.AppArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -125,9 +135,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUserPool = new UserPool(&#34;testUserPool&#34;);
+ *         var testUserPool = new UserPool(&#34;testUserPool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
- *         var testApp = new App(&#34;testApp&#34;);
+ *         var testApp = new App(&#34;testApp&#34;, AppArgs.builder()        
+ *             .name(&#34;pinpoint&#34;)
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -141,10 +155,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testUserPoolClient = new UserPoolClient(&#34;testUserPoolClient&#34;, UserPoolClientArgs.builder()        
+ *             .name(&#34;pool_client&#34;)
  *             .userPoolId(testUserPool.id())
  *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
  *                 .applicationId(testApp.applicationId())
@@ -156,7 +172,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -167,8 +183,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;role_policy&#34;)
  *             .role(testRole.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -182,6 +199,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolClientArgs;
  * import java.util.List;
@@ -197,9 +215,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
  *         var userpoolClient = new UserPoolClient(&#34;userpoolClient&#34;, UserPoolClientArgs.builder()        
+ *             .name(&#34;client&#34;)
  *             .userPoolId(pool.id())
  *             .callbackUrls(&#34;https://example.com&#34;)
  *             .allowedOauthFlowsUserPoolClient(true)

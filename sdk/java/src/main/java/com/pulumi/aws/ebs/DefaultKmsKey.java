@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultKmsKey(&#34;example&#34;, DefaultKmsKeyArgs.builder()        
- *             .keyArn(aws_kms_key.example().arn())
+ *             .keyArn(exampleAwsKmsKey.arn())
  *             .build());
  * 
  *     }

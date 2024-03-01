@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.appsync.DomainName("example", {
  *     domainName: "api.example.com",
- *     certificateArn: aws_acm_certificate.example.arn,
+ *     certificateArn: exampleAwsAcmCertificate.arn,
  * });
  * ```
  *

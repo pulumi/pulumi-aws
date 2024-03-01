@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
- *         var alphaMountTarget = new MountTarget(&#34;alphaMountTarget&#34;, MountTargetArgs.builder()        
- *             .fileSystemId(aws_efs_file_system.foo().id())
+ *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
+ *             .fileSystemId(fooAwsEfsFileSystem.id())
  *             .subnetId(alphaSubnet.id())
  *             .build());
  * 

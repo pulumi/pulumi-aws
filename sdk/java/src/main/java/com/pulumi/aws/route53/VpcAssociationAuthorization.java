@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.route53.Zone;
@@ -33,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.route53.VpcAssociationAuthorizationArgs;
  * import com.pulumi.aws.route53.ZoneAssociation;
  * import com.pulumi.aws.route53.ZoneAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,39 +45,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alternate = new Provider(&#34;alternate&#34;);
- * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.6.0.0/16&#34;)
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
  *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(exampleVpc.id())
+ *                 .vpcId(example.id())
  *                 .build())
  *             .build());
  * 
- *         var alternateVpc = new Vpc(&#34;alternateVpc&#34;, VpcArgs.builder()        
+ *         var alternate = new Vpc(&#34;alternate&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.7.0.0/16&#34;)
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization(&#34;exampleVpcAssociationAuthorization&#34;, VpcAssociationAuthorizationArgs.builder()        
- *             .vpcId(alternateVpc.id())
+ *             .vpcId(alternate.id())
  *             .zoneId(exampleZone.id())
  *             .build());
  * 
  *         var exampleZoneAssociation = new ZoneAssociation(&#34;exampleZoneAssociation&#34;, ZoneAssociationArgs.builder()        
  *             .vpcId(exampleVpcAssociationAuthorization.vpcId())
  *             .zoneId(exampleVpcAssociationAuthorization.zoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

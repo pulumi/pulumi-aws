@@ -20,20 +20,22 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testInstance = new aws.lightsail.Instance("test", {
+ *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("testLbAttachment", {
- *     lbName: testLb.name,
+ * const testLbAttachment = new aws.lightsail.LbAttachment("test", {
+ *     lbName: test.name,
  *     instanceName: testInstance.name,
  * });
  * ```

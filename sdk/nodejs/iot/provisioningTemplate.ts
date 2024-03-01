@@ -25,46 +25,51 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const iotFleetProvisioning = new aws.iam.Role("iotFleetProvisioning", {
+ * const iotFleetProvisioning = new aws.iam.Role("iot_fleet_provisioning", {
+ *     name: "IoTProvisioningServiceRole",
  *     path: "/service-role/",
  *     assumeRolePolicy: iotAssumeRolePolicy.then(iotAssumeRolePolicy => iotAssumeRolePolicy.json),
  * });
- * const iotFleetProvisioningRegistration = new aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration", {
+ * const iotFleetProvisioningRegistration = new aws.iam.RolePolicyAttachment("iot_fleet_provisioning_registration", {
  *     role: iotFleetProvisioning.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
  * });
- * const devicePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const devicePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["iot:Subscribe"],
  *         resources: ["*"],
  *     }],
  * });
- * const devicePolicyPolicy = new aws.iot.Policy("devicePolicyPolicy", {policy: devicePolicyPolicyDocument.then(devicePolicyPolicyDocument => devicePolicyPolicyDocument.json)});
+ * const devicePolicyPolicy = new aws.iot.Policy("device_policy", {
+ *     name: "DevicePolicy",
+ *     policy: devicePolicy.then(devicePolicy => devicePolicy.json),
+ * });
  * const fleet = new aws.iot.ProvisioningTemplate("fleet", {
+ *     name: "FleetTemplate",
  *     description: "My provisioning template",
  *     provisioningRoleArn: iotFleetProvisioning.arn,
  *     enabled: true,
  *     templateBody: pulumi.jsonStringify({
- *         Parameters: {
- *             SerialNumber: {
- *                 Type: "String",
+ *         parameters: {
+ *             serialNumber: {
+ *                 type: "String",
  *             },
  *         },
- *         Resources: {
+ *         resources: {
  *             certificate: {
- *                 Properties: {
- *                     CertificateId: {
- *                         Ref: "AWS::IoT::Certificate::Id",
+ *                 properties: {
+ *                     certificateId: {
+ *                         ref: "AWS::IoT::Certificate::Id",
  *                     },
- *                     Status: "Active",
+ *                     status: "Active",
  *                 },
- *                 Type: "AWS::IoT::Certificate",
+ *                 type: "AWS::IoT::Certificate",
  *             },
  *             policy: {
- *                 Properties: {
- *                     PolicyName: devicePolicyPolicy.name,
+ *                 properties: {
+ *                     policyName: devicePolicyPolicy.name,
  *                 },
- *                 Type: "AWS::IoT::Policy",
+ *                 type: "AWS::IoT::Policy",
  *             },
  *         },
  *     }),

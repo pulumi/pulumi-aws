@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AmiFromInstance("example", new()
     ///     {
+    ///         Name = "example",
     ///         SourceInstanceId = "i-xxxxxxxx",
     ///     });
     /// 

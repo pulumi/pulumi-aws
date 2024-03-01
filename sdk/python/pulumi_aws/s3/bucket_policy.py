@@ -109,8 +109,8 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["123456789012"],
@@ -124,9 +124,9 @@ class BucketPolicy(pulumi.CustomResource):
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
+        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
             bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
+            policy=allow_access_from_another_account.json)
         ```
 
         ## Import
@@ -160,8 +160,8 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
                 identifiers=["123456789012"],
@@ -175,9 +175,9 @@ class BucketPolicy(pulumi.CustomResource):
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
+        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
             bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
+            policy=allow_access_from_another_account.json)
         ```
 
         ## Import

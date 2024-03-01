@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",
@@ -51,6 +52,44 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
+    ///         Description = "Patch Baseline Description",
+    ///         ApprovedPatches = new[]
+    ///         {
+    ///             "KB123456",
+    ///             "KB456789",
+    ///         },
+    ///         RejectedPatches = new[]
+    ///         {
+    ///             "KB987654",
+    ///         },
+    ///         GlobalFilters = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "PRODUCT",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "WindowsServer2008",
+    ///                 },
+    ///             },
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "CLASSIFICATION",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "ServicePacks",
+    ///                 },
+    ///             },
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "MSRC_SEVERITY",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Low",
+    ///                 },
+    ///             },
+    ///         },
     ///         ApprovalRules = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
@@ -105,43 +144,6 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
-    ///         ApprovedPatches = new[]
-    ///         {
-    ///             "KB123456",
-    ///             "KB456789",
-    ///         },
-    ///         Description = "Patch Baseline Description",
-    ///         GlobalFilters = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "PRODUCT",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "WindowsServer2008",
-    ///                 },
-    ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "CLASSIFICATION",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ServicePacks",
-    ///                 },
-    ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "MSRC_SEVERITY",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "Low",
-    ///                 },
-    ///             },
-    ///         },
-    ///         RejectedPatches = new[]
-    ///         {
-    ///             "KB987654",
-    ///         },
     ///     });
     /// 
     /// });
@@ -156,8 +158,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline("windowsOsApps", new()
+    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline("windows_os_apps", new()
     ///     {
+    ///         Name = "WindowsOSAndMicrosoftApps",
+    ///         Description = "Patch both Windows and Microsoft apps",
+    ///         OperatingSystem = "WINDOWS",
     ///         ApprovalRules = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
@@ -210,8 +215,6 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
-    ///         Description = "Patch both Windows and Microsoft apps",
-    ///         OperatingSystem = "WINDOWS",
     ///     });
     /// 
     /// });
@@ -226,18 +229,24 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var al201709 = new Aws.Ssm.PatchBaseline("al201709", new()
+    ///     var al201709 = new Aws.Ssm.PatchBaseline("al_2017_09", new()
     ///     {
     ///         ApprovalRules = new[]
     ///         {
     ///             null,
     ///         },
+    ///         Name = "Amazon-Linux-2017.09",
     ///         Description = "My patch repository for Amazon Linux 2017.09",
     ///         OperatingSystem = "AMAZON_LINUX",
     ///         Sources = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineSourceArgs
     ///             {
+    ///                 Name = "My-AL2017.09",
+    ///                 Products = new[]
+    ///                 {
+    ///                     "AmazonLinux2017.09",
+    ///                 },
     ///                 Configuration = @"[amzn-main]
     /// name=amzn-main-Base
     /// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
@@ -252,13 +261,7 @@ namespace Pulumi.Aws.Ssm
     /// retries=3
     /// timeout=5
     /// report_instanceid=yes
-    /// 
     /// ",
-    ///                 Name = "My-AL2017.09",
-    ///                 Products = new[]
-    ///                 {
-    ///                     "AmazonLinux2017.09",
-    ///                 },
     ///             },
     ///         },
     ///     });

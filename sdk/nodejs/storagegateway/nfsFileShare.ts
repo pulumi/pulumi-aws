@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.storagegateway.NfsFileShare("example", {
  *     clientLists: ["0.0.0.0/0"],
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
- *     locationArn: aws_s3_bucket.example.arn,
- *     roleArn: aws_iam_role.example.arn,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
+ *     locationArn: exampleAwsS3Bucket.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

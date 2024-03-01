@@ -698,9 +698,10 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
         ### Ray Job
@@ -710,14 +711,15 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             glue_version="4.0",
             worker_type="Z.2X",
             command=aws.glue.JobCommandArgs(
                 name="glueray",
                 python_version="3.9",
                 runtime="Ray2.4",
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
         ### Scala Job
@@ -727,9 +729,10 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             ),
             default_arguments={
                 "--job-language": "scala",
@@ -742,10 +745,11 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example streaming job",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
                 name="gluestreaming",
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.script",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
         ### Enabling CloudWatch Logs and Metrics
@@ -754,10 +758,11 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        # ... other configuration ...
-        example_job = aws.glue.Job("exampleJob", default_arguments={
-            "--continuous-log-logGroup": example_log_group.name,
+        example = aws.cloudwatch.LogGroup("example",
+            name="example",
+            retention_in_days=14)
+        example_job = aws.glue.Job("example", default_arguments={
+            "--continuous-log-logGroup": example.name,
             "--enable-continuous-cloudwatch-log": "true",
             "--enable-continuous-log-filter": "true",
             "--enable-metrics": "",
@@ -817,9 +822,10 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
         ### Ray Job
@@ -829,14 +835,15 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             glue_version="4.0",
             worker_type="Z.2X",
             command=aws.glue.JobCommandArgs(
                 name="glueray",
                 python_version="3.9",
                 runtime="Ray2.4",
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
         ### Scala Job
@@ -846,9 +853,10 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             ),
             default_arguments={
                 "--job-language": "scala",
@@ -861,10 +869,11 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example streaming job",
+            role_arn=example_aws_iam_role["arn"],
             command=aws.glue.JobCommandArgs(
                 name="gluestreaming",
-                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.script",
+                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
         ### Enabling CloudWatch Logs and Metrics
@@ -873,10 +882,11 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        # ... other configuration ...
-        example_job = aws.glue.Job("exampleJob", default_arguments={
-            "--continuous-log-logGroup": example_log_group.name,
+        example = aws.cloudwatch.LogGroup("example",
+            name="example",
+            retention_in_days=14)
+        example_job = aws.glue.Job("example", default_arguments={
+            "--continuous-log-logGroup": example.name,
             "--enable-continuous-cloudwatch-log": "true",
             "--enable-continuous-log-filter": "true",
             "--enable-metrics": "",

@@ -16,22 +16,27 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.CloudFront.PublicKey("example", new()
     ///     {
     ///         Comment = "test public key",
-    ///         EncodedKey = File.ReadAllText("public_key.pem"),
+    ///         EncodedKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "public_key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Name = "test_key",
     ///     });
     /// 
     ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
     ///     {
     ///         Comment = "test comment",
+    ///         Name = "test profile",
     ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
     ///         {
     ///             Items = new[]

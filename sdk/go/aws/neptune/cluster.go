@@ -36,13 +36,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-//				ApplyImmediately:                 pulumi.Bool(true),
-//				BackupRetentionPeriod:            pulumi.Int(5),
 //				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
 //				Engine:                           pulumi.String("neptune"),
-//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+//				BackupRetentionPeriod:            pulumi.Int(5),
 //				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
 //				SkipFinalSnapshot:                pulumi.Bool(true),
+//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+//				ApplyImmediately:                 pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

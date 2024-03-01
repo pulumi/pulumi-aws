@@ -39,14 +39,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "osis-pipelines.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "osis-pipelines.amazonaws.com",
 //						},
 //					},
 //				},
@@ -55,15 +55,15 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearchingest.NewPipeline(ctx, "examplePipeline", &opensearchingest.PipelineArgs{
+//			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
 //				PipelineName: pulumi.String("example"),
-//				PipelineConfigurationBody: exampleRole.Arn.ApplyT(func(arn string) (string, error) {
+//				PipelineConfigurationBody: example.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf(`version: "2"
 //
 // example-pipeline:
@@ -103,26 +103,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearchingest"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "example.yaml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
 //				PipelineName:              pulumi.String("example"),
-//				PipelineConfigurationBody: readFileOrPanic("example.yaml"),
+//				PipelineConfigurationBody: invokeFile.Result,
 //				MaxUnits:                  pulumi.Int(1),
 //				MinUnits:                  pulumi.Int(1),
 //			})

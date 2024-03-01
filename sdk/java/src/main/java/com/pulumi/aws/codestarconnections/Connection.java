@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .providerType(&#34;Bitbucket&#34;)
  *             .build());
  * 
  *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .roleArn(aws_iam_role.codepipeline_role().arn())
  *             .artifactStores()
  *             .stages(            
  *                 PipelineStageArgs.builder()
@@ -64,20 +64,22 @@ import javax.annotation.Nullable;
  *                         .version(&#34;1&#34;)
  *                         .outputArtifacts(&#34;source_output&#34;)
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ConnectionArn&#34;, exampleConnection.arn()),
+ *                             Map.entry(&#34;ConnectionArn&#34;, example.arn()),
  *                             Map.entry(&#34;FullRepositoryId&#34;, &#34;my-organization/test&#34;),
  *                             Map.entry(&#34;BranchName&#34;, &#34;main&#34;)
  *                         ))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
  *                     .actions()
+ *                     .name(&#34;Build&#34;)
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Deploy&#34;)
  *                     .actions()
+ *                     .name(&#34;Deploy&#34;)
  *                     .build())
+ *             .name(&#34;tf-test-pipeline&#34;)
+ *             .roleArn(codepipelineRole.arn())
  *             .build());
  * 
  *     }

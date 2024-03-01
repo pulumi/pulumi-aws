@@ -53,46 +53,48 @@ namespace Pulumi.Aws.CloudFormation
     ///         },
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetAdministrationRole = new Aws.Iam.Role("aWSCloudFormationStackSetAdministrationRole", new()
+    ///     var aWSCloudFormationStackSetAdministrationRole = new Aws.Iam.Role("AWSCloudFormationStackSetAdministrationRole", new()
     ///     {
     ///         AssumeRolePolicy = aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "AWSCloudFormationStackSetAdministrationRole",
     ///     });
     /// 
     ///     var example = new Aws.CloudFormation.StackSet("example", new()
     ///     {
     ///         AdministrationRoleArn = aWSCloudFormationStackSetAdministrationRole.Arn,
+    ///         Name = "example",
     ///         Parameters = 
     ///         {
     ///             { "VPCCidr", "10.0.0.0/16" },
     ///         },
     ///         TemplateBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["VPCCidr"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["vPCCidr"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "String",
-    ///                     ["Default"] = "10.0.0.0/16",
-    ///                     ["Description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+    ///                     ["type"] = "String",
+    ///                     ["default"] = "10.0.0.0/16",
+    ///                     ["description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
     ///                 },
     ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["myVpc"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "AWS::EC2::VPC",
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["type"] = "AWS::EC2::VPC",
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["CidrBlock"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["cidrBlock"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Ref"] = "VPCCidr",
+    ///                             ["ref"] = "VPCCidr",
     ///                         },
-    ///                         ["Tags"] = new[]
+    ///                         ["tags"] = new[]
     ///                         {
     ///                             new Dictionary&lt;string, object?&gt;
     ///                             {
-    ///                                 ["Key"] = "Name",
-    ///                                 ["Value"] = "Primary_CF_VPC",
+    ///                                 ["key"] = "Name",
+    ///                                 ["value"] = "Primary_CF_VPC",
     ///                             },
     ///                         },
     ///                     },
@@ -101,7 +103,7 @@ namespace Pulumi.Aws.CloudFormation
     ///         }),
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -120,9 +122,10 @@ namespace Pulumi.Aws.CloudFormation
     ///         },
     ///     });
     /// 
-    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", new()
+    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", new()
     ///     {
-    ///         Policy = aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "ExecutionPolicy",
+    ///         Policy = aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Role = aWSCloudFormationStackSetAdministrationRole.Name,
     ///     });
     /// 

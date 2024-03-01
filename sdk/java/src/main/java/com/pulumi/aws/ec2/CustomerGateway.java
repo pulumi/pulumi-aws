@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *         var main = new CustomerGateway(&#34;main&#34;, CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
  *             .ipAddress(&#34;172.83.124.10&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;main-customer-gateway&#34;))
  *             .type(&#34;ipsec.1&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;main-customer-gateway&#34;))
  *             .build());
  * 
  *     }

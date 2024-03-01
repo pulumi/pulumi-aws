@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.example.arn],
+ *     networkLoadBalancerArns: [exampleAwsLb.arn],
  * });
  * ```
  * ### Gateway Load Balancers
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
+ *     gatewayLoadBalancerArns: [exampleAwsLb.arn],
  * });
  * ```
  *

@@ -29,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooLocalGatewayRouteTables, err := ec2.GetLocalGatewayRouteTables(ctx, nil, nil)
+//			foo, err := ec2.GetLocalGatewayRouteTables(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("foo", fooLocalGatewayRouteTables.Ids)
+//			ctx.Export("foo", foo.Ids)
 //			return nil
 //		})
 //	}

@@ -100,11 +100,11 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
 
 
@@ -138,11 +138,11 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
 
 

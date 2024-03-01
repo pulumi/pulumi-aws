@@ -17,15 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrcontainers.JobTemplate("example", {jobTemplateData: {
- *     executionRoleArn: aws_iam_role.example.arn,
- *     releaseLabel: "emr-6.10.0-latest",
- *     jobDriver: {
- *         sparkSqlJobDriver: {
- *             entryPoint: "default",
+ * const example = new aws.emrcontainers.JobTemplate("example", {
+ *     jobTemplateData: {
+ *         executionRoleArn: exampleAwsIamRole.arn,
+ *         releaseLabel: "emr-6.10.0-latest",
+ *         jobDriver: {
+ *             sparkSqlJobDriver: {
+ *                 entryPoint: "default",
+ *             },
  *         },
  *     },
- * }});
+ *     name: "example",
+ * });
  * ```
  *
  * ## Import

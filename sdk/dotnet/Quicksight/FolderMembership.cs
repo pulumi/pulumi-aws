@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.FolderMembership("example", new()
     ///     {
-    ///         FolderId = aws_quicksight_folder.Example.Folder_id,
+    ///         FolderId = exampleAwsQuicksightFolder.FolderId,
     ///         MemberType = "DATASET",
-    ///         MemberId = aws_quicksight_data_set.Example.Data_set_id,
+    ///         MemberId = exampleAwsQuicksightDataSet.DataSetId,
     ///     });
     /// 
     /// });

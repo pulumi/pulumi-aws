@@ -41,7 +41,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;test public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .encodedKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;public_key.pem&#34;)
+ *                 .build()).result())
+ *             .name(&#34;test_key&#34;)
  *             .build());
  * 
  *     }

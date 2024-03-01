@@ -149,8 +149,8 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 
@@ -205,8 +205,8 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 

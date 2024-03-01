@@ -687,7 +687,7 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
         ### Lambda Integration
@@ -696,19 +696,20 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_function = aws.lambda_.Function("exampleFunction",
+        example = aws.lambda_.Function("example",
             code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
+            name="Example",
+            role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime="nodejs16.x")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+        example_integration = aws.apigatewayv2.Integration("example",
+            api_id=example_aws_apigatewayv2_api["id"],
             integration_type="AWS_PROXY",
             connection_type="INTERNET",
             content_handling_strategy="CONVERT_TO_TEXT",
             description="Lambda example",
             integration_method="POST",
-            integration_uri=example_function.invoke_arn,
+            integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
         ### AWS Service Integration
@@ -718,8 +719,8 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            credentials_arn=example_aws_iam_role["arn"],
             description="SQS example",
             integration_type="AWS_PROXY",
             integration_subtype="SQS-SendMessage",
@@ -735,14 +736,14 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            credentials_arn=example_aws_iam_role["arn"],
             description="Example with a load balancer",
             integration_type="HTTP_PROXY",
-            integration_uri=aws_lb_listener["example"]["arn"],
+            integration_uri=example_aws_lb_listener["arn"],
             integration_method="ANY",
             connection_type="VPC_LINK",
-            connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
+            connection_id=example_aws_apigatewayv2_vpc_link["id"],
             tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
                 server_name_to_verify="example.com",
             ),
@@ -822,7 +823,7 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
         ### Lambda Integration
@@ -831,19 +832,20 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_function = aws.lambda_.Function("exampleFunction",
+        example = aws.lambda_.Function("example",
             code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
+            name="Example",
+            role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime="nodejs16.x")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=aws_apigatewayv2_api["example"]["id"],
+        example_integration = aws.apigatewayv2.Integration("example",
+            api_id=example_aws_apigatewayv2_api["id"],
             integration_type="AWS_PROXY",
             connection_type="INTERNET",
             content_handling_strategy="CONVERT_TO_TEXT",
             description="Lambda example",
             integration_method="POST",
-            integration_uri=example_function.invoke_arn,
+            integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
         ### AWS Service Integration
@@ -853,8 +855,8 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            credentials_arn=example_aws_iam_role["arn"],
             description="SQS example",
             integration_type="AWS_PROXY",
             integration_subtype="SQS-SendMessage",
@@ -870,14 +872,14 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            credentials_arn=example_aws_iam_role["arn"],
             description="Example with a load balancer",
             integration_type="HTTP_PROXY",
-            integration_uri=aws_lb_listener["example"]["arn"],
+            integration_uri=example_aws_lb_listener["arn"],
             integration_method="ANY",
             connection_type="VPC_LINK",
-            connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
+            connection_id=example_aws_apigatewayv2_vpc_link["id"],
             tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
                 server_name_to_verify="example.com",
             ),

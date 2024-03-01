@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Cognito
         /// {
         ///     var sc = Aws.Cognito.GetUserPoolSigningCertificate.Invoke(new()
         ///     {
-        ///         UserPoolId = aws_cognito_user_pool.My_pool.Id,
+        ///         UserPoolId = myPool.Id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Cognito
         /// {
         ///     var sc = Aws.Cognito.GetUserPoolSigningCertificate.Invoke(new()
         ///     {
-        ///         UserPoolId = aws_cognito_user_pool.My_pool.Id,
+        ///         UserPoolId = myPool.Id,
         ///     });
         /// 
         /// });

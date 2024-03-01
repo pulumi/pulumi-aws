@@ -998,7 +998,7 @@ class HaproxyLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.opsworks.HaproxyLayer("lb",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             stats_password="foobarbaz")
         ```
 
@@ -1047,7 +1047,7 @@ class HaproxyLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.opsworks.HaproxyLayer("lb",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             stats_password="foobarbaz")
         ```
 

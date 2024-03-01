@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var domainTest = new Aws.LightSail.Domain("domainTest", new()
+    ///     var domainTest = new Aws.LightSail.Domain("domain_test", new()
     ///     {
     ///         DomainName = "mydomain.com",
     ///     });

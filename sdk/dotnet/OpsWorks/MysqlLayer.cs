@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var db = new Aws.OpsWorks.MysqlLayer("db", new()
     ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///     });
     /// 
     /// });

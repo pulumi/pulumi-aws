@@ -19,10 +19,14 @@ namespace Pulumi.Aws.ApiGateway
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var demoRestApi = new Aws.ApiGateway.RestApi("demoRestApi");
+    ///     var demoRestApi = new Aws.ApiGateway.RestApi("demo", new()
+    ///     {
+    ///         Name = "auth-demo",
+    ///     });
     /// 
     ///     var invocationAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -50,8 +54,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var invocationRole = new Aws.Iam.Role("invocationRole", new()
+    ///     var invocationRole = new Aws.Iam.Role("invocation_role", new()
     ///     {
+    ///         Name = "api_gateway_auth_invocation",
     ///         Path = "/",
     ///         AssumeRolePolicy = invocationAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
@@ -84,24 +89,31 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     ///     var lambda = new Aws.Iam.Role("lambda", new()
     ///     {
+    ///         Name = "demo-lambda",
     ///         AssumeRolePolicy = lambdaAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var authorizer = new Aws.Lambda.Function("authorizer", new()
     ///     {
     ///         Code = new FileArchive("lambda-function.zip"),
+    ///         Name = "api_gateway_authorizer",
     ///         Role = lambda.Arn,
     ///         Handler = "exports.example",
+    ///         SourceCodeHash = Std.Filebase64sha256.Invoke(new()
+    ///         {
+    ///             Input = "lambda-function.zip",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var demoAuthorizer = new Aws.ApiGateway.Authorizer("demoAuthorizer", new()
+    ///     var demo = new Aws.ApiGateway.Authorizer("demo", new()
     ///     {
+    ///         Name = "demo",
     ///         RestApi = demoRestApi.Id,
     ///         AuthorizerUri = authorizer.InvokeArn,
     ///         AuthorizerCredentials = invocationRole.Arn,
     ///     });
     /// 
-    ///     var invocationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var invocationPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -120,10 +132,11 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var invocationPolicyRolePolicy = new Aws.Iam.RolePolicy("invocationPolicyRolePolicy", new()
+    ///     var invocationPolicyRolePolicy = new Aws.Iam.RolePolicy("invocation_policy", new()
     ///     {
+    ///         Name = "default",
     ///         Role = invocationRole.Id,
-    ///         Policy = invocationPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = invocationPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

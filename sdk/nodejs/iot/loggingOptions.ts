@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.iot.LoggingOptions("example", {
  *     defaultLogLevel: "WARN",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  */

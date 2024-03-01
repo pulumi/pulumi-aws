@@ -23,20 +23,22 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Example KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
+    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("example", new()
     ///     {
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         Name = "my-tf-kx-environment",
+    ///         KmsKeyId = example.Arn,
     ///     });
     /// 
-    ///     var exampleKxDatabase = new Aws.FinSpace.KxDatabase("exampleKxDatabase", new()
+    ///     var exampleKxDatabase = new Aws.FinSpace.KxDatabase("example", new()
     ///     {
     ///         EnvironmentId = exampleKxEnvironment.Id,
+    ///         Name = "my-tf-kx-database",
     ///         Description = "Example database description",
     ///     });
     /// 

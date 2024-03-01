@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingEndpointGroup(&#34;example&#34;, CustomRoutingEndpointGroupArgs.builder()        
- *             .listenerArn(aws_globalaccelerator_custom_routing_listener.example().id())
+ *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.id())
  *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(8080)
  *                 .protocols(&#34;TCP&#34;)
  *                 .build())
  *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(aws_subnet.example().id())
+ *                 .endpointId(exampleAwsSubnet.id())
  *                 .build())
  *             .build());
  * 

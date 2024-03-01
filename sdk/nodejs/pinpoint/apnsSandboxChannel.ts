@@ -13,13 +13,17 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
+ * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apns_sandbox", {
  *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem", "utf8"),
- *     privateKey: fs.readFileSync("./private_key.key", "utf8"),
+ *     certificate: std.file({
+ *         input: "./certificate.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "./private_key.key",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

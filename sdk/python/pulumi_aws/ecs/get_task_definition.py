@@ -161,9 +161,7 @@ def get_task_definition(task_definition: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    mongo_task_definition = aws.ecs.get_task_definition(task_definition=mongo_ecs / task_definition_task_definition["family"])
-    foo = aws.ecs.Cluster("foo")
-    mongo_ecs_task_definition_task_definition = aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition",
+    mongo_task_definition = aws.ecs.TaskDefinition("mongo",
         family="mongodb",
         container_definitions=\"\"\"[
       {
@@ -180,10 +178,14 @@ def get_task_definition(task_definition: Optional[str] = None,
       }
     ]
     \"\"\")
-    mongo_service = aws.ecs.Service("mongoService",
+    # Simply specify the family to find the latest ACTIVE revision in that family.
+    mongo = aws.ecs.get_task_definition_output(task_definition=mongo_task_definition.family)
+    foo = aws.ecs.Cluster("foo", name="foo")
+    mongo_service = aws.ecs.Service("mongo",
+        name="mongo",
         cluster=foo.id,
         desired_count=2,
-        task_definition=mongo_task_definition.arn)
+        task_definition=mongo.arn)
     ```
 
 
@@ -220,9 +222,7 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
     import pulumi
     import pulumi_aws as aws
 
-    mongo_task_definition = aws.ecs.get_task_definition(task_definition=mongo_ecs / task_definition_task_definition["family"])
-    foo = aws.ecs.Cluster("foo")
-    mongo_ecs_task_definition_task_definition = aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition",
+    mongo_task_definition = aws.ecs.TaskDefinition("mongo",
         family="mongodb",
         container_definitions=\"\"\"[
       {
@@ -239,10 +239,14 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
       }
     ]
     \"\"\")
-    mongo_service = aws.ecs.Service("mongoService",
+    # Simply specify the family to find the latest ACTIVE revision in that family.
+    mongo = aws.ecs.get_task_definition_output(task_definition=mongo_task_definition.family)
+    foo = aws.ecs.Cluster("foo", name="foo")
+    mongo_service = aws.ecs.Service("mongo",
+        name="mongo",
         cluster=foo.id,
         desired_count=2,
-        task_definition=mongo_task_definition.arn)
+        task_definition=mongo.arn)
     ```
 
 

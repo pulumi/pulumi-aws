@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSetting = new aws.ssm.ServiceSetting("testSetting", {
+ * const testSetting = new aws.ssm.ServiceSetting("test_setting", {
  *     settingId: "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
  *     settingValue: "true",
  * });

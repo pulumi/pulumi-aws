@@ -375,9 +375,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=var["peer_owner_id"],
-            peer_vpc_id=aws_vpc["bar"]["id"],
-            vpc_id=aws_vpc["foo"]["id"])
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"])
         ```
 
         Basic usage with connection options:
@@ -387,9 +387,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=var["peer_owner_id"],
-            peer_vpc_id=aws_vpc["bar"]["id"],
-            vpc_id=aws_vpc["foo"]["id"],
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"],
             accepter=aws.ec2.VpcPeeringConnectionAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
             ),
@@ -404,10 +404,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            peer_owner_id=var["peer_owner_id"],
+        foo = aws.ec2.VpcPeeringConnection("foo",
+            peer_owner_id=peer_owner_id,
             peer_vpc_id=bar.id,
             vpc_id=foo_vpc.id,
             auto_accept=True,
@@ -422,12 +422,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
-        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            peer_owner_id=var["peer_owner_id"],
+        foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
+        foo = aws.ec2.VpcPeeringConnection("foo",
+            peer_owner_id=peer_owner_id,
             peer_vpc_id=bar.id,
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")
@@ -491,9 +489,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=var["peer_owner_id"],
-            peer_vpc_id=aws_vpc["bar"]["id"],
-            vpc_id=aws_vpc["foo"]["id"])
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"])
         ```
 
         Basic usage with connection options:
@@ -503,9 +501,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=var["peer_owner_id"],
-            peer_vpc_id=aws_vpc["bar"]["id"],
-            vpc_id=aws_vpc["foo"]["id"],
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"],
             accepter=aws.ec2.VpcPeeringConnectionAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
             ),
@@ -520,10 +518,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            peer_owner_id=var["peer_owner_id"],
+        foo = aws.ec2.VpcPeeringConnection("foo",
+            peer_owner_id=peer_owner_id,
             peer_vpc_id=bar.id,
             vpc_id=foo_vpc.id,
             auto_accept=True,
@@ -538,12 +536,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
-        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            peer_owner_id=var["peer_owner_id"],
+        foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
+        foo = aws.ec2.VpcPeeringConnection("foo",
+            peer_owner_id=peer_owner_id,
             peer_vpc_id=bar.id,
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")

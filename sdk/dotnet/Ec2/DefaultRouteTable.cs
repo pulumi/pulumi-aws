@@ -30,18 +30,18 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
     ///                 CidrBlock = "10.0.1.0/24",
-    ///                 GatewayId = aws_internet_gateway.Example.Id,
+    ///                 GatewayId = exampleAwsInternetGateway.Id,
     ///             },
     ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
     ///                 Ipv6CidrBlock = "::/0",
-    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Routes = new[] {},
     ///         Tags = 
     ///         {

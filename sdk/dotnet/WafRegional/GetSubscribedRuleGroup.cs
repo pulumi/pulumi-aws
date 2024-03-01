@@ -36,7 +36,6 @@ namespace Pulumi.Aws.WafRegional
         ///         MetricName = "F5BotDetectionSignatures",
         ///     });
         /// 
-        ///     // ...
         ///     var acl = new Aws.WafRegional.WebAcl("acl", new()
         ///     {
         ///         Rules = new[]
@@ -89,7 +88,6 @@ namespace Pulumi.Aws.WafRegional
         ///         MetricName = "F5BotDetectionSignatures",
         ///     });
         /// 
-        ///     // ...
         ///     var acl = new Aws.WafRegional.WebAcl("acl", new()
         ///     {
         ///         Rules = new[]

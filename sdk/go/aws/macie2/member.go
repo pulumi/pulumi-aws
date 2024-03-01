@@ -28,19 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewMember(ctx, "exampleMember", &macie2.MemberArgs{
+//			_, err = macie2.NewMember(ctx, "example", &macie2.MemberArgs{
 //				AccountId:                          pulumi.String("AWS ACCOUNT ID"),
 //				Email:                              pulumi.String("EMAIL"),
 //				Invite:                             pulumi.Bool(true),
 //				InvitationMessage:                  pulumi.String("Message of the invitation"),
 //				InvitationDisableEmailNotification: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

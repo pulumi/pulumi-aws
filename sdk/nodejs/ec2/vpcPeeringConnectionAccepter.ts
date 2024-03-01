@@ -23,18 +23,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const peer = new aws.Provider("peer", {region: "us-west-2"});
- * // Accepter's credentials.
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const peerVpc = new aws.ec2.Vpc("peerVpc", {cidrBlock: "10.1.0.0/16"}, {
- *     provider: aws.peer,
- * });
- * const peerCallerIdentity = aws.getCallerIdentity({});
+ * const peerVpc = new aws.ec2.Vpc("peer", {cidrBlock: "10.1.0.0/16"});
+ * const peer = aws.getCallerIdentity({});
  * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
  *     vpcId: main.id,
  *     peerVpcId: peerVpc.id,
- *     peerOwnerId: peerCallerIdentity.then(peerCallerIdentity => peerCallerIdentity.accountId),
+ *     peerOwnerId: peer.then(peer => peer.accountId),
  *     peerRegion: "us-west-2",
  *     autoAccept: false,
  *     tags: {
@@ -42,14 +38,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,
  *     tags: {
  *         Side: "Accepter",
  *     },
- * }, {
- *     provider: aws.peer,
  * });
  * ```
  *

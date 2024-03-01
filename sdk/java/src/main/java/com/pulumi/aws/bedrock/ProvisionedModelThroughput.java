@@ -43,10 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedModelThroughput(&#34;example&#34;, ProvisionedModelThroughputArgs.builder()        
- *             .commitmentDuration(&#34;SixMonths&#34;)
- *             .modelArn(&#34;arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2&#34;)
- *             .modelUnits(1)
  *             .provisionedModelName(&#34;example-model&#34;)
+ *             .modelArn(&#34;arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2&#34;)
+ *             .commitmentDuration(&#34;SixMonths&#34;)
+ *             .modelUnits(1)
  *             .build());
  * 
  *     }

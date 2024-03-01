@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
-//				FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				InstanceId:  pulumi.Any(aws_connect_instance.Example.Id),
+//				FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				InstanceId:  pulumi.Any(exampleAwsConnectInstance.Id),
 //			})
 //			if err != nil {
 //				return err

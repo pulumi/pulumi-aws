@@ -275,11 +275,12 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
+            name="example",
+            firewall_rule_group_id=example.id,
             priority=100,
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import
@@ -314,11 +315,12 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
+            name="example",
+            firewall_rule_group_id=example.id,
             priority=100,
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import

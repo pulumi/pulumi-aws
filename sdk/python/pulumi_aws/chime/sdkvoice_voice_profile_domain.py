@@ -202,12 +202,13 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="KMS Key for Voice Profile Domain",
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
+            name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
+                kms_key_arn=example.arn,
             ),
             description="My Voice Profile Domain",
             tags={
@@ -245,12 +246,13 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="KMS Key for Voice Profile Domain",
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
+            name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
+                kms_key_arn=example.arn,
             ),
             description="My Voice Profile Domain",
             tags={

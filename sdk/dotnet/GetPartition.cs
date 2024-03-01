@@ -35,6 +35,7 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "1",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:ListBucket",
@@ -43,7 +44,6 @@ namespace Pulumi.Aws
         ///                 {
         ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
         ///                 },
-        ///                 Sid = "1",
         ///             },
         ///         },
         ///     });
@@ -80,6 +80,7 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "1",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:ListBucket",
@@ -88,7 +89,6 @@ namespace Pulumi.Aws
         ///                 {
         ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
         ///                 },
-        ///                 Sid = "1",
         ///             },
         ///         },
         ///     });

@@ -83,7 +83,7 @@ def get_endpoint(endpoint_type: Optional[str] = None,
     import pulumi_kubernetes as kubernetes
 
     example = aws.iot.get_endpoint()
-    agent = kubernetes.index.Kubernetes_pod("agent",
+    agent = kubernetes.index.Pod("agent",
         metadata=[{
             name: my-device,
         }],
@@ -127,7 +127,7 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi_kubernetes as kubernetes
 
     example = aws.iot.get_endpoint()
-    agent = kubernetes.index.Kubernetes_pod("agent",
+    agent = kubernetes.index.Pod("agent",
         metadata=[{
             name: my-device,
         }],

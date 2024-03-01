@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewServiceNetwork(ctx, "example", &vpclattice.ServiceNetworkArgs{
+//				Name:     pulumi.String("example"),
 //				AuthType: pulumi.String("AWS_IAM"),
 //			})
 //			if err != nil {

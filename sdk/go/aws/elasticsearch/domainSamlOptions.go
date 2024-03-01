@@ -22,24 +22,16 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
+//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				DomainName:           pulumi.String("example"),
 //				ElasticsearchVersion: pulumi.String("1.5"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.elasticsearch"),
@@ -54,13 +46,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticsearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &elasticsearch.DomainSamlOptionsArgs{
-//				DomainName: exampleDomain.DomainName,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./saml-metadata.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomainSamlOptions(ctx, "example", &elasticsearch.DomainSamlOptionsArgs{
+//				DomainName: example.DomainName,
 //				SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
 //					Enabled: pulumi.Bool(true),
 //					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
 //						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
+//						MetadataContent: invokeFile.Result,
 //					},
 //				},
 //			})

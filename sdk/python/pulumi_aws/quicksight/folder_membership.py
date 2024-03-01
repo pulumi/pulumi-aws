@@ -181,9 +181,9 @@ class FolderMembership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.FolderMembership("example",
-            folder_id=aws_quicksight_folder["example"]["folder_id"],
+            folder_id=example_aws_quicksight_folder["folderId"],
             member_type="DATASET",
-            member_id=aws_quicksight_data_set["example"]["data_set_id"])
+            member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
 
         ## Import
@@ -220,9 +220,9 @@ class FolderMembership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.FolderMembership("example",
-            folder_id=aws_quicksight_folder["example"]["folder_id"],
+            folder_id=example_aws_quicksight_folder["folderId"],
             member_type="DATASET",
-            member_id=aws_quicksight_data_set["example"]["data_set_id"])
+            member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
 
         ## Import

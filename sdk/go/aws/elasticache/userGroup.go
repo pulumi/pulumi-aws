@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := elasticache.NewUser(ctx, "testUser", &elasticache.UserArgs{
+//			test, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("default"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
@@ -40,11 +40,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticache.NewUserGroup(ctx, "testUserGroup", &elasticache.UserGroupArgs{
+//			_, err = elasticache.NewUserGroup(ctx, "test", &elasticache.UserGroupArgs{
 //				Engine:      pulumi.String("REDIS"),
 //				UserGroupId: pulumi.String("userGroupId"),
 //				UserIds: pulumi.StringArray{
-//					testUser.UserId,
+//					test.UserId,
 //				},
 //			})
 //			if err != nil {

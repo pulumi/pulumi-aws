@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Rekognition
     /// {
     ///     var example = new Aws.Rekognition.Project("example", new()
     ///     {
+    ///         Name = "example-project",
     ///         AutoUpdate = "ENABLED",
     ///         Feature = "CONTENT_MODERATION",
     ///     });

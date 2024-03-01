@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Macie
     /// 
     ///     var test = new Aws.Macie.FindingsFilter("test", new()
     ///     {
+    ///         Name = "NAME OF THE FINDINGS FILTER",
     ///         Description = "DESCRIPTION",
     ///         Position = 1,
     ///         Action = "ARCHIVE",
@@ -38,16 +39,10 @@ namespace Pulumi.Aws.Macie
     ///                     Field = "region",
     ///                     Eqs = new[]
     ///                     {
-    ///                         data.Aws_region.Current.Name,
+    ///                         current.Name,
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_macie2_account.Test,
     ///         },
     ///     });
     /// 

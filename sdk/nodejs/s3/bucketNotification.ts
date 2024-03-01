@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const topicPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const topic = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -38,8 +38,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const topicTopic = new aws.sns.Topic("topicTopic", {policy: topicPolicyDocument.apply(topicPolicyDocument => topicPolicyDocument.json)});
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const topicTopic = new aws.sns.Topic("topic", {
+ *     name: "s3-event-notification-topic",
+ *     policy: topic.apply(topic => topic.json),
+ * });
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     topics: [{
  *         topicArn: topicTopic.arn,
@@ -54,8 +57,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -71,8 +74,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const queueQueue = new aws.sqs.Queue("queue", {
+ *     name: "s3-event-notification-queue",
+ *     policy: queue.apply(queue => queue.json),
+ * });
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     queues: [{
  *         queueArn: queueQueue.arn,
@@ -97,21 +103,26 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("your-function.zip"),
+ *     name: "example_lambda_name",
  *     role: iamForLambda.arn,
  *     handler: "exports.example",
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const allowBucket = new aws.lambda.Permission("allowBucket", {
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const allowBucket = new aws.lambda.Permission("allow_bucket", {
+ *     statementId: "AllowExecutionFromS3Bucket",
  *     action: "lambda:InvokeFunction",
  *     "function": func.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     lambdaFunctions: [{
  *         lambdaFunctionArn: func.arn,
@@ -119,8 +130,6 @@ import * as utilities from "../utilities";
  *         filterPrefix: "AWSLogs/",
  *         filterSuffix: ".log",
  *     }],
- * }, {
- *     dependsOn: [allowBucket],
  * });
  * ```
  * ### Trigger multiple Lambda functions
@@ -139,15 +148,20 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const func1 = new aws.lambda.Function("func1", {
  *     code: new pulumi.asset.FileArchive("your-function1.zip"),
+ *     name: "example_lambda_name1",
  *     role: iamForLambda.arn,
  *     handler: "exports.example",
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const allowBucket1 = new aws.lambda.Permission("allow_bucket1", {
+ *     statementId: "AllowExecutionFromS3Bucket1",
  *     action: "lambda:InvokeFunction",
  *     "function": func1.arn,
  *     principal: "s3.amazonaws.com",
@@ -155,16 +169,18 @@ import * as utilities from "../utilities";
  * });
  * const func2 = new aws.lambda.Function("func2", {
  *     code: new pulumi.asset.FileArchive("your-function2.zip"),
+ *     name: "example_lambda_name2",
  *     role: iamForLambda.arn,
  *     handler: "exports.example",
  * });
- * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
+ * const allowBucket2 = new aws.lambda.Permission("allow_bucket2", {
+ *     statementId: "AllowExecutionFromS3Bucket2",
  *     action: "lambda:InvokeFunction",
  *     "function": func2.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     lambdaFunctions: [
  *         {
@@ -180,60 +196,7 @@ import * as utilities from "../utilities";
  *             filterSuffix: ".log",
  *         },
  *     ],
- * }, {
- *     dependsOn: [
- *         allowBucket1,
- *         allowBucket2,
- *     ],
  * });
- * ```
- * ### Add multiple notification configurations to SQS Queue
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
- *         conditions: [{
- *             test: "ArnEquals",
- *             variable: "aws:SourceArn",
- *             values: [bucket.arn],
- *         }],
- *     }],
- * });
- * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
- *     bucket: bucket.id,
- *     queues: [
- *         {
- *             id: "image-upload-event",
- *             queueArn: queueQueue.arn,
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "images/",
- *         },
- *         {
- *             id: "video-upload-event",
- *             queueArn: queueQueue.arn,
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "videos/",
- *         },
- *     ],
- * });
- * ```
- *
- * For JSON syntax, use an array instead of defining the `queue` key twice.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * ### Emit events to EventBridge
  *
@@ -241,8 +204,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     eventbridge: true,
  * });

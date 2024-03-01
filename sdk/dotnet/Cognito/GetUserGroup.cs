@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Cognito
         /// {
         ///     var example = Aws.Cognito.GetUserGroup.Invoke(new()
         ///     {
-        ///         Name = "example",
         ///         UserPoolId = "us-west-2_aaaaaaaaa",
+        ///         Name = "example",
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Aws.Cognito
         /// {
         ///     var example = Aws.Cognito.GetUserGroup.Invoke(new()
         ///     {
-        ///         Name = "example",
         ///         UserPoolId = "us-west-2_aaaaaaaaa",
+        ///         Name = "example",
         ///     });
         /// 
         /// });

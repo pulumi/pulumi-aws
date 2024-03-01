@@ -388,13 +388,13 @@ class Deployment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.Deployment("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            configuration_version=aws_appconfig_hosted_configuration_version["example"]["version_number"],
-            deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
+            configuration_version=example_aws_appconfig_hosted_configuration_version["versionNumber"],
+            deployment_strategy_id=example_aws_appconfig_deployment_strategy["id"],
             description="My example deployment",
-            environment_id=aws_appconfig_environment["example"]["environment_id"],
-            kms_key_identifier=aws_kms_key["example"]["arn"],
+            environment_id=example_aws_appconfig_environment["environmentId"],
+            kms_key_identifier=example_aws_kms_key["arn"],
             tags={
                 "Type": "AppConfig Deployment",
             })
@@ -435,13 +435,13 @@ class Deployment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.Deployment("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            configuration_version=aws_appconfig_hosted_configuration_version["example"]["version_number"],
-            deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
+            configuration_version=example_aws_appconfig_hosted_configuration_version["versionNumber"],
+            deployment_strategy_id=example_aws_appconfig_deployment_strategy["id"],
             description="My example deployment",
-            environment_id=aws_appconfig_environment["example"]["environment_id"],
-            kms_key_identifier=aws_kms_key["example"]["arn"],
+            environment_id=example_aws_appconfig_environment["environmentId"],
+            kms_key_identifier=example_aws_kms_key["arn"],
             tags={
                 "Type": "AppConfig Deployment",
             })

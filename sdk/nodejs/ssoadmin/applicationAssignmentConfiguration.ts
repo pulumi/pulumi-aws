@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssoadmin.ApplicationAssignmentConfiguration("example", {
- *     applicationArn: aws_ssoadmin_application.example.application_arn,
+ *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
  *     assignmentRequired: true,
  * });
  * ```

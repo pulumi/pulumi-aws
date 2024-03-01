@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
+ *     firewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.id,
  * });
  * ```
  */
@@ -79,7 +79,7 @@ export interface GetResolverFirewallRulesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
+ *     firewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.id,
  * });
  * ```
  */

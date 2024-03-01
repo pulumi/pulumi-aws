@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .description(&#34;example description&#34;)
  *             .variations(FeatureVariationArgs.builder()
  *                 .name(&#34;Variation1&#34;)
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .defaultVariation(&#34;Variation2&#34;)
  *             .variations(            
  *                 FeatureVariationArgs.builder()
@@ -131,7 +133,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
  *             .variations(            
  *                 FeatureVariationArgs.builder()
@@ -176,7 +179,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .evaluationStrategy(&#34;ALL_RULES&#34;)
  *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
  *             .variations(FeatureVariationArgs.builder()

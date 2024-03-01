@@ -29,11 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationFsxWindows(ctx, "example", &datasync.LocationFsxWindowsArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxWindowsFileSystem.Arn),
 //				User:             pulumi.String("SomeUser"),
 //				Password:         pulumi.String("SuperSecretPassw0rd"),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //			})
 //			if err != nil {

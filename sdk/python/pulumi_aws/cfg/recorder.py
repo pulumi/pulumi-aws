@@ -186,8 +186,12 @@ class Recorder(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        r = aws.iam.Role("r",
+            name="awsconfig-example",
+            assume_role_policy=assume_role.json)
+        foo = aws.cfg.Recorder("foo",
+            name="example",
+            role_arn=r.arn)
         ```
         ### Exclude Resources Types Usage
 
@@ -196,7 +200,8 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
+            name="example",
+            role_arn=r["arn"],
             recording_group=aws.cfg.RecorderRecordingGroupArgs(
                 all_supported=False,
                 exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
@@ -214,7 +219,8 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
+            name="example",
+            role_arn=r["arn"],
             recording_group=aws.cfg.RecorderRecordingGroupArgs(
                 all_supported=False,
                 include_global_resource_types=False,
@@ -274,8 +280,12 @@ class Recorder(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        r = aws.iam.Role("r",
+            name="awsconfig-example",
+            assume_role_policy=assume_role.json)
+        foo = aws.cfg.Recorder("foo",
+            name="example",
+            role_arn=r.arn)
         ```
         ### Exclude Resources Types Usage
 
@@ -284,7 +294,8 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
+            name="example",
+            role_arn=r["arn"],
             recording_group=aws.cfg.RecorderRecordingGroupArgs(
                 all_supported=False,
                 exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
@@ -302,7 +313,8 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
+            name="example",
+            role_arn=r["arn"],
             recording_group=aws.cfg.RecorderRecordingGroupArgs(
                 all_supported=False,
                 include_global_resource_types=False,

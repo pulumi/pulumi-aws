@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooServer = new Aws.Transfer.Server("fooServer", new()
+    ///     var fooServer = new Aws.Transfer.Server("foo", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///         Tags = 
@@ -57,12 +57,13 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var fooRole = new Aws.Iam.Role("fooRole", new()
+    ///     var fooRole = new Aws.Iam.Role("foo", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var foo = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -82,13 +83,14 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new()
+    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("foo", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-policy",
     ///         Role = fooRole.Id,
-    ///         Policy = fooPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = foo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooUser = new Aws.Transfer.User("fooUser", new()
+    ///     var fooUser = new Aws.Transfer.User("foo", new()
     ///     {
     ///         ServerId = fooServer.Id,
     ///         UserName = "tftestuser",

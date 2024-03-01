@@ -253,21 +253,23 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                ami_tags={
-                    "CostCenter": "IT",
-                },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                    user_ids=["123456789012"],
+        example = aws.imagebuilder.DistributionConfiguration("example",
+            name="example",
+            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
+                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+                    ami_tags={
+                        "CostCenter": "IT",
+                    },
+                    name="example-{{ imagebuilder:buildDate }}",
+                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                        user_ids=["123456789012"],
+                    ),
                 ),
-                name="example-{{ imagebuilder:buildDate }}",
-            ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                launch_template_id="lt-0aaa1bcde2ff3456",
-            )],
-            region="us-east-1",
-        )])
+                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+                    launch_template_id="lt-0aaa1bcde2ff3456",
+                )],
+                region="us-east-1",
+            )])
         ```
 
         ## Import
@@ -302,21 +304,23 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                ami_tags={
-                    "CostCenter": "IT",
-                },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                    user_ids=["123456789012"],
+        example = aws.imagebuilder.DistributionConfiguration("example",
+            name="example",
+            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
+                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+                    ami_tags={
+                        "CostCenter": "IT",
+                    },
+                    name="example-{{ imagebuilder:buildDate }}",
+                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                        user_ids=["123456789012"],
+                    ),
                 ),
-                name="example-{{ imagebuilder:buildDate }}",
-            ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                launch_template_id="lt-0aaa1bcde2ff3456",
-            )],
-            region="us-east-1",
-        )])
+                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+                    launch_template_id="lt-0aaa1bcde2ff3456",
+                )],
+                region="us-east-1",
+            )])
         ```
 
         ## Import

@@ -13,7 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicediscovery.PublicDnsNamespace("example", {description: "example"});
+ * const example = new aws.servicediscovery.PublicDnsNamespace("example", {
+ *     name: "hoge.example.com",
+ *     description: "example",
+ * });
  * ```
  *
  * ## Import

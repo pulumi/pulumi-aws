@@ -24,10 +24,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResourceShare = new aws.ram.ResourceShare("exampleResourceShare", {allowExternalPrincipals: true});
- * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("examplePrincipalAssociation", {
+ * const example = new aws.ram.ResourceShare("example", {allowExternalPrincipals: true});
+ * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("example", {
  *     principal: "111111111111",
- *     resourceShareArn: exampleResourceShare.arn,
+ *     resourceShareArn: example.arn,
  * });
  * ```
  * ### AWS Organization
@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ram.PrincipalAssociation("example", {
- *     principal: aws_organizations_organization.example.arn,
- *     resourceShareArn: aws_ram_resource_share.example.arn,
+ *     principal: exampleAwsOrganizationsOrganization.arn,
+ *     resourceShareArn: exampleAwsRamResourceShare.arn,
  * });
  * ```
  *

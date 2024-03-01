@@ -29,10 +29,11 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "my-tf-test-bucket",
     ///         Tags = 
     ///         {
-    ///             { "Environment", "Dev" },
     ///             { "Name", "My bucket" },
+    ///             { "Environment", "Dev" },
     ///         },
     ///     });
     /// 

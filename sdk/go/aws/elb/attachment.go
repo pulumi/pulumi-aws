@@ -37,8 +37,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new load balancer attachment
 //			_, err := elb.NewAttachment(ctx, "baz", &elb.AttachmentArgs{
-//				Elb:      pulumi.Any(aws_elb.Bar.Id),
-//				Instance: pulumi.Any(aws_instance.Foo.Id),
+//				Elb:      pulumi.Any(bar.Id),
+//				Instance: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err

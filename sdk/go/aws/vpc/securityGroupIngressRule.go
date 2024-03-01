@@ -36,9 +36,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
+//			example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:       pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},
@@ -46,8 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "exampleSecurityGroupIngressRule", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID(),
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: example.ID(),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),

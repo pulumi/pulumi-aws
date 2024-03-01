@@ -14,7 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.ServiceNetwork("example", {authType: "AWS_IAM"});
+ * const example = new aws.vpclattice.ServiceNetwork("example", {
+ *     name: "example",
+ *     authType: "AWS_IAM",
+ * });
  * ```
  *
  * ## Import

@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.codebuild.ReportGroup;
  * import com.pulumi.aws.codebuild.ReportGroupArgs;
  * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;Enable IAM User Permissions&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -69,12 +70,15 @@ import javax.annotation.Nullable;
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
  *             .description(&#34;my test kms key&#34;)
  *             .deletionWindowInDays(7)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-test&#34;)
+ *             .build());
  * 
  *         var exampleReportGroup = new ReportGroup(&#34;exampleReportGroup&#34;, ReportGroupArgs.builder()        
+ *             .name(&#34;my test report group&#34;)
  *             .type(&#34;TEST&#34;)
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
  *                 .type(&#34;S3&#34;)

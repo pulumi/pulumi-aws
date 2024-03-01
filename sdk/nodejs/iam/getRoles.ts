@@ -62,6 +62,27 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
+ * ### Role ARNs with paths removed
+ *
+ * For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const roles = aws.iam.getRoles({
+ *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
+ * });
+ * export const arns = Promise.all([roles, std.split({
+ *     separator: "/",
+ *     text: arn,
+ * })]).then(([roles, invoke]) => .map(arn => (invoke.result)).map(parts => (notImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))"))));
+ * ```
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
@@ -163,6 +184,27 @@ export interface GetRolesResult {
  *     nameRegex: "AWSReservedSSO_permission_set_name_.*",
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
+ * ```
+ * ### Role ARNs with paths removed
+ *
+ * For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const roles = aws.iam.getRoles({
+ *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
+ * });
+ * export const arns = Promise.all([roles, std.split({
+ *     separator: "/",
+ *     text: arn,
+ * })]).then(([roles, invoke]) => .map(arn => (invoke.result)).map(parts => (notImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))"))));
  * ```
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {

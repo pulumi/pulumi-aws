@@ -29,7 +29,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
         ///     });
         /// 
         /// });

@@ -43,8 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DeploymentStrategy(&#34;example&#34;, DeploymentStrategyArgs.builder()        
- *             .deploymentDurationInMinutes(3)
+ *             .name(&#34;example-deployment-strategy-tf&#34;)
  *             .description(&#34;Example Deployment Strategy&#34;)
+ *             .deploymentDurationInMinutes(3)
  *             .finalBakeTimeInMinutes(4)
  *             .growthFactor(10)
  *             .growthType(&#34;LINEAR&#34;)

@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new ParameterGroup(&#34;bar&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;parameter-group-test&#34;)
  *             .family(&#34;redshift-1.0&#34;)
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()

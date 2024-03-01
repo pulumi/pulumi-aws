@@ -107,31 +107,32 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+        example = aws.codebuild.ReportGroup("example",
+            name="example",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="NO_EXPORT",
             ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
+        current = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_resource_policy = aws.codebuild.ResourcePolicy("example",
+            resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "id": "default",
+                "statement": [{
+                    "sid": "default",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "codebuild:BatchGetReportGroups",
                         "codebuild:BatchGetReports",
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "Resource": example_report_group.arn,
+                    "resource": example.arn,
                 }],
             }))
         ```
@@ -165,31 +166,32 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+        example = aws.codebuild.ReportGroup("example",
+            name="example",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="NO_EXPORT",
             ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
+        current = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_resource_policy = aws.codebuild.ResourcePolicy("example",
+            resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "id": "default",
+                "statement": [{
+                    "sid": "default",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "codebuild:BatchGetReportGroups",
                         "codebuild:BatchGetReports",
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "Resource": example_report_group.arn,
+                    "resource": example.arn,
                 }],
             }))
         ```

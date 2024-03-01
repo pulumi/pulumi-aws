@@ -242,10 +242,9 @@ class ProductSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
+        example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement")
         ```
 
         ## Import
@@ -313,10 +312,9 @@ class ProductSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
+        example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement")
         ```
 
         ## Import

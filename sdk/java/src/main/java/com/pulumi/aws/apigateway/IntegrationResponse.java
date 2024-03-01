@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 

@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
-//				OverrideDynamicGroup: pulumi.Bool(true),
-//				ThingGroupName:       pulumi.String("example-group"),
 //				ThingName:            pulumi.String("example-thing"),
+//				ThingGroupName:       pulumi.String("example-group"),
+//				OverrideDynamicGroup: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

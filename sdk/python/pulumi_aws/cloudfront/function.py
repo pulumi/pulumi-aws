@@ -281,12 +281,18 @@ class Function(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         test = aws.cloudfront.Function("test",
+            name="test",
             runtime="cloudfront-js-2.0",
             comment="my function",
             publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
+            code=std.file(input=f"{not_implemented('path.module')}/function.js").result)
         ```
 
         ## Import
@@ -326,12 +332,18 @@ class Function(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         test = aws.cloudfront.Function("test",
+            name="test",
             runtime="cloudfront-js-2.0",
             comment="my function",
             publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
+            code=std.file(input=f"{not_implemented('path.module')}/function.js").result)
         ```
 
         ## Import

@@ -52,10 +52,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Request a spot instance at $0.03
-//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
+//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheap_worker", &ec2.SpotInstanceRequestArgs{
 //				Ami:          pulumi.String("ami-1234"),
-//				InstanceType: pulumi.String("c4.xlarge"),
 //				SpotPrice:    pulumi.String("0.03"),
+//				InstanceType: pulumi.String("c4.xlarge"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("CheapWorker"),
 //				},

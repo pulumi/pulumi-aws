@@ -18,13 +18,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
+ *     name: "example",
  *     type: "CONDITIONAL",
  *     actions: [{
- *         jobName: aws_glue_job.example1.name,
+ *         jobName: example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
- *             jobName: aws_glue_job.example2.name,
+ *             jobName: example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
@@ -37,9 +38,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
+ *     name: "example",
  *     type: "ON_DEMAND",
  *     actions: [{
- *         jobName: aws_glue_job.example.name,
+ *         jobName: exampleAwsGlueJob.name,
  *     }],
  * });
  * ```
@@ -50,10 +52,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
+ *     name: "example",
  *     schedule: "cron(15 12 * * ? *)",
  *     type: "SCHEDULED",
  *     actions: [{
- *         jobName: aws_glue_job.example.name,
+ *         jobName: exampleAwsGlueJob.name,
  *     }],
  * });
  * ```
@@ -66,13 +69,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
+ *     name: "example",
  *     type: "CONDITIONAL",
  *     actions: [{
- *         crawlerName: aws_glue_crawler.example1.name,
+ *         crawlerName: example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
- *             jobName: aws_glue_job.example2.name,
+ *             jobName: example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
@@ -87,13 +91,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
+ *     name: "example",
  *     type: "CONDITIONAL",
  *     actions: [{
- *         jobName: aws_glue_job.example1.name,
+ *         jobName: example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
- *             crawlerName: aws_glue_crawler.example2.name,
+ *             crawlerName: example2.name,
  *             crawlState: "SUCCEEDED",
  *         }],
  *     },

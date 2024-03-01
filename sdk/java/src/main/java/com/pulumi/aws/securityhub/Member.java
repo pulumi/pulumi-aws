@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Member;
  * import com.pulumi.aws.securityhub.MemberArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,15 +41,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;123456789012&#34;)
  *             .email(&#34;example@example.com&#34;)
  *             .invite(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

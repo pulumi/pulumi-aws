@@ -22,9 +22,12 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs");
+    ///     var fs = new Aws.Efs.FileSystem("fs", new()
+    ///     {
+    ///         CreationToken = "my-product",
+    ///     });
     /// 
-    ///     var policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -68,10 +71,10 @@ namespace Pulumi.Aws.Efs
     ///         },
     ///     });
     /// 
-    ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policyFileSystemPolicy", new()
+    ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policy", new()
     ///     {
     ///         FileSystemId = fs.Id,
-    ///         Policy = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

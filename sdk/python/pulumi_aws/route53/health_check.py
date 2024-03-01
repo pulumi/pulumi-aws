@@ -798,15 +798,15 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
             fqdn="example.com",
             port=80,
-            request_interval=30,
+            type="HTTP",
             resource_path="/",
+            failure_threshold=5,
+            request_interval=30,
             tags={
                 "Name": "tf-test-health-check",
-            },
-            type="HTTP")
+            })
         ```
         ### Connectivity and String Matching Check
 
@@ -832,7 +832,7 @@ class HealthCheck(pulumi.CustomResource):
         parent = aws.route53.HealthCheck("parent",
             type="CALCULATED",
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[child["id"]],
             tags={
                 "Name": "tf-test-calculated-health-check",
             })
@@ -844,6 +844,7 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",
@@ -914,15 +915,15 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
             fqdn="example.com",
             port=80,
-            request_interval=30,
+            type="HTTP",
             resource_path="/",
+            failure_threshold=5,
+            request_interval=30,
             tags={
                 "Name": "tf-test-health-check",
-            },
-            type="HTTP")
+            })
         ```
         ### Connectivity and String Matching Check
 
@@ -948,7 +949,7 @@ class HealthCheck(pulumi.CustomResource):
         parent = aws.route53.HealthCheck("parent",
             type="CALCULATED",
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[child["id"]],
             tags={
                 "Name": "tf-test-calculated-health-check",
             })
@@ -960,6 +961,7 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",

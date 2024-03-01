@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
  *
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~* +@all",
+ *     engine: "REDIS",
  *     authenticationMode: {
  *         type: "iam",
  *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
  *
@@ -46,17 +46,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~* +@all",
+ *     engine: "REDIS",
  *     authenticationMode: {
+ *         type: "password",
  *         passwords: [
  *             "password1",
  *             "password2",
  *         ],
- *         type: "password",
  *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
  *

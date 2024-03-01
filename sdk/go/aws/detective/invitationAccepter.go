@@ -28,24 +28,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryGraph, err := detective.NewGraph(ctx, "primaryGraph", nil)
+//			primary, err := detective.NewGraph(ctx, "primary", nil)
 //			if err != nil {
 //				return err
 //			}
-//			primaryMember, err := detective.NewMember(ctx, "primaryMember", &detective.MemberArgs{
+//			_, err = detective.NewMember(ctx, "primary", &detective.MemberArgs{
 //				AccountId:    pulumi.String("ACCOUNT ID"),
 //				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primaryGraph.ID(),
+//				GraphArn:     primary.ID(),
 //				Message:      pulumi.String("Message of the invite"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primaryGraph.GraphArn,
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
+//				GraphArn: primary.GraphArn,
+//			})
 //			if err != nil {
 //				return err
 //			}

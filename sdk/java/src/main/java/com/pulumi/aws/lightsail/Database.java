@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;mysql_8_0&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .blueprintId(&#34;mysql_8_0&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .build());
  * 
  *     }
@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .build());
  * 
  *     }
@@ -122,15 +122,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -161,16 +161,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
- *             .finalSnapshotName(&#34;MyFinalSnapshot&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .finalSnapshotName(&#34;MyFinalSnapshot&#34;)
  *             .build());
  * 
  *     }
@@ -201,14 +201,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .applyImmediately(true)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *     }

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var lb = new Aws.OpsWorks.HaproxyLayer("lb", new()
     ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///         StatsPassword = "foobarbaz",
     ///     });
     /// 

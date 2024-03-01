@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcNetworkPerformanceMetricSubscription(&#34;example&#34;, VpcNetworkPerformanceMetricSubscriptionArgs.builder()        
- *             .destination(&#34;us-west-1&#34;)
  *             .source(&#34;us-east-1&#34;)
+ *             .destination(&#34;us-west-1&#34;)
  *             .build());
  * 
  *     }

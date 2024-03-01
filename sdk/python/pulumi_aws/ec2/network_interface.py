@@ -802,11 +802,11 @@ class NetworkInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=aws_subnet["public_a"]["id"],
+            subnet_id=public_a["id"],
             private_ips=["10.0.0.50"],
-            security_groups=[aws_security_group["web"]["id"]],
+            security_groups=[web["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=test_aws_instance["id"],
                 device_index=1,
             )])
         ```
@@ -875,11 +875,11 @@ class NetworkInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=aws_subnet["public_a"]["id"],
+            subnet_id=public_a["id"],
             private_ips=["10.0.0.50"],
-            security_groups=[aws_security_group["web"]["id"]],
+            security_groups=[web["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=test_aws_instance["id"],
                 device_index=1,
             )])
         ```

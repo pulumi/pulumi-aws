@@ -29,12 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("MyExamplePool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
+//				UserPoolId: example.ID(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -59,7 +61,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
 //				Schemas: cognito.UserPoolSchemaArray{
 //					&cognito.UserPoolSchemaArgs{
 //						Name:                   pulumi.String("example"),
@@ -81,8 +84,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
+//				UserPoolId: example.ID(),
 //				Username:   pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
 //					"example":        pulumi.String("true"),

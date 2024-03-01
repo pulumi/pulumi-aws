@@ -43,13 +43,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Studio(&#34;example&#34;, StudioArgs.builder()        
  *             .authMode(&#34;SSO&#34;)
- *             .defaultS3Location(String.format(&#34;s3://%s/test&#34;, aws_s3_bucket.test().bucket()))
- *             .engineSecurityGroupId(aws_security_group.test().id())
- *             .serviceRole(aws_iam_role.test().arn())
- *             .subnetIds(aws_subnet.test().id())
- *             .userRole(aws_iam_role.test().arn())
- *             .vpcId(aws_vpc.test().id())
- *             .workspaceSecurityGroupId(aws_security_group.test().id())
+ *             .defaultS3Location(String.format(&#34;s3://%s/test&#34;, test.bucket()))
+ *             .engineSecurityGroupId(testAwsSecurityGroup.id())
+ *             .name(&#34;example&#34;)
+ *             .serviceRole(testAwsIamRole.arn())
+ *             .subnetIds(testAwsSubnet.id())
+ *             .userRole(testAwsIamRole.arn())
+ *             .vpcId(testAwsVpc.id())
+ *             .workspaceSecurityGroupId(testAwsSecurityGroup.id())
  *             .build());
  * 
  *     }

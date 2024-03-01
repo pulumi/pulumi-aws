@@ -25,9 +25,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.RoutingProfile("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
     ///         Description = "example description",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         MediaConcurrencies = new[]
     ///         {
     ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs

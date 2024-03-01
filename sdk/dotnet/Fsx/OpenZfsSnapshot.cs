@@ -24,19 +24,17 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var example = new Aws.Fsx.OpenZfsSnapshot("example", new()
     ///     {
+    ///         Name = "example",
     ///         VolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
     /// 
@@ -52,24 +50,23 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("exampleOpenZfsVolume", new()
+    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("example", new()
     ///     {
+    ///         Name = "example",
     ///         ParentVolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var example = new Aws.Fsx.OpenZfsSnapshot("example", new()
     ///     {
+    ///         Name = "example",
     ///         VolumeId = exampleOpenZfsVolume.Id,
     ///     });
     /// 

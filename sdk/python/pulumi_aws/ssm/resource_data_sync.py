@@ -109,8 +109,8 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        hoge_policy_document = aws.iam.get_policy_document(statements=[
+        hoge_bucket_v2 = aws.s3.BucketV2("hoge", bucket="tf-test-bucket-1234")
+        hoge = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="SSMBucketPermissionsCheck",
                 effect="Allow",
@@ -137,13 +137,15 @@ class ResourceDataSync(pulumi.CustomResource):
                 )],
             ),
         ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
+        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
             bucket=hoge_bucket_v2.id,
-            policy=hoge_policy_document.json)
-        foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
-            bucket_name=hoge_bucket_v2.bucket,
-            region=hoge_bucket_v2.region,
-        ))
+            policy=hoge.json)
+        foo = aws.ssm.ResourceDataSync("foo",
+            name="foo",
+            s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
+                bucket_name=hoge_bucket_v2.bucket,
+                region=hoge_bucket_v2.region,
+            ))
         ```
 
         ## Import
@@ -174,8 +176,8 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        hoge_policy_document = aws.iam.get_policy_document(statements=[
+        hoge_bucket_v2 = aws.s3.BucketV2("hoge", bucket="tf-test-bucket-1234")
+        hoge = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="SSMBucketPermissionsCheck",
                 effect="Allow",
@@ -202,13 +204,15 @@ class ResourceDataSync(pulumi.CustomResource):
                 )],
             ),
         ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
+        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
             bucket=hoge_bucket_v2.id,
-            policy=hoge_policy_document.json)
-        foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
-            bucket_name=hoge_bucket_v2.bucket,
-            region=hoge_bucket_v2.region,
-        ))
+            policy=hoge.json)
+        foo = aws.ssm.ResourceDataSync("foo",
+            name="foo",
+            s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
+                bucket_name=hoge_bucket_v2.bucket,
+                region=hoge_bucket_v2.region,
+            ))
         ```
 
         ## Import

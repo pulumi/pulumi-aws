@@ -22,12 +22,13 @@ namespace Pulumi.Aws.ServerlessRepository
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new()
     ///     {
+    ///         Name = "postgres-rotator",
     ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
     ///         Capabilities = new[]
     ///         {
@@ -36,13 +37,13 @@ namespace Pulumi.Aws.ServerlessRepository
     ///         },
     ///         Parameters = 
     ///         {
-    ///             { "endpoint", Output.Tuple(currentRegion, currentPartition).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentPartition = values.Item2;
-    ///                 return $"secretsmanager.{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
-    ///             }) },
     ///             { "functionName", "func-postgres-rotator" },
+    ///             { "endpoint", Output.Tuple(currentGetRegion, current).Apply(values =&gt;
+    ///             {
+    ///                 var currentGetRegion = values.Item1;
+    ///                 var current = values.Item2;
+    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///             }) },
     ///         },
     ///     });
     /// 

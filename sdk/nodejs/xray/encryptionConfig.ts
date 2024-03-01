@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
+ * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "Enable IAM User Permissions",
  *         effect: "Allow",
@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * }));
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms.Key("example", {
  *     description: "Some Key",
  *     deletionWindowInDays: 7,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("exampleEncryptionConfig", {
+ * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("example", {
  *     type: "KMS",
  *     keyId: exampleKey.arn,
  * });

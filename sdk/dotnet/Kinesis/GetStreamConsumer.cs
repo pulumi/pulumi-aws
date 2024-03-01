@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Kinesis
         ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
         ///     {
         ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
+        ///         StreamArn = exampleAwsKinesisStream.Arn,
         ///     });
         /// 
         /// });
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Kinesis
         ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
         ///     {
         ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
+        ///         StreamArn = exampleAwsKinesisStream.Arn,
         ///     });
         /// 
         /// });

@@ -19,8 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
- * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eksRuntimeMonitoring", {
+ * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eks_runtime_monitoring", {
  *     detectorId: example.id,
+ *     name: "EKS_RUNTIME_MONITORING",
  *     status: "ENABLED",
  *     additionalConfigurations: [{
  *         name: "EKS_ADDON_MANAGEMENT",

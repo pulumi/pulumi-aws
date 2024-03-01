@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         forwardWhenQueryArgProfileIsUnknown: true,
  *         queryArgProfiles: {
  *             items: [{
- *                 profileId: aws_cloudfront_field_level_encryption_profile.test.id,
+ *                 profileId: testAwsCloudfrontFieldLevelEncryptionProfile.id,
  *                 queryArg: "Arg1",
  *             }],
  *         },

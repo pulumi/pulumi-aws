@@ -30,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewServiceAction(ctx, "example", &servicecatalog.ServiceActionArgs{
+//				Description: pulumi.String("Motor generator unit"),
+//				Name:        pulumi.String("MGU"),
 //				Definition: &servicecatalog.ServiceActionDefinitionArgs{
 //					Name: pulumi.String("AWS-RestartEC2Instance"),
 //				},
-//				Description: pulumi.String("Motor generator unit"),
 //			})
 //			if err != nil {
 //				return err

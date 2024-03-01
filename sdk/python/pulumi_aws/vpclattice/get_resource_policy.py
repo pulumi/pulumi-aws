@@ -77,7 +77,7 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_resource_policy(resource_arn=aws_vpclattice_service_network["example"]["arn"])
+    example = aws.vpclattice.get_resource_policy(resource_arn=example_aws_vpclattice_service_network["arn"])
     ```
 
 
@@ -107,7 +107,7 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_resource_policy(resource_arn=aws_vpclattice_service_network["example"]["arn"])
+    example = aws.vpclattice.get_resource_policy(resource_arn=example_aws_vpclattice_service_network["arn"])
     ```
 
 

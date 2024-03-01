@@ -13,19 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const currentPartition = aws.getPartition({});
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
  * const example = new aws.ecr.RegistryPolicy("example", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Sid: "testpolicy",
- *         Effect: "Allow",
- *         Principal: {
- *             AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
+ *     version: "2012-10-17",
+ *     statement: [{
+ *         sid: "testpolicy",
+ *         effect: "Allow",
+ *         principal: {
+ *             AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *         },
- *         Action: ["ecr:ReplicateImage"],
- *         Resource: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:ecr:${currentRegion.name}:${currentCallerIdentity.accountId}:repository/*`)],
+ *         action: ["ecr:ReplicateImage"],
+ *         resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.name}:${current.accountId}:repository/*`)],
  *     }],
  * })});
  * ```

@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
+ * // get listener from load_balancer_arn and port
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });
@@ -102,6 +103,7 @@ export interface GetListenerResult {
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
+ * // get listener from load_balancer_arn and port
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });

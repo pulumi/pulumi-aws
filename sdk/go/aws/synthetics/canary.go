@@ -31,14 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
+//				Name:               pulumi.String("some-canary"),
 //				ArtifactS3Location: pulumi.String("s3://some-bucket/"),
 //				ExecutionRoleArn:   pulumi.String("some-role"),
 //				Handler:            pulumi.String("exports.handler"),
+//				ZipFile:            pulumi.String("test-fixtures/lambdatest.zip"),
 //				RuntimeVersion:     pulumi.String("syn-1.0"),
 //				Schedule: &synthetics.CanaryScheduleArgs{
 //					Expression: pulumi.String("rate(0 minute)"),
 //				},
-//				ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
 //			})
 //			if err != nil {
 //				return err

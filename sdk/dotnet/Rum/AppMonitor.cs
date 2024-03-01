@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Rum
     /// {
     ///     var example = new Aws.Rum.AppMonitor("example", new()
     ///     {
+    ///         Name = "example",
     ///         Domain = "localhost",
     ///     });
     /// 

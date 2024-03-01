@@ -53,7 +53,7 @@ namespace Pulumi.Aws.S3Control
     ///                 S3BucketDestination = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs
     ///                 {
     ///                     AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                     Arn = aws_s3_bucket.Target.Arn,
+    ///                     Arn = target.Arn,
     ///                     Format = "CSV",
     ///                     OutputSchemaVersion = "V_1",
     ///                     Encryption = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs
@@ -69,8 +69,8 @@ namespace Pulumi.Aws.S3Control
     ///             {
     ///                 Buckets = new[]
     ///                 {
-    ///                     aws_s3_bucket.B1.Arn,
-    ///                     aws_s3_bucket.B2.Arn,
+    ///                     b1.Arn,
+    ///                     b2.Arn,
     ///                 },
     ///                 Regions = new[]
     ///                 {

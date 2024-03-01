@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myTemplate = new Aws.Ses.Template("myTemplate", new()
+    ///     var myTemplate = new Aws.Ses.Template("MyTemplate", new()
     ///     {
-    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
+    ///         Name = "MyTemplate",
     ///         Subject = "Greetings, {{name}}!",
+    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
     ///         Text = @"Hello {{name}},
-    /// Your favorite animal is {{favoriteanimal}}.
-    /// ",
+    /// Your favorite animal is {{favoriteanimal}}.",
     ///     });
     /// 
     /// });

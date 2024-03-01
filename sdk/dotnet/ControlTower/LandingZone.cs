@@ -17,16 +17,25 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.ControlTower.LandingZone("example", new()
     ///     {
-    ///         ManifestJson = File.ReadAllText($"{path.Module}/LandingZoneManifest.json"),
+    ///         ManifestJson = Std.File.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/LandingZoneManifest.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Version = "3.2",
     ///     });
     /// 

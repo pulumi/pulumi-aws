@@ -14,6 +14,45 @@ namespace Pulumi.Aws.Msk
     /// 
     /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Msk.ServerlessCluster("example", new()
+    ///     {
+    ///         ClusterName = "Example",
+    ///         VpcConfigs = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ServerlessClusterVpcConfigArgs
+    ///             {
+    ///                 SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     exampleAwsSecurityGroup.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ClientAuthentication = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationArgs
+    ///         {
+    ///             Sasl = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslArgs
+    ///             {
+    ///                 Iam = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslIamArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:

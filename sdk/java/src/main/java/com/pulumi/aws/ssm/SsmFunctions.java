@@ -236,7 +236,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
+     *             .name(testAwsSsmDocument.name())
      *             .documentFormat(&#34;JSON&#34;)
      *             .build());
      * 
@@ -308,7 +308,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
+     *             .name(testAwsSsmDocument.name())
      *             .documentFormat(&#34;JSON&#34;)
      *             .build());
      * 
@@ -380,7 +380,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
+     *             .name(testAwsSsmDocument.name())
      *             .documentFormat(&#34;JSON&#34;)
      *             .build());
      * 
@@ -452,7 +452,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
+     *             .name(testAwsSsmDocument.name())
      *             .documentFormat(&#34;JSON&#34;)
      *             .build());
      * 
@@ -1140,9 +1140,9 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *             .owner(&#34;AWS&#34;)
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
      *             .build());
      * 
      *     }
@@ -1172,10 +1172,10 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
+     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .defaultBaseline(true)
+     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .build());
      * 
      *     }
@@ -1214,9 +1214,9 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *             .owner(&#34;AWS&#34;)
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
      *             .build());
      * 
      *     }
@@ -1246,10 +1246,10 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
+     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .defaultBaseline(true)
+     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .build());
      * 
      *     }
@@ -1288,9 +1288,9 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *             .owner(&#34;AWS&#34;)
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
      *             .build());
      * 
      *     }
@@ -1320,10 +1320,10 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
+     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .defaultBaseline(true)
+     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .build());
      * 
      *     }
@@ -1362,9 +1362,9 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *             .owner(&#34;AWS&#34;)
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
      *             .build());
      * 
      *     }
@@ -1394,10 +1394,10 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
+     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .defaultBaseline(true)
+     *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .build());
      * 
      *     }

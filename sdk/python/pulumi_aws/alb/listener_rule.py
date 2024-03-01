@@ -246,16 +246,14 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
-        # Other parameters
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end")
         static = aws.lb.ListenerRule("static",
             listener_arn=front_end_listener.arn,
             priority=100,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=static_aws_lb_target_group["arn"],
             )],
             conditions=[
                 aws.lb.ListenerRuleConditionArgs(
@@ -270,12 +268,12 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ])
         # Forward action
-        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
+        host_based_weighted_routing = aws.lb.ListenerRule("host_based_weighted_routing",
             listener_arn=front_end_listener.arn,
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=static_aws_lb_target_group["arn"],
             )],
             conditions=[aws.lb.ListenerRuleConditionArgs(
                 host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
@@ -283,7 +281,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Weighted Forward action
-        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+        host_based_routing = aws.lb.ListenerRule("host_based_routing",
             listener_arn=front_end_listener.arn,
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
@@ -291,11 +289,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.lb.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
+                            arn=main["arn"],
                             weight=80,
                         ),
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
+                            arn=canary["arn"],
                             weight=20,
                         ),
                     ],
@@ -311,7 +309,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Redirect action
-        redirect_http_to_https = aws.lb.ListenerRule("redirectHttpToHttps",
+        redirect_http_to_https = aws.lb.ListenerRule("redirect_http_to_https",
             listener_arn=front_end_listener.arn,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="redirect",
@@ -328,7 +326,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Fixed-response action
-        health_check = aws.lb.ListenerRule("healthCheck",
+        health_check = aws.lb.ListenerRule("health_check",
             listener_arn=front_end_listener.arn,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="fixed-response",
@@ -351,11 +349,8 @@ class ListenerRule(pulumi.CustomResource):
             )])
         # Authenticate-cognito Action
         pool = aws.cognito.UserPool("pool")
-        # ...
         client = aws.cognito.UserPoolClient("client")
-        # ...
         domain = aws.cognito.UserPoolDomain("domain")
-        # ...
         admin = aws.lb.ListenerRule("admin",
             listener_arn=front_end_listener.arn,
             actions=[
@@ -369,7 +364,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=static_aws_lb_target_group["arn"],
                 ),
             ])
         # Authenticate-oidc Action
@@ -389,7 +384,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=static_aws_lb_target_group["arn"],
                 ),
             ])
         ```
@@ -427,16 +422,14 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
-        # Other parameters
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end")
         static = aws.lb.ListenerRule("static",
             listener_arn=front_end_listener.arn,
             priority=100,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=static_aws_lb_target_group["arn"],
             )],
             conditions=[
                 aws.lb.ListenerRuleConditionArgs(
@@ -451,12 +444,12 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ])
         # Forward action
-        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
+        host_based_weighted_routing = aws.lb.ListenerRule("host_based_weighted_routing",
             listener_arn=front_end_listener.arn,
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=static_aws_lb_target_group["arn"],
             )],
             conditions=[aws.lb.ListenerRuleConditionArgs(
                 host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
@@ -464,7 +457,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Weighted Forward action
-        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+        host_based_routing = aws.lb.ListenerRule("host_based_routing",
             listener_arn=front_end_listener.arn,
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
@@ -472,11 +465,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.lb.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
+                            arn=main["arn"],
                             weight=80,
                         ),
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
+                            arn=canary["arn"],
                             weight=20,
                         ),
                     ],
@@ -492,7 +485,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Redirect action
-        redirect_http_to_https = aws.lb.ListenerRule("redirectHttpToHttps",
+        redirect_http_to_https = aws.lb.ListenerRule("redirect_http_to_https",
             listener_arn=front_end_listener.arn,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="redirect",
@@ -509,7 +502,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             )])
         # Fixed-response action
-        health_check = aws.lb.ListenerRule("healthCheck",
+        health_check = aws.lb.ListenerRule("health_check",
             listener_arn=front_end_listener.arn,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="fixed-response",
@@ -532,11 +525,8 @@ class ListenerRule(pulumi.CustomResource):
             )])
         # Authenticate-cognito Action
         pool = aws.cognito.UserPool("pool")
-        # ...
         client = aws.cognito.UserPoolClient("client")
-        # ...
         domain = aws.cognito.UserPoolDomain("domain")
-        # ...
         admin = aws.lb.ListenerRule("admin",
             listener_arn=front_end_listener.arn,
             actions=[
@@ -550,7 +540,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=static_aws_lb_target_group["arn"],
                 ),
             ])
         # Authenticate-oidc Action
@@ -570,7 +560,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=static_aws_lb_target_group["arn"],
                 ),
             ])
         ```

@@ -27,18 +27,9 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Provider("main", new()
+    ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var alt = new Aws.Provider("alt", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
+    ///         Name = "TestTable",
     ///         HashKey = "BrodoBaggins",
     ///         BillingMode = "PAY_PER_REQUEST",
     ///         StreamEnabled = true,
@@ -51,22 +42,16 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Main,
     ///     });
     /// 
-    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
+    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("example", new()
     ///     {
-    ///         GlobalTableArn = exampleTable.Arn,
+    ///         GlobalTableArn = example.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "IZPAWS" },
     ///             { "Pozo", "Amargo" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alt,
     ///     });
     /// 
     /// });

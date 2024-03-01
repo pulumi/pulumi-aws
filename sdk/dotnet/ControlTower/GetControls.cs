@@ -26,14 +26,14 @@ namespace Pulumi.Aws.ControlTower
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var thisOrganization = Aws.Organizations.GetOrganization.Invoke();
+        ///     var @this = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var thisOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
+        ///     var thisGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
         ///     {
-        ///         ParentId = thisOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///         ParentId = @this.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
         ///     });
         /// 
-        ///     var thisControls = Aws.ControlTower.GetControls.Invoke(new()
+        ///     var thisGetControls = Aws.ControlTower.GetControls.Invoke(new()
         ///     {
         ///         TargetIdentifier = [0],
         ///     });
@@ -61,14 +61,14 @@ namespace Pulumi.Aws.ControlTower
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var thisOrganization = Aws.Organizations.GetOrganization.Invoke();
+        ///     var @this = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var thisOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
+        ///     var thisGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
         ///     {
-        ///         ParentId = thisOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///         ParentId = @this.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
         ///     });
         /// 
-        ///     var thisControls = Aws.ControlTower.GetControls.Invoke(new()
+        ///     var thisGetControls = Aws.ControlTower.GetControls.Invoke(new()
         ///     {
         ///         TargetIdentifier = [0],
         ///     });

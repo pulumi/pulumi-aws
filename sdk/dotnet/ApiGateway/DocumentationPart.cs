@@ -22,9 +22,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example_api",
+    ///     });
     /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     var example = new Aws.ApiGateway.DocumentationPart("example", new()
     ///     {
     ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
     ///         {

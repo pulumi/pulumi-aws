@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleComputeEnvironment = new ComputeEnvironment(&#34;exampleComputeEnvironment&#34;, ComputeEnvironmentArgs.builder()        
+ *         var example = new ComputeEnvironment(&#34;example&#34;, ComputeEnvironmentArgs.builder()        
  *             .computeEnvironmentName(&#34;example&#34;)
- *             .serviceRole(aws_iam_role.example().arn())
+ *             .serviceRole(exampleAwsIamRole.arn())
  *             .type(&#34;UNMANAGED&#34;)
  *             .build());
  * 
  *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .resourceArn(exampleComputeEnvironment.ecsClusterArn())
+ *             .resourceArn(example.ecsClusterArn())
  *             .key(&#34;Name&#34;)
  *             .value(&#34;Hello World&#34;)
  *             .build());

@@ -28,14 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewApiKey(ctx, "exampleApiKey", &appsync.ApiKeyArgs{
-//				ApiId:   exampleGraphQLApi.ID(),
+//			_, err = appsync.NewApiKey(ctx, "example", &appsync.ApiKeyArgs{
+//				ApiId:   example.ID(),
 //				Expires: pulumi.String("2018-05-03T04:00:00Z"),
 //			})
 //			if err != nil {

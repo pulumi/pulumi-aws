@@ -16,14 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", {s3Destination: {
- *     bucketName: aws_s3_bucket.example.bucket,
+ * const example = new aws.macie2.Account("example", {});
+ * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("example", {s3Destination: {
+ *     bucketName: exampleAwsS3Bucket.bucket,
  *     keyPrefix: "exampleprefix/",
- *     kmsKeyArn: aws_kms_key.example.arn,
- * }}, {
- *     dependsOn: [exampleAccount],
- * });
+ *     kmsKeyArn: exampleAwsKmsKey.arn,
+ * }});
  * ```
  *
  * ## Import

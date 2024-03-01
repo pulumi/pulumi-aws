@@ -22,9 +22,12 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTopic = new Aws.Sns.Topic("testTopic");
+    ///     var testTopic = new Aws.Sns.Topic("test", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -49,13 +52,15 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test", new()
     ///     {
-    ///         AssumeRolePolicy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "test",
+    ///         AssumeRolePolicy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testExtension = new Aws.AppConfig.Extension("testExtension", new()
+    ///     var testExtension = new Aws.AppConfig.Extension("test", new()
     ///     {
+    ///         Name = "test",
     ///         Description = "test description",
     ///         ActionPoints = new[]
     ///         {

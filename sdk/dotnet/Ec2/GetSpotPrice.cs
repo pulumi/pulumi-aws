@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
+        ///         InstanceType = "t3.medium",
         ///         AvailabilityZone = "us-west-2a",
         ///         Filters = new[]
         ///         {
@@ -40,7 +41,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceType = "t3.medium",
         ///     });
         /// 
         /// });
@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
+        ///         InstanceType = "t3.medium",
         ///         AvailabilityZone = "us-west-2a",
         ///         Filters = new[]
         ///         {
@@ -80,7 +81,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceType = "t3.medium",
         ///     });
         /// 
         /// });

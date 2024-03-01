@@ -109,8 +109,8 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -124,9 +124,9 @@ class RestApiPolicy(pulumi.CustomResource):
                 values=["123.123.123.123/32"],
             )],
         )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
+        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
+            policy=test.json)
         ```
 
         ## Import
@@ -160,8 +160,8 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -175,9 +175,9 @@ class RestApiPolicy(pulumi.CustomResource):
                 values=["123.123.123.123/32"],
             )],
         )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
+        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
+            policy=test.json)
         ```
 
         ## Import

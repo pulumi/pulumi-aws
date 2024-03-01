@@ -28,16 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			s3, err := ec2.LookupVpcEndpoint(ctx, &ec2.LookupVpcEndpointArgs{
-//				VpcId:       pulumi.StringRef(aws_vpc.Foo.Id),
+//				VpcId:       pulumi.StringRef(foo.Id),
 //				ServiceName: pulumi.StringRef("com.amazonaws.us-west-2.s3"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcEndpointRouteTableAssociation(ctx, "privateS3", &ec2.VpcEndpointRouteTableAssociationArgs{
+//			_, err = ec2.NewVpcEndpointRouteTableAssociation(ctx, "private_s3", &ec2.VpcEndpointRouteTableAssociationArgs{
 //				VpcEndpointId: *pulumi.String(s3.Id),
-//				RouteTableId:  pulumi.Any(aws_route_table.Private.Id),
+//				RouteTableId:  pulumi.Any(private.Id),
 //			})
 //			if err != nil {
 //				return err

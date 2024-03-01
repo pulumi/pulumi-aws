@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RadiusSettings(&#34;example&#34;, RadiusSettingsArgs.builder()        
- *             .directoryId(aws_directory_service_directory.example().id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .authenticationProtocol(&#34;PAP&#34;)
  *             .displayLabel(&#34;example&#34;)
  *             .radiusPort(1812)

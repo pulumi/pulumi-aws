@@ -205,12 +205,12 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_stack_permission = aws.opsworks.Permission("myStackPermission",
+        my_stack_permission = aws.opsworks.Permission("my_stack_permission",
             allow_ssh=True,
             allow_sudo=True,
             level="iam_only",
-            user_arn=aws_iam_user["user"]["arn"],
-            stack_id=aws_opsworks_stack["stack"]["id"])
+            user_arn=user["arn"],
+            stack_id=stack["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -236,12 +236,12 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_stack_permission = aws.opsworks.Permission("myStackPermission",
+        my_stack_permission = aws.opsworks.Permission("my_stack_permission",
             allow_ssh=True,
             allow_sudo=True,
             level="iam_only",
-            user_arn=aws_iam_user["user"]["arn"],
-            stack_id=aws_opsworks_stack["stack"]["id"])
+            user_arn=user["arn"],
+            stack_id=stack["id"])
         ```
 
         :param str resource_name: The name of the resource.

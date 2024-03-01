@@ -344,24 +344,27 @@ class Profile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test = aws.iam.Role("test",
+            name="test",
             path="/",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "sts:AssumeRole",
                         "sts:TagSession",
                         "sts:SetSourceIdentity",
                     ],
-                    "Principal": {
-                        "Service": "rolesanywhere.amazonaws.com",
+                    "principal": {
+                        "service": "rolesanywhere.amazonaws.com",
                     },
-                    "Effect": "Allow",
-                    "Sid": "",
+                    "effect": "Allow",
+                    "sid": "",
                 }],
             }))
-        test_profile = aws.rolesanywhere.Profile("testProfile", role_arns=[test_role.arn])
+        test_profile = aws.rolesanywhere.Profile("test",
+            name="example",
+            role_arns=[test.arn])
         ```
 
         ## Import
@@ -399,24 +402,27 @@ class Profile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test = aws.iam.Role("test",
+            name="test",
             path="/",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "sts:AssumeRole",
                         "sts:TagSession",
                         "sts:SetSourceIdentity",
                     ],
-                    "Principal": {
-                        "Service": "rolesanywhere.amazonaws.com",
+                    "principal": {
+                        "service": "rolesanywhere.amazonaws.com",
                     },
-                    "Effect": "Allow",
-                    "Sid": "",
+                    "effect": "Allow",
+                    "sid": "",
                 }],
             }))
-        test_profile = aws.rolesanywhere.Profile("testProfile", role_arns=[test_role.arn])
+        test_profile = aws.rolesanywhere.Profile("test",
+            name="example",
+            role_arns=[test.arn])
         ```
 
         ## Import

@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-//				DeploymentDurationInMinutes: pulumi.Int(3),
+//				Name:                        pulumi.String("example-deployment-strategy-tf"),
 //				Description:                 pulumi.String("Example Deployment Strategy"),
+//				DeploymentDurationInMinutes: pulumi.Int(3),
 //				FinalBakeTimeInMinutes:      pulumi.Int(4),
 //				GrowthFactor:                pulumi.Float64(10),
 //				GrowthType:                  pulumi.String("LINEAR"),

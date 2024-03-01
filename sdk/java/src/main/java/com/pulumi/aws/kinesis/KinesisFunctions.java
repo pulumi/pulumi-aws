@@ -365,7 +365,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
@@ -405,7 +405,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
@@ -445,7 +445,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
@@ -485,7 +485,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }

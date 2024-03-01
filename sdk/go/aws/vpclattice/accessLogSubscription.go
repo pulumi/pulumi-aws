@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewAccessLogSubscription(ctx, "example", &vpclattice.AccessLogSubscriptionArgs{
-//				ResourceIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
-//				DestinationArn:     pulumi.Any(aws_s3.Bucket.Arn),
+//				ResourceIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
+//				DestinationArn:     pulumi.Any(bucket.Arn),
 //			})
 //			if err != nil {
 //				return err

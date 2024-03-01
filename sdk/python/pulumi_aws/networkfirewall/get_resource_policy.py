@@ -76,7 +76,7 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
     ```
 
 
@@ -105,7 +105,7 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
     ```
 
 

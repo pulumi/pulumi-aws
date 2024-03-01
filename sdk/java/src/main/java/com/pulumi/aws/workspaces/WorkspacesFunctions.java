@@ -79,8 +79,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
@@ -147,8 +147,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
@@ -215,8 +215,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
@@ -283,8 +283,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
@@ -351,8 +351,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
@@ -419,8 +419,8 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }

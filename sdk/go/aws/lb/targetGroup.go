@@ -38,6 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
+//				Name:     pulumi.String("tf-example-lb-tg"),
 //				Port:     pulumi.Int(80),
 //				Protocol: pulumi.String("HTTP"),
 //				VpcId:    main.ID(),
@@ -72,6 +73,7 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewTargetGroup(ctx, "ip-example", &lb.TargetGroupArgs{
+//				Name:       pulumi.String("tf-example-lb-tg"),
 //				Port:       pulumi.Int(80),
 //				Protocol:   pulumi.String("HTTP"),
 //				TargetType: pulumi.String("ip"),
@@ -100,6 +102,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewTargetGroup(ctx, "lambda-example", &lb.TargetGroupArgs{
+//				Name:       pulumi.String("tf-example-lb-tg"),
 //				TargetType: pulumi.String("lambda"),
 //			})
 //			if err != nil {
@@ -125,10 +128,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewTargetGroup(ctx, "alb-example", &lb.TargetGroupArgs{
+//				Name:       pulumi.String("tf-example-lb-alb-tg"),
 //				TargetType: pulumi.String("alb"),
 //				Port:       pulumi.Int(80),
 //				Protocol:   pulumi.String("TCP"),
-//				VpcId:      pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:      pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -153,9 +157,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
+//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
 //				Port:     pulumi.Int(25),
 //				Protocol: pulumi.String("TCP"),
-//				VpcId:    pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:    pulumi.Any(main.Id),
 //				TargetHealthStates: lb.TargetGroupTargetHealthStateArray{
 //					&lb.TargetGroupTargetHealthStateArgs{
 //						EnableUnhealthyConnectionTermination: pulumi.Bool(false),

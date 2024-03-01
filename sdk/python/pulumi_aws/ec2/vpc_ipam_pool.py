@@ -587,12 +587,12 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
 
@@ -609,7 +609,7 @@ class VpcIpamPool(pulumi.CustomResource):
         parent = aws.ec2.VpcIpamPool("parent",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
+        parent_test = aws.ec2.VpcIpamPoolCidr("parent_test",
             ipam_pool_id=parent.id,
             cidr="172.20.0.0/16")
         child = aws.ec2.VpcIpamPool("child",
@@ -617,7 +617,7 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name,
             source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("childTest",
+        child_test = aws.ec2.VpcIpamPoolCidr("child_test",
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```
@@ -666,12 +666,12 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
 
@@ -688,7 +688,7 @@ class VpcIpamPool(pulumi.CustomResource):
         parent = aws.ec2.VpcIpamPool("parent",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
+        parent_test = aws.ec2.VpcIpamPoolCidr("parent_test",
             ipam_pool_id=parent.id,
             cidr="172.20.0.0/16")
         child = aws.ec2.VpcIpamPool("child",
@@ -696,7 +696,7 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name,
             source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("childTest",
+        child_test = aws.ec2.VpcIpamPoolCidr("child_test",
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```

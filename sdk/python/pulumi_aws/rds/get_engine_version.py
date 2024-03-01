@@ -350,12 +350,12 @@ def get_engine_version(default_only: Optional[bool] = None,
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="aurora-postgresql",
+        version="10.14",
+        include_all=True,
         filters=[aws.rds.GetEngineVersionFilterArgs(
             name="engine-mode",
             values=["serverless"],
-        )],
-        include_all=True,
-        version="10.14")
+        )])
     ```
 
 
@@ -449,12 +449,12 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="aurora-postgresql",
+        version="10.14",
+        include_all=True,
         filters=[aws.rds.GetEngineVersionFilterArgs(
             name="engine-mode",
             values=["serverless"],
-        )],
-        include_all=True,
-        version="10.14")
+        )])
     ```
 
 

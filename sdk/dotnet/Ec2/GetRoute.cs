@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var route = Aws.Ec2.GetRoute.Invoke(new()
         ///     {
-        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         RouteTableId = selectedAwsRouteTable.Id,
         ///         DestinationCidrBlock = "10.0.1.0/24",
         ///     });
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var route = Aws.Ec2.GetRoute.Invoke(new()
         ///     {
-        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         RouteTableId = selectedAwsRouteTable.Id,
         ///         DestinationCidrBlock = "10.0.1.0/24",
         ///     });
         /// 

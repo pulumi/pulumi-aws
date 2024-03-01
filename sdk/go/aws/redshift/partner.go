@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewPartner(ctx, "example", &redshift.PartnerArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.Id),
 //				AccountId:         pulumi.String("1234567910"),
-//				DatabaseName:      pulumi.Any(aws_redshift_cluster.Example.Database_name),
+//				DatabaseName:      pulumi.Any(exampleAwsRedshiftCluster.DatabaseName),
 //				PartnerName:       pulumi.String("example"),
 //			})
 //			if err != nil {

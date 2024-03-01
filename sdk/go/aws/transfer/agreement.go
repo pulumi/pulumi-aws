@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewAgreement(ctx, "example", &transfer.AgreementArgs{
-//				AccessRole:       pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole:       pulumi.Any(test.Arn),
 //				BaseDirectory:    pulumi.String("/DOC-EXAMPLE-BUCKET/home/mydirectory"),
 //				Description:      pulumi.String("example"),
-//				LocalProfileId:   pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//				PartnerProfileId: pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//				ServerId:         pulumi.Any(aws_transfer_server.Test.Id),
+//				LocalProfileId:   pulumi.Any(local.ProfileId),
+//				PartnerProfileId: pulumi.Any(partner.ProfileId),
+//				ServerId:         pulumi.Any(testAwsTransferServer.Id),
 //			})
 //			if err != nil {
 //				return err

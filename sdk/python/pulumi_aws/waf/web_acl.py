@@ -280,19 +280,22 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.waf.RulePredicateArgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
+            )])
+        waf_acl = aws.waf.WebAcl("waf_acl",
+            name="tfWebACL",
             metric_name="tfWebACL",
             default_action=aws.waf.WebAclDefaultActionArgs(
                 type="ALLOW",
@@ -304,11 +307,7 @@ class WebAcl(pulumi.CustomResource):
                 priority=1,
                 rule_id=wafrule.id,
                 type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
+            )])
         ```
         ### Logging
 
@@ -319,7 +318,7 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            log_destination=example_aws_kinesis_firehose_delivery_stream["arn"],
             redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
@@ -368,19 +367,22 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.waf.RulePredicateArgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
+            )])
+        waf_acl = aws.waf.WebAcl("waf_acl",
+            name="tfWebACL",
             metric_name="tfWebACL",
             default_action=aws.waf.WebAclDefaultActionArgs(
                 type="ALLOW",
@@ -392,11 +394,7 @@ class WebAcl(pulumi.CustomResource):
                 priority=1,
                 rule_id=wafrule.id,
                 type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
+            )])
         ```
         ### Logging
 
@@ -407,7 +405,7 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            log_destination=example_aws_kinesis_firehose_delivery_stream["arn"],
             redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "example",
  *         effect: "Allow",
@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleRegistryPolicy = new aws.schemas.RegistryPolicy("exampleRegistryPolicy", {
+ * const exampleRegistryPolicy = new aws.schemas.RegistryPolicy("example", {
  *     registryName: "example",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
  *

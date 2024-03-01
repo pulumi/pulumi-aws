@@ -131,8 +131,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         example = aws.emr.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                max_range=22,
                 min_range=22,
+                max_range=22,
             )])
         ```
 
@@ -149,12 +149,12 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[
                 aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=22,
                     min_range=22,
+                    max_range=22,
                 ),
                 aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=101,
                     min_range=100,
+                    max_range=101,
                 ),
             ])
         ```
@@ -213,8 +213,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         example = aws.emr.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                max_range=22,
                 min_range=22,
+                max_range=22,
             )])
         ```
 
@@ -231,12 +231,12 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[
                 aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=22,
                     min_range=22,
+                    max_range=22,
                 ),
                 aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=101,
                     min_range=100,
+                    max_range=101,
                 ),
             ])
         ```

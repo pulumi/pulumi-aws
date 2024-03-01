@@ -28,9 +28,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
+//			_, err := guardduty.NewFilter(ctx, "MyFilter", &guardduty.FilterArgs{
+//				Name:       pulumi.String("MyFilter"),
 //				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
+//				DetectorId: pulumi.Any(example.Id),
 //				Rank:       pulumi.Int(1),
 //				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
 //					Criterions: guardduty.FilterFindingCriteriaCriterionArray{

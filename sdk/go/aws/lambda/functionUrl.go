@@ -30,15 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionUrl(ctx, "testLatest", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//			_, err := lambda.NewFunctionUrl(ctx, "test_latest", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(test.FunctionName),
 //				AuthorizationType: pulumi.String("NONE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunctionUrl(ctx, "testLive", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//			_, err = lambda.NewFunctionUrl(ctx, "test_live", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(test.FunctionName),
 //				Qualifier:         pulumi.String("my_alias"),
 //				AuthorizationType: pulumi.String("AWS_IAM"),
 //				Cors: &lambda.FunctionUrlCorsArgs{

@@ -46,18 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;);
+ *         var q = new Queue(&#34;q&#34;, QueueArgs.builder()        
+ *             .name(&#34;examplequeue&#34;)
+ *             .build());
  * 
  *         var ddl = new Queue(&#34;ddl&#34;, QueueArgs.builder()        
- *             .redriveAllowPolicy(queue.arn().applyValue(arn -&gt; serializeJson(
+ *             .name(&#34;examplequeue-ddl&#34;)
+ *             .redriveAllowPolicy(q.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
  *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
  *                 ))))
  *             .build());
  * 
- *         var redrivePolicy = new RedrivePolicy(&#34;redrivePolicy&#34;, RedrivePolicyArgs.builder()        
- *             .queueUrl(queue.id())
+ *         var qRedrivePolicy = new RedrivePolicy(&#34;qRedrivePolicy&#34;, RedrivePolicyArgs.builder()        
+ *             .queueUrl(q.id())
  *             .redrivePolicy(ddl.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),

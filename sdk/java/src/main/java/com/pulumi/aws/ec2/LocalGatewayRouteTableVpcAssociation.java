@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleLocalGatewayRouteTable = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+ *         final var example = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
  *             .outpostArn(&#34;arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef&#34;)
  *             .build());
  * 
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation(&#34;exampleLocalGatewayRouteTableVpcAssociation&#34;, LocalGatewayRouteTableVpcAssociationArgs.builder()        
- *             .localGatewayRouteTableId(exampleLocalGatewayRouteTable.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
+ *             .localGatewayRouteTableId(example.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 

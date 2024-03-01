@@ -177,8 +177,9 @@ class LogMetricFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
+        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
+            name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
             metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
@@ -219,8 +220,9 @@ class LogMetricFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
+        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
+            name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
             metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(

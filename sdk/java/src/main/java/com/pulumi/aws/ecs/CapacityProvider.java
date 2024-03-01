@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testGroup = new Group(&#34;testGroup&#34;, GroupArgs.builder()        
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
  *             .tags(GroupTagArgs.builder()
  *                 .key(&#34;AmazonECSManaged&#34;)
  *                 .value(true)
@@ -57,8 +57,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCapacityProvider = new CapacityProvider(&#34;testCapacityProvider&#34;, CapacityProviderArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(testGroup.arn())
+ *                 .autoScalingGroupArn(test.arn())
  *                 .managedTerminationProtection(&#34;ENABLED&#34;)
  *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
  *                     .maximumScalingStepSize(1000)

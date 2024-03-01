@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .filterExpression(&#34;responsetime &gt; 5&#34;)
  *             .groupName(&#34;example&#34;)
+ *             .filterExpression(&#34;responsetime &gt; 5&#34;)
  *             .insightsConfiguration(GroupInsightsConfigurationArgs.builder()
  *                 .insightsEnabled(true)
  *                 .notificationsEnabled(true)

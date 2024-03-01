@@ -118,7 +118,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .build()).result())
  *             .proxyConfiguration(TaskDefinitionProxyConfigurationArgs.builder()
  *                 .type(&#34;APPMESH&#34;)
  *                 .containerName(&#34;applicationContainerName&#34;)
@@ -161,7 +163,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs.builder()
@@ -170,8 +174,8 @@ import javax.annotation.Nullable;
  *                     .driver(&#34;local&#34;)
  *                     .driverOpts(Map.ofEntries(
  *                         Map.entry(&#34;type&#34;, &#34;nfs&#34;),
- *                         Map.entry(&#34;device&#34;, String.format(&#34;%s:/&#34;, aws_efs_file_system.fs().dns_name())),
- *                         Map.entry(&#34;o&#34;, String.format(&#34;addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport&#34;, aws_efs_file_system.fs().dns_name()))
+ *                         Map.entry(&#34;device&#34;, String.format(&#34;%s:/&#34;, fs.dnsName())),
+ *                         Map.entry(&#34;o&#34;, String.format(&#34;addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport&#34;, fs.dnsName()))
  *                     ))
  *                     .build())
  *                 .build())
@@ -207,16 +211,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
- *                     .fileSystemId(aws_efs_file_system.fs().id())
+ *                     .fileSystemId(fs.id())
  *                     .rootDirectory(&#34;/opt/data&#34;)
  *                     .transitEncryption(&#34;ENABLED&#34;)
  *                     .transitEncryptionPort(2999)
  *                     .authorizationConfig(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.builder()
- *                         .accessPointId(aws_efs_access_point.test().id())
+ *                         .accessPointId(test.id())
  *                         .iam(&#34;ENABLED&#34;)
  *                         .build())
  *                     .build())
@@ -255,25 +261,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new SecretVersion(&#34;test&#34;, SecretVersionArgs.builder()        
- *             .secretId(aws_secretsmanager_secret.test().id())
+ *             .secretId(testAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;username&#34;, &#34;admin&#34;),
- *                     jsonProperty(&#34;password&#34;, aws_directory_service_directory.test().password())
+ *                     jsonProperty(&#34;password&#34;, testAwsDirectoryServiceDirectory.password())
  *                 )))
  *             .build());
  * 
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
- *                     .fileSystemId(aws_fsx_windows_file_system.test().id())
+ *                     .fileSystemId(testAwsFsxWindowsFileSystem.id())
  *                     .rootDirectory(&#34;\\data&#34;)
  *                     .authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .credentialsParameter(test.arn())
- *                         .domain(aws_directory_service_directory.test().name())
+ *                         .domain(testAwsDirectoryServiceDirectory.name())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -306,6 +314,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new TaskDefinition(&#34;test&#34;, TaskDefinitionArgs.builder()        
+ *             .family(&#34;test&#34;)
  *             .containerDefinitions(&#34;&#34;&#34;
  * [
  *   {
@@ -333,9 +342,7 @@ import javax.annotation.Nullable;
  *         ]
  *   }
  * ]
- * 
  *             &#34;&#34;&#34;)
- *             .family(&#34;test&#34;)
  *             .inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs.builder()
  *                 .deviceName(&#34;device_1&#34;)
  *                 .deviceType(&#34;eia1.medium&#34;)
@@ -369,6 +376,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new TaskDefinition(&#34;test&#34;, TaskDefinitionArgs.builder()        
+ *             .family(&#34;test&#34;)
+ *             .requiresCompatibilities(&#34;FARGATE&#34;)
+ *             .networkMode(&#34;awsvpc&#34;)
+ *             .cpu(1024)
+ *             .memory(2048)
  *             .containerDefinitions(&#34;&#34;&#34;
  * [
  *   {
@@ -379,16 +391,10 @@ import javax.annotation.Nullable;
  *     &#34;essential&#34;: true
  *   }
  * ]
- * 
  *             &#34;&#34;&#34;)
- *             .cpu(1024)
- *             .family(&#34;test&#34;)
- *             .memory(2048)
- *             .networkMode(&#34;awsvpc&#34;)
- *             .requiresCompatibilities(&#34;FARGATE&#34;)
  *             .runtimePlatform(TaskDefinitionRuntimePlatformArgs.builder()
- *                 .cpuArchitecture(&#34;X86_64&#34;)
  *                 .operatingSystemFamily(&#34;WINDOWS_SERVER_2019_CORE&#34;)
+ *                 .cpuArchitecture(&#34;X86_64&#34;)
  *                 .build())
  *             .build());
  * 

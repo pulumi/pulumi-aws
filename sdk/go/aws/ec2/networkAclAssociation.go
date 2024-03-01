@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
-//				NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Main.Id),
+//				NetworkAclId: pulumi.Any(mainAwsNetworkAcl.Id),
+//				SubnetId:     pulumi.Any(mainAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -33,9 +33,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Stack;
  * import com.pulumi.aws.appstream.StackArgs;
- * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
  * import com.pulumi.aws.appstream.inputs.StackStorageConnectorArgs;
  * import com.pulumi.aws.appstream.inputs.StackUserSettingArgs;
+ * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,10 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stack(&#34;example&#34;, StackArgs.builder()        
- *             .applicationSettings(StackApplicationSettingsArgs.builder()
- *                 .enabled(true)
- *                 .settingsGroup(&#34;SettingsGroup&#34;)
- *                 .build())
+ *             .name(&#34;stack name&#34;)
  *             .description(&#34;stack description&#34;)
  *             .displayName(&#34;stack display name&#34;)
  *             .feedbackUrl(&#34;http://your-domain/feedback&#34;)
@@ -61,7 +58,6 @@ import javax.annotation.Nullable;
  *             .storageConnectors(StackStorageConnectorArgs.builder()
  *                 .connectorType(&#34;HOMEFOLDERS&#34;)
  *                 .build())
- *             .tags(Map.of(&#34;TagName&#34;, &#34;TagValue&#34;))
  *             .userSettings(            
  *                 StackUserSettingArgs.builder()
  *                     .action(&#34;CLIPBOARD_COPY_FROM_LOCAL_DEVICE&#34;)
@@ -91,6 +87,11 @@ import javax.annotation.Nullable;
  *                     .action(&#34;PRINTING_TO_LOCAL_DEVICE&#34;)
  *                     .permission(&#34;ENABLED&#34;)
  *                     .build())
+ *             .applicationSettings(StackApplicationSettingsArgs.builder()
+ *                 .enabled(true)
+ *                 .settingsGroup(&#34;SettingsGroup&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;TagName&#34;, &#34;TagValue&#34;))
  *             .build());
  * 
  *     }

@@ -30,17 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example1.Id,
-//						aws_subnet.Example2.Id,
+//						example1.Id,
+//						example2.Id,
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSClusterPolicy,
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSVPCResourceController,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -89,6 +87,7 @@ import (
 //				return err
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-cluster-example"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
@@ -126,6 +125,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -140,20 +141,113 @@ import (
 //			if param := cfg.Get("clusterName"); param != "" {
 //				clusterName = param
 //			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//			_, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				EnabledClusterLogTypes: pulumi.StringArray{
+//					pulumi.String("api"),
+//					pulumi.String("audit"),
+//				},
+//				Name: pulumi.String(clusterName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
 //				RetentionInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				EnabledClusterLogTypes: pulumi.StringArray{
-//					pulumi.String("api"),
-//					pulumi.String("audit"),
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Enabling IAM Roles for Service Accounts
+//
+// Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := eks.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
+//				return tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
+//					Url: identities[0].Oidcs[0].Issuer,
+//				}, nil), nil
+//			}).(tls.GetCertificateResultOutput)
+//			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
+//				ClientIdLists: pulumi.StringArray{
+//					pulumi.String("sts.amazonaws.com"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLogGroup,
-//			}))
+//				ThumbprintLists: pulumi.StringArray{
+//					example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//						return &example.Certificates[0].Sha1Fingerprint, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//				Url: example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//					return &example.Url, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRoleWithWebIdentity"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test: pulumi.String("StringEquals"),
+//								Variable: std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//									Text:    exampleOpenIdConnectProvider.Url,
+//									Search:  pulumi.String("https://"),
+//									Replace: pulumi.String(""),
+//								}, nil).ApplyT(func(invoke std.ReplaceResult) (string, error) {
+//									return fmt.Sprintf("%v:sub", invoke.Result), nil
+//								}).(pulumi.StringOutput),
+//								Values: pulumi.StringArray{
+//									pulumi.String("system:serviceaccount:kube-system:aws-node"),
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									exampleOpenIdConnectProvider.Arn,
+//								},
+//								Type: pulumi.String("Federated"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &exampleAssumeRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -179,14 +273,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(exampleAssumeRolePolicy.Json),
+//				Name:             pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				RoleArn: exampleRole.Arn,
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				Name:    pulumi.String("example-cluster"),
+//				RoleArn: example.Arn,
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
 //					EndpointPublicAccess:  pulumi.Bool(false),
@@ -194,7 +290,7 @@ import (
 //				OutpostConfig: &eks.ClusterOutpostConfigArgs{
 //					ControlPlaneInstanceType: pulumi.String("m5d.large"),
 //					OutpostArns: pulumi.StringArray{
-//						data.Aws_outposts_outpost.Example.Arn,
+//						exampleAwsOutpostsOutpost.Arn,
 //					},
 //				},
 //			})
@@ -221,14 +317,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(exampleAssumeRolePolicy.Json),
+//				Name:             pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				RoleArn: exampleRole.Arn,
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				Name:    pulumi.String("example-cluster"),
+//				RoleArn: example.Arn,
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
 //					EndpointPublicAccess:  pulumi.Bool(false),

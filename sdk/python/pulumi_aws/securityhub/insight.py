@@ -158,8 +158,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 aws_account_ids=[
                     aws.securityhub.InsightFiltersAwsAccountIdArgs(
@@ -173,7 +173,7 @@ class Insight(pulumi.CustomResource):
                 ],
             ),
             group_by_attribute="AwsAccountId",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by date range
 
@@ -181,8 +181,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
                     date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
@@ -192,7 +192,7 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="CreatedAt",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by destination IPv4 address
 
@@ -200,15 +200,15 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
                     cidr="10.0.0.0/16",
                 )],
             ),
             group_by_attribute="NetworkDestinationIpV4",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by finding's confidence
 
@@ -216,15 +216,15 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
                     gte="80",
                 )],
             ),
             group_by_attribute="Confidence",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by resource tags
 
@@ -232,8 +232,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
                     comparison="EQUALS",
@@ -242,7 +242,7 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="ResourceTags",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
 
         ## Import
@@ -275,8 +275,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 aws_account_ids=[
                     aws.securityhub.InsightFiltersAwsAccountIdArgs(
@@ -290,7 +290,7 @@ class Insight(pulumi.CustomResource):
                 ],
             ),
             group_by_attribute="AwsAccountId",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by date range
 
@@ -298,8 +298,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
                     date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
@@ -309,7 +309,7 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="CreatedAt",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by destination IPv4 address
 
@@ -317,15 +317,15 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
                     cidr="10.0.0.0/16",
                 )],
             ),
             group_by_attribute="NetworkDestinationIpV4",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by finding's confidence
 
@@ -333,15 +333,15 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
                     gte="80",
                 )],
             ),
             group_by_attribute="Confidence",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
         ### Filter by resource tags
 
@@ -349,8 +349,8 @@ class Insight(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_insight = aws.securityhub.Insight("exampleInsight",
+        example = aws.securityhub.Account("example")
+        example_insight = aws.securityhub.Insight("example",
             filters=aws.securityhub.InsightFiltersArgs(
                 resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
                     comparison="EQUALS",
@@ -359,7 +359,7 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="ResourceTags",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            name="example-insight")
         ```
 
         ## Import

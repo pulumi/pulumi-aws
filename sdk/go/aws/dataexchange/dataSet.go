@@ -31,6 +31,7 @@ import (
 //			_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
 //				AssetType:   pulumi.String("S3_SNAPSHOT"),
 //				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

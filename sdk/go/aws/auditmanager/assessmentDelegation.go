@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessmentDelegation(ctx, "example", &auditmanager.AssessmentDelegationArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Example.Id),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				AssessmentId: pulumi.Any(exampleAwsAuditmanagerAssessment.Id),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				RoleType:     pulumi.String("RESOURCE_OWNER"),
 //				ControlSetId: pulumi.String("example"),
 //			})

@@ -24,10 +24,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.ProvisionedModelThroughput("example", new()
     ///     {
-    ///         CommitmentDuration = "SixMonths",
-    ///         ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
-    ///         ModelUnits = 1,
     ///         ProvisionedModelName = "example-model",
+    ///         ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
+    ///         CommitmentDuration = "SixMonths",
+    ///         ModelUnits = 1,
     ///     });
     /// 
     /// });

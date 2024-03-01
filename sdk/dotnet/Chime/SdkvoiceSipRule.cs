@@ -25,14 +25,15 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var example = new Aws.Chime.SdkvoiceSipRule("example", new()
     ///     {
+    ///         Name = "example-sip-rule",
     ///         TriggerType = "RequestUriHostname",
-    ///         TriggerValue = aws_chime_voice_connector.Example_voice_connector.Outbound_host_name,
+    ///         TriggerValue = example_voice_connector.OutboundHostName,
     ///         TargetApplications = new[]
     ///         {
     ///             new Aws.Chime.Inputs.SdkvoiceSipRuleTargetApplicationArgs
     ///             {
     ///                 Priority = 1,
-    ///                 SipMediaApplicationId = aws_chimesdkvoice_sip_media_application.Example_sma.Id,
+    ///                 SipMediaApplicationId = example_sma.Id,
     ///                 AwsRegion = "us-east-1",
     ///             },
     ///         },

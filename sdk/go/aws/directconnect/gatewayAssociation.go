@@ -34,26 +34,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.255.255.0/28"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "exampleVpnGateway", &ec2.VpnGatewayArgs{
+//			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "example", &ec2.VpnGatewayArgs{
 //				VpcId: exampleVpc.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID(),
+//			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
+//				DxGatewayId:         example.ID(),
 //				AssociatedGatewayId: exampleVpnGateway.ID(),
 //			})
 //			if err != nil {
@@ -79,18 +80,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID(),
+//			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
+//				DxGatewayId:         example.ID(),
 //				AssociatedGatewayId: exampleTransitGateway.ID(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("10.255.255.0/30"),
@@ -120,26 +122,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.255.255.0/28"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "exampleVpnGateway", &ec2.VpnGatewayArgs{
+//			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "example", &ec2.VpnGatewayArgs{
 //				VpcId: exampleVpc.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID(),
+//			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
+//				DxGatewayId:         example.ID(),
 //				AssociatedGatewayId: exampleVpnGateway.ID(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("210.52.109.0/24"),

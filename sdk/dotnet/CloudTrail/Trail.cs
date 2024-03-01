@@ -30,18 +30,27 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "my-test-trail",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3KeyPrefix = "prefix",
+    ///         IncludeGlobalServiceEvents = false,
+    ///     });
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -76,7 +85,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },
@@ -102,7 +111,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
+    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -121,7 +130,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },
@@ -129,23 +138,10 @@ namespace Pulumi.Aws.CloudTrail
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
-    ///     {
-    ///         S3BucketName = exampleBucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketPolicy,
-    ///         },
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -172,6 +168,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -183,8 +181,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
     ///             },
     ///         },
     ///     });
@@ -207,6 +203,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -218,8 +216,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
     ///             },
     ///         },
     ///     });
@@ -247,6 +243,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -258,8 +256,212 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var not_important_bucket_1 = Aws.S3.GetBucket.Invoke(new()
+    ///     {
+    ///         Bucket = "not-important-bucket-1",
+    ///     });
+    /// 
+    ///     var not_important_bucket_2 = Aws.S3.GetBucket.Invoke(new()
+    ///     {
+    ///         Bucket = "not-important-bucket-2",
+    ///     });
+    /// 
+    ///     var example = new Aws.CloudTrail.Trail("example", new()
+    ///     {
+    ///         AdvancedEventSelectors = new[]
+    ///         {
+    ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
+    ///             {
+    ///                 Name = "Log all S3 objects events except for two S3 buckets",
+    ///                 FieldSelectors = new[]
+    ///                 {
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventCategory",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "Data",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.ARN",
+    ///                         NotStartsWiths = new[]
+    ///                         {
+    ///                             not_important_bucket_1.Apply(not_important_bucket_1 =&gt; $"{not_important_bucket_1.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
+    ///                             not_important_bucket_2.Apply(not_important_bucket_2 =&gt; $"{not_important_bucket_2.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.type",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "AWS::S3::Object",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
+    ///             {
+    ///                 Name = "Log readOnly and writeOnly management events",
+    ///                 FieldSelectors = new[]
+    ///                 {
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventCategory",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "Management",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var important_bucket_1 = Aws.S3.GetBucket.Invoke(new()
+    ///     {
+    ///         Bucket = "important-bucket-1",
+    ///     });
+    /// 
+    ///     var important_bucket_2 = Aws.S3.GetBucket.Invoke(new()
+    ///     {
+    ///         Bucket = "important-bucket-2",
+    ///     });
+    /// 
+    ///     var important_bucket_3 = Aws.S3.GetBucket.Invoke(new()
+    ///     {
+    ///         Bucket = "important-bucket-3",
+    ///     });
+    /// 
+    ///     var example = new Aws.CloudTrail.Trail("example", new()
+    ///     {
+    ///         AdvancedEventSelectors = new[]
+    ///         {
+    ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
+    ///             {
+    ///                 Name = "Log PutObject and DeleteObject events for two S3 buckets",
+    ///                 FieldSelectors = new[]
+    ///                 {
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventCategory",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "Data",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventName",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "PutObject",
+    ///                             "DeleteObject",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.ARN",
+    ///                         StartsWiths = new[]
+    ///                         {
+    ///                             important_bucket_1.Apply(important_bucket_1 =&gt; $"{important_bucket_1.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
+    ///                             important_bucket_2.Apply(important_bucket_2 =&gt; $"{important_bucket_2.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "readOnly",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "false",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.type",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "AWS::S3::Object",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
+    ///             {
+    ///                 Name = "Log Delete* events for one S3 bucket",
+    ///                 FieldSelectors = new[]
+    ///                 {
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventCategory",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "Data",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventName",
+    ///                         StartsWiths = new[]
+    ///                         {
+    ///                             "Delete",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.ARN",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             important_bucket_3.Apply(important_bucket_3 =&gt; $"{important_bucket_3.Apply(getBucketResult =&gt; getBucketResult.Arn)}/important-prefix"),
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "readOnly",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "false",
+    ///                         },
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.type",
+    ///                         Equals = new[]
+    ///                         {
+    ///                             "AWS::S3::Object",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -276,14 +478,16 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         Name = "Example",
     ///     });
     /// 
-    ///     // CloudTrail requires the Log Stream wildcard
+    ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
+    ///     {
+    ///         CloudWatchLogsGroupArn = example.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

@@ -29,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewConfigurationProfile(ctx, "example", &appconfig.ConfigurationProfileArgs{
-//				ApplicationId: pulumi.Any(aws_appconfig_application.Example.Id),
+//				ApplicationId: pulumi.Any(exampleAwsAppconfigApplication.Id),
 //				Description:   pulumi.String("Example Configuration Profile"),
+//				Name:          pulumi.String("example-configuration-profile-tf"),
 //				LocationUri:   pulumi.String("hosted"),
 //				Validators: appconfig.ConfigurationProfileValidatorArray{
 //					&appconfig.ConfigurationProfileValidatorArgs{
-//						Content: pulumi.Any(aws_lambda_function.Example.Arn),
+//						Content: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //						Type:    pulumi.String("LAMBDA"),
 //					},
 //				},

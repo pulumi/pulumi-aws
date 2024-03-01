@@ -43,25 +43,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleKeyPolicy = new KeyPolicy(&#34;exampleKeyPolicy&#34;, KeyPolicyArgs.builder()        
- *             .keyId(exampleKey.id())
+ *             .keyId(example.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Id&#34;, &#34;example&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;kms:*&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                     jsonProperty(&#34;id&#34;, &#34;example&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;kms:*&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;Enable IAM User Permissions&#34;)
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;Enable IAM User Permissions&#34;)
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 

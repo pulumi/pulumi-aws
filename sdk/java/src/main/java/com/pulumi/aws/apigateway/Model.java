@@ -43,11 +43,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
  *         var myDemoModel = new Model(&#34;myDemoModel&#34;, ModelArgs.builder()        
  *             .restApi(myDemoAPI.id())
+ *             .name(&#34;user&#34;)
  *             .description(&#34;a JSON schema&#34;)
  *             .contentType(&#34;application/json&#34;)
  *             .schema(serializeJson(

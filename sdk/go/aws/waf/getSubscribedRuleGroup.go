@@ -39,7 +39,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ...
 //			_, err = waf.NewWebAcl(ctx, "acl", &waf.WebAclArgs{
 //				Rules: waf.WebAclRuleArray{
 //					&waf.WebAclRuleArgs{

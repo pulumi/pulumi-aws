@@ -18,8 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
+ * export = async () => {
+ *     const example = await aws.ec2.getTransitGatewayRouteTables({});
+ *     return {
+ *         example: example.ids,
+ *     };
+ * }
  * ```
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
@@ -76,8 +80,12 @@ export interface GetTransitGatewayRouteTablesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
+ * export = async () => {
+ *     const example = await aws.ec2.getTransitGatewayRouteTables({});
+ *     return {
+ *         example: example.ids,
+ *     };
+ * }
  * ```
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {

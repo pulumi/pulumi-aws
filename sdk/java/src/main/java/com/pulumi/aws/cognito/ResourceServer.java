@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.ResourceServer;
  * import com.pulumi.aws.cognito.ResourceServerArgs;
  * import java.util.List;
@@ -43,10 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
  *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
  *             .identifier(&#34;https://example.com&#34;)
+ *             .name(&#34;example&#34;)
  *             .userPoolId(pool.id())
  *             .build());
  * 
@@ -61,6 +65,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.ResourceServer;
  * import com.pulumi.aws.cognito.ResourceServerArgs;
  * import com.pulumi.aws.cognito.inputs.ResourceServerScopeArgs;
@@ -77,10 +82,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;pool&#34;)
+ *             .build());
  * 
  *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
  *             .identifier(&#34;https://example.com&#34;)
+ *             .name(&#34;example&#34;)
  *             .scopes(ResourceServerScopeArgs.builder()
  *                 .scopeName(&#34;sample-scope&#34;)
  *                 .scopeDescription(&#34;a Sample Scope Description&#34;)

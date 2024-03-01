@@ -23,7 +23,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInputSecurityGroup = new Aws.MediaLive.InputSecurityGroup("exampleInputSecurityGroup", new()
+    ///     var example = new Aws.MediaLive.InputSecurityGroup("example", new()
     ///     {
     ///         WhitelistRules = new[]
     ///         {
@@ -38,11 +38,12 @@ namespace Pulumi.Aws.MediaLive
     ///         },
     ///     });
     /// 
-    ///     var exampleInput = new Aws.MediaLive.Input("exampleInput", new()
+    ///     var exampleInput = new Aws.MediaLive.Input("example", new()
     ///     {
+    ///         Name = "example-input",
     ///         InputSecurityGroups = new[]
     ///         {
-    ///             exampleInputSecurityGroup.Id,
+    ///             example.Id,
     ///         },
     ///         Type = "UDP_PUSH",
     ///         Tags = 

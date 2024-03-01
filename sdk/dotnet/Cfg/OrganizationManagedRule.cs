@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var example = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -35,15 +35,10 @@ namespace Pulumi.Aws.Cfg
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleOrganizationManagedRule = new Aws.Cfg.OrganizationManagedRule("exampleOrganizationManagedRule", new()
+    ///     var exampleOrganizationManagedRule = new Aws.Cfg.OrganizationManagedRule("example", new()
     ///     {
+    ///         Name = "example",
     ///         RuleIdentifier = "IAM_PASSWORD_POLICY",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
     ///     });
     /// 
     /// });

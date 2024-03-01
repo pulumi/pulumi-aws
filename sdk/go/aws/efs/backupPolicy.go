@@ -29,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
+//			fs, err := efs.NewFileSystem(ctx, "fs", &efs.FileSystemArgs{
+//				CreationToken: pulumi.String("my-product"),
+//			})
 //			if err != nil {
 //				return err
 //			}

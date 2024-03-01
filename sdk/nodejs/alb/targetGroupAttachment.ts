@@ -16,11 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {});
- * // ... other configuration ...
- * const testInstance = new aws.ec2.Instance("testInstance", {});
- * // ... other configuration ...
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
+ * const testTargetGroup = new aws.lb.TargetGroup("test", {});
+ * const testInstance = new aws.ec2.Instance("test", {});
+ * const test = new aws.lb.TargetGroupAttachment("test", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testInstance.id,
  *     port: 80,
@@ -32,20 +30,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {targetType: "lambda"});
- * const testFunction = new aws.lambda.Function("testFunction", {});
- * // ... other configuration ...
- * const withLb = new aws.lambda.Permission("withLb", {
+ * const test = new aws.lb.TargetGroup("test", {
+ *     name: "test",
+ *     targetType: "lambda",
+ * });
+ * const testFunction = new aws.lambda.Function("test", {});
+ * const withLb = new aws.lambda.Permission("with_lb", {
+ *     statementId: "AllowExecutionFromlb",
  *     action: "lambda:InvokeFunction",
  *     "function": testFunction.name,
  *     principal: "elasticloadbalancing.amazonaws.com",
- *     sourceArn: testTargetGroup.arn,
+ *     sourceArn: test.arn,
  * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
- *     targetGroupArn: testTargetGroup.arn,
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
+ *     targetGroupArn: test.arn,
  *     targetId: testFunction.arn,
- * }, {
- *     dependsOn: [withLb],
  * });
  * ```
  * ### Registering Multiple Targets
@@ -54,17 +53,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInstance: aws.ec2.Instance[] = [];
+ * const example: aws.ec2.Instance[] = [];
  * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleInstance.push(new aws.ec2.Instance(`exampleInstance-${range.value}`, {}));
+ *     example.push(new aws.ec2.Instance(`example-${range.value}`, {}));
  * }
- * // ... other configuration ...
- * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {});
- * // ... other configuration ...
+ * const exampleTargetGroup = new aws.lb.TargetGroup("example", {});
  * const exampleTargetGroupAttachment: aws.lb.TargetGroupAttachment[] = [];
- * pulumi.all(exampleInstance.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [v.id]: v }))).apply(rangeBody => {
+ * pulumi.all(example.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [v.id]: v }))).apply(rangeBody => {
  *     for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
- *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`exampleTargetGroupAttachment-${range.key}`, {
+ *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`example-${range.key}`, {
  *             targetGroupArn: exampleTargetGroup.arn,
  *             targetId: range.value.id,
  *             port: 80,

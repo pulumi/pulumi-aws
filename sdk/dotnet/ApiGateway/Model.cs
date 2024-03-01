@@ -23,14 +23,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
     ///     {
+    ///         Name = "MyDemoAPI",
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
+    ///     var myDemoModel = new Aws.ApiGateway.Model("MyDemoModel", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
+    ///         Name = "user",
     ///         Description = "a JSON schema",
     ///         ContentType = "application/json",
     ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

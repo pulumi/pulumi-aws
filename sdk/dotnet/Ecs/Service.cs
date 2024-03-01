@@ -28,10 +28,11 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var mongo = new Aws.Ecs.Service("mongo", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Foo.Id,
-    ///         TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
+    ///         Name = "mongodb",
+    ///         Cluster = fooAwsEcsCluster.Id,
+    ///         TaskDefinition = mongoAwsEcsTaskDefinition.Arn,
     ///         DesiredCount = 3,
-    ///         IamRole = aws_iam_role.Foo.Arn,
+    ///         IamRole = fooAwsIamRole.Arn,
     ///         OrderedPlacementStrategies = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
@@ -44,7 +45,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
     ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Foo.Arn,
+    ///                 TargetGroupArn = foo.Arn,
     ///                 ContainerName = "mongo",
     ///                 ContainerPort = 8080,
     ///             },
@@ -56,12 +57,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Type = "memberOf",
     ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Foo,
     ///         },
     ///     });
     /// 
@@ -79,7 +74,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configurations ...
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
     ///         DesiredCount = 2,
@@ -99,8 +93,9 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var bar = new Aws.Ecs.Service("bar", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Foo.Id,
-    ///         TaskDefinition = aws_ecs_task_definition.Bar.Arn,
+    ///         Name = "bar",
+    ///         Cluster = foo.Id,
+    ///         TaskDefinition = barAwsEcsTaskDefinition.Arn,
     ///         SchedulingStrategy = "DAEMON",
     ///     });
     /// 
@@ -118,14 +113,15 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         Alarms = new Aws.Ecs.Inputs.ServiceAlarmsArgs
     ///         {
     ///             Enable = true,
     ///             Rollback = true,
     ///             AlarmNames = new[]
     ///             {
-    ///                 aws_cloudwatch_metric_alarm.Example.Alarm_name,
+    ///                 exampleAwsCloudwatchMetricAlarm.AlarmName,
     ///             },
     ///         },
     ///     });
@@ -144,10 +140,40 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
     ///         {
     ///             Type = "EXTERNAL",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Redeploy Service On Every Apply
+    /// 
+    /// The key used with `triggers` is arbitrary.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         ForceNewDeployment = true,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", NotImplemented("plantimestamp()") },
     ///         },
     ///     });
     /// 

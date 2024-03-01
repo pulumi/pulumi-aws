@@ -22,13 +22,13 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new()
+    ///     var myStackPermission = new Aws.OpsWorks.Permission("my_stack_permission", new()
     ///     {
     ///         AllowSsh = true,
     ///         AllowSudo = true,
     ///         Level = "iam_only",
-    ///         UserArn = aws_iam_user.User.Arn,
-    ///         StackId = aws_opsworks_stack.Stack.Id,
+    ///         UserArn = user.Arn,
+    ///         StackId = stack.Id,
     ///     });
     /// 
     /// });

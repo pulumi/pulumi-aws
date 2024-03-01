@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+ *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const p = aws.ec2.getVpcIpamPool({
+ *     filters: [
+ *         {
+ *             name: "description",
+ *             values: ["*mypool*"],
+ *         },
+ *         {
+ *             name: "address-family",
+ *             values: ["ipv4"],
+ *         },
+ *     ],
+ * });
+ * const c = p.then(p => aws.ec2.getVpcIpamPoolCidrs({
+ *     ipamPoolId: p.id,
+ * }));
+ * ```
+ *
+ * Filtering:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const c = aws.ec2.getVpcIpamPoolCidrs({
+ *     ipamPoolId: "ipam-pool-123",
+ *     filters: [{
+ *         name: "cidr",
+ *         values: ["10.*"],
+ *     }],
+ * });
+ * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
+ * const pls = new aws.ec2.ManagedPrefixList("pls", {
+ *     entries: mycidrs.map((v, k) => ({key: k, value: v})).then(entries => entries.map(entry => ({
+ *         cidr: entry.value,
+ *         description: entry.value,
+ *     }))),
+ *     name: `IPAM Pool (${test.id}) Cidrs`,
+ *     addressFamily: "IPv4",
+ *     maxEntries: mycidrs.length,
+ * });
+ * ```
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrs(args: GetVpcIamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolCidrsResult> {
@@ -56,6 +106,56 @@ export interface GetVpcIamPoolCidrsResult {
  * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+ *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const p = aws.ec2.getVpcIpamPool({
+ *     filters: [
+ *         {
+ *             name: "description",
+ *             values: ["*mypool*"],
+ *         },
+ *         {
+ *             name: "address-family",
+ *             values: ["ipv4"],
+ *         },
+ *     ],
+ * });
+ * const c = p.then(p => aws.ec2.getVpcIpamPoolCidrs({
+ *     ipamPoolId: p.id,
+ * }));
+ * ```
+ *
+ * Filtering:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const c = aws.ec2.getVpcIpamPoolCidrs({
+ *     ipamPoolId: "ipam-pool-123",
+ *     filters: [{
+ *         name: "cidr",
+ *         values: ["10.*"],
+ *     }],
+ * });
+ * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
+ * const pls = new aws.ec2.ManagedPrefixList("pls", {
+ *     entries: mycidrs.map((v, k) => ({key: k, value: v})).then(entries => entries.map(entry => ({
+ *         cidr: entry.value,
+ *         description: entry.value,
+ *     }))),
+ *     name: `IPAM Pool (${test.id}) Cidrs`,
+ *     addressFamily: "IPv4",
+ *     maxEntries: mycidrs.length,
+ * });
+ * ```
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {

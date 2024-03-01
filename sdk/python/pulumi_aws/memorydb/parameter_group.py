@@ -290,6 +290,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
+            name="my-parameter-group",
             family="memorydb_redis6",
             parameters=[aws.memorydb.ParameterGroupParameterArgs(
                 name="activedefrag",
@@ -334,6 +335,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
+            name="my-parameter-group",
             family="memorydb_redis6",
             parameters=[aws.memorydb.ParameterGroupParameterArgs(
                 name="activedefrag",

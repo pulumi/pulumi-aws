@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.sfn.getAlias({
  *     name: "my_sfn_alias",
- *     statemachineArn: aws_sfn_state_machine.sfn_test.arn,
+ *     statemachineArn: sfnTest.arn,
  * });
  * ```
  */
@@ -90,7 +90,7 @@ export interface GetAliasResult {
  *
  * const example = aws.sfn.getAlias({
  *     name: "my_sfn_alias",
- *     statemachineArn: aws_sfn_state_machine.sfn_test.arn,
+ *     statemachineArn: sfnTest.arn,
  * });
  * ```
  */

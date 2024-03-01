@@ -180,27 +180,25 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedTransitVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter",
             virtual_interface_id=creator.id,
             dx_gateway_id=example.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
 
         ## Import
@@ -235,27 +233,25 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedTransitVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter",
             virtual_interface_id=creator.id,
             dx_gateway_id=example.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
 
         ## Import

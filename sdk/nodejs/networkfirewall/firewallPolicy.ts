@@ -17,12 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
  *     firewallPolicy: {
  *         statelessDefaultActions: ["aws:pass"],
  *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
- *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
  *         tlsInspectionConfigurationArn: "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
  *     },
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
  *     firewallPolicy: {
  *         policyVariables: {
  *             ruleVariables: [{
@@ -55,12 +57,40 @@ import * as utilities from "../utilities";
  *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
- *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
  *     },
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ *
+ * ## Policy with a Custom Action for Stateless Inspection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.networkfirewall.FirewallPolicy("test", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessDefaultActions: [
+ *             "aws:pass",
+ *             "ExampleCustomAction",
+ *         ],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessCustomActions: [{
+ *             actionDefinition: {
+ *                 publishMetricAction: {
+ *                     dimensions: [{
+ *                         value: "1",
+ *                     }],
+ *                 },
+ *             },
+ *             actionName: "ExampleCustomAction",
+ *         }],
  *     },
  * });
  * ```

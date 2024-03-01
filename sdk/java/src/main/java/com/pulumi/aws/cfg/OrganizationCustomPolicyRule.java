@@ -44,22 +44,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationCustomPolicyRule(&#34;example&#34;, OrganizationCustomPolicyRuleArgs.builder()        
+ *             .name(&#34;example_rule_name&#34;)
  *             .policyRuntime(&#34;guard-2.x.x&#34;)
  *             .policyText(&#34;&#34;&#34;
- *   let status = [&#39;ACTIVE&#39;]
+ * let status = [&#39;ACTIVE&#39;]
  * 
- *   rule tableisactive when
- *       resourceType == &#34;AWS::DynamoDB::Table&#34; {
- *       configuration.tableStatus == %status
- *   }
+ * rule tableisactive when
+ *     resourceType == &#34;AWS::DynamoDB::Table&#34; {
+ *     configuration.tableStatus == %status
+ * }
  * 
- *   rule checkcompliance when
- *       resourceType == &#34;AWS::DynamoDB::Table&#34;
- *       tableisactive {
- *           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
- *           %pitr == &#34;ENABLED&#34;
- *       }
- * 
+ * rule checkcompliance when
+ *     resourceType == &#34;AWS::DynamoDB::Table&#34;
+ *     tableisactive {
+ *         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+ *         %pitr == &#34;ENABLED&#34;
+ *     }
  *             &#34;&#34;&#34;)
  *             .resourceTypesScopes(&#34;AWS::DynamoDB::Table&#34;)
  *             .build());

@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Elb
     ///     // Create a new load balancer
     ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
     ///     {
+    ///         Name = "foobar-elb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
@@ -74,7 +75,7 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///         Instances = new[]
     ///         {
-    ///             aws_instance.Foo.Id,
+    ///             foo.Id,
     ///         },
     ///         CrossZoneLoadBalancing = true,
     ///         IdleTimeout = 400,

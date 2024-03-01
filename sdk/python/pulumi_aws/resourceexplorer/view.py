@@ -247,15 +247,15 @@ class View(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
-        example_view = aws.resourceexplorer.View("exampleView",
+        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example_view = aws.resourceexplorer.View("example",
+            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_index]))
+            )])
         ```
 
         ## Import
@@ -289,15 +289,15 @@ class View(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
-        example_view = aws.resourceexplorer.View("exampleView",
+        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example_view = aws.resourceexplorer.View("example",
+            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_index]))
+            )])
         ```
 
         ## Import

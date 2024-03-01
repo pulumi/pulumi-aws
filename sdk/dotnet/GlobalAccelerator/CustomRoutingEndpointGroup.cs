@@ -24,7 +24,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.CustomRoutingEndpointGroup("example", new()
     ///     {
-    ///         ListenerArn = aws_globalaccelerator_custom_routing_listener.Example.Id,
+    ///         ListenerArn = exampleAwsGlobalacceleratorCustomRoutingListener.Id,
     ///         DestinationConfigurations = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs
     ///             {
-    ///                 EndpointId = aws_subnet.Example.Id,
+    ///                 EndpointId = exampleAwsSubnet.Id,
     ///             },
     ///         },
     ///     });

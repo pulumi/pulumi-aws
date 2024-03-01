@@ -23,32 +23,32 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("exampleKeyPolicy", new()
+    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("example", new()
     ///     {
-    ///         KeyId = exampleKey.Id,
+    ///         KeyId = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Id"] = "example",
-    ///             ["Statement"] = new[]
+    ///             ["id"] = "example",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "kms:*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["resource"] = "*",
+    ///                     ["sid"] = "Enable IAM User Permissions",
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

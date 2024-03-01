@@ -550,14 +550,15 @@ class ImageBuilder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.ImageBuilder("testFleet",
+        test_fleet = aws.appstream.ImageBuilder("test_fleet",
+            name="Name",
             description="Description of a ImageBuilder",
             display_name="Display name of a ImageBuilder",
             enable_default_internet_access=False,
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
             vpc_config=aws.appstream.ImageBuilderVpcConfigArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
+                subnet_ids=[example["id"]],
             ),
             tags={
                 "Name": "Example Image Builder",
@@ -605,14 +606,15 @@ class ImageBuilder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.ImageBuilder("testFleet",
+        test_fleet = aws.appstream.ImageBuilder("test_fleet",
+            name="Name",
             description="Description of a ImageBuilder",
             display_name="Display name of a ImageBuilder",
             enable_default_internet_access=False,
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
             vpc_config=aws.appstream.ImageBuilderVpcConfigArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
+                subnet_ids=[example["id"]],
             ),
             tags={
                 "Name": "Example Image Builder",

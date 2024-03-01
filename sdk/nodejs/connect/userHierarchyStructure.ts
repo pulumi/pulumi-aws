@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
  *         levelOne: {
  *             name: "levelone",
  *         },
  *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  * ### With Five Levels
@@ -34,24 +34,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
- *         levelFive: {
- *             name: "levelfive",
- *         },
- *         levelFour: {
- *             name: "levelfour",
- *         },
  *         levelOne: {
  *             name: "levelone",
- *         },
- *         levelThree: {
- *             name: "levelthree",
  *         },
  *         levelTwo: {
  *             name: "leveltwo",
  *         },
+ *         levelThree: {
+ *             name: "levelthree",
+ *         },
+ *         levelFour: {
+ *             name: "levelfour",
+ *         },
+ *         levelFive: {
+ *             name: "levelfive",
+ *         },
  *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  *

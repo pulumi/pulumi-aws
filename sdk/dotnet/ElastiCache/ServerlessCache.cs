@@ -26,6 +26,7 @@ namespace Pulumi.Aws.ElastiCache
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
     ///         Engine = "memcached",
+    ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
     ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
@@ -42,13 +43,13 @@ namespace Pulumi.Aws.ElastiCache
     ///             },
     ///         },
     ///         Description = "Test Server",
-    ///         KmsKeyId = aws_kms_key.Test.Arn,
+    ///         KmsKeyId = test.Arn,
     ///         MajorEngineVersion = "1.6",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
-    ///         SubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         SubnetIds = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });
@@ -66,6 +67,7 @@ namespace Pulumi.Aws.ElastiCache
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
     ///         Engine = "redis",
+    ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
     ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
@@ -83,14 +85,14 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///         DailySnapshotTime = "09:00",
     ///         Description = "Test Server",
-    ///         KmsKeyId = aws_kms_key.Test.Arn,
+    ///         KmsKeyId = test.Arn,
     ///         MajorEngineVersion = "7",
     ///         SnapshotRetentionLimit = 1,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
-    ///         SubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         SubnetIds = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });

@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.storagegateway.SmbFileShare("example", {
  *     authentication: "ActiveDirectory",
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
- *     locationArn: aws_s3_bucket.example.arn,
- *     roleArn: aws_iam_role.example.arn,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
+ *     locationArn: exampleAwsS3Bucket.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  * ### Guest Authentication
@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.storagegateway.SmbFileShare("example", {
  *     authentication: "GuestAccess",
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
- *     locationArn: aws_s3_bucket.example.arn,
- *     roleArn: aws_iam_role.example.arn,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
+ *     locationArn: exampleAwsS3Bucket.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

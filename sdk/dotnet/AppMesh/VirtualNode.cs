@@ -36,7 +36,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -82,11 +83,15 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example");
+    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
+    ///     {
+    ///         Name = "example-ns",
+    ///     });
     /// 
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -139,7 +144,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -196,7 +202,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]

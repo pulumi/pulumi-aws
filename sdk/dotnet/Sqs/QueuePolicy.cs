@@ -23,9 +23,12 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue");
+    ///     var q = new Aws.Sqs.Queue("q", new()
+    ///     {
+    ///         Name = "examplequeue",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -50,7 +53,7 @@ namespace Pulumi.Aws.Sqs
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     queue.Arn,
+    ///                     q.Arn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -60,7 +63,7 @@ namespace Pulumi.Aws.Sqs
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_sns_topic.Example.Arn,
+    ///                             example.Arn,
     ///                         },
     ///                     },
     ///                 },
@@ -68,10 +71,10 @@ namespace Pulumi.Aws.Sqs
     ///         },
     ///     });
     /// 
-    ///     var testQueuePolicy = new Aws.Sqs.QueuePolicy("testQueuePolicy", new()
+    ///     var testQueuePolicy = new Aws.Sqs.QueuePolicy("test", new()
     ///     {
-    ///         QueueUrl = queue.Id,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         QueueUrl = q.Id,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

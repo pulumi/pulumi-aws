@@ -117,24 +117,27 @@ class ScramSecretAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
-                scram=True,
-            ),
-        ))
-        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+        example_cluster = aws.msk.Cluster("example",
+            cluster_name="example",
+            client_authentication=aws.msk.ClusterClientAuthenticationArgs(
+                sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+                    scram=True,
+                ),
+            ))
+        example_key = aws.kms.Key("example", description="Example Key for MSK Cluster Scram Secret Association")
+        example_secret = aws.secretsmanager.Secret("example",
+            name="AmazonMSK_example",
+            kms_key_id=example_key.key_id)
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn])
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
             secret_id=example_secret.id,
             secret_string=json.dumps({
                 "username": "user",
                 "password": "pass",
             }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -144,9 +147,9 @@ class ScramSecretAssociation(pulumi.CustomResource):
             actions=["secretsmanager:getSecretValue"],
             resources=[example_secret.arn],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import
@@ -188,24 +191,27 @@ class ScramSecretAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
-                scram=True,
-            ),
-        ))
-        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+        example_cluster = aws.msk.Cluster("example",
+            cluster_name="example",
+            client_authentication=aws.msk.ClusterClientAuthenticationArgs(
+                sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+                    scram=True,
+                ),
+            ))
+        example_key = aws.kms.Key("example", description="Example Key for MSK Cluster Scram Secret Association")
+        example_secret = aws.secretsmanager.Secret("example",
+            name="AmazonMSK_example",
+            kms_key_id=example_key.key_id)
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn])
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
             secret_id=example_secret.id,
             secret_string=json.dumps({
                 "username": "user",
                 "password": "pass",
             }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -215,9 +221,9 @@ class ScramSecretAssociation(pulumi.CustomResource):
             actions=["secretsmanager:getSecretValue"],
             resources=[example_secret.arn],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
 
         ## Import

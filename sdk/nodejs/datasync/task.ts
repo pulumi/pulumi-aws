@@ -13,6 +13,20 @@ import {ARN} from "..";
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.Task("example", {
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
+ *     options: {
+ *         bytesPerSecond: -1,
+ *     },
+ * });
+ * ```
  * ### With Scheduling
  *
  * ```typescript
@@ -20,8 +34,9 @@ import {ARN} from "..";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  *     schedule: {
  *         scheduleExpression: "cron(0 12 ? * SUN,WED *)",
  *     },
@@ -34,8 +49,9 @@ import {ARN} from "..";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  *     excludes: {
  *         filterType: "SIMPLE_PATTERN",
  *         value: "/folder1|/folder2",

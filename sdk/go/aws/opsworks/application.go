@@ -21,26 +21,30 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewApplication(ctx, "foo-app", &opsworks.ApplicationArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./foobar.key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "./foobar.crt",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsworks.NewApplication(ctx, "foo-app", &opsworks.ApplicationArgs{
+//				Name:        pulumi.String("foobar application"),
 //				ShortName:   pulumi.String("foobar"),
-//				StackId:     pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId:     pulumi.Any(main.Id),
 //				Type:        pulumi.String("rails"),
 //				Description: pulumi.String("This is a Rails application"),
 //				Domains: pulumi.StringArray{
@@ -64,8 +68,8 @@ import (
 //				EnableSsl: pulumi.Bool(true),
 //				SslConfigurations: opsworks.ApplicationSslConfigurationArray{
 //					&opsworks.ApplicationSslConfigurationArgs{
-//						PrivateKey:  readFileOrPanic("./foobar.key"),
-//						Certificate: readFileOrPanic("./foobar.crt"),
+//						PrivateKey:  invokeFile.Result,
+//						Certificate: invokeFile1.Result,
 //					},
 //				},
 //				DocumentRoot:       pulumi.String("public"),

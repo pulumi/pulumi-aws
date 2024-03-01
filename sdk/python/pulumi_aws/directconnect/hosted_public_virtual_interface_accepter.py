@@ -146,13 +146,12 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPublicVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352,
@@ -163,12 +162,11 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
+        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
 
         ## Import
@@ -200,13 +198,12 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPublicVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352,
@@ -217,12 +214,11 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
+        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
 
         ## Import

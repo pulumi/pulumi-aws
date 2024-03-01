@@ -111,8 +111,8 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=aws_vpn_gateway["example"]["id"],
-            route_table_id=aws_route_table["example"]["id"])
+            vpn_gateway_id=example_aws_vpn_gateway["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -140,8 +140,8 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=aws_vpn_gateway["example"]["id"],
-            route_table_id=aws_route_table["example"]["id"])
+            vpn_gateway_id=example_aws_vpn_gateway["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         :param str resource_name: The name of the resource.

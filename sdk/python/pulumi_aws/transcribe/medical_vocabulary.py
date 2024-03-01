@@ -230,20 +230,21 @@ class MedicalVocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example = aws.s3.BucketV2("example",
+            bucket="example-medical-vocab-123",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test.txt"))
-        example_medical_vocabulary = aws.transcribe.MedicalVocabulary("exampleMedicalVocabulary",
+        example_medical_vocabulary = aws.transcribe.MedicalVocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example_bucket_v2.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
 
         ## Import
@@ -279,20 +280,21 @@ class MedicalVocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example = aws.s3.BucketV2("example",
+            bucket="example-medical-vocab-123",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test.txt"))
-        example_medical_vocabulary = aws.transcribe.MedicalVocabulary("exampleMedicalVocabulary",
+        example_medical_vocabulary = aws.transcribe.MedicalVocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example_bucket_v2.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
 
         ## Import

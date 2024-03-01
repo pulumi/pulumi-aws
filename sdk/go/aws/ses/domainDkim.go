@@ -33,14 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
 //				Domain: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "exampleDomainDkim", &ses.DomainDkimArgs{
-//				Domain: exampleDomainIdentity.Domain,
+//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "example", &ses.DomainDkimArgs{
+//				Domain: example.Domain,
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +49,7 @@ import (
 //			for index := 0; index < 3; index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
+//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("example_amazonses_dkim_record-%v", key0), &route53.RecordArgs{
 //					ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
 //						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil

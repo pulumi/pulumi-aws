@@ -22,10 +22,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleIdentityPool = new aws.cognito.IdentityPool("exampleIdentityPool", {identityPoolName: "example"});
+ * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example"});
+ * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("example", {
+ *     namePrefix: "AmazonOpenSearchService-example",
+ *     userPoolId: exampleUserPool.id,
+ * });
+ * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {identityPoolName: "example"});
  * const current = aws.getPartition({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
+ * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "",
  *         actions: ["sts:AssumeRole"],
@@ -36,15 +40,13 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * }));
- * const exampleRole = new aws.iam.Role("exampleRole", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
  *     path: "/service-role/",
- *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     assumeRolePolicy: example.then(example => example.json),
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: exampleRole.name,
- *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
- * });
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
+ * const exampleDomain = new aws.opensearch.Domain("example", {
+ *     domainName: "example",
  *     cognitoOptions: {
  *         enabled: true,
  *         userPoolId: exampleUserPool.id,
@@ -55,17 +57,10 @@ import * as utilities from "../utilities";
  *         ebsEnabled: true,
  *         volumeSize: 10,
  *     },
- * }, {
- *     dependsOn: [
- *         aws_cognito_user_pool_domain.example,
- *         exampleRolePolicyAttachment,
- *     ],
  * });
- * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("exampleManagedUserPoolClient", {
- *     namePrefix: "AmazonOpenSearchService-example",
- *     userPoolId: exampleUserPool.id,
- * }, {
- *     dependsOn: [exampleDomain],
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     role: exampleRole.name,
+ *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
  * });
  * ```
  *

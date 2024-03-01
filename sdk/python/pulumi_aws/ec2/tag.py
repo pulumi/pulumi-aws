@@ -140,16 +140,16 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+        example = aws.ec2transitgateway.TransitGateway("example")
+        example_customer_gateway = aws.ec2.CustomerGateway("example",
             bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_vpn_connection = aws.ec2.VpnConnection("example",
             customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
+            transit_gateway_id=example.id,
             type=example_customer_gateway.type)
-        example_tag = aws.ec2.Tag("exampleTag",
+        example_tag = aws.ec2.Tag("example",
             resource_id=example_vpn_connection.transit_gateway_attachment_id,
             key="Name",
             value="Hello World")
@@ -186,16 +186,16 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+        example = aws.ec2transitgateway.TransitGateway("example")
+        example_customer_gateway = aws.ec2.CustomerGateway("example",
             bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_vpn_connection = aws.ec2.VpnConnection("example",
             customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
+            transit_gateway_id=example.id,
             type=example_customer_gateway.type)
-        example_tag = aws.ec2.Tag("exampleTag",
+        example_tag = aws.ec2.Tag("example",
             resource_id=example_vpn_connection.transit_gateway_attachment_id,
             key="Name",
             value="Hello World")

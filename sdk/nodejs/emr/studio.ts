@@ -15,13 +15,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.emr.Studio("example", {
  *     authMode: "SSO",
- *     defaultS3Location: `s3://${aws_s3_bucket.test.bucket}/test`,
- *     engineSecurityGroupId: aws_security_group.test.id,
- *     serviceRole: aws_iam_role.test.arn,
- *     subnetIds: [aws_subnet.test.id],
- *     userRole: aws_iam_role.test.arn,
- *     vpcId: aws_vpc.test.id,
- *     workspaceSecurityGroupId: aws_security_group.test.id,
+ *     defaultS3Location: `s3://${test.bucket}/test`,
+ *     engineSecurityGroupId: testAwsSecurityGroup.id,
+ *     name: "example",
+ *     serviceRole: testAwsIamRole.arn,
+ *     subnetIds: [testAwsSubnet.id],
+ *     userRole: testAwsIamRole.arn,
+ *     vpcId: testAwsVpc.id,
+ *     workspaceSecurityGroupId: testAwsSecurityGroup.id,
  * });
  * ```
  *

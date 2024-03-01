@@ -28,12 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			demo, err := amp.NewWorkspace(ctx, "demo", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
-//				WorkspaceId: demoWorkspace.ID(),
+//			_, err = amp.NewRuleGroupNamespace(ctx, "demo", &amp.RuleGroupNamespaceArgs{
+//				Name:        pulumi.String("rules"),
+//				WorkspaceId: demo.ID(),
 //				Data: pulumi.String(`groups:
 //	  - name: test
 //	    rules:

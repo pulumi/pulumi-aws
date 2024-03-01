@@ -34,14 +34,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
+//			member, err := guardduty.NewDetector(ctx, "member", &guardduty.DetectorArgs{
 //				Enable: pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Dev))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-//				AccountId:         memberDetector.AccountId,
+//			_, err = guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
+//				AccountId:         member.AccountId,
 //				DetectorId:        primary.ID(),
 //				Email:             pulumi.String("required@example.com"),
 //				Invite:            pulumi.Bool(true),

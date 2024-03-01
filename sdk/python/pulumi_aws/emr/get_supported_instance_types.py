@@ -79,6 +79,23 @@ def get_supported_instance_types(release_label: Optional[str] = None,
 
     example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
     ```
+    ### With a Lifecycle Pre-Condition
+
+    This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    instance_type = "r7g.large"
+    release_label = "emr-6.15.0"
+    test = aws.emr.get_supported_instance_types(release_label=release_label)
+    test_cluster = aws.emr.Cluster("test",
+        release_label=release_label,
+        master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+            instance_type=instance_type,
+        ))
+    ```
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -111,6 +128,23 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
     import pulumi_aws as aws
 
     example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
+    ```
+    ### With a Lifecycle Pre-Condition
+
+    This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    instance_type = "r7g.large"
+    release_label = "emr-6.15.0"
+    test = aws.emr.get_supported_instance_types(release_label=release_label)
+    test_cluster = aws.emr.Cluster("test",
+        release_label=release_label,
+        master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+            instance_type=instance_type,
+        ))
     ```
 
 

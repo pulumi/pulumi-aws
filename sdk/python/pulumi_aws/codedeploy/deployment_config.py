@@ -209,17 +209,17 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
                 type="HOST_COUNT",
                 value=2,
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
@@ -245,7 +245,7 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
             traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
@@ -255,11 +255,11 @@ class DeploymentConfig(pulumi.CustomResource):
                     percentage=10,
                 ),
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],
@@ -301,17 +301,17 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
                 type="HOST_COUNT",
                 value=2,
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
@@ -337,7 +337,7 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
             traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
@@ -347,11 +347,11 @@ class DeploymentConfig(pulumi.CustomResource):
                     percentage=10,
                 ),
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],

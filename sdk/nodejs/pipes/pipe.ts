@@ -24,58 +24,81 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getCallerIdentity({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: {
- *         Effect: "Allow",
- *         Action: "sts:AssumeRole",
- *         Principal: {
- *             Service: "pipes.amazonaws.com",
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ *     version: "2012-10-17",
+ *     statement: {
+ *         effect: "Allow",
+ *         action: "sts:AssumeRole",
+ *         principal: {
+ *             service: "pipes.amazonaws.com",
  *         },
- *         Condition: {
- *             StringEquals: {
+ *         condition: {
+ *             stringEquals: {
  *                 "aws:SourceAccount": main.then(main => main.accountId),
  *             },
  *         },
  *     },
  * })});
- * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
- * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
- *     role: exampleRole.id,
+ * const sourceQueue = new aws.sqs.Queue("source", {});
+ * const source = new aws.iam.RolePolicy("source", {
+ *     role: example.id,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: [
  *                 "sqs:DeleteMessage",
  *                 "sqs:GetQueueAttributes",
  *                 "sqs:ReceiveMessage",
  *             ],
- *             Resource: [sourceQueue.arn],
+ *             resource: [sourceQueue.arn],
  *         }],
  *     }),
  * });
- * const targetQueue = new aws.sqs.Queue("targetQueue", {});
- * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
- *     role: exampleRole.id,
+ * const targetQueue = new aws.sqs.Queue("target", {});
+ * const target = new aws.iam.RolePolicy("target", {
+ *     role: example.id,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: ["sqs:SendMessage"],
- *             Resource: [targetQueue.arn],
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: ["sqs:SendMessage"],
+ *             resource: [targetQueue.arn],
  *         }],
  *     }),
  * });
- * const examplePipe = new aws.pipes.Pipe("examplePipe", {
- *     roleArn: exampleRole.arn,
+ * const examplePipe = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: example.arn,
  *     source: sourceQueue.arn,
  *     target: targetQueue.arn,
- * }, {
- *     dependsOn: [
- *         sourceRolePolicy,
- *         targetRolePolicy,
- *     ],
+ * });
+ * ```
+ * ### Enrichment Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
+ *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
+ *     enrichmentParameters: {
+ *         httpParameters: {
+ *             pathParameterValues: "example-path-param",
+ *             headerParameters: {
+ *                 "example-header": "example-value",
+ *                 "second-example-header": "second-example-value",
+ *             },
+ *             queryStringParameters: {
+ *                 "example-query-string": "example-value",
+ *                 "second-example-query-string": "second-example-value",
+ *             },
+ *         },
+ *     },
  * });
  * ```
  * ### Filter Usage
@@ -85,9 +108,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
- *     roleArn: aws_iam_role.example.arn,
- *     source: aws_sqs_queue.source.arn,
- *     target: aws_sqs_queue.target.arn,
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  *     sourceParameters: {
  *         filterCriteria: {
  *             filters: [{

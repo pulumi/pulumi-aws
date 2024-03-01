@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var account = new PolicyAttachment(&#34;account&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
+ *             .policyId(example.id())
  *             .targetId(&#34;123456789012&#34;)
  *             .build());
  * 
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var root = new PolicyAttachment(&#34;root&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
- *             .targetId(aws_organizations_organization.example().roots()[0].id())
+ *             .policyId(example.id())
+ *             .targetId(exampleAwsOrganizationsOrganization.roots()[0].id())
  *             .build());
  * 
  *     }
@@ -102,8 +102,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var unit = new PolicyAttachment(&#34;unit&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
- *             .targetId(aws_organizations_organizational_unit.example().id())
+ *             .policyId(example.id())
+ *             .targetId(exampleAwsOrganizationsOrganizationalUnit.id())
  *             .build());
  * 
  *     }

@@ -41,8 +41,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobarGroup = new Group(&#34;foobarGroup&#34;, GroupArgs.builder()        
+ *         var foobar = new Group(&#34;foobar&#34;, GroupArgs.builder()        
  *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .name(&#34;test-foobar5&#34;)
  *             .maxSize(1)
  *             .minSize(1)
  *             .healthCheckGracePeriod(300)
@@ -58,7 +59,7 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(0)
  *             .startTime(&#34;2016-12-11T18:00:00Z&#34;)
  *             .endTime(&#34;2016-12-12T06:00:00Z&#34;)
- *             .autoscalingGroupName(foobarGroup.name())
+ *             .autoscalingGroupName(foobar.name())
  *             .build());
  * 
  *     }

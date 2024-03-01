@@ -13,6 +13,45 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Component.
     /// 
     /// ## Example Usage
+    /// ### Inline Data Document
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ImageBuilder.Component("example", new()
+    ///     {
+    ///         Data = NotImplemented(@"yamlencode({
+    /// phases=[{
+    /// name=""build""
+    /// steps=[{
+    /// action=""ExecuteBash""
+    /// inputs={
+    /// commands=[""echo 'hello world'""]
+    /// }
+    /// name=""example""
+    /// onFailure=""Continue""
+    /// }]
+    /// }]
+    /// schemaVersion=1.0
+    /// })"),
+    ///         Name = "example",
+    ///         Platform = "Linux",
+    ///         Version = "1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### URI Document
     /// 
     /// ```csharp
@@ -25,8 +64,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.Component("example", new()
     ///     {
+    ///         Name = "example",
     ///         Platform = "Linux",
-    ///         Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
+    ///         Uri = $"s3://{exampleAwsS3Object.Bucket}/{exampleAwsS3Object.Key}",
     ///         Version = "1.0.0",
     ///     });
     /// 

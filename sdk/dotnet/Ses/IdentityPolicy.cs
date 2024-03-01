@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,10 +57,11 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///     });
     /// 
-    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("exampleIdentityPolicy", new()
+    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("example", new()
     ///     {
     ///         Identity = exampleDomainIdentity.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
+//			_, err := sfn.NewActivity(ctx, "sfn_activity", &sfn.ActivityArgs{
+//				Name: pulumi.String("my-activity"),
+//			})
 //			if err != nil {
 //				return err
 //			}

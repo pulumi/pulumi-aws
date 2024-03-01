@@ -109,7 +109,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
+            distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
                 realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
                     realtime_metrics_subscription_status="Enabled",
@@ -146,7 +146,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
+            distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
                 realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
                     realtime_metrics_subscription_status="Enabled",

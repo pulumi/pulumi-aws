@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
+//			_, err := lex.NewBotAlias(ctx, "order_flowers_prod", &lex.BotAliasArgs{
 //				BotName:     pulumi.String("OrderFlowers"),
 //				BotVersion:  pulumi.String("1"),
 //				Description: pulumi.String("Production Version of the OrderFlowers Bot."),

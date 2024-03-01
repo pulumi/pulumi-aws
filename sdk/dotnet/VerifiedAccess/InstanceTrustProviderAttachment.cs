@@ -22,9 +22,9 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInstance = new Aws.VerifiedAccess.Instance("exampleInstance");
+    ///     var example = new Aws.VerifiedAccess.Instance("example");
     /// 
-    ///     var exampleTrustProvider = new Aws.VerifiedAccess.TrustProvider("exampleTrustProvider", new()
+    ///     var exampleTrustProvider = new Aws.VerifiedAccess.TrustProvider("example", new()
     ///     {
     ///         DeviceTrustProviderType = "jamf",
     ///         PolicyReferenceName = "example",
@@ -35,9 +35,9 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         },
     ///     });
     /// 
-    ///     var exampleInstanceTrustProviderAttachment = new Aws.VerifiedAccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", new()
+    ///     var exampleInstanceTrustProviderAttachment = new Aws.VerifiedAccess.InstanceTrustProviderAttachment("example", new()
     ///     {
-    ///         VerifiedaccessInstanceId = exampleInstance.Id,
+    ///         VerifiedaccessInstanceId = example.Id,
     ///         VerifiedaccessTrustProviderId = exampleTrustProvider.Id,
     ///     });
     /// 

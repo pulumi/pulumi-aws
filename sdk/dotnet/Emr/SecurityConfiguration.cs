@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var foo = new Aws.Emr.SecurityConfiguration("foo", new()
     ///     {
+    ///         Name = "emrsc_other",
     ///         Configuration = @"{
     ///   ""EncryptionConfiguration"": {
     ///     ""AtRestEncryptionConfiguration"": {
@@ -39,7 +40,6 @@ namespace Pulumi.Aws.Emr
     ///     ""EnableAtRestEncryption"": true
     ///   }
     /// }
-    /// 
     /// ",
     ///     });
     /// 

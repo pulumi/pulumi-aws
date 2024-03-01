@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: aws_sfn_state_machine.test.arn,
+ *     statemachineArn: testAwsSfnStateMachine.arn,
  * });
  * ```
  */
@@ -62,7 +62,7 @@ export interface GetStateMachineVersionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: aws_sfn_state_machine.test.arn,
+ *     statemachineArn: testAwsSfnStateMachine.arn,
  * });
  * ```
  */

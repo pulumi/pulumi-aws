@@ -23,13 +23,14 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
+    ///         Name = "example-queue",
     ///         DelaySeconds = 90,
     ///         MaxMessageSize = 2048,
     ///         MessageRetentionSeconds = 86400,
     ///         ReceiveWaitTimeSeconds = 10,
     ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = aws_sqs_queue.Queue_deadletter.Arn,
+    ///             ["deadLetterTargetArn"] = queueDeadletter.Arn,
     ///             ["maxReceiveCount"] = 4,
     ///         }),
     ///         Tags = 
@@ -52,8 +53,9 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         ContentBasedDeduplication = true,
+    ///         Name = "example-queue.fifo",
     ///         FifoQueue = true,
+    ///         ContentBasedDeduplication = true,
     ///     });
     /// 
     /// });
@@ -71,8 +73,9 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         DeduplicationScope = "messageGroup",
+    ///         Name = "pulumi-example-queue.fifo",
     ///         FifoQueue = true,
+    ///         DeduplicationScope = "messageGroup",
     ///         FifoThroughputLimit = "perMessageGroupId",
     ///     });
     /// 
@@ -92,16 +95,20 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
+    ///         Name = "pulumi-example-queue",
     ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = aws_sqs_queue.Queue_deadletter.Arn,
+    ///             ["deadLetterTargetArn"] = queueDeadletter.Arn,
     ///             ["maxReceiveCount"] = 4,
     ///         }),
     ///     });
     /// 
-    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("exampleQueueDeadletter");
+    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("example_queue_deadletter", new()
+    ///     {
+    ///         Name = "pulumi-example-deadletter-queue",
+    ///     });
     /// 
-    ///     var exampleQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", new()
+    ///     var exampleQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy", new()
     ///     {
     ///         QueueUrl = exampleQueueDeadletter.Id,
     ///         RedriveAllowPolicyName = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -109,7 +116,7 @@ namespace Pulumi.Aws.Sqs
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 aws_sqs_queue.Example_queue.Arn,
+    ///                 exampleQueue.Arn,
     ///             },
     ///         }),
     ///     });
@@ -131,6 +138,7 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
+    ///         Name = "pulumi-example-queue",
     ///         SqsManagedSseEnabled = true,
     ///     });
     /// 
@@ -149,8 +157,9 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         KmsDataKeyReusePeriodSeconds = 300,
+    ///         Name = "example-queue",
     ///         KmsMasterKeyId = "alias/aws/sqs",
+    ///         KmsDataKeyReusePeriodSeconds = 300,
     ///     });
     /// 
     /// });

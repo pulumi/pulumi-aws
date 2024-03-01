@@ -28,10 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewDomainConfiguration(ctx, "iot", &iot.DomainConfigurationArgs{
+//				Name:        pulumi.String("iot-"),
 //				DomainName:  pulumi.String("iot.example.com"),
 //				ServiceType: pulumi.String("DATA"),
 //				ServerCertificateArns: pulumi.StringArray{
-//					aws_acm_certificate.Cert.Arn,
+//					cert.Arn,
 //				},
 //			})
 //			if err != nil {

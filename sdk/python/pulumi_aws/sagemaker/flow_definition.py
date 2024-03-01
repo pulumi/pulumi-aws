@@ -312,17 +312,17 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=example_aws_sagemaker_workteam["arn"],
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
         ### Public Workteam Usage
@@ -333,14 +333,14 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{data['aws_region']['current']['name']}:394669845002:workteam/public-crowd/default",
+                workteam_arn=f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
                 public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
                     amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
                         cents=1,
@@ -349,7 +349,7 @@ class FlowDefinition(pulumi.CustomResource):
                 ),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
         ### Human Loop Activation Config Usage
@@ -360,14 +360,14 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=example_aws_sagemaker_workteam["arn"],
             ),
             human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
                 aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
@@ -388,7 +388,7 @@ class FlowDefinition(pulumi.CustomResource):
                 ),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
 
@@ -428,17 +428,17 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=example_aws_sagemaker_workteam["arn"],
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
         ### Public Workteam Usage
@@ -449,14 +449,14 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{data['aws_region']['current']['name']}:394669845002:workteam/public-crowd/default",
+                workteam_arn=f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
                 public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
                     amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
                         cents=1,
@@ -465,7 +465,7 @@ class FlowDefinition(pulumi.CustomResource):
                 ),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
         ### Human Loop Activation Config Usage
@@ -476,14 +476,14 @@ class FlowDefinition(pulumi.CustomResource):
 
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=example_aws_sagemaker_workteam["arn"],
             ),
             human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
                 aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
@@ -504,7 +504,7 @@ class FlowDefinition(pulumi.CustomResource):
                 ),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
+                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
 

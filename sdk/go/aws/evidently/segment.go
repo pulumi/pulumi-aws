@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
+//				Name:    pulumi.String("example"),
 //				Pattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Segment"),
@@ -58,6 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
+//				Name: pulumi.String("example"),
 //				Pattern: pulumi.String(`  {
 //	    "Price": [
 //	      {
@@ -95,8 +97,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //				Pattern:     pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
+//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpc.GetSecurityGroupRule(ctx, &vpc.GetSecurityGroupRuleArgs{
-//				SecurityGroupRuleId: pulumi.StringRef(_var.Security_group_rule_id),
+//				SecurityGroupRuleId: pulumi.StringRef(securityGroupRuleId),
 //			}, nil)
 //			if err != nil {
 //				return err

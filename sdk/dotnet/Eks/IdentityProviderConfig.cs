@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
     ///         {
     ///             ClientId = "your client_id",

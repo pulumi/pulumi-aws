@@ -229,9 +229,9 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
+    centos = aws.ssm.get_patch_baseline(owner="AWS",
+        name_prefix="AWS-",
+        operating_system="CENTOS")
     ```
 
     To retrieve a baseline on your account:
@@ -240,10 +240,10 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+    default_custom = aws.ssm.get_patch_baseline(owner="Self",
         name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
+        default_baseline=True,
+        operating_system="WINDOWS")
     ```
 
 
@@ -298,9 +298,9 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     import pulumi
     import pulumi_aws as aws
 
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
+    centos = aws.ssm.get_patch_baseline(owner="AWS",
+        name_prefix="AWS-",
+        operating_system="CENTOS")
     ```
 
     To retrieve a baseline on your account:
@@ -309,10 +309,10 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     import pulumi
     import pulumi_aws as aws
 
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+    default_custom = aws.ssm.get_patch_baseline(owner="Self",
         name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
+        default_baseline=True,
+        operating_system="WINDOWS")
     ```
 
 

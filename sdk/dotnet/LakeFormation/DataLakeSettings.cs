@@ -29,8 +29,8 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                     "ALTER",
     ///                     "DROP",
     ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 Principal = test.Arn,
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                 {
     ///                     "ALL",
     ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 Principal = testAwsIamRole.Arn,
     ///             },
     ///         },
     ///     });
@@ -95,8 +95,8 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                     "ALTER",
     ///                     "DROP",
     ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 Principal = test.Arn,
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
@@ -119,14 +119,14 @@ namespace Pulumi.Aws.LakeFormation
     ///                 {
     ///                     "ALL",
     ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 Principal = testAwsIamRole.Arn,
     ///             },
     ///         },
     ///         AllowExternalDataFiltering = true,
     ///         ExternalDataFilteringAllowLists = new[]
     ///         {
-    ///             data.Aws_caller_identity.Current.Account_id,
-    ///             data.Aws_caller_identity.Third_party.Account_id,
+    ///             current.AccountId,
+    ///             thirdParty.AccountId,
     ///         },
     ///         AuthorizedSessionTagValueLists = new[]
     ///         {

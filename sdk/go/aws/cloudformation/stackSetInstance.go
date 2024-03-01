@@ -36,7 +36,7 @@ import (
 //			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
 //				AccountId:    pulumi.String("123456789012"),
 //				Region:       pulumi.String("us-east-1"),
-//				StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
+//				StackSetName: pulumi.Any(exampleAwsCloudformationStackSet.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -69,7 +69,7 @@ import (
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Identifiers: interface{}{
-// aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
+// aWSCloudFormationStackSetAdministrationRole.Arn,
 // },
 // Type: "AWS",
 // },
@@ -80,13 +80,16 @@ import (
 // if err != nil {
 // return err
 // }
-// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
+// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
 // AssumeRolePolicy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
+// Name: pulumi.String("AWSCloudFormationStackSetExecutionRole"),
 // })
 // if err != nil {
 // return err
 // }
-// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+// // Additional IAM permissions necessary depend on the resources defined in the StackSet template
+// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Actions: []string{
@@ -104,8 +107,9 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
-// Policy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Json),
+// _, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", &iam.RolePolicyArgs{
+// Name: pulumi.String("MinimumExecutionPolicy"),
+// Policy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json),
 // Role: aWSCloudFormationStackSetExecutionRole.Name,
 // })
 // if err != nil {
@@ -132,11 +136,11 @@ import (
 //			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
 //				DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
 //					OrganizationalUnitIds: pulumi.StringArray{
-//						aws_organizations_organization.Example.Roots[0].Id,
+//						exampleAwsOrganizationsOrganization.Roots[0].Id,
 //					},
 //				},
 //				Region:       pulumi.String("us-east-1"),
-//				StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
+//				StackSetName: pulumi.Any(exampleAwsCloudformationStackSet.Name),
 //			})
 //			if err != nil {
 //				return err

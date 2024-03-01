@@ -141,7 +141,7 @@ class LoggingOptions(pulumi.CustomResource):
 
         example = aws.iot.LoggingOptions("example",
             default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,7 +167,7 @@ class LoggingOptions(pulumi.CustomResource):
 
         example = aws.iot.LoggingOptions("example",
             default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         :param str resource_name: The name of the resource.

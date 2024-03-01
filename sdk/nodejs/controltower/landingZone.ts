@@ -16,10 +16,16 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
  *
  * const example = new aws.controltower.LandingZone("example", {
- *     manifestJson: fs.readFileSync(`${path.module}/LandingZoneManifest.json`, "utf8"),
+ *     manifestJson: std.file({
+ *         input: `${notImplemented("path.module")}/LandingZoneManifest.json`,
+ *     }).then(invoke => invoke.result),
  *     version: "3.2",
  * });
  * ```

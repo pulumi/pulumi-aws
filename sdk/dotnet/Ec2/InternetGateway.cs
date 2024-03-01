@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },
@@ -72,19 +72,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
@@ -168,19 +159,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
@@ -235,19 +217,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```

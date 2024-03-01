@@ -18,47 +18,46 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
  *     policy: JSON.stringify({
- *         Statement: [
+ *         statement: [
  *             {
- *                 Action: [
+ *                 action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
  *                     "kms:Verify",
  *                 ],
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Resource: "*",
- *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 resource: "*",
+ *                 sid: "Allow Route 53 DNSSEC Service",
  *             },
  *             {
- *                 Action: "kms:*",
- *                 Effect: "Allow",
- *                 Principal: {
+ *                 action: "kms:*",
+ *                 effect: "Allow",
+ *                 principal: {
  *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
- *                 Resource: "*",
- *                 Sid: "Enable IAM User Permissions",
+ *                 resource: "*",
+ *                 sid: "Enable IAM User Permissions",
  *             },
  *         ],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
+ * const exampleZone = new aws.route53.Zone("example", {name: "example.com"});
+ * const exampleKeySigningKey = new aws.route53.KeySigningKey("example", {
  *     hostedZoneId: exampleZone.id,
- *     keyManagementServiceArn: exampleKey.arn,
+ *     keyManagementServiceArn: example.arn,
+ *     name: "example",
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
- *     dependsOn: [exampleKeySigningKey],
- * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
  * ```
  *
  * ## Import

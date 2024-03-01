@@ -37,15 +37,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.example.id,
+ *             gatewayId: exampleAwsInternetGateway.id,
  *         },
  *         {
  *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
+ *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
  *         },
  *     ],
  *     tags: {
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     routes: [],
  *     tags: {
  *         Name: "example",
@@ -78,9 +78,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
- * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
- *     vpcId: testVpc.id,
+ * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
+ * const testRouteTable = new aws.ec2.RouteTable("test", {
+ *     vpcId: test.id,
  *     routes: [{
  *         cidrBlock: "10.1.0.0/16",
  *         gatewayId: "local",
@@ -94,16 +94,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
- * const testSubnet = new aws.ec2.Subnet("testSubnet", {
+ * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
+ * const testSubnet = new aws.ec2.Subnet("test", {
  *     cidrBlock: "10.1.1.0/24",
- *     vpcId: testVpc.id,
+ *     vpcId: test.id,
  * });
- * const testNetworkInterface = new aws.ec2.NetworkInterface("testNetworkInterface", {subnetId: testSubnet.id});
- * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
- *     vpcId: testVpc.id,
+ * const testNetworkInterface = new aws.ec2.NetworkInterface("test", {subnetId: testSubnet.id});
+ * const testRouteTable = new aws.ec2.RouteTable("test", {
+ *     vpcId: test.id,
  *     routes: [{
- *         cidrBlock: testVpc.cidrBlock,
+ *         cidrBlock: test.cidrBlock,
  *         networkInterfaceId: testNetworkInterface.id,
  *     }],
  * });

@@ -32,7 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleReportGroup, err := codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
+//			example, err := codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("TEST"),
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					Type: pulumi.String("NO_EXPORT"),
@@ -41,35 +42,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			current, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codebuild.NewResourcePolicy(ctx, "exampleResourcePolicy", &codebuild.ResourcePolicyArgs{
-//				ResourceArn: exampleReportGroup.Arn,
-//				Policy: exampleReportGroup.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//			_, err = codebuild.NewResourcePolicy(ctx, "example", &codebuild.ResourcePolicyArgs{
+//				ResourceArn: example.Arn,
+//				Policy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Id":      "default",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"id":      "default",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Sid":    "default",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//								"sid":    "default",
+//								"effect": "Allow",
+//								"principal": map[string]interface{}{
+//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", current.Partition, currentGetCallerIdentity.AccountId),
 //								},
-//								"Action": []string{
+//								"action": []string{
 //									"codebuild:BatchGetReportGroups",
 //									"codebuild:BatchGetReports",
 //									"codebuild:ListReportsForReportGroup",
 //									"codebuild:DescribeTestCases",
 //								},
-//								"Resource": arn,
+//								"resource": arn,
 //							},
 //						},
 //					})

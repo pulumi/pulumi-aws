@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var peer = new BgpPeer(&#34;peer&#34;, BgpPeerArgs.builder()        
- *             .virtualInterfaceId(aws_dx_private_virtual_interface.foo().id())
+ *             .virtualInterfaceId(foo.id())
  *             .addressFamily(&#34;ipv6&#34;)
  *             .bgpAsn(65351)
  *             .build());

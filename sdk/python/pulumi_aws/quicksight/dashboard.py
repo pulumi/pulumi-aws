@@ -513,12 +513,13 @@ class Dashboard(pulumi.CustomResource):
 
         example = aws.quicksight.Dashboard("example",
             dashboard_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
@@ -566,12 +567,13 @@ class Dashboard(pulumi.CustomResource):
 
         example = aws.quicksight.Dashboard("example",
             dashboard_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opsworks.EcsClusterLayer("example", {
- *     stackId: aws_opsworks_stack.example.id,
- *     ecsClusterArn: aws_ecs_cluster.example.arn,
+ *     stackId: exampleAwsOpsworksStack.id,
+ *     ecsClusterArn: exampleAwsEcsCluster.arn,
  * });
  * ```
  */

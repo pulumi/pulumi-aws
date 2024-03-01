@@ -175,7 +175,6 @@ class ResourcePolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         ```
 
@@ -237,7 +236,6 @@ class ResourcePolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         ```
 

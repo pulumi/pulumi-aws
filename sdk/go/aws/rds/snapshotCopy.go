@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+//			example, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(10),
 //				Engine:                pulumi.String("mysql"),
 //				EngineVersion:         pulumi.String("5.6.21"),
@@ -43,14 +43,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: exampleInstance.Identifier,
+//			exampleSnapshot, err := rds.NewSnapshot(ctx, "example", &rds.SnapshotArgs{
+//				DbInstanceIdentifier: example.Identifier,
 //				DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewSnapshotCopy(ctx, "exampleSnapshotCopy", &rds.SnapshotCopyArgs{
+//			_, err = rds.NewSnapshotCopy(ctx, "example", &rds.SnapshotCopyArgs{
 //				SourceDbSnapshotIdentifier: exampleSnapshot.DbSnapshotArn,
 //				TargetDbSnapshotIdentifier: pulumi.String("testsnapshot1234-copy"),
 //			})

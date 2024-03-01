@@ -158,8 +158,8 @@ def get_virtual_router(mesh_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_router(mesh_name="example-mesh-name",
-        name="example-router-name")
+    test = aws.appmesh.get_virtual_router(name="example-router-name",
+        mesh_name="example-mesh-name")
     ```
 
 
@@ -203,8 +203,8 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_router(mesh_name="example-mesh-name",
-        name="example-router-name")
+    test = aws.appmesh.get_virtual_router(name="example-router-name",
+        mesh_name="example-mesh-name")
     ```
 
 

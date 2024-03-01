@@ -26,31 +26,31 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "osis-pipelines.amazonaws.com",
+    ///                         ["service"] = "osis-pipelines.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var examplePipeline = new Aws.OpenSearchIngest.Pipeline("examplePipeline", new()
+    ///     var examplePipeline = new Aws.OpenSearchIngest.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Output.Tuple(exampleRole.Arn, current).Apply(values =&gt;
+    ///         PipelineConfigurationBody = Output.Tuple(example.Arn, current).Apply(values =&gt;
     ///         {
     ///             var arn = values.Item1;
     ///             var current = values.Item2;
@@ -81,17 +81,20 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = File.ReadAllText("example.yaml"),
+    ///         PipelineConfigurationBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "example.yaml",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         MaxUnits = 1,
     ///         MinUnits = 1,
     ///     });

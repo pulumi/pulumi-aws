@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualRouter({
- *     meshName: "example-mesh-name",
  *     name: "example-router-name",
+ *     meshName: "example-mesh-name",
  * });
  * ```
  */
@@ -98,8 +98,8 @@ export interface GetVirtualRouterResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualRouter({
- *     meshName: "example-mesh-name",
  *     name: "example-router-name",
+ *     meshName: "example-mesh-name",
  * });
  * ```
  */

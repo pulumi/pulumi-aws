@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv4&#34;)
- *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
+ *             .ipamScopeId(example.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 

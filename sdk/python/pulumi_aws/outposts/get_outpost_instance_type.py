@@ -78,6 +78,20 @@ def get_outpost_instance_type(arn: Optional[str] = None,
     """
     Information about single Outpost Instance Type.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost_instance_type(arn=example_aws_outposts_outpost["arn"],
+        preferred_instance_types=[
+            "m5.large",
+            "m5.4xlarge",
+        ])
+    example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
+    ```
+
 
     :param str arn: Outpost ARN.
            
@@ -106,6 +120,20 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostInstanceTypeResult]:
     """
     Information about single Outpost Instance Type.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost_instance_type(arn=example_aws_outposts_outpost["arn"],
+        preferred_instance_types=[
+            "m5.large",
+            "m5.4xlarge",
+        ])
+    example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
+    ```
 
 
     :param str arn: Outpost ARN.

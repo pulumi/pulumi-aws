@@ -81,7 +81,7 @@ class DefaultKmsKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
+        example = aws.ebs.DefaultKmsKey("example", key_arn=example_aws_kms_key["arn"])
         ```
 
         ## Import
@@ -118,7 +118,7 @@ class DefaultKmsKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
+        example = aws.ebs.DefaultKmsKey("example", key_arn=example_aws_kms_key["arn"])
         ```
 
         ## Import

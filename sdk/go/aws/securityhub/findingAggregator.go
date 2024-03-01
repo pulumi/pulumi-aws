@@ -31,15 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
 //				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -64,19 +62,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
 //				LinkingMode: pulumi.String("ALL_REGIONS_EXCEPT_SPECIFIED"),
 //				SpecifiedRegions: pulumi.StringArray{
 //					pulumi.String("eu-west-1"),
 //					pulumi.String("eu-west-2"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -101,19 +97,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
 //				LinkingMode: pulumi.String("SPECIFIED_REGIONS"),
 //				SpecifiedRegions: pulumi.StringArray{
 //					pulumi.String("eu-west-1"),
 //					pulumi.String("eu-west-2"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

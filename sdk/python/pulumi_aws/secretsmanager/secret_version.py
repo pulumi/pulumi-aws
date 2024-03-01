@@ -217,8 +217,40 @@ class SecretVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretVersion("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
+            secret_id=example_aws_secretsmanager_secret["id"],
             secret_string="example-string-to-protect")
+        ```
+        ### Key-Value Pairs
+
+        Secrets Manager also accepts key-value pairs in JSON.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        example = config.get_object("example")
+        if example is None:
+            example = {
+                "key1": "value1",
+                "key2": "value2",
+            }
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example_aws_secretsmanager_secret["id"],
+            secret_string=json.dumps(example))
+        ```
+
+        Reading key-value pairs from JSON back into a native map
+
+        ```python
+        import pulumi
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        pulumi.export("example", not_implemented("jsondecode(aws_secretsmanager_secret_version.example.secret_string)")["key1"])
         ```
 
         ## Import
@@ -257,8 +289,40 @@ class SecretVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretVersion("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
+            secret_id=example_aws_secretsmanager_secret["id"],
             secret_string="example-string-to-protect")
+        ```
+        ### Key-Value Pairs
+
+        Secrets Manager also accepts key-value pairs in JSON.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        example = config.get_object("example")
+        if example is None:
+            example = {
+                "key1": "value1",
+                "key2": "value2",
+            }
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example_aws_secretsmanager_secret["id"],
+            secret_string=json.dumps(example))
+        ```
+
+        Reading key-value pairs from JSON back into a native map
+
+        ```python
+        import pulumi
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        pulumi.export("example", not_implemented("jsondecode(aws_secretsmanager_secret_version.example.secret_string)")["key1"])
         ```
 
         ## Import

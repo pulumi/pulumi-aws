@@ -1753,7 +1753,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
      *             .build());
      * 
      *     }
@@ -1792,7 +1792,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
      *             .build());
      * 
      *     }
@@ -1831,7 +1831,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
      *             .build());
      * 
      *     }
@@ -1870,7 +1870,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
      *             .build());
      * 
      *     }
@@ -2759,7 +2759,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -2787,8 +2787,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2820,7 +2821,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -2881,8 +2882,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2925,7 +2927,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -2953,8 +2955,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2986,7 +2989,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -3047,8 +3050,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3091,7 +3095,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -3119,8 +3123,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3152,7 +3157,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -3213,8 +3218,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3257,7 +3263,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -3285,8 +3291,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3318,7 +3325,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -3379,8 +3386,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3423,7 +3431,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -3451,8 +3459,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3484,7 +3493,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -3545,8 +3554,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3589,7 +3599,7 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
@@ -3617,8 +3627,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3650,7 +3661,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;geoproximity_rule&#34;)
      *             .endpoints(            
@@ -3711,8 +3722,9 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }

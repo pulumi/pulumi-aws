@@ -179,7 +179,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallDomainList("example")
+        example = aws.route53.ResolverFirewallDomainList("example", name="example")
         ```
 
         ## Import
@@ -213,7 +213,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallDomainList("example")
+        example = aws.route53.ResolverFirewallDomainList("example", name="example")
         ```
 
         ## Import

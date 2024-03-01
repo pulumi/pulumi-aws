@@ -18,8 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
- * const myTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("myTemplate", {
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     name: "tf-test-name",
+ *     description: "tf-test-desc",
+ * });
+ * const myTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("my_template", {
+ *     name: "tf-test-template-config",
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });

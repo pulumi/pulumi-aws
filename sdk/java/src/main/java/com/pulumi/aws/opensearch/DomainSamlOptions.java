@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;example&#34;)
  *             .engineVersion(&#34;OpenSearch_1.1&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;r4.large.search&#34;)
@@ -59,12 +60,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomainSamlOptions = new DomainSamlOptions(&#34;exampleDomainSamlOptions&#34;, DomainSamlOptionsArgs.builder()        
- *             .domainName(exampleDomain.domainName())
+ *             .domainName(example.domainName())
  *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
  *                 .enabled(true)
  *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
  *                     .entityId(&#34;https://example.com&#34;)
- *                     .metadataContent(Files.readString(Paths.get(&#34;./saml-metadata.xml&#34;)))
+ *                     .metadataContent(StdFunctions.file(FileArgs.builder()
+ *                         .input(&#34;./saml-metadata.xml&#34;)
+ *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .build());

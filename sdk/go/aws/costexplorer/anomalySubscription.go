@@ -29,17 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAnomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "testAnomalyMonitor", &costexplorer.AnomalyMonitorArgs{
+//			test, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
+//				Name:             pulumi.String("AWSServiceMonitor"),
 //				MonitorType:      pulumi.String("DIMENSIONAL"),
 //				MonitorDimension: pulumi.String("SERVICE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = costexplorer.NewAnomalySubscription(ctx, "testAnomalySubscription", &costexplorer.AnomalySubscriptionArgs{
+//			_, err = costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
+//				Name:      pulumi.String("DAILYSUBSCRIPTION"),
 //				Frequency: pulumi.String("DAILY"),
 //				MonitorArnLists: pulumi.StringArray{
-//					testAnomalyMonitor.Arn,
+//					test.Arn,
 //				},
 //				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
 //					&costexplorer.AnomalySubscriptionSubscriberArgs{
@@ -72,9 +74,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
+//				Name:      pulumi.String("AWSServiceMonitor"),
 //				Frequency: pulumi.String("DAILY"),
 //				MonitorArnLists: pulumi.StringArray{
-//					aws_ce_anomaly_monitor.Test.Arn,
+//					testAwsCeAnomalyMonitor.Arn,
 //				},
 //				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
 //					&costexplorer.AnomalySubscriptionSubscriberArgs{
@@ -117,9 +120,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
+//				Name:      pulumi.String("AWSServiceMonitor"),
 //				Frequency: pulumi.String("DAILY"),
 //				MonitorArnLists: pulumi.StringArray{
-//					aws_ce_anomaly_monitor.Test.Arn,
+//					testAwsCeAnomalyMonitor.Arn,
 //				},
 //				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
 //					&costexplorer.AnomalySubscriptionSubscriberArgs{
@@ -177,7 +181,9 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// costAnomalyUpdates, err := sns.NewTopic(ctx, "costAnomalyUpdates", nil)
+// costAnomalyUpdates, err := sns.NewTopic(ctx, "cost_anomaly_updates", &sns.TopicArgs{
+// Name: pulumi.String("CostAnomalyUpdates"),
+// })
 // if err != nil {
 // return err
 // }
@@ -223,7 +229,7 @@ import (
 // Test: "StringEquals",
 // Variable: "AWS:SourceOwner",
 // Values: interface{}{
-// _var.AccountId,
+// account_id,
 // },
 // },
 // },
@@ -252,14 +258,16 @@ import (
 // if err != nil {
 // return err
 // }
-// anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomalyMonitor", &costexplorer.AnomalyMonitorArgs{
+// anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomaly_monitor", &costexplorer.AnomalyMonitorArgs{
+// Name: pulumi.String("AWSServiceMonitor"),
 // MonitorType: pulumi.String("DIMENSIONAL"),
 // MonitorDimension: pulumi.String("SERVICE"),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = costexplorer.NewAnomalySubscription(ctx, "realtimeSubscription", &costexplorer.AnomalySubscriptionArgs{
+// _, err = costexplorer.NewAnomalySubscription(ctx, "realtime_subscription", &costexplorer.AnomalySubscriptionArgs{
+// Name: pulumi.String("RealtimeAnomalySubscription"),
 // Frequency: pulumi.String("IMMEDIATE"),
 // MonitorArnLists: pulumi.StringArray{
 // anomalyMonitor.Arn,
@@ -270,9 +278,7 @@ import (
 // Address: costAnomalyUpdates.Arn,
 // },
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// _default,
-// }))
+// })
 // if err != nil {
 // return err
 // }

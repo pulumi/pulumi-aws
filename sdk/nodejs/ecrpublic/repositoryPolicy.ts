@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "example"});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleRepository = new aws.ecrpublic.Repository("example", {repositoryName: "example"});
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "new policy",
  *         effect: "Allow",
@@ -44,9 +44,9 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy", {
+ * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("example", {
  *     repositoryName: exampleRepository.repositoryName,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
  *

@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.LookupUserGroup(ctx, &cognito.LookupUserGroupArgs{
-//				Name:       "example",
 //				UserPoolId: "us-west-2_aaaaaaaaa",
+//				Name:       "example",
 //			}, nil)
 //			if err != nil {
 //				return err

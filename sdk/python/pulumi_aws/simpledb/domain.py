@@ -75,7 +75,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        users = aws.simpledb.Domain("users")
+        users = aws.simpledb.Domain("users", name="users")
         ```
 
         ## Import
@@ -105,7 +105,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        users = aws.simpledb.Domain("users")
+        users = aws.simpledb.Domain("users", name="users")
         ```
 
         ## Import

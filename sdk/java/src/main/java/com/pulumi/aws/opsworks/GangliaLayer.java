@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new GangliaLayer(&#34;monitor&#34;, GangliaLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .password(&#34;foobarbaz&#34;)
  *             .build());
  * 

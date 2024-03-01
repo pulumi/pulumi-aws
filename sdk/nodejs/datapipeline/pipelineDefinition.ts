@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.datapipeline.Pipeline("default", {});
+ * const _default = new aws.datapipeline.Pipeline("default", {name: "tf-pipeline-default"});
  * const example = new aws.datapipeline.PipelineDefinition("example", {
  *     pipelineId: _default.id,
  *     pipelineObjects: [

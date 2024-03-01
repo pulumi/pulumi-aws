@@ -31,16 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
+//			example, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
 //				EmailIdentity: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sesv2.NewEmailIdentityMailFromAttributes(ctx, "exampleEmailIdentityMailFromAttributes", &sesv2.EmailIdentityMailFromAttributesArgs{
-//				EmailIdentity:       exampleEmailIdentity.EmailIdentity,
+//			_, err = sesv2.NewEmailIdentityMailFromAttributes(ctx, "example", &sesv2.EmailIdentityMailFromAttributesArgs{
+//				EmailIdentity:       example.EmailIdentity,
 //				BehaviorOnMxFailure: pulumi.String("REJECT_MESSAGE"),
-//				MailFromDomain: exampleEmailIdentity.EmailIdentity.ApplyT(func(emailIdentity string) (string, error) {
+//				MailFromDomain: example.EmailIdentity.ApplyT(func(emailIdentity string) (string, error) {
 //					return fmt.Sprintf("subdomain.%v", emailIdentity), nil
 //				}).(pulumi.StringOutput),
 //			})

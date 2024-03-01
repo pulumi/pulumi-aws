@@ -236,8 +236,8 @@ class AttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.networkmanager.AttachmentAccepter("test",
-            attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
-            attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+            attachment_id=vpc["id"],
+            attachment_type=vpc["attachmentType"])
         ```
         ### Example with site-to-site VPN attachment
 
@@ -246,8 +246,8 @@ class AttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.networkmanager.AttachmentAccepter("test",
-            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
-            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
+            attachment_id=vpn["id"],
+            attachment_type=vpn["attachmentType"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,8 +272,8 @@ class AttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.networkmanager.AttachmentAccepter("test",
-            attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
-            attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+            attachment_id=vpc["id"],
+            attachment_type=vpc["attachmentType"])
         ```
         ### Example with site-to-site VPN attachment
 
@@ -282,8 +282,8 @@ class AttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.networkmanager.AttachmentAccepter("test",
-            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
-            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
+            attachment_id=vpn["id"],
+            attachment_type=vpn["attachmentType"])
         ```
 
         :param str resource_name: The name of the resource.

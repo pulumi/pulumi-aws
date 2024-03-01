@@ -40,10 +40,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new CustomKeyStore(&#34;test&#34;, CustomKeyStoreArgs.builder()        
- *             .cloudHsmClusterId(var_.cloud_hsm_cluster_id())
+ *             .cloudHsmClusterId(cloudHsmClusterId)
  *             .customKeyStoreName(&#34;kms-custom-key-store-test&#34;)
  *             .keyStorePassword(&#34;noplaintextpasswords1&#34;)
- *             .trustAnchorCertificate(Files.readString(Paths.get(&#34;anchor-certificate.crt&#34;)))
+ *             .trustAnchorCertificate(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;anchor-certificate.crt&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

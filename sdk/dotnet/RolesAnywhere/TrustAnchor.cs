@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
     ///         PermanentDeletionTimeInDays = 7,
     ///         Type = "ROOT",
@@ -39,10 +39,10 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var testCertificate = new Aws.Acmpca.Certificate("testCertificate", new()
+    ///     var test = new Aws.Acmpca.Certificate("test", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         CertificateAuthorityArn = example.Arn,
+    ///         CertificateSigningRequest = example.CertificateSigningRequest,
     ///         SigningAlgorithm = "SHA512WITHRSA",
     ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
@@ -52,28 +52,23 @@ namespace Pulumi.Aws.RolesAnywhere
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("example", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         Certificate = aws_acmpca_certificate.Example.Certificate,
-    ///         CertificateChain = aws_acmpca_certificate.Example.Certificate_chain,
+    ///         CertificateAuthorityArn = example.Arn,
+    ///         Certificate = exampleAwsAcmpcaCertificate.Certificate,
+    ///         CertificateChain = exampleAwsAcmpcaCertificate.CertificateChain,
     ///     });
     /// 
-    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("testTrustAnchor", new()
+    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("test", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
     ///         {
     ///             SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
     ///             {
-    ///                 AcmPcaArn = exampleCertificateAuthority.Arn,
+    ///                 AcmPcaArn = example.Arn,
     ///             },
     ///             SourceType = "AWS_ACM_PCA",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleCertificateAuthorityCertificate,
     ///         },
     ///     });
     /// 

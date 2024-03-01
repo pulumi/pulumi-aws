@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
         ///     {
-        ///         DatabaseName = "MyCatalogDatabase",
         ///         Name = "MyCatalogTable",
+        ///         DatabaseName = "MyCatalogDatabase",
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
         ///     {
-        ///         DatabaseName = "MyCatalogDatabase",
         ///         Name = "MyCatalogTable",
+        ///         DatabaseName = "MyCatalogDatabase",
         ///     });
         /// 
         /// });

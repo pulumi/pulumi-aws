@@ -12,6 +12,43 @@ import (
 )
 
 // Information about single Outpost Instance Type.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := outposts.GetOutpostInstanceType(ctx, &outposts.GetOutpostInstanceTypeArgs{
+//				Arn: exampleAwsOutpostsOutpost.Arn,
+//				PreferredInstanceTypes: []string{
+//					"m5.large",
+//					"m5.4xlarge",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewEc2Instance(ctx, "example", &aws.Ec2InstanceArgs{
+//				InstanceType: example.InstanceType,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypeResult

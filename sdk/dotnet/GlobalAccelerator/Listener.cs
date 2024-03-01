@@ -22,8 +22,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new()
+    ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
     ///     {
+    ///         Name = "Example",
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
@@ -34,9 +35,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("example", new()
     ///     {
-    ///         AcceleratorArn = exampleAccelerator.Id,
+    ///         AcceleratorArn = example.Id,
     ///         ClientAffinity = "SOURCE_IP",
     ///         Protocol = "TCP",
     ///         PortRanges = new[]

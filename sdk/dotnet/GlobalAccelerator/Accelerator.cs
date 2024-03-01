@@ -24,17 +24,18 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         IpAddressType = "IPV4",
+    ///         IpAddresses = new[]
+    ///         {
+    ///             "1.2.3.4",
+    ///         },
+    ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
     ///         {
     ///             FlowLogsEnabled = true,
     ///             FlowLogsS3Bucket = "example-bucket",
     ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///         Enabled = true,
-    ///         IpAddressType = "IPV4",
-    ///         IpAddresses = new[]
-    ///         {
-    ///             "1.2.3.4",
     ///         },
     ///     });
     /// 

@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.ParameterGroup("default", {
+ *     name: "rds-pg",
  *     family: "mysql5.6",
  *     parameters: [
  *         {
@@ -55,15 +56,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
+ * const example = new aws.rds.ParameterGroup("example", {
+ *     name: "my-pg",
  *     family: "postgres13",
  *     parameters: [{
  *         name: "log_connections",
  *         value: "1",
  *     }],
  * });
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     parameterGroupName: exampleParameterGroup.name,
+ * const exampleInstance = new aws.rds.Instance("example", {
+ *     parameterGroupName: example.name,
  *     applyImmediately: true,
  * });
  * ```

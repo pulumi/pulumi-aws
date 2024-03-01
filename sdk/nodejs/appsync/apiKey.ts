@@ -13,9 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiKey = new aws.appsync.ApiKey("exampleApiKey", {
- *     apiId: exampleGraphQLApi.id,
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleApiKey = new aws.appsync.ApiKey("example", {
+ *     apiId: example.id,
  *     expires: "2018-05-03T04:00:00Z",
  * });
  * ```

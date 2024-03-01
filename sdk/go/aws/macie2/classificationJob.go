@@ -28,12 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAccount, err := macie2.NewAccount(ctx, "testAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewClassificationJob(ctx, "testClassificationJob", &macie2.ClassificationJobArgs{
+//			_, err = macie2.NewClassificationJob(ctx, "test", &macie2.ClassificationJobArgs{
 //				JobType: pulumi.String("ONE_TIME"),
+//				Name:    pulumi.String("NAME OF THE CLASSIFICATION JOB"),
 //				S3JobDefinition: &macie2.ClassificationJobS3JobDefinitionArgs{
 //					BucketDefinitions: macie2.ClassificationJobS3JobDefinitionBucketDefinitionArray{
 //						&macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs{
@@ -44,9 +45,7 @@ import (
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -24,20 +24,21 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
     ///     {
-    ///         VpcId = exampleVpc.Id,
+    ///         VpcId = example.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         AvailabilityZone = "us-west-2a",
     ///     });
     /// 
-    ///     var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("exampleSubnetGroup", new()
+    ///     var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("example", new()
     ///     {
+    ///         Name = "my-subnet-group",
     ///         SubnetIds = new[]
     ///         {
     ///             exampleSubnet.Id,

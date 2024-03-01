@@ -16,22 +16,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mytopic = new aws.sns.Topic("mytopic", {});
- * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
+ * const mytopic = new aws.sns.Topic("mytopic", {name: "mytopic"});
+ * const myerrortopic = new aws.sns.Topic("myerrortopic", {name: "myerrortopic"});
  * const rule = new aws.iot.TopicRule("rule", {
+ *     name: "MyRule",
  *     description: "Example rule",
  *     enabled: true,
  *     sql: "SELECT * FROM 'topic/test'",
  *     sqlVersion: "2016-03-23",
  *     sns: [{
  *         messageFormat: "RAW",
- *         roleArn: aws_iam_role.role.arn,
+ *         roleArn: role.arn,
  *         targetArn: mytopic.arn,
  *     }],
  *     errorAction: {
  *         sns: {
  *             messageFormat: "RAW",
- *             roleArn: aws_iam_role.role.arn,
+ *             roleArn: role.arn,
  *             targetArn: myerrortopic.arn,
  *         },
  *     },
@@ -46,17 +47,21 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const myrole = new aws.iam.Role("myrole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const mypolicyPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const myrole = new aws.iam.Role("myrole", {
+ *     name: "myrole",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const mypolicy = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["sns:Publish"],
  *         resources: [arn],
  *     }],
  * }));
- * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicyRolePolicy", {
+ * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicy", {
+ *     name: "mypolicy",
  *     role: myrole.id,
- *     policy: mypolicyPolicyDocument.apply(mypolicyPolicyDocument => mypolicyPolicyDocument.json),
+ *     policy: mypolicy.apply(mypolicy => mypolicy.json),
  * });
  * ```
  *

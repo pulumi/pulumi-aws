@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codestarconnections.Connection;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -61,10 +62,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .providerType(&#34;GitHub&#34;)
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;);
+ *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;test-bucket&#34;)
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -78,6 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipelineRole = new Role(&#34;codepipelineRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -86,6 +91,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipeline = new Pipeline(&#34;codepipeline&#34;, PipelineArgs.builder()        
+ *             .name(&#34;tf-test-pipeline&#34;)
  *             .roleArn(codepipelineRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
  *                 .location(codepipelineBucket.bucket())
@@ -153,7 +159,7 @@ import javax.annotation.Nullable;
  *             .restrictPublicBuckets(true)
  *             .build());
  * 
- *         final var codepipelinePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var codepipelinePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
@@ -182,8 +188,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipelinePolicyRolePolicy = new RolePolicy(&#34;codepipelinePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;codepipeline_policy&#34;)
  *             .role(codepipelineRole.id())
- *             .policy(codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicyPolicyDocument -&gt; codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicy -&gt; codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

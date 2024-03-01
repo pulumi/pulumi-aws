@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WorkingStorage(&#34;example&#34;, WorkingStorageArgs.builder()        
- *             .diskId(data.aws_storagegateway_local_disk().example().id())
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
+ *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }

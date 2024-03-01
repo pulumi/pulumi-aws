@@ -26,6 +26,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var @default = new Aws.ElastiCache.ParameterGroup("default", new()
     ///     {
+    ///         Name = "cache-params",
     ///         Family = "redis2.8",
     ///         Parameters = new[]
     ///         {

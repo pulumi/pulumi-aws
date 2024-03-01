@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         DxGatewayId = aws_dx_gateway.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         DxGatewayId = exampleAwsDxGateway.Id,
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         DxGatewayId = aws_dx_gateway.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         DxGatewayId = exampleAwsDxGateway.Id,
         ///     });
         /// 
         /// });

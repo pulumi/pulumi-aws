@@ -16,17 +16,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.EventConfigurations("example", {eventConfigurations: {
- *     CA_CERTIFICATE: false,
- *     CERTIFICATE: true,
+ *     THING: true,
+ *     THING_GROUP: false,
+ *     THING_TYPE: false,
+ *     THING_GROUP_MEMBERSHIP: false,
+ *     THING_GROUP_HIERARCHY: false,
+ *     THING_TYPE_ASSOCIATION: false,
  *     JOB: false,
  *     JOB_EXECUTION: false,
  *     POLICY: false,
- *     THING: true,
- *     THING_GROUP: false,
- *     THING_GROUP_HIERARCHY: false,
- *     THING_GROUP_MEMBERSHIP: false,
- *     THING_TYPE: false,
- *     THING_TYPE_ASSOCIATION: false,
+ *     CERTIFICATE: true,
+ *     CA_CERTIFICATE: false,
  * }});
  * ```
  *

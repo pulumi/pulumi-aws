@@ -24,15 +24,16 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Aws.Iam.User("exampleUser", new()
+    ///     var example = new Aws.Iam.User("example", new()
     ///     {
+    ///         Name = "example",
     ///         Path = "/",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new()
+    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("example", new()
     ///     {
-    ///         User = exampleUser.Name,
+    ///         User = example.Name,
     ///         PgpKey = "keybase:some_person_that_exists",
     ///     });
     /// 

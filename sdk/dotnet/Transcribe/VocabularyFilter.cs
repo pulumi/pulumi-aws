@@ -25,17 +25,17 @@ namespace Pulumi.Aws.Transcribe
     /// {
     ///     var example = new Aws.Transcribe.VocabularyFilter("example", new()
     ///     {
-    ///         LanguageCode = "en-US",
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value3" },
-    ///         },
     ///         VocabularyFilterName = "example",
+    ///         LanguageCode = "en-US",
     ///         Words = new[]
     ///         {
     ///             "cars",
     ///             "bucket",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
     ///         },
     ///     });
     /// 

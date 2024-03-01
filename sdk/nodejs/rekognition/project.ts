@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rekognition.Project("example", {
+ *     name: "example-project",
  *     autoUpdate: "ENABLED",
  *     feature: "CONTENT_MODERATION",
  * });

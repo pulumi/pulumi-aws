@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterEndpoint(&#34;example&#34;, ClusterEndpointArgs.builder()        
- *             .clusterIdentifier(aws_neptune_cluster.test().cluster_identifier())
+ *             .clusterIdentifier(test.clusterIdentifier())
  *             .clusterEndpointIdentifier(&#34;example&#34;)
  *             .endpointType(&#34;READER&#34;)
  *             .build());

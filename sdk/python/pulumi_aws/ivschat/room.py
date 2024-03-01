@@ -301,7 +301,7 @@ class Room(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivschat.Room("example")
+        example = aws.ivschat.Room("example", name="tf-room")
         ```
         ## Usage with Logging Configuration to S3 Bucket
 
@@ -309,15 +309,19 @@ class Room(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+        example = aws.s3.BucketV2("example",
             bucket_prefix="tf-ivschat-logging-bucket-",
             force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example",
+            name="tf-ivschat-loggingconfiguration",
+            destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                    bucket_name=example.id,
+                ),
+            ))
+        example_room = aws.ivschat.Room("example",
+            name="tf-ivschat-room",
+            logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
 
         ## Import
@@ -358,7 +362,7 @@ class Room(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivschat.Room("example")
+        example = aws.ivschat.Room("example", name="tf-room")
         ```
         ## Usage with Logging Configuration to S3 Bucket
 
@@ -366,15 +370,19 @@ class Room(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+        example = aws.s3.BucketV2("example",
             bucket_prefix="tf-ivschat-logging-bucket-",
             force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example",
+            name="tf-ivschat-loggingconfiguration",
+            destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                    bucket_name=example.id,
+                ),
+            ))
+        example_room = aws.ivschat.Room("example",
+            name="tf-ivschat-room",
+            logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
 
         ## Import

@@ -453,6 +453,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -472,9 +473,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -495,7 +498,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -546,6 +549,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -565,9 +569,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -588,7 +594,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -639,6 +645,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -658,9 +665,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -681,7 +690,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -732,6 +741,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -751,9 +761,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -774,7 +786,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -825,6 +837,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -844,9 +857,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -867,7 +882,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -918,6 +933,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
@@ -937,9 +953,11 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
+     *             .name(&#34;my-sns-topic&#34;)
+     *             .build());
      * 
-     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(                
@@ -960,7 +978,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }

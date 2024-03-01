@@ -22,10 +22,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dada = new Aws.CloudWatch.LogGroup("dada");
+    ///     var dada = new Aws.CloudWatch.LogGroup("dada", new()
+    ///     {
+    ///         Name = "MyApp/access.log",
+    ///     });
     /// 
     ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
     ///     {
+    ///         Name = "MyAppAccessCount",
     ///         Pattern = "",
     ///         LogGroupName = dada.Name,
     ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs

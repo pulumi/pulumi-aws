@@ -426,7 +426,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             variations=[aws.evidently.FeatureVariationArgs(
                 name="Variation1",
@@ -445,7 +446,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
                 aws.evidently.FeatureVariationArgs(
@@ -469,7 +471,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             entity_overrides={
                 "test1": "Variation1",
             },
@@ -495,7 +498,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             evaluation_strategy="ALL_RULES",
             entity_overrides={
                 "test1": "Variation1",
@@ -544,7 +548,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             variations=[aws.evidently.FeatureVariationArgs(
                 name="Variation1",
@@ -563,7 +568,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
                 aws.evidently.FeatureVariationArgs(
@@ -587,7 +593,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             entity_overrides={
                 "test1": "Variation1",
             },
@@ -613,7 +620,8 @@ class Feature(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             evaluation_strategy="ALL_RULES",
             entity_overrides={
                 "test1": "Variation1",

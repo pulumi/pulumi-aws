@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
@@ -31,8 +31,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -65,8 +68,8 @@ import * as utilities from "../utilities";
  *                     test: "StringEquals",
  *                     variable: "ec2:Subnet",
  *                     values: [
- *                         aws_subnet.example1.arn,
- *                         aws_subnet.example2.arn,
+ *                         example1.arn,
+ *                         example2.arn,
  *                     ],
  *                 },
  *                 {
@@ -86,11 +89,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
- * const exampleProject = new aws.codebuild.Project("exampleProject", {
+ * const exampleProject = new aws.codebuild.Project("example", {
+ *     name: "test-project",
  *     description: "test_codebuild_project",
  *     buildTimeout: 5,
  *     serviceRole: exampleRole.arn,
@@ -138,14 +142,14 @@ import * as utilities from "../utilities";
  *     },
  *     sourceVersion: "master",
  *     vpcConfig: {
- *         vpcId: aws_vpc.example.id,
+ *         vpcId: exampleAwsVpc.id,
  *         subnets: [
- *             aws_subnet.example1.id,
- *             aws_subnet.example2.id,
+ *             example1.id,
+ *             example2.id,
  *         ],
  *         securityGroupIds: [
- *             aws_security_group.example1.id,
- *             aws_security_group.example2.id,
+ *             example1AwsSecurityGroup.id,
+ *             example2AwsSecurityGroup.id,
  *         ],
  *     },
  *     tags: {
@@ -153,6 +157,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
+ *     name: "test-project-cache",
  *     description: "test_codebuild_project_cache",
  *     buildTimeout: 5,
  *     queuedTimeout: 5,

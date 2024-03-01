@@ -312,8 +312,10 @@ class ScheduledAction(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="redshift_scheduled_action",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "redshift:PauseCluster",
@@ -322,11 +324,14 @@ class ScheduledAction(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_policy = aws.iam.Policy("example",
+            name="redshift_scheduled_action",
+            policy=example.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn=example_policy.arn,
             role=example_role.name)
-        example_scheduled_action = aws.redshift.ScheduledAction("exampleScheduledAction",
+        example_scheduled_action = aws.redshift.ScheduledAction("example",
+            name="tf-redshift-scheduled-action",
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
             target_action=aws.redshift.ScheduledActionTargetActionArgs(
@@ -342,8 +347,9 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ScheduledAction("example",
+            name="tf-redshift-scheduled-action",
             schedule="cron(00 23 * * ? *)",
-            iam_role=aws_iam_role["example"]["arn"],
+            iam_role=example_aws_iam_role["arn"],
             target_action=aws.redshift.ScheduledActionTargetActionArgs(
                 resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArgs(
                     cluster_identifier="tf-redshift001",
@@ -395,8 +401,10 @@ class ScheduledAction(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="redshift_scheduled_action",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "redshift:PauseCluster",
@@ -405,11 +413,14 @@ class ScheduledAction(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_policy = aws.iam.Policy("example",
+            name="redshift_scheduled_action",
+            policy=example.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn=example_policy.arn,
             role=example_role.name)
-        example_scheduled_action = aws.redshift.ScheduledAction("exampleScheduledAction",
+        example_scheduled_action = aws.redshift.ScheduledAction("example",
+            name="tf-redshift-scheduled-action",
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
             target_action=aws.redshift.ScheduledActionTargetActionArgs(
@@ -425,8 +436,9 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ScheduledAction("example",
+            name="tf-redshift-scheduled-action",
             schedule="cron(00 23 * * ? *)",
-            iam_role=aws_iam_role["example"]["arn"],
+            iam_role=example_aws_iam_role["arn"],
             target_action=aws.redshift.ScheduledActionTargetActionArgs(
                 resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArgs(
                     cluster_identifier="tf-redshift001",

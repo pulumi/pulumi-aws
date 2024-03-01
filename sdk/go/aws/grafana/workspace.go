@@ -33,14 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "grafana.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "grafana.amazonaws.com",
 //						},
 //					},
 //				},
@@ -50,6 +50,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
+//				Name:             pulumi.String("grafana-assume"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {

@@ -254,10 +254,9 @@ class Member(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        member_detector = aws.guardduty.Detector("memberDetector", enable=True,
-        opts=pulumi.ResourceOptions(provider=aws["dev"]))
-        member_member = aws.guardduty.Member("memberMember",
-            account_id=member_detector.account_id,
+        member = aws.guardduty.Detector("member", enable=True)
+        member_member = aws.guardduty.Member("member",
+            account_id=member.account_id,
             detector_id=primary.id,
             email="required@example.com",
             invite=True,
@@ -297,10 +296,9 @@ class Member(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        member_detector = aws.guardduty.Detector("memberDetector", enable=True,
-        opts=pulumi.ResourceOptions(provider=aws["dev"]))
-        member_member = aws.guardduty.Member("memberMember",
-            account_id=member_detector.account_id,
+        member = aws.guardduty.Detector("member", enable=True)
+        member_member = aws.guardduty.Member("member",
+            account_id=member.account_id,
             detector_id=primary.id,
             email="required@example.com",
             invite=True,

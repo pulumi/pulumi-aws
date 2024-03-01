@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewEndpointAuthorization(ctx, "example", &redshift.EndpointAuthorizationArgs{
 //				Account:           pulumi.String("01234567910"),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //			})
 //			if err != nil {
 //				return err

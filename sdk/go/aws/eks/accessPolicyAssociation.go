@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewAccessPolicyAssociation(ctx, "example", &eks.AccessPolicyAssociationArgs{
-//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
+//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
 //				PolicyArn:    pulumi.String("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"),
-//				PrincipalArn: pulumi.Any(aws_iam_user.Example.Arn),
+//				PrincipalArn: pulumi.Any(exampleAwsIamUser.Arn),
 //				AccessScope: &eks.AccessPolicyAssociationAccessScopeArgs{
 //					Type: pulumi.String("namespace"),
 //					Namespaces: pulumi.StringArray{

@@ -30,22 +30,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				BuildSpec: pulumi.String(`  version: 0.1
-//	  frontend:
-//	    phases:
-//	      preBuild:
-//	        commands:
-//	          - yarn install
-//	      build:
-//	        commands:
-//	          - yarn run build
-//	    artifacts:
-//	      baseDirectory: build
-//	      files:
-//	        - '**/*'
-//	    cache:
-//	      paths:
-//	        - node_modules/**/*
+//				Name:       pulumi.String("example"),
+//				Repository: pulumi.String("https://github.com/example/app"),
+//				BuildSpec: pulumi.String(`version: 0.1
+//
+// frontend:
+//
+//	phases:
+//	  preBuild:
+//	    commands:
+//	      - yarn install
+//	  build:
+//	    commands:
+//	      - yarn run build
+//	artifacts:
+//	  baseDirectory: build
+//	  files:
+//	    - '**/*'
+//	cache:
+//	  paths:
+//	    - node_modules/**/*
 //
 // `),
 //
@@ -59,7 +63,6 @@ import (
 //				EnvironmentVariables: pulumi.StringMap{
 //					"ENV": pulumi.String("test"),
 //				},
-//				Repository: pulumi.String("https://github.com/example/app"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,8 +89,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				AccessToken: pulumi.String("..."),
+//				Name:        pulumi.String("example"),
 //				Repository:  pulumi.String("https://github.com/example/app"),
+//				AccessToken: pulumi.String("..."),
 //			})
 //			if err != nil {
 //				return err
@@ -114,14 +118,49 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
-//					EnableAutoBuild: pulumi.Bool(true),
-//				},
+//				Name:                     pulumi.String("example"),
+//				EnableAutoBranchCreation: pulumi.Bool(true),
 //				AutoBranchCreationPatterns: pulumi.StringArray{
 //					pulumi.String("*"),
 //					pulumi.String("*/**"),
 //				},
-//				EnableAutoBranchCreation: pulumi.Bool(true),
+//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
+//					EnableAutoBuild: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Basic Authorization
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "username1:password1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name:                 pulumi.String("example"),
+//				EnableBasicAuth:      pulumi.Bool(true),
+//				BasicAuthCredentials: invokeBase64encode.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -146,6 +185,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("example"),
 //				CustomRules: amplify.AppCustomRuleArray{
 //					&amplify.AppCustomRuleArgs{
 //						Source: pulumi.String("/api/<*>"),
@@ -182,6 +222,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("example"),
 //				EnvironmentVariables: pulumi.StringMap{
 //					"_CUSTOM_IMAGE": pulumi.String("node:16"),
 //				},
@@ -209,19 +250,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				CustomHeaders: pulumi.String(`  customHeaders:
-//	    - pattern: '**'
-//	      headers:
-//	        - key: 'Strict-Transport-Security'
-//	          value: 'max-age=31536000; includeSubDomains'
-//	        - key: 'X-Frame-Options'
-//	          value: 'SAMEORIGIN'
-//	        - key: 'X-XSS-Protection'
-//	          value: '1; mode=block'
-//	        - key: 'X-Content-Type-Options'
-//	          value: 'nosniff'
-//	        - key: 'Content-Security-Policy'
-//	          value: "default-src 'self'"
+//				Name: pulumi.String("example"),
+//				CustomHeaders: pulumi.String(`customHeaders:
+//	  - pattern: '**'
+//	    headers:
+//	      - key: 'Strict-Transport-Security'
+//	        value: 'max-age=31536000; includeSubDomains'
+//	      - key: 'X-Frame-Options'
+//	        value: 'SAMEORIGIN'
+//	      - key: 'X-XSS-Protection'
+//	        value: '1; mode=block'
+//	      - key: 'X-Content-Type-Options'
+//	        value: 'nosniff'
+//	      - key: 'Content-Security-Policy'
+//	        value: "default-src 'self'"
 //
 // `),
 //

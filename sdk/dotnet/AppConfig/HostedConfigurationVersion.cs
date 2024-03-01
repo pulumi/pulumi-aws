@@ -26,8 +26,8 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
     ///         Description = "Example Freeform Hosted Configuration Version",
     ///         ContentType = "application/json",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -58,8 +58,8 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
     ///         Description = "Example Feature Flag Configuration Version",
     ///         ContentType = "application/json",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ *     name: "wu-tang",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 443,
@@ -57,6 +58,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ *     name: "wu-tang",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 443,

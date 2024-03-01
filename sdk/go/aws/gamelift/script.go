@@ -28,10 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
+//				Name: pulumi.String("example-script"),
 //				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:     pulumi.Any(aws_s3_object.Example.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					Bucket:  pulumi.Any(exampleAwsS3Bucket.Id),
+//					Key:     pulumi.Any(exampleAwsS3Object.Key),
+//					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getClusterCredentials({
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     dbUser: aws_redshift_cluster.example.master_username,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *     dbUser: exampleAwsRedshiftCluster.masterUsername,
  * });
  * ```
  */
@@ -95,8 +95,8 @@ export interface GetClusterCredentialsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getClusterCredentials({
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     dbUser: aws_redshift_cluster.example.master_username,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *     dbUser: exampleAwsRedshiftCluster.masterUsername,
  * });
  * ```
  */

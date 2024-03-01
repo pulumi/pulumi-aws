@@ -248,6 +248,7 @@ class Disk(pulumi.CustomResource):
                 values=["opt-in-not-required"],
             )])
         test = aws.lightsail.Disk("test",
+            name="test",
             size_in_gb=8,
             availability_zone=available.names[0])
         ```
@@ -288,6 +289,7 @@ class Disk(pulumi.CustomResource):
                 values=["opt-in-not-required"],
             )])
         test = aws.lightsail.Disk("test",
+            name="test",
             size_in_gb=8,
             availability_zone=available.names[0])
         ```

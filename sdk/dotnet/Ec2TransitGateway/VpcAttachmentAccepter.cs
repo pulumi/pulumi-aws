@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new()
     ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example cross-account attachment" },

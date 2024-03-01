@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2transitgateway.MulticastGroupMember("example", {
  *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: aws_network_interface.example.id,
- *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,
+ *     networkInterfaceId: exampleAwsNetworkInterface.id,
+ *     transitGatewayMulticastDomainId: exampleAwsEc2TransitGatewayMulticastDomain.id,
  * });
  * ```
  */

@@ -24,10 +24,11 @@ namespace Pulumi.Aws.Dax
     /// {
     ///     var example = new Aws.Dax.SubnetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example1.Id,
-    ///             aws_subnet.Example2.Id,
+    ///             example1.Id,
+    ///             example2.Id,
     ///         },
     ///     });
     /// 

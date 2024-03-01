@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				DomainName:           pulumi.String("example"),
+//				ElasticsearchVersion: pulumi.String("7.10"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.elasticsearch"),
 //				},
-//				ElasticsearchVersion: pulumi.String("7.10"),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},
@@ -70,15 +71,16 @@ import (
 //			if param := cfg.Get("domain"); param != "" {
 //				domain = param
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				DomainName: pulumi.String(domain),
 //				AccessPolicies: pulumi.Any(fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Statement": [
@@ -94,7 +96,7 @@ import (
 //	  ]
 //	}
 //
-// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+// `, current.Name, currentGetCallerIdentity.AccountId, domain)),
 //
 //			})
 //			if err != nil {
@@ -121,11 +123,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -151,15 +155,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: *pulumi.String(examplePolicyDocument.Json),
+//				PolicyDocument: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// .. other configuration ...
-//			_, err = elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
+//			_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
 //				LogPublishingOptions: elasticsearch.DomainLogPublishingOptionArray{
 //					&elasticsearch.DomainLogPublishingOptionArgs{
 //						CloudwatchLogGroupArn: exampleLogGroup.Arn,
@@ -200,7 +203,7 @@ import (
 // if param := cfg.Get("domain"); param != ""{
 // domain = param
 // }
-// selectedVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+// selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
 // Tags: interface{}{
 // Name: vpc,
 // },
@@ -208,12 +211,12 @@ import (
 // if err != nil {
 // return err
 // }
-// selectedSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// selectedGetSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
 // Filters: []ec2.GetSubnetsFilter{
 // {
 // Name: "vpc-id",
 // Values: interface{}{
-// selectedVpc.Id,
+// selected.Id,
 // },
 // },
 // },
@@ -224,24 +227,25 @@ import (
 // if err != nil {
 // return err
 // }
-// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// current, err := aws.GetRegion(ctx, nil, nil);
 // if err != nil {
 // return err
 // }
-// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
 // if err != nil {
 // return err
 // }
-// esSecurityGroup, err := ec2.NewSecurityGroup(ctx, "esSecurityGroup", &ec2.SecurityGroupArgs{
+// es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
+// Name: pulumi.String(fmt.Sprintf("%v-elasticsearch-%v", vpc, domain)),
 // Description: pulumi.String("Managed by Pulumi"),
-// VpcId: *pulumi.String(selectedVpc.Id),
+// VpcId: *pulumi.String(selected.Id),
 // Ingress: ec2.SecurityGroupIngressArray{
 // &ec2.SecurityGroupIngressArgs{
 // FromPort: pulumi.Int(443),
 // ToPort: pulumi.Int(443),
 // Protocol: pulumi.String("tcp"),
 // CidrBlocks: pulumi.StringArray{
-// *pulumi.String(selectedVpc.CidrBlock),
+// *pulumi.String(selected.CidrBlock),
 // },
 // },
 // },
@@ -249,13 +253,14 @@ import (
 // if err != nil {
 // return err
 // }
-// esServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "esServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
+// _, err = iam.NewServiceLinkedRole(ctx, "es", &iam.ServiceLinkedRoleArgs{
 // AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = elasticsearch.NewDomain(ctx, "esDomain", &elasticsearch.DomainArgs{
+// _, err = elasticsearch.NewDomain(ctx, "es", &elasticsearch.DomainArgs{
+// DomainName: pulumi.String(domain),
 // ElasticsearchVersion: pulumi.String("6.3"),
 // ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 // InstanceType: pulumi.String("m4.large.elasticsearch"),
@@ -263,11 +268,11 @@ import (
 // },
 // VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 // SubnetIds: pulumi.StringArray{
-// *pulumi.String(selectedSubnets.Ids[0]),
-// *pulumi.String(selectedSubnets.Ids[1]),
+// *pulumi.String(selectedGetSubnets.Ids[0]),
+// *pulumi.String(selectedGetSubnets.Ids[1]),
 // },
 // SecurityGroupIds: pulumi.StringArray{
-// esSecurityGroup.ID(),
+// es.ID(),
 // },
 // },
 // AdvancedOptions: pulumi.StringMap{
@@ -286,13 +291,11 @@ import (
 //		]
 //	}
 //
-// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+// `, current.Name, currentGetCallerIdentity.AccountId, domain)),
 // Tags: pulumi.StringMap{
 // "Domain": pulumi.String("TestDomain"),
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// esServiceLinkedRole,
-// }))
+// })
 // if err != nil {
 // return err
 // }

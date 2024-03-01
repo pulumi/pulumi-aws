@@ -30,6 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Office Hours"),
+//				Description: pulumi.String("Monday office hours"),
+//				TimeZone:    pulumi.String("EST"),
 //				Configs: connect.HoursOfOperationConfigArray{
 //					&connect.HoursOfOperationConfigArgs{
 //						Day: pulumi.String("MONDAY"),
@@ -54,12 +58,9 @@ import (
 //						},
 //					},
 //				},
-//				Description: pulumi.String("Monday office hours"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Hours of Operation"),
 //				},
-//				TimeZone: pulumi.String("EST"),
 //			})
 //			if err != nil {
 //				return err

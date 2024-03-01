@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.budgets.getBudget({
- *     name: aws_budgets_budget.test.name,
+ *     name: testAwsBudgetsBudget.name,
  * });
  * ```
  */
@@ -124,7 +124,7 @@ export interface GetBudgetResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.budgets.getBudget({
- *     name: aws_budgets_budget.test.name,
+ *     name: testAwsBudgetsBudget.name,
  * });
  * ```
  */

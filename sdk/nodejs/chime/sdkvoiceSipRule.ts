@@ -18,11 +18,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.chime.SdkvoiceSipRule("example", {
+ *     name: "example-sip-rule",
  *     triggerType: "RequestUriHostname",
- *     triggerValue: aws_chime_voice_connector["example-voice-connector"].outbound_host_name,
+ *     triggerValue: example_voice_connector.outboundHostName,
  *     targetApplications: [{
  *         priority: 1,
- *         sipMediaApplicationId: aws_chimesdkvoice_sip_media_application["example-sma"].id,
+ *         sipMediaApplicationId: example_sma.id,
  *         awsRegion: "us-east-1",
  *     }],
  * });

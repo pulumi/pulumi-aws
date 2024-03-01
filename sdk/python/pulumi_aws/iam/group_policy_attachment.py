@@ -108,8 +108,9 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
+        group = aws.iam.Group("group", name="test-group")
         policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
             policy="{ ... policy JSON ... }")
         test_attach = aws.iam.GroupPolicyAttachment("test-attach",
@@ -147,8 +148,9 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
+        group = aws.iam.Group("group", name="test-group")
         policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
             policy="{ ... policy JSON ... }")
         test_attach = aws.iam.GroupPolicyAttachment("test-attach",

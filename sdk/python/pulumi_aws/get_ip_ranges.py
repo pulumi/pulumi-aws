@@ -136,7 +136,8 @@ def get_ip_ranges(id: Optional[str] = None,
             "eu-central-1",
         ],
         services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("fromEurope",
+    from_europe = aws.ec2.SecurityGroup("from_europe",
+        name="from_europe",
         ingress=[aws.ec2.SecurityGroupIngressArgs(
             from_port=443,
             to_port=443,
@@ -203,7 +204,8 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
             "eu-central-1",
         ],
         services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("fromEurope",
+    from_europe = aws.ec2.SecurityGroup("from_europe",
+        name="from_europe",
         ingress=[aws.ec2.SecurityGroupIngressArgs(
             from_port=443,
             to_port=443,

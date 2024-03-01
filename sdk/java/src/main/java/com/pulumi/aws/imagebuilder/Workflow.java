@@ -42,37 +42,37 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
- *             .data(&#34;&#34;&#34;
- *   name: example
- *   description: Workflow to test an image
- *   schemaVersion: 1.0
- * 
- *   parameters:
- *     - name: waitForActionAtEnd
- *       type: boolean
- * 
- *   steps:
- *     - name: LaunchTestInstance
- *       action: LaunchInstance
- *       onFailure: Abort
- *       inputs:
- *         waitFor: &#34;ssmAgent&#34;
- * 
- *     - name: TerminateTestInstance
- *       action: TerminateInstance
- *       onFailure: Continue
- *       inputs:
- *         instanceId.$: &#34;$.stepOutputs.LaunchTestInstance.instanceId&#34;
- * 
- *     - name: WaitForActionAtEnd
- *       action: WaitForAction
- *       if:
- *         booleanEquals: true
- *         value: &#34;$.parameters.waitForActionAtEnd&#34;
- * 
- *             &#34;&#34;&#34;)
- *             .type(&#34;TEST&#34;)
+ *             .name(&#34;example&#34;)
  *             .version(&#34;1.0.0&#34;)
+ *             .type(&#34;TEST&#34;)
+ *             .data(&#34;&#34;&#34;
+ * name: example
+ * description: Workflow to test an image
+ * schemaVersion: 1.0
+ * 
+ * parameters:
+ *   - name: waitForActionAtEnd
+ *     type: boolean
+ * 
+ * steps:
+ *   - name: LaunchTestInstance
+ *     action: LaunchInstance
+ *     onFailure: Abort
+ *     inputs:
+ *       waitFor: &#34;ssmAgent&#34;
+ * 
+ *   - name: TerminateTestInstance
+ *     action: TerminateInstance
+ *     onFailure: Continue
+ *     inputs:
+ *       instanceId.$: &#34;$.stepOutputs.LaunchTestInstance.instanceId&#34;
+ * 
+ *   - name: WaitForActionAtEnd
+ *     action: WaitForAction
+ *     if:
+ *       booleanEquals: true
+ *       value: &#34;$.parameters.waitForActionAtEnd&#34;
+ *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }

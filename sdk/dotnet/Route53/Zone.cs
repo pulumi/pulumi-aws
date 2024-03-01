@@ -23,7 +23,10 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Route53.Zone("primary");
+    ///     var primary = new Aws.Route53.Zone("primary", new()
+    ///     {
+    ///         Name = "example.com",
+    ///     });
     /// 
     /// });
     /// ```
@@ -41,10 +44,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Route53.Zone("main");
+    ///     var main = new Aws.Route53.Zone("main", new()
+    ///     {
+    ///         Name = "example.com",
+    ///     });
     /// 
     ///     var dev = new Aws.Route53.Zone("dev", new()
     ///     {
+    ///         Name = "dev.example.com",
     ///         Tags = 
     ///         {
     ///             { "Environment", "dev" },
@@ -78,11 +85,12 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var @private = new Aws.Route53.Zone("private", new()
     ///     {
+    ///         Name = "example.com",
     ///         Vpcs = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
     ///             {
-    ///                 VpcId = aws_vpc.Example.Id,
+    ///                 VpcId = example.Id,
     ///             },
     ///         },
     ///     });

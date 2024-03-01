@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke();
+        ///     var example = Aws.Rds.GetEventCategories.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
@@ -45,14 +45,14 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke(new()
+        ///     var example = Aws.Rds.GetEventCategories.Invoke(new()
         ///     {
         ///         SourceType = "db-snapshot",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
@@ -77,11 +77,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke();
+        ///     var example = Aws.Rds.GetEventCategories.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
@@ -96,14 +96,14 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke(new()
+        ///     var example = Aws.Rds.GetEventCategories.Invoke(new()
         ///     {
         ///         SourceType = "db-snapshot",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```

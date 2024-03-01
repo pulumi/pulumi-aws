@@ -189,10 +189,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+        example = aws.guardduty.Detector("example", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
-            detector_id=example_detector.id,
+            detector_id=example.id,
             datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
                 s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
                     auto_enable=True,
@@ -244,10 +244,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+        example = aws.guardduty.Detector("example", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
-            detector_id=example_detector.id,
+            detector_id=example.id,
             datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
                 s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
                     auto_enable=True,

@@ -22,25 +22,22 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
-//				PublicKey: readFileOrPanic("./public-key.pem"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./public-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
+//				PublicKey: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

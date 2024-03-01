@@ -31,7 +31,7 @@ import (
 //			_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
 //				CidrBlock:       pulumi.String("10.0.0.16/28"),
 //				ReservationType: pulumi.String("prefix"),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err

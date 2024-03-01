@@ -26,8 +26,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var thisRule = new Aws.Cfg.Rule("thisRule", new()
+    ///     var @this = new Aws.Cfg.Rule("this", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "AWS",
@@ -35,9 +36,9 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("thisRemediationConfiguration", new()
+    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("this", new()
     ///     {
-    ///         ConfigRuleName = thisRule.Name,
+    ///         ConfigRuleName = @this.Name,
     ///         ResourceType = "AWS::S3::Bucket",
     ///         TargetType = "SSM_DOCUMENT",
     ///         TargetId = "AWS-EnableS3BucketEncryption",

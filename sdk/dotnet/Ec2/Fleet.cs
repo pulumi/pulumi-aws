@@ -30,8 +30,8 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                     Version = aws_launch_template.Example.Latest_version,
+    ///                     LaunchTemplateId = exampleAwsLaunchTemplate.Id,
+    ///                     Version = exampleAwsLaunchTemplate.LatestVersion,
     ///                 },
     ///             },
     ///         },

@@ -1727,8 +1727,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
         ### Complete Configuration
 
@@ -1770,7 +1769,7 @@ class S3Endpoint(pulumi.CustomResource):
             enable_statistics=False,
             encoding_type="plain",
             encryption_mode="SSE_S3",
-            expected_bucket_owner=data["aws_caller_identity"]["current"]["account_id"],
+            expected_bucket_owner=current["accountId"],
             external_table_definition="etd",
             ignore_header_rows=1,
             include_op_for_full_load=True,
@@ -1780,13 +1779,12 @@ class S3Endpoint(pulumi.CustomResource):
             preserve_transactions=False,
             rfc4180=False,
             row_group_length=11000,
-            server_side_encryption_kms_key_id=aws_kms_key["example"]["arn"],
-            service_access_role_arn=aws_iam_role["example"]["arn"],
+            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
+            service_access_role_arn=example_aws_iam_role["arn"],
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            glue_catalog_generation=True)
         ```
 
         ## Import
@@ -1876,8 +1874,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
         ### Complete Configuration
 
@@ -1919,7 +1916,7 @@ class S3Endpoint(pulumi.CustomResource):
             enable_statistics=False,
             encoding_type="plain",
             encryption_mode="SSE_S3",
-            expected_bucket_owner=data["aws_caller_identity"]["current"]["account_id"],
+            expected_bucket_owner=current["accountId"],
             external_table_definition="etd",
             ignore_header_rows=1,
             include_op_for_full_load=True,
@@ -1929,13 +1926,12 @@ class S3Endpoint(pulumi.CustomResource):
             preserve_transactions=False,
             rfc4180=False,
             row_group_length=11000,
-            server_side_encryption_kms_key_id=aws_kms_key["example"]["arn"],
-            service_access_role_arn=aws_iam_role["example"]["arn"],
+            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
+            service_access_role_arn=example_aws_iam_role["arn"],
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            glue_catalog_generation=True)
         ```
 
         ## Import

@@ -17,6 +17,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testDedicatedHost = new Aws.Ec2.DedicatedHost("test", new()
+        ///     {
+        ///         InstanceType = "c5.18xlarge",
+        ///         AvailabilityZone = "us-west-2a",
+        ///     });
+        /// 
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
+        ///     {
+        ///         HostId = testDedicatedHost.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
         /// ### Filter Example
         /// 
         /// ```csharp
@@ -55,6 +79,30 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testDedicatedHost = new Aws.Ec2.DedicatedHost("test", new()
+        ///     {
+        ///         InstanceType = "c5.18xlarge",
+        ///         AvailabilityZone = "us-west-2a",
+        ///     });
+        /// 
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
+        ///     {
+        ///         HostId = testDedicatedHost.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter Example
         /// 

@@ -31,10 +31,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
 //				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
 //				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.TemplateSourceEntityArgs{
 //					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
+//						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
 //			})

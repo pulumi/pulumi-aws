@@ -433,11 +433,12 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
@@ -450,12 +451,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             file_format="CSV",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
         ### With Language Code
@@ -465,12 +467,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             language_code="en",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
 
@@ -512,11 +515,12 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
@@ -529,12 +533,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             file_format="CSV",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
         ### With Language Code
@@ -544,12 +549,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             language_code="en",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
 

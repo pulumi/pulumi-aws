@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cache = new MemcachedLayer(&#34;cache&#34;, MemcachedLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .build());
  * 
  *     }

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cognito.getUserPoolClients({
- *     userPoolId: aws_cognito_user_pool.main.id,
+ *     userPoolId: mainAwsCognitoUserPool.id,
  * });
  * ```
  */
@@ -64,7 +64,7 @@ export interface GetUserPoolClientsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cognito.getUserPoolClients({
- *     userPoolId: aws_cognito_user_pool.main.id,
+ *     userPoolId: mainAwsCognitoUserPool.id,
  * });
  * ```
  */

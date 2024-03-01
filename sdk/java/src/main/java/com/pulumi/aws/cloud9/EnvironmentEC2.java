@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EnvironmentEC2(&#34;example&#34;, EnvironmentEC2Args.builder()        
- *             .imageId(&#34;amazonlinux-2023-x86_64&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
+ *             .name(&#34;example-env&#34;)
+ *             .imageId(&#34;amazonlinux-2023-x86_64&#34;)
  *             .build());
  * 
  *     }
@@ -87,7 +88,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;cloud9Url&#34;, example.id().applyValue(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, var_.region(),id)));
+ *         ctx.export(&#34;cloud9Url&#34;, example.id().applyValue(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, region,id)));
  *     }
  * }
  * ```

@@ -33,18 +33,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "alternate", &aws.ProviderArgs{
-//				Profile: pulumi.String("profile1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
+//			senderShare, err := ram.NewResourceShare(ctx, "sender_share", &ram.ResourceShareArgs{
+//				Name:                    pulumi.String("tf-test-resource-share"),
 //				AllowExternalPrincipals: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test-resource-share"),
 //				},
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,14 +47,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
+//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "sender_invite", &ram.PrincipalAssociationArgs{
 //				Principal:        *pulumi.String(receiver.AccountId),
 //				ResourceShareArn: senderShare.Arn,
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
+//			_, err = ram.NewResourceShareAccepter(ctx, "receiver_accept", &ram.ResourceShareAccepterArgs{
 //				ShareArn: senderInvite.ResourceShareArn,
 //			})
 //			if err != nil {

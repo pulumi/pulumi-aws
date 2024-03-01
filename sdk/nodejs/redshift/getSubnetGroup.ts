@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getSubnetGroup({
- *     name: aws_redshift_subnet_group.example.name,
+ *     name: exampleAwsRedshiftSubnetGroup.name,
  * });
  * ```
  */
@@ -77,7 +77,7 @@ export interface GetSubnetGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getSubnetGroup({
- *     name: aws_redshift_subnet_group.example.name,
+ *     name: exampleAwsRedshiftSubnetGroup.name,
  * });
  * ```
  */

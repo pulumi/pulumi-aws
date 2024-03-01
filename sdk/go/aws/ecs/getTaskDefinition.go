@@ -28,17 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mongoTaskDefinition, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
-//				TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := ecs.NewCluster(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
+//			mongoTaskDefinition, err := ecs.NewTaskDefinition(ctx, "mongo", &ecs.TaskDefinitionArgs{
 //				Family: pulumi.String("mongodb"),
 //				ContainerDefinitions: pulumi.String(`[
 //	  {
@@ -61,10 +51,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
-//				Cluster:        foo.ID(),
-//				DesiredCount:   pulumi.Int(2),
-//				TaskDefinition: *pulumi.String(mongoTaskDefinition.Arn),
+//			// Simply specify the family to find the latest ACTIVE revision in that family.
+//			mongo := ecs.LookupTaskDefinitionOutput(ctx, ecs.GetTaskDefinitionOutputArgs{
+//				TaskDefinition: mongoTaskDefinition.Family,
+//			}, nil)
+//			foo, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
+//				Name: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewService(ctx, "mongo", &ecs.ServiceArgs{
+//				Name:         pulumi.String("mongo"),
+//				Cluster:      foo.ID(),
+//				DesiredCount: pulumi.Int(2),
+//				TaskDefinition: mongo.ApplyT(func(mongo ecs.GetTaskDefinitionResult) (*string, error) {
+//					return &mongo.Arn, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

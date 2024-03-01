@@ -31,13 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -45,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -54,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -63,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			response200, err := apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
+//			response200, err := apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -72,7 +73,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegrationResponse(ctx, "myDemoIntegrationResponse", &apigateway.IntegrationResponseArgs{
+//			_, err = apigateway.NewIntegrationResponse(ctx, "MyDemoIntegrationResponse", &apigateway.IntegrationResponseArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,

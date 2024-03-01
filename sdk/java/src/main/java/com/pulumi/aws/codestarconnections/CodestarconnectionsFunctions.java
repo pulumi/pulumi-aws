@@ -41,7 +41,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -70,7 +70,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }
@@ -108,7 +108,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -137,7 +137,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }
@@ -175,7 +175,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -204,7 +204,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }
@@ -242,7 +242,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -271,7 +271,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }
@@ -309,7 +309,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -338,7 +338,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }
@@ -376,7 +376,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
+     *             .arn(exampleAwsCodestarconnectionsConnection.arn())
      *             .build());
      * 
      *     }
@@ -405,7 +405,7 @@ public final class CodestarconnectionsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
+     *             .name(exampleAwsCodestarconnectionsConnection.name())
      *             .build());
      * 
      *     }

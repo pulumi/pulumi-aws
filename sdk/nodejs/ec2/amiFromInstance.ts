@@ -32,7 +32,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.AmiFromInstance("example", {sourceInstanceId: "i-xxxxxxxx"});
+ * const example = new aws.ec2.AmiFromInstance("example", {
+ *     name: "example",
+ *     sourceInstanceId: "i-xxxxxxxx",
+ * });
  * ```
  */
 export class AmiFromInstance extends pulumi.CustomResource {

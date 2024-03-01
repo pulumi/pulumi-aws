@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sagemaker.Image("example", {
  *     imageName: "example",
- *     roleArn: aws_iam_role.test.arn,
+ *     roleArn: test.arn,
  * });
  * ```
  *

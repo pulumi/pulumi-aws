@@ -12,7 +12,7 @@ JAVA_GEN := pulumi-java-gen
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
-PULUMI_CONVERT := 0
+PULUMI_CONVERT := 1
 
 development: install_plugins provider build_sdks install_sdks
 
@@ -31,6 +31,8 @@ install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_j
 only_build: build
 
 build_dotnet: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+build_dotnet: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_dotnet: upstream
 	pulumictl get version --language dotnet
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) dotnet --out sdk/dotnet/
@@ -39,11 +41,15 @@ build_dotnet: upstream
 		echo "$(DOTNET_VERSION)" >version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 
+build_go: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+build_go: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_go: upstream
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) go --out sdk/go/
 	cd sdk && go list "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..." | xargs -I {} bash -c 'go build {} && go clean -i {}'
 
 build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+build_java: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_java: bin/pulumi-java-gen upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
@@ -51,6 +57,8 @@ build_java: bin/pulumi-java-gen upstream
 		gradle --console=plain build
 
 build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+build_nodejs: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_nodejs: upstream
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
@@ -61,6 +69,8 @@ build_nodejs: upstream
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+build_python: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_python: upstream
 	rm -rf sdk/python/
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) python --out sdk/python/
@@ -94,6 +104,8 @@ install_dotnet_sdk:
 install_nodejs_sdk:
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
+install_plugins: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+install_plugins: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource archive 0.0.1
 	.pulumi/bin/pulumi plugin install resource tls 4.10.0
@@ -101,6 +113,8 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource kubernetes 3.17.0
 	.pulumi/bin/pulumi plugin install resource random 4.8.2
 	.pulumi/bin/pulumi plugin install resource github 5.14.0
+	.pulumi/bin/pulumi plugin install resource std 1.6.2
+	.pulumi/bin/pulumi plugin install converter terraform 1.0.15
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
@@ -118,6 +132,7 @@ provider_no_deps:
 
 provider: tfgen provider_no_deps
 
+test: export PATH := $(WORKING_DIR)/bin:$(PATH)
 test:
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
@@ -127,9 +142,11 @@ test_provider:
 	@echo ""
 	cd provider && go test -v -short ./... -parallel $(TESTPARALLELISM)
 
+tfgen: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+tfgen: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 tfgen: install_plugins upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
-	PATH=${PWD}/.pulumi/bin:$$PATH PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
+	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
 upstream:

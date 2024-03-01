@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -48,16 +50,11 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///         },
     ///     });
     /// 
-    ///     var wafAcl = new Aws.Waf.WebAcl("wafAcl", new()
+    ///     var wafAcl = new Aws.Waf.WebAcl("waf_acl", new()
     ///     {
+    ///         Name = "tfWebACL",
     ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -75,13 +72,6 @@ namespace Pulumi.Aws.Waf
     ///                 RuleId = wafrule.Id,
     ///                 Type = "REGULAR",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///             wafrule,
     ///         },
     ///     });
     /// 
@@ -103,7 +93,7 @@ namespace Pulumi.Aws.Waf
     ///     {
     ///         LoggingConfiguration = new Aws.Waf.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]

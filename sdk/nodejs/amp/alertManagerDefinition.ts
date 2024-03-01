@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
- * const demoAlertManagerDefinition = new aws.amp.AlertManagerDefinition("demoAlertManagerDefinition", {
- *     workspaceId: demoWorkspace.id,
+ * const demo = new aws.amp.Workspace("demo", {});
+ * const demoAlertManagerDefinition = new aws.amp.AlertManagerDefinition("demo", {
+ *     workspaceId: demo.id,
  *     definition: `alertmanager_config: |
  *   route:
  *     receiver: 'default'

@@ -20,26 +20,28 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
 //	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: fmt.Sprintf("%v/example.sh", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
+//				Name: pulumi.String("foo"),
 //				BlockDeviceMappings: ec2.LaunchTemplateBlockDeviceMappingArray{
 //					&ec2.LaunchTemplateBlockDeviceMappingArgs{
 //						DeviceName: pulumi.String("/dev/sdf"),
@@ -114,7 +116,7 @@ import (
 //						},
 //					},
 //				},
-//				UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
+//				UserData: invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

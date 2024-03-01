@@ -22,9 +22,12 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("exampleSourceBucketV2");
+    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("example_source", new()
+    ///     {
+    ///         Bucket = "example-source",
+    ///     });
     /// 
-    ///     var exampleSourcePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleSource = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,22 +60,25 @@ namespace Pulumi.Aws.AppFlow
     ///         },
     ///     });
     /// 
-    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("exampleSourceBucketPolicy", new()
+    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("example_source", new()
     ///     {
     ///         Bucket = exampleSourceBucketV2.Id,
-    ///         Policy = exampleSourcePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = exampleSource.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Bucket = exampleSourceBucketV2.Id,
     ///         Key = "example_source.csv",
     ///         Source = new FileAsset("example_source.csv"),
     ///     });
     /// 
-    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("exampleDestinationBucketV2");
+    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("example_destination", new()
+    ///     {
+    ///         Bucket = "example-destination",
+    ///     });
     /// 
-    ///     var exampleDestinationPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleDestination = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -109,14 +115,15 @@ namespace Pulumi.Aws.AppFlow
     ///         },
     ///     });
     /// 
-    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("exampleDestinationBucketPolicy", new()
+    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("example_destination", new()
     ///     {
     ///         Bucket = exampleDestinationBucketV2.Id,
-    ///         Policy = exampleDestinationPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = exampleDestination.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFlow = new Aws.AppFlow.Flow("exampleFlow", new()
+    ///     var exampleFlow = new Aws.AppFlow.Flow("example", new()
     ///     {
+    ///         Name = "example",
     ///         SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
     ///         {
     ///             ConnectorType = "S3",

@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+//			_, err := sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
+//				Name:               pulumi.String("apns_application"),
 //				Platform:           pulumi.String("APNS"),
 //				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
 //				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
@@ -56,12 +57,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
-//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
-//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
+//			_, err := sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
+//				Name:                  pulumi.String("apns_application"),
 //				Platform:              pulumi.String("APNS"),
 //				PlatformCredential:    pulumi.String("<APNS SIGNING KEY>"),
 //				PlatformPrincipal:     pulumi.String("<APNS SIGNING KEY ID>"),
+//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
+//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +87,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
+//			_, err := sns.NewPlatformApplication(ctx, "gcm_application", &sns.PlatformApplicationArgs{
+//				Name:               pulumi.String("gcm_application"),
 //				Platform:           pulumi.String("GCM"),
 //				PlatformCredential: pulumi.String("<GCM API KEY>"),
 //			})

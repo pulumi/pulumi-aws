@@ -14,11 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mongoTaskDefinition = aws.ecs.getTaskDefinition({
- *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.family,
- * });
- * const foo = new aws.ecs.Cluster("foo", {});
- * const mongoEcs_taskDefinitionTaskDefinition = new aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", {
+ * const mongoTaskDefinition = new aws.ecs.TaskDefinition("mongo", {
  *     family: "mongodb",
  *     containerDefinitions: `[
  *   {
@@ -36,10 +32,16 @@ import * as utilities from "../utilities";
  * ]
  * `,
  * });
- * const mongoService = new aws.ecs.Service("mongoService", {
+ * // Simply specify the family to find the latest ACTIVE revision in that family.
+ * const mongo = aws.ecs.getTaskDefinitionOutput({
+ *     taskDefinition: mongoTaskDefinition.family,
+ * });
+ * const foo = new aws.ecs.Cluster("foo", {name: "foo"});
+ * const mongoService = new aws.ecs.Service("mongo", {
+ *     name: "mongo",
  *     cluster: foo.id,
  *     desiredCount: 2,
- *     taskDefinition: mongoTaskDefinition.then(mongoTaskDefinition => mongoTaskDefinition.arn),
+ *     taskDefinition: mongo.apply(mongo => mongo.arn),
  * });
  * ```
  */
@@ -113,11 +115,7 @@ export interface GetTaskDefinitionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mongoTaskDefinition = aws.ecs.getTaskDefinition({
- *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.family,
- * });
- * const foo = new aws.ecs.Cluster("foo", {});
- * const mongoEcs_taskDefinitionTaskDefinition = new aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", {
+ * const mongoTaskDefinition = new aws.ecs.TaskDefinition("mongo", {
  *     family: "mongodb",
  *     containerDefinitions: `[
  *   {
@@ -135,10 +133,16 @@ export interface GetTaskDefinitionResult {
  * ]
  * `,
  * });
- * const mongoService = new aws.ecs.Service("mongoService", {
+ * // Simply specify the family to find the latest ACTIVE revision in that family.
+ * const mongo = aws.ecs.getTaskDefinitionOutput({
+ *     taskDefinition: mongoTaskDefinition.family,
+ * });
+ * const foo = new aws.ecs.Cluster("foo", {name: "foo"});
+ * const mongoService = new aws.ecs.Service("mongo", {
+ *     name: "mongo",
  *     cluster: foo.id,
  *     desiredCount: 2,
- *     taskDefinition: mongoTaskDefinition.then(mongoTaskDefinition => mongoTaskDefinition.arn),
+ *     taskDefinition: mongo.apply(mongo => mongo.arn),
  * });
  * ```
  */

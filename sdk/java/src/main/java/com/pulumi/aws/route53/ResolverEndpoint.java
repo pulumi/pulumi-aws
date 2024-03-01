@@ -44,16 +44,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new ResolverEndpoint(&#34;foo&#34;, ResolverEndpointArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .direction(&#34;INBOUND&#34;)
  *             .securityGroupIds(            
- *                 aws_security_group.sg1().id(),
- *                 aws_security_group.sg2().id())
+ *                 sg1.id(),
+ *                 sg2.id())
  *             .ipAddresses(            
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn1().id())
+ *                     .subnetId(sn1.id())
  *                     .build(),
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn2().id())
+ *                     .subnetId(sn2.id())
  *                     .ip(&#34;10.0.64.4&#34;)
  *                     .build())
  *             .protocols(            

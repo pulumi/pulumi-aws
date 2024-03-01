@@ -45,10 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Framework(&#34;test&#34;, FrameworkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .controlSets(FrameworkControlSetArgs.builder()
  *                 .name(&#34;example&#34;)
  *                 .controls(FrameworkControlSetControlArgs.builder()
- *                     .id(aws_auditmanager_control.test().id())
+ *                     .id(testAwsAuditmanagerControl.id())
  *                     .build())
  *                 .build())
  *             .build());

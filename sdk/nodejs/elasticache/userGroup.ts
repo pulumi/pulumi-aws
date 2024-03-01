@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testUser = new aws.elasticache.User("testUser", {
+ * const test = new aws.elasticache.User("test", {
  *     userId: "testUserId",
  *     userName: "default",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const testUserGroup = new aws.elasticache.UserGroup("testUserGroup", {
+ * const testUserGroup = new aws.elasticache.UserGroup("test", {
  *     engine: "REDIS",
  *     userGroupId: "userGroupId",
- *     userIds: [testUser.userId],
+ *     userIds: [test.userId],
  * });
  * ```
  *

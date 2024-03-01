@@ -26,26 +26,27 @@ namespace Pulumi.Aws.Grafana
     /// {
     ///     var assume = new Aws.Iam.Role("assume", new()
     ///     {
+    ///         Name = "grafana-assume",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
+    ///                         ["service"] = "grafana.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Grafana.Workspace("example", new()
     ///     {
     ///         AccountAccessType = "CURRENT_ACCOUNT",
     ///         AuthenticationProviders = new[]
@@ -56,7 +57,7 @@ namespace Pulumi.Aws.Grafana
     ///         RoleArn = assume.Arn,
     ///     });
     /// 
-    ///     var exampleLicenseAssociation = new Aws.Grafana.LicenseAssociation("exampleLicenseAssociation", new()
+    ///     var example = new Aws.Grafana.LicenseAssociation("example", new()
     ///     {
     ///         LicenseType = "ENTERPRISE_FREE_TRIAL",
     ///         WorkspaceId = exampleWorkspace.Id,

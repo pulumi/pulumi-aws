@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Stack;
+ * import com.pulumi.aws.appstream.StackArgs;
  * import com.pulumi.aws.appstream.User;
  * import com.pulumi.aws.appstream.UserArgs;
  * import com.pulumi.aws.appstream.UserStackAssociation;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStack = new Stack(&#34;testStack&#34;);
+ *         var test = new Stack(&#34;test&#34;, StackArgs.builder()        
+ *             .name(&#34;STACK NAME&#34;)
+ *             .build());
  * 
  *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
  *             .authenticationType(&#34;USERPOOL&#34;)
@@ -52,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var testUserStackAssociation = new UserStackAssociation(&#34;testUserStackAssociation&#34;, UserStackAssociationArgs.builder()        
  *             .authenticationType(testUser.authenticationType())
- *             .stackName(testStack.name())
+ *             .stackName(test.name())
  *             .userName(testUser.userName())
  *             .build());
  * 

@@ -151,6 +151,21 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         """
         Provides a lifecycle configuration for SageMaker Notebook Instances.
 
+        ## Example Usage
+
+        Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        lc = aws.sagemaker.NotebookInstanceLifecycleConfiguration("lc",
+            name="foo",
+            on_create=std.base64encode(input="echo foo").result,
+            on_start=std.base64encode(input="echo bar").result)
+        ```
+
         ## Import
 
         Using `pulumi import`, import models using the `name`. For example:
@@ -173,6 +188,21 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a lifecycle configuration for SageMaker Notebook Instances.
+
+        ## Example Usage
+
+        Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        lc = aws.sagemaker.NotebookInstanceLifecycleConfiguration("lc",
+            name="foo",
+            on_create=std.base64encode(input="echo foo").result,
+            on_start=std.base64encode(input="echo bar").result)
+        ```
 
         ## Import
 

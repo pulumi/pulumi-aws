@@ -31,10 +31,10 @@ import (
 //			_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.83.124.10"),
+//				Type:      pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main-customer-gateway"),
 //				},
-//				Type: pulumi.String("ipsec.1"),
 //			})
 //			if err != nil {
 //				return err

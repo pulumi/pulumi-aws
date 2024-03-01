@@ -31,50 +31,49 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new()
+    ///     var allowTls = new Aws.Ec2.SecurityGroup("allow_tls", new()
     ///     {
+    ///         Name = "allow_tls",
     ///         Description = "Allow TLS inbound traffic and all outbound traffic",
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "allow_tls" },
     ///         },
     ///     });
     /// 
-    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv4", new()
+    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule("allow_tls_ipv4", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
-    ///         CidrIpv4 = aws_vpc.Main.Cidr_block,
+    ///         CidrIpv4 = main.CidrBlock,
     ///         FromPort = 443,
     ///         IpProtocol = "tcp",
     ///         ToPort = 443,
     ///     });
     /// 
-    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv6", new()
+    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule("allow_tls_ipv6", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
-    ///         CidrIpv6 = aws_vpc.Main.Ipv6_cidr_block,
+    ///         CidrIpv6 = main.Ipv6CidrBlock,
     ///         FromPort = 443,
     ///         IpProtocol = "tcp",
     ///         ToPort = 443,
     ///     });
     /// 
-    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", new()
+    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv4 = "0.0.0.0/0",
     ///         IpProtocol = "-1",
     ///     });
     /// 
-    ///     // semantically equivalent to all ports
-    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", new()
+    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv6 = "::/0",
     ///         IpProtocol = "-1",
     ///     });
     /// 
-    ///     // semantically equivalent to all ports
     /// });
     /// ```
     /// 
@@ -94,17 +93,17 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
     ///             {
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///                 Protocol = "-1",
     ///                 CidrBlocks = new[]
     ///                 {
     ///                     "0.0.0.0/0",
     ///                 },
-    ///                 FromPort = 0,
     ///                 Ipv6CidrBlocks = new[]
     ///                 {
     ///                     "::/0",
     ///                 },
-    ///                 Protocol = "-1",
-    ///                 ToPort = 0,
     ///             },
     ///         },
     ///     });
@@ -126,10 +125,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
+    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("my_endpoint");
     /// 
-    ///     // ... other configuration ...
-    ///     // ... other configuration ...
     ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
     ///         Egress = new[]
@@ -165,7 +162,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         Name = "sg",
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Ingress = new[] {},
     ///         Egress = new[] {},
     ///     });
@@ -197,7 +195,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "changeable-name",
+    ///     });
     /// 
     /// });
     /// ```
@@ -215,15 +216,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup");
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "sg",
+    ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         InstanceType = "t3.small",
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             test.Id,
     ///         },
     ///     });
     /// 
@@ -243,7 +246,83 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "izizavle",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Provisioners
+    /// 
+    /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+    /// 
+    /// **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Command = Pulumi.Command;
+    /// using Null = Pulumi.Null;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Aws.Ec2.GetSecurityGroup.Invoke(new()
+    ///     {
+    ///         Name = "default",
+    ///     });
+    /// 
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "sg",
+    ///         Tags = 
+    ///         {
+    ///             { "workaround1", "tagged-name" },
+    ///             { "workaround2", @default.Apply(@default =&gt; @default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProvisioner0 = new Command.Local.Command("exampleProvisioner0", new()
+    ///     {
+    ///         Create = "true",
+    ///         Update = "true",
+    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters ""Name=tag:Name,Values={tags.Workaround1}"" --query ""VpcEndpoints[0].VpcEndpointId"" --output text` &amp;&amp;
+    ///             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.Workaround2} --remove-security-group-ids {id}
+    /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResource = new Null.Index.Resource("example", new()
+    ///     {
+    ///         Triggers = 
+    ///         {
+    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,
+    ///             }).Result },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceProvisioner0 = new Command.Local.Command("exampleResourceProvisioner0", new()
+    ///     {
+    ///         Create = @$"            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {exampleAwsVpcEndpoint.Id} --remove-security-group-ids {@default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)}
+    /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleResource,
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```

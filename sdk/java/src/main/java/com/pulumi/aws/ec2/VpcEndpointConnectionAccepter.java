@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcEndpointArgs;
  * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepter;
  * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,23 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpcEndpointService = new VpcEndpointService(&#34;exampleVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService(&#34;example&#34;, VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(aws_lb.example().arn())
+ *             .networkLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .vpcId(aws_vpc.test_alternate().id())
- *             .serviceName(aws_vpc_endpoint_service.test().service_name())
+ *             .vpcId(testAlternate.id())
+ *             .serviceName(testAwsVpcEndpointService.serviceName())
  *             .vpcEndpointType(&#34;Interface&#34;)
  *             .privateDnsEnabled(false)
- *             .securityGroupIds(aws_security_group.test().id())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .securityGroupIds(test.id())
+ *             .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter(&#34;exampleVpcEndpointConnectionAccepter&#34;, VpcEndpointConnectionAccepterArgs.builder()        
- *             .vpcEndpointServiceId(exampleVpcEndpointService.id())
+ *             .vpcEndpointServiceId(example.id())
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .build());
  * 

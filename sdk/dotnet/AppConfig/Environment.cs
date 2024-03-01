@@ -22,8 +22,9 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.AppConfig.Application("exampleApplication", new()
+    ///     var exampleApplication = new Aws.AppConfig.Application("example", new()
     ///     {
+    ///         Name = "example-application-tf",
     ///         Description = "Example AppConfig Application",
     ///         Tags = 
     ///         {
@@ -31,16 +32,17 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironment = new Aws.AppConfig.Environment("exampleEnvironment", new()
+    ///     var example = new Aws.AppConfig.Environment("example", new()
     ///     {
+    ///         Name = "example-environment-tf",
     ///         Description = "Example AppConfig Environment",
     ///         ApplicationId = exampleApplication.Id,
     ///         Monitors = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
     ///             {
-    ///                 AlarmArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///                 AlarmRoleArn = aws_iam_role.Example.Arn,
+    ///                 AlarmArn = exampleAwsCloudwatchMetricAlarm.Arn,
+    ///                 AlarmRoleArn = exampleAwsIamRole.Arn,
     ///             },
     ///         },
     ///         Tags = 

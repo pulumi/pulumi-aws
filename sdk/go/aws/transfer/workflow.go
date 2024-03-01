@@ -68,7 +68,7 @@ import (
 //						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
 //							Name:               pulumi.String("example"),
 //							SourceFileLocation: pulumi.String("${original.file}"),
-//							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
+//							Target:             pulumi.Any(exampleAwsLambdaFunction.Arn),
 //							TimeoutSeconds:     pulumi.Int(60),
 //						},
 //						Type: pulumi.String("CUSTOM"),

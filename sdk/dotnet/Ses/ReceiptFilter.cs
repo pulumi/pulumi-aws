@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var filter = new Aws.Ses.ReceiptFilter("filter", new()
     ///     {
+    ///         Name = "block-spammer",
     ///         Cidr = "10.10.10.10",
     ///         Policy = "Block",
     ///     });

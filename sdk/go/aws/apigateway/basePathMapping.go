@@ -24,44 +24,58 @@ import (
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
 //	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-//				Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//			example, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				Deployment: pulumi.Any(exampleAwsApiGatewayDeployment.Id),
+//				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
 //				StageName:  pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: fmt.Sprintf("%v/example.com/example.crt", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: fmt.Sprintf("%v/example.com/ca.crt", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile2, err := std.File(ctx, &std.FileArgs{
+//				Input: fmt.Sprintf("%v/example.com/example.key", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomainName, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
 //				DomainName:            pulumi.String("example.com"),
 //				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+//				CertificateBody:       invokeFile.Result,
+//				CertificateChain:      invokeFile1.Result,
+//				CertificatePrivateKey: invokeFile2.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				StageName:  exampleStage.StageName,
+//			_, err = apigateway.NewBasePathMapping(ctx, "example", &apigateway.BasePathMappingArgs{
+//				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
+//				StageName:  example.StageName,
 //				DomainName: exampleDomainName.DomainName,
 //			})
 //			if err != nil {

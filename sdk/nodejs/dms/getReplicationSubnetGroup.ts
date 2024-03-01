@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationSubnetGroup({
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group.test.replication_subnet_group_id,
+ *     replicationSubnetGroupId: testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId,
  * });
  * ```
  */
@@ -75,7 +75,7 @@ export interface GetReplicationSubnetGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationSubnetGroup({
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group.test.replication_subnet_group_id,
+ *     replicationSubnetGroupId: testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId,
  * });
  * ```
  */

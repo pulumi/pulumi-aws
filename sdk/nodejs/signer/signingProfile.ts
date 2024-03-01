@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const prodSp = new aws.signer.SigningProfile("prodSp", {
- *     namePrefix: "prod_sp_",
+ * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
+ * const prodSp = new aws.signer.SigningProfile("prod_sp", {
  *     platformId: "AWSLambda-SHA384-ECDSA",
+ *     namePrefix: "prod_sp_",
  *     signatureValidityPeriod: {
- *         type: "YEARS",
  *         value: 5,
+ *         type: "YEARS",
  *     },
  *     tags: {
  *         tag1: "value1",

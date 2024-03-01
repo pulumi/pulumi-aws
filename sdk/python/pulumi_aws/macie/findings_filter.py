@@ -309,16 +309,16 @@ class FindingsFilter(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
+            name="NAME OF THE FINDINGS FILTER",
             description="DESCRIPTION",
             position=1,
             action="ARCHIVE",
             finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
                 criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
                     field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
+                    eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ))
         ```
 
         ## Import
@@ -356,16 +356,16 @@ class FindingsFilter(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
+            name="NAME OF THE FINDINGS FILTER",
             description="DESCRIPTION",
             position=1,
             action="ARCHIVE",
             finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
                 criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
                     field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
+                    eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ))
         ```
 
         ## Import

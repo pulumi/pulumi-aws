@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Returns all public IPv4 pools.
  * const example = aws.ec2.getPublicIpv4Pools({});
  * ```
  * ### Usage with Filter
@@ -85,6 +86,7 @@ export interface GetPublicIpv4PoolsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Returns all public IPv4 pools.
  * const example = aws.ec2.getPublicIpv4Pools({});
  * ```
  * ### Usage with Filter

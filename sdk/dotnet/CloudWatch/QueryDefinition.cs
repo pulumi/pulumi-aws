@@ -24,6 +24,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
     ///     {
+    ///         Name = "custom_query",
     ///         LogGroupNames = new[]
     ///         {
     ///             "/aws/logGroup1",
@@ -32,7 +33,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         QueryString = @"fields @timestamp, @message
     /// | sort @timestamp desc
     /// | limit 25
-    /// 
     /// ",
     ///     });
     /// 

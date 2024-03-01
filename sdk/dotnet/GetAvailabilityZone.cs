@@ -23,6 +23,80 @@ namespace Pulumi.Aws
         /// 
         /// This is different from the `aws.getAvailabilityZones` (plural) data source,
         /// which provides a list of the available zones.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how this data source might be used to derive
+        /// VPC and subnet CIDR prefixes systematically for an availability zone.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? 
+        ///     {
+        ///         { "ap-northeast-1", 5 },
+        ///         { "eu-central-1", 4 },
+        ///         { "us-east-1", 1 },
+        ///         { "us-west-1", 2 },
+        ///         { "us-west-2", 3 },
+        ///     };
+        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? 
+        ///     {
+        ///         { "a", 1 },
+        ///         { "b", 2 },
+        ///         { "c", 3 },
+        ///         { "d", 4 },
+        ///         { "e", 5 },
+        ///         { "f", 6 },
+        ///     };
+        ///     // Retrieve the AZ where we want to create network resources
+        ///     // This must be in the region selected on the AWS provider.
+        ///     var example = Aws.GetAvailabilityZone.Invoke(new()
+        ///     {
+        ///         Name = "eu-central-1a",
+        ///     });
+        /// 
+        ///     // Create a VPC for the region associated with the AZ
+        ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+        ///     {
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         {
+        ///             Input = "10.0.0.0/8",
+        ///             Newbits = 4,
+        ///             Netnum = regionNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.Region)],
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        ///     // Create a subnet for the AZ within the regional VPC
+        ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+        ///     {
+        ///         VpcId = exampleVpc.Id,
+        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         {
+        ///             var cidrBlock = values.Item1;
+        ///             var example = values.Item2;
+        ///             return Std.Cidrsubnet.Invoke(new()
+        ///             {
+        ///                 Input = cidrBlock,
+        ///                 Newbits = 4,
+        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
+        ///             });
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilityZoneResult> InvokeAsync(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithDefaults());
@@ -39,6 +113,80 @@ namespace Pulumi.Aws
         /// 
         /// This is different from the `aws.getAvailabilityZones` (plural) data source,
         /// which provides a list of the available zones.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how this data source might be used to derive
+        /// VPC and subnet CIDR prefixes systematically for an availability zone.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? 
+        ///     {
+        ///         { "ap-northeast-1", 5 },
+        ///         { "eu-central-1", 4 },
+        ///         { "us-east-1", 1 },
+        ///         { "us-west-1", 2 },
+        ///         { "us-west-2", 3 },
+        ///     };
+        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? 
+        ///     {
+        ///         { "a", 1 },
+        ///         { "b", 2 },
+        ///         { "c", 3 },
+        ///         { "d", 4 },
+        ///         { "e", 5 },
+        ///         { "f", 6 },
+        ///     };
+        ///     // Retrieve the AZ where we want to create network resources
+        ///     // This must be in the region selected on the AWS provider.
+        ///     var example = Aws.GetAvailabilityZone.Invoke(new()
+        ///     {
+        ///         Name = "eu-central-1a",
+        ///     });
+        /// 
+        ///     // Create a VPC for the region associated with the AZ
+        ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+        ///     {
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         {
+        ///             Input = "10.0.0.0/8",
+        ///             Newbits = 4,
+        ///             Netnum = regionNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.Region)],
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        ///     // Create a subnet for the AZ within the regional VPC
+        ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+        ///     {
+        ///         VpcId = exampleVpc.Id,
+        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         {
+        ///             var cidrBlock = values.Item1;
+        ///             var example = values.Item2;
+        ///             return Std.Cidrsubnet.Invoke(new()
+        ///             {
+        ///                 Input = cidrBlock,
+        ///                 Newbits = 4,
+        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
+        ///             });
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAvailabilityZoneResult> Invoke(GetAvailabilityZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneInvokeArgs(), options.WithDefaults());

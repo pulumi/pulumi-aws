@@ -40,13 +40,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraph = new Graph(&#34;exampleGraph&#34;, GraphArgs.builder()        
+ *         var example = new Graph(&#34;example&#34;, GraphArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
- *             .graphArn(exampleGraph.id())
+ *             .graphArn(example.id())
  *             .build());
  * 
  *     }

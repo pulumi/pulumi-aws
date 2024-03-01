@@ -158,8 +158,8 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
-        name="example.mesh.local")
+    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
+        mesh_name="example-mesh")
     ```
 
     ```python
@@ -214,8 +214,8 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
-        name="example.mesh.local")
+    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
+        mesh_name="example-mesh")
     ```
 
     ```python

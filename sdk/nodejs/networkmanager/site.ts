@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
- * const exampleSite = new aws.networkmanager.Site("exampleSite", {globalNetworkId: exampleGlobalNetwork.id});
+ * const example = new aws.networkmanager.GlobalNetwork("example", {});
+ * const exampleSite = new aws.networkmanager.Site("example", {globalNetworkId: example.id});
  * ```
  *
  * ## Import

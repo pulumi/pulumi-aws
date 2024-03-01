@@ -58,13 +58,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
+//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
 //				LoggingConfiguration: &amp.WorkspaceLoggingConfigurationArgs{
-//					LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//					LogGroupArn: example.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -92,14 +94,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("example"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
+//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
 //				Alias:     pulumi.String("example"),
 //				KmsKeyArn: exampleKey.Arn,
 //			})

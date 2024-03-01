@@ -45,22 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
+ *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
  *             .name(&#34;tf-example&#34;)
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .type(&#34;MicrosoftAD&#34;)
  *             .edition(&#34;Standard&#34;)
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
- *                 .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.id())
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *                 .build())
  *             .build());
  * 
  *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
- *             .directoryId(exampleDirectory.id())
+ *             .directoryId(example.id())
  *             .notes(&#34;You wanna have a catch?&#34;)
  *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(data.aws_caller_identity().receiver().account_id())
+ *                 .id(receiver.accountId())
  *                 .build())
  *             .build());
  * 

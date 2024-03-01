@@ -413,36 +413,36 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Workflow("example",
-            data=\"\"\"  name: example
-          description: Workflow to test an image
-          schemaVersion: 1.0
-
-          parameters:
-            - name: waitForActionAtEnd
-              type: boolean
-
-          steps:
-            - name: LaunchTestInstance
-              action: LaunchInstance
-              onFailure: Abort
-              inputs:
-                waitFor: "ssmAgent"
-
-            - name: TerminateTestInstance
-              action: TerminateInstance
-              onFailure: Continue
-              inputs:
-                instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
-
-            - name: WaitForActionAtEnd
-              action: WaitForAction
-              if:
-                booleanEquals: true
-                value: "$.parameters.waitForActionAtEnd"
-
-        \"\"\",
+            name="example",
+            version="1.0.0",
             type="TEST",
-            version="1.0.0")
+            data=\"\"\"name: example
+        description: Workflow to test an image
+        schemaVersion: 1.0
+
+        parameters:
+          - name: waitForActionAtEnd
+            type: boolean
+
+        steps:
+          - name: LaunchTestInstance
+            action: LaunchInstance
+            onFailure: Abort
+            inputs:
+              waitFor: "ssmAgent"
+
+          - name: TerminateTestInstance
+            action: TerminateInstance
+            onFailure: Continue
+            inputs:
+              instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+
+          - name: WaitForActionAtEnd
+            action: WaitForAction
+            if:
+              booleanEquals: true
+              value: "$.parameters.waitForActionAtEnd"
+        \"\"\")
         ```
 
         ## Import
@@ -485,36 +485,36 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Workflow("example",
-            data=\"\"\"  name: example
-          description: Workflow to test an image
-          schemaVersion: 1.0
-
-          parameters:
-            - name: waitForActionAtEnd
-              type: boolean
-
-          steps:
-            - name: LaunchTestInstance
-              action: LaunchInstance
-              onFailure: Abort
-              inputs:
-                waitFor: "ssmAgent"
-
-            - name: TerminateTestInstance
-              action: TerminateInstance
-              onFailure: Continue
-              inputs:
-                instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
-
-            - name: WaitForActionAtEnd
-              action: WaitForAction
-              if:
-                booleanEquals: true
-                value: "$.parameters.waitForActionAtEnd"
-
-        \"\"\",
+            name="example",
+            version="1.0.0",
             type="TEST",
-            version="1.0.0")
+            data=\"\"\"name: example
+        description: Workflow to test an image
+        schemaVersion: 1.0
+
+        parameters:
+          - name: waitForActionAtEnd
+            type: boolean
+
+        steps:
+          - name: LaunchTestInstance
+            action: LaunchInstance
+            onFailure: Abort
+            inputs:
+              waitFor: "ssmAgent"
+
+          - name: TerminateTestInstance
+            action: TerminateInstance
+            onFailure: Continue
+            inputs:
+              instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+
+          - name: WaitForActionAtEnd
+            action: WaitForAction
+            if:
+              booleanEquals: true
+              value: "$.parameters.waitForActionAtEnd"
+        \"\"\")
         ```
 
         ## Import

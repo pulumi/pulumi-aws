@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.ServerlessCollection;
  * import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,7 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleServerlessSecurityPolicy = new ServerlessSecurityPolicy(&#34;exampleServerlessSecurityPolicy&#34;, ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;encryption&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.Empty, CustomResourceOptions.builder()
- *             .dependsOn(exampleServerlessSecurityPolicy)
+ *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

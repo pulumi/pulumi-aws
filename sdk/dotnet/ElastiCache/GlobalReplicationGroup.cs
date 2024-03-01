@@ -27,6 +27,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
+    ///         ReplicationGroupId = "example-primary",
     ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "5.0.6",
@@ -42,12 +43,10 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
+    ///         ReplicationGroupId = "example-secondary",
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
     ///         NumCacheClusters = 1,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     /// });
@@ -76,6 +75,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
+    ///         ReplicationGroupId = "example-primary",
     ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "6.0",
@@ -92,12 +92,10 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
+    ///         ReplicationGroupId = "example-secondary",
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
     ///         NumCacheClusters = 1,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     /// });

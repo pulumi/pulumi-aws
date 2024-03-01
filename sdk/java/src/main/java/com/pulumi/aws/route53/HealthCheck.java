@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HealthCheck(&#34;example&#34;, HealthCheckArgs.builder()        
- *             .failureThreshold(&#34;5&#34;)
  *             .fqdn(&#34;example.com&#34;)
  *             .port(80)
- *             .requestInterval(&#34;30&#34;)
- *             .resourcePath(&#34;/&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-health-check&#34;))
  *             .type(&#34;HTTP&#34;)
+ *             .resourcePath(&#34;/&#34;)
+ *             .failureThreshold(&#34;5&#34;)
+ *             .requestInterval(&#34;30&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-health-check&#34;))
  *             .build());
  * 
  *     }
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *         var parent = new HealthCheck(&#34;parent&#34;, HealthCheckArgs.builder()        
  *             .type(&#34;CALCULATED&#34;)
  *             .childHealthThreshold(1)
- *             .childHealthchecks(aws_route53_health_check.child().id())
+ *             .childHealthchecks(child.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-calculated-health-check&#34;))
  *             .build());
  * 
@@ -149,6 +149,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
+ *             .name(&#34;test-foobar5&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
  *             .evaluationPeriods(&#34;2&#34;)
  *             .metricName(&#34;CPUUtilization&#34;)

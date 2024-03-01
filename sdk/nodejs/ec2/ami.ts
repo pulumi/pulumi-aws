@@ -27,14 +27,15 @@ import * as utilities from "../utilities";
  * // an EBS volume populated from a snapshot. We assume that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".
  * const example = new aws.ec2.Ami("example", {
+ *     name: "example",
+ *     virtualizationType: "hvm",
+ *     rootDeviceName: "/dev/xvda",
+ *     imdsSupport: "v2.0",
  *     ebsBlockDevices: [{
  *         deviceName: "/dev/xvda",
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
- *     imdsSupport: "v2.0",
- *     rootDeviceName: "/dev/xvda",
- *     virtualizationType: "hvm",
  * });
  * ```
  *

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -74,17 +74,17 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
@@ -99,6 +99,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Resource;
  * import com.pulumi.aws.apigateway.ResourceArgs;
  * import com.pulumi.aws.apigateway.Method;
@@ -123,46 +124,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .parentId(exampleRestApi.rootResourceId())
+ *             .parentId(example.rootResourceId())
  *             .pathPart(&#34;example&#34;)
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .build());
  * 
  *         var exampleMethod = new Method(&#34;exampleMethod&#34;, MethodArgs.builder()        
  *             .authorization(&#34;NONE&#34;)
  *             .httpMethod(&#34;GET&#34;)
  *             .resourceId(exampleResource.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .build());
  * 
  *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
  *             .httpMethod(exampleMethod.httpMethod())
  *             .resourceId(exampleResource.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .type(&#34;MOCK&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, Output.tuple(exampleResource.id(), exampleMethod.id(), exampleIntegration.id()).applyValue(values -&gt; {
- *                 var exampleResourceId = values.t1;
- *                 var exampleMethodId = values.t2;
- *                 var exampleIntegrationId = values.t3;
- *                 return serializeJson(
- *                     jsonArray(
- *                         exampleResourceId, 
- *                         exampleMethodId, 
- *                         exampleIntegrationId
- *                     ));
- *             }).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cognito.RiskConfiguration("example", {
- *     userPoolId: aws_cognito_user_pool.example.id,
+ *     userPoolId: exampleAwsCognitoUserPool.id,
  *     riskExceptionConfiguration: {
  *         blockedIpRangeLists: ["10.10.10.10/32"],
  *     },

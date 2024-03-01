@@ -224,11 +224,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -265,11 +265,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -306,11 +306,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -347,11 +347,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -388,11 +388,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -429,11 +429,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -618,11 +618,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -659,11 +659,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -700,11 +700,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -741,11 +741,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -782,11 +782,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -823,11 +823,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -1940,11 +1940,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -1981,11 +1981,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -2022,11 +2022,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -2063,11 +2063,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -2104,11 +2104,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }
@@ -2145,11 +2145,11 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *             .owner(&#34;Self&#34;)
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .owner(&#34;Self&#34;)
      *             .build());
      * 
      *     }

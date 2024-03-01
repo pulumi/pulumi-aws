@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
@@ -71,10 +72,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var metricStreamToFirehoseRole = new Role(&#34;metricStreamToFirehoseRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;metric_stream_to_firehose_role&#34;)
  *             .assumeRolePolicy(streamsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;metric-stream-test-bucket&#34;)
+ *             .build());
  * 
  *         final var firehoseAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -92,6 +96,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3Stream = new FirehoseDeliveryStream(&#34;s3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;metric-stream-test-stream&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseToS3Role.arn())
@@ -100,6 +105,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new MetricStream(&#34;main&#34;, MetricStreamArgs.builder()        
+ *             .name(&#34;my-metric-stream&#34;)
  *             .roleArn(metricStreamToFirehoseRole.arn())
  *             .firehoseArn(s3Stream.arn())
  *             .outputFormat(&#34;json&#34;)
@@ -116,7 +122,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         final var metricStreamToFirehosePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var metricStreamToFirehose = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -127,8 +133,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var metricStreamToFirehoseRolePolicy = new RolePolicy(&#34;metricStreamToFirehoseRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .role(metricStreamToFirehoseRole.id())
- *             .policy(metricStreamToFirehosePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(metricStreamToFirehosePolicyDocument -&gt; metricStreamToFirehosePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(metricStreamToFirehose.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(metricStreamToFirehose -&gt; metricStreamToFirehose.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
@@ -136,7 +143,7 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         final var firehoseToS3PolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var firehoseToS3 = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -153,8 +160,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var firehoseToS3RolePolicy = new RolePolicy(&#34;firehoseToS3RolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .role(firehoseToS3Role.id())
- *             .policy(firehoseToS3PolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(firehoseToS3PolicyDocument -&gt; firehoseToS3PolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(firehoseToS3.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(firehoseToS3 -&gt; firehoseToS3.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -184,8 +192,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new MetricStream(&#34;main&#34;, MetricStreamArgs.builder()        
- *             .roleArn(aws_iam_role.metric_stream_to_firehose().arn())
- *             .firehoseArn(aws_kinesis_firehose_delivery_stream.s3_stream().arn())
+ *             .name(&#34;my-metric-stream&#34;)
+ *             .roleArn(metricStreamToFirehose.arn())
+ *             .firehoseArn(s3Stream.arn())
  *             .outputFormat(&#34;json&#34;)
  *             .statisticsConfigurations(            
  *                 MetricStreamStatisticsConfigurationArgs.builder()

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const account = new aws.organizations.PolicyAttachment("account", {
- *     policyId: aws_organizations_policy.example.id,
+ *     policyId: example.id,
  *     targetId: "123456789012",
  * });
  * ```
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const root = new aws.organizations.PolicyAttachment("root", {
- *     policyId: aws_organizations_policy.example.id,
- *     targetId: aws_organizations_organization.example.roots[0].id,
+ *     policyId: example.id,
+ *     targetId: exampleAwsOrganizationsOrganization.roots[0].id,
  * });
  * ```
  * ### Organization Unit
@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const unit = new aws.organizations.PolicyAttachment("unit", {
- *     policyId: aws_organizations_policy.example.id,
- *     targetId: aws_organizations_organizational_unit.example.id,
+ *     policyId: example.id,
+ *     targetId: exampleAwsOrganizationsOrganizationalUnit.id,
  * });
  * ```
  *

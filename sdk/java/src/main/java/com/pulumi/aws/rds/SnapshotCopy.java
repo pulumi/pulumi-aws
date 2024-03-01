@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(10)
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.21&#34;)
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .dbInstanceIdentifier(exampleInstance.identifier())
+ *             .dbInstanceIdentifier(example.identifier())
  *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
  *             .build());
  * 

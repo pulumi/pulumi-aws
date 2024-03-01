@@ -207,8 +207,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
@@ -246,8 +246,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
@@ -285,8 +285,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
@@ -324,8 +324,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }

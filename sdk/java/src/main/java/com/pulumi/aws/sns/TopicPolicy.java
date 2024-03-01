@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
@@ -43,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Topic(&#34;test&#34;);
+ *         var test = new Topic(&#34;test&#34;, TopicArgs.builder()        
+ *             .name(&#34;my-topic-with-policy&#34;)
+ *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId(&#34;__default_policy_ID&#34;)
@@ -61,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test(&#34;StringEquals&#34;)
  *                     .variable(&#34;AWS:SourceOwner&#34;)
- *                     .values(var_.account-id())
+ *                     .values(account_id)
  *                     .build())
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()

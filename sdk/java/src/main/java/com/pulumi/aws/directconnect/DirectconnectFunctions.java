@@ -730,8 +730,8 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .build());
      * 
      *     }
@@ -769,8 +769,8 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .build());
      * 
      *     }
@@ -808,8 +808,8 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .build());
      * 
      *     }
@@ -847,8 +847,8 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
      *             .build());
      * 
      *     }

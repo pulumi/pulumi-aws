@@ -24,9 +24,10 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var endpoint = new Aws.Sagemaker.Endpoint("endpoint", new()
+    ///     var e = new Aws.Sagemaker.Endpoint("e", new()
     ///     {
-    ///         EndpointConfigName = aws_sagemaker_endpoint_configuration.Ec.Name,
+    ///         Name = "my-endpoint",
+    ///         EndpointConfigName = ec.Name,
     ///         Tags = 
     ///         {
     ///             { "Name", "foo" },

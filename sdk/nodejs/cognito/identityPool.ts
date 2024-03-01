@@ -15,9 +15,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf8")});
+ * const _default = new aws.iam.SamlProvider("default", {
+ *     name: "my-saml-provider",
+ *     samlMetadataDocument: std.file({
+ *         input: "saml-metadata.xml",
+ *     }).then(invoke => invoke.result),
+ * });
  * const main = new aws.cognito.IdentityPool("main", {
  *     identityPoolName: "identity pool",
  *     allowUnauthenticatedIdentities: false,

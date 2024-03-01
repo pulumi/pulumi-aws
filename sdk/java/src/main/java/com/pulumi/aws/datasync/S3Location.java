@@ -44,10 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new S3Location(&#34;example&#34;, S3LocationArgs.builder()        
- *             .s3BucketArn(aws_s3_bucket.example().arn())
+ *             .s3BucketArn(exampleAwsS3Bucket.arn())
  *             .subdirectory(&#34;/example/prefix&#34;)
  *             .s3Config(S3LocationS3ConfigArgs.builder()
- *                 .bucketAccessRoleArn(aws_iam_role.example().arn())
+ *                 .bucketAccessRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 

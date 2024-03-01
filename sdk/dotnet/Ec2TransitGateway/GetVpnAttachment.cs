@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         VpnConnectionId = exampleAwsVpnConnection.Id,
         ///     });
         /// 
         /// });
@@ -92,8 +92,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         VpnConnectionId = exampleAwsVpnConnection.Id,
         ///     });
         /// 
         /// });

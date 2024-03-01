@@ -22,14 +22,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.scheduler.Schedule("example", {
+ *     name: "my-schedule",
  *     groupName: "default",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
  *     scheduleExpression: "rate(1 hours)",
  *     target: {
- *         arn: aws_sqs_queue.example.arn,
- *         roleArn: aws_iam_role.example.arn,
+ *         arn: exampleAwsSqsQueue.arn,
+ *         roleArn: exampleAwsIamRole.arn,
  *     },
  * });
  * ```
@@ -39,18 +40,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {});
- * const exampleSchedule = new aws.scheduler.Schedule("exampleSchedule", {
+ * const example = new aws.sqs.Queue("example", {});
+ * const exampleSchedule = new aws.scheduler.Schedule("example", {
+ *     name: "my-schedule",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
  *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
- *         roleArn: aws_iam_role.example.arn,
+ *         roleArn: exampleAwsIamRole.arn,
  *         input: pulumi.jsonStringify({
- *             MessageBody: "Greetings, programs!",
- *             QueueUrl: exampleQueue.url,
+ *             messageBody: "Greetings, programs!",
+ *             queueUrl: example.url,
  *         }),
  *     },
  * });

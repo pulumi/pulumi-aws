@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var default_ = new DataSource(&#34;default&#34;, DataSourceArgs.builder()        
  *             .dataSourceId(&#34;example-id&#34;)
+ *             .name(&#34;My Cool Data in S3&#34;)
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()

@@ -23,17 +23,19 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
+ * const testRole = new aws.iam.Role("test_role", {
+ *     name: "test_role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
  *     role: testRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  * });
  * const foo = new aws.ssm.Activation("foo", {
+ *     name: "test_ssm_activation",
  *     description: "Test",
  *     iamRole: testRole.id,
  *     registrationLimit: 5,
- * }, {
- *     dependsOn: [testAttach],
  * });
  * ```
  *

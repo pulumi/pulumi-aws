@@ -43,14 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;, GlobalNetworkArgs.builder()        
+ *         var example = new GlobalNetwork(&#34;example&#34;, GlobalNetworkArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
  * 
  *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration(&#34;exampleTransitGatewayRegistration&#34;, TransitGatewayRegistrationArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .transitGatewayArn(exampleTransitGateway.arn())
  *             .build());
  * 

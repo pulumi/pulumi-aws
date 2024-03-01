@@ -282,8 +282,9 @@ class SecurityProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.SecurityProfile("example",
-            description="example description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
+            description="example description",
             permissions=[
                 "BasicAgentAccess",
                 "OutboundCallAccess",
@@ -327,8 +328,9 @@ class SecurityProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.SecurityProfile("example",
-            description="example description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
+            description="example description",
             permissions=[
                 "BasicAgentAccess",
                 "OutboundCallAccess",

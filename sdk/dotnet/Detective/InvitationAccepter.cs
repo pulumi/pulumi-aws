@@ -22,26 +22,19 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryGraph = new Aws.Detective.Graph("primaryGraph");
+    ///     var primary = new Aws.Detective.Graph("primary");
     /// 
-    ///     var primaryMember = new Aws.Detective.Member("primaryMember", new()
+    ///     var primaryMember = new Aws.Detective.Member("primary", new()
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         EmailAddress = "EMAIL",
-    ///         GraphArn = primaryGraph.Id,
+    ///         GraphArn = primary.Id,
     ///         Message = "Message of the invite",
     ///     });
     /// 
     ///     var member = new Aws.Detective.InvitationAccepter("member", new()
     ///     {
-    ///         GraphArn = primaryGraph.GraphArn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
+    ///         GraphArn = primary.GraphArn,
     ///     });
     /// 
     /// });

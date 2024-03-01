@@ -36,7 +36,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tf-test-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -61,7 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
+//			firehoseRole, err := iam.NewRole(ctx, "firehose_role", &iam.RoleArgs{
+//				Name:             pulumi.String("firehose_test_role"),
 //				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
@@ -88,14 +91,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambdaIam, err := iam.NewRole(ctx, "lambdaIam", &iam.RoleArgs{
+//			lambdaIam, err := iam.NewRole(ctx, "lambda_iam", &iam.RoleArgs{
+//				Name:             pulumi.String("lambda_iam"),
 //				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lambdaProcessor, err := lambda.NewFunction(ctx, "lambdaProcessor", &lambda.FunctionArgs{
+//			lambdaProcessor, err := lambda.NewFunction(ctx, "lambda_processor", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lambda.zip"),
+//				Name:    pulumi.String("firehose_lambda_processor"),
 //				Role:    lambdaIam.Arn,
 //				Handler: pulumi.String("exports.handler"),
 //				Runtime: pulumi.String("nodejs16.x"),
@@ -103,7 +108,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseRole.Arn,
@@ -129,7 +135,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -157,11 +163,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:       pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:     pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					RoleArn:       pulumi.Any(firehoseRole.Arn),
+//					BucketArn:     pulumi.Any(bucket.Arn),
 //					BufferingSize: pulumi.Int(64),
 //					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
@@ -225,11 +232,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:       pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:     pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					RoleArn:       pulumi.Any(firehoseRole.Arn),
+//					BucketArn:     pulumi.Any(bucket.Arn),
 //					BufferingSize: pulumi.Int(64),
 //					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
@@ -281,7 +289,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
+//			testCluster, err := redshift.NewCluster(ctx, "test_cluster", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 //				DatabaseName:      pulumi.String("test"),
 //				MasterUsername:    pulumi.String("testuser"),
@@ -292,10 +300,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("redshift"),
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn: pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					RoleArn: pulumi.Any(firehoseRole.Arn),
 //					ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
 //						endpoint := _args[0].(string)
 //						databaseName := _args[1].(string)
@@ -308,15 +317,15 @@ import (
 //					DataTableColumns: pulumi.String("test-col"),
 //					S3BackupMode:     pulumi.String("Enabled"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //					S3BackupConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(15),
 //						BufferingInterval: pulumi.Int(300),
 //						CompressionFormat: pulumi.String("GZIP"),
@@ -348,20 +357,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := elasticsearch.NewDomain(ctx, "testCluster", nil)
+//			testCluster, err := elasticsearch.NewDomain(ctx, "test_cluster", &elasticsearch.DomainArgs{
+//				DomainName: pulumi.String("firehose-es-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("elasticsearch"),
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					RoleArn:   pulumi.Any(firehoseRole.Arn),
 //					IndexName: pulumi.String("test"),
 //					TypeName:  pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
@@ -374,7 +386,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", aws_lambda_function.Lambda_processor.Arn)),
+//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
 //									},
 //								},
 //							},
@@ -408,7 +420,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := elasticsearch.NewDomain(ctx, "testCluster", &elasticsearch.DomainArgs{
+//			testCluster, err := elasticsearch.NewDomain(ctx, "test_cluster", &elasticsearch.DomainArgs{
+//				DomainName: pulumi.String("es-test"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceCount:        pulumi.Int(2),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -420,18 +433,18 @@ import (
 //				},
 //				VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.First.Id,
+//						first.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.First.Id,
-//						aws_subnet.Second.Id,
+//						firstAwsSubnet.Id,
+//						second.Id,
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			firehose_elasticsearchPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			firehose_elasticsearch := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -463,40 +476,40 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearchRolePolicy", &iam.RolePolicyArgs{
-//				Role: pulumi.Any(aws_iam_role.Firehose.Id),
-//				Policy: firehose_elasticsearchPolicyDocument.ApplyT(func(firehose_elasticsearchPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &firehose_elasticsearchPolicyDocument.Json, nil
+//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
+//				Name: pulumi.String("elasticsearch"),
+//				Role: pulumi.Any(firehose.Id),
+//				Policy: firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
+//					return &firehose_elasticsearch.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-es"),
 //				Destination: pulumi.String("elasticsearch"),
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+//					RoleArn:   pulumi.Any(firehose.Arn),
 //					IndexName: pulumi.String("test"),
 //					TypeName:  pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
-//						RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//						BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:   pulumi.Any(firehose.Arn),
+//						BucketArn: pulumi.Any(bucket.Arn),
 //					},
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
-//							aws_subnet.First.Id,
-//							aws_subnet.Second.Id,
+//							firstAwsSubnet.Id,
+//							second.Id,
 //						},
 //						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.First.Id,
+//							first.Id,
 //						},
-//						RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+//						RoleArn: pulumi.Any(firehose.Arn),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				firehose_elasticsearchRolePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -522,19 +535,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := opensearch.NewDomain(ctx, "testCluster", nil)
+//			testCluster, err := opensearch.NewDomain(ctx, "test_cluster", &opensearch.DomainArgs{
+//				DomainName: pulumi.String("firehose-os-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("opensearch"),
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					RoleArn:   pulumi.Any(firehoseRole.Arn),
 //					IndexName: pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
@@ -547,7 +563,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", aws_lambda_function.Lambda_processor.Arn)),
+//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
 //									},
 //								},
 //							},
@@ -581,7 +597,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCluster, err := opensearch.NewDomain(ctx, "testCluster", &opensearch.DomainArgs{
+//			testCluster, err := opensearch.NewDomain(ctx, "test_cluster", &opensearch.DomainArgs{
+//				DomainName: pulumi.String("es-test"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceCount:        pulumi.Int(2),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -593,11 +610,11 @@ import (
 //				},
 //				VpcOptions: &opensearch.DomainVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.First.Id,
+//						first.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.First.Id,
-//						aws_subnet.Second.Id,
+//						firstAwsSubnet.Id,
+//						second.Id,
 //					},
 //				},
 //			})
@@ -605,7 +622,8 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "firehose-opensearch", &iam.RolePolicyArgs{
-//				Role: pulumi.Any(aws_iam_role.Firehose.Id),
+//				Name: pulumi.String("opensearch"),
+//				Role: pulumi.Any(firehose.Id),
 //				Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					testClusterArn := _args[0].(string)
 //					testClusterArn1 := _args[1].(string)
@@ -649,29 +667,28 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("pulumi-kinesis-firehose-os"),
 //				Destination: pulumi.String("opensearch"),
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+//					RoleArn:   pulumi.Any(firehose.Arn),
 //					IndexName: pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
-//						RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//						BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:   pulumi.Any(firehose.Arn),
+//						BucketArn: pulumi.Any(bucket.Arn),
 //					},
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
-//							aws_subnet.First.Id,
-//							aws_subnet.Second.Id,
+//							firstAwsSubnet.Id,
+//							second.Id,
 //						},
 //						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.First.Id,
+//							first.Id,
 //						},
-//						RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+//						RoleArn: pulumi.Any(firehose.Arn),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				firehose_opensearch,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -697,19 +714,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCollection, err := opensearch.NewServerlessCollection(ctx, "testCollection", nil)
+//			testCollection, err := opensearch.NewServerlessCollection(ctx, "test_collection", &opensearch.ServerlessCollectionArgs{
+//				Name: pulumi.String("firehose-osserverless-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("opensearchserverless"),
 //				OpensearchserverlessConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{
 //					CollectionEndpoint: testCollection.CollectionEndpoint,
-//					RoleArn:            pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					RoleArn:            pulumi.Any(firehoseRole.Arn),
 //					IndexName:          pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehoseRole.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
@@ -722,7 +742,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", aws_lambda_function.Lambda_processor.Arn)),
+//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
 //									},
 //								},
 //							},
@@ -752,7 +772,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("splunk"),
 //				SplunkConfiguration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationArgs{
 //					HecEndpoint:              pulumi.String("https://http-inputs-mydomain.splunkcloud.com:443"),
@@ -761,8 +782,8 @@ import (
 //					HecEndpointType:          pulumi.String("Event"),
 //					S3BackupMode:             pulumi.String("FailedEventsOnly"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehose.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
@@ -791,7 +812,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
 //				Destination: pulumi.String("http_endpoint"),
 //				HttpEndpointConfiguration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationArgs{
 //					Url:               pulumi.String("https://aws-api.newrelic.com/firehose/v1"),
@@ -799,11 +821,11 @@ import (
 //					AccessKey:         pulumi.String("my-key"),
 //					BufferingSize:     pulumi.Int(15),
 //					BufferingInterval: pulumi.Int(600),
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
+//					RoleArn:           pulumi.Any(firehose.Arn),
 //					S3BackupMode:      pulumi.String("FailedDataOnly"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
-//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						RoleArn:           pulumi.Any(firehose.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
 //						BufferingSize:     pulumi.Int(10),
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),

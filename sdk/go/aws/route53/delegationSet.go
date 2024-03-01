@@ -34,12 +34,14 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewZone(ctx, "primary", &route53.ZoneArgs{
+//				Name:            pulumi.String("mydomain.com"),
 //				DelegationSetId: main.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = route53.NewZone(ctx, "secondary", &route53.ZoneArgs{
+//				Name:            pulumi.String("coolcompany.io"),
 //				DelegationSetId: main.ID(),
 //			})
 //			if err != nil {

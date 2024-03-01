@@ -238,16 +238,18 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
-            source="https://example.com",
-            status="302",
-            target="https://www.example.com",
-        )])
+        example = aws.amplify.App("example",
+            name="app",
+            custom_rules=[aws.amplify.AppCustomRuleArgs(
+                source="https://example.com",
+                status="302",
+                target="https://www.example.com",
+            )])
         master = aws.amplify.Branch("master",
-            app_id=example_app.id,
+            app_id=example.id,
             branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("exampleDomainAssociation",
-            app_id=example_app.id,
+        example_domain_association = aws.amplify.DomainAssociation("example",
+            app_id=example.id,
             domain_name="example.com",
             sub_domains=[
                 aws.amplify.DomainAssociationSubDomainArgs(
@@ -292,16 +294,18 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
-            source="https://example.com",
-            status="302",
-            target="https://www.example.com",
-        )])
+        example = aws.amplify.App("example",
+            name="app",
+            custom_rules=[aws.amplify.AppCustomRuleArgs(
+                source="https://example.com",
+                status="302",
+                target="https://www.example.com",
+            )])
         master = aws.amplify.Branch("master",
-            app_id=example_app.id,
+            app_id=example.id,
             branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("exampleDomainAssociation",
-            app_id=example_app.id,
+        example_domain_association = aws.amplify.DomainAssociation("example",
+            app_id=example.id,
             domain_name="example.com",
             sub_domains=[
                 aws.amplify.DomainAssociationSubDomainArgs(

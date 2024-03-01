@@ -25,11 +25,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "EntireBucket",
     ///     });
     /// 
     /// });
@@ -44,11 +48,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -72,16 +80,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "example-access-point",
     ///     });
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             AccessPoint = example_access_point.Arn,

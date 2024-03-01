@@ -25,8 +25,8 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.AccessLogSubscription("example", new()
     ///     {
-    ///         ResourceIdentifier = aws_vpclattice_service_network.Example.Id,
-    ///         DestinationArn = aws_s3.Bucket.Arn,
+    ///         ResourceIdentifier = exampleAwsVpclatticeServiceNetwork.Id,
+    ///         DestinationArn = bucket.Arn,
     ///     });
     /// 
     /// });

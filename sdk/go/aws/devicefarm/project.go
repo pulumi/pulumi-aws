@@ -32,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devicefarm.NewProject(ctx, "awesomeDevices", nil)
+//			_, err := devicefarm.NewProject(ctx, "awesome_devices", &devicefarm.ProjectArgs{
+//				Name: pulumi.String("my-device-farm"),
+//			})
 //			if err != nil {
 //				return err
 //			}

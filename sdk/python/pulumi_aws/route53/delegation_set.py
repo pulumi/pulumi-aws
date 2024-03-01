@@ -114,8 +114,12 @@ class DelegationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        primary = aws.route53.Zone("primary",
+            name="mydomain.com",
+            delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary",
+            name="coolcompany.io",
+            delegation_set_id=main.id)
         ```
 
         ## Import
@@ -147,8 +151,12 @@ class DelegationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        primary = aws.route53.Zone("primary",
+            name="mydomain.com",
+            delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary",
+            name="coolcompany.io",
+            delegation_set_id=main.id)
         ```
 
         ## Import

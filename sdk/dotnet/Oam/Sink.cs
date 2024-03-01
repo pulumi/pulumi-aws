@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Oam
     /// {
     ///     var example = new Aws.Oam.Sink("example", new()
     ///     {
+    ///         Name = "ExampleSink",
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },

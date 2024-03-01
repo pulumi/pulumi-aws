@@ -13,6 +13,28 @@ namespace Pulumi.Aws.DataSync
     /// Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataSync.Task("example", new()
+    ///     {
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
+    ///         Options = new Aws.DataSync.Inputs.TaskOptionsArgs
+    ///         {
+    ///             BytesPerSecond = -1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### With Scheduling
     /// 
     /// ```csharp
@@ -25,8 +47,9 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
     ///         {
     ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
@@ -47,8 +70,9 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
     ///         {
     ///             FilterType = "SIMPLE_PATTERN",

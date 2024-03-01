@@ -24,7 +24,8 @@ namespace Pulumi.Aws.DeviceFarm
     /// {
     ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
     ///     {
-    ///         ProjectArn = aws_devicefarm_project.Example.Arn,
+    ///         Name = "example",
+    ///         ProjectArn = exampleAwsDevicefarmProject.Arn,
     ///         Rules = new[]
     ///         {
     ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs

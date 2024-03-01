@@ -254,15 +254,15 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 aws.ec2.RouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.RouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
@@ -277,7 +277,7 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[],
             tags={
                 "Name": "example",
@@ -293,9 +293,9 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
                 cidr_block="10.1.0.0/16",
                 gateway_id="local",
@@ -308,15 +308,15 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("test",
             cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+            vpc_id=test.id)
+        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
+                cidr_block=test.cidr_block,
                 network_interface_id=test_network_interface.id,
             )])
         ```
@@ -375,15 +375,15 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 aws.ec2.RouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.RouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
@@ -398,7 +398,7 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[],
             tags={
                 "Name": "example",
@@ -414,9 +414,9 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
                 cidr_block="10.1.0.0/16",
                 gateway_id="local",
@@ -429,15 +429,15 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("test",
             cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+            vpc_id=test.id)
+        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
+                cidr_block=test.cidr_block,
                 network_interface_id=test_network_interface.id,
             )])
         ```

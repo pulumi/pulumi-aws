@@ -405,6 +405,19 @@ class Task(pulumi.CustomResource):
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.Task("example",
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            options=aws.datasync.TaskOptionsArgs(
+                bytes_per_second=-1,
+            ))
+        ```
         ### With Scheduling
 
         ```python
@@ -412,8 +425,9 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
@@ -425,8 +439,9 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
@@ -468,6 +483,19 @@ class Task(pulumi.CustomResource):
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.Task("example",
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            options=aws.datasync.TaskOptionsArgs(
+                bytes_per_second=-1,
+            ))
+        ```
         ### With Scheduling
 
         ```python
@@ -475,8 +503,9 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
@@ -488,8 +517,9 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",

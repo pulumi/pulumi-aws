@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.NetworkAcl("main", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = mainAwsVpc.Id,
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
+ * const example = new aws.amplify.App("example", {name: "app"});
  * const master = new aws.amplify.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
@@ -24,6 +24,23 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Basic Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.amplify.App("example", {name: "app"});
+ * const master = new aws.amplify.Branch("master", {
+ *     appId: example.id,
+ *     branchName: "master",
+ *     enableBasicAuth: true,
+ *     basicAuthCredentials: std.base64encode({
+ *         input: "username:password",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
  * ### Notifications
  *
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
@@ -32,15 +49,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
+ * const example = new aws.amplify.App("example", {name: "app"});
  * const master = new aws.amplify.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
  *     enableNotification: true,
  * });
  * // EventBridge Rule for Amplify notifications
- * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
- *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
+ * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplify_app_master", {
+ *     name: pulumi.interpolate`amplify-${app.id}-${master.branchName}-branch-notification`,
+ *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${app.id} Branch: ${master.branchName}`,
  *     eventPattern: pulumi.jsonStringify({
  *         detail: {
  *             appId: [example.id],
@@ -55,9 +73,11 @@ import * as utilities from "../utilities";
  *         source: ["aws.amplify"],
  *     }),
  * });
- * const amplifyAppMasterTopic = new aws.sns.Topic("amplifyAppMasterTopic", {});
- * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget", {
+ * // SNS Topic for Amplify notifications
+ * const amplifyAppMasterTopic = new aws.sns.Topic("amplify_app_master", {name: pulumi.interpolate`amplify-${app.id}_${master.branchName}`});
+ * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplify_app_master", {
  *     rule: amplifyAppMasterEventRule.name,
+ *     targetId: master.branchName,
  *     arn: amplifyAppMasterTopic.arn,
  *     inputTransformer: {
  *         inputPaths: {
@@ -70,8 +90,7 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },
  * });
- * // SNS Topic for Amplify notifications
- * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
+ * const amplifyAppMaster = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: `Allow_Publish_Events ${masterArn}`,
  *         effect: "Allow",
@@ -83,9 +102,9 @@ import * as utilities from "../utilities";
  *         resources: [amplifyAppMasterTopicArn],
  *     }],
  * }));
- * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy", {
+ * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplify_app_master", {
  *     arn: amplifyAppMasterTopic.arn,
- *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
+ *     policy: amplifyAppMaster.apply(amplifyAppMaster => amplifyAppMaster.json),
  * });
  * const _this = new aws.sns.TopicSubscription("this", {
  *     topic: amplifyAppMasterTopic.arn,

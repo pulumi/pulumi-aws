@@ -1003,24 +1003,24 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mongo = aws.ecs.Service("mongo",
-            cluster=aws_ecs_cluster["foo"]["id"],
-            task_definition=aws_ecs_task_definition["mongo"]["arn"],
+            name="mongodb",
+            cluster=foo_aws_ecs_cluster["id"],
+            task_definition=mongo_aws_ecs_task_definition["arn"],
             desired_count=3,
-            iam_role=aws_iam_role["foo"]["arn"],
+            iam_role=foo_aws_iam_role["arn"],
             ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArgs(
                 type="binpack",
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=aws_lb_target_group["foo"]["arn"],
+                target_group_arn=foo["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
             placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["foo"]]))
+            )])
         ```
         ### Ignoring Changes to Desired Count
 
@@ -1030,7 +1030,6 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configurations ...
         example = aws.ecs.Service("example", desired_count=2)
         ```
         ### Daemon Scheduling Strategy
@@ -1040,8 +1039,9 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.ecs.Service("bar",
-            cluster=aws_ecs_cluster["foo"]["id"],
-            task_definition=aws_ecs_task_definition["bar"]["arn"],
+            name="bar",
+            cluster=foo["id"],
+            task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
         ### CloudWatch Deployment Alarms
@@ -1051,11 +1051,12 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            cluster=aws_ecs_cluster["example"]["id"],
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             alarms=aws.ecs.ServiceAlarmsArgs(
                 enable=True,
                 rollback=True,
-                alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
+                alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
         ### External Deployment Controller
@@ -1065,10 +1066,29 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            cluster=aws_ecs_cluster["example"]["id"],
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             deployment_controller=aws.ecs.ServiceDeploymentControllerArgs(
                 type="EXTERNAL",
             ))
+        ```
+        ### Redeploy Service On Every Apply
+
+        The key used with `triggers` is arbitrary.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.ecs.Service("example",
+            force_new_deployment=True,
+            triggers={
+                "redeployment": not_implemented("plantimestamp()"),
+            })
         ```
 
         ## Import
@@ -1132,24 +1152,24 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mongo = aws.ecs.Service("mongo",
-            cluster=aws_ecs_cluster["foo"]["id"],
-            task_definition=aws_ecs_task_definition["mongo"]["arn"],
+            name="mongodb",
+            cluster=foo_aws_ecs_cluster["id"],
+            task_definition=mongo_aws_ecs_task_definition["arn"],
             desired_count=3,
-            iam_role=aws_iam_role["foo"]["arn"],
+            iam_role=foo_aws_iam_role["arn"],
             ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArgs(
                 type="binpack",
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=aws_lb_target_group["foo"]["arn"],
+                target_group_arn=foo["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
             placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["foo"]]))
+            )])
         ```
         ### Ignoring Changes to Desired Count
 
@@ -1159,7 +1179,6 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configurations ...
         example = aws.ecs.Service("example", desired_count=2)
         ```
         ### Daemon Scheduling Strategy
@@ -1169,8 +1188,9 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.ecs.Service("bar",
-            cluster=aws_ecs_cluster["foo"]["id"],
-            task_definition=aws_ecs_task_definition["bar"]["arn"],
+            name="bar",
+            cluster=foo["id"],
+            task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
         ### CloudWatch Deployment Alarms
@@ -1180,11 +1200,12 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            cluster=aws_ecs_cluster["example"]["id"],
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             alarms=aws.ecs.ServiceAlarmsArgs(
                 enable=True,
                 rollback=True,
-                alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
+                alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
         ### External Deployment Controller
@@ -1194,10 +1215,29 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            cluster=aws_ecs_cluster["example"]["id"],
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             deployment_controller=aws.ecs.ServiceDeploymentControllerArgs(
                 type="EXTERNAL",
             ))
+        ```
+        ### Redeploy Service On Every Apply
+
+        The key used with `triggers` is arbitrary.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.ecs.Service("example",
+            force_new_deployment=True,
+            triggers={
+                "redeployment": not_implemented("plantimestamp()"),
+            })
         ```
 
         ## Import

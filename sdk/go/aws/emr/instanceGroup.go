@@ -34,9 +34,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ClusterId:     pulumi.Any(aws_emr_cluster.TfTestCluster.Id),
+//				ClusterId:     pulumi.Any(tf_test_cluster.Id),
 //				InstanceCount: pulumi.Int(1),
 //				InstanceType:  pulumi.String("m5.xlarge"),
+//				Name:          pulumi.String("my little instance group"),
 //			})
 //			if err != nil {
 //				return err
@@ -92,7 +93,6 @@ type InstanceGroup struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -188,7 +188,6 @@ type instanceGroupState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -249,7 +248,6 @@ type InstanceGroupState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -314,7 +312,6 @@ type instanceGroupArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -372,7 +369,6 @@ type InstanceGroupArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -527,7 +523,6 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 // "Properties": {}
 // }
 // ]
-//
 // `),
 //
 //			})

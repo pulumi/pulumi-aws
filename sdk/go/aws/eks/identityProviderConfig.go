@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
 //				Oidc: &eks.IdentityProviderConfigOidcArgs{
 //					ClientId:                   pulumi.String("your client_id"),
 //					IdentityProviderConfigName: pulumi.String("example"),

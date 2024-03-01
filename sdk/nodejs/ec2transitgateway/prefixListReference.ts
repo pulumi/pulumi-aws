@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PrefixListReference("example", {
- *     prefixListId: aws_ec2_managed_prefix_list.example.id,
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     prefixListId: exampleAwsEc2ManagedPrefixList.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
  * ### Blackhole Routing
@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2transitgateway.PrefixListReference("example", {
  *     blackhole: true,
- *     prefixListId: aws_ec2_managed_prefix_list.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     prefixListId: exampleAwsEc2ManagedPrefixList.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
  *

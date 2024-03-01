@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
  *     databaseName: "mydb",
- *     masterPassword: "Mustbe8characters",
  *     masterUsername: "exampleuser",
+ *     masterPassword: "Mustbe8characters",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
  * });
  * ```
  * ### With Managed Credentials
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
  *     databaseName: "mydb",
- *     manageMasterPassword: true,
  *     masterUsername: "exampleuser",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
+ *     manageMasterPassword: true,
  * });
  * ```
  *

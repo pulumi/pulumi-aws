@@ -32,12 +32,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			example, err := efs.NewFileSystem(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
+//			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: example.ID(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					Region: pulumi.String("us-west-2"),
 //				},
@@ -65,12 +65,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			example, err := efs.NewFileSystem(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
+//			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: example.ID(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					AvailabilityZoneName: pulumi.String("us-west-2b"),
 //					KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
@@ -99,12 +99,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			example, err := efs.NewFileSystem(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
+//			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: example.ID(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					FileSystemId: pulumi.String("fs-1234567890"),
 //					Region:       pulumi.String("us-west-2"),

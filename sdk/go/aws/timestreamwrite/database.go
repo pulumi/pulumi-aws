@@ -56,7 +56,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
 //				DatabaseName: pulumi.String("database-example"),
-//				KmsKeyId:     pulumi.Any(aws_kms_key.Example.Arn),
+//				KmsKeyId:     pulumi.Any(exampleAwsKmsKey.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("value"),
 //				},

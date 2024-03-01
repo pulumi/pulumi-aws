@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DeviceFleet(&#34;example&#34;, DeviceFleetArgs.builder()        
  *             .deviceFleetName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(test.arn())
  *             .outputConfig(DeviceFleetOutputConfigArgs.builder()
- *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, aws_s3_bucket.example().bucket()))
+ *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 

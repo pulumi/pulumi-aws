@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var @default = new Aws.Kinesis.VideoStream("default", new()
     ///     {
+    ///         Name = "kinesis-video-stream",
     ///         DataRetentionInHours = 1,
     ///         DeviceName = "kinesis-video-device-name",
     ///         MediaType = "video/h264",

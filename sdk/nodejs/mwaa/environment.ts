@@ -21,12 +21,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
  * ### Example with Airflow configuration options
@@ -41,12 +42,13 @@ import * as utilities from "../utilities";
  *         "core.parallelism": "1",
  *     },
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
  * ### Example with logging configurations
@@ -59,7 +61,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
  *     loggingConfiguration: {
  *         dagProcessingLogs: {
  *             enabled: true,
@@ -82,11 +84,12 @@ import * as utilities from "../utilities";
  *             logLevel: "CRITICAL",
  *         },
  *     },
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
  * ### Example with tags
@@ -97,12 +100,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  *     tags: {
  *         Name: "example",
  *         Environment: "production",

@@ -27,11 +27,11 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
+    ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
     ///         TargetName = "example",
     ///         PreserveExistingData = false,
-    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
+    ///         DiskId = test.Id,
     ///     });
     /// 
     /// });
@@ -48,12 +48,12 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
+    ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
+    ///         SnapshotId = exampleAwsEbsSnapshot.Id,
     ///         TargetName = "example",
     ///         PreserveExistingData = false,
-    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
+    ///         DiskId = test.Id,
     ///     });
     /// 
     /// });

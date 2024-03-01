@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var lb = new Aws.Ec2.Eip("lb", new()
     ///     {
-    ///         Instance = aws_instance.Web.Id,
+    ///         Instance = web.Id,
     ///         Domain = "vpc",
     ///     });
     /// 
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new()
     ///     {
-    ///         SubnetId = aws_subnet.Main.Id,
+    ///         SubnetId = main.Id,
     ///         PrivateIps = new[]
     ///         {
     ///             "10.0.0.10",
@@ -92,17 +92,11 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = @default.Id,
     ///     });
     /// 
-    ///     var myTestSubnet = new Aws.Ec2.Subnet("myTestSubnet", new()
+    ///     var myTestSubnet = new Aws.Ec2.Subnet("my_test_subnet", new()
     ///     {
     ///         VpcId = @default.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         MapPublicIpOnLaunch = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             gw,
-    ///         },
     ///     });
     /// 
     ///     var foo = new Aws.Ec2.Instance("foo", new()
@@ -118,12 +112,6 @@ namespace Pulumi.Aws.Ec2
     ///         Domain = "vpc",
     ///         Instance = foo.Id,
     ///         AssociateWithPrivateIp = "10.0.0.12",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             gw,
-    ///         },
     ///     });
     /// 
     /// });

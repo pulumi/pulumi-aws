@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApplicationAssignmentConfiguration(&#34;example&#34;, ApplicationAssignmentConfigurationArgs.builder()        
- *             .applicationArn(aws_ssoadmin_application.example().application_arn())
+ *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
  *             .assignmentRequired(true)
  *             .build());
  * 

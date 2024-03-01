@@ -30,6 +30,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
         ///     {
         ///         Filters = new[]
@@ -39,12 +40,13 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "requester-vpc-info.vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_vpc.Foo.Id,
+        ///                     foo.Id,
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
+        ///     // get the details of each resource
         ///     var pc = ;
         /// 
         /// });
@@ -74,6 +76,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
         ///     {
         ///         Filters = new[]
@@ -83,12 +86,13 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "requester-vpc-info.vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_vpc.Foo.Id,
+        ///                     foo.Id,
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
+        ///     // get the details of each resource
         ///     var pc = ;
         /// 
         /// });

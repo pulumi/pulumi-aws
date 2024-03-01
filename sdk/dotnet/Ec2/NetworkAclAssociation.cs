@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.NetworkAclAssociation("main", new()
     ///     {
-    ///         NetworkAclId = aws_network_acl.Main.Id,
-    ///         SubnetId = aws_subnet.Main.Id,
+    ///         NetworkAclId = mainAwsNetworkAcl.Id,
+    ///         SubnetId = mainAwsSubnet.Id,
     ///     });
     /// 
     /// });

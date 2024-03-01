@@ -31,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", data.Aws_region.Current.Name, data.Aws_caller_identity.Current.Account_id, _var.Shield_drt_access_role_name)),
+//			test, err := shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
+//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", current.Name, currentAwsCallerIdentity.AccountId, shieldDrtAccessRoleName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "testDrtAccessLogBucketAssociation", &shield.DrtAccessLogBucketAssociationArgs{
-//				LogBucket:            pulumi.Any(_var.Shield_drt_access_log_bucket),
-//				RoleArnAssociationId: testDrtAccessRoleArnAssociation.ID(),
+//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "test", &shield.DrtAccessLogBucketAssociationArgs{
+//				LogBucket:            pulumi.Any(shieldDrtAccessLogBucket),
+//				RoleArnAssociationId: test.ID(),
 //			})
 //			if err != nil {
 //				return err

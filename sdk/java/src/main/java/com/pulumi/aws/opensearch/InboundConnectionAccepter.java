@@ -46,26 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var fooOutboundConnection = new OutboundConnection(&#34;fooOutboundConnection&#34;, OutboundConnectionArgs.builder()        
+ *         var foo = new OutboundConnection(&#34;foo&#34;, OutboundConnectionArgs.builder()        
  *             .connectionAlias(&#34;outbound_connection&#34;)
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .domainName(aws_opensearch_domain.local_domain().domain_name())
+ *                 .ownerId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                 .region(currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .domainName(localDomain.domainName())
  *                 .build())
  *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .domainName(aws_opensearch_domain.remote_domain().domain_name())
+ *                 .ownerId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                 .region(currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .domainName(remoteDomain.domainName())
  *                 .build())
  *             .build());
  * 
  *         var fooInboundConnectionAccepter = new InboundConnectionAccepter(&#34;fooInboundConnectionAccepter&#34;, InboundConnectionAccepterArgs.builder()        
- *             .connectionId(fooOutboundConnection.id())
+ *             .connectionId(foo.id())
  *             .build());
  * 
  *     }

@@ -48,12 +48,13 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test_role", new()
     ///     {
+    ///         Name = "test_role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new()
+    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("test_attach", new()
     ///     {
     ///         Role = testRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
@@ -61,15 +62,10 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var foo = new Aws.Ssm.Activation("foo", new()
     ///     {
+    ///         Name = "test_ssm_activation",
     ///         Description = "Test",
     ///         IamRole = testRole.Id,
     ///         RegistrationLimit = 5,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testAttach,
-    ///         },
     ///     });
     /// 
     /// });

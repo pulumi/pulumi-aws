@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupUserHierarchyStructure(ctx, &connect.LookupUserHierarchyStructureArgs{
-//				InstanceId: aws_connect_instance.Test.Id,
+//				InstanceId: testAwsConnectInstance.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

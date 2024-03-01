@@ -34,7 +34,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:       pulumi.String("pinpoint-kinesis-test"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -61,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
@@ -75,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRolePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			testRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -92,9 +93,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "testRolePolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "test_role_policy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("test_policy"),
 //				Role:   testRole.ID(),
-//				Policy: *pulumi.String(testRolePolicyPolicyDocument.Json),
+//				Policy: *pulumi.String(testRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

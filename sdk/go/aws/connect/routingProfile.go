@@ -30,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
+//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:                   pulumi.String("example"),
 //				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				Description:            pulumi.String("example description"),
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
 //					&connect.RoutingProfileMediaConcurrencyArgs{
 //						Channel:     pulumi.String("VOICE"),

@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.apigateway.RestApiPolicy;
@@ -44,9 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRestApi = new RestApi(&#34;testRestApi&#34;);
+ *         var testRestApi = new RestApi(&#34;testRestApi&#34;, RestApiArgs.builder()        
+ *             .name(&#34;example-rest-api&#34;)
+ *             .build());
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -65,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRestApiPolicy = new RestApiPolicy(&#34;testRestApiPolicy&#34;, RestApiPolicyArgs.builder()        
  *             .restApiId(testRestApi.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

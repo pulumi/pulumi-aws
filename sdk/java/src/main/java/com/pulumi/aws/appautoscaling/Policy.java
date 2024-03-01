@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dynamodbTableReadPolicy = new Policy(&#34;dynamodbTableReadPolicy&#34;, PolicyArgs.builder()        
+ *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -&gt; String.format(&#34;DynamoDBReadCapacityUtilization:%s&#34;, resourceId)))
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .resourceId(dynamodbTableReadTarget.resourceId())
  *             .scalableDimension(dynamodbTableReadTarget.scalableDimension())
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ecsService = new Service(&#34;ecsService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;serviceName&#34;)
  *             .cluster(&#34;clusterName&#34;)
  *             .taskDefinition(&#34;taskDefinitionFamily:1&#34;)
  *             .desiredCount(2)
@@ -128,18 +130,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicasTarget = new Target(&#34;replicasTarget&#34;, TargetArgs.builder()        
+ *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
  *             .serviceNamespace(&#34;rds&#34;)
  *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
+ *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
  *             .minCapacity(1)
  *             .maxCapacity(15)
  *             .build());
  * 
  *         var replicasPolicy = new Policy(&#34;replicasPolicy&#34;, PolicyArgs.builder()        
- *             .serviceNamespace(replicasTarget.serviceNamespace())
- *             .scalableDimension(replicasTarget.scalableDimension())
- *             .resourceId(replicasTarget.resourceId())
+ *             .name(&#34;cpu-auto-scaling&#34;)
+ *             .serviceNamespace(replicas.serviceNamespace())
+ *             .scalableDimension(replicas.scalableDimension())
+ *             .resourceId(replicas.resourceId())
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
@@ -189,6 +192,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .resourceId(ecsTarget.resourceId())
  *             .scalableDimension(ecsTarget.scalableDimension())
@@ -276,12 +280,13 @@ import javax.annotation.Nullable;
  *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
  *             .serviceNamespace(&#34;kafka&#34;)
  *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
- *             .resourceId(aws_msk_cluster.example().arn())
+ *             .resourceId(example.arn())
  *             .minCapacity(1)
  *             .maxCapacity(8)
  *             .build());
  * 
  *         var targets = new Policy(&#34;targets&#34;, PolicyArgs.builder()        
+ *             .name(&#34;storage-size-auto-scaling&#34;)
  *             .serviceNamespace(mskTarget.serviceNamespace())
  *             .scalableDimension(mskTarget.scalableDimension())
  *             .resourceId(mskTarget.resourceId())

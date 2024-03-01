@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.Image("example", new()
     ///     {
     ///         ImageName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         RoleArn = test.Arn,
     ///     });
     /// 
     /// });

@@ -34,12 +34,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Name:              pulumi.String("tf-test-name"),
 //				Application:       tftest.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 //			})
@@ -78,12 +80,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Name:              pulumi.String("tf-test-name"),
 //				Application:       tftest.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 //				Settings: elasticbeanstalk.EnvironmentSettingArray{

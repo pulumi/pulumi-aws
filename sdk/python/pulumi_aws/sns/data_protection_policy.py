@@ -107,9 +107,9 @@ class DataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy",
-            arn=example_topic.arn,
+        example = aws.sns.Topic("example", name="example")
+        example_data_protection_policy = aws.sns.DataProtectionPolicy("example",
+            arn=example.arn,
             policy=json.dumps({
                 "Description": "Example data protection policy",
                 "Name": "__example_data_protection_policy",
@@ -155,9 +155,9 @@ class DataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy",
-            arn=example_topic.arn,
+        example = aws.sns.Topic("example", name="example")
+        example_data_protection_policy = aws.sns.DataProtectionPolicy("example",
+            arn=example.arn,
             policy=json.dumps({
                 "Description": "Example data protection policy",
                 "Name": "__example_data_protection_policy",

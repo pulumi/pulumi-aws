@@ -20,12 +20,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pcs = aws.ec2.getVpcPeeringConnections({
  *     filters: [{
  *         name: "requester-vpc-info.vpc-id",
- *         values: [aws_vpc.foo.id],
+ *         values: [foo.id],
  *     }],
  * });
+ * // get the details of each resource
  * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));
@@ -87,12 +89,14 @@ export interface GetVpcPeeringConnectionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pcs = aws.ec2.getVpcPeeringConnections({
  *     filters: [{
  *         name: "requester-vpc-info.vpc-id",
- *         values: [aws_vpc.foo.id],
+ *         values: [foo.id],
  *     }],
  * });
+ * // get the details of each resource
  * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));

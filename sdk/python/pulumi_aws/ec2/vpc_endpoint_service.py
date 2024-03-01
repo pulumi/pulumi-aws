@@ -434,7 +434,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+            network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
         ### Gateway Load Balancers
 
@@ -444,7 +444,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+            gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
 
         ## Import
@@ -490,7 +490,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+            network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
         ### Gateway Load Balancers
 
@@ -500,7 +500,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+            gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
 
         ## Import

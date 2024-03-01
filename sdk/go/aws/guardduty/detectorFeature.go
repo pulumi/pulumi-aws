@@ -36,8 +36,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eksRuntimeMonitoring", &guardduty.DetectorFeatureArgs{
+//			_, err = guardduty.NewDetectorFeature(ctx, "eks_runtime_monitoring", &guardduty.DetectorFeatureArgs{
 //				DetectorId: example.ID(),
+//				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
 //				Status:     pulumi.String("ENABLED"),
 //				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{
 //					&guardduty.DetectorFeatureAdditionalConfigurationArgs{

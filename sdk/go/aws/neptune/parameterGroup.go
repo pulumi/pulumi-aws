@@ -30,6 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewParameterGroup(ctx, "example", &neptune.ParameterGroupArgs{
 //				Family: pulumi.String("neptune1"),
+//				Name:   pulumi.String("example"),
 //				Parameters: neptune.ParameterGroupParameterArray{
 //					&neptune.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("neptune_query_timeout"),

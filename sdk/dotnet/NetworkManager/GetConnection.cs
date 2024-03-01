@@ -28,8 +28,8 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         ConnectionId = connectionId,
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         ConnectionId = connectionId,
         ///     });
         /// 
         /// });

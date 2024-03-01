@@ -24,7 +24,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -52,20 +55,21 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         IamRoleArn = exampleRole.Arn,
     ///         LogDestination = exampleLogGroup.Arn,
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -88,10 +92,11 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -106,14 +111,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
@@ -128,14 +136,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
     ///         {
     ///             FileFormat = "parquet",

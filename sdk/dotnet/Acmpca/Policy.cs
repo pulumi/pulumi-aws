@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Acmpca
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             data.Aws_caller_identity.Current.Account_id,
+    ///                             current.AccountId,
     ///                         },
     ///                     },
     ///                 },
@@ -52,13 +52,13 @@ namespace Pulumi.Aws.Acmpca
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     aws_acmpca_certificate_authority.Example.Arn,
+    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Sid = "2",
-    ///                 Effect = Allow,
+    ///                 Effect = allow,
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Acmpca
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             data.Aws_caller_identity.Current.Account_id,
+    ///                             current.AccountId,
     ///                         },
     ///                     },
     ///                 },
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Acmpca
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     aws_acmpca_certificate_authority.Example.Arn,
+    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -94,10 +94,10 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Acmpca.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Acmpca.Policy("example", new()
     ///     {
-    ///         ResourceArn = aws_acmpca_certificate_authority.Example.Arn,
-    ///         PolicyDetails = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         ResourceArn = exampleAwsAcmpcaCertificateAuthority.Arn,
+    ///         PolicyDetails = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

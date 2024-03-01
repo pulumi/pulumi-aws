@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PublicDnsNamespace(&#34;example&#34;, PublicDnsNamespaceArgs.builder()        
+ *             .name(&#34;hoge.example.com&#34;)
  *             .description(&#34;example&#34;)
  *             .build());
  * 

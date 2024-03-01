@@ -247,6 +247,7 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.swf.Domain("foo",
+            name="foo",
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```
@@ -285,6 +286,7 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.swf.Domain("foo",
+            name="foo",
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```

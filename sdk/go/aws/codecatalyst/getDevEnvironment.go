@@ -31,7 +31,7 @@ import (
 //			_, err := codecatalyst.LookupDevEnvironment(ctx, &codecatalyst.LookupDevEnvironmentArgs{
 //				SpaceName:   "myspace",
 //				ProjectName: "myproject",
-//				EnvId:       aws_codecatalyst_dev_environment.Example.Id,
+//				EnvId:       exampleAwsCodecatalystDevEnvironment.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

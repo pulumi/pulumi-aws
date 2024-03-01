@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
+//				Name:   pulumi.String("cache-params"),
 //				Family: pulumi.String("redis2.8"),
 //				Parameters: elasticache.ParameterGroupParameterArray{
 //					&elasticache.ParameterGroupParameterArgs{

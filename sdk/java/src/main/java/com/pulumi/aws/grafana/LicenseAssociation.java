@@ -45,15 +45,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var assume = new Role(&#34;assume&#34;, RoleArgs.builder()        
+ *             .name(&#34;grafana-assume&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;grafana.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;grafana.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -66,7 +67,7 @@ import javax.annotation.Nullable;
  *             .roleArn(assume.arn())
  *             .build());
  * 
- *         var exampleLicenseAssociation = new LicenseAssociation(&#34;exampleLicenseAssociation&#34;, LicenseAssociationArgs.builder()        
+ *         var example = new LicenseAssociation(&#34;example&#34;, LicenseAssociationArgs.builder()        
  *             .licenseType(&#34;ENTERPRISE_FREE_TRIAL&#34;)
  *             .workspaceId(exampleWorkspace.id())
  *             .build());

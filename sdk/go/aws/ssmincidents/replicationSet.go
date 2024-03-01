@@ -131,7 +131,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
+//			exampleKey, err := kms.NewKey(ctx, "example_key", nil)
 //			if err != nil {
 //				return err
 //			}

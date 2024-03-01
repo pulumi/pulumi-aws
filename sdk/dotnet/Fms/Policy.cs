@@ -25,13 +25,15 @@ namespace Pulumi.Aws.Fms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
+    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("example", new()
     ///     {
     ///         MetricName = "WAFRuleGroupExample",
+    ///         Name = "WAF-Rule-Group-Example",
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Fms.Policy("examplePolicy", new()
+    ///     var example = new Aws.Fms.Policy("example", new()
     ///     {
+    ///         Name = "FMS-Policy-Example",
     ///         ExcludeResourceTags = false,
     ///         RemediationEnabled = false,
     ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",

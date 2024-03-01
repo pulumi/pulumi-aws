@@ -287,14 +287,16 @@ class Authorizer(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.iot.Authorizer("example",
-            authorizer_function_arn=aws_lambda_function["example"]["arn"],
+            name="example",
+            authorizer_function_arn=example_aws_lambda_function["arn"],
             signing_disabled=False,
             status="ACTIVE",
             token_key_name="Token-Header",
             token_signing_public_keys={
-                "Key1": (lambda path: open(path).read())("test-fixtures/iot-authorizer-signing-key.pem"),
+                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
 
@@ -330,14 +332,16 @@ class Authorizer(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.iot.Authorizer("example",
-            authorizer_function_arn=aws_lambda_function["example"]["arn"],
+            name="example",
+            authorizer_function_arn=example_aws_lambda_function["arn"],
             signing_disabled=False,
             status="ACTIVE",
             token_key_name="Token-Header",
             token_signing_public_keys={
-                "Key1": (lambda path: open(path).read())("test-fixtures/iot-authorizer-signing-key.pem"),
+                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
 

@@ -49,13 +49,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("redshift_scheduled_action"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -73,20 +74,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:   pulumi.String("redshift_scheduled_action"),
+//				Policy: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: examplePolicy.Arn,
 //				Role:      exampleRole.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewScheduledAction(ctx, "exampleScheduledAction", &redshift.ScheduledActionArgs{
+//			_, err = redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
 //				Schedule: pulumi.String("cron(00 23 * * ? *)"),
 //				IamRole:  exampleRole.Arn,
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
@@ -118,8 +121,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
 //				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  pulumi.Any(aws_iam_role.Example.Arn),
+//				IamRole:  pulumi.Any(exampleAwsIamRole.Arn),
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
 //					ResizeCluster: &redshift.ScheduledActionTargetActionResizeClusterArgs{
 //						ClusterIdentifier: pulumi.String("tf-redshift001"),

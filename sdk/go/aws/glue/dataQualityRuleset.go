@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
 //			if err != nil {
@@ -55,6 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
 //				Ruleset:     pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
@@ -81,6 +83,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				Tags: pulumi.StringMap{
 //					"hello": pulumi.String("world"),
@@ -109,10 +112,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				TargetTable: &glue.DataQualityRulesetTargetTableArgs{
-//					DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//					TableName:    pulumi.Any(aws_glue_catalog_table.Example.Name),
+//					DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//					TableName:    pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
 //			})
 //			if err != nil {

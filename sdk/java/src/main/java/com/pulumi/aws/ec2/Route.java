@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
- *             .routeTableId(aws_route_table.testing().id())
+ *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+ *             .routeTableId(testing.id())
  *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
  *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
  *             .build());
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
+ *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
  *             .routeTableId(&#34;rtb-4fbb3ac4&#34;)
  *             .destinationIpv6CidrBlock(&#34;::/0&#34;)
  *             .egressOnlyGatewayId(egress.id())

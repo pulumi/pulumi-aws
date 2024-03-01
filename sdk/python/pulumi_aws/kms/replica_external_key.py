@@ -457,20 +457,17 @@ class ReplicaExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
+        primary = aws.kms.ExternalKey("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            key_material_base64="...")
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
+            primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
-        # Must be the same key material as the primary's.
         ```
 
         ## Import
@@ -513,20 +510,17 @@ class ReplicaExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
+        primary = aws.kms.ExternalKey("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            key_material_base64="...")
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
+            primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
-        # Must be the same key material as the primary's.
         ```
 
         ## Import

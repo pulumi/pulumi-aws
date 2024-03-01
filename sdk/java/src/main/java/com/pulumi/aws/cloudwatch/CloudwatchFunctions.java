@@ -604,7 +604,7 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
      *             .name(&#34;Example&#34;)
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
@@ -616,13 +616,13 @@ public final class CloudwatchFunctions {
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
      *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .logGroup(audit.name())
      *                                     .build())
      *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .deliveryStream(auditAwsKinesisFirehoseDeliveryStream.name())
      *                                     .build())
      *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .bucket(auditAwsS3Bucket.bucket())
      *                                     .build())
      *                                 .build())
      *                             .build())
@@ -642,8 +642,8 @@ public final class CloudwatchFunctions {
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -683,7 +683,7 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
      *             .name(&#34;Example&#34;)
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
@@ -695,13 +695,13 @@ public final class CloudwatchFunctions {
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
      *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .logGroup(audit.name())
      *                                     .build())
      *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .deliveryStream(auditAwsKinesisFirehoseDeliveryStream.name())
      *                                     .build())
      *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .bucket(auditAwsS3Bucket.bucket())
      *                                     .build())
      *                                 .build())
      *                             .build())
@@ -721,8 +721,8 @@ public final class CloudwatchFunctions {
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -762,7 +762,7 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
      *             .name(&#34;Example&#34;)
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
@@ -774,13 +774,13 @@ public final class CloudwatchFunctions {
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
      *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .logGroup(audit.name())
      *                                     .build())
      *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .deliveryStream(auditAwsKinesisFirehoseDeliveryStream.name())
      *                                     .build())
      *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .bucket(auditAwsS3Bucket.bucket())
      *                                     .build())
      *                                 .build())
      *                             .build())
@@ -800,8 +800,8 @@ public final class CloudwatchFunctions {
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -841,7 +841,7 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
      *             .name(&#34;Example&#34;)
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
@@ -853,13 +853,13 @@ public final class CloudwatchFunctions {
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
      *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .logGroup(audit.name())
      *                                     .build())
      *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .deliveryStream(auditAwsKinesisFirehoseDeliveryStream.name())
      *                                     .build())
      *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .bucket(auditAwsS3Bucket.bucket())
      *                                     .build())
      *                                 .build())
      *                             .build())
@@ -879,8 +879,8 @@ public final class CloudwatchFunctions {
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }

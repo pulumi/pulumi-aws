@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
  *
  * ## Example Usage
- * ### Trust Store Load Balancer Listener
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lb.TrustStore("test", {
- *     caCertificatesBundleS3Bucket: "...",
- *     caCertificatesBundleS3Key: "...",
- * });
- * const example = new aws.lb.Listener("example", {
- *     loadBalancerArn: aws_lb.example.id,
- *     defaultActions: [{
- *         targetGroupArn: aws_lb_target_group.example.id,
- *         type: "forward",
- *     }],
- *     mutualAuthentication: {
- *         mode: "verify",
- *         trustStoreArn: test.arn,
- *     },
- * });
- * ```
  *
  * ## Import
  *

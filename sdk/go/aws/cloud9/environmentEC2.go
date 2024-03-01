@@ -31,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
-//				ImageId:      pulumi.String("amazonlinux-2023-x86_64"),
 //				InstanceType: pulumi.String("t2.micro"),
+//				Name:         pulumi.String("example-env"),
+//				ImageId:      pulumi.String("amazonlinux-2023-x86_64"),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +78,7 @@ import (
 //				},
 //			}, nil)
 //			ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
-//				return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", _var.Region, id), nil
+//				return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", region, id), nil
 //			}).(pulumi.StringOutput))
 //			return nil
 //		})
@@ -116,7 +117,7 @@ import (
 //					},
 //				},
 //			}, nil)
-//			cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
+//			cloud9Eip, err := ec2.NewEip(ctx, "cloud9_eip", &ec2.EipArgs{
 //				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
 //					return &cloud9Instance.Id, nil
 //				}).(pulumi.StringPtrOutput),

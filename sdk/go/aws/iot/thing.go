@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+//				Name: pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
 //					"First": pulumi.String("examplevalue"),
 //				},

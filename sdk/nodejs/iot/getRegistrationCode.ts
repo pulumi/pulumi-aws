@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as tls from "@pulumi/tls";
  *
  * const example = aws.iot.getRegistrationCode({});
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
+ * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
+ *     privateKeyPem: verification.privateKeyPem,
  *     subject: {
  *         commonName: example.then(example => example.registrationCode),
  *     },
@@ -56,10 +56,10 @@ export interface GetRegistrationCodeResult {
  * import * as tls from "@pulumi/tls";
  *
  * const example = aws.iot.getRegistrationCode({});
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
+ * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
+ *     privateKeyPem: verification.privateKeyPem,
  *     subject: {
  *         commonName: example.then(example => example.registrationCode),
  *     },

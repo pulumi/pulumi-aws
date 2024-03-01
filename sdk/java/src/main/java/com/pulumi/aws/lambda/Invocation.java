@@ -47,9 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
- *             .functionName(aws_lambda_function.lambda_function_test().function_name())
- *             .triggers(Map.of(&#34;redeployment&#34;, computeSHA1(serializeJson(
- *                 jsonArray(aws_lambda_function.example().environment())))))
+ *             .functionName(lambdaFunctionTest.functionName())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1(Sha1Args.builder()
+ *                 .input(serializeJson(
+ *                     jsonArray(exampleAwsLambdaFunction.environment())))
+ *                 .build()).result()))
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
@@ -57,121 +59,6 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *     }
- * }
- * ```
- * ### CRUD Lifecycle Scope
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.Invocation;
- * import com.pulumi.aws.lambda.InvocationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
- *             .functionName(aws_lambda_function.lambda_function_test().function_name())
- *             .input(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
- *                     jsonProperty(&#34;key2&#34;, &#34;value2&#34;)
- *                 )))
- *             .lifecycleScope(&#34;CRUD&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * &gt; **NOTE:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
- * 
- * The key `tf` gets added with subkeys:
- * 
- * * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
- * * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
- * 
- * When the resource from the example above is created, the Lambda will get following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
- * 
- * If the input value of `key1` changes to &#34;valueB&#34;, then the lambda will be invoked again with the following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
- * 
- * When the invocation resource is removed, the final invocation will have the following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
  *     }
  * }
  * ```

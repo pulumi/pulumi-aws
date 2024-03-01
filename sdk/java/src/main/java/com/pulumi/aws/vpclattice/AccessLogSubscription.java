@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccessLogSubscription(&#34;example&#34;, AccessLogSubscriptionArgs.builder()        
- *             .resourceIdentifier(aws_vpclattice_service_network.example().id())
- *             .destinationArn(aws_s3.bucket().arn())
+ *             .resourceIdentifier(exampleAwsVpclatticeServiceNetwork.id())
+ *             .destinationArn(bucket.arn())
  *             .build());
  * 
  *     }

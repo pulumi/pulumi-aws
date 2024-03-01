@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ivs.NewRecordingConfiguration(ctx, "example", &ivs.RecordingConfigurationArgs{
+//				Name: pulumi.String("recording_configuration-1"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationDestinationConfigurationS3Args{
 //						BucketName: pulumi.String("ivs-stream-archive"),

@@ -117,10 +117,10 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+        example = aws.ram.ResourceShare("example", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("example",
             principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
+            resource_share_arn=example.arn)
         ```
         ### AWS Organization
 
@@ -129,8 +129,8 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            principal=example_aws_organizations_organization["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
 
         ## Import
@@ -172,10 +172,10 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+        example = aws.ram.ResourceShare("example", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("example",
             principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
+            resource_share_arn=example.arn)
         ```
         ### AWS Organization
 
@@ -184,8 +184,8 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            principal=example_aws_organizations_organization["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
 
         ## Import

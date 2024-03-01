@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Sid":    "",
 //						"Effect": "Allow",
@@ -49,21 +49,22 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+//				Name:             pulumi.Any(awsShieldDrtAccessRoleArn),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      testRole.Name,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
+//				Role:      test.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: testRole.Arn,
+//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
+//				RoleArn: test.Arn,
 //			})
 //			if err != nil {
 //				return err

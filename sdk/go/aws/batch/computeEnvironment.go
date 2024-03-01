@@ -58,21 +58,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
+//			ecsInstanceRole, err := iam.NewRole(ctx, "ecs_instance_role", &iam.RoleArgs{
+//				Name:             pulumi.String("ecs_instance_role"),
 //				AssumeRolePolicy: *pulumi.String(ec2AssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsInstanceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      ecsInstanceRoleRole.Name,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_instance_role", &iam.RolePolicyAttachmentArgs{
+//				Role:      ecsInstanceRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ecsInstanceRoleInstanceProfile, err := iam.NewInstanceProfile(ctx, "ecsInstanceRoleInstanceProfile", &iam.InstanceProfileArgs{
-//				Role: ecsInstanceRoleRole.Name,
+//			ecsInstanceRoleInstanceProfile, err := iam.NewInstanceProfile(ctx, "ecs_instance_role", &iam.InstanceProfileArgs{
+//				Name: pulumi.String("ecs_instance_role"),
+//				Role: ecsInstanceRole.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -98,20 +100,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
+//			awsBatchServiceRole, err := iam.NewRole(ctx, "aws_batch_service_role", &iam.RoleArgs{
+//				Name:             pulumi.String("aws_batch_service_role"),
 //				AssumeRolePolicy: *pulumi.String(batchAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			awsBatchServiceRoleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "awsBatchServiceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      awsBatchServiceRoleRole.Name,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "aws_batch_service_role", &iam.RolePolicyAttachmentArgs{
+//				Role:      awsBatchServiceRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "sampleSecurityGroup", &ec2.SecurityGroupArgs{
+//			sample, err := ec2.NewSecurityGroup(ctx, "sample", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("aws_batch_compute_environment_security_group"),
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
 //						FromPort: pulumi.Int(0),
@@ -126,26 +130,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
+//			sampleVpc, err := ec2.NewVpc(ctx, "sample", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sampleSubnet, err := ec2.NewSubnet(ctx, "sampleSubnet", &ec2.SubnetArgs{
+//			sampleSubnet, err := ec2.NewSubnet(ctx, "sample", &ec2.SubnetArgs{
 //				VpcId:     sampleVpc.ID(),
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "samplePlacementGroup", &ec2.PlacementGroupArgs{
+//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "sample", &ec2.PlacementGroupArgs{
+//				Name:     pulumi.String("sample"),
 //				Strategy: pulumi.String("cluster"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewComputeEnvironment(ctx, "sampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
+//			_, err = batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
 //				ComputeEnvironmentName: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					InstanceRole: ecsInstanceRoleInstanceProfile.Arn,
@@ -156,18 +161,16 @@ import (
 //					MinVcpus:       pulumi.Int(0),
 //					PlacementGroup: samplePlacementGroup.Name,
 //					SecurityGroupIds: pulumi.StringArray{
-//						sampleSecurityGroup.ID(),
+//						sample.ID(),
 //					},
 //					Subnets: pulumi.StringArray{
 //						sampleSubnet.ID(),
 //					},
 //					Type: pulumi.String("EC2"),
 //				},
-//				ServiceRole: awsBatchServiceRoleRole.Arn,
+//				ServiceRole: awsBatchServiceRole.Arn,
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				awsBatchServiceRoleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -195,18 +198,16 @@ import (
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					MaxVcpus: pulumi.Int(16),
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sample.Id,
+//						sampleAwsSecurityGroup.Id,
 //					},
 //					Subnets: pulumi.StringArray{
-//						aws_subnet.Sample.Id,
+//						sampleAwsSubnet.Id,
 //					},
 //					Type: pulumi.String("FARGATE"),
 //				},
-//				ServiceRole: pulumi.Any(aws_iam_role.Aws_batch_service_role.Arn),
+//				ServiceRole: pulumi.Any(awsBatchServiceRole.Arn),
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Aws_batch_service_role,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -233,17 +234,17 @@ import (
 //				ComputeEnvironmentName: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					AllocationStrategy: pulumi.String("BEST_FIT_PROGRESSIVE"),
-//					InstanceRole:       pulumi.Any(aws_iam_instance_profile.Ecs_instance.Arn),
+//					InstanceRole:       pulumi.Any(ecsInstance.Arn),
 //					InstanceTypes: pulumi.StringArray{
 //						pulumi.String("optimal"),
 //					},
 //					MaxVcpus: pulumi.Int(4),
 //					MinVcpus: pulumi.Int(0),
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sample.Id,
+//						sampleAwsSecurityGroup.Id,
 //					},
 //					Subnets: pulumi.StringArray{
-//						aws_subnet.Sample.Id,
+//						sampleAwsSubnet.Id,
 //					},
 //					Type: pulumi.String("EC2"),
 //				},

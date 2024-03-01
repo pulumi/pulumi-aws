@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,10 +53,8 @@ import javax.annotation.Nullable;
  *             .endpointId(&#34;donnedtipi&#34;)
  *             .endpointType(&#34;target&#34;)
  *             .bucketName(&#34;beckut_name&#34;)
- *             .serviceAccessRoleArn(aws_iam_role.example().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
+ *             .build());
  * 
  *     }
  * }
@@ -71,7 +68,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,7 +115,7 @@ import javax.annotation.Nullable;
  *             .enableStatistics(false)
  *             .encodingType(&#34;plain&#34;)
  *             .encryptionMode(&#34;SSE_S3&#34;)
- *             .expectedBucketOwner(data.aws_caller_identity().current().account_id())
+ *             .expectedBucketOwner(current.accountId())
  *             .externalTableDefinition(&#34;etd&#34;)
  *             .ignoreHeaderRows(1)
  *             .includeOpForFullLoad(true)
@@ -129,15 +125,13 @@ import javax.annotation.Nullable;
  *             .preserveTransactions(false)
  *             .rfc4180(false)
  *             .rowGroupLength(11000)
- *             .serverSideEncryptionKmsKeyId(aws_kms_key.example().arn())
- *             .serviceAccessRoleArn(aws_iam_role.example().arn())
+ *             .serverSideEncryptionKmsKeyId(exampleAwsKmsKey.arn())
+ *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
  *             .timestampColumnName(&#34;tx_commit_time&#34;)
  *             .useCsvNoSupValue(false)
  *             .useTaskStartTimeForFullLoadTimestamp(true)
  *             .glueCatalogGeneration(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

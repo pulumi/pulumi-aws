@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Msk
         /// {
         ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
         ///     {
-        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///         ClusterArn = exampleAwsMskCluster.Arn,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Msk
         /// {
         ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
         ///     {
-        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///         ClusterArn = exampleAwsMskCluster.Arn,
         ///     });
         /// 
         /// });

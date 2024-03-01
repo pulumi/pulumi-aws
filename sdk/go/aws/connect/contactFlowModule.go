@@ -39,41 +39,41 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version":     "2019-10-30",
-//				"StartAction": "12345678-1234-1234-1234-123456789012",
-//				"Actions": []interface{}{
+//				"version":     "2019-10-30",
+//				"startAction": "12345678-1234-1234-1234-123456789012",
+//				"actions": []interface{}{
 //					map[string]interface{}{
-//						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Parameters": map[string]interface{}{
-//							"Text": "Hello contact flow module",
+//						"identifier": "12345678-1234-1234-1234-123456789012",
+//						"parameters": map[string]interface{}{
+//							"text": "Hello contact flow module",
 //						},
-//						"Transitions": map[string]interface{}{
-//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"Errors":     []interface{}{},
-//							"Conditions": []interface{}{},
+//						"transitions": map[string]interface{}{
+//							"nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"errors":     []interface{}{},
+//							"conditions": []interface{}{},
 //						},
-//						"Type": "MessageParticipant",
+//						"type": "MessageParticipant",
 //					},
 //					map[string]interface{}{
-//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Type":        "DisconnectParticipant",
-//						"Parameters":  nil,
-//						"Transitions": nil,
+//						"identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"type":        "DisconnectParticipant",
+//						"parameters":  nil,
+//						"transitions": nil,
 //					},
 //				},
-//				"Settings": map[string]interface{}{
-//					"InputParameters":  []interface{}{},
-//					"OutputParameters": []interface{}{},
-//					"Transitions": []map[string]interface{}{
+//				"settings": map[string]interface{}{
+//					"inputParameters":  []interface{}{},
+//					"outputParameters": []interface{}{},
+//					"transitions": []map[string]interface{}{
 //						map[string]interface{}{
-//							"DisplayName":   "Success",
-//							"ReferenceName": "Success",
-//							"Description":   "",
+//							"displayName":   "Success",
+//							"referenceName": "Success",
+//							"description":   "",
 //						},
 //						map[string]interface{}{
-//							"DisplayName":   "Error",
-//							"ReferenceName": "Error",
-//							"Description":   "",
+//							"displayName":   "Error",
+//							"referenceName": "Error",
+//							"description":   "",
 //						},
 //					},
 //				},
@@ -84,6 +84,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("Example Contact Flow Module Description"),
 //				Content:     pulumi.String(json0),
 //				Tags: pulumi.StringMap{

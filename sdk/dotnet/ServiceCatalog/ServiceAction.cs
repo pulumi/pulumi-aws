@@ -25,11 +25,12 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
     ///     {
+    ///         Description = "Motor generator unit",
+    ///         Name = "MGU",
     ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
     ///         {
     ///             Name = "AWS-RestartEC2Instance",
     ///         },
-    ///         Description = "Motor generator unit",
     ///     });
     /// 
     /// });

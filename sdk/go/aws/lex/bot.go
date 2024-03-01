@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBot(ctx, "orderFlowersBot", &lex.BotArgs{
+//			_, err := lex.NewBot(ctx, "order_flowers_bot", &lex.BotArgs{
 //				AbortStatement: &lex.BotAbortStatementArgs{
 //					Messages: lex.BotAbortStatementMessageArray{
 //						&lex.BotAbortStatementMessageArgs{

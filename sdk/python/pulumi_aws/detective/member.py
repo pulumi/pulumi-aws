@@ -296,11 +296,11 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph = aws.detective.Graph("exampleGraph")
-        example_member = aws.detective.Member("exampleMember",
+        example = aws.detective.Graph("example")
+        example_member = aws.detective.Member("example",
             account_id="AWS ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=example_graph.id,
+            graph_arn=example.id,
             message="Message of the invitation",
             disable_email_notification=True)
         ```
@@ -336,11 +336,11 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph = aws.detective.Graph("exampleGraph")
-        example_member = aws.detective.Member("exampleMember",
+        example = aws.detective.Graph("example")
+        example_member = aws.detective.Member("example",
             account_id="AWS ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=example_graph.id,
+            graph_arn=example.id,
             message="Message of the invitation",
             disable_email_notification=True)
         ```

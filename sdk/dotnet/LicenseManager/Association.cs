@@ -24,7 +24,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -44,18 +44,19 @@ namespace Pulumi.Aws.LicenseManager
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
-    ///         Ami = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = "t2.micro",
     ///     });
     /// 
-    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new()
+    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("example", new()
     ///     {
+    ///         Name = "Example",
     ///         LicenseCountingType = "Instance",
     ///     });
     /// 
-    ///     var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new()
+    ///     var exampleAssociation = new Aws.LicenseManager.Association("example", new()
     ///     {
     ///         LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
     ///         ResourceArn = exampleInstance.Arn,

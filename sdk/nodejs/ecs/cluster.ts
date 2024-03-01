@@ -16,10 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecs.Cluster("foo", {settings: [{
- *     name: "containerInsights",
- *     value: "enabled",
- * }]});
+ * const foo = new aws.ecs.Cluster("foo", {
+ *     name: "white-hart",
+ *     settings: [{
+ *         name: "containerInsights",
+ *         value: "enabled",
+ *     }],
+ * });
  * ```
  * ### Example with Log Configuration
  *
@@ -27,21 +30,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "example",
  *     deletionWindowInDays: 7,
  * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const test = new aws.ecs.Cluster("test", {configuration: {
- *     executeCommandConfiguration: {
- *         kmsKeyId: exampleKey.arn,
- *         logging: "OVERRIDE",
- *         logConfiguration: {
- *             cloudWatchEncryptionEnabled: true,
- *             cloudWatchLogGroupName: exampleLogGroup.name,
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const test = new aws.ecs.Cluster("test", {
+ *     name: "example",
+ *     configuration: {
+ *         executeCommandConfiguration: {
+ *             kmsKeyId: example.arn,
+ *             logging: "OVERRIDE",
+ *             logConfiguration: {
+ *                 cloudWatchEncryptionEnabled: true,
+ *                 cloudWatchLogGroupName: exampleLogGroup.name,
+ *             },
  *         },
  *     },
- * }});
+ * });
  * ```
  *
  * ## Import

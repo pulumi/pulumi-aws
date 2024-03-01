@@ -31,13 +31,12 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
+    ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
     ///         TargetName = "example",
     ///         VolumeSizeInBytes = 5368709120,
     ///     });
     /// 
-    ///     // 5 GB
     /// });
     /// ```
     /// ### Create Cached iSCSI Volume From Snapshot
@@ -52,11 +51,11 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
+    ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
+    ///         SnapshotId = exampleAwsEbsSnapshot.Id,
     ///         TargetName = "example",
-    ///         VolumeSizeInBytes = aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+    ///         VolumeSizeInBytes = exampleAwsEbsSnapshot.VolumeSize * 1024 * 1024 * 1024,
     ///     });
     /// 
     /// });
@@ -73,11 +72,11 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SourceVolumeArn = aws_storagegateway_cached_iscsi_volume.Existing.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
+    ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
+    ///         SourceVolumeArn = existing.Arn,
     ///         TargetName = "example",
-    ///         VolumeSizeInBytes = aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
+    ///         VolumeSizeInBytes = existing.VolumeSizeInBytes,
     ///     });
     /// 
     /// });

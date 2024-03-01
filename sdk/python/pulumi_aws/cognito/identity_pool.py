@@ -381,8 +381,11 @@ class IdentityPool(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.SamlProvider("default",
+            name="my-saml-provider",
+            saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
             identity_pool_name="identity pool",
             allow_unauthenticated_identities=False,
@@ -442,8 +445,11 @@ class IdentityPool(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.SamlProvider("default",
+            name="my-saml-provider",
+            saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
             identity_pool_name="identity pool",
             allow_unauthenticated_identities=False,

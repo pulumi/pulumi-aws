@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverQueryLogConfigAssociation("example", {
- *     resolverQueryLogConfigId: aws_route53_resolver_query_log_config.example.id,
- *     resourceId: aws_vpc.example.id,
+ *     resolverQueryLogConfigId: exampleAwsRoute53ResolverQueryLogConfig.id,
+ *     resourceId: exampleAwsVpc.id,
  * });
  * ```
  *

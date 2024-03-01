@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.TemplateAlias("example", new()
     ///     {
     ///         AliasName = "example-alias",
-    ///         TemplateId = aws_quicksight_template.Test.Template_id,
-    ///         TemplateVersionNumber = aws_quicksight_template.Test.Version_number,
+    ///         TemplateId = test.TemplateId,
+    ///         TemplateVersionNumber = test.VersionNumber,
     ///     });
     /// 
     /// });

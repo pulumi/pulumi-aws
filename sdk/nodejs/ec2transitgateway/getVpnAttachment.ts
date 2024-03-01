@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getVpnAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpnConnectionId: aws_vpn_connection.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     vpnConnectionId: exampleAwsVpnConnection.id,
  * });
  * ```
  * ### Filter
@@ -101,8 +101,8 @@ export interface GetVpnAttachmentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getVpnAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpnConnectionId: aws_vpn_connection.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     vpnConnectionId: exampleAwsVpnConnection.id,
  * });
  * ```
  * ### Filter

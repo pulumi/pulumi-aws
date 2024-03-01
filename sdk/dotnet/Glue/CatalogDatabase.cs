@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
+    ///         Name = "MyCatalogDatabase",
     ///         CreateTableDefaultPermissions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
@@ -55,7 +56,6 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///             },
     ///         },
-    ///         Name = "MyCatalogDatabase",
     ///     });
     /// 
     /// });

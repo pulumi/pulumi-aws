@@ -84,6 +84,38 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
 
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
+    ## Example Usage
+
+    The following shows outputting all VPC Ids.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_vpcs(tags={
+        "service": "production",
+    })
+    pulumi.export("foo", foo.ids)
+    ```
+
+    An example use case would be interpolate the `ec2_get_vpcs` output into `count` of an ec2.FlowLog resource.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    foo = aws.ec2.get_vpcs()
+    foo_get_vpc = [aws.ec2.get_vpc(id=not_implemented("tolist(data.aws_vpcs.foo.ids)")[__index]) for __index in range(len(foo.ids))]
+    test_flow_log = []
+    for range in [{"value": i} for i in range(0, len(foo.ids))]:
+        test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc[range["value"]].id))
+    pulumi.export("foo", foo.ids)
+    ```
+
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
            
@@ -113,6 +145,38 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     This resource can be useful for getting back a list of VPC Ids for a region.
 
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+
+    ## Example Usage
+
+    The following shows outputting all VPC Ids.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_vpcs(tags={
+        "service": "production",
+    })
+    pulumi.export("foo", foo.ids)
+    ```
+
+    An example use case would be interpolate the `ec2_get_vpcs` output into `count` of an ec2.FlowLog resource.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    foo = aws.ec2.get_vpcs()
+    foo_get_vpc = [aws.ec2.get_vpc(id=not_implemented("tolist(data.aws_vpcs.foo.ids)")[__index]) for __index in range(len(foo.ids))]
+    test_flow_log = []
+    for range in [{"value": i} for i in range(0, len(foo.ids))]:
+        test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc[range["value"]].id))
+    pulumi.export("foo", foo.ids)
+    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.

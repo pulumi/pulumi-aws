@@ -30,20 +30,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpcEndpointService, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+//			example, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
 //				Service: pulumi.StringRef("dynamodb"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
-//				ServiceName: *pulumi.String(exampleVpcEndpointService.ServiceName),
+//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ServiceName: *pulumi.String(example.ServiceName),
 //				VpcId:       exampleVpc.ID(),
 //			})
 //			if err != nil {
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = ec2.NewVpcEndpointPolicy(ctx, "exampleVpcEndpointPolicy", &ec2.VpcEndpointPolicyArgs{
+//			_, err = ec2.NewVpcEndpointPolicy(ctx, "example", &ec2.VpcEndpointPolicyArgs{
 //				VpcEndpointId: exampleVpcEndpoint.ID(),
 //				Policy:        pulumi.String(json0),
 //			})

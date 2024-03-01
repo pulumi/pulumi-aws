@@ -14,8 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.DeploymentStrategy("example", {
- *     deploymentDurationInMinutes: 3,
+ *     name: "example-deployment-strategy-tf",
  *     description: "Example Deployment Strategy",
+ *     deploymentDurationInMinutes: 3,
  *     finalBakeTimeInMinutes: 4,
  *     growthFactor: 10,
  *     growthType: "LINEAR",

@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import java.util.List;
@@ -51,10 +52,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
@@ -87,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket(&#34;exampleBucket&#34;, BucketArgs.builder()        
+ *         var example = new Bucket(&#34;example&#34;, BucketArgs.builder()        
  *             .bucket(&#34;example&#34;)
  *             .build());
  * 
@@ -96,7 +100,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucket.arn())
+ *             .bucket(example.arn())
+ *             .name(&#34;example&#34;)
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())

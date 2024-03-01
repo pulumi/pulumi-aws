@@ -291,7 +291,8 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
-            project_arn=aws_devicefarm_project["example"]["arn"],
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"],
             rules=[aws.devicefarm.DevicePoolRuleArgs(
                 attribute="OS_VERSION",
                 operator="EQUALS",
@@ -332,7 +333,8 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
-            project_arn=aws_devicefarm_project["example"]["arn"],
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"],
             rules=[aws.devicefarm.DevicePoolRuleArgs(
                 attribute="OS_VERSION",
                 operator="EQUALS",

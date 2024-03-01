@@ -49,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
+ *             .roleArn(this_.arn())
  *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
  *             .build());
  * 
@@ -82,8 +83,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
+ *             .roleArn(this_.arn())
  *             .capacityUnits(IndexCapacityUnitsArgs.builder()
  *                 .queryCapacityUnits(2)
  *                 .storageCapacityUnits(2)
@@ -117,9 +119,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(thisAwsIamRole.arn())
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(data.aws_kms_key().this().arn())
+ *                 .kmsKeyId(this_.arn())
  *                 .build())
  *             .build());
  * 
@@ -150,7 +153,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
  *                 .userGroupResolutionMode(&#34;AWS_SSO&#34;)
  *                 .build())
@@ -188,7 +192,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name(&#34;_authors&#34;)
@@ -422,7 +427,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name(&#34;_authors&#34;)
@@ -710,7 +716,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
  *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
  *                     .groupAttributeField(&#34;groups&#34;)

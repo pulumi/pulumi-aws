@@ -28,13 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//			testSp, err := signer.NewSigningProfile(ctx, "test_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
+//			_, err = signer.NewSigningJob(ctx, "build_signing_job", &signer.SigningJobArgs{
 //				ProfileName: testSp.Name,
 //				Source: &signer.SigningJobSourceArgs{
 //					S3: &signer.SigningJobSourceS3Args{

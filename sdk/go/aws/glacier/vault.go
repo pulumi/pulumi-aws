@@ -31,11 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			awsSnsTopic, err := sns.NewTopic(ctx, "awsSnsTopic", nil)
+//			awsSnsTopic, err := sns.NewTopic(ctx, "aws_sns_topic", &sns.TopicArgs{
+//				Name: pulumi.String("glacier-sns-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			myArchivePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			myArchive, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("add-read-only-perm"),
@@ -61,7 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glacier.NewVault(ctx, "myArchiveVault", &glacier.VaultArgs{
+//			_, err = glacier.NewVault(ctx, "my_archive", &glacier.VaultArgs{
+//				Name: pulumi.String("MyArchive"),
 //				Notification: &glacier.VaultNotificationArgs{
 //					SnsTopic: awsSnsTopic.Arn,
 //					Events: pulumi.StringArray{
@@ -69,7 +72,7 @@ import (
 //						pulumi.String("InventoryRetrievalCompleted"),
 //					},
 //				},
-//				AccessPolicy: *pulumi.String(myArchivePolicyDocument.Json),
+//				AccessPolicy: *pulumi.String(myArchive.Json),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("MyArchive"),
 //				},

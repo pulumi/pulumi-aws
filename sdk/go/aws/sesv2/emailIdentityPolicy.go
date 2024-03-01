@@ -31,16 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
+//			example, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
 //				EmailIdentity: pulumi.String("testing@example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sesv2.NewEmailIdentityPolicy(ctx, "exampleEmailIdentityPolicy", &sesv2.EmailIdentityPolicyArgs{
-//				EmailIdentity: exampleEmailIdentity.EmailIdentity,
+//			_, err = sesv2.NewEmailIdentityPolicy(ctx, "example", &sesv2.EmailIdentityPolicyArgs{
+//				EmailIdentity: example.EmailIdentity,
 //				PolicyName:    pulumi.String("example"),
-//				Policy: exampleEmailIdentity.Arn.ApplyT(func(arn string) (string, error) {
+//				Policy: example.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf(`{
 //	  "Id":"ExampleAuthorizationPolicy",
 //	  "Version":"2012-10-17",

@@ -438,7 +438,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=aws_apprunner_connection["example"]["arn"],
+                    connection_arn=example_aws_apprunner_connection["arn"],
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -460,7 +460,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
+                    vpc_connector_arn=connector["arn"],
                 ),
             ),
             tags={
@@ -476,7 +476,6 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                auto_deployments_enabled=False,
                 image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
                     image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
                         port="8000",
@@ -484,6 +483,7 @@ class Service(pulumi.CustomResource):
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
                     image_repository_type="ECR_PUBLIC",
                 ),
+                auto_deployments_enabled=False,
             ),
             tags={
                 "Name": "example-apprunner-service",
@@ -495,12 +495,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
+        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("example",
             observability_configuration_name="example",
             trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
                 vendor="AWSXRAY",
             ))
-        example_service = aws.apprunner.Service("exampleService",
+        example = aws.apprunner.Service("example",
             service_name="example",
             observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
                 observability_configuration_arn=example_observability_configuration.arn,
@@ -563,7 +563,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=aws_apprunner_connection["example"]["arn"],
+                    connection_arn=example_aws_apprunner_connection["arn"],
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -585,7 +585,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
+                    vpc_connector_arn=connector["arn"],
                 ),
             ),
             tags={
@@ -601,7 +601,6 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                auto_deployments_enabled=False,
                 image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
                     image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
                         port="8000",
@@ -609,6 +608,7 @@ class Service(pulumi.CustomResource):
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
                     image_repository_type="ECR_PUBLIC",
                 ),
+                auto_deployments_enabled=False,
             ),
             tags={
                 "Name": "example-apprunner-service",
@@ -620,12 +620,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
+        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("example",
             observability_configuration_name="example",
             trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
                 vendor="AWSXRAY",
             ))
-        example_service = aws.apprunner.Service("exampleService",
+        example = aws.apprunner.Service("example",
             service_name="example",
             observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
                 observability_configuration_arn=example_observability_configuration.arn,

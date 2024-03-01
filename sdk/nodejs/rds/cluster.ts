@@ -33,18 +33,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Cluster("default", {
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     engine: "aurora-mysql",
+ *     engineVersion: "5.7.mysql_aurora.2.03.2",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     engine: "aurora-mysql",
- *     engineVersion: "5.7.mysql_aurora.2.03.2",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
@@ -55,16 +55,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Cluster("default", {
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
@@ -75,17 +75,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const postgresql = new aws.rds.Cluster("postgresql", {
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     engine: "aurora-postgresql",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     engine: "aurora-postgresql",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
@@ -100,19 +100,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
- *     allocatedStorage: 100,
+ *     clusterIdentifier: "example",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     clusterIdentifier: "example",
- *     dbClusterInstanceClass: "db.r6gd.xlarge",
  *     engine: "mysql",
- *     iops: 1000,
- *     masterPassword: "mustbeeightcharaters",
- *     masterUsername: "test",
+ *     dbClusterInstanceClass: "db.r6gd.xlarge",
  *     storageType: "io1",
+ *     allocatedStorage: 100,
+ *     iops: 1000,
+ *     masterUsername: "test",
+ *     masterPassword: "mustbeeightcharaters",
  * });
  * ```
  * ### RDS Serverless v2 Cluster
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ * const example = new aws.rds.Cluster("example", {
  *     clusterIdentifier: "example",
  *     engine: "aurora-postgresql",
  *     engineMode: "provisioned",
@@ -142,11 +142,11 @@ import * as utilities from "../utilities";
  *         minCapacity: 0.5,
  *     },
  * });
- * const exampleClusterInstance = new aws.rds.ClusterInstance("exampleClusterInstance", {
- *     clusterIdentifier: exampleCluster.id,
+ * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {
+ *     clusterIdentifier: example.id,
  *     instanceClass: "db.serverless",
- *     engine: exampleCluster.engine,
- *     engineVersion: exampleCluster.engineVersion,
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
  * });
  * ```
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
@@ -191,17 +191,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleClusterSnapshot = aws.rds.getClusterSnapshot({
+ * const example = aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "example-original-cluster",
  *     mostRecent: true,
  * });
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ * const exampleCluster = new aws.rds.Cluster("example", {
  *     engine: "aurora",
  *     engineVersion: "5.6.mysql_aurora.1.22.4",
  *     clusterIdentifier: "example",
- *     snapshotIdentifier: exampleClusterSnapshot.then(exampleClusterSnapshot => exampleClusterSnapshot.id),
+ *     snapshotIdentifier: example.then(example => example.id),
  * });
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: exampleCluster.arn,
  *     forceDestroy: true,

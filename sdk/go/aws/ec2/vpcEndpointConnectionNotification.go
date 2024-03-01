@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			topicPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			topic, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -55,23 +55,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			topicTopic, err := sns.NewTopic(ctx, "topicTopic", &sns.TopicArgs{
-//				Policy: *pulumi.String(topicPolicyDocument.Json),
+//			topicTopic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
+//				Name:   pulumi.String("vpce-notification-topic"),
+//				Policy: *pulumi.String(topic.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "fooVpcEndpointService", &ec2.VpcEndpointServiceArgs{
+//			foo, err := ec2.NewVpcEndpointService(ctx, "foo", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				NetworkLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Test.Arn,
+//					test.Arn,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcEndpointConnectionNotification(ctx, "fooVpcEndpointConnectionNotification", &ec2.VpcEndpointConnectionNotificationArgs{
-//				VpcEndpointServiceId:      fooVpcEndpointService.ID(),
+//			_, err = ec2.NewVpcEndpointConnectionNotification(ctx, "foo", &ec2.VpcEndpointConnectionNotificationArgs{
+//				VpcEndpointServiceId:      foo.ID(),
 //				ConnectionNotificationArn: topicTopic.Arn,
 //				ConnectionEvents: pulumi.StringArray{
 //					pulumi.String("Accept"),

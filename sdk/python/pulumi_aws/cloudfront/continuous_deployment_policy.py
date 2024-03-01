@@ -178,7 +178,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         staging = aws.cloudfront.Distribution("staging",
             enabled=True,
             staging=True)
-        # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
@@ -194,7 +193,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         production = aws.cloudfront.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
-        # ... other configuration ...
         ```
         ### Single Weight Config with Session Stickiness
 
@@ -205,7 +203,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -228,7 +226,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -273,7 +271,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         staging = aws.cloudfront.Distribution("staging",
             enabled=True,
             staging=True)
-        # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
@@ -289,7 +286,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         production = aws.cloudfront.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
-        # ... other configuration ...
         ```
         ### Single Weight Config with Session Stickiness
 
@@ -300,7 +296,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -323,7 +319,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(

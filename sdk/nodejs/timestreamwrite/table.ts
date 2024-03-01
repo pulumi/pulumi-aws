@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  * });
  * ```
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  *     retentionProperties: {
  *         magneticStoreRetentionPeriodInDays: 30,
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  *     schema: {
  *         compositePartitionKey: {

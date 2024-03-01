@@ -42,14 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentityMailFromAttributes = new EmailIdentityMailFromAttributes(&#34;exampleEmailIdentityMailFromAttributes&#34;, EmailIdentityMailFromAttributesArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
+ *             .emailIdentity(example.emailIdentity())
  *             .behaviorOnMxFailure(&#34;REJECT_MESSAGE&#34;)
- *             .mailFromDomain(exampleEmailIdentity.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
+ *             .mailFromDomain(example.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
  *             .build());
  * 
  *     }

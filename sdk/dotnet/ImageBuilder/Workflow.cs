@@ -25,36 +25,36 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.Workflow("example", new()
     ///     {
-    ///         Data = @"  name: example
-    ///   description: Workflow to test an image
-    ///   schemaVersion: 1.0
-    /// 
-    ///   parameters:
-    ///     - name: waitForActionAtEnd
-    ///       type: boolean
-    /// 
-    ///   steps:
-    ///     - name: LaunchTestInstance
-    ///       action: LaunchInstance
-    ///       onFailure: Abort
-    ///       inputs:
-    ///         waitFor: ""ssmAgent""
-    /// 
-    ///     - name: TerminateTestInstance
-    ///       action: TerminateInstance
-    ///       onFailure: Continue
-    ///       inputs:
-    ///         instanceId.$: ""$.stepOutputs.LaunchTestInstance.instanceId""
-    /// 
-    ///     - name: WaitForActionAtEnd
-    ///       action: WaitForAction
-    ///       if:
-    ///         booleanEquals: true
-    ///         value: ""$.parameters.waitForActionAtEnd""
-    /// 
-    /// ",
-    ///         Type = "TEST",
+    ///         Name = "example",
     ///         Version = "1.0.0",
+    ///         Type = "TEST",
+    ///         Data = @"name: example
+    /// description: Workflow to test an image
+    /// schemaVersion: 1.0
+    /// 
+    /// parameters:
+    ///   - name: waitForActionAtEnd
+    ///     type: boolean
+    /// 
+    /// steps:
+    ///   - name: LaunchTestInstance
+    ///     action: LaunchInstance
+    ///     onFailure: Abort
+    ///     inputs:
+    ///       waitFor: ""ssmAgent""
+    /// 
+    ///   - name: TerminateTestInstance
+    ///     action: TerminateInstance
+    ///     onFailure: Continue
+    ///     inputs:
+    ///       instanceId.$: ""$.stepOutputs.LaunchTestInstance.instanceId""
+    /// 
+    ///   - name: WaitForActionAtEnd
+    ///     action: WaitForAction
+    ///     if:
+    ///       booleanEquals: true
+    ///       value: ""$.parameters.waitForActionAtEnd""
+    /// ",
     ///     });
     /// 
     /// });

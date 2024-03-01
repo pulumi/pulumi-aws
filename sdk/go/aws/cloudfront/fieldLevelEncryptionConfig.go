@@ -46,7 +46,7 @@ import (
 //					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
 //						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
 //							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-//								ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
+//								ProfileId: pulumi.Any(testAwsCloudfrontFieldLevelEncryptionProfile.Id),
 //								QueryArg:  pulumi.String("Arg1"),
 //							},
 //						},

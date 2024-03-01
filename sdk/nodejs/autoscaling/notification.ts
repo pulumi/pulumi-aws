@@ -19,13 +19,10 @@ import {NotificationType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sns.Topic("example", {});
- * // arn is an exported attribute
- * const bar = new aws.autoscaling.Group("bar", {});
- * // ...
- * const foo = new aws.autoscaling.Group("foo", {});
- * // ...
- * const exampleNotifications = new aws.autoscaling.Notification("exampleNotifications", {
+ * const example = new aws.sns.Topic("example", {name: "example-topic"});
+ * const bar = new aws.autoscaling.Group("bar", {name: "foobar1-test"});
+ * const foo = new aws.autoscaling.Group("foo", {name: "barfoo-test"});
+ * const exampleNotifications = new aws.autoscaling.Notification("example_notifications", {
  *     groupNames: [
  *         bar.name,
  *         foo.name,

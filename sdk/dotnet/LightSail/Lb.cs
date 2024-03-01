@@ -24,6 +24,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 

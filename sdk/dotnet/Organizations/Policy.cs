@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -41,9 +41,10 @@ namespace Pulumi.Aws.Organizations
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Organizations.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Organizations.Policy("example", new()
     ///     {
-    ///         Content = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         Content = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

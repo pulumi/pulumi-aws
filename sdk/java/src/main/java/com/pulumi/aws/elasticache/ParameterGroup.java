@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;cache-params&#34;)
  *             .family(&#34;redis2.8&#34;)
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()

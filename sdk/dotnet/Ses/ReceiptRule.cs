@@ -25,6 +25,14 @@ namespace Pulumi.Aws.Ses
     ///     // Add a header to the email and store it in S3
     ///     var store = new Aws.Ses.ReceiptRule("store", new()
     ///     {
+    ///         Name = "store",
+    ///         RuleSetName = "default-rule-set",
+    ///         Recipients = new[]
+    ///         {
+    ///             "karen@example.com",
+    ///         },
+    ///         Enabled = true,
+    ///         ScanEnabled = true,
     ///         AddHeaderActions = new[]
     ///         {
     ///             new Aws.Ses.Inputs.ReceiptRuleAddHeaderActionArgs
@@ -34,12 +42,6 @@ namespace Pulumi.Aws.Ses
     ///                 Position = 1,
     ///             },
     ///         },
-    ///         Enabled = true,
-    ///         Recipients = new[]
-    ///         {
-    ///             "karen@example.com",
-    ///         },
-    ///         RuleSetName = "default-rule-set",
     ///         S3Actions = new[]
     ///         {
     ///             new Aws.Ses.Inputs.ReceiptRuleS3ActionArgs
@@ -48,7 +50,6 @@ namespace Pulumi.Aws.Ses
     ///                 Position = 2,
     ///             },
     ///         },
-    ///         ScanEnabled = true,
     ///     });
     /// 
     /// });

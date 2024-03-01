@@ -25,10 +25,11 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var foo = new Aws.DirectConnect.HostedPrivateVirtualInterface("foo", new()
     ///     {
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         Name = "vif-foo",
+    ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         Vlan = 4094,
     ///     });
     /// 
     /// });

@@ -44,13 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var testVpcIpv6CidrBlockAssociation = new VpcIpv6CidrBlockAssociation(&#34;testVpcIpv6CidrBlockAssociation&#34;, VpcIpv6CidrBlockAssociationArgs.builder()        
- *             .ipv6IpamPoolId(aws_vpc_ipam_pool.test().id())
- *             .vpcId(testVpc.id())
+ *             .ipv6IpamPoolId(testAwsVpcIpamPool.id())
+ *             .vpcId(test.id())
  *             .build());
  * 
  *     }

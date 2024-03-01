@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
  *     volumeId: example.id,
  *     tags: {
  *         Name: "HelloWorld_snap",

@@ -136,6 +136,22 @@ def get_permission_set(arn: Optional[str] = None,
     """
     Use this data source to get a Single Sign-On (SSO) Permission Set.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = aws.ssoadmin.get_instances()
+    example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+        name="Example")
+    pulumi.export("arn", example_get_permission_set.arn)
+    ```
+
 
     :param str arn: ARN of the permission set.
     :param str instance_arn: ARN of the SSO Instance associated with the permission set.
@@ -170,6 +186,22 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Use this data source to get a Single Sign-On (SSO) Permission Set.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = aws.ssoadmin.get_instances()
+    example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+        name="Example")
+    pulumi.export("arn", example_get_permission_set.arn)
+    ```
 
 
     :param str arn: ARN of the permission set.

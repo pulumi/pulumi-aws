@@ -22,12 +22,13 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLambdafunctionLogfilter = new Aws.CloudWatch.LogSubscriptionFilter("testLambdafunctionLogfilter", new()
+    ///     var testLambdafunctionLogfilter = new Aws.CloudWatch.LogSubscriptionFilter("test_lambdafunction_logfilter", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_lambda.Arn,
+    ///         Name = "test_lambdafunction_logfilter",
+    ///         RoleArn = iamForLambda.Arn,
     ///         LogGroup = "/aws/lambda/example_lambda_name",
     ///         FilterPattern = "logtype test",
-    ///         DestinationArn = aws_kinesis_stream.Test_logstream.Arn,
+    ///         DestinationArn = testLogstream.Arn,
     ///         Distribution = "Random",
     ///     });
     /// 

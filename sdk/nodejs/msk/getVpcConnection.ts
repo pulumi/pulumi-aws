@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.msk.getVpcConnection({
- *     arn: aws_msk_vpc_connection.example.arn,
+ *     arn: exampleAwsMskVpcConnection.arn,
  * });
  * ```
  */
@@ -85,7 +85,7 @@ export interface GetVpcConnectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.msk.getVpcConnection({
- *     arn: aws_msk_vpc_connection.example.arn,
+ *     arn: exampleAwsMskVpcConnection.arn,
  * });
  * ```
  */

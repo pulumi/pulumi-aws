@@ -157,10 +157,11 @@ class SigningCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.SigningCertificate("testCert",
+        test_cert = aws.iam.SigningCertificate("test_cert",
             username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
 
         **Example with cert in-line:**
@@ -169,13 +170,12 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
+            username="some_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
+        \"\"\")
         ```
 
         ## Import
@@ -209,10 +209,11 @@ class SigningCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.SigningCertificate("testCert",
+        test_cert = aws.iam.SigningCertificate("test_cert",
             username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
 
         **Example with cert in-line:**
@@ -221,13 +222,12 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
+            username="some_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
+        \"\"\")
         ```
 
         ## Import

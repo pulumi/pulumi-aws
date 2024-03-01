@@ -232,8 +232,12 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
+        my_detector = aws.guardduty.Detector("MyDetector",
+            enable=True,
             datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
                 kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
                     audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
                         enable=False,
@@ -246,11 +250,7 @@ class Detector(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
+            ))
         ```
 
         ## Import
@@ -286,8 +286,12 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
+        my_detector = aws.guardduty.Detector("MyDetector",
+            enable=True,
             datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
                 kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
                     audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
                         enable=False,
@@ -300,11 +304,7 @@ class Detector(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
+            ))
         ```
 
         ## Import

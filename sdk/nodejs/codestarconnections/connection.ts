@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {providerType: "Bitbucket"});
- * const examplePipeline = new aws.codepipeline.Pipeline("examplePipeline", {
- *     roleArn: aws_iam_role.codepipeline_role.arn,
+ * const example = new aws.codestarconnections.Connection("example", {
+ *     name: "example-connection",
+ *     providerType: "Bitbucket",
+ * });
+ * const examplePipeline = new aws.codepipeline.Pipeline("example", {
  *     artifactStores: [{}],
  *     stages: [
  *         {
@@ -30,21 +32,23 @@ import * as utilities from "../utilities";
  *                 version: "1",
  *                 outputArtifacts: ["source_output"],
  *                 configuration: {
- *                     ConnectionArn: exampleConnection.arn,
+ *                     ConnectionArn: example.arn,
  *                     FullRepositoryId: "my-organization/test",
  *                     BranchName: "main",
  *                 },
  *             }],
  *         },
  *         {
- *             name: "Build",
  *             actions: [{}],
+ *             name: "Build",
  *         },
  *         {
- *             name: "Deploy",
  *             actions: [{}],
+ *             name: "Deploy",
  *         },
  *     ],
+ *     name: "tf-test-pipeline",
+ *     roleArn: codepipelineRole.arn,
  * });
  * ```
  *

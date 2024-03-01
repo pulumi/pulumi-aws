@@ -34,15 +34,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			gdBucket, err := s3.NewBucketV2(ctx, "gdBucket", &s3.BucketV2Args{
+//			gdBucket, err := s3.NewBucketV2(ctx, "gd_bucket", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -96,7 +97,7 @@ import (
 //							"kms:GenerateDataKey",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -113,13 +114,13 @@ import (
 //							"kms:*",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
 //								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId),
+//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //								},
 //							},
 //						},
@@ -129,20 +130,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testGd, err := guardduty.NewDetector(ctx, "testGd", &guardduty.DetectorArgs{
+//			testGd, err := guardduty.NewDetector(ctx, "test_gd", &guardduty.DetectorArgs{
 //				Enable: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "gdBucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "gd_bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: gdBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gdBucketPolicy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
 //				Bucket: gdBucket.ID(),
 //				Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
 //					return &bucketPol.Json, nil
@@ -151,7 +152,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gdKey, err := kms.NewKey(ctx, "gdKey", &kms.KeyArgs{
+//			gdKey, err := kms.NewKey(ctx, "gd_key", &kms.KeyArgs{
 //				Description:          pulumi.String("Temporary key for AccTest of TF"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //				Policy:               *pulumi.String(kmsPol.Json),
@@ -163,9 +164,7 @@ import (
 //				DetectorId:     testGd.ID(),
 //				DestinationArn: gdBucket.Arn,
 //				KmsKeyArn:      gdKey.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gdBucketPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

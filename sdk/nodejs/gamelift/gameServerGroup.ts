@@ -27,13 +27,11 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     launchTemplate: {
- *         id: aws_launch_template.example.id,
+ *         id: exampleAwsLaunchTemplate.id,
  *     },
  *     maxSize: 1,
  *     minSize: 1,
- *     roleArn: aws_iam_role.example.arn,
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.example],
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -64,12 +62,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     launchTemplate: {
- *         id: aws_launch_template.example.id,
+ *         id: exampleAwsLaunchTemplate.id,
  *         version: "1",
  *     },
  *     maxSize: 1,
  *     minSize: 1,
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "example",
  *     },
@@ -77,8 +75,6 @@ import * as utilities from "../utilities";
  *         "subnet-12345678",
  *         "subnet-23456789",
  *     ],
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.example],
  * });
  * ```
  * ### Example IAM Role for GameLift Game Server Group
@@ -101,10 +97,13 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ *     name: "gamelift-game-server-group-example",
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy`),
- *     role: exampleRole.name,
+ *     role: example.name,
  * });
  * ```
  *

@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .description(&#34;This is the Sample App Repository&#34;)
  *             .repositoryName(&#34;MyTestRepository&#34;)
+ *             .description(&#34;This is the Sample App Repository&#34;)
  *             .build());
  * 
  *     }
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repositoryName(&#34;MyTestRepository&#34;)
  *             .description(&#34;This is the Sample App Repository&#34;)
  *             .kmsKeyId(testKey.arn())

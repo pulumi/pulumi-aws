@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dns_resolver", new()
     ///     {
     ///         DomainNameServers = new[]
     ///         {
@@ -54,15 +54,15 @@ namespace Pulumi.Aws.Ec2
     ///             "127.0.0.1",
     ///             "10.0.0.2",
     ///         },
+    ///         NtpServers = new[]
+    ///         {
+    ///             "127.0.0.1",
+    ///         },
     ///         NetbiosNameServers = new[]
     ///         {
     ///             "127.0.0.1",
     ///         },
     ///         NetbiosNodeType = "2",
-    ///         NtpServers = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Name", "foo-name" },

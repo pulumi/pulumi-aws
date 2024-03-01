@@ -22,7 +22,10 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
+    ///     var example = new Aws.WorkLink.Fleet("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     /// });
     /// ```
@@ -39,16 +42,17 @@ namespace Pulumi.Aws.WorkLink
     /// {
     ///     var example = new Aws.WorkLink.Fleet("example", new()
     ///     {
+    ///         Name = "example",
     ///         Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
     ///         {
-    ///             VpcId = aws_vpc.Test.Id,
+    ///             VpcId = testAwsVpc.Id,
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///                 testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Test.Id,
+    ///                 test.Id,
     ///             },
     ///         },
     ///     });
@@ -60,19 +64,23 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.WorkLink.Fleet("test", new()
     ///     {
+    ///         Name = "tf-worklink-fleet",
     ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
     ///         {
     ///             Type = "SAML",
-    ///             SamlMetadata = File.ReadAllText("saml-metadata.xml"),
+    ///             SamlMetadata = Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "saml-metadata.xml",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
     ///     });
     /// 

@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Host(&#34;example&#34;, HostArgs.builder()        
+ *             .name(&#34;example-host&#34;)
  *             .providerEndpoint(&#34;https://example.com&#34;)
  *             .providerType(&#34;GitHubEnterpriseServer&#34;)
  *             .build());

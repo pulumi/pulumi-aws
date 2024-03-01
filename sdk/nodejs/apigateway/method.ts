@@ -15,13 +15,16 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
@@ -36,19 +39,20 @@ import {RestApi} from "./index";
  *
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
- * const thisUserPools = aws.cognito.getUserPools({
+ * const this = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * });
- * const thisRestApi = new aws.apigateway.RestApi("thisRestApi", {});
- * const thisResource = new aws.apigateway.Resource("thisResource", {
+ * const thisRestApi = new aws.apigateway.RestApi("this", {name: "with-authorizer"});
+ * const thisResource = new aws.apigateway.Resource("this", {
  *     restApi: thisRestApi.id,
  *     parentId: thisRestApi.rootResourceId,
  *     pathPart: "{proxy+}",
  * });
- * const thisAuthorizer = new aws.apigateway.Authorizer("thisAuthorizer", {
+ * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
+ *     name: "CognitoUserPoolAuthorizer",
  *     type: "COGNITO_USER_POOLS",
  *     restApi: thisRestApi.id,
- *     providerArns: thisUserPools.then(thisUserPools => thisUserPools.arns),
+ *     providerArns: _this.then(_this => _this.arns),
  * });
  * const any = new aws.apigateway.Method("any", {
  *     restApi: thisRestApi.id,

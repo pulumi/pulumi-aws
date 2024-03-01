@@ -31,9 +31,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costexplorer.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer.AnomalyMonitorArgs{
-//				MonitorDimension: pulumi.String("SERVICE"),
+//			_, err := costexplorer.NewAnomalyMonitor(ctx, "service_monitor", &costexplorer.AnomalyMonitorArgs{
+//				Name:             pulumi.String("AWSServiceMonitor"),
 //				MonitorType:      pulumi.String("DIMENSIONAL"),
+//				MonitorDimension: pulumi.String("SERVICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -60,15 +61,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"And":            nil,
-//				"CostCategories": nil,
-//				"Dimensions":     nil,
-//				"Not":            nil,
-//				"Or":             nil,
-//				"Tags": map[string]interface{}{
-//					"Key":          "CostCenter",
-//					"MatchOptions": nil,
-//					"Values": []string{
+//				"and":            nil,
+//				"costCategories": nil,
+//				"dimensions":     nil,
+//				"not":            nil,
+//				"or":             nil,
+//				"tags": map[string]interface{}{
+//					"key":          "CostCenter",
+//					"matchOptions": nil,
+//					"values": []string{
 //						"10000",
 //					},
 //				},
@@ -78,6 +79,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
+//				Name:                 pulumi.String("AWSCustomAnomalyMonitor"),
 //				MonitorType:          pulumi.String("CUSTOM"),
 //				MonitorSpecification: pulumi.String(json0),
 //			})

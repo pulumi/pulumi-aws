@@ -15,6 +15,49 @@ import (
 // Resource for managing an AWS SSO Admin Trusted Token Issuer.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewTrustedTokenIssuer(ctx, "example", &ssoadmin.TrustedTokenIssuerArgs{
+//				Name:                   pulumi.String("example"),
+//				InstanceArn:            notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//				TrustedTokenIssuerType: pulumi.String("OIDC_JWT"),
+//				TrustedTokenIssuerConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{
+//					OidcJwtConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{
+//						ClaimAttributePath:         pulumi.String("email"),
+//						IdentityStoreAttributePath: pulumi.String("emails.value"),
+//						IssuerUrl:                  pulumi.String("https://example.com"),
+//						JwksRetrievalOption:        pulumi.String("OPEN_ID_DISCOVERY"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

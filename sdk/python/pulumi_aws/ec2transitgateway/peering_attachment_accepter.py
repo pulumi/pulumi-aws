@@ -190,7 +190,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_peering_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
@@ -225,7 +225,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_peering_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })

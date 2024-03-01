@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
 //				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:   pulumi.Any(test.Arn),
 //			})
 //			if err != nil {
 //				return err

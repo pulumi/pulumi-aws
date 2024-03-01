@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderFlowersBot = new aws.lex.Bot("orderFlowersBot", {
+ * const orderFlowersBot = new aws.lex.Bot("order_flowers_bot", {
  *     abortStatement: {
  *         messages: [{
  *             content: "Sorry, I am not able to assist at this time",

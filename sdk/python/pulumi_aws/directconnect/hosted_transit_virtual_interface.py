@@ -430,7 +430,8 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.HostedTransitVirtualInterface("example",
-            connection_id=aws_dx_connection["example"]["id"],
+            connection_id=example_aws_dx_connection["id"],
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
@@ -475,7 +476,8 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.HostedTransitVirtualInterface("example",
-            connection_id=aws_dx_connection["example"]["id"],
+            connection_id=example_aws_dx_connection["id"],
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)

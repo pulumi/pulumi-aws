@@ -107,8 +107,8 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpcEndpointRouteTableAssociation("example",
-            route_table_id=aws_route_table["example"]["id"],
-            vpc_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            route_table_id=example_aws_route_table["id"],
+            vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
 
         ## Import
@@ -140,8 +140,8 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpcEndpointRouteTableAssociation("example",
-            route_table_id=aws_route_table["example"]["id"],
-            vpc_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            route_table_id=example_aws_route_table["id"],
+            vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
 
         ## Import

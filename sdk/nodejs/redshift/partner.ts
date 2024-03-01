@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.Partner("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.id,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.id,
  *     accountId: "1234567910",
- *     databaseName: aws_redshift_cluster.example.database_name,
+ *     databaseName: exampleAwsRedshiftCluster.databaseName,
  *     partnerName: "example",
  * });
  * ```

@@ -22,24 +22,24 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         EncryptionKey = exampleKey.Arn,
     ///     });
     /// 
-    ///     var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new()
+    ///     var exampleRepository = new Aws.CodeArtifact.Repository("example", new()
     ///     {
     ///         RepositoryName = "example",
     ///         Domain = exampleDomain.DomainName,
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,11 +69,11 @@ namespace Pulumi.Aws.CodeArtifact
     ///         },
     ///     });
     /// 
-    ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new()
+    ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("example", new()
     ///     {
     ///         Repository = exampleRepository.RepositoryName,
     ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

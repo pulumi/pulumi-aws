@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NetworkAssociation(&#34;example&#34;, NetworkAssociationArgs.builder()        
- *             .clientVpnEndpointId(aws_ec2_client_vpn_endpoint.example().id())
- *             .subnetId(aws_subnet.example().id())
+ *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }

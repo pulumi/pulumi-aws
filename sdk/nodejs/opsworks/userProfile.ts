@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myProfile = new aws.opsworks.UserProfile("myProfile", {
- *     userArn: aws_iam_user.user.arn,
+ * const myProfile = new aws.opsworks.UserProfile("my_profile", {
+ *     userArn: user.arn,
  *     sshUsername: "my_user",
  * });
  * ```

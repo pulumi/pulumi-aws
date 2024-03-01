@@ -16,6 +16,45 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var exampleGetPoliciesForTarget = Aws.Organizations.GetPoliciesForTarget.Invoke(new()
+        ///     {
+        ///         TargetId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///         Filter = "SERVICE_CONTROL_POLICY",
+        ///     });
+        /// 
+        ///     var exampleGetPolicy = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Organizations.GetPolicy.Invoke(new()
+        ///         {
+        ///             PolicyId = __value,
+        ///         });
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPoliciesForTargetResult> InvokeAsync(GetPoliciesForTargetArgs args, InvokeOptions? options = null)
@@ -26,6 +65,45 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var exampleGetPoliciesForTarget = Aws.Organizations.GetPoliciesForTarget.Invoke(new()
+        ///     {
+        ///         TargetId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///         Filter = "SERVICE_CONTROL_POLICY",
+        ///     });
+        /// 
+        ///     var exampleGetPolicy = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Organizations.GetPolicy.Invoke(new()
+        ///         {
+        ///             PolicyId = __value,
+        ///         });
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPoliciesForTargetResult> Invoke(GetPoliciesForTargetInvokeArgs args, InvokeOptions? options = null)

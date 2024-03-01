@@ -28,16 +28,25 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("exampleIdentityPool", new()
+    ///     var exampleManagedUserPoolClient = new Aws.Cognito.ManagedUserPoolClient("example", new()
+    ///     {
+    ///         NamePrefix = "AmazonOpenSearchService-example",
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("example", new()
     ///     {
     ///         IdentityPoolName = "example",
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -64,20 +73,16 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example-role",
     ///         Path = "/service-role/",
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleDomain = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         Role = exampleRole.Name,
-    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonESCognitoAccess",
-    ///     });
-    /// 
-    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
-    ///     {
+    ///         DomainName = "example",
     ///         CognitoOptions = new Aws.OpenSearch.Inputs.DomainCognitoOptionsArgs
     ///         {
     ///             Enabled = true,
@@ -90,25 +95,12 @@ namespace Pulumi.Aws.Cognito
     ///             EbsEnabled = true,
     ///             VolumeSize = 10,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_cognito_user_pool_domain.Example,
-    ///             exampleRolePolicyAttachment,
-    ///         },
     ///     });
     /// 
-    ///     var exampleManagedUserPoolClient = new Aws.Cognito.ManagedUserPoolClient("exampleManagedUserPoolClient", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
-    ///         NamePrefix = "AmazonOpenSearchService-example",
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleDomain,
-    ///         },
+    ///         Role = exampleRole.Name,
+    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonESCognitoAccess",
     ///     });
     /// 
     /// });

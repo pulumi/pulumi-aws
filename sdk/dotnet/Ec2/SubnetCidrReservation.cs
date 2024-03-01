@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         CidrBlock = "10.0.0.16/28",
     ///         ReservationType = "prefix",
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });

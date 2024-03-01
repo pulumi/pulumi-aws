@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var example = new Aws.Auditmanager.AssessmentDelegation("example", new()
     ///     {
-    ///         AssessmentId = aws_auditmanager_assessment.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         AssessmentId = exampleAwsAuditmanagerAssessment.Id,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         RoleType = "RESOURCE_OWNER",
     ///         ControlSetId = "example",
     ///     });

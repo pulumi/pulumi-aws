@@ -43,7 +43,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
@@ -80,7 +80,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
@@ -117,7 +117,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
@@ -154,7 +154,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
@@ -191,8 +191,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
@@ -230,8 +230,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
@@ -269,8 +269,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
@@ -308,8 +308,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 

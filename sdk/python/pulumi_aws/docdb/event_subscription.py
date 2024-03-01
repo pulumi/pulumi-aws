@@ -351,25 +351,26 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.docdb.Cluster("exampleCluster",
+        example = aws.docdb.Cluster("example",
             cluster_identifier="example",
             availability_zones=[
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
+                available["names"],
+                available["names"],
+                available["names"],
             ],
             master_username="foo",
             master_password="mustbeeightcharaters",
             skip_final_snapshot=True)
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_event_subscription = aws.docdb.EventSubscription("exampleEventSubscription",
+        example_topic = aws.sns.Topic("example", name="example-events")
+        example_event_subscription = aws.docdb.EventSubscription("example",
+            name="example",
             enabled=True,
             event_categories=[
                 "creation",
                 "failure",
             ],
             source_type="db-cluster",
-            source_ids=[example_cluster.id],
+            source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
 
@@ -406,25 +407,26 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.docdb.Cluster("exampleCluster",
+        example = aws.docdb.Cluster("example",
             cluster_identifier="example",
             availability_zones=[
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
+                available["names"],
+                available["names"],
+                available["names"],
             ],
             master_username="foo",
             master_password="mustbeeightcharaters",
             skip_final_snapshot=True)
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_event_subscription = aws.docdb.EventSubscription("exampleEventSubscription",
+        example_topic = aws.sns.Topic("example", name="example-events")
+        example_event_subscription = aws.docdb.EventSubscription("example",
+            name="example",
             enabled=True,
             event_categories=[
                 "creation",
                 "failure",
             ],
             source_type="db-cluster",
-            source_ids=[example_cluster.id],
+            source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
 

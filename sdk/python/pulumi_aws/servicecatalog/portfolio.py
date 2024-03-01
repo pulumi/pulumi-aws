@@ -220,6 +220,7 @@ class Portfolio(pulumi.CustomResource):
         import pulumi_aws as aws
 
         portfolio = aws.servicecatalog.Portfolio("portfolio",
+            name="My App Portfolio",
             description="List of my organizations apps",
             provider_name="Brett")
         ```
@@ -255,6 +256,7 @@ class Portfolio(pulumi.CustomResource):
         import pulumi_aws as aws
 
         portfolio = aws.servicecatalog.Portfolio("portfolio",
+            name="My App Portfolio",
             description="List of my organizations apps",
             provider_name="Brett")
         ```

@@ -16,18 +16,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.appconfig.Application("exampleApplication", {
+ * const exampleApplication = new aws.appconfig.Application("example", {
+ *     name: "example-application-tf",
  *     description: "Example AppConfig Application",
  *     tags: {
  *         Type: "AppConfig Application",
  *     },
  * });
- * const exampleEnvironment = new aws.appconfig.Environment("exampleEnvironment", {
+ * const example = new aws.appconfig.Environment("example", {
+ *     name: "example-environment-tf",
  *     description: "Example AppConfig Environment",
  *     applicationId: exampleApplication.id,
  *     monitors: [{
- *         alarmArn: aws_cloudwatch_metric_alarm.example.arn,
- *         alarmRoleArn: aws_iam_role.example.arn,
+ *         alarmArn: exampleAwsCloudwatchMetricAlarm.arn,
+ *         alarmRoleArn: exampleAwsIamRole.arn,
  *     }],
  *     tags: {
  *         Type: "AppConfig Environment",

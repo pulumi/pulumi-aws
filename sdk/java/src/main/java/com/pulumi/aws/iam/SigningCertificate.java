@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testCert = new SigningCertificate(&#34;testCert&#34;, SigningCertificateArgs.builder()        
  *             .username(&#34;some_test_cert&#34;)
- *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
+ *             .certificateBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -74,13 +76,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCertAlt = new SigningCertificate(&#34;testCertAlt&#34;, SigningCertificateArgs.builder()        
+ *             .username(&#34;some_test_cert&#34;)
  *             .certificateBody(&#34;&#34;&#34;
  * -----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- * 
  *             &#34;&#34;&#34;)
- *             .username(&#34;some_test_cert&#34;)
  *             .build());
  * 
  *     }

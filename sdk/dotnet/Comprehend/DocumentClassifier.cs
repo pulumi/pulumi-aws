@@ -25,26 +25,19 @@ namespace Pulumi.Aws.Comprehend
     /// {
     ///     var documents = new Aws.S3.BucketObjectv2("documents");
     /// 
-    ///     // ...
     ///     var example = new Aws.Comprehend.DocumentClassifier("example", new()
     ///     {
-    ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
     ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
     ///         {
-    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Test.Bucket}/{id}"),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
+    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{test.Bucket}/{id}"),
     ///         },
     ///     });
     /// 
     ///     var entities = new Aws.S3.BucketObjectv2("entities");
     /// 
-    ///     // ...
     /// });
     /// ```
     /// 

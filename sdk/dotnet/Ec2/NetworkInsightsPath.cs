@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.NetworkInsightsPath("test", new()
     ///     {
-    ///         Source = aws_network_interface.Source.Id,
-    ///         Destination = aws_network_interface.Destination.Id,
+    ///         Source = source.Id,
+    ///         Destination = destination.Id,
     ///         Protocol = "tcp",
     ///     });
     /// 

@@ -18,33 +18,48 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var example = new Aws.ApiGateway.Stage("example", new()
     ///     {
-    ///         Deployment = aws_api_gateway_deployment.Example.Id,
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         Deployment = exampleAwsApiGatewayDeployment.Id,
+    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new()
+    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("example", new()
     ///     {
     ///         Domain = "example.com",
     ///         CertificateName = "example-api",
-    ///         CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///         CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/example.com/example.crt",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         CertificateChain = Std.File.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/example.com/ca.crt",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         CertificatePrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = $"{NotImplemented("path.module")}/example.com/example.key",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new()
+    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("example", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = exampleStage.StageName,
+    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+    ///         StageName = example.StageName,
     ///         DomainName = exampleDomainName.Domain,
     ///     });
     /// 

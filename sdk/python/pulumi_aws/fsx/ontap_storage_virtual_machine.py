@@ -321,7 +321,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system["test"]["id"])
+        test = aws.fsx.OntapStorageVirtualMachine("test",
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="test")
         ```
         ### Using a Self-Managed Microsoft Active Directory
 
@@ -332,7 +334,8 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=aws_fsx_ontap_file_system["test"]["id"],
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="mysvm",
             active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
                 netbios_name="mysvm",
                 self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(
@@ -381,7 +384,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system["test"]["id"])
+        test = aws.fsx.OntapStorageVirtualMachine("test",
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="test")
         ```
         ### Using a Self-Managed Microsoft Active Directory
 
@@ -392,7 +397,8 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=aws_fsx_ontap_file_system["test"]["id"],
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="mysvm",
             active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
                 netbios_name="mysvm",
                 self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(

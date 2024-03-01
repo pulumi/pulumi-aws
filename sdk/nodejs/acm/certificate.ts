@@ -55,10 +55,10 @@ import * as utilities from "../utilities";
  *
  * const cert = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
+ *     validationMethod: "DNS",
  *     tags: {
  *         Environment: "test",
  *     },
- *     validationMethod: "DNS",
  * });
  * ```
  * ### Custom Domain Validation Options
@@ -83,10 +83,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.SelfSignedCert("exampleSelfSignedCert", {
+ * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: examplePrivateKey.privateKeyPem,
+ *     privateKeyPem: example.privateKeyPem,
  *     subject: {
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const cert = new aws.acm.Certificate("cert", {
- *     privateKey: examplePrivateKey.privateKeyPem,
+ *     privateKey: example.privateKeyPem,
  *     certificateBody: exampleSelfSignedCert.certPem,
  * });
  * ```
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *         records: [range.value.record],
  *         ttl: 60,
  *         type: aws.route53.recordtype.RecordType[range.value.type],
- *         zoneId: aws_route53_zone.example.zone_id,
+ *         zoneId: exampleAwsRoute53Zone.zoneId,
  *     }));
  * }
  * ```

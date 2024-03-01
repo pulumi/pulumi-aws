@@ -17,10 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "InstanceIds",
- *     values: [aws_instance.example.id],
- * }]});
+ * const example = new aws.ssm.Association("example", {
+ *     name: exampleAwsSsmDocument.name,
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
+ * });
  * ```
  * ### Create an association for all managed instances in an AWS account
  *
@@ -30,10 +33,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "InstanceIds",
- *     values: ["*"],
- * }]});
+ * const example = new aws.ssm.Association("example", {
+ *     name: "AmazonCloudWatch-ManageAgent",
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: ["*"],
+ *     }],
+ * });
  * ```
  * ### Create an association for a specific tag
  *
@@ -43,10 +49,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "tag:Environment",
- *     values: ["Development"],
- * }]});
+ * const example = new aws.ssm.Association("example", {
+ *     name: "AmazonCloudWatch-ManageAgent",
+ *     targets: [{
+ *         key: "tag:Environment",
+ *         values: ["Development"],
+ *     }],
+ * });
  * ```
  * ### Create an association with a specific schedule
  *
@@ -57,10 +66,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.Association("example", {
+ *     name: exampleAwsSsmDocument.name,
  *     scheduleExpression: "cron(0 2 ? * SUN *)",
  *     targets: [{
  *         key: "InstanceIds",
- *         values: [aws_instance.example.id],
+ *         values: [exampleAwsInstance.id],
  *     }],
  * });
  * ```

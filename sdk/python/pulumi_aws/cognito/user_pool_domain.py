@@ -236,7 +236,7 @@ class UserPoolDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example")
+        example = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
             user_pool_id=example.id)
@@ -247,16 +247,16 @@ class UserPoolDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
-            certificate_arn=aws_acm_certificate["cert"]["arn"],
+            certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
-        example_zone = aws.route53.get_zone(name="example.com")
+        example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
             type="A",
-            zone_id=example_zone.zone_id,
+            zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,
@@ -294,7 +294,7 @@ class UserPoolDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example")
+        example = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
             user_pool_id=example.id)
@@ -305,16 +305,16 @@ class UserPoolDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
-            certificate_arn=aws_acm_certificate["cert"]["arn"],
+            certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
-        example_zone = aws.route53.get_zone(name="example.com")
+        example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
             type="A",
-            zone_id=example_zone.zone_id,
+            zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,

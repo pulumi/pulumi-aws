@@ -423,20 +423,20 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "sts:AssumeRole",
+                "effect": "Allow",
+                "sid": "",
+                "principal": {
+                    "service": "osis-pipelines.amazonaws.com",
                 },
             }],
         }))
-        example_pipeline = aws.opensearchingest.Pipeline("examplePipeline",
+        example_pipeline = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=example_role.arn.apply(lambda arn: f\"\"\"version: "2"
+            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: "2"
         example-pipeline:
           source:
             http:
@@ -460,10 +460,11 @@ class Pipeline(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=(lambda path: open(path).read())("example.yaml"),
+            pipeline_configuration_body=std.file(input="example.yaml").result,
             max_units=1,
             min_units=1)
         ```
@@ -508,20 +509,20 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "sts:AssumeRole",
+                "effect": "Allow",
+                "sid": "",
+                "principal": {
+                    "service": "osis-pipelines.amazonaws.com",
                 },
             }],
         }))
-        example_pipeline = aws.opensearchingest.Pipeline("examplePipeline",
+        example_pipeline = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=example_role.arn.apply(lambda arn: f\"\"\"version: "2"
+            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: "2"
         example-pipeline:
           source:
             http:
@@ -545,10 +546,11 @@ class Pipeline(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=(lambda path: open(path).read())("example.yaml"),
+            pipeline_configuration_body=std.file(input="example.yaml").result,
             max_units=1,
             min_units=1)
         ```

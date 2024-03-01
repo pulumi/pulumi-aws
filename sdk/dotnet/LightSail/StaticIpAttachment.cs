@@ -24,17 +24,21 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp");
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testStaticIp = new Aws.LightSail.StaticIp("test", new()
     ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
+    ///     {
+    ///         Name = "example",
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "string",
     ///         BundleId = "string",
     ///         KeyPairName = "some_key_name",
     ///     });
     /// 
-    ///     var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new()
+    ///     var test = new Aws.LightSail.StaticIpAttachment("test", new()
     ///     {
     ///         StaticIpName = testStaticIp.Id,
     ///         InstanceName = testInstance.Id,

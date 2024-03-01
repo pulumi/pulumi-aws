@@ -22,10 +22,11 @@ namespace Pulumi.Aws.Macie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var example = new Aws.Macie2.Account("example");
     /// 
-    ///     var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("exampleCustomDataIdentifier", new()
+    ///     var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("example", new()
     ///     {
+    ///         Name = "NAME OF CUSTOM DATA IDENTIFIER",
     ///         Regex = "[0-9]{3}-[0-9]{2}-[0-9]{4}",
     ///         Description = "DESCRIPTION",
     ///         MaximumMatchDistance = 10,
@@ -36,12 +37,6 @@ namespace Pulumi.Aws.Macie
     ///         IgnoreWords = new[]
     ///         {
     ///             "ignore",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_macie2_account.Test,
     ///         },
     ///     });
     /// 

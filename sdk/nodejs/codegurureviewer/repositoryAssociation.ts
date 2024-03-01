@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const exampleRepository = new aws.codecommit.Repository("exampleRepository", {repositoryName: "example-repo"});
- * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation", {
+ * const example = new aws.kms.Key("example", {});
+ * const exampleRepository = new aws.codecommit.Repository("example", {repositoryName: "example-repo"});
+ * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("example", {
  *     repository: {
  *         codecommit: {
  *             name: exampleRepository.repositoryName,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     },
  *     kmsKeyDetails: {
  *         encryptionOption: "CUSTOMER_MANAGED_CMK",
- *         kmsKeyId: exampleKey.keyId,
+ *         kmsKeyId: example.keyId,
  *     },
  * });
  * ```

@@ -246,11 +246,12 @@ class EventIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.EventIntegration("example",
+            name="example-name",
             description="Example Description",
+            eventbridge_bus="default",
             event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
                 source="aws.partner/examplepartner.com",
             ),
-            eventbridge_bus="default",
             tags={
                 "Name": "Example Event Integration",
             })
@@ -288,11 +289,12 @@ class EventIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.EventIntegration("example",
+            name="example-name",
             description="Example Description",
+            eventbridge_bus="default",
             event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
                 source="aws.partner/examplepartner.com",
             ),
-            eventbridge_bus="default",
             tags={
                 "Name": "Example Event Integration",
             })

@@ -26,11 +26,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "mybucket",
+    ///     });
+    /// 
+    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         CorsRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs

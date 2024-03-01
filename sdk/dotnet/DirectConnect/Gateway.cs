@@ -24,6 +24,7 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "tf-dxg-example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 

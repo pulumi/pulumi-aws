@@ -24,10 +24,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Workflow("example");
+    ///     var example = new Aws.Glue.Workflow("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var example_start = new Aws.Glue.Trigger("example-start", new()
     ///     {
+    ///         Name = "trigger-start",
     ///         Type = "ON_DEMAND",
     ///         WorkflowName = example.Name,
     ///         Actions = new[]
@@ -41,6 +45,7 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
     ///     {
+    ///         Name = "trigger-inner",
     ///         Type = "CONDITIONAL",
     ///         WorkflowName = example.Name,
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs

@@ -14,7 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
+ * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ *     name: "apns_application",
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
@@ -26,12 +27,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
- *     applePlatformBundleId: "<APPLE BUNDLE ID>",
- *     applePlatformTeamId: "<APPLE TEAM ID>",
+ * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ *     name: "apns_application",
  *     platform: "APNS",
  *     platformCredential: "<APNS SIGNING KEY>",
  *     platformPrincipal: "<APNS SIGNING KEY ID>",
+ *     applePlatformTeamId: "<APPLE TEAM ID>",
+ *     applePlatformBundleId: "<APPLE BUNDLE ID>",
  * });
  * ```
  * ### Google Cloud Messaging (GCM)
@@ -40,7 +42,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
+ * const gcmApplication = new aws.sns.PlatformApplication("gcm_application", {
+ *     name: "gcm_application",
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });

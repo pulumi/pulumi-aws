@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.VpcAttachmentAccepter("example", {
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
  *     },

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         AddonName = "vpc-cni",
     ///     });
     /// 
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         AddonName = "coredns",
     ///         AddonVersion = "v1.10.1-eksbuild.1",
     ///         ResolveConflictsOnUpdate = "PRESERVE",
@@ -54,58 +54,91 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// 
     /// ## Example add-on usage with custom configuration_values
-    /// 
-    /// Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
-    /// 
-    /// &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
-    /// 
-    /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
-    /// This below is an example for extracting the `configuration_values` schema for `coredns`.
+    /// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// 
-    /// Example to create a `coredns` managed addon with custom `configuration_values`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster("example");
+    /// 
+    ///     var example = Tls.GetCertificate.Invoke(new()
     ///     {
-    ///         ClusterName = "mycluster",
-    ///         AddonName = "coredns",
-    ///         AddonVersion = "v1.10.1-eksbuild.1",
-    ///         ResolveConflictsOnCreate = "OVERWRITE",
-    ///         ConfigurationValues = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
+    ///     {
+    ///         ClientIdLists = new[]
     ///         {
-    ///             ["replicaCount"] = 4,
-    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
+    ///             "sts.amazonaws.com",
+    ///         },
+    ///         ThumbprintLists = new[]
+    ///         {
+    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
+    ///         },
+    ///         Url = exampleCluster.Identities.Apply(identities =&gt; identities[0].Oidcs[0]?.Issuer),
+    ///     });
+    /// 
+    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 ["limits"] = new Dictionary&lt;string, object?&gt;
+    ///                 Actions = new[]
     ///                 {
-    ///                     ["cpu"] = "100m",
-    ///                     ["memory"] = "150Mi",
+    ///                     "sts:AssumeRoleWithWebIdentity",
     ///                 },
-    ///                 ["requests"] = new Dictionary&lt;string, object?&gt;
+    ///                 Effect = "Allow",
+    ///                 Conditions = new[]
     ///                 {
-    ///                     ["cpu"] = "100m",
-    ///                     ["memory"] = "150Mi",
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = $"{Std.Replace.Invoke(new()
+    ///                         {
+    ///                             Text = exampleOpenIdConnectProvider.Url,
+    ///                             Search = "https://",
+    ///                             Replace = "",
+    ///                         }).Result}:sub",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "system:serviceaccount:kube-system:aws-node",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             exampleOpenIdConnectProvider.Arn,
+    ///                         },
+    ///                         Type = "Federated",
+    ///                     },
     ///                 },
     ///             },
-    ///         }),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example-vpc-cni-role",
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    ///         Role = exampleRole.Name,
     ///     });
     /// 
     /// });

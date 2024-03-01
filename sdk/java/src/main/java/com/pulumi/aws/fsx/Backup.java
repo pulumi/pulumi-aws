@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLustreFileSystem = new LustreFileSystem(&#34;exampleLustreFileSystem&#34;, LustreFileSystemArgs.builder()        
  *             .storageCapacity(1200)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;PERSISTENT_1&#34;)
  *             .perUnitStorageThroughput(50)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
  *             .build());
  * 
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleWindowsFileSystem = new WindowsFileSystem(&#34;exampleWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
- *             .activeDirectoryId(aws_directory_service_directory.eample().id())
+ *             .activeDirectoryId(eample.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
- *             .subnetIds(aws_subnet.example1().id())
+ *             .subnetIds(example1.id())
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleWindowsFileSystem.id())
  *             .build());
  * 
@@ -122,13 +122,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleOntapVolume = new OntapVolume(&#34;exampleOntapVolume&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .junctionPath(&#34;/example&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(test.id())
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .volumeId(exampleOntapVolume.id())
  *             .build());
  * 
@@ -162,12 +163,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleOpenZfsFileSystem.id())
  *             .build());
  * 

@@ -19,10 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
  * });
  * ```
  * ### Using Tiering Policy
@@ -34,10 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
  *     tieringPolicy: {
  *         name: "AUTO",
  *         coolingPeriod: 31,

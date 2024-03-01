@@ -14,7 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.AssessmentReport("test", {assessmentId: aws_auditmanager_assessment.test.id});
+ * const test = new aws.auditmanager.AssessmentReport("test", {
+ *     name: "example",
+ *     assessmentId: testAwsAuditmanagerAssessment.id,
+ * });
  * ```
  *
  * ## Import

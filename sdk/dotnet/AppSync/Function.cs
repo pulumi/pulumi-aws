@@ -22,9 +22,10 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///         Schema = @"type Mutation {
     ///   putPost(id: ID!, title: String!): Post
     /// }
@@ -45,9 +46,9 @@ namespace Pulumi.Aws.AppSync
     /// ",
     ///     });
     /// 
-    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
+    ///     var exampleDataSource = new Aws.AppSync.DataSource("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         Name = "example",
     ///         Type = "HTTP",
     ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
@@ -56,9 +57,9 @@ namespace Pulumi.Aws.AppSync
     ///         },
     ///     });
     /// 
-    ///     var exampleFunction = new Aws.AppSync.Function("exampleFunction", new()
+    ///     var exampleFunction = new Aws.AppSync.Function("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         DataSource = exampleDataSource.Name,
     ///         Name = "example",
     ///         RequestMappingTemplate = @"{
@@ -84,19 +85,22 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.AppSync.Function("example", new()
     ///     {
-    ///         ApiId = aws_appsync_graphql_api.Example.Id,
-    ///         DataSource = aws_appsync_datasource.Example.Name,
+    ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
+    ///         DataSource = exampleAwsAppsyncDatasource.Name,
     ///         Name = "example",
-    ///         Code = File.ReadAllText("some-code-dir"),
+    ///         Code = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "some-code-dir",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
     ///         {
     ///             Name = "APPSYNC_JS",

@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
  *             .description(&#34;clientvpn-example&#34;)
- *             .serverCertificateArn(aws_acm_certificate.cert().arn())
+ *             .serverCertificateArn(cert.arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.root_cert().arn())
+ *                 .rootCertificateChainArn(rootCert.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
  *                 .enabled(true)
- *                 .cloudwatchLogGroup(aws_cloudwatch_log_group.lg().name())
- *                 .cloudwatchLogStream(aws_cloudwatch_log_stream.ls().name())
+ *                 .cloudwatchLogGroup(lg.name())
+ *                 .cloudwatchLogStream(ls.name())
  *                 .build())
  *             .build());
  * 

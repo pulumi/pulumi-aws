@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(csr.certRequestPem())
  *             .signingAlgorithm(&#34;SHA256WITHRSA&#34;)

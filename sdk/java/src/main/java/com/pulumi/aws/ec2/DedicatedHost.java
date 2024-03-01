@@ -41,10 +41,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DedicatedHost(&#34;test&#34;, DedicatedHostArgs.builder()        
- *             .autoPlacement(&#34;on&#34;)
+ *             .instanceType(&#34;c5.18xlarge&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .hostRecovery(&#34;on&#34;)
- *             .instanceType(&#34;c5.18xlarge&#34;)
+ *             .autoPlacement(&#34;on&#34;)
  *             .build());
  * 
  *     }

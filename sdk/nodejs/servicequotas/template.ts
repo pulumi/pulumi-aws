@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicequotas.Template("example", {
- *     quotaCode: "L-2ACBD22F",
  *     region: "us-east-1",
+ *     quotaCode: "L-2ACBD22F",
  *     serviceCode: "lambda",
  *     value: 80,
  * });

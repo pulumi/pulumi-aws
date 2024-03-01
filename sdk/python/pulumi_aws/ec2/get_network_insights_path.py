@@ -197,7 +197,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
+    example = aws.ec2.get_network_insights_path(network_insights_path_id=example_aws_ec2_network_insights_path["id"])
     ```
 
 
@@ -242,7 +242,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
+    example = aws.ec2.get_network_insights_path(network_insights_path_id=example_aws_ec2_network_insights_path["id"])
     ```
 
 

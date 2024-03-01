@@ -18,8 +18,8 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-test-bucket"});
+ * const allowAccessFromAnotherAccount = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{
  *             type: "AWS",
@@ -35,9 +35,9 @@ import {PolicyDocument} from "../iam";
  *         ],
  *     }],
  * });
- * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
+ * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allow_access_from_another_account", {
  *     bucket: example.id,
- *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),
+ *     policy: allowAccessFromAnotherAccount.apply(allowAccessFromAnotherAccount => allowAccessFromAnotherAccount.json),
  * });
  * ```
  *

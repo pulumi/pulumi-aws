@@ -49,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
- *             .clusterId(aws_emr_cluster.tf-test-cluster().id())
+ *             .clusterId(tf_test_cluster.id())
  *             .instanceCount(1)
  *             .instanceType(&#34;m5.xlarge&#34;)
+ *             .name(&#34;my little instance group&#34;)
  *             .build());
  * 
  *     }
@@ -150,7 +151,6 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
@@ -201,7 +201,6 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 

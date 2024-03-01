@@ -28,8 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
-//				VpcId:         pulumi.StringRef(aws_vpc.Foo.Id),
+//				VpcId:         pulumi.StringRef(foo.Id),
 //				PeerCidrBlock: pulumi.StringRef("10.0.1.0/22"),
 //			}, nil)
 //			if err != nil {
@@ -37,13 +38,13 @@ import (
 //			}
 //			// Create a route table
 //			rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
+//				VpcId: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Create a route
-//			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+//			_, err = ec2.NewRoute(ctx, "r", &ec2.RouteArgs{
 //				RouteTableId:           rt.ID(),
 //				DestinationCidrBlock:   *pulumi.String(pc.PeerCidrBlock),
 //				VpcPeeringConnectionId: *pulumi.String(pc.Id),

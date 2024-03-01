@@ -45,9 +45,9 @@ namespace Pulumi.Aws.Mq
         /// 
         ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         EngineType = "ACTIVEMQ",
         ///         HostInstanceType = "mq.m5.large",
         ///         StorageType = "EBS",
+        ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
         /// });
@@ -92,9 +92,9 @@ namespace Pulumi.Aws.Mq
         /// 
         ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         EngineType = "ACTIVEMQ",
         ///         HostInstanceType = "mq.m5.large",
         ///         StorageType = "EBS",
+        ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
         /// });

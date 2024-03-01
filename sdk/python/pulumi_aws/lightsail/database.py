@@ -751,13 +751,13 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="mysql_8_0",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="mysql_8_0",
+            bundle_id="micro_1_0")
         ```
         ### Basic postrgres blueprint
 
@@ -766,13 +766,13 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0")
         ```
         ### Custom backup and maintenance windows
 
@@ -783,15 +783,15 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
-            preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
         ### Final Snapshots
 
@@ -802,16 +802,16 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
-            final_snapshot_name="MyFinalSnapshot",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            final_snapshot_name="MyFinalSnapshot")
         ```
         ### Apply Immediately
 
@@ -822,14 +822,14 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
-            apply_immediately=True,
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
+            apply_immediately=True)
         ```
         ## Blueprint Ids
 
@@ -925,13 +925,13 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="mysql_8_0",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="mysql_8_0",
+            bundle_id="micro_1_0")
         ```
         ### Basic postrgres blueprint
 
@@ -940,13 +940,13 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0")
         ```
         ### Custom backup and maintenance windows
 
@@ -957,15 +957,15 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
-            preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
         ### Final Snapshots
 
@@ -976,16 +976,16 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
-            final_snapshot_name="MyFinalSnapshot",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            final_snapshot_name="MyFinalSnapshot")
         ```
         ### Apply Immediately
 
@@ -996,14 +996,14 @@ class Database(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
-            apply_immediately=True,
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
+            apply_immediately=True)
         ```
         ## Blueprint Ids
 

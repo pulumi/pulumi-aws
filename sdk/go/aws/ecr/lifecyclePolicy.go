@@ -33,7 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
+//			foo, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
+//				Name: pulumi.String("bar"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -82,7 +84,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
+//			foo, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
+//				Name: pulumi.String("bar"),
+//			})
 //			if err != nil {
 //				return err
 //			}

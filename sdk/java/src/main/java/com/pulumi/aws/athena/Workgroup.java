@@ -46,14 +46,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .enforceWorkgroupConfiguration(true)
  *                 .publishCloudwatchMetricsEnabled(true)
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .outputLocation(String.format(&#34;s3://%s/output/&#34;, aws_s3_bucket.example().bucket()))
+ *                     .outputLocation(String.format(&#34;s3://%s/output/&#34;, exampleAwsS3Bucket.bucket()))
  *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
  *                         .encryptionOption(&#34;SSE_KMS&#34;)
- *                         .kmsKeyArn(aws_kms_key.example().arn())
+ *                         .kmsKeyArn(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
  *                 .build())

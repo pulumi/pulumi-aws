@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var key = new Key(&#34;key&#34;, KeyArgs.builder()        
- *             .deletionWindowInDays(10)
+ *         var a = new Key(&#34;a&#34;, KeyArgs.builder()        
  *             .description(&#34;KMS key 1&#34;)
+ *             .deletionWindowInDays(10)
  *             .build());
  * 
  *     }

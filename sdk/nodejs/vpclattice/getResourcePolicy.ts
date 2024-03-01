@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getResourcePolicy({
- *     resourceArn: aws_vpclattice_service_network.example.arn,
+ *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
  * });
  * ```
  */
@@ -62,7 +62,7 @@ export interface GetResourcePolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getResourcePolicy({
- *     resourceArn: aws_vpclattice_service_network.example.arn,
+ *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
  * });
  * ```
  */

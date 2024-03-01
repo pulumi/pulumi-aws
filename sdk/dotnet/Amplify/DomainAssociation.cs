@@ -22,8 +22,9 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "app",
     ///         CustomRules = new[]
     ///         {
     ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
@@ -37,13 +38,13 @@ namespace Pulumi.Aws.Amplify
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
-    ///         AppId = exampleApp.Id,
+    ///         AppId = example.Id,
     ///         BranchName = "master",
     ///     });
     /// 
-    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
+    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("example", new()
     ///     {
-    ///         AppId = exampleApp.Id,
+    ///         AppId = example.Id,
     ///         DomainName = "example.com",
     ///         SubDomains = new[]
     ///         {

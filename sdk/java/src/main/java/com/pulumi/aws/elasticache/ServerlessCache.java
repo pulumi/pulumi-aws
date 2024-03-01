@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
  *             .engine(&#34;memcached&#34;)
+ *             .name(&#34;example&#34;)
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
@@ -61,10 +62,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .description(&#34;Test Server&#34;)
- *             .kmsKeyId(aws_kms_key.test().arn())
+ *             .kmsKeyId(test.arn())
  *             .majorEngineVersion(&#34;1.6&#34;)
- *             .securityGroupIds(aws_security_group.test().id())
- *             .subnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .securityGroupIds(testAwsSecurityGroup.id())
+ *             .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .build());
  * 
  *     }
@@ -96,6 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
  *             .engine(&#34;redis&#34;)
+ *             .name(&#34;example&#34;)
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
@@ -107,11 +109,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .dailySnapshotTime(&#34;09:00&#34;)
  *             .description(&#34;Test Server&#34;)
- *             .kmsKeyId(aws_kms_key.test().arn())
+ *             .kmsKeyId(test.arn())
  *             .majorEngineVersion(&#34;7&#34;)
  *             .snapshotRetentionLimit(1)
- *             .securityGroupIds(aws_security_group.test().id())
- *             .subnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .securityGroupIds(testAwsSecurityGroup.id())
+ *             .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .build());
  * 
  *     }

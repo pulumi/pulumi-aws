@@ -181,7 +181,9 @@ class AssessmentReport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
+        test = aws.auditmanager.AssessmentReport("test",
+            name="example",
+            assessment_id=test_aws_auditmanager_assessment["id"])
         ```
 
         ## Import
@@ -216,7 +218,9 @@ class AssessmentReport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
+        test = aws.auditmanager.AssessmentReport("test",
+            name="example",
+            assessment_id=test_aws_auditmanager_assessment["id"])
         ```
 
         ## Import

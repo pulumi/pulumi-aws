@@ -26,9 +26,10 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.MonitoringSchedule("test", new()
     ///     {
+    ///         Name = "my-monitoring-schedule",
     ///         MonitoringScheduleConfig = new Aws.Sagemaker.Inputs.MonitoringScheduleMonitoringScheduleConfigArgs
     ///         {
-    ///             MonitoringJobDefinitionName = aws_sagemaker_data_quality_job_definition.Test.Name,
+    ///             MonitoringJobDefinitionName = testAwsSagemakerDataQualityJobDefinition.Name,
     ///             MonitoringType = "DataQuality",
     ///         },
     ///     });

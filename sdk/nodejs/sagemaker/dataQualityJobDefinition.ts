@@ -19,18 +19,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.DataQualityJobDefinition("test", {
+ *     name: "my-data-quality-job-definition",
  *     dataQualityAppSpecification: {
- *         imageUri: data.aws_sagemaker_prebuilt_ecr_image.monitor.registry_path,
+ *         imageUri: monitor.registryPath,
  *     },
  *     dataQualityJobInput: {
  *         endpointInput: {
- *             endpointName: aws_sagemaker_endpoint.my_endpoint.name,
+ *             endpointName: myEndpoint.name,
  *         },
  *     },
  *     dataQualityJobOutputConfig: {
  *         monitoringOutputs: {
  *             s3Output: {
- *                 s3Uri: `https://${aws_s3_bucket.my_bucket.bucket_regional_domain_name}/output`,
+ *                 s3Uri: `https://${myBucket.bucketRegionalDomainName}/output`,
  *             },
  *         },
  *     },
@@ -41,7 +42,7 @@ import * as utilities from "../utilities";
  *             volumeSizeInGb: 20,
  *         },
  *     },
- *     roleArn: aws_iam_role.my_role.arn,
+ *     roleArn: myRole.arn,
  * });
  * ```
  *

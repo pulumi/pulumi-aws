@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Managed Streaming for Kafka Replicator.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.msk.Replicator("test", {
+ *     replicatorName: "test-name",
+ *     description: "test-description",
+ *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
+ *     kafkaClusters: [
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: source.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: sourceAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [sourceAwsSecurityGroup.id],
+ *             },
+ *         },
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: target.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: targetAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [targetAwsSecurityGroup.id],
+ *             },
+ *         },
+ *     ],
+ *     replicationInfoList: {
+ *         sourceKafkaClusterArn: source.arn,
+ *         targetKafkaClusterArn: target.arn,
+ *         targetCompressionType: "NONE",
+ *         topicReplications: [{
+ *             topicsToReplicates: [".*"],
+ *         }],
+ *         consumerGroupReplications: [{
+ *             consumerGroupsToReplicates: [".*"],
+ *         }],
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

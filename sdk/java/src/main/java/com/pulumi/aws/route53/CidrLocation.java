@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.CidrCollection;
+ * import com.pulumi.aws.route53.CidrCollectionArgs;
  * import com.pulumi.aws.route53.CidrLocation;
  * import com.pulumi.aws.route53.CidrLocationArgs;
  * import java.util.List;
@@ -40,10 +41,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCidrCollection = new CidrCollection(&#34;exampleCidrCollection&#34;);
+ *         var example = new CidrCollection(&#34;example&#34;, CidrCollectionArgs.builder()        
+ *             .name(&#34;collection-1&#34;)
+ *             .build());
  * 
  *         var exampleCidrLocation = new CidrLocation(&#34;exampleCidrLocation&#34;, CidrLocationArgs.builder()        
- *             .cidrCollectionId(exampleCidrCollection.id())
+ *             .cidrCollectionId(example.id())
+ *             .name(&#34;office&#34;)
  *             .cidrBlocks(            
  *                 &#34;200.5.3.0/24&#34;,
  *                 &#34;200.6.3.0/24&#34;)

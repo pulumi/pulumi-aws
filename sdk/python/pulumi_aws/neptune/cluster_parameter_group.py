@@ -280,8 +280,9 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterParameterGroup("example",
-            description="neptune cluster parameter group",
             family="neptune1",
+            name="example",
+            description="neptune cluster parameter group",
             parameters=[aws.neptune.ClusterParameterGroupParameterArgs(
                 name="neptune_enable_audit_log",
                 value="1",
@@ -321,8 +322,9 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterParameterGroup("example",
-            description="neptune cluster parameter group",
             family="neptune1",
+            name="example",
+            description="neptune cluster parameter group",
             parameters=[aws.neptune.ClusterParameterGroupParameterArgs(
                 name="neptune_enable_audit_log",
                 value="1",

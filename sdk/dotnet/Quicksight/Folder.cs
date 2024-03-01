@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///     });
     /// 
     /// });
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///         Permissions = new[]
     ///         {
     ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
@@ -58,7 +60,7 @@ namespace Pulumi.Aws.Quicksight
     ///                     "quicksight:DescribeFolderPermissions",
     ///                     "quicksight:UpdateFolderPermissions",
     ///                 },
-    ///                 Principal = aws_quicksight_user.Example.Arn,
+    ///                 Principal = exampleAwsQuicksightUser.Arn,
     ///             },
     ///         },
     ///     });
@@ -78,11 +80,13 @@ namespace Pulumi.Aws.Quicksight
     ///     var parent = new Aws.Quicksight.Folder("parent", new()
     ///     {
     ///         FolderId = "parent-id",
+    ///         Name = "parent-name",
     ///     });
     /// 
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///         ParentFolderArn = parent.Arn,
     ///     });
     /// 

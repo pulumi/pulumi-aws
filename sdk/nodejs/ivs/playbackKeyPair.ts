@@ -13,9 +13,11 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: fs.readFileSync("./public-key.pem", "utf8")});
+ * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: std.file({
+ *     input: "./public-key.pem",
+ * }).then(invoke => invoke.result)});
  * ```
  *
  * ## Import

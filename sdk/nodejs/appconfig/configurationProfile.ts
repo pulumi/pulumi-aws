@@ -17,11 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.ConfigurationProfile("example", {
- *     applicationId: aws_appconfig_application.example.id,
+ *     applicationId: exampleAwsAppconfigApplication.id,
  *     description: "Example Configuration Profile",
+ *     name: "example-configuration-profile-tf",
  *     locationUri: "hosted",
  *     validators: [{
- *         content: aws_lambda_function.example.arn,
+ *         content: exampleAwsLambdaFunction.arn,
  *         type: "LAMBDA",
  *     }],
  *     tags: {

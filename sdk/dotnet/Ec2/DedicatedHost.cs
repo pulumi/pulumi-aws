@@ -26,10 +26,10 @@ namespace Pulumi.Aws.Ec2
     ///     // and Host Recovery enabled.
     ///     var test = new Aws.Ec2.DedicatedHost("test", new()
     ///     {
-    ///         AutoPlacement = "on",
+    ///         InstanceType = "c5.18xlarge",
     ///         AvailabilityZone = "us-west-2a",
     ///         HostRecovery = "on",
-    ///         InstanceType = "c5.18xlarge",
+    ///         AutoPlacement = "on",
     ///     });
     /// 
     /// });

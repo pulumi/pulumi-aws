@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = aws.sesv2.getEmailIdentity({
+ * const example = aws.sesv2.getEmailIdentity({
  *     emailIdentity: "example.com",
  * });
- * const exampleEmailIdentityMailFromAttributes = exampleEmailIdentity.then(exampleEmailIdentity => aws.sesv2.getEmailIdentityMailFromAttributes({
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const exampleGetEmailIdentityMailFromAttributes = example.then(example => aws.sesv2.getEmailIdentityMailFromAttributes({
+ *     emailIdentity: example.emailIdentity,
  * }));
  * ```
  */
@@ -68,11 +68,11 @@ export interface GetEmailIdentityMailFromAttributesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = aws.sesv2.getEmailIdentity({
+ * const example = aws.sesv2.getEmailIdentity({
  *     emailIdentity: "example.com",
  * });
- * const exampleEmailIdentityMailFromAttributes = exampleEmailIdentity.then(exampleEmailIdentity => aws.sesv2.getEmailIdentityMailFromAttributes({
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const exampleGetEmailIdentityMailFromAttributes = example.then(example => aws.sesv2.getEmailIdentityMailFromAttributes({
+ *     emailIdentity: example.emailIdentity,
  * }));
  * ```
  */

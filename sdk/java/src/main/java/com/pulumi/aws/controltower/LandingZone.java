@@ -22,35 +22,6 @@ import javax.annotation.Nullable;
  * [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.controltower.LandingZone;
- * import com.pulumi.aws.controltower.LandingZoneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LandingZone(&#34;example&#34;, LandingZoneArgs.builder()        
- *             .manifestJson(Files.readString(Paths.get(String.format(&#34;%s/LandingZoneManifest.json&#34;, path.module()))))
- *             .version(&#34;3.2&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

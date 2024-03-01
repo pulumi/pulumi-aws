@@ -159,8 +159,8 @@ def get_connection(connection_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
-        connection_id=var["connection_id"])
+    example = aws.networkmanager.get_connection(global_network_id=global_network_id,
+        connection_id=connection_id)
     ```
 
 
@@ -202,8 +202,8 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
-        connection_id=var["connection_id"])
+    example = aws.networkmanager.get_connection(global_network_id=global_network_id,
+        connection_id=connection_id)
     ```
 
 

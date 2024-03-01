@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Disk(&#34;test&#34;, DiskArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .sizeInGb(8)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .build());

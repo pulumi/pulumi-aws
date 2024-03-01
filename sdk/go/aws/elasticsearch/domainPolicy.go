@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				DomainName:           pulumi.String("tf-test"),
 //				ElasticsearchVersion: pulumi.String("2.3"),
 //			})
 //			if err != nil {

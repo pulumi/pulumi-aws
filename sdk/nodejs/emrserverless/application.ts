@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
  *     releaseLabel: "emr-6.6.0",
  *     type: "hive",
  * });
@@ -29,18 +30,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  *     initialCapacities: [{
+ *         initialCapacityType: "HiveDriver",
  *         initialCapacityConfig: {
+ *             workerCount: 1,
  *             workerConfiguration: {
  *                 cpu: "2 vCPU",
  *                 memory: "10 GB",
  *             },
- *             workerCount: 1,
  *         },
- *         initialCapacityType: "HiveDriver",
  *     }],
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  * });
  * ```
  * ### Maximum Capacity Usage
@@ -50,12 +52,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  *     maximumCapacity: {
  *         cpu: "2 vCPU",
  *         memory: "10 GB",
  *     },
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  * });
  * ```
  *

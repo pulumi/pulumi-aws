@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var foo = new Aws.Ssm.Document("foo", new()
     ///     {
+    ///         Name = "test_document",
+    ///         DocumentType = "Command",
     ///         Content = @"  {
     ///     ""schemaVersion"": ""1.2"",
     ///     ""description"": ""Check ip configuration of a Linux instance."",
@@ -45,9 +47,7 @@ namespace Pulumi.Aws.Ssm
     ///       }
     ///     }
     ///   }
-    /// 
     /// ",
-    ///         DocumentType = "Command",
     ///     });
     /// 
     /// });
@@ -64,6 +64,9 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var foo = new Aws.Ssm.Document("foo", new()
     ///     {
+    ///         Name = "test_document",
+    ///         DocumentFormat = "YAML",
+    ///         DocumentType = "Command",
     ///         Content = @"schemaVersion: '1.2'
     /// description: Check ip configuration of a Linux instance.
     /// parameters: {}
@@ -73,10 +76,7 @@ namespace Pulumi.Aws.Ssm
     ///       - id: '0.aws:runShellScript'
     ///         runCommand:
     ///           - ifconfig
-    /// 
     /// ",
-    ///         DocumentFormat = "YAML",
-    ///         DocumentType = "Command",
     ///     });
     /// 
     /// });

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.6.mysql_aurora.1.22.2",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -34,38 +34,29 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
+ *     clusterIdentifier: primary.id,
  *     instanceClass: "db.r4.large",
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondary = new aws.rds.Cluster("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
+ *     clusterIdentifier: secondary.id,
  *     instanceClass: "db.r4.large",
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
  * });
  * ```
  * ### New PostgreSQL Global Cluster
@@ -74,15 +65,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
  * const example = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "aurora-postgresql",
  *     engineVersion: "11.9",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -91,39 +80,30 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
+ *     clusterIdentifier: primary.id,
  *     instanceClass: "db.r4.large",
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondary = new aws.rds.Cluster("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     skipFinalSnapshot: true,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
+ *     clusterIdentifier: secondary.id,
  *     instanceClass: "db.r4.large",
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
  * });
  * ```
  * ### New Global Cluster From Existing DB Cluster
@@ -132,12 +112,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ * const example = new aws.rds.Cluster("example", {});
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     forceDestroy: true,
  *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
+ *     sourceDbClusterIdentifier: example.arn,
  * });
  * ```
  * ### Upgrading Engine Versions
@@ -153,7 +132,7 @@ import * as utilities from "../utilities";
  *     engine: "aurora-mysql",
  *     engineVersion: "5.7.mysql_aurora.2.07.5",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     allowMajorVersionUpgrade: true,
  *     applyImmediately: true,
  *     clusterIdentifier: "odessadnipro",
@@ -165,11 +144,11 @@ import * as utilities from "../utilities";
  *     masterUsername: "maesatsuki",
  *     skipFinalSnapshot: true,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     applyImmediately: true,
- *     clusterIdentifier: primaryCluster.id,
- *     engine: primaryCluster.engine,
- *     engineVersion: primaryCluster.engineVersion,
+ *     clusterIdentifier: primary.id,
+ *     engine: primary.engine,
+ *     engineVersion: primary.engineVersion,
  *     identifier: "donetsklviv",
  *     instanceClass: "db.r4.large",
  * });

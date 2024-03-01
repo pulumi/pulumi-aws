@@ -57,8 +57,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupHoursOfOperation(ctx, &connect.LookupHoursOfOperationArgs{
-//				HoursOfOperationId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //				InstanceId:         "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				HoursOfOperationId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //			}, nil)
 //			if err != nil {
 //				return err

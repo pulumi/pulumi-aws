@@ -22,8 +22,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new()
+    ///     var example = new Aws.Route53.ResolverFirewallDomainList("example", new()
     ///     {
+    ///         Name = "example",
     ///         Domains = new[]
     ///         {
     ///             "example.com",
@@ -31,19 +32,21 @@ namespace Pulumi.Aws.Route53
     ///         Tags = null,
     ///     });
     /// 
-    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Tags = null,
     ///     });
     /// 
-    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()
+    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("example", new()
     ///     {
+    ///         Name = "example",
     ///         Action = "BLOCK",
     ///         BlockOverrideDnsType = "CNAME",
     ///         BlockOverrideDomain = "example.com",
     ///         BlockOverrideTtl = 1,
     ///         BlockResponse = "OVERRIDE",
-    ///         FirewallDomainListId = exampleResolverFirewallDomainList.Id,
+    ///         FirewallDomainListId = example.Id,
     ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
     ///         Priority = 100,
     ///     });

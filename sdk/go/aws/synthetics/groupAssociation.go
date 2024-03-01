@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewGroupAssociation(ctx, "example", &synthetics.GroupAssociationArgs{
-//				GroupName: pulumi.Any(aws_synthetics_group.Example.Name),
-//				CanaryArn: pulumi.Any(aws_synthetics_canary.Example.Arn),
+//				GroupName: pulumi.Any(exampleAwsSyntheticsGroup.Name),
+//				CanaryArn: pulumi.Any(exampleAwsSyntheticsCanary.Arn),
 //			})
 //			if err != nil {
 //				return err

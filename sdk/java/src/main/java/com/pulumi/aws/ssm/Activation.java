@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.ssm.Activation;
  * import com.pulumi.aws.ssm.ActivationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,6 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -70,12 +70,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new Activation(&#34;foo&#34;, ActivationArgs.builder()        
+ *             .name(&#34;test_ssm_activation&#34;)
  *             .description(&#34;Test&#34;)
  *             .iamRole(testRole.id())
  *             .registrationLimit(&#34;5&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAttach)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

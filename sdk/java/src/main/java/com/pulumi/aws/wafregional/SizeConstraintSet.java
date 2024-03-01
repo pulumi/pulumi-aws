@@ -44,13 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
+ *             .name(&#34;tfsize_constraints&#34;)
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
+ *                 .textTransformation(&#34;NONE&#34;)
  *                 .comparisonOperator(&#34;EQ&#34;)
+ *                 .size(&#34;4096&#34;)
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
  *                     .type(&#34;BODY&#34;)
  *                     .build())
- *                 .size(&#34;4096&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
  *                 .build())
  *             .build());
  * 

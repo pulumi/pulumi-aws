@@ -1626,7 +1626,7 @@ export namespace appautoscaling {
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
          *
-         * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
+         * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {stepScalingPolicyConfiguration: {
          *     stepAdjustments: [
          *         {
          *             metricIntervalLowerBound: "1",
@@ -8719,18 +8719,10 @@ export namespace autoscaling {
         acceleratorCount?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -8739,10 +8731,6 @@ export namespace autoscaling {
         acceleratorTotalMemoryMib?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -8767,10 +8755,6 @@ export namespace autoscaling {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -8781,10 +8765,6 @@ export namespace autoscaling {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -8793,10 +8773,6 @@ export namespace autoscaling {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -20254,10 +20230,6 @@ export namespace directconnect {
          * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
          *
          * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         routerTypeIdentifier: string;
         /**
@@ -25324,18 +25296,10 @@ export namespace ec2 {
         acceleratorCount?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -25344,10 +25308,6 @@ export namespace ec2 {
         acceleratorTotalMemoryMib?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -25372,10 +25332,6 @@ export namespace ec2 {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -25386,10 +25342,6 @@ export namespace ec2 {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -25398,10 +25350,6 @@ export namespace ec2 {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -26985,18 +26933,10 @@ export namespace ec2 {
         acceleratorCount?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -27005,10 +26945,6 @@ export namespace ec2 {
         acceleratorTotalMemoryMib?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -27033,10 +26969,6 @@ export namespace ec2 {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -27047,10 +26979,6 @@ export namespace ec2 {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -27059,10 +26987,6 @@ export namespace ec2 {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -76357,10 +76281,6 @@ export namespace transfer {
          * Represents the map target.
          *
          * The `Restricted` option is achieved using the following mapping:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         target: string;
     }

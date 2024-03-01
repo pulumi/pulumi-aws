@@ -24,23 +24,24 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
     ///     {
+    ///         Name = "Contractors",
     ///         Description = "Contractors IP access control group",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "NY",
     ///                 Source = "150.24.14.0/24",
+    ///                 Description = "NY",
     ///             },
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "LA",
     ///                 Source = "125.191.14.85/32",
+    ///                 Description = "LA",
     ///             },
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "STL",
     ///                 Source = "44.98.100.0/24",
+    ///                 Description = "STL",
     ///             },
     ///         },
     ///     });

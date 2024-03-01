@@ -44,11 +44,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                     value: `"${source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -78,11 +78,11 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -92,11 +92,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -137,11 +137,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                     value: `"${source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -171,11 +171,11 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -185,11 +185,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -283,11 +283,11 @@ export interface GetScriptResult {
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                     value: `"${source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -317,11 +317,11 @@ export interface GetScriptResult {
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -331,11 +331,11 @@ export interface GetScriptResult {
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -376,11 +376,11 @@ export interface GetScriptResult {
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                     value: `"${source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -410,11 +410,11 @@ export interface GetScriptResult {
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },
@@ -424,11 +424,11 @@ export interface GetScriptResult {
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                     value: `"${destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
  *         },

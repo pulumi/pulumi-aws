@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeartifact.GetAuthorizationToken(ctx, &codeartifact.GetAuthorizationTokenArgs{
-//				Domain: aws_codeartifact_domain.Test.Domain,
+//				Domain: testAwsCodeartifactDomain.Domain,
 //			}, nil)
 //			if err != nil {
 //				return err

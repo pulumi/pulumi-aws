@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {volumeId: example.id});
- * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("examplePerm", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {volumeId: example.id});
+ * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
  *     snapshotId: exampleSnapshot.id,
  *     accountId: "12345678",
  * });

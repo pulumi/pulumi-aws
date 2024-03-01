@@ -17,11 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Connection("example", {connectionProperties: {
- *     JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
- *     PASSWORD: "examplepassword",
- *     USERNAME: "exampleusername",
- * }});
+ * const example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     name: "example",
+ * });
  * ```
  * ### VPC Connection
  *
@@ -33,14 +36,15 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
- *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
+ *         JDBC_CONNECTION_URL: `jdbc:mysql://${exampleAwsRdsCluster.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
+ *     name: "example",
  *     physicalConnectionRequirements: {
- *         availabilityZone: aws_subnet.example.availability_zone,
- *         securityGroupIdLists: [aws_security_group.example.id],
- *         subnetId: aws_subnet.example.id,
+ *         availabilityZone: exampleAwsSubnet.availabilityZone,
+ *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
+ *         subnetId: exampleAwsSubnet.id,
  *     },
  * });
  * ```

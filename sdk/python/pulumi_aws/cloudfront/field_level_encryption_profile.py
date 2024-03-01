@@ -173,12 +173,15 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=std.file(input="public_key.pem").result,
+            name="test_key")
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
             comment="test comment",
+            name="test profile",
             encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
                 items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
                     public_key_id=example.id,
@@ -218,12 +221,15 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=std.file(input="public_key.pem").result,
+            name="test_key")
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
             comment="test comment",
+            name="test profile",
             encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
                 items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
                     public_key_id=example.id,

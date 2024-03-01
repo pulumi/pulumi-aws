@@ -96,17 +96,17 @@ def get_addon_version(addon_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
+    default = aws.eks.get_addon_version(addon_name="vpc-cni",
+        kubernetes_version=example["version"])
+    latest = aws.eks.get_addon_version(addon_name="vpc-cni",
+        kubernetes_version=example["version"],
         most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
+    vpc_cni = aws.eks.Addon("vpc_cni",
+        cluster_name=example["name"],
         addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
+        addon_version=latest.version)
+    pulumi.export("default", default.version)
+    pulumi.export("latest", latest.version)
     ```
 
 
@@ -144,17 +144,17 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
+    default = aws.eks.get_addon_version(addon_name="vpc-cni",
+        kubernetes_version=example["version"])
+    latest = aws.eks.get_addon_version(addon_name="vpc-cni",
+        kubernetes_version=example["version"],
         most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
+    vpc_cni = aws.eks.Addon("vpc_cni",
+        cluster_name=example["name"],
         addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
+        addon_version=latest.version)
+    pulumi.export("default", default.version)
+    pulumi.export("latest", latest.version)
     ```
 
 

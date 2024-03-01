@@ -28,7 +28,7 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         Name = aws_redshift_subnet_group.Example.Name,
+        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         Name = aws_redshift_subnet_group.Example.Name,
+        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
         ///     });
         /// 
         /// });

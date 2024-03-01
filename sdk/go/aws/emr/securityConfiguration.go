@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewSecurityConfiguration(ctx, "foo", &emr.SecurityConfigurationArgs{
+//				Name: pulumi.String("emrsc_other"),
 //				Configuration: pulumi.String(`{
 //	  "EncryptionConfiguration": {
 //	    "AtRestEncryptionConfiguration": {

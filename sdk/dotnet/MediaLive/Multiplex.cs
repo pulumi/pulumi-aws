@@ -30,6 +30,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     ///     var example = new Aws.MediaLive.Multiplex("example", new()
     ///     {
+    ///         Name = "example-multiplex-changed",
     ///         AvailabilityZones = new[]
     ///         {
     ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),

@@ -33,6 +33,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     ///     var foo = new Aws.Inspector.AssessmentTarget("foo", new()
     ///     {
+    ///         Name = "assessment target",
     ///         ResourceGroupArn = bar.Arn,
     ///     });
     /// 

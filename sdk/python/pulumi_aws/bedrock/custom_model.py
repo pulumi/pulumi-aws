@@ -560,12 +560,12 @@ class CustomModel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_model = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
-        example_custom_model = aws.bedrock.CustomModel("exampleCustomModel",
+        example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
+        example_custom_model = aws.bedrock.CustomModel("example",
             custom_model_name="example-model",
             job_name="example-job-1",
-            base_model_identifier=example_model.model_arn,
-            role_arn=aws_iam_role["example"]["arn"],
+            base_model_identifier=example.model_arn,
+            role_arn=example_aws_iam_role["arn"],
             hyperparameters={
                 "epochCount": "1",
                 "batchSize": "1",
@@ -573,10 +573,10 @@ class CustomModel(pulumi.CustomResource):
                 "learningRateWarmupSteps": "0",
             },
             output_data_config=aws.bedrock.CustomModelOutputDataConfigArgs(
-                s3_uri=f"s3://{aws_s3_bucket['output']['id']}/data/",
+                s3_uri=f"s3://{output['id']}/data/",
             ),
             training_data_config=aws.bedrock.CustomModelTrainingDataConfigArgs(
-                s3_uri=f"s3://{aws_s3_bucket['training']['id']}/data/train.jsonl",
+                s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
 
@@ -616,12 +616,12 @@ class CustomModel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_model = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
-        example_custom_model = aws.bedrock.CustomModel("exampleCustomModel",
+        example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
+        example_custom_model = aws.bedrock.CustomModel("example",
             custom_model_name="example-model",
             job_name="example-job-1",
-            base_model_identifier=example_model.model_arn,
-            role_arn=aws_iam_role["example"]["arn"],
+            base_model_identifier=example.model_arn,
+            role_arn=example_aws_iam_role["arn"],
             hyperparameters={
                 "epochCount": "1",
                 "batchSize": "1",
@@ -629,10 +629,10 @@ class CustomModel(pulumi.CustomResource):
                 "learningRateWarmupSteps": "0",
             },
             output_data_config=aws.bedrock.CustomModelOutputDataConfigArgs(
-                s3_uri=f"s3://{aws_s3_bucket['output']['id']}/data/",
+                s3_uri=f"s3://{output['id']}/data/",
             ),
             training_data_config=aws.bedrock.CustomModelTrainingDataConfigArgs(
-                s3_uri=f"s3://{aws_s3_bucket['training']['id']}/data/train.jsonl",
+                s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
 

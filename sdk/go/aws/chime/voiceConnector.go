@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewVoiceConnector(ctx, "test", &chime.VoiceConnectorArgs{
-//				AwsRegion:         pulumi.String("us-east-1"),
+//				Name:              pulumi.String("connector-test-1"),
 //				RequireEncryption: pulumi.Bool(true),
+//				AwsRegion:         pulumi.String("us-east-1"),
 //			})
 //			if err != nil {
 //				return err

@@ -770,6 +770,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -786,16 +787,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -825,6 +828,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -841,16 +845,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -880,6 +886,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -896,16 +903,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -935,6 +944,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -951,16 +961,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -990,6 +1002,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -1006,16 +1019,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -1045,6 +1060,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
@@ -1061,16 +1077,18 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;example&#34;)
+     *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)

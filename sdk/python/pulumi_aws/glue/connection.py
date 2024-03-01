@@ -347,11 +347,13 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
-        })
+        example = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
+                "PASSWORD": "examplepassword",
+                "USERNAME": "exampleusername",
+            },
+            name="example")
         ```
         ### VPC Connection
 
@@ -363,14 +365,15 @@ class Connection(pulumi.CustomResource):
 
         example = aws.glue.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
+                "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
+            name="example",
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
+                availability_zone=example_aws_subnet["availabilityZone"],
+                security_group_id_lists=[example_aws_security_group["id"]],
+                subnet_id=example_aws_subnet["id"],
             ))
         ```
 
@@ -409,11 +412,13 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
-        })
+        example = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
+                "PASSWORD": "examplepassword",
+                "USERNAME": "exampleusername",
+            },
+            name="example")
         ```
         ### VPC Connection
 
@@ -425,14 +430,15 @@ class Connection(pulumi.CustomResource):
 
         example = aws.glue.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
+                "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
+            name="example",
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
+                availability_zone=example_aws_subnet["availabilityZone"],
+                security_group_id_lists=[example_aws_security_group["id"]],
+                subnet_id=example_aws_subnet["id"],
             ))
         ```
 

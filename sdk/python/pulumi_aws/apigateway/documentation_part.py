@@ -140,8 +140,8 @@ class DocumentationPart(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+        example_rest_api = aws.apigateway.RestApi("example", name="example_api")
+        example = aws.apigateway.DocumentationPart("example",
             location=aws.apigateway.DocumentationPartLocationArgs(
                 type="METHOD",
                 method="GET",
@@ -180,8 +180,8 @@ class DocumentationPart(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+        example_rest_api = aws.apigateway.RestApi("example", name="example_api")
+        example = aws.apigateway.DocumentationPart("example",
             location=aws.apigateway.DocumentationPartLocationArgs(
                 type="METHOD",
                 method="GET",

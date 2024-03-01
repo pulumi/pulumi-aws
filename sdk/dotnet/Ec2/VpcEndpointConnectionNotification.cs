@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var topicPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var topic = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -53,23 +53,24 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var topicTopic = new Aws.Sns.Topic("topicTopic", new()
+    ///     var topicTopic = new Aws.Sns.Topic("topic", new()
     ///     {
-    ///         Policy = topicPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "vpce-notification-topic",
+    ///         Policy = topic.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new()
+    ///     var foo = new Aws.Ec2.VpcEndpointService("foo", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Test.Arn,
+    ///             test.Arn,
     ///         },
     ///     });
     /// 
-    ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new()
+    ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("foo", new()
     ///     {
-    ///         VpcEndpointServiceId = fooVpcEndpointService.Id,
+    ///         VpcEndpointServiceId = foo.Id,
     ///         ConnectionNotificationArn = topicTopic.Arn,
     ///         ConnectionEvents = new[]
     ///         {

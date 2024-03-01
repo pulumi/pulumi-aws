@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
+    ///     var testSp = new Aws.Signer.SigningProfile("test_sp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///     });
     /// 
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
+    ///     var prodSp = new Aws.Signer.SigningProfile("prod_sp", new()
     ///     {
-    ///         NamePrefix = "prod_sp_",
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///         NamePrefix = "prod_sp_",
     ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
     ///         {
-    ///             Type = "YEARS",
     ///             Value = 5,
+    ///             Type = "YEARS",
     ///         },
     ///         Tags = 
     ///         {

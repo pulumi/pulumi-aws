@@ -28,11 +28,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        ///     var foo = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
         ///     };
         /// });
         /// ```
@@ -59,11 +59,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        ///     var foo = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
         ///     };
         /// });
         /// ```

@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const example = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
- *     transitGatewayId: exampleTransitGateway.id,
+ *     transitGatewayId: example.id,
  *     type: exampleCustomerGateway.type,
  * });
- * const exampleTag = new aws.ec2.Tag("exampleTag", {
+ * const exampleTag = new aws.ec2.Tag("example", {
  *     resourceId: exampleVpnConnection.transitGatewayAttachmentId,
  *     key: "Name",
  *     value: "Hello World",

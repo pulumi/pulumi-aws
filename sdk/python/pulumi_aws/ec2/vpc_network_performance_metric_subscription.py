@@ -189,8 +189,8 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpcNetworkPerformanceMetricSubscription("example",
-            destination="us-west-1",
-            source="us-east-1")
+            source="us-east-1",
+            destination="us-west-1")
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,8 +216,8 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.VpcNetworkPerformanceMetricSubscription("example",
-            destination="us-west-1",
-            source="us-east-1")
+            source="us-east-1",
+            destination="us-west-1")
         ```
 
         :param str resource_name: The name of the resource.

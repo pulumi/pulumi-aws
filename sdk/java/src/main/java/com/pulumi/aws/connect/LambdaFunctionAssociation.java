@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LambdaFunctionAssociation(&#34;example&#34;, LambdaFunctionAssociationArgs.builder()        
- *             .functionArn(aws_lambda_function.example().arn())
- *             .instanceId(aws_connect_instance.example().id())
+ *             .functionArn(exampleAwsLambdaFunction.arn())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .build());
  * 
  *     }

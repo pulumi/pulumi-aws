@@ -26,35 +26,25 @@ namespace Pulumi.Aws.Ram
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alternate = new Aws.Provider("alternate", new()
+    ///     var senderShare = new Aws.Ram.ResourceShare("sender_share", new()
     ///     {
-    ///         Profile = "profile1",
-    ///     });
-    /// 
-    ///     var senderShare = new Aws.Ram.ResourceShare("senderShare", new()
-    ///     {
+    ///         Name = "tf-test-resource-share",
     ///         AllowExternalPrincipals = true,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-test-resource-share" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
     ///     });
     /// 
     ///     var receiver = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new()
+    ///     var senderInvite = new Aws.Ram.PrincipalAssociation("sender_invite", new()
     ///     {
     ///         Principal = receiver.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///         ResourceShareArn = senderShare.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
     ///     });
     /// 
-    ///     var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new()
+    ///     var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiver_accept", new()
     ///     {
     ///         ShareArn = senderInvite.ResourceShareArn,
     ///     });

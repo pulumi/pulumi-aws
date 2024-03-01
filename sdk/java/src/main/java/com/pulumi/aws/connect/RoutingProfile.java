@@ -47,9 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoutingProfile(&#34;example&#34;, RoutingProfileArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;example&#34;)
  *             .defaultOutboundQueueId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .description(&#34;example description&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .mediaConcurrencies(RoutingProfileMediaConcurrencyArgs.builder()
  *                 .channel(&#34;VOICE&#34;)
  *                 .concurrency(1)

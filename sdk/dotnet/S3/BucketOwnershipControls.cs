@@ -24,11 +24,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
     ///         {
     ///             ObjectOwnership = "BucketOwnerPreferred",

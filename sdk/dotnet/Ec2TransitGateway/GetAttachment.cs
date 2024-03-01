@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///                 Name = "transit-gateway-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_ec2_transit_gateway.Example.Id,
+        ///                     exampleAwsEc2TransitGateway.Id,
         ///                 },
         ///             },
         ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///                 Name = "transit-gateway-id",
         ///                 Values = new[]
         ///                 {
-        ///                     aws_ec2_transit_gateway.Example.Id,
+        ///                     exampleAwsEc2TransitGateway.Id,
         ///                 },
         ///             },
         ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {
         ///     var example = Aws.RedshiftServerless.GetWorkgroup.Invoke(new()
         ///     {
-        ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+        ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {
         ///     var example = Aws.RedshiftServerless.GetWorkgroup.Invoke(new()
         ///     {
-        ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+        ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
         ///     });
         /// 
         /// });

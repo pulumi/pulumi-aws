@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Ec2
     ///         Protocol = "tcp",
     ///         CidrBlocks = new[]
     ///         {
-    ///             aws_vpc.Example.Cidr_block,
+    ///             exampleAwsVpc.CidrBlock,
     ///         },
     ///         Ipv6CidrBlocks = new[]
     ///         {
-    ///             aws_vpc.Example.Ipv6_cidr_block,
+    ///             exampleAwsVpc.Ipv6CidrBlock,
     ///         },
     ///         SecurityGroupId = "sg-123456",
     ///     });
@@ -70,10 +70,9 @@ namespace Pulumi.Aws.Ec2
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
+    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("my_endpoint");
     /// 
-    ///     // ...
-    ///     var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new()
+    ///     var allowAll = new Aws.Ec2.SecurityGroupRule("allow_all", new()
     ///     {
     ///         Type = "egress",
     ///         ToPort = 0,
@@ -107,7 +106,7 @@ namespace Pulumi.Aws.Ec2
     ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.s3",
     ///     });
     /// 
-    ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3GatewayEgress", new()
+    ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3_gateway_egress", new()
     ///     {
     ///         Description = "S3 Gateway Egress",
     ///         Type = "egress",

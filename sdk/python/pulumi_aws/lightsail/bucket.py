@@ -287,7 +287,9 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
         ```
 
         ## Import
@@ -320,7 +322,9 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
         ```
 
         ## Import

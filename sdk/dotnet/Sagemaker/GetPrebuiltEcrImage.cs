@@ -32,8 +32,8 @@ namespace Pulumi.Aws.Sagemaker
         /// {
         ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         ImageTag = "2.2-1.0.11.0",
         ///         RepositoryName = "sagemaker-scikit-learn",
+        ///         ImageTag = "2.2-1.0.11.0",
         ///     });
         /// 
         /// });
@@ -65,8 +65,8 @@ namespace Pulumi.Aws.Sagemaker
         /// {
         ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         ImageTag = "2.2-1.0.11.0",
         ///         RepositoryName = "sagemaker-scikit-learn",
+        ///         ImageTag = "2.2-1.0.11.0",
         ///     });
         /// 
         /// });

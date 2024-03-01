@@ -32,12 +32,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
+//			_, err := lambda.NewLayerVersionPermission(ctx, "lambda_layer_permission", &lambda.LayerVersionPermissionArgs{
 //				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-//				Principal:     pulumi.String("111111111111"),
-//				StatementId:   pulumi.String("dev-account"),
 //				VersionNumber: pulumi.Int(1),
+//				Principal:     pulumi.String("111111111111"),
+//				Action:        pulumi.String("lambda:GetLayerVersion"),
+//				StatementId:   pulumi.String("dev-account"),
 //			})
 //			if err != nil {
 //				return err

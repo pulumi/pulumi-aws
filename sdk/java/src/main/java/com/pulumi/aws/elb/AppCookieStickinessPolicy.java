@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;test-lb&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
@@ -55,6 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new AppCookieStickinessPolicy(&#34;foo&#34;, AppCookieStickinessPolicyArgs.builder()        
+ *             .name(&#34;foo_policy&#34;)
  *             .loadBalancer(lb.name())
  *             .lbPort(80)
  *             .cookieName(&#34;MyAppCookie&#34;)

@@ -23,44 +23,44 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
     ///     {
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "testpolicy",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "testpolicy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
-    ///                             var currentPartition = values.Item1;
-    ///                             var currentCallerIdentity = values.Item2;
-    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ecr:ReplicateImage",
     ///                     },
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
-    ///                         Output.Tuple(currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///                         Output.Tuple(currentGetPartition, currentGetRegion, current).Apply(values =&gt;
     ///                         {
-    ///                             var currentPartition = values.Item1;
-    ///                             var currentRegion = values.Item2;
-    ///                             var currentCallerIdentity = values.Item3;
-    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var currentGetRegion = values.Item2;
+    ///                             var current = values.Item3;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
     ///                         }),
     ///                     },
     ///                 },

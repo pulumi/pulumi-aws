@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.AccountVdmAttributes("example", {
+ *     vdmEnabled: "ENABLED",
  *     dashboardAttributes: {
  *         engagementMetrics: "ENABLED",
  *     },
  *     guardianAttributes: {
  *         optimizedSharedDelivery: "ENABLED",
  *     },
- *     vdmEnabled: "ENABLED",
  * });
  * ```
  *

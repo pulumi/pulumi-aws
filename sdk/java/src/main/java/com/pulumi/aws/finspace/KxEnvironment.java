@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;Sample KMS Key&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
  * 
  *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .kmsKeyId(exampleKey.arn())
+ *             .name(&#34;my-tf-kx-environment&#34;)
+ *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *     }
@@ -86,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;Sample KMS Key&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
@@ -96,8 +97,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
+ *             .name(&#34;my-tf-kx-environment&#34;)
  *             .description(&#34;Environment description&#34;)
- *             .kmsKeyId(exampleKey.arn())
+ *             .kmsKeyId(example.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
  *                 .transitGatewayId(exampleTransitGateway.id())
  *                 .routableCidrSpace(&#34;100.64.0.0/26&#34;)

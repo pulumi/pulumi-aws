@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sagemaker.DeviceFleet("example", {
  *     deviceFleetName: "example",
- *     roleArn: aws_iam_role.test.arn,
+ *     roleArn: test.arn,
  *     outputConfig: {
- *         s3OutputLocation: `s3://${aws_s3_bucket.example.bucket}/prefix/`,
+ *         s3OutputLocation: `s3://${exampleAwsS3Bucket.bucket}/prefix/`,
  *     },
  * });
  * ```

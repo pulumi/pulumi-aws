@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SourceRepository(&#34;example&#34;, SourceRepositoryArgs.builder()        
+ *             .name(&#34;example-repo&#34;)
  *             .projectName(&#34;example-project&#34;)
  *             .spaceName(&#34;example-space&#34;)
  *             .build());

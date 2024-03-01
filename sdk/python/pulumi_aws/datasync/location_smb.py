@@ -360,7 +360,7 @@ class LocationSmb(pulumi.CustomResource):
             subdirectory="/exported/path",
             user="Guest",
             password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+            agent_arns=[example_aws_datasync_agent["arn"]])
         ```
 
         ## Import
@@ -404,7 +404,7 @@ class LocationSmb(pulumi.CustomResource):
             subdirectory="/exported/path",
             user="Guest",
             password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+            agent_arns=[example_aws_datasync_agent["arn"]])
         ```
 
         ## Import

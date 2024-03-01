@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVault = new aws.backup.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleVault = new aws.backup.Vault("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  *         resources: [exampleVault.arn],
  *     }],
  * });
- * const exampleVaultPolicy = new aws.backup.VaultPolicy("exampleVaultPolicy", {
+ * const exampleVaultPolicy = new aws.backup.VaultPolicy("example", {
  *     backupVaultName: exampleVault.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
  * ```
  *

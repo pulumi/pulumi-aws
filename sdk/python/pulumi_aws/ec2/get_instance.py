@@ -599,7 +599,8 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_instance(filters=[
+    foo = aws.ec2.get_instance(instance_id="i-instanceid",
+        filters=[
             aws.ec2.GetInstanceFilterArgs(
                 name="image-id",
                 values=["ami-xxxxxxxx"],
@@ -608,8 +609,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
                 name="tag:Name",
                 values=["instance-name-tag"],
             ),
-        ],
-        instance_id="i-instanceid")
+        ])
     ```
 
 
@@ -706,7 +706,8 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_instance(filters=[
+    foo = aws.ec2.get_instance(instance_id="i-instanceid",
+        filters=[
             aws.ec2.GetInstanceFilterArgs(
                 name="image-id",
                 values=["ami-xxxxxxxx"],
@@ -715,8 +716,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
                 name="tag:Name",
                 values=["instance-name-tag"],
             ),
-        ],
-        instance_id="i-instanceid")
+        ])
     ```
 
 

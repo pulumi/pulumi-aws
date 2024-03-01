@@ -19,6 +19,39 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Studio Lifecycle Config resource.
  * 
  * ## Example Usage
+ * ### Basic usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.StudioLifecycleConfig;
+ * import com.pulumi.aws.sagemaker.StudioLifecycleConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new StudioLifecycleConfig(&#34;example&#34;, StudioLifecycleConfigArgs.builder()        
+ *             .studioLifecycleConfigName(&#34;example&#34;)
+ *             .studioLifecycleConfigAppType(&#34;JupyterServer&#34;)
+ *             .studioLifecycleConfigContent(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input(&#34;echo Hello&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

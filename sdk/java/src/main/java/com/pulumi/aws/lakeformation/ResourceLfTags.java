@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLfTag = new LfTag(&#34;exampleLfTag&#34;, LfTagArgs.builder()        
+ *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
  *             .key(&#34;right&#34;)
  *             .values(            
  *                 &#34;abbey&#34;,
@@ -63,10 +63,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(ResourceLfTagsLfTagArgs.builder()
- *                 .key(exampleLfTag.key())
+ *                 .key(example.key())
  *                 .value(&#34;stowe&#34;)
  *                 .build())
  *             .build());
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLfTag = new LfTag(&#34;exampleLfTag&#34;, LfTagArgs.builder()        
+ *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
  *             .key(&#34;right&#34;)
  *             .values(            
  *                 &#34;abbey&#34;,
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(            
  *                 ResourceLfTagsLfTagArgs.builder()

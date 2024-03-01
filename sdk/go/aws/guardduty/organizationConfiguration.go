@@ -30,15 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
+//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
 //				Enable: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
+//			_, err = guardduty.NewOrganizationConfiguration(ctx, "example", &guardduty.OrganizationConfigurationArgs{
 //				AutoEnableOrganizationMembers: pulumi.String("ALL"),
-//				DetectorId:                    exampleDetector.ID(),
+//				DetectorId:                    example.ID(),
 //				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
 //					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
 //						AutoEnable: pulumi.Bool(true),

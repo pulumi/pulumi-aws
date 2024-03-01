@@ -314,11 +314,12 @@ class Thesaurus(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",
@@ -360,11 +361,12 @@ class Thesaurus(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",

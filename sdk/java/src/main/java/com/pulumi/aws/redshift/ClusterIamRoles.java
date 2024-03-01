@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterIamRoles(&#34;example&#34;, ClusterIamRolesArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
- *             .iamRoleArns(aws_iam_role.example().arn())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
+ *             .iamRoleArns(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

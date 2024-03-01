@@ -292,15 +292,15 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=aws_iam_role["test"]["arn"],
+            access_role=test["arn"],
             as2_config=aws.transfer.ConnectorAs2ConfigArgs(
                 compression="DISABLED",
                 encryption_algorithm="AWS128_CBC",
                 message_subject="For Connector",
-                local_profile_id=aws_transfer_profile["local"]["profile_id"],
+                local_profile_id=local["profileId"],
                 mdn_response="NONE",
                 mdn_signing_algorithm="NONE",
-                partner_profile_id=aws_transfer_profile["partner"]["profile_id"],
+                partner_profile_id=partner["profileId"],
                 signing_algorithm="NONE",
             ),
             url="http://www.test.com")
@@ -312,10 +312,10 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=aws_iam_role["test"]["arn"],
+            access_role=test["arn"],
             sftp_config=aws.transfer.ConnectorSftpConfigArgs(
                 trusted_host_keys=["ssh-rsa AAAAB3NYourKeysHere"],
-                user_secret_id=aws_secretsmanager_secret["example"]["id"],
+                user_secret_id=example_aws_secretsmanager_secret["id"],
             ),
             url="sftp://test.com")
         ```
@@ -354,15 +354,15 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=aws_iam_role["test"]["arn"],
+            access_role=test["arn"],
             as2_config=aws.transfer.ConnectorAs2ConfigArgs(
                 compression="DISABLED",
                 encryption_algorithm="AWS128_CBC",
                 message_subject="For Connector",
-                local_profile_id=aws_transfer_profile["local"]["profile_id"],
+                local_profile_id=local["profileId"],
                 mdn_response="NONE",
                 mdn_signing_algorithm="NONE",
-                partner_profile_id=aws_transfer_profile["partner"]["profile_id"],
+                partner_profile_id=partner["profileId"],
                 signing_algorithm="NONE",
             ),
             url="http://www.test.com")
@@ -374,10 +374,10 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=aws_iam_role["test"]["arn"],
+            access_role=test["arn"],
             sftp_config=aws.transfer.ConnectorSftpConfigArgs(
                 trusted_host_keys=["ssh-rsa AAAAB3NYourKeysHere"],
-                user_secret_id=aws_secretsmanager_secret["example"]["id"],
+                user_secret_id=example_aws_secretsmanager_secret["id"],
             ),
             url="sftp://test.com")
         ```

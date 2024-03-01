@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewAccessEntry(ctx, "example", &eks.AccessEntryArgs{
-//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
-//				PrincipalArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
+//				PrincipalArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KubernetesGroups: pulumi.StringArray{
 //					pulumi.String("group-1"),
 //					pulumi.String("group-2"),

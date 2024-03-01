@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccelerator, err := globalaccelerator.NewAccelerator(ctx, "exampleAccelerator", &globalaccelerator.AcceleratorArgs{
+//			example, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
+//				Name:          pulumi.String("Example"),
 //				IpAddressType: pulumi.String("IPV4"),
 //				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.AcceleratorAttributesArgs{
@@ -40,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = globalaccelerator.NewListener(ctx, "exampleListener", &globalaccelerator.ListenerArgs{
-//				AcceleratorArn: exampleAccelerator.ID(),
+//			_, err = globalaccelerator.NewListener(ctx, "example", &globalaccelerator.ListenerArgs{
+//				AcceleratorArn: example.ID(),
 //				ClientAffinity: pulumi.String("SOURCE_IP"),
 //				Protocol:       pulumi.String("TCP"),
 //				PortRanges: globalaccelerator.ListenerPortRangeArray{

@@ -33,18 +33,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
+//				Name: pulumi.String("my-data-quality-job-definition"),
 //				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
-//					ImageUri: pulumi.Any(data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path),
+//					ImageUri: pulumi.Any(monitor.RegistryPath),
 //				},
 //				DataQualityJobInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs{
 //					EndpointInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs{
-//						EndpointName: pulumi.Any(aws_sagemaker_endpoint.My_endpoint.Name),
+//						EndpointName: pulumi.Any(myEndpoint.Name),
 //					},
 //				},
 //				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
 //					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
 //						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", aws_s3_bucket.My_bucket.Bucket_regional_domain_name)),
+//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", myBucket.BucketRegionalDomainName)),
 //						},
 //					},
 //				},
@@ -55,7 +56,7 @@ import (
 //						VolumeSizeInGb: pulumi.Int(20),
 //					},
 //				},
-//				RoleArn: pulumi.Any(aws_iam_role.My_role.Arn),
+//				RoleArn: pulumi.Any(myRole.Arn),
 //			})
 //			if err != nil {
 //				return err

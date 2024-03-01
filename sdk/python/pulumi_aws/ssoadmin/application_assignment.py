@@ -140,8 +140,8 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
-            principal_id=aws_identitystore_user["example"]["user_id"],
+            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
         ### Group Type
@@ -151,8 +151,8 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
-            principal_id=aws_identitystore_group["example"]["group_id"],
+            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
 
@@ -187,8 +187,8 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
-            principal_id=aws_identitystore_user["example"]["user_id"],
+            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
         ### Group Type
@@ -198,8 +198,8 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
-            principal_id=aws_identitystore_group["example"]["group_id"],
+            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
 

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .eventClasses(&#34;FILE_ACTIVITY&#34;)
  *             .configuration(CustomLogSourceConfigurationArgs.builder()
  *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.custom_log().arn())
+ *                     .roleArn(customLog.arn())
  *                     .build())
  *                 .providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs.builder()
  *                     .externalId(&#34;example-id&#34;)

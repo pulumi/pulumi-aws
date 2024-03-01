@@ -21,22 +21,14 @@ namespace Pulumi.Aws.WafV2
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeSHA1(string input) 
-    /// {
-    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
-    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -63,26 +55,31 @@ namespace Pulumi.Aws.WafV2
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new()
+    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
     ///     {
+    ///         Name = "web-acl-association-example",
     ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -96,7 +93,7 @@ namespace Pulumi.Aws.WafV2
     ///         },
     ///     });
     /// 
-    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new()
+    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("example", new()
     ///     {
     ///         ResourceArn = exampleStage.Arn,
     ///         WebAclArn = exampleWebAcl.Arn,

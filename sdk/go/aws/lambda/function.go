@@ -60,13 +60,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
+//				Name:             pulumi.String("iam_for_lambda"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = archive.LookupFile(ctx, &archive.LookupFileArgs{
+//			lambda, err := archive.LookupFile(ctx, &archive.LookupFileArgs{
 //				Type:       "zip",
 //				SourceFile: pulumi.StringRef("lambda.js"),
 //				OutputPath: "lambda_function_payload.zip",
@@ -74,11 +75,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs18.x"),
+//			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
+//				Code:           pulumi.NewFileArchive("lambda_function_payload.zip"),
+//				Name:           pulumi.String("lambda_function_name"),
+//				Role:           iamForLambda.Arn,
+//				Handler:        pulumi.String("index.test"),
+//				SourceCodeHash: *pulumi.String(lambda.OutputBase64sha256),
+//				Runtime:        pulumi.String("nodejs18.x"),
 //				Environment: &lambda.FunctionEnvironmentArgs{
 //					Variables: pulumi.StringMap{
 //						"foo": pulumi.String("bar"),
@@ -107,13 +110,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLayerVersion, err := lambda.NewLayerVersion(ctx, "exampleLayerVersion", nil)
+//			example, err := lambda.NewLayerVersion(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
+//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
 //				Layers: pulumi.StringArray{
-//					exampleLayerVersion.Arn,
+//					example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -162,14 +165,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
+//				Name:             pulumi.String("iam_for_lambda"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
+//				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("index.test"),
 //				Runtime: pulumi.String("nodejs18.x"),
@@ -203,7 +208,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// EFS file system
-//			efsForLambda, err := efs.NewFileSystem(ctx, "efsForLambda", &efs.FileSystemArgs{
+//			efsForLambda, err := efs.NewFileSystem(ctx, "efs_for_lambda", &efs.FileSystemArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("efs_for_lambda"),
 //				},
@@ -211,19 +216,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Mount target connects the file system to the subnet
-//			alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Sg_for_lambda.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			// EFS access point used by lambda file system
-//			accessPointForLambda, err := efs.NewAccessPoint(ctx, "accessPointForLambda", &efs.AccessPointArgs{
+//			accessPointForLambda, err := efs.NewAccessPoint(ctx, "access_point_for_lambda", &efs.AccessPointArgs{
 //				FileSystemId: efsForLambda.ID(),
 //				RootDirectory: &efs.AccessPointRootDirectoryArgs{
 //					Path: pulumi.String("/lambda"),
@@ -242,7 +236,6 @@ import (
 //				return err
 //			}
 //			// A lambda function connected to an EFS file system
-//			// ... other configuration ...
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
 //				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
 //					Arn:            accessPointForLambda.Arn,
@@ -250,15 +243,24 @@ import (
 //				},
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Subnet_for_lambda.Id,
+//						subnetForLambda.Id,
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sg_for_lambda.Id,
+//						sgForLambda.Id,
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				alpha,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Mount target connects the file system to the subnet
+//			_, err = efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
+//				FileSystemId: efsForLambda.ID(),
+//				SubnetId:     pulumi.Any(subnetForLambda.Id),
+//				SecurityGroups: pulumi.StringArray{
+//					sgForLambda.Id,
+//				},
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -279,6 +281,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
@@ -294,15 +298,26 @@ import (
 //			if param := cfg.Get("lambdaFunctionName"); param != "" {
 //				lambdaFunctionName = param
 //			}
+//			_, err := lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
+//				Name: pulumi.String(lambdaFunctionName),
+//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
+//					LogFormat: pulumi.String("Text"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// This is to optionally manage the CloudWatch Log Group for the Lambda Function.
 //			// If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String(fmt.Sprintf("/aws/lambda/%v", lambdaFunctionName)),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lambdaLoggingPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			// See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+//			lambdaLogging, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -320,29 +335,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambdaLoggingPolicy, err := iam.NewPolicy(ctx, "lambdaLoggingPolicy", &iam.PolicyArgs{
+//			lambdaLoggingPolicy, err := iam.NewPolicy(ctx, "lambda_logging", &iam.PolicyArgs{
+//				Name:        pulumi.String("lambda_logging"),
 //				Path:        pulumi.String("/"),
 //				Description: pulumi.String("IAM policy for logging from a lambda"),
-//				Policy:      *pulumi.String(lambdaLoggingPolicyDocument.Json),
+//				Policy:      *pulumi.String(lambdaLogging.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
+//			_, err = iam.NewRolePolicyAttachment(ctx, "lambda_logs", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(iamForLambda.Name),
 //				PolicyArn: lambdaLoggingPolicy.Arn,
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
-//					LogFormat: pulumi.String("Text"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				lambdaLogs,
-//				example,
-//			}))
 //			if err != nil {
 //				return err
 //			}

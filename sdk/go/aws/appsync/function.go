@@ -28,8 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //				Schema: pulumi.String(`type Mutation {
 //	  putPost(id: ID!, title: String!): Post
 //	}
@@ -54,8 +55,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataSource, err := appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
-//				ApiId: exampleGraphQLApi.ID(),
+//			exampleDataSource, err := appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
+//				ApiId: example.ID(),
 //				Name:  pulumi.String("example"),
 //				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
@@ -65,8 +66,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
-//				ApiId:      exampleGraphQLApi.ID(),
+//			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
+//				ApiId:      example.ID(),
 //				DataSource: exampleDataSource.Name,
 //				Name:       pulumi.String("example"),
 //				RequestMappingTemplate: pulumi.String(`{
@@ -106,28 +107,25 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-//				DataSource: pulumi.Any(aws_appsync_datasource.Example.Name),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "some-code-dir",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
+//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
+//				DataSource: pulumi.Any(exampleAwsAppsyncDatasource.Name),
 //				Name:       pulumi.String("example"),
-//				Code:       readFileOrPanic("some-code-dir"),
+//				Code:       invokeFile.Result,
 //				Runtime: &appsync.FunctionRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),

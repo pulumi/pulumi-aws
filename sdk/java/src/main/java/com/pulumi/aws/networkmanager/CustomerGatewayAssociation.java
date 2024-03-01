@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.TransitGatewayRegistrationArgs;
  * import com.pulumi.aws.networkmanager.CustomerGatewayAssociation;
  * import com.pulumi.aws.networkmanager.CustomerGatewayAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,16 +53,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;, GlobalNetworkArgs.builder()        
+ *         var example = new GlobalNetwork(&#34;example&#34;, GlobalNetworkArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleSite = new Site(&#34;exampleSite&#34;, SiteArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .build());
  * 
  *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .siteId(exampleSite.id())
  *             .build());
  * 
@@ -83,19 +82,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration(&#34;exampleTransitGatewayRegistration&#34;, TransitGatewayRegistrationArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .transitGatewayArn(exampleTransitGateway.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleVpnConnection)
- *                 .build());
+ *             .build());
  * 
  *         var exampleCustomerGatewayAssociation = new CustomerGatewayAssociation(&#34;exampleCustomerGatewayAssociation&#34;, CustomerGatewayAssociationArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .customerGatewayArn(exampleCustomerGateway.arn())
  *             .deviceId(exampleDevice.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleTransitGatewayRegistration)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

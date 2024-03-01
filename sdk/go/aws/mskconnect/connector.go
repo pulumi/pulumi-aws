@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mskconnect.NewConnector(ctx, "example", &mskconnect.ConnectorArgs{
+//				Name:                pulumi.String("example"),
 //				KafkaconnectVersion: pulumi.String("2.7.1"),
 //				Capacity: &mskconnect.ConnectorCapacityArgs{
 //					Autoscaling: &mskconnect.ConnectorCapacityAutoscalingArgs{
@@ -51,15 +52,15 @@ import (
 //				},
 //				KafkaCluster: &mskconnect.ConnectorKafkaClusterArgs{
 //					ApacheKafkaCluster: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs{
-//						BootstrapServers: pulumi.Any(aws_msk_cluster.Example.Bootstrap_brokers_tls),
+//						BootstrapServers: pulumi.Any(exampleAwsMskCluster.BootstrapBrokersTls),
 //						Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
 //							SecurityGroups: pulumi.StringArray{
-//								aws_security_group.Example.Id,
+//								exampleAwsSecurityGroup.Id,
 //							},
 //							Subnets: pulumi.StringArray{
-//								aws_subnet.Example1.Id,
-//								aws_subnet.Example2.Id,
-//								aws_subnet.Example3.Id,
+//								example1.Id,
+//								example2.Id,
+//								example3.Id,
 //							},
 //						},
 //					},
@@ -73,12 +74,12 @@ import (
 //				Plugins: mskconnect.ConnectorPluginArray{
 //					&mskconnect.ConnectorPluginArgs{
 //						CustomPlugin: &mskconnect.ConnectorPluginCustomPluginArgs{
-//							Arn:      pulumi.Any(aws_mskconnect_custom_plugin.Example.Arn),
-//							Revision: pulumi.Any(aws_mskconnect_custom_plugin.Example.Latest_revision),
+//							Arn:      pulumi.Any(exampleAwsMskconnectCustomPlugin.Arn),
+//							Revision: pulumi.Any(exampleAwsMskconnectCustomPlugin.LatestRevision),
 //						},
 //					},
 //				},
-//				ServiceExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

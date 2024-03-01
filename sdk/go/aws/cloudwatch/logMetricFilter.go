@@ -28,11 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
+//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("MyApp/access.log"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
+//				Name:         pulumi.String("MyAppAccessCount"),
 //				Pattern:      pulumi.String(""),
 //				LogGroupName: dada.Name,
 //				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{

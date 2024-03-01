@@ -30,14 +30,14 @@ namespace Pulumi.Aws.LB
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
-        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
         ///         Type = "A",
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
         ///             {
-        ///                 Name = aws_lb.Main.Dns_name,
+        ///                 Name = mainAwsLb.DnsName,
         ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
         ///                 EvaluateTargetHealth = true,
         ///             },
@@ -71,14 +71,14 @@ namespace Pulumi.Aws.LB
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
-        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
         ///         Type = "A",
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
         ///             {
-        ///                 Name = aws_lb.Main.Dns_name,
+        ///                 Name = mainAwsLb.DnsName,
         ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
         ///                 EvaluateTargetHealth = true,
         ///             },

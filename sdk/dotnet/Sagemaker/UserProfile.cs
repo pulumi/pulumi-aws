@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.UserProfile("example", new()
     ///     {
-    ///         DomainId = aws_sagemaker_domain.Test.Id,
+    ///         DomainId = test.Id,
     ///         UserProfileName = "example",
     ///     });
     /// 

@@ -18,6 +18,58 @@ import {Metric} from "./index";
  * > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ec2.PlacementGroup("test", {
+ *     name: "test",
+ *     strategy: "cluster",
+ * });
+ * const bar = new aws.autoscaling.Group("bar", {
+ *     name: "foobar3-test",
+ *     maxSize: 5,
+ *     minSize: 2,
+ *     healthCheckGracePeriod: 300,
+ *     healthCheckType: "ELB",
+ *     desiredCapacity: 4,
+ *     forceDelete: true,
+ *     placementGroup: test.id,
+ *     launchConfiguration: foobar.name,
+ *     vpcZoneIdentifiers: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
+ *     instanceMaintenancePolicy: {
+ *         minHealthyPercentage: 90,
+ *         maxHealthyPercentage: 120,
+ *     },
+ *     initialLifecycleHooks: [{
+ *         name: "foobar",
+ *         defaultResult: "CONTINUE",
+ *         heartbeatTimeout: 2000,
+ *         lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *         notificationMetadata: JSON.stringify({
+ *             foo: "bar",
+ *         }),
+ *         notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
+ *         roleArn: "arn:aws:iam::123456789012:role/S3Access",
+ *     }],
+ *     tags: [
+ *         {
+ *             key: "foo",
+ *             value: "bar",
+ *             propagateAtLaunch: true,
+ *         },
+ *         {
+ *             key: "lorem",
+ *             value: "ipsum",
+ *             propagateAtLaunch: false,
+ *         },
+ *     ],
+ * });
+ * ```
  * ### With Latest Version Of Launch Template
  *
  * ```typescript
@@ -46,12 +98,12 @@ import {Metric} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ * const example = new aws.ec2.LaunchTemplate("example", {
  *     namePrefix: "example",
- *     imageId: data.aws_ami.example.id,
+ *     imageId: exampleAwsAmi.id,
  *     instanceType: "c5.large",
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 1,
@@ -59,7 +111,7 @@ import {Metric} from "./index";
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
- *                 launchTemplateId: exampleLaunchTemplate.id,
+ *                 launchTemplateId: example.id,
  *             },
  *             overrides: [
  *                 {
@@ -81,19 +133,19 @@ import {Metric} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ * const example = new aws.ec2.LaunchTemplate("example", {
  *     namePrefix: "example",
- *     imageId: data.aws_ami.example.id,
+ *     imageId: exampleAwsAmi.id,
  *     instanceType: "c5.large",
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     capacityRebalance: true,
  *     desiredCapacity: 12,
  *     maxSize: 15,
  *     minSize: 12,
  *     vpcZoneIdentifiers: [
- *         aws_subnet.example1.id,
- *         aws_subnet.example2.id,
+ *         example1.id,
+ *         example2.id,
  *     ],
  *     mixedInstancesPolicy: {
  *         instancesDistribution: {
@@ -103,7 +155,7 @@ import {Metric} from "./index";
  *         },
  *         launchTemplate: {
  *             launchTemplateSpecification: {
- *                 launchTemplateId: exampleLaunchTemplate.id,
+ *                 launchTemplateId: example.id,
  *             },
  *             overrides: [
  *                 {
@@ -127,16 +179,16 @@ import {Metric} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ * const example = new aws.ec2.LaunchTemplate("example", {
  *     namePrefix: "example",
- *     imageId: data.aws_ami.example.id,
+ *     imageId: exampleAwsAmi.id,
  *     instanceType: "c5.large",
  * });
  * const example2 = new aws.ec2.LaunchTemplate("example2", {
  *     namePrefix: "example2",
- *     imageId: data.aws_ami.example2.id,
+ *     imageId: example2AwsAmi.id,
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 1,
@@ -144,7 +196,7 @@ import {Metric} from "./index";
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
- *                 launchTemplateId: exampleLaunchTemplate.id,
+ *                 launchTemplateId: example.id,
  *             },
  *             overrides: [
  *                 {
@@ -171,12 +223,12 @@ import {Metric} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ * const example = new aws.ec2.LaunchTemplate("example", {
  *     namePrefix: "example",
- *     imageId: data.aws_ami.example.id,
+ *     imageId: exampleAwsAmi.id,
  *     instanceType: "c5.large",
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 1,
@@ -184,7 +236,7 @@ import {Metric} from "./index";
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
- *                 launchTemplateId: exampleLaunchTemplate.id,
+ *                 launchTemplateId: example.id,
  *             },
  *             overrides: [{
  *                 instanceRequirements: {
@@ -200,13 +252,55 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * ### Dynamic tagging
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const extraTags = config.getObject("extraTags") || [
+ *     {
+ *         key: "Foo",
+ *         propagateAtLaunch: true,
+ *         value: "Bar",
+ *     },
+ *     {
+ *         key: "Baz",
+ *         propagateAtLaunch: true,
+ *         value: "Bam",
+ *     },
+ * ];
+ * const test = new aws.autoscaling.Group("test", {
+ *     tags: [
+ *         {
+ *             key: "explicit1",
+ *             value: "value1",
+ *             propagateAtLaunch: true,
+ *         },
+ *         {
+ *             key: "explicit2",
+ *             value: "value2",
+ *             propagateAtLaunch: true,
+ *         },
+ *     ],
+ *     name: "foobar3-test",
+ *     maxSize: 5,
+ *     minSize: 2,
+ *     launchConfiguration: foobar.name,
+ *     vpcZoneIdentifiers: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
+ * });
+ * ```
  * ### Automatically refresh all instances after the group is updated
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAmi = aws.ec2.getAmi({
+ * const example = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [{
@@ -214,11 +308,11 @@ import {Metric} from "./index";
  *         values: ["amzn-ami-hvm-*-x86_64-gp2"],
  *     }],
  * });
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
- *     imageId: exampleAmi.then(exampleAmi => exampleAmi.id),
+ * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
+ *     imageId: example.then(example => example.id),
  *     instanceType: "t3.nano",
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 2,
@@ -247,12 +341,12 @@ import {Metric} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ * const example = new aws.ec2.LaunchTemplate("example", {
  *     namePrefix: "example",
- *     imageId: data.aws_ami.example.id,
+ *     imageId: exampleAwsAmi.id,
  *     instanceType: "c5.large",
  * });
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ * const exampleGroup = new aws.autoscaling.Group("example", {
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 5,
@@ -265,6 +359,23 @@ import {Metric} from "./index";
  *             reuseOnScaleIn: true,
  *         },
  *     },
+ * });
+ * ```
+ * ### Auto Scaling group with Traffic Sources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.autoscaling.Group("test", {
+ *     trafficSources: testAwsVpclatticeTargetGroup.map(__item => __item).map((v, k) => ({key: k, value: v})).map(entry => ({
+ *         identifier: entry.value.arn,
+ *         type: "vpc-lattice",
+ *     })),
+ *     vpcZoneIdentifiers: testAwsSubnet.id,
+ *     maxSize: 1,
+ *     minSize: 1,
+ *     forceDelete: true,
  * });
  * ```
  * ## Waiting for Capacity

@@ -134,8 +134,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
-        ipam_delegate_account = aws.Provider("ipamDelegateAccount")
-        # authentication arguments omitted
         ```
 
         ## Import
@@ -168,8 +166,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
-        ipam_delegate_account = aws.Provider("ipamDelegateAccount")
-        # authentication arguments omitted
         ```
 
         ## Import

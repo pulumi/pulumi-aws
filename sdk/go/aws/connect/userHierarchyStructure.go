@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
 //					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
 //						Name: pulumi.String("levelone"),
 //					},
 //				},
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,24 +61,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
-//						Name: pulumi.String("levelfive"),
-//					},
-//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
-//						Name: pulumi.String("levelfour"),
-//					},
 //					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
 //						Name: pulumi.String("levelone"),
-//					},
-//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
-//						Name: pulumi.String("levelthree"),
 //					},
 //					LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
 //						Name: pulumi.String("leveltwo"),
 //					},
+//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
+//						Name: pulumi.String("levelthree"),
+//					},
+//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
+//						Name: pulumi.String("levelfour"),
+//					},
+//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
+//						Name: pulumi.String("levelfive"),
+//					},
 //				},
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //			})
 //			if err != nil {
 //				return err

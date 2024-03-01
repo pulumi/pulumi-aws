@@ -1601,20 +1601,6 @@ type UserHomeDirectoryMapping struct {
 	// Represents the map target.
 	//
 	// The `Restricted` option is achieved using the following mapping:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Target string `pulumi:"target"`
 }
 
@@ -1635,20 +1621,6 @@ type UserHomeDirectoryMappingArgs struct {
 	// Represents the map target.
 	//
 	// The `Restricted` option is achieved using the following mapping:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -1711,23 +1683,6 @@ func (o UserHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
 // Represents the map target.
 //
 // The `Restricted` option is achieved using the following mapping:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o UserHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
 }

@@ -47,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new ImageBuilder(&#34;testFleet&#34;, ImageBuilderArgs.builder()        
+ *             .name(&#34;Name&#34;)
  *             .description(&#34;Description of a ImageBuilder&#34;)
  *             .displayName(&#34;Display name of a ImageBuilder&#34;)
  *             .enableDefaultInternetAccess(false)
  *             .imageName(&#34;AppStream-WinServer2019-10-05-2022&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
+ *                 .subnetIds(example.id())
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Image Builder&#34;))
  *             .build());

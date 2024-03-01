@@ -120,7 +120,7 @@ def get_credentials(db_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_credentials(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
 
 
@@ -159,7 +159,7 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_credentials(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
 
 

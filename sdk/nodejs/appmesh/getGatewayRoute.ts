@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getGatewayRoute({
- *     meshName: "test-mesh",
  *     name: "test-route",
+ *     meshName: "test-mesh",
  *     virtualGatewayName: "test-gateway",
  * });
  * ```
@@ -108,8 +108,8 @@ export interface GetGatewayRouteResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getGatewayRoute({
- *     meshName: "test-mesh",
  *     name: "test-route",
+ *     meshName: "test-mesh",
  *     virtualGatewayName: "test-gateway",
  * });
  * ```

@@ -24,11 +24,11 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.S3Location("example", new()
     ///     {
-    ///         S3BucketArn = aws_s3_bucket.Example.Arn,
+    ///         S3BucketArn = exampleAwsS3Bucket.Arn,
     ///         Subdirectory = "/example/prefix",
     ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
     ///         {
-    ///             BucketAccessRoleArn = aws_iam_role.Example.Arn,
+    ///             BucketAccessRoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 

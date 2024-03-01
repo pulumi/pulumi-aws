@@ -44,13 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new QuickConnect(&#34;test&#34;, QuickConnectArgs.builder()        
- *             .description(&#34;quick connect phone number&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
+ *             .description(&#34;quick connect phone number&#34;)
  *             .quickConnectConfig(QuickConnectQuickConnectConfigArgs.builder()
+ *                 .quickConnectType(&#34;PHONE_NUMBER&#34;)
  *                 .phoneConfigs(QuickConnectQuickConnectConfigPhoneConfigArgs.builder()
  *                     .phoneNumber(&#34;+12345678912&#34;)
  *                     .build())
- *                 .quickConnectType(&#34;PHONE_NUMBER&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Quick Connect&#34;))
  *             .build());

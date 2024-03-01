@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",
  *     },
+ *     name: "Example contact channel",
  *     type: "EMAIL",
  * });
  * ```
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleContact = new aws.ssmcontacts.Contact("exampleContact", {
+ * const exampleContact = new aws.ssmcontacts.Contact("example_contact", {
  *     alias: "example_contact",
  *     type: "PERSONAL",
  * });
@@ -40,6 +41,7 @@ import * as utilities from "../utilities";
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",
  *     },
+ *     name: "Example contact channel",
  *     type: "EMAIL",
  * });
  * ```

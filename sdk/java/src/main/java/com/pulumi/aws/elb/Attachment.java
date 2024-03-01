@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var baz = new Attachment(&#34;baz&#34;, AttachmentArgs.builder()        
- *             .elb(aws_elb.bar().id())
- *             .instance(aws_instance.foo().id())
+ *             .elb(bar.id())
+ *             .instance(foo.id())
  *             .build());
  * 
  *     }

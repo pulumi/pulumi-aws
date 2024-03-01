@@ -257,11 +257,11 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("testLatest",
-            function_name=aws_lambda_function["test"]["function_name"],
+        test_latest = aws.lambda_.FunctionUrl("test_latest",
+            function_name=test["functionName"],
             authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("testLive",
-            function_name=aws_lambda_function["test"]["function_name"],
+        test_live = aws.lambda_.FunctionUrl("test_live",
+            function_name=test["functionName"],
             qualifier="my_alias",
             authorization_type="AWS_IAM",
             cors=aws.lambda_.FunctionUrlCorsArgs(
@@ -313,11 +313,11 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("testLatest",
-            function_name=aws_lambda_function["test"]["function_name"],
+        test_latest = aws.lambda_.FunctionUrl("test_latest",
+            function_name=test["functionName"],
             authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("testLive",
-            function_name=aws_lambda_function["test"]["function_name"],
+        test_live = aws.lambda_.FunctionUrl("test_live",
+            function_name=test["functionName"],
             qualifier="my_alias",
             authorization_type="AWS_IAM",
             cors=aws.lambda_.FunctionUrlCorsArgs(

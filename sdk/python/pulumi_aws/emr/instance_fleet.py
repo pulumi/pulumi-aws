@@ -283,7 +283,7 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=aws_emr_cluster["cluster"]["id"],
+            cluster_id=cluster["id"],
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
@@ -314,6 +314,7 @@ class InstanceFleet(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
@@ -356,7 +357,7 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=aws_emr_cluster["cluster"]["id"],
+            cluster_id=cluster["id"],
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
@@ -387,6 +388,7 @@ class InstanceFleet(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```

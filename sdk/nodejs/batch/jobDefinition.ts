@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "my_test_batch_job_definition",
  *     type: "container",
  *     containerProperties: JSON.stringify({
  *         command: [
@@ -65,6 +66,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "tf_test_batch_job_definition_multinode",
  *     type: "multinode",
  *     nodeProperties: JSON.stringify({
  *         mainNode: 0,
@@ -98,6 +100,40 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * ### Job Definitionn of type EKS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.batch.JobDefinition("test", {
+ *     name: " tf_test_batch_job_definition_eks",
+ *     type: "container",
+ *     eksProperties: {
+ *         podProperties: {
+ *             hostNetwork: true,
+ *             containers: {
+ *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                 commands: [
+ *                     "sleep",
+ *                     "60",
+ *                 ],
+ *                 resources: {
+ *                     limits: {
+ *                         cpu: "1",
+ *                         memory: "1024Mi",
+ *                     },
+ *                 },
+ *             },
+ *             metadata: {
+ *                 labels: {
+ *                     environment: "test",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  * ### Fargate Platform Capability
  *
  * ```typescript
@@ -113,12 +149,16 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const ecsTaskExecutionRole = new aws.iam.Role("ecsTaskExecutionRole", {assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json)});
- * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", {
+ * const ecsTaskExecutionRole = new aws.iam.Role("ecs_task_execution_role", {
+ *     name: "my_test_batch_exec_role",
+ *     assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json),
+ * });
+ * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy", {
  *     role: ecsTaskExecutionRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
  * });
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "my_test_batch_job_definition",
  *     type: "container",
  *     platformCapabilities: ["FARGATE"],
  *     containerProperties: pulumi.jsonStringify({

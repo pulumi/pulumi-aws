@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-policy",
  *     comment: "test comment",
  *     corsConfig: {
  *         accessControlAllowCredentials: true,
@@ -45,20 +46,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {customHeadersConfig: {
- *     items: [
- *         {
- *             header: "X-Permitted-Cross-Domain-Policies",
- *             override: true,
- *             value: "none",
- *         },
- *         {
- *             header: "X-Test",
- *             override: true,
- *             value: "none",
- *         },
- *     ],
- * }});
+ * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-headers-policy",
+ *     customHeadersConfig: {
+ *         items: [
+ *             {
+ *                 header: "X-Permitted-Cross-Domain-Policies",
+ *                 override: true,
+ *                 value: "none",
+ *             },
+ *             {
+ *                 header: "X-Test",
+ *                 override: true,
+ *                 value: "none",
+ *             },
+ *         ],
+ *     },
+ * });
  * ```
  *
  * The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
@@ -68,6 +72,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-headers-policy",
  *     customHeadersConfig: {
  *         items: [{
  *             header: "X-Permitted-Cross-Domain-Policies",

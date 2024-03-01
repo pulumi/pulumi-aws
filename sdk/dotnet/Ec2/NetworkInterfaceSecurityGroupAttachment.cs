@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
     ///     {
     ///         SecurityGroupId = sg.Id,
     ///         NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
     ///     {
     ///         SecurityGroupId = sg.Id,
     ///         NetworkInterfaceId = instance.Apply(getInstanceResult =&gt; getInstanceResult.NetworkInterfaceId),

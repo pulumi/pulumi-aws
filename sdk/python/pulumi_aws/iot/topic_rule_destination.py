@@ -117,6 +117,20 @@ class TopicRuleDestination(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.TopicRuleDestination("example", vpc_configuration=aws.iot.TopicRuleDestinationVpcConfigurationArgs(
+            role_arn=example_aws_iam_role["arn"],
+            security_groups=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
+            vpc_id=example_aws_vpc["id"],
+        ))
+        ```
+
         ## Import
 
         Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
@@ -137,6 +151,20 @@ class TopicRuleDestination(pulumi.CustomResource):
                  args: TopicRuleDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.TopicRuleDestination("example", vpc_configuration=aws.iot.TopicRuleDestinationVpcConfigurationArgs(
+            role_arn=example_aws_iam_role["arn"],
+            security_groups=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
+            vpc_id=example_aws_vpc["id"],
+        ))
+        ```
+
         ## Import
 
         Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:

@@ -58,23 +58,24 @@ namespace Pulumi.Aws.Eks
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-pod-identity-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleS3 = new Aws.Iam.RolePolicyAttachment("exampleS3", new()
+    ///     var exampleS3 = new Aws.Iam.RolePolicyAttachment("example_s3", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-    ///         Role = exampleRole.Name,
+    ///         Role = example.Name,
     ///     });
     /// 
-    ///     var examplePodIdentityAssociation = new Aws.Eks.PodIdentityAssociation("examplePodIdentityAssociation", new()
+    ///     var examplePodIdentityAssociation = new Aws.Eks.PodIdentityAssociation("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         Namespace = "example",
     ///         ServiceAccount = "example-sa",
-    ///         RoleArn = exampleRole.Arn,
+    ///         RoleArn = example.Arn,
     ///     });
     /// 
     /// });

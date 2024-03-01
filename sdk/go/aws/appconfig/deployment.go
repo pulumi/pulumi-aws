@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewDeployment(ctx, "example", &appconfig.DeploymentArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-//				ConfigurationVersion:   pulumi.Any(aws_appconfig_hosted_configuration_version.Example.Version_number),
-//				DeploymentStrategyId:   pulumi.Any(aws_appconfig_deployment_strategy.Example.Id),
+//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
+//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
+//				ConfigurationVersion:   pulumi.Any(exampleAwsAppconfigHostedConfigurationVersion.VersionNumber),
+//				DeploymentStrategyId:   pulumi.Any(exampleAwsAppconfigDeploymentStrategy.Id),
 //				Description:            pulumi.String("My example deployment"),
-//				EnvironmentId:          pulumi.Any(aws_appconfig_environment.Example.Environment_id),
-//				KmsKeyIdentifier:       pulumi.Any(aws_kms_key.Example.Arn),
+//				EnvironmentId:          pulumi.Any(exampleAwsAppconfigEnvironment.EnvironmentId),
+//				KmsKeyIdentifier:       pulumi.Any(exampleAwsKmsKey.Arn),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Deployment"),
 //				},

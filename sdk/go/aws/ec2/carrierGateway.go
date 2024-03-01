@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewCarrierGateway(ctx, "example", &ec2.CarrierGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-carrier-gateway"),
 //				},

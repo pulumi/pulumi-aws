@@ -32,7 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisRule, err := cfg.NewRule(ctx, "thisRule", &cfg.RuleArgs{
+//			this, err := cfg.NewRule(ctx, "this", &cfg.RuleArgs{
+//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("AWS"),
 //					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
@@ -41,8 +42,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewRemediationConfiguration(ctx, "thisRemediationConfiguration", &cfg.RemediationConfigurationArgs{
-//				ConfigRuleName: thisRule.Name,
+//			_, err = cfg.NewRemediationConfiguration(ctx, "this", &cfg.RemediationConfigurationArgs{
+//				ConfigRuleName: this.Name,
 //				ResourceType:   pulumi.String("AWS::S3::Bucket"),
 //				TargetType:     pulumi.String("SSM_DOCUMENT"),
 //				TargetId:       pulumi.String("AWS-EnableS3BucketEncryption"),

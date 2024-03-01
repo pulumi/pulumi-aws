@@ -57,7 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -89,6 +90,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicediscovery.HttpNamespace;
+ * import com.pulumi.aws.servicediscovery.HttpNamespaceArgs;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
@@ -107,10 +109,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace(&#34;example&#34;);
+ *         var example = new HttpNamespace(&#34;example&#34;, HttpNamespaceArgs.builder()        
+ *             .name(&#34;example-ns&#34;)
+ *             .build());
  * 
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -162,7 +167,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -223,7 +229,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()

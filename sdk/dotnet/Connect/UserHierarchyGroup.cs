@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Connect
     ///     var example = new Aws.Connect.UserHierarchyGroup("example", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example User Hierarchy Group" },
@@ -50,6 +51,7 @@ namespace Pulumi.Aws.Connect
     ///     var parent = new Aws.Connect.UserHierarchyGroup("parent", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "parent",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example User Hierarchy Group Parent" },
@@ -59,6 +61,7 @@ namespace Pulumi.Aws.Connect
     ///     var child = new Aws.Connect.UserHierarchyGroup("child", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "child",
     ///         ParentGroupId = parent.HierarchyGroupId,
     ///         Tags = 
     ///         {

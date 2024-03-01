@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .port(80)
  *             .protocol(&#34;HTTP&#34;)
  *             .vpcId(main.id())
@@ -95,6 +96,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ip_example = new TargetGroup(&#34;ip-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .port(80)
  *             .protocol(&#34;HTTP&#34;)
  *             .targetType(&#34;ip&#34;)
@@ -127,6 +129,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambda_example = new TargetGroup(&#34;lambda-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .targetType(&#34;lambda&#34;)
  *             .build());
  * 
@@ -156,10 +159,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var alb_example = new TargetGroup(&#34;alb-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-alb-tg&#34;)
  *             .targetType(&#34;alb&#34;)
  *             .port(80)
  *             .protocol(&#34;TCP&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .build());
  * 
  *     }
@@ -189,9 +193,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup(&#34;tcp-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-nlb-tg&#34;)
  *             .port(25)
  *             .protocol(&#34;TCP&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
  *                 .enableUnhealthyConnectionTermination(false)
  *                 .build())

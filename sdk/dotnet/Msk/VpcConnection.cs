@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Msk
     ///     {
     ///         Authentication = "SASL_IAM",
     ///         TargetClusterArn = "aws_msk_cluster.arn",
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         ClientSubnets = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         VpcId = testAwsVpc.Id,
+    ///         ClientSubnets = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///     });
     /// 

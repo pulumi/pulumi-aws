@@ -46,7 +46,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -118,9 +120,13 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .build());
  * 
- *         var test = new LogGroup(&#34;test&#34;);
+ *         var test = new LogGroup(&#34;test&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;msk_broker_logs&#34;)
+ *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;msk-broker-logs-bucket&#34;)
+ *             .build());
  * 
  *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
@@ -139,10 +145,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;firehose_test_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;kinesis-firehose-msk-broker-logs-stream&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
@@ -152,6 +160,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterName(&#34;example&#34;)
  *             .kafkaVersion(&#34;3.2.0&#34;)
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
@@ -232,14 +241,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterName(&#34;example&#34;)
  *             .kafkaVersion(&#34;2.7.1&#34;)
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
  *                 .instanceType(&#34;kafka.m5.4xlarge&#34;)
  *                 .clientSubnets(                
- *                     aws_subnet.subnet_az1().id(),
- *                     aws_subnet.subnet_az2().id(),
- *                     aws_subnet.subnet_az3().id())
+ *                     subnetAz1.id(),
+ *                     subnetAz2.id(),
+ *                     subnetAz3.id())
  *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
  *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
  *                         .provisionedThroughput(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs.builder()
@@ -249,7 +259,7 @@ import javax.annotation.Nullable;
  *                         .volumeSize(1000)
  *                         .build())
  *                     .build())
- *                 .securityGroups(aws_security_group.sg().id())
+ *                 .securityGroups(sg.id())
  *                 .build())
  *             .build());
  * 

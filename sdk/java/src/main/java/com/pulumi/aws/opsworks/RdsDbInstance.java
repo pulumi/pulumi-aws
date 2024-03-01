@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myInstance = new RdsDbInstance(&#34;myInstance&#34;, RdsDbInstanceArgs.builder()        
- *             .stackId(aws_opsworks_stack.my_stack().id())
- *             .rdsDbInstanceArn(aws_db_instance.my_instance().arn())
+ *             .stackId(myStack.id())
+ *             .rdsDbInstanceArn(myInstanceAwsDbInstance.arn())
  *             .dbUser(&#34;someUser&#34;)
  *             .dbPassword(&#34;somePass&#34;)
  *             .build());

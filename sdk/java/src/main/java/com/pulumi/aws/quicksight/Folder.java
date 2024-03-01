@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .build());
  * 
  *     }
@@ -75,6 +76,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .permissions(FolderPermissionArgs.builder()
  *                 .actions(                
  *                     &#34;quicksight:CreateFolder&#34;,
@@ -85,7 +87,7 @@ import javax.annotation.Nullable;
  *                     &#34;quicksight:DeleteFolderMembership&#34;,
  *                     &#34;quicksight:DescribeFolderPermissions&#34;,
  *                     &#34;quicksight:UpdateFolderPermissions&#34;)
- *                 .principal(aws_quicksight_user.example().arn())
+ *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
@@ -116,10 +118,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var parent = new Folder(&#34;parent&#34;, FolderArgs.builder()        
  *             .folderId(&#34;parent-id&#34;)
+ *             .name(&#34;parent-name&#34;)
  *             .build());
  * 
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .parentFolderArn(parent.arn())
  *             .build());
  * 

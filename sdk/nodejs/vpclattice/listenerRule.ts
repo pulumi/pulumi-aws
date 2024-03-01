@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpclattice.ListenerRule("test", {
- *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 20,
  *     match: {
  *         httpMatch: {
@@ -41,11 +42,11 @@ import * as utilities from "../utilities";
  *         forward: {
  *             targetGroups: [
  *                 {
- *                     targetGroupIdentifier: aws_vpclattice_target_group.example.id,
+ *                     targetGroupIdentifier: example.id,
  *                     weight: 1,
  *                 },
  *                 {
- *                     targetGroupIdentifier: aws_vpclattice_target_group.example2.id,
+ *                     targetGroupIdentifier: example2.id,
  *                     weight: 2,
  *                 },
  *             ],
@@ -60,8 +61,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpclattice.ListenerRule("test", {
- *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     name: "example",
+ *     listenerIdentifier: example.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 10,
  *     match: {
  *         httpMatch: {

@@ -24,9 +24,10 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.MaintenanceWindow("production", new()
     ///     {
-    ///         Cutoff = 1,
-    ///         Duration = 3,
+    ///         Name = "maintenance-window-application",
     ///         Schedule = "cron(0 16 ? * TUE *)",
+    ///         Duration = 3,
+    ///         Cutoff = 1,
     ///     });
     /// 
     /// });

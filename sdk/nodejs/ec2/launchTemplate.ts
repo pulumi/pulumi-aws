@@ -15,9 +15,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
  *
  * const foo = new aws.ec2.LaunchTemplate("foo", {
+ *     name: "foo",
  *     blockDeviceMappings: [{
  *         deviceName: "/dev/sdf",
  *         ebs: {
@@ -80,7 +85,9 @@ import * as utilities from "../utilities";
  *             Name: "test",
  *         },
  *     }],
- *     userData: fs.readFileSync(`${path.module}/example.sh`, { encoding: "base64" }),
+ *     userData: std.filebase64({
+ *         input: `${notImplemented("path.module")}/example.sh`,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

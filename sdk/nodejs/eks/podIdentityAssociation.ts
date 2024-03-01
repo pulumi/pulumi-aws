@@ -35,16 +35,19 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleS3 = new aws.iam.RolePolicyAttachment("exampleS3", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
- *     role: exampleRole.name,
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-pod-identity-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const examplePodIdentityAssociation = new aws.eks.PodIdentityAssociation("examplePodIdentityAssociation", {
- *     clusterName: aws_eks_cluster.example.name,
+ * const exampleS3 = new aws.iam.RolePolicyAttachment("example_s3", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
+ *     role: example.name,
+ * });
+ * const examplePodIdentityAssociation = new aws.eks.PodIdentityAssociation("example", {
+ *     clusterName: exampleAwsEksCluster.name,
  *     namespace: "example",
  *     serviceAccount: "example-sa",
- *     roleArn: exampleRole.arn,
+ *     roleArn: example.arn,
  * });
  * ```
  *

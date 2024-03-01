@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Pinpoint
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var rolePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var rolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -87,10 +87,11 @@ namespace Pulumi.Aws.Pinpoint
     ///         },
     ///     });
     /// 
-    ///     var rolePolicyRolePolicy = new Aws.Iam.RolePolicy("rolePolicyRolePolicy", new()
+    ///     var rolePolicyRolePolicy = new Aws.Iam.RolePolicy("role_policy", new()
     ///     {
+    ///         Name = "role_policy",
     ///         Role = role.Id,
-    ///         Policy = rolePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = rolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

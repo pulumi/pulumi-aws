@@ -35,12 +35,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
     ///         },
+    ///         Name = "test-foobar5",
     ///         HealthCheckType = "EC2",
     ///         TerminationPolicies = new[]
     ///         {
@@ -57,9 +58,10 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new()
+    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobar", new()
     ///     {
-    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///         Name = "foobar",
+    ///         AutoscalingGroupName = foobar.Name,
     ///         DefaultResult = "CONTINUE",
     ///         HeartbeatTimeout = 2000,
     ///         LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",

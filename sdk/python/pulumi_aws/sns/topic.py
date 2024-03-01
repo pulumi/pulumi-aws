@@ -1003,7 +1003,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
         ## Example with Delivery Policy
 
@@ -1011,7 +1011,9 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            delivery_policy=\"\"\"{
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1028,7 +1030,6 @@ class Topic(pulumi.CustomResource):
             }
           }
         }
-
         \"\"\")
         ```
 
@@ -1038,7 +1039,9 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            kms_master_key_id="alias/aws/sns")
         ```
 
         ## Example with First-In-First-Out (FIFO)
@@ -1047,9 +1050,10 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic.fifo",
+            fifo_topic=True,
+            content_based_deduplication=True)
         ```
 
         ## Message Delivery Status Arguments
@@ -1109,7 +1113,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
         ## Example with Delivery Policy
 
@@ -1117,7 +1121,9 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            delivery_policy=\"\"\"{
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1134,7 +1140,6 @@ class Topic(pulumi.CustomResource):
             }
           }
         }
-
         \"\"\")
         ```
 
@@ -1144,7 +1149,9 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            kms_master_key_id="alias/aws/sns")
         ```
 
         ## Example with First-In-First-Out (FIFO)
@@ -1153,9 +1160,10 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic.fifo",
+            fifo_topic=True,
+            content_based_deduplication=True)
         ```
 
         ## Message Delivery Status Arguments

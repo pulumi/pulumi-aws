@@ -2084,10 +2084,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Request a spot instance at $0.03
-        cheap_worker = aws.ec2.SpotInstanceRequest("cheapWorker",
+        cheap_worker = aws.ec2.SpotInstanceRequest("cheap_worker",
             ami="ami-1234",
-            instance_type="c4.xlarge",
             spot_price="0.03",
+            instance_type="c4.xlarge",
             tags={
                 "Name": "CheapWorker",
             })
@@ -2201,10 +2201,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Request a spot instance at $0.03
-        cheap_worker = aws.ec2.SpotInstanceRequest("cheapWorker",
+        cheap_worker = aws.ec2.SpotInstanceRequest("cheap_worker",
             ami="ami-1234",
-            instance_type="c4.xlarge",
             spot_price="0.03",
+            instance_type="c4.xlarge",
             tags={
                 "Name": "CheapWorker",
             })

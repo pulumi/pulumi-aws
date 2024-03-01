@@ -76,7 +76,7 @@ def get_outpost_instance_types(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_outpost_instance_types(arn=example_aws_outposts_outpost["arn"])
     ```
 
 
@@ -105,7 +105,7 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_outpost_instance_types(arn=example_aws_outposts_outpost["arn"])
     ```
 
 

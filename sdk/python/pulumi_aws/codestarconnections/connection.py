@@ -230,9 +230,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="Bitbucket")
+        example_pipeline = aws.codepipeline.Pipeline("example",
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
@@ -245,21 +246,23 @@ class Connection(pulumi.CustomResource):
                         version="1",
                         output_artifacts=["source_output"],
                         configuration={
-                            "ConnectionArn": example_connection.arn,
+                            "ConnectionArn": example.arn,
                             "FullRepositoryId": "my-organization/test",
                             "BranchName": "main",
                         },
                     )],
                 ),
                 aws.codepipeline.PipelineStageArgs(
-                    name="Build",
                     actions=[aws.codepipeline.PipelineStageActionArgs()],
+                    name="Build",
                 ),
                 aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
                     actions=[aws.codepipeline.PipelineStageActionArgs()],
+                    name="Deploy",
                 ),
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role["arn"])
         ```
 
         ## Import
@@ -294,9 +297,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="Bitbucket")
+        example_pipeline = aws.codepipeline.Pipeline("example",
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
@@ -309,21 +313,23 @@ class Connection(pulumi.CustomResource):
                         version="1",
                         output_artifacts=["source_output"],
                         configuration={
-                            "ConnectionArn": example_connection.arn,
+                            "ConnectionArn": example.arn,
                             "FullRepositoryId": "my-organization/test",
                             "BranchName": "main",
                         },
                     )],
                 ),
                 aws.codepipeline.PipelineStageArgs(
-                    name="Build",
                     actions=[aws.codepipeline.PipelineStageActionArgs()],
+                    name="Build",
                 ),
                 aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
                     actions=[aws.codepipeline.PipelineStageActionArgs()],
+                    name="Deploy",
                 ),
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role["arn"])
         ```
 
         ## Import

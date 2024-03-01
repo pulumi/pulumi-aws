@@ -34,6 +34,7 @@ import (
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
+//				Name: pulumi.String("Example contact channel"),
 //				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
@@ -58,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleContact, err := ssmcontacts.NewContact(ctx, "exampleContact", &ssmcontacts.ContactArgs{
+//			exampleContact, err := ssmcontacts.NewContact(ctx, "example_contact", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("example_contact"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
@@ -70,6 +71,7 @@ import (
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
+//				Name: pulumi.String("Example contact channel"),
 //				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {

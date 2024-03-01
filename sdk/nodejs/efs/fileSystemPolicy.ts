@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fs = new aws.efs.FileSystem("fs", {});
- * const policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const fs = new aws.efs.FileSystem("fs", {creationToken: "my-product"});
+ * const policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "ExampleStatement01",
  *         effect: "Allow",
@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
+ * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policy", {
  *     fileSystemId: fs.id,
- *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),
+ *     policy: policy.apply(policy => policy.json),
  * });
  * ```
  *

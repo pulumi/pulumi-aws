@@ -32,12 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
-//				EfsFileSystemArn: pulumi.Any(aws_efs_mount_target.Example.File_system_arn),
+//				EfsFileSystemArn: pulumi.Any(exampleAwsEfsMountTarget.FileSystemArn),
 //				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
 //					SecurityGroupArns: pulumi.StringArray{
-//						aws_security_group.Example.Arn,
+//						exampleAwsSecurityGroup.Arn,
 //					},
-//					SubnetArn: pulumi.Any(aws_subnet.Example.Arn),
+//					SubnetArn: pulumi.Any(exampleAwsSubnet.Arn),
 //				},
 //			})
 //			if err != nil {

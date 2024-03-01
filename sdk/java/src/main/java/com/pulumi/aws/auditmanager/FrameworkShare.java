@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *         var example = new FrameworkShare(&#34;example&#34;, FrameworkShareArgs.builder()        
  *             .destinationAccount(&#34;012345678901&#34;)
  *             .destinationRegion(&#34;us-east-1&#34;)
- *             .frameworkId(aws_auditmanager_framework.example().id())
+ *             .frameworkId(exampleAwsAuditmanagerFramework.id())
  *             .build());
  * 
  *     }

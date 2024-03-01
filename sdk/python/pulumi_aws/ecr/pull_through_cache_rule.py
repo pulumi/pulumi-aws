@@ -159,9 +159,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecr.PullThroughCacheRule("example",
-            credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
             ecr_repository_prefix="ecr-public",
-            upstream_registry_url="public.ecr.aws")
+            upstream_registry_url="public.ecr.aws",
+            credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
 
         ## Import
@@ -197,9 +197,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecr.PullThroughCacheRule("example",
-            credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
             ecr_repository_prefix="ecr-public",
-            upstream_registry_url="public.ecr.aws")
+            upstream_registry_url="public.ecr.aws",
+            credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
 
         ## Import

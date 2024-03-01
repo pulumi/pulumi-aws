@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Transfer
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///     });
     /// 
-    ///     var zoneId = new Aws.Transfer.Tag("zoneId", new()
+    ///     var zoneId = new Aws.Transfer.Tag("zone_id", new()
     ///     {
     ///         ResourceArn = example.Arn,
     ///         Key = "aws:transfer:route53HostedZoneId",

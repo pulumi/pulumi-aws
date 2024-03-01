@@ -30,16 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
+//			test, err := redshift.NewSnapshotCopyGrant(ctx, "test", &redshift.SnapshotCopyGrantArgs{
 //				SnapshotCopyGrantName: pulumi.String("my-grant"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
+//			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
 //				SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
 //					DestinationRegion: pulumi.String("us-east-2"),
-//					GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
+//					GrantName:         test.SnapshotCopyGrantName,
 //				},
 //			})
 //			if err != nil {

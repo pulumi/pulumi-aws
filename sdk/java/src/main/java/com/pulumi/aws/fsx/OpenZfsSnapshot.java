@@ -46,12 +46,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleOpenZfsSnapshot = new OpenZfsSnapshot(&#34;exampleOpenZfsSnapshot&#34;, OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .volumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
@@ -86,16 +87,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
  *         var exampleOpenZfsVolume = new OpenZfsVolume(&#34;exampleOpenZfsVolume&#34;, OpenZfsVolumeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .parentVolumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
- *         var exampleOpenZfsSnapshot = new OpenZfsSnapshot(&#34;exampleOpenZfsSnapshot&#34;, OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .volumeId(exampleOpenZfsVolume.id())
  *             .build());
  * 

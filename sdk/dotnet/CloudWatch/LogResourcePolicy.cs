@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var elasticsearch_log_publishing_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var elasticsearch_log_publishing_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -54,9 +54,9 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var elasticsearch_log_publishing_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", new()
+    ///     var elasticsearch_log_publishing_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("elasticsearch-log-publishing-policy", new()
     ///     {
-    ///         PolicyDocument = elasticsearch_log_publishing_policyPolicyDocument.Apply(elasticsearch_log_publishing_policyPolicyDocument =&gt; elasticsearch_log_publishing_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = elasticsearch_log_publishing_policy.Apply(elasticsearch_log_publishing_policy =&gt; elasticsearch_log_publishing_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "elasticsearch-log-publishing-policy",
     ///     });
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var route53_query_logging_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var route53_query_logging_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new()
+    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policy", new()
     ///     {
-    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = route53_query_logging_policy.Apply(route53_query_logging_policy =&gt; route53_query_logging_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "route53-query-logging-policy",
     ///     });
     /// 

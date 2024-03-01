@@ -96,8 +96,8 @@ def get_local_disk(disk_node: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
+        gateway_arn=test_aws_storagegateway_gateway["arn"])
     ```
 
 
@@ -134,8 +134,8 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
+        gateway_arn=test_aws_storagegateway_gateway["arn"])
     ```
 
 

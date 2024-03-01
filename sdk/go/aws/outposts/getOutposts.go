@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := outposts.GetOutposts(ctx, &outposts.GetOutpostsArgs{
-//				SiteId: pulumi.StringRef(data.Aws_outposts_site.Id),
+//				SiteId: pulumi.StringRef(id),
 //			}, nil)
 //			if err != nil {
 //				return err

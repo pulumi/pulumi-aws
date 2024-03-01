@@ -19,18 +19,14 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const example = new aws.eks.Cluster("example", {
- *         roleArn: aws_iam_role.example.arn,
+ *         name: "example",
+ *         roleArn: exampleAwsIamRole.arn,
  *         vpcConfig: {
  *             subnetIds: [
- *                 aws_subnet.example1.id,
- *                 aws_subnet.example2.id,
+ *                 example1.id,
+ *                 example2.id,
  *             ],
  *         },
- *     }, {
- *         dependsOn: [
- *             aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
- *             aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
- *         ],
  *     });
  *     return {
  *         endpoint: example.endpoint,
@@ -54,7 +50,10 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const example = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-cluster-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
  *     role: example.name,
@@ -78,15 +77,60 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
- * // ... potentially other configuration ...
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {enabledClusterLogTypes: [
- *     "api",
- *     "audit",
- * ]}, {
- *     dependsOn: [exampleLogGroup],
+ * const example = new aws.eks.Cluster("example", {
+ *     enabledClusterLogTypes: [
+ *         "api",
+ *         "audit",
+ *     ],
+ *     name: clusterName,
  * });
- * // ... other configuration ...
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/eks/${clusterName}/cluster`,
+ *     retentionInDays: 7,
+ * });
+ * ```
+ * ### Enabling IAM Roles for Service Accounts
+ *
+ * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
+ *     url: identities[0].oidcs?.[0]?.issuer,
+ * }));
+ * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
+ *     clientIdLists: ["sts.amazonaws.com"],
+ *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
+ *     url: example.apply(example => example.url),
+ * });
+ * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         effect: "Allow",
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: std.replaceOutput({
+ *                 text: exampleOpenIdConnectProvider.url,
+ *                 search: "https://",
+ *                 replace: "",
+ *             }).apply(invoke => `${invoke.result}:sub`),
+ *             values: ["system:serviceaccount:kube-system:aws-node"],
+ *         }],
+ *         principals: [{
+ *             identifiers: [exampleOpenIdConnectProvider.arn],
+ *             type: "Federated",
+ *         }],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
+ *     name: "example",
+ * });
  * ```
  * ### EKS Cluster on AWS Outpost
  *
@@ -96,16 +140,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
- *     roleArn: exampleRole.arn,
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.json,
+ *     name: "example",
+ * });
+ * const exampleCluster = new aws.eks.Cluster("example", {
+ *     name: "example-cluster",
+ *     roleArn: example.arn,
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
  *         endpointPublicAccess: false,
  *     },
  *     outpostConfig: {
  *         controlPlaneInstanceType: "m5d.large",
- *         outpostArns: [data.aws_outposts_outpost.example.arn],
+ *         outpostArns: [exampleAwsOutpostsOutpost.arn],
  *     },
  * });
  * ```
@@ -115,9 +163,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
- *     roleArn: exampleRole.arn,
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.json,
+ *     name: "example",
+ * });
+ * const exampleCluster = new aws.eks.Cluster("example", {
+ *     name: "example-cluster",
+ *     roleArn: example.arn,
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
  *         endpointPublicAccess: false,

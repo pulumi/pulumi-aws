@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FastSnapshotRestore(&#34;example&#34;, FastSnapshotRestoreArgs.builder()        
  *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .snapshotId(aws_ebs_snapshot.example().id())
+ *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .build());
  * 
  *     }

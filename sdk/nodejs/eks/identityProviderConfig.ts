@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.IdentityProviderConfig("example", {
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  *     oidc: {
  *         clientId: "your client_id",
  *         identityProviderConfigName: "example",

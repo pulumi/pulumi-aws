@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),

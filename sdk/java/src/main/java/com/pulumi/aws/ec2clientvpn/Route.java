@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
  *             .description(&#34;Example Client VPN endpoint&#34;)
- *             .serverCertificateArn(aws_acm_certificate.example().arn())
+ *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.example().arn())
+ *                 .rootCertificateChainArn(exampleAwsAcmCertificate.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
  *                 .enabled(false)
@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNetworkAssociation = new NetworkAssociation(&#34;exampleNetworkAssociation&#34;, NetworkAssociationArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
- *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
+ *         var example = new Route(&#34;example&#34;, RouteArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
  *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
  *             .targetVpcSubnetId(exampleNetworkAssociation.subnetId())

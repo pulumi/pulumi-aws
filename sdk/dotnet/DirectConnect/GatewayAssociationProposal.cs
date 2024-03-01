@@ -24,9 +24,9 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new()
     ///     {
-    ///         DxGatewayId = aws_dx_gateway.Example.Id,
-    ///         DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,
-    ///         AssociatedGatewayId = aws_vpn_gateway.Example.Id,
+    ///         DxGatewayId = exampleAwsDxGateway.Id,
+    ///         DxGatewayOwnerAccountId = exampleAwsDxGateway.OwnerAccountId,
+    ///         AssociatedGatewayId = exampleAwsVpnGateway.Id,
     ///     });
     /// 
     /// });

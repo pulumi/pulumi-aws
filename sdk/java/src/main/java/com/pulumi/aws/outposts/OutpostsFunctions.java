@@ -89,7 +89,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -118,7 +118,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
      *             .build());
      * 
@@ -148,7 +148,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
@@ -187,7 +187,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -216,7 +216,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
      *             .build());
      * 
@@ -246,7 +246,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
@@ -285,7 +285,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -314,7 +314,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
      *             .build());
      * 
@@ -344,7 +344,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
@@ -383,7 +383,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -412,7 +412,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
      *             .build());
      * 
@@ -442,7 +442,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
@@ -679,12 +679,90 @@ public final class OutpostsFunctions {
     /**
      * Information about single Outpost Instance Type.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
+     * import com.pulumi.aws.ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
+     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .preferredInstanceTypes(            
+     *                 &#34;m5.large&#34;,
+     *                 &#34;m5.4xlarge&#34;)
+     *             .build());
+     * 
+     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args) {
         return getOutpostInstanceType(args, InvokeOptions.Empty);
     }
     /**
      * Information about single Outpost Instance Type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
+     * import com.pulumi.aws.ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
+     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .preferredInstanceTypes(            
+     *                 &#34;m5.large&#34;,
+     *                 &#34;m5.4xlarge&#34;)
+     *             .build());
+     * 
+     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args) {
@@ -693,12 +771,90 @@ public final class OutpostsFunctions {
     /**
      * Information about single Outpost Instance Type.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
+     * import com.pulumi.aws.ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
+     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .preferredInstanceTypes(            
+     *                 &#34;m5.large&#34;,
+     *                 &#34;m5.4xlarge&#34;)
+     *             .build());
+     * 
+     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", TypeShape.of(GetOutpostInstanceTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about single Outpost Instance Type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
+     * import com.pulumi.aws.ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
+     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .preferredInstanceTypes(            
+     *                 &#34;m5.large&#34;,
+     *                 &#34;m5.4xlarge&#34;)
+     *             .build());
+     * 
+     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args, InvokeOptions options) {
@@ -730,7 +886,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -767,7 +923,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -804,7 +960,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -841,7 +997,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .build());
      * 
      *     }
@@ -878,7 +1034,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }
@@ -915,7 +1071,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }
@@ -952,7 +1108,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }
@@ -989,7 +1145,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }
@@ -1026,7 +1182,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }
@@ -1063,7 +1219,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
-     *             .siteId(data.aws_outposts_site().id())
+     *             .siteId(id)
      *             .build());
      * 
      *     }

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// {
         ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
         ///     {
-        ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
+        ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// {
         ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
         ///     {
-        ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
+        ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
         ///     });
         /// 
         /// });

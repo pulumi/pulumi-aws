@@ -326,14 +326,15 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
             mesh_name="example-service-mesh",
-            virtual_gateway_name=aws_appmesh_virtual_gateway["example"]["name"],
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec=aws.appmesh.GatewayRouteSpecArgs(
                 http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
                             ),
                         ),
                     ),
@@ -380,14 +381,15 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
             mesh_name="example-service-mesh",
-            virtual_gateway_name=aws_appmesh_virtual_gateway["example"]["name"],
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec=aws.appmesh.GatewayRouteSpecArgs(
                 http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
                             ),
                         ),
                     ),

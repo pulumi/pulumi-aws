@@ -236,6 +236,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=8000,
@@ -245,6 +246,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
             )])
         foo = aws.elb.SslNegotiationPolicy("foo",
+            name="foo-policy",
             load_balancer=lb.id,
             lb_port=443,
             attributes=[
@@ -310,6 +312,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=8000,
@@ -319,6 +322,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
             )])
         foo = aws.elb.SslNegotiationPolicy("foo",
+            name="foo-policy",
             load_balancer=lb.id,
             lb_port=443,
             attributes=[

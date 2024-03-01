@@ -20,6 +20,44 @@ import (
 // users using this resource.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
+//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+//				DisplayName:     pulumi.String("John Doe"),
+//				UserName:        pulumi.String("johndoe"),
+//				Name: &identitystore.UserNameArgs{
+//					GivenName:  pulumi.String("John"),
+//					FamilyName: pulumi.String("Doe"),
+//				},
+//				Emails: &identitystore.UserEmailsArgs{
+//					Value: pulumi.String("john@example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

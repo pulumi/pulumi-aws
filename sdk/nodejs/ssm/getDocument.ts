@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.ssm.getDocument({
- *     name: aws_ssm_document.test.name,
+ *     name: testAwsSsmDocument.name,
  *     documentFormat: "JSON",
  * });
  * ```
@@ -111,7 +111,7 @@ export interface GetDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.ssm.getDocument({
- *     name: aws_ssm_document.test.name,
+ *     name: testAwsSsmDocument.name,
  *     documentFormat: "JSON",
  * });
  * ```

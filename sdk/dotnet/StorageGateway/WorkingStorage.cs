@@ -26,8 +26,8 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.WorkingStorage("example", new()
     ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         DiskId = exampleAwsStoragegatewayLocalDisk.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });

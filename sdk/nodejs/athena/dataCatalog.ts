@@ -18,14 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "athena-data-catalog",
  *     description: "Example Athena data catalog",
+ *     type: "LAMBDA",
  *     parameters: {
  *         "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
  *     },
  *     tags: {
  *         Name: "example-athena-data-catalog",
  *     },
- *     type: "LAMBDA",
  * });
  * ```
  * ### Hive based Data Catalog
@@ -35,11 +36,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "hive-data-catalog",
  *     description: "Hive based Data Catalog",
+ *     type: "HIVE",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
  *     },
- *     type: "HIVE",
  * });
  * ```
  * ### Glue based Data Catalog
@@ -49,11 +51,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "glue-data-catalog",
  *     description: "Glue based Data Catalog",
+ *     type: "GLUE",
  *     parameters: {
  *         "catalog-id": "123456789012",
  *     },
- *     type: "GLUE",
  * });
  * ```
  * ### Lambda based Data Catalog
@@ -63,12 +66,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "lambda-data-catalog",
  *     description: "Lambda based Data Catalog",
+ *     type: "LAMBDA",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
  *         "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
  *     },
- *     type: "LAMBDA",
  * });
  * ```
  *

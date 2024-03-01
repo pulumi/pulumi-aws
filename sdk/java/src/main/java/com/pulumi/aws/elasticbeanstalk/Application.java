@@ -48,9 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
- *                 .serviceRole(aws_iam_role.beanstalk_service().arn())
+ *                 .serviceRole(beanstalkService.arn())
  *                 .maxCount(128)
  *                 .deleteSourceFromS3(true)
  *                 .build())

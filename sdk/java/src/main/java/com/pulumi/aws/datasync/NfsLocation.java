@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .serverHostname(&#34;nfs.example.com&#34;)
  *             .subdirectory(&#34;/exported/path&#34;)
  *             .onPremConfig(NfsLocationOnPremConfigArgs.builder()
- *                 .agentArns(aws_datasync_agent.example().arn())
+ *                 .agentArns(exampleAwsDatasyncAgent.arn())
  *                 .build())
  *             .build());
  * 

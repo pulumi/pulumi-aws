@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -24,8 +24,14 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleDevEndpoint = new aws.glue.DevEndpoint("exampleDevEndpoint", {roleArn: exampleRole.arn});
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "AWSGlueServiceRole-foo",
+ *     assumeRolePolicy: example.then(example => example.json),
+ * });
+ * const exampleDevEndpoint = new aws.glue.DevEndpoint("example", {
+ *     name: "foo",
+ *     roleArn: exampleRole.arn,
+ * });
  * const example_AWSGlueServiceRole = new aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
  *     role: exampleRole.name,

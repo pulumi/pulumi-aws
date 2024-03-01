@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var example = Aws.Dms.GetCertificate.Invoke(new()
         ///     {
-        ///         CertificateId = aws_dms_certificate.Test.Certificate_id,
+        ///         CertificateId = test.CertificateId,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var example = Aws.Dms.GetCertificate.Invoke(new()
         ///     {
-        ///         CertificateId = aws_dms_certificate.Test.Certificate_id,
+        ///         CertificateId = test.CertificateId,
         ///     });
         /// 
         /// });

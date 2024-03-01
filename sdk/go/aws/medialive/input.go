@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInputSecurityGroup, err := medialive.NewInputSecurityGroup(ctx, "exampleInputSecurityGroup", &medialive.InputSecurityGroupArgs{
+//			example, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
 //				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
 //					&medialive.InputSecurityGroupWhitelistRuleArgs{
 //						Cidr: pulumi.String("10.0.0.8/32"),
@@ -42,9 +42,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = medialive.NewInput(ctx, "exampleInput", &medialive.InputArgs{
+//			_, err = medialive.NewInput(ctx, "example", &medialive.InputArgs{
+//				Name: pulumi.String("example-input"),
 //				InputSecurityGroups: pulumi.StringArray{
-//					exampleInputSecurityGroup.ID(),
+//					example.ID(),
 //				},
 //				Type: pulumi.String("UDP_PUSH"),
 //				Tags: pulumi.StringMap{

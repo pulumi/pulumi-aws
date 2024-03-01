@@ -23,9 +23,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleInsight = new Aws.SecurityHub.Insight("exampleInsight", new()
+    ///     var exampleInsight = new Aws.SecurityHub.Insight("example", new()
     ///     {
     ///         Filters = new Aws.SecurityHub.Inputs.InsightFiltersArgs
     ///         {
@@ -44,12 +44,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             },
     ///         },
     ///         GroupByAttribute = "AwsAccountId",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
+    ///         Name = "example-insight",
     ///     });
     /// 
     /// });
@@ -64,9 +59,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleInsight = new Aws.SecurityHub.Insight("exampleInsight", new()
+    ///     var exampleInsight = new Aws.SecurityHub.Insight("example", new()
     ///     {
     ///         Filters = new Aws.SecurityHub.Inputs.InsightFiltersArgs
     ///         {
@@ -83,12 +78,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             },
     ///         },
     ///         GroupByAttribute = "CreatedAt",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
+    ///         Name = "example-insight",
     ///     });
     /// 
     /// });
@@ -103,9 +93,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleInsight = new Aws.SecurityHub.Insight("exampleInsight", new()
+    ///     var exampleInsight = new Aws.SecurityHub.Insight("example", new()
     ///     {
     ///         Filters = new Aws.SecurityHub.Inputs.InsightFiltersArgs
     ///         {
@@ -118,12 +108,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             },
     ///         },
     ///         GroupByAttribute = "NetworkDestinationIpV4",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
+    ///         Name = "example-insight",
     ///     });
     /// 
     /// });
@@ -138,9 +123,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleInsight = new Aws.SecurityHub.Insight("exampleInsight", new()
+    ///     var exampleInsight = new Aws.SecurityHub.Insight("example", new()
     ///     {
     ///         Filters = new Aws.SecurityHub.Inputs.InsightFiltersArgs
     ///         {
@@ -153,12 +138,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             },
     ///         },
     ///         GroupByAttribute = "Confidence",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
+    ///         Name = "example-insight",
     ///     });
     /// 
     /// });
@@ -173,9 +153,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleInsight = new Aws.SecurityHub.Insight("exampleInsight", new()
+    ///     var exampleInsight = new Aws.SecurityHub.Insight("example", new()
     ///     {
     ///         Filters = new Aws.SecurityHub.Inputs.InsightFiltersArgs
     ///         {
@@ -190,12 +170,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             },
     ///         },
     ///         GroupByAttribute = "ResourceTags",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
+    ///         Name = "example-insight",
     ///     });
     /// 
     /// });

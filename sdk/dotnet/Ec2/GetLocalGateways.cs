@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
+        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
         ///     {
         ///         Tags = 
         ///         {
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
         ///     };
         /// });
         /// ```
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
+        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
         ///     {
         ///         Tags = 
         ///         {
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
         ///     };
         /// });
         /// ```

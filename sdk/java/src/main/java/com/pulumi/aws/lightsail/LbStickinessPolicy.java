@@ -42,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
+ *             .name(&#34;test-load-balancer&#34;)
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *         var testLbStickinessPolicy = new LbStickinessPolicy(&#34;testLbStickinessPolicy&#34;, LbStickinessPolicyArgs.builder()        
- *             .lbName(testLb.name())
+ *             .lbName(test.name())
  *             .cookieDuration(900)
  *             .enabled(true)
  *             .build());

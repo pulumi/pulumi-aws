@@ -17,6 +17,78 @@ namespace Pulumi.Aws.AutoScaling
     /// &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ec2.PlacementGroup("test", new()
+    ///     {
+    ///         Name = "test",
+    ///         Strategy = "cluster",
+    ///     });
+    /// 
+    ///     var bar = new Aws.AutoScaling.Group("bar", new()
+    ///     {
+    ///         Name = "foobar3-test",
+    ///         MaxSize = 5,
+    ///         MinSize = 2,
+    ///         HealthCheckGracePeriod = 300,
+    ///         HealthCheckType = "ELB",
+    ///         DesiredCapacity = 4,
+    ///         ForceDelete = true,
+    ///         PlacementGroup = test.Id,
+    ///         LaunchConfiguration = foobar.Name,
+    ///         VpcZoneIdentifiers = new[]
+    ///         {
+    ///             example1.Id,
+    ///             example2.Id,
+    ///         },
+    ///         InstanceMaintenancePolicy = new Aws.AutoScaling.Inputs.GroupInstanceMaintenancePolicyArgs
+    ///         {
+    ///             MinHealthyPercentage = 90,
+    ///             MaxHealthyPercentage = 120,
+    ///         },
+    ///         InitialLifecycleHooks = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupInitialLifecycleHookArgs
+    ///             {
+    ///                 Name = "foobar",
+    ///                 DefaultResult = "CONTINUE",
+    ///                 HeartbeatTimeout = 2000,
+    ///                 LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
+    ///                 NotificationMetadata = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["foo"] = "bar",
+    ///                 }),
+    ///                 NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
+    ///                 RoleArn = "arn:aws:iam::123456789012:role/S3Access",
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "foo",
+    ///                 Value = "bar",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "lorem",
+    ///                 Value = "ipsum",
+    ///                 PropagateAtLaunch = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### With Latest Version Of Launch Template
     /// 
     /// ```csharp
@@ -62,14 +134,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var example = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
     ///         NamePrefix = "example",
-    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         ImageId = exampleAwsAmi.Id,
     ///         InstanceType = "c5.large",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -84,7 +156,7 @@ namespace Pulumi.Aws.AutoScaling
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     LaunchTemplateId = example.Id,
     ///                 },
     ///                 Overrides = new[]
     ///                 {
@@ -115,14 +187,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var example = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
     ///         NamePrefix = "example",
-    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         ImageId = exampleAwsAmi.Id,
     ///         InstanceType = "c5.large",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         CapacityRebalance = true,
     ///         DesiredCapacity = 12,
@@ -130,8 +202,8 @@ namespace Pulumi.Aws.AutoScaling
     ///         MinSize = 12,
     ///         VpcZoneIdentifiers = new[]
     ///         {
-    ///             aws_subnet.Example1.Id,
-    ///             aws_subnet.Example2.Id,
+    ///             example1.Id,
+    ///             example2.Id,
     ///         },
     ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
@@ -145,7 +217,7 @@ namespace Pulumi.Aws.AutoScaling
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     LaunchTemplateId = example.Id,
     ///                 },
     ///                 Overrides = new[]
     ///                 {
@@ -178,20 +250,20 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var example = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
     ///         NamePrefix = "example",
-    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         ImageId = exampleAwsAmi.Id,
     ///         InstanceType = "c5.large",
     ///     });
     /// 
     ///     var example2 = new Aws.Ec2.LaunchTemplate("example2", new()
     ///     {
     ///         NamePrefix = "example2",
-    ///         ImageId = data.Aws_ami.Example2.Id,
+    ///         ImageId = example2AwsAmi.Id,
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -206,7 +278,7 @@ namespace Pulumi.Aws.AutoScaling
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     LaunchTemplateId = example.Id,
     ///                 },
     ///                 Overrides = new[]
     ///                 {
@@ -243,14 +315,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var example = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
     ///         NamePrefix = "example",
-    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         ImageId = exampleAwsAmi.Id,
     ///         InstanceType = "c5.large",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -265,7 +337,7 @@ namespace Pulumi.Aws.AutoScaling
     ///             {
     ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     LaunchTemplateId = example.Id,
     ///                 },
     ///                 Overrides = new[]
     ///                 {
@@ -290,6 +362,62 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// ### Dynamic tagging
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var extraTags = config.GetObject&lt;dynamic&gt;("extraTags") ?? new[]
+    ///     {
+    ///         
+    ///         {
+    ///             { "key", "Foo" },
+    ///             { "propagateAtLaunch", true },
+    ///             { "value", "Bar" },
+    ///         },
+    ///         
+    ///         {
+    ///             { "key", "Baz" },
+    ///             { "propagateAtLaunch", true },
+    ///             { "value", "Bam" },
+    ///         },
+    ///     };
+    ///     var test = new Aws.AutoScaling.Group("test", new()
+    ///     {
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "explicit1",
+    ///                 Value = "value1",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "explicit2",
+    ///                 Value = "value2",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///         },
+    ///         Name = "foobar3-test",
+    ///         MaxSize = 5,
+    ///         MinSize = 2,
+    ///         LaunchConfiguration = foobar.Name,
+    ///         VpcZoneIdentifiers = new[]
+    ///         {
+    ///             example1.Id,
+    ///             example2.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Automatically refresh all instances after the group is updated
     /// 
     /// ```csharp
@@ -300,7 +428,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -320,13 +448,13 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
-    ///         ImageId = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         ImageId = example.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = "t3.nano",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -375,14 +503,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     var example = new Aws.Ec2.LaunchTemplate("example", new()
     ///     {
     ///         NamePrefix = "example",
-    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         ImageId = exampleAwsAmi.Id,
     ///         InstanceType = "c5.large",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -401,6 +529,34 @@ namespace Pulumi.Aws.AutoScaling
     ///                 ReuseOnScaleIn = true,
     ///             },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Auto Scaling group with Traffic Sources
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.AutoScaling.Group("test", new()
+    ///     {
+    ///         TrafficSources = testAwsVpclatticeTargetGroup.Select(__item =&gt; __item).ToList().Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///         {
+    ///             return new Aws.AutoScaling.Inputs.GroupTrafficSourceArgs
+    ///             {
+    ///                 Identifier = entry.Value.Arn,
+    ///                 Type = "vpc-lattice",
+    ///             };
+    ///         }).ToList(),
+    ///         VpcZoneIdentifiers = testAwsSubnet.Id,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         ForceDelete = true,
     ///     });
     /// 
     /// });

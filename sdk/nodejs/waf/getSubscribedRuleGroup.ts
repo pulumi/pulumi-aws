@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * const byMetricName = aws.waf.getSubscribedRuleGroup({
  *     metricName: "F5BotDetectionSignatures",
  * });
- * // ...
  * const acl = new aws.waf.WebAcl("acl", {rules: [
  *     {
  *         priority: 1,
@@ -84,7 +83,6 @@ export interface GetSubscribedRuleGroupResult {
  * const byMetricName = aws.waf.getSubscribedRuleGroup({
  *     metricName: "F5BotDetectionSignatures",
  * });
- * // ...
  * const acl = new aws.waf.WebAcl("acl", {rules: [
  *     {
  *         priority: 1,

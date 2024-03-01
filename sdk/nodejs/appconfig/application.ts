@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.Application("example", {
+ *     name: "example-application-tf",
  *     description: "Example AppConfig Application",
  *     tags: {
  *         Type: "AppConfig Application",

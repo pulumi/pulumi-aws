@@ -50,22 +50,22 @@ import javax.annotation.Nullable;
  *             .domain(&#34;example.com&#34;)
  *             .build());
  * 
- *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
+ *         var example = new MailFrom(&#34;example&#34;, MailFromArgs.builder()        
  *             .domain(exampleDomainIdentity.domain())
  *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
  *             .build());
  * 
  *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.example().id())
- *             .name(exampleMailFrom.mailFromDomain())
+ *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .name(example.mailFromDomain())
  *             .type(&#34;MX&#34;)
  *             .ttl(&#34;600&#34;)
  *             .records(&#34;10 feedback-smtp.us-east-1.amazonses.com&#34;)
  *             .build());
  * 
  *         var exampleSesDomainMailFromTxt = new Record(&#34;exampleSesDomainMailFromTxt&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.example().id())
- *             .name(exampleMailFrom.mailFromDomain())
+ *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .name(example.mailFromDomain())
  *             .type(&#34;TXT&#34;)
  *             .ttl(&#34;600&#34;)
  *             .records(&#34;v=spf1 include:amazonses.com -all&#34;)
@@ -98,12 +98,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .email(&#34;user@example.com&#34;)
  *             .build());
  * 
  *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
- *             .domain(exampleEmailIdentity.email())
+ *             .domain(example.email())
  *             .mailFromDomain(&#34;mail.example.com&#34;)
  *             .build());
  * 

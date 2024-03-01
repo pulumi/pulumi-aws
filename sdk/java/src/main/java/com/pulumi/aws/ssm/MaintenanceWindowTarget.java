@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
+ *             .name(&#34;maintenance-window-webapp&#34;)
  *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
  *             .duration(3)
  *             .cutoff(1)
@@ -53,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
+ *             .name(&#34;maintenance-window-target&#34;)
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;INSTANCE&#34;)
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
@@ -90,6 +92,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
+ *             .name(&#34;maintenance-window-webapp&#34;)
  *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
  *             .duration(3)
  *             .cutoff(1)
@@ -97,6 +100,7 @@ import javax.annotation.Nullable;
  * 
  *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
+ *             .name(&#34;maintenance-window-target&#34;)
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;RESOURCE_GROUP&#34;)
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()

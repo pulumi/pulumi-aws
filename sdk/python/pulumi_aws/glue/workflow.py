@@ -247,14 +247,16 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
+        example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
+            name="trigger-start",
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[aws.glue.TriggerActionArgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
             predicate=aws.glue.TriggerPredicateArgs(
@@ -301,14 +303,16 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
+        example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
+            name="trigger-start",
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[aws.glue.TriggerActionArgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
             predicate=aws.glue.TriggerPredicateArgs(

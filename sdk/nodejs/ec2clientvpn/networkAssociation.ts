@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     subnetId: aws_subnet.example.id,
+ *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
  *

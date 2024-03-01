@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getResourcePolicy({
- *     resourceArn: _var.resource_policy_arn,
+ *     resourceArn: resourcePolicyArn,
  * });
  * ```
  */
@@ -60,7 +60,7 @@ export interface GetResourcePolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getResourcePolicy({
- *     resourceArn: _var.resource_policy_arn,
+ *     resourceArn: resourcePolicyArn,
  * });
  * ```
  */

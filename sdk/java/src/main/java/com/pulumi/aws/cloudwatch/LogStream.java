@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.cloudwatch.LogStream;
  * import com.pulumi.aws.cloudwatch.LogStreamArgs;
  * import java.util.List;
@@ -39,9 +40,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup(&#34;yada&#34;);
+ *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;Yada&#34;)
+ *             .build());
  * 
  *         var foo = new LogStream(&#34;foo&#34;, LogStreamArgs.builder()        
+ *             .name(&#34;SampleLogStream1234&#34;)
  *             .logGroupName(yada.name())
  *             .build());
  * 

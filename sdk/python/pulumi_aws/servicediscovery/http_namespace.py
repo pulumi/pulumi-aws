@@ -193,7 +193,9 @@ class HttpNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="development",
+            description="example")
         ```
 
         ## Import
@@ -223,7 +225,9 @@ class HttpNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="development",
+            description="example")
         ```
 
         ## Import

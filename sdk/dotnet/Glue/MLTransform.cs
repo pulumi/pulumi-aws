@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCatalogDatabase = new Aws.Glue.CatalogDatabase("testCatalogDatabase", new()
+    ///     var testCatalogDatabase = new Aws.Glue.CatalogDatabase("test", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
-    ///     var testCatalogTable = new Aws.Glue.CatalogTable("testCatalogTable", new()
+    ///     var testCatalogTable = new Aws.Glue.CatalogTable("test", new()
     ///     {
     ///         Name = "example",
     ///         DatabaseName = testCatalogDatabase.Name,
@@ -121,9 +121,10 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var testMLTransform = new Aws.Glue.MLTransform("testMLTransform", new()
+    ///     var test = new Aws.Glue.MLTransform("test", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         Name = "example",
+    ///         RoleArn = testAwsIamRole.Arn,
     ///         InputRecordTables = new[]
     ///         {
     ///             new Aws.Glue.Inputs.MLTransformInputRecordTableArgs
@@ -139,12 +140,6 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 PrimaryKeyColumnName = "my_column_1",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Test,
     ///         },
     ///     });
     /// 

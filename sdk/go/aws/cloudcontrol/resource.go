@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ClusterName": "example",
-//				"Tags": []map[string]interface{}{
+//				"clusterName": "example",
+//				"tags": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Key":   "CostCenter",
-//						"Value": "IT",
+//						"key":   "CostCenter",
+//						"value": "IT",
 //					},
 //				},
 //			})

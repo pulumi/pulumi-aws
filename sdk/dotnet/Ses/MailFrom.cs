@@ -26,22 +26,22 @@ namespace Pulumi.Aws.Ses
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example SES Domain Identity
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     var example = new Aws.Ses.MailFrom("example", new()
     ///     {
     ///         Domain = exampleDomainIdentity.Domain,
     ///         MailFromDomain = exampleDomainIdentity.Domain.Apply(domain =&gt; $"bounce.{domain}"),
     ///     });
     /// 
     ///     // Example Route53 MX record
-    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("exampleSesDomainMailFromMx", new()
+    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("example_ses_domain_mail_from_mx", new()
     ///     {
-    ///         ZoneId = aws_route53_zone.Example.Id,
-    ///         Name = exampleMailFrom.MailFromDomain,
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
+    ///         Name = example.MailFromDomain,
     ///         Type = "MX",
     ///         Ttl = 600,
     ///         Records = new[]
@@ -50,12 +50,11 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///     });
     /// 
-    ///     // Change to the region in which `aws_ses_domain_identity.example` is created
     ///     // Example Route53 TXT record for SPF
-    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("exampleSesDomainMailFromTxt", new()
+    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("example_ses_domain_mail_from_txt", new()
     ///     {
-    ///         ZoneId = aws_route53_zone.Example.Id,
-    ///         Name = exampleMailFrom.MailFromDomain,
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
+    ///         Name = example.MailFromDomain,
     ///         Type = "TXT",
     ///         Ttl = 600,
     ///         Records = new[]
@@ -77,14 +76,14 @@ namespace Pulumi.Aws.Ses
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example SES Email Identity
-    ///     var exampleEmailIdentity = new Aws.Ses.EmailIdentity("exampleEmailIdentity", new()
+    ///     var example = new Aws.Ses.EmailIdentity("example", new()
     ///     {
     ///         Email = "user@example.com",
     ///     });
     /// 
-    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     var exampleMailFrom = new Aws.Ses.MailFrom("example", new()
     ///     {
-    ///         Domain = exampleEmailIdentity.Email,
+    ///         Domain = example.Email,
     ///         MailFromDomain = "mail.example.com",
     ///     });
     /// 

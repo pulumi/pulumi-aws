@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
+ * const _default = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "tf-redshift-cluster",
  *     databaseName: "mydb",
  *     masterUsername: "foo",
@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  *     nodeType: "dc1.large",
  *     clusterType: "single-node",
  * });
- * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("defaultSnapshotSchedule", {
+ * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
  *     identifier: "tf-redshift-snapshot-schedule",
  *     definitions: ["rate(12 hours)"],
  * });
- * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", {
- *     clusterIdentifier: defaultCluster.id,
+ * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("default", {
+ *     clusterIdentifier: _default.id,
  *     scheduleIdentifier: defaultSnapshotSchedule.id,
  * });
  * ```

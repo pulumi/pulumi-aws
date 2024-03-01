@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.ReportPlan("example", new()
     ///     {
+    ///         Name = "example_name",
     ///         Description = "example description",
     ///         ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
     ///         {

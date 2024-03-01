@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var example = new Aws.Iot.Thing("example", new()
     ///     {
+    ///         Name = "example",
     ///         Attributes = 
     ///         {
     ///             { "First", "examplevalue" },

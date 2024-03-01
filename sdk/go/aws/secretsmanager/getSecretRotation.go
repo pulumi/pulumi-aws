@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretRotation(ctx, &secretsmanager.LookupSecretRotationArgs{
-//				SecretId: data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId: exampleAwsSecretsmanagerSecret.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

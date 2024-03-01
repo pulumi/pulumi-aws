@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.servicecatalog.PortfolioShare("example", {
  *     principalId: "012128675309",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
+ *     portfolioId: exampleAwsServicecatalogPortfolio.id,
  *     type: "ACCOUNT",
  * });
  * ```

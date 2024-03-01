@@ -55,20 +55,22 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new()
+    ///     var ecsInstanceRole = new Aws.Iam.Role("ecs_instance_role", new()
     ///     {
+    ///         Name = "ecs_instance_role",
     ///         AssumeRolePolicy = ec2AssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new()
+    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecs_instance_role", new()
     ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
+    ///         Role = ecsInstanceRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
     ///     });
     /// 
-    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new()
+    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecs_instance_role", new()
     ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
+    ///         Name = "ecs_instance_role",
+    ///         Role = ecsInstanceRole.Name,
     ///     });
     /// 
     ///     var batchAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -97,19 +99,21 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new()
+    ///     var awsBatchServiceRole = new Aws.Iam.Role("aws_batch_service_role", new()
     ///     {
+    ///         Name = "aws_batch_service_role",
     ///         AssumeRolePolicy = batchAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new()
+    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("aws_batch_service_role", new()
     ///     {
-    ///         Role = awsBatchServiceRoleRole.Name,
+    ///         Role = awsBatchServiceRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///     });
     /// 
-    ///     var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new()
+    ///     var sample = new Aws.Ec2.SecurityGroup("sample", new()
     ///     {
+    ///         Name = "aws_batch_compute_environment_security_group",
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -125,23 +129,24 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
+    ///     var sampleVpc = new Aws.Ec2.Vpc("sample", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new()
+    ///     var sampleSubnet = new Aws.Ec2.Subnet("sample", new()
     ///     {
     ///         VpcId = sampleVpc.Id,
     ///         CidrBlock = "10.1.1.0/24",
     ///     });
     /// 
-    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("samplePlacementGroup", new()
+    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("sample", new()
     ///     {
+    ///         Name = "sample",
     ///         Strategy = "cluster",
     ///     });
     /// 
-    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
+    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
@@ -156,7 +161,7 @@ namespace Pulumi.Aws.Batch
     ///             PlacementGroup = samplePlacementGroup.Name,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 sampleSecurityGroup.Id,
+    ///                 sample.Id,
     ///             },
     ///             Subnets = new[]
     ///             {
@@ -164,14 +169,8 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "EC2",
     ///         },
-    ///         ServiceRole = awsBatchServiceRoleRole.Arn,
+    ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment,
-    ///         },
     ///     });
     /// 
     /// });
@@ -194,22 +193,16 @@ namespace Pulumi.Aws.Batch
     ///             MaxVcpus = 16,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Sample.Id,
+    ///                 sampleAwsSecurityGroup.Id,
     ///             },
     ///             Subnets = new[]
     ///             {
-    ///                 aws_subnet.Sample.Id,
+    ///                 sampleAwsSubnet.Id,
     ///             },
     ///             Type = "FARGATE",
     ///         },
-    ///         ServiceRole = aws_iam_role.Aws_batch_service_role.Arn,
+    ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Aws_batch_service_role,
-    ///         },
     ///     });
     /// 
     /// });
@@ -230,7 +223,7 @@ namespace Pulumi.Aws.Batch
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
-    ///             InstanceRole = aws_iam_instance_profile.Ecs_instance.Arn,
+    ///             InstanceRole = ecsInstance.Arn,
     ///             InstanceTypes = new[]
     ///             {
     ///                 "optimal",
@@ -239,11 +232,11 @@ namespace Pulumi.Aws.Batch
     ///             MinVcpus = 0,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Sample.Id,
+    ///                 sampleAwsSecurityGroup.Id,
     ///             },
     ///             Subnets = new[]
     ///             {
-    ///                 aws_subnet.Sample.Id,
+    ///                 sampleAwsSubnet.Id,
     ///             },
     ///             Type = "EC2",
     ///         },

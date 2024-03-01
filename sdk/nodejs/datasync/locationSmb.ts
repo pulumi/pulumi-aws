@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     subdirectory: "/exported/path",
  *     user: "Guest",
  *     password: "ANotGreatPassword",
- *     agentArns: [aws_datasync_agent.example.arn],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
  * });
  * ```
  *

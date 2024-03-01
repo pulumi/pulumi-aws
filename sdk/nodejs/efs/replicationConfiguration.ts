@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
- *     sourceFileSystemId: exampleFileSystem.id,
+ * const example = new aws.efs.FileSystem("example", {});
+ * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
+ *     sourceFileSystemId: example.id,
  *     destination: {
  *         region: "us-west-2",
  *     },
@@ -35,9 +35,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
- *     sourceFileSystemId: exampleFileSystem.id,
+ * const example = new aws.efs.FileSystem("example", {});
+ * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
+ *     sourceFileSystemId: example.id,
  *     destination: {
  *         availabilityZoneName: "us-west-2b",
  *         kmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
@@ -51,9 +51,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
- *     sourceFileSystemId: exampleFileSystem.id,
+ * const example = new aws.efs.FileSystem("example", {});
+ * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
+ *     sourceFileSystemId: example.id,
  *     destination: {
  *         fileSystemId: "fs-1234567890",
  *         region: "us-west-2",

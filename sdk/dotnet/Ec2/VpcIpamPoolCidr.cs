@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -42,14 +42,14 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("example", new()
     ///     {
     ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
     ///         Cidr = "172.20.0.0/16",
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var ipv6TestPublicVpcIpamPool = new Aws.Ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool", new()
+    ///     var ipv6TestPublic = new Aws.Ec2.VpcIpamPool("ipv6_test_public", new()
     ///     {
     ///         AddressFamily = "ipv6",
     ///         IpamScopeId = example.PublicDefaultScopeId,
@@ -92,9 +92,9 @@ namespace Pulumi.Aws.Ec2
     ///         AwsService = "ec2",
     ///     });
     /// 
-    ///     var ipv6TestPublicVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", new()
+    ///     var ipv6TestPublicVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("ipv6_test_public", new()
     ///     {
-    ///         IpamPoolId = ipv6TestPublicVpcIpamPool.Id,
+    ///         IpamPoolId = ipv6TestPublic.Id,
     ///         NetmaskLength = 52,
     ///     });
     /// 

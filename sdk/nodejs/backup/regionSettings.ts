@@ -14,10 +14,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.backup.RegionSettings("test", {
- *     resourceTypeManagementPreference: {
- *         DynamoDB: true,
- *         EFS: true,
- *     },
  *     resourceTypeOptInPreference: {
  *         Aurora: true,
  *         DocumentDB: true,
@@ -30,6 +26,10 @@ import * as utilities from "../utilities";
  *         RDS: true,
  *         "Storage Gateway": true,
  *         VirtualMachine: true,
+ *     },
+ *     resourceTypeManagementPreference: {
+ *         DynamoDB: true,
+ *         EFS: true,
  *     },
  * });
  * ```

@@ -509,7 +509,9 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        production = aws.ssm.PatchBaseline("production",
+            name="patch-baseline",
+            approved_patches=["KB123456"])
         ```
         ### Advanced Usage, specifying patch filters
 
@@ -518,6 +520,27 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         production = aws.ssm.PatchBaseline("production",
+            name="patch-baseline",
+            description="Patch Baseline Description",
+            approved_patches=[
+                "KB123456",
+                "KB456789",
+            ],
+            rejected_patches=["KB987654"],
+            global_filters=[
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="PRODUCT",
+                    values=["WindowsServer2008"],
+                ),
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="CLASSIFICATION",
+                    values=["ServicePacks"],
+                ),
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="MSRC_SEVERITY",
+                    values=["Low"],
+                ),
+            ],
             approval_rules=[
                 aws.ssm.PatchBaselineApprovalRuleArgs(
                     approve_after_days=7,
@@ -552,27 +575,7 @@ class PatchBaseline(pulumi.CustomResource):
                         values=["WindowsServer2012"],
                     )],
                 ),
-            ],
-            approved_patches=[
-                "KB123456",
-                "KB456789",
-            ],
-            description="Patch Baseline Description",
-            global_filters=[
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="PRODUCT",
-                    values=["WindowsServer2008"],
-                ),
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="CLASSIFICATION",
-                    values=["ServicePacks"],
-                ),
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="MSRC_SEVERITY",
-                    values=["Low"],
-                ),
-            ],
-            rejected_patches=["KB987654"])
+            ])
         ```
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
@@ -580,7 +583,10 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        windows_os_apps = aws.ssm.PatchBaseline("windowsOsApps",
+        windows_os_apps = aws.ssm.PatchBaseline("windows_os_apps",
+            name="WindowsOSAndMicrosoftApps",
+            description="Patch both Windows and Microsoft apps",
+            operating_system="WINDOWS",
             approval_rules=[
                 aws.ssm.PatchBaselineApprovalRuleArgs(
                     approve_after_days=7,
@@ -617,9 +623,7 @@ class PatchBaseline(pulumi.CustomResource):
                         ),
                     ],
                 ),
-            ],
-            description="Patch both Windows and Microsoft apps",
-            operating_system="WINDOWS")
+            ])
         ```
         ### Advanced usage, specifying alternate patch source repository
 
@@ -627,11 +631,14 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        al201709 = aws.ssm.PatchBaseline("al201709",
+        al201709 = aws.ssm.PatchBaseline("al_2017_09",
             approval_rules=[aws.ssm.PatchBaselineApprovalRuleArgs()],
+            name="Amazon-Linux-2017.09",
             description="My patch repository for Amazon Linux 2017.09",
             operating_system="AMAZON_LINUX",
             sources=[aws.ssm.PatchBaselineSourceArgs(
+                name="My-AL2017.09",
+                products=["AmazonLinux2017.09"],
                 configuration=\"\"\"[amzn-main]
         name=amzn-main-Base
         mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
@@ -646,10 +653,7 @@ class PatchBaseline(pulumi.CustomResource):
         retries=3
         timeout=5
         report_instanceid=yes
-
         \"\"\",
-                name="My-AL2017.09",
-                products=["AmazonLinux2017.09"],
             )])
         ```
 
@@ -700,7 +704,9 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        production = aws.ssm.PatchBaseline("production",
+            name="patch-baseline",
+            approved_patches=["KB123456"])
         ```
         ### Advanced Usage, specifying patch filters
 
@@ -709,6 +715,27 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         production = aws.ssm.PatchBaseline("production",
+            name="patch-baseline",
+            description="Patch Baseline Description",
+            approved_patches=[
+                "KB123456",
+                "KB456789",
+            ],
+            rejected_patches=["KB987654"],
+            global_filters=[
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="PRODUCT",
+                    values=["WindowsServer2008"],
+                ),
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="CLASSIFICATION",
+                    values=["ServicePacks"],
+                ),
+                aws.ssm.PatchBaselineGlobalFilterArgs(
+                    key="MSRC_SEVERITY",
+                    values=["Low"],
+                ),
+            ],
             approval_rules=[
                 aws.ssm.PatchBaselineApprovalRuleArgs(
                     approve_after_days=7,
@@ -743,27 +770,7 @@ class PatchBaseline(pulumi.CustomResource):
                         values=["WindowsServer2012"],
                     )],
                 ),
-            ],
-            approved_patches=[
-                "KB123456",
-                "KB456789",
-            ],
-            description="Patch Baseline Description",
-            global_filters=[
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="PRODUCT",
-                    values=["WindowsServer2008"],
-                ),
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="CLASSIFICATION",
-                    values=["ServicePacks"],
-                ),
-                aws.ssm.PatchBaselineGlobalFilterArgs(
-                    key="MSRC_SEVERITY",
-                    values=["Low"],
-                ),
-            ],
-            rejected_patches=["KB987654"])
+            ])
         ```
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
@@ -771,7 +778,10 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        windows_os_apps = aws.ssm.PatchBaseline("windowsOsApps",
+        windows_os_apps = aws.ssm.PatchBaseline("windows_os_apps",
+            name="WindowsOSAndMicrosoftApps",
+            description="Patch both Windows and Microsoft apps",
+            operating_system="WINDOWS",
             approval_rules=[
                 aws.ssm.PatchBaselineApprovalRuleArgs(
                     approve_after_days=7,
@@ -808,9 +818,7 @@ class PatchBaseline(pulumi.CustomResource):
                         ),
                     ],
                 ),
-            ],
-            description="Patch both Windows and Microsoft apps",
-            operating_system="WINDOWS")
+            ])
         ```
         ### Advanced usage, specifying alternate patch source repository
 
@@ -818,11 +826,14 @@ class PatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        al201709 = aws.ssm.PatchBaseline("al201709",
+        al201709 = aws.ssm.PatchBaseline("al_2017_09",
             approval_rules=[aws.ssm.PatchBaselineApprovalRuleArgs()],
+            name="Amazon-Linux-2017.09",
             description="My patch repository for Amazon Linux 2017.09",
             operating_system="AMAZON_LINUX",
             sources=[aws.ssm.PatchBaselineSourceArgs(
+                name="My-AL2017.09",
+                products=["AmazonLinux2017.09"],
                 configuration=\"\"\"[amzn-main]
         name=amzn-main-Base
         mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
@@ -837,10 +848,7 @@ class PatchBaseline(pulumi.CustomResource):
         retries=3
         timeout=5
         report_instanceid=yes
-
         \"\"\",
-                name="My-AL2017.09",
-                products=["AmazonLinux2017.09"],
             )])
         ```
 

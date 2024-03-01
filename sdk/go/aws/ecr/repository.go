@@ -28,10 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
+//				Name:               pulumi.String("bar"),
+//				ImageTagMutability: pulumi.String("MUTABLE"),
 //				ImageScanningConfiguration: &ecr.RepositoryImageScanningConfigurationArgs{
 //					ScanOnPush: pulumi.Bool(true),
 //				},
-//				ImageTagMutability: pulumi.String("MUTABLE"),
 //			})
 //			if err != nil {
 //				return err

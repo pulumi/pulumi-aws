@@ -176,6 +176,21 @@ class Group(pulumi.CustomResource):
         Resource for managing an AWS IdentityStore Group.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        this = aws.identitystore.Group("this",
+            display_name="Example group",
+            description="Example description",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0])
+        ```
 
         ## Import
 
@@ -203,6 +218,21 @@ class Group(pulumi.CustomResource):
         Resource for managing an AWS IdentityStore Group.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        this = aws.identitystore.Group("this",
+            display_name="Example group",
+            description="Example description",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0])
+        ```
 
         ## Import
 

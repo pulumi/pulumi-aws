@@ -147,7 +147,7 @@ def get_secret_version(secret_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
     ### Retrieve Specific Secret Version
 
@@ -155,8 +155,21 @@ def get_secret_version(secret_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
+    ```
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native map
+
+    ```python
+    import pulumi
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    pulumi.export("example", not_implemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)")["key1"])
     ```
 
 
@@ -200,7 +213,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
     ### Retrieve Specific Secret Version
 
@@ -208,8 +221,21 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
+    ```
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native map
+
+    ```python
+    import pulumi
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    pulumi.export("example", not_implemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)")["key1"])
     ```
 
 

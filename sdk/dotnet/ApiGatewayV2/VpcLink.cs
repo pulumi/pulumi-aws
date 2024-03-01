@@ -27,11 +27,12 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.VpcLink("example", new()
     ///     {
+    ///         Name = "example",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             data.Aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         SubnetIds = data.Aws_subnets.Example.Ids,
+    ///         SubnetIds = exampleAwsSubnets.Ids,
     ///         Tags = 
     ///         {
     ///             { "Usage", "example" },

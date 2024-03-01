@@ -29,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
+//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("MyCatalogTable"),
+//				DatabaseName: pulumi.String("MyCatalogDatabase"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,14 +55,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
+//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("MyCatalogTable"),
+//				DatabaseName: pulumi.String("MyCatalogDatabase"),
+//				TableType:    pulumi.String("EXTERNAL_TABLE"),
 //				Parameters: pulumi.StringMap{
 //					"EXTERNAL":            pulumi.String("TRUE"),
 //					"parquet.compression": pulumi.String("SNAPPY"),
 //				},
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
+//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
+//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
+//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
+//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
+//						Name:                 pulumi.String("my-stream"),
+//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
+//						Parameters: pulumi.StringMap{
+//							"serialization.format": pulumi.String("1"),
+//						},
+//					},
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
 //							Name: pulumi.String("my_string"),
@@ -73,33 +84,22 @@ import (
 //							Type: pulumi.String("double"),
 //						},
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Comment: pulumi.String(""),
 //							Name:    pulumi.String("my_date"),
 //							Type:    pulumi.String("date"),
+//							Comment: pulumi.String(""),
 //						},
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Comment: pulumi.String(""),
 //							Name:    pulumi.String("my_bigint"),
 //							Type:    pulumi.String("bigint"),
+//							Comment: pulumi.String(""),
 //						},
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Comment: pulumi.String(""),
 //							Name:    pulumi.String("my_struct"),
 //							Type:    pulumi.String("struct<my_nested_string:string>"),
+//							Comment: pulumi.String(""),
 //						},
-//					},
-//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
-//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
-//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name: pulumi.String("my-stream"),
-//						Parameters: pulumi.StringMap{
-//							"serialization.format": pulumi.String("1"),
-//						},
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
 //					},
 //				},
-//				TableType: pulumi.String("EXTERNAL_TABLE"),
 //			})
 //			if err != nil {
 //				return err

@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationFsxLustre(&#34;example&#34;, LocationFsxLustreArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_lustre_file_system.example().arn())
- *             .securityGroupArns(aws_security_group.example().arn())
+ *             .fsxFilesystemArn(exampleAwsFsxLustreFileSystem.arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .build());
  * 
  *     }

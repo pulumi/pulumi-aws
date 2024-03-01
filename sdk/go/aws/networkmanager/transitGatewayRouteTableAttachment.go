@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewTransitGatewayRouteTableAttachment(ctx, "example", &networkmanager.TransitGatewayRouteTableAttachmentArgs{
-//				PeeringId:                   pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Id),
-//				TransitGatewayRouteTableArn: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Arn),
+//				PeeringId:                   pulumi.Any(exampleAwsNetworkmanagerTransitGatewayPeering.Id),
+//				TransitGatewayRouteTableArn: pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Arn),
 //			})
 //			if err != nil {
 //				return err

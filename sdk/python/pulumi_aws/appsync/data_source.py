@@ -454,7 +454,8 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
+        example_table = aws.dynamodb.Table("example",
+            name="example",
             read_capacity=1,
             write_capacity=1,
             hash_key="UserId",
@@ -470,17 +471,22 @@ class DataSource(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["dynamodb:*"],
             resources=[example_table.arn],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="example",
             role=example_role.id,
-            policy=example_policy_document.json)
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            policy=example.json)
+        example_graph_ql_api = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="my_appsync_example")
+        example_data_source = aws.appsync.DataSource("example",
             api_id=example_graph_ql_api.id,
             name="my_appsync_example",
             service_role_arn=example_role.arn,
@@ -528,7 +534,8 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
+        example_table = aws.dynamodb.Table("example",
+            name="example",
             read_capacity=1,
             write_capacity=1,
             hash_key="UserId",
@@ -544,17 +551,22 @@ class DataSource(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["dynamodb:*"],
             resources=[example_table.arn],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="example",
             role=example_role.id,
-            policy=example_policy_document.json)
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            policy=example.json)
+        example_graph_ql_api = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="my_appsync_example")
+        example_data_source = aws.appsync.DataSource("example",
             api_id=example_graph_ql_api.id,
             name="my_appsync_example",
             service_role_arn=example_role.arn,

@@ -207,9 +207,9 @@ class Configuration(pulumi.CustomResource):
 
         example = aws.msk.Configuration("example",
             kafka_versions=["2.1.0"],
+            name="example",
             server_properties=\"\"\"auto.create.topics.enable = true
         delete.topic.enable = true
-
         \"\"\")
         ```
 
@@ -245,9 +245,9 @@ class Configuration(pulumi.CustomResource):
 
         example = aws.msk.Configuration("example",
             kafka_versions=["2.1.0"],
+            name="example",
             server_properties=\"\"\"auto.create.topics.enable = true
         delete.topic.enable = true
-
         \"\"\")
         ```
 

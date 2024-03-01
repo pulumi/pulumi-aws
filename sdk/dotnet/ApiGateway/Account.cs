@@ -50,8 +50,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new()
+    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatch", new()
     ///     {
+    ///         Name = "api_gateway_cloudwatch_global",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -60,7 +61,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         CloudwatchRoleArn = cloudwatchRole.Arn,
     ///     });
     /// 
-    ///     var cloudwatchPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var cloudwatch = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -85,10 +86,11 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
+    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatch", new()
     ///     {
+    ///         Name = "default",
     ///         Role = cloudwatchRole.Id,
-    ///         Policy = cloudwatchPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = cloudwatch.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

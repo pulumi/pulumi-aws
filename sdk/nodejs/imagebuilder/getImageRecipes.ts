@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getImageRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
  */
@@ -78,11 +78,11 @@ export interface GetImageRecipesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getImageRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
  */

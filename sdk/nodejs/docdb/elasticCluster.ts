@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.docdb.ElasticCluster("example", {
+ *     name: "my-docdb-cluster",
  *     adminUserName: "foo",
  *     adminUserPassword: "mustbeeightchars",
  *     authType: "PLAIN_TEXT",

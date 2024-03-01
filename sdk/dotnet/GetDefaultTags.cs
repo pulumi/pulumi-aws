@@ -34,6 +34,27 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Dynamically Apply Default Tags to Auto Scaling Group
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.GetDefaultTags.Invoke();
+        /// 
+        ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
+        ///     {
+        ///         Tags = ,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefaultTagsResult> InvokeAsync(GetDefaultTagsArgs? args = null, InvokeOptions? options = null)
@@ -58,6 +79,27 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     var example = Aws.GetDefaultTags.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Dynamically Apply Default Tags to Auto Scaling Group
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.GetDefaultTags.Invoke();
+        /// 
+        ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
+        ///     {
+        ///         Tags = ,
+        ///     });
         /// 
         /// });
         /// ```

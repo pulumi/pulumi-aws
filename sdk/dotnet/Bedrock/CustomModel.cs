@@ -20,17 +20,17 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+    ///     var example = Aws.BedrockFoundation.GetModel.Invoke(new()
     ///     {
     ///         ModelId = "amazon.titan-text-express-v1",
     ///     });
     /// 
-    ///     var exampleCustomModel = new Aws.Bedrock.CustomModel("exampleCustomModel", new()
+    ///     var exampleCustomModel = new Aws.Bedrock.CustomModel("example", new()
     ///     {
     ///         CustomModelName = "example-model",
     ///         JobName = "example-job-1",
-    ///         BaseModelIdentifier = exampleModel.Apply(getModelResult =&gt; getModelResult.ModelArn),
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         BaseModelIdentifier = example.Apply(getModelResult =&gt; getModelResult.ModelArn),
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Hyperparameters = 
     ///         {
     ///             { "epochCount", "1" },
@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Bedrock
     ///         },
     ///         OutputDataConfig = new Aws.Bedrock.Inputs.CustomModelOutputDataConfigArgs
     ///         {
-    ///             S3Uri = $"s3://{aws_s3_bucket.Output.Id}/data/",
+    ///             S3Uri = $"s3://{output.Id}/data/",
     ///         },
     ///         TrainingDataConfig = new Aws.Bedrock.Inputs.CustomModelTrainingDataConfigArgs
     ///         {
-    ///             S3Uri = $"s3://{aws_s3_bucket.Training.Id}/data/train.jsonl",
+    ///             S3Uri = $"s3://{training.Id}/data/train.jsonl",
     ///         },
     ///     });
     /// 

@@ -44,10 +44,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new QuerySuggestionsBlockList(&#34;example&#34;, QuerySuggestionsBlockListArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
+ *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(&#34;example/suggestions.txt&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Index&#34;))

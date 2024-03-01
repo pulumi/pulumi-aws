@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -55,10 +55,10 @@ namespace Pulumi.Aws.Schemas
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryPolicy = new Aws.Schemas.RegistryPolicy("exampleRegistryPolicy", new()
+    ///     var exampleRegistryPolicy = new Aws.Schemas.RegistryPolicy("example", new()
     ///     {
     ///         RegistryName = "example",
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

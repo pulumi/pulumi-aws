@@ -58,32 +58,33 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
     ///     {
+    ///         Name = "dms-vpc-role",
     ///         Description = "Allows DMS to manage VPC",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "dms.amazonaws.com",
+    ///                         ["service"] = "dms.amazonaws.com",
     ///                     },
-    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var example = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         Role = dms_vpc_role.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
     ///     });
     /// 
-    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", new()
+    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("example", new()
     ///     {
     ///         ReplicationSubnetGroupDescription = "Example",
     ///         ReplicationSubnetGroupId = "example-id",
@@ -95,12 +96,6 @@ namespace Pulumi.Aws.Dms
     ///         Tags = 
     ///         {
     ///             { "Name", "example-id" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleRolePolicyAttachment,
     ///         },
     ///     });
     /// 

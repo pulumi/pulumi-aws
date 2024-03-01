@@ -25,10 +25,10 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroupAttachment("example", new()
     ///     {
-    ///         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
+    ///         TargetGroupIdentifier = exampleAwsVpclatticeTargetGroup.Id,
     ///         Target = new Aws.VpcLattice.Inputs.TargetGroupAttachmentTargetArgs
     ///         {
-    ///             Id = aws_lb.Example.Arn,
+    ///             Id = exampleAwsLb.Arn,
     ///             Port = 80,
     ///         },
     ///     });

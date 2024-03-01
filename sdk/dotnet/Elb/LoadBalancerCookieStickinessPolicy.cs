@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.Elb
     /// 
     ///     var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new()
     ///     {
+    ///         Name = "foo-policy",
     ///         LoadBalancer = lb.Id,
     ///         LbPort = 80,
     ///         CookieExpirationPeriod = 600,

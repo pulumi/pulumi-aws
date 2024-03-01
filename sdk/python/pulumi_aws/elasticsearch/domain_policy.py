@@ -106,7 +106,9 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
+        example = aws.elasticsearch.Domain("example",
+            domain_name="tf-test",
+            elasticsearch_version="2.3")
         main = aws.elasticsearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{
@@ -146,7 +148,9 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
+        example = aws.elasticsearch.Domain("example",
+            domain_name="tf-test",
+            elasticsearch_version="2.3")
         main = aws.elasticsearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{

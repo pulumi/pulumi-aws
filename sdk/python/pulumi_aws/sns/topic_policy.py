@@ -124,7 +124,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sns.Topic("test")
+        test = aws.sns.Topic("test", name="my-topic-with-policy")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -141,7 +141,7 @@ class TopicPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
+                    values=[account_id],
                 )],
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -186,7 +186,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sns.Topic("test")
+        test = aws.sns.Topic("test", name="my-topic-with-policy")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -203,7 +203,7 @@ class TopicPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
+                    values=[account_id],
                 )],
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(

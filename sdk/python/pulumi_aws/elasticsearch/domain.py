@@ -672,10 +672,11 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticsearch.Domain("example",
+            domain_name="example",
+            elasticsearch_version="7.10",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            elasticsearch_version="7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -692,16 +693,18 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example = aws.elasticsearch.Domain("example", access_policies=f\"\"\"{{
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.elasticsearch.Domain("example",
+            domain_name=domain,
+            access_policies=f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
               "Action": "es:*",
               "Principal": "*",
               "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
+              "Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*",
               "Condition": {{
                 "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
               }}
@@ -716,8 +719,8 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -730,11 +733,10 @@ class Domain(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*"],
         )])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
-            policy_document=example_policy_document.json)
-        # .. other configuration ...
-        example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[aws.elasticsearch.DomainLogPublishingOptionArgs(
+            policy_document=example.json)
+        example_domain = aws.elasticsearch.Domain("example", log_publishing_options=[aws.elasticsearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
@@ -750,29 +752,31 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        selected_vpc = aws.ec2.get_vpc(tags={
+        selected = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        selected_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
                 name="vpc-id",
-                values=[selected_vpc.id],
+                values=[selected.id],
             )],
             tags={
                 "Tier": "private",
             })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        es = aws.ec2.SecurityGroup("es",
+            name=f"{vpc}-elasticsearch-{domain}",
             description="Managed by Pulumi",
-            vpc_id=selected_vpc.id,
+            vpc_id=selected.id,
             ingress=[aws.ec2.SecurityGroupIngressArgs(
                 from_port=443,
                 to_port=443,
                 protocol="tcp",
-                cidr_blocks=[selected_vpc.cidr_block],
+                cidr_blocks=[selected.cidr_block],
             )])
-        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        es_domain = aws.elasticsearch.Domain("esDomain",
+        es_service_linked_role = aws.iam.ServiceLinkedRole("es", aws_service_name="opensearchservice.amazonaws.com")
+        es_domain = aws.elasticsearch.Domain("es",
+            domain_name=domain,
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="m4.large.elasticsearch",
@@ -780,10 +784,10 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnets.ids[0],
-                    selected_subnets.ids[1],
+                    selected_get_subnets.ids[0],
+                    selected_get_subnets.ids[1],
                 ],
-                security_group_ids=[es_security_group.id],
+                security_group_ids=[es.id],
             ),
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
@@ -795,15 +799,14 @@ class Domain(pulumi.CustomResource):
         			"Action": "es:*",
         			"Principal": "*",
         			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
+        			"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
         		}}
         	]
         }}
         \"\"\",
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
+            })
         ```
 
         ## Import
@@ -852,10 +855,11 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticsearch.Domain("example",
+            domain_name="example",
+            elasticsearch_version="7.10",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            elasticsearch_version="7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -872,16 +876,18 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example = aws.elasticsearch.Domain("example", access_policies=f\"\"\"{{
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.elasticsearch.Domain("example",
+            domain_name=domain,
+            access_policies=f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
               "Action": "es:*",
               "Principal": "*",
               "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
+              "Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*",
               "Condition": {{
                 "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
               }}
@@ -896,8 +902,8 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -910,11 +916,10 @@ class Domain(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*"],
         )])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
-            policy_document=example_policy_document.json)
-        # .. other configuration ...
-        example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[aws.elasticsearch.DomainLogPublishingOptionArgs(
+            policy_document=example.json)
+        example_domain = aws.elasticsearch.Domain("example", log_publishing_options=[aws.elasticsearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
@@ -930,29 +935,31 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        selected_vpc = aws.ec2.get_vpc(tags={
+        selected = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        selected_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
                 name="vpc-id",
-                values=[selected_vpc.id],
+                values=[selected.id],
             )],
             tags={
                 "Tier": "private",
             })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        es = aws.ec2.SecurityGroup("es",
+            name=f"{vpc}-elasticsearch-{domain}",
             description="Managed by Pulumi",
-            vpc_id=selected_vpc.id,
+            vpc_id=selected.id,
             ingress=[aws.ec2.SecurityGroupIngressArgs(
                 from_port=443,
                 to_port=443,
                 protocol="tcp",
-                cidr_blocks=[selected_vpc.cidr_block],
+                cidr_blocks=[selected.cidr_block],
             )])
-        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        es_domain = aws.elasticsearch.Domain("esDomain",
+        es_service_linked_role = aws.iam.ServiceLinkedRole("es", aws_service_name="opensearchservice.amazonaws.com")
+        es_domain = aws.elasticsearch.Domain("es",
+            domain_name=domain,
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="m4.large.elasticsearch",
@@ -960,10 +967,10 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnets.ids[0],
-                    selected_subnets.ids[1],
+                    selected_get_subnets.ids[0],
+                    selected_get_subnets.ids[1],
                 ],
-                security_group_ids=[es_security_group.id],
+                security_group_ids=[es.id],
             ),
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
@@ -975,15 +982,14 @@ class Domain(pulumi.CustomResource):
         			"Action": "es:*",
         			"Principal": "*",
         			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
+        			"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
         		}}
         	]
         }}
         \"\"\",
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
+            })
         ```
 
         ## Import

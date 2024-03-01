@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get an Identity Store User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const exampleGetUser = aws.identitystore.getUser({
+ *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+ *     alternateIdentifier: {
+ *         uniqueAttribute: {
+ *             attributePath: "UserName",
+ *             attributeValue: "ExampleUser",
+ *         },
+ *     },
+ * });
+ * export const userId = exampleGetUser.then(exampleGetUser => exampleGetUser.userId);
+ * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -123,6 +146,29 @@ export interface GetUserResult {
 }
 /**
  * Use this data source to get an Identity Store User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const exampleGetUser = aws.identitystore.getUser({
+ *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+ *     alternateIdentifier: {
+ *         uniqueAttribute: {
+ *             attributePath: "UserName",
+ *             attributeValue: "ExampleUser",
+ *         },
+ *     },
+ * });
+ * export const userId = exampleGetUser.then(exampleGetUser => exampleGetUser.userId);
+ * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.Topic;
@@ -55,9 +56,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
  * 
- *         final var topicPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -75,7 +78,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var topicTopic = new Topic(&#34;topicTopic&#34;, TopicArgs.builder()        
- *             .policy(topicPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(topicPolicyDocument -&gt; topicPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;s3-event-notification-topic&#34;)
+ *             .policy(topic.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(topic -&gt; topic.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
@@ -98,6 +102,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sqs.Queue;
@@ -118,9 +123,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
  * 
- *         final var queuePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var queue = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -138,7 +145,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var queueQueue = new Queue(&#34;queueQueue&#34;, QueueArgs.builder()        
- *             .policy(queuePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(queuePolicyDocument -&gt; queuePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;s3-event-notification-queue&#34;)
+ *             .policy(queue.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(queue -&gt; queue.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
@@ -167,12 +175,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.lambda.Permission;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -199,19 +207,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
+ *             .name(&#34;iam_for_lambda&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var func = new Function(&#34;func&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;your-function.zip&#34;))
+ *             .name(&#34;example_lambda_name&#34;)
  *             .role(iamForLambda.arn())
  *             .handler(&#34;exports.example&#34;)
  *             .runtime(&#34;go1.x&#34;)
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
  * 
  *         var allowBucket = new Permission(&#34;allowBucket&#34;, PermissionArgs.builder()        
+ *             .statementId(&#34;AllowExecutionFromS3Bucket&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(func.arn())
  *             .principal(&#34;s3.amazonaws.com&#34;)
@@ -226,9 +239,7 @@ import javax.annotation.Nullable;
  *                 .filterPrefix(&#34;AWSLogs/&#34;)
  *                 .filterSuffix(&#34;.log&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(allowBucket)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -247,12 +258,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.lambda.Permission;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -279,19 +290,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
+ *             .name(&#34;iam_for_lambda&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var func1 = new Function(&#34;func1&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;your-function1.zip&#34;))
+ *             .name(&#34;example_lambda_name1&#34;)
  *             .role(iamForLambda.arn())
  *             .handler(&#34;exports.example&#34;)
  *             .runtime(&#34;go1.x&#34;)
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
  * 
  *         var allowBucket1 = new Permission(&#34;allowBucket1&#34;, PermissionArgs.builder()        
+ *             .statementId(&#34;AllowExecutionFromS3Bucket1&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(func1.arn())
  *             .principal(&#34;s3.amazonaws.com&#34;)
@@ -300,11 +316,13 @@ import javax.annotation.Nullable;
  * 
  *         var func2 = new Function(&#34;func2&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;your-function2.zip&#34;))
+ *             .name(&#34;example_lambda_name2&#34;)
  *             .role(iamForLambda.arn())
  *             .handler(&#34;exports.example&#34;)
  *             .build());
  * 
  *         var allowBucket2 = new Permission(&#34;allowBucket2&#34;, PermissionArgs.builder()        
+ *             .statementId(&#34;AllowExecutionFromS3Bucket2&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(func2.arn())
  *             .principal(&#34;s3.amazonaws.com&#34;)
@@ -326,107 +344,8 @@ import javax.annotation.Nullable;
  *                     .filterPrefix(&#34;OtherLogs/&#34;)
  *                     .filterSuffix(&#34;.log&#34;)
  *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     allowBucket1,
- *                     allowBucket2)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Add multiple notification configurations to SQS Queue
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueueArgs;
- * import com.pulumi.aws.s3.BucketNotification;
- * import com.pulumi.aws.s3.BucketNotificationArgs;
- * import com.pulumi.aws.s3.inputs.BucketNotificationQueueArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
- * 
- *         final var queuePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;sqs:SendMessage&#34;)
- *                 .resources(&#34;arn:aws:sqs:*:*:s3-event-notification-queue&#34;)
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .values(bucket.arn())
- *                     .build())
- *                 .build())
  *             .build());
  * 
- *         var queueQueue = new Queue(&#34;queueQueue&#34;, QueueArgs.builder()        
- *             .policy(queuePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(queuePolicyDocument -&gt; queuePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
- *             .bucket(bucket.id())
- *             .queues(            
- *                 BucketNotificationQueueArgs.builder()
- *                     .id(&#34;image-upload-event&#34;)
- *                     .queueArn(queueQueue.arn())
- *                     .events(&#34;s3:ObjectCreated:*&#34;)
- *                     .filterPrefix(&#34;images/&#34;)
- *                     .build(),
- *                 BucketNotificationQueueArgs.builder()
- *                     .id(&#34;video-upload-event&#34;)
- *                     .queueArn(queueQueue.arn())
- *                     .events(&#34;s3:ObjectCreated:*&#34;)
- *                     .filterPrefix(&#34;videos/&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * For JSON syntax, use an array instead of defining the `queue` key twice.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
  *     }
  * }
  * ```
@@ -438,6 +357,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import java.util.List;
@@ -453,7 +373,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
  * 
  *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
  *             .bucket(bucket.id())

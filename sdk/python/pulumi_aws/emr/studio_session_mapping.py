@@ -205,10 +205,10 @@ class StudioSessionMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emr.StudioSessionMapping("example",
-            studio_id=aws_emr_studio["example"]["id"],
+            studio_id=example_aws_emr_studio["id"],
             identity_type="USER",
             identity_id="example",
-            session_policy_arn=aws_iam_policy["example"]["arn"])
+            session_policy_arn=example_aws_iam_policy["arn"])
         ```
 
         ## Import
@@ -243,10 +243,10 @@ class StudioSessionMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emr.StudioSessionMapping("example",
-            studio_id=aws_emr_studio["example"]["id"],
+            studio_id=example_aws_emr_studio["id"],
             identity_type="USER",
             identity_id="example",
-            session_policy_arn=aws_iam_policy["example"]["arn"])
+            session_policy_arn=example_aws_iam_policy["arn"])
         ```
 
         ## Import

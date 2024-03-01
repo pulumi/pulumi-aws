@@ -18,6 +18,109 @@ import (
 // For specific information about creating an AppFlow connector profile, see the
 // [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appflow"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+//				Name: pulumi.StringRef("AmazonRedshiftAllCommandsFullAccess"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "ec2.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name: pulumi.String("example_role"),
+//				ManagedPolicyArns: pulumi.StringArray{
+//					test.Arn,
+//				},
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example_bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("example_cluster"),
+//				DatabaseName:      pulumi.String("example_db"),
+//				MasterUsername:    pulumi.String("exampleuser"),
+//				MasterPassword:    pulumi.String("examplePassword123!"),
+//				NodeType:          pulumi.String("dc1.large"),
+//				ClusterType:       pulumi.String("single-node"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appflow.NewConnectorProfile(ctx, "example", &appflow.ConnectorProfileArgs{
+//				Name:           pulumi.String("example_profile"),
+//				ConnectorType:  pulumi.String("Redshift"),
+//				ConnectionMode: pulumi.String("Public"),
+//				ConnectorProfileConfig: &appflow.ConnectorProfileConnectorProfileConfigArgs{
+//					ConnectorProfileCredentials: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{
+//						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{
+//							Password: exampleCluster.MasterPassword,
+//							Username: exampleCluster.MasterUsername,
+//						},
+//					},
+//					ConnectorProfileProperties: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{
+//						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{
+//							BucketName: exampleBucketV2.Name,
+//							DatabaseUrl: pulumi.All(exampleCluster.Endpoint, exampleCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
+//								endpoint := _args[0].(string)
+//								databaseName := _args[1].(string)
+//								return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
+//							}).(pulumi.StringOutput),
+//							RoleArn: exampleRole.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:

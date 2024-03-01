@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.secretsmanager.getSecretRotation({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
  * });
  * ```
  */
@@ -73,7 +73,7 @@ export interface GetSecretRotationResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.secretsmanager.getSecretRotation({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
  * });
  * ```
  */

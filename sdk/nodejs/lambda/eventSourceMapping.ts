@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsDynamodbTable.streamArn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
@@ -33,8 +33,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_kinesis_stream.example.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsKinesisStream.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
@@ -45,8 +45,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_msk_cluster.example.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsMskCluster.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     topics: ["Example"],
  *     startingPosition: "TRIM_HORIZON",
  * });
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     functionName: aws_lambda_function.example.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     topics: ["Example"],
  *     startingPosition: "TRIM_HORIZON",
  *     selfManagedEventSource: {
@@ -89,8 +89,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: sqsQueueTest.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  * });
  * ```
  * ### SQS with event filter
@@ -100,13 +100,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: sqsQueueTest.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     filterCriteria: {
  *         filters: [{
  *             pattern: JSON.stringify({
  *                 body: {
- *                     Temperature: [{
+ *                     temperature: [{
  *                         numeric: [
  *                             ">",
  *                             0,
@@ -114,11 +114,53 @@ import * as utilities from "../utilities";
  *                             100,
  *                         ],
  *                     }],
- *                     Location: ["New York"],
+ *                     location: ["New York"],
  *                 },
  *             }),
  *         }],
  *     },
+ * });
+ * ```
+ * ### Amazon MQ (ActiveMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 10,
+ *     eventSourceArn: exampleAwsMqBroker.arn,
+ *     enabled: true,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     queues: "example",
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: exampleAwsSecretsmanagerSecretVersion.arn,
+ *     }],
+ * });
+ * ```
+ * ### Amazon MQ (RabbitMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 1,
+ *     eventSourceArn: exampleAwsMqBroker.arn,
+ *     enabled: true,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     queues: "example",
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VIRTUAL_HOST",
+ *             uri: "/example",
+ *         },
+ *         {
+ *             type: "BASIC_AUTH",
+ *             uri: exampleAwsSecretsmanagerSecretVersion.arn,
+ *         },
+ *     ],
  * });
  * ```
  *

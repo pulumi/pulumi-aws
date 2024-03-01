@@ -24,11 +24,12 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var key = new Aws.Kms.Key("key");
+    ///     var a = new Aws.Kms.Key("a");
     /// 
-    ///     var @alias = new Aws.Kms.Alias("alias", new()
+    ///     var aAlias = new Aws.Kms.Alias("a", new()
     ///     {
-    ///         TargetKeyId = key.KeyId,
+    ///         Name = "alias/my-key-alias",
+    ///         TargetKeyId = a.KeyId,
     ///     });
     /// 
     /// });

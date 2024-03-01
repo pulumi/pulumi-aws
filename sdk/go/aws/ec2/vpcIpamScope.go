@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
 //						RegionName: *pulumi.String(current.Name),
@@ -45,8 +45,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpamScope(ctx, "exampleVpcIpamScope", &ec2.VpcIpamScopeArgs{
-//				IpamId:      exampleVpcIpam.ID(),
+//			_, err = ec2.NewVpcIpamScope(ctx, "example", &ec2.VpcIpamScopeArgs{
+//				IpamId:      example.ID(),
 //				Description: pulumi.String("Another Scope"),
 //			})
 //			if err != nil {

@@ -307,10 +307,11 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
-        inventory = aws.s3.BucketV2("inventory")
-        test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket_v2.id,
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -328,10 +329,11 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test")
-        inventory = aws.s3.BucketV2("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
+            name="DocumentsWeekly",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -385,10 +387,11 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
-        inventory = aws.s3.BucketV2("inventory")
-        test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket_v2.id,
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -406,10 +409,11 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test")
-        inventory = aws.s3.BucketV2("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
+            name="DocumentsWeekly",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",

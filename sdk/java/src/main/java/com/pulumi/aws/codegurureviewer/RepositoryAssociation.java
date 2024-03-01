@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;);
+ *         var example = new Key(&#34;example&#34;);
  * 
  *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
  *             .repositoryName(&#34;example-repo&#34;)
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs.builder()
  *                 .encryptionOption(&#34;CUSTOMER_MANAGED_CMK&#34;)
- *                 .kmsKeyId(exampleKey.keyId())
+ *                 .kmsKeyId(example.keyId())
  *                 .build())
  *             .build());
  * 

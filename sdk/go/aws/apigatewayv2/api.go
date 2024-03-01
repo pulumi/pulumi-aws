@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:                     pulumi.String("example-websocket-api"),
 //				ProtocolType:             pulumi.String("WEBSOCKET"),
 //				RouteSelectionExpression: pulumi.String("$request.body.action"),
 //			})
@@ -58,6 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:         pulumi.String("example-http-api"),
 //				ProtocolType: pulumi.String("HTTP"),
 //			})
 //			if err != nil {

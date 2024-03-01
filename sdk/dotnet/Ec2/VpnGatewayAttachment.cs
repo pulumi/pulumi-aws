@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new()
+    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpn_attachment", new()
     ///     {
     ///         VpcId = network.Id,
     ///         VpnGatewayId = vpn.Id,

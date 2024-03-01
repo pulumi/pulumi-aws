@@ -51,14 +51,16 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var r = new Aws.Iam.Role("r", new()
     ///     {
+    ///         Name = "awsconfig-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = role.Arn,
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///     });
     /// 
     /// });
@@ -75,7 +77,8 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = aws_iam_role.R.Arn,
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
     ///             AllSupported = false,
@@ -113,7 +116,8 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = aws_iam_role.R.Arn,
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
     ///             AllSupported = false,

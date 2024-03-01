@@ -43,19 +43,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
-//				Arn: currentCallerIdentity.Arn,
+//			currentGetSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
+//				Arn: current.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lakeformation.NewDataLakeSettings(ctx, "test", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					*pulumi.String(currentSessionContext.IssuerArn),
+//					*pulumi.String(currentGetSessionContext.IssuerArn),
 //				},
 //			})
 //			if err != nil {
@@ -95,15 +95,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("sadabate"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
+//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("abelt"),
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Test.Name),
+//				DatabaseName: pulumi.Any(test.Name),
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
@@ -116,7 +116,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lakeformation.NewPermissions(ctx, "examplePermissions", &lakeformation.PermissionsArgs{
+//			_, err = lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("SELECT"),
 //				},
@@ -168,12 +168,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("DATA_LOCATION_ACCESS"),
 //				},
 //				DataLocation: &lakeformation.PermissionsDataLocationArgs{
-//					Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
+//					Arn: pulumi.Any(exampleAwsLakeformationResource.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -199,14 +199,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("CREATE_TABLE"),
 //					pulumi.String("ALTER"),
 //					pulumi.String("DROP"),
 //				},
 //				Database: &lakeformation.PermissionsDatabaseArgs{
-//					Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
+//					Name:      pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //					CatalogId: pulumi.String("110376042874"),
 //				},
 //			})
@@ -233,7 +233,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
+//				Principal: pulumi.Any(salesRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("CREATE_TABLE"),
 //					pulumi.String("ALTER"),

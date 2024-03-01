@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAutoScalingConfigurationVersion, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "exampleAutoScalingConfigurationVersion", &apprunner.AutoScalingConfigurationVersionArgs{
+//			example, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
 //				AutoScalingConfigurationName: pulumi.String("example"),
 //				MaxConcurrency:               pulumi.Int(50),
 //				MaxSize:                      pulumi.Int(10),
@@ -40,8 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apprunner.NewDefaultAutoScalingConfigurationVersion(ctx, "exampleDefaultAutoScalingConfigurationVersion", &apprunner.DefaultAutoScalingConfigurationVersionArgs{
-//				AutoScalingConfigurationArn: exampleAutoScalingConfigurationVersion.Arn,
+//			_, err = apprunner.NewDefaultAutoScalingConfigurationVersion(ctx, "example", &apprunner.DefaultAutoScalingConfigurationVersionArgs{
+//				AutoScalingConfigurationArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

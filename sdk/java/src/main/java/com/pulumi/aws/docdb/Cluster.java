@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var docdb = new Cluster(&#34;docdb&#34;, ClusterArgs.builder()        
- *             .backupRetentionPeriod(5)
  *             .clusterIdentifier(&#34;my-docdb-cluster&#34;)
  *             .engine(&#34;docdb&#34;)
- *             .masterPassword(&#34;mustbeeightchars&#34;)
  *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;mustbeeightchars&#34;)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .skipFinalSnapshot(true)
  *             .build());

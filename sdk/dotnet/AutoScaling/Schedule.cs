@@ -22,12 +22,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
     ///         },
+    ///         Name = "test-foobar5",
     ///         MaxSize = 1,
     ///         MinSize = 1,
     ///         HealthCheckGracePeriod = 300,
@@ -39,7 +40,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new()
+    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobar", new()
     ///     {
     ///         ScheduledActionName = "foobar",
     ///         MinSize = 0,
@@ -47,7 +48,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         DesiredCapacity = 0,
     ///         StartTime = "2016-12-11T18:00:00Z",
     ///         EndTime = "2016-12-12T06:00:00Z",
-    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///         AutoscalingGroupName = foobar.Name,
     ///     });
     /// 
     /// });

@@ -17,15 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrcontainers.VirtualCluster("example", {containerProvider: {
- *     id: aws_eks_cluster.example.name,
- *     type: "EKS",
- *     info: {
- *         eksInfo: {
- *             namespace: "default",
+ * const example = new aws.emrcontainers.VirtualCluster("example", {
+ *     containerProvider: {
+ *         id: exampleAwsEksCluster.name,
+ *         type: "EKS",
+ *         info: {
+ *             eksInfo: {
+ *                 namespace: "default",
+ *             },
  *         },
  *     },
- * }});
+ *     name: "example",
+ * });
  * ```
  *
  * ## Import

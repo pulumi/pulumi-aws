@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:     pulumi.Any(mainAwsVpc.Id),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Main"),
@@ -63,14 +63,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
+//			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondary_cidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
+//				VpcId:     pulumi.Any(main.Id),
 //				CidrBlock: pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSubnet(ctx, "inSecondaryCidr", &ec2.SubnetArgs{
+//			_, err = ec2.NewSubnet(ctx, "in_secondary_cidr", &ec2.SubnetArgs{
 //				VpcId:     secondaryCidr.VpcId,
 //				CidrBlock: pulumi.String("172.20.0.0/24"),
 //			})

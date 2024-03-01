@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const secret-version = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  * });
  * ```
  * ### Retrieve Specific Secret Version
@@ -27,9 +27,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const by-version-stage = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  *     versionStage: "example",
  * });
+ * ```
+ * ### Handling Key-Value Secret Strings in JSON
+ *
+ * Reading key-value pairs from JSON back into a native map
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * export const example = notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").key1;
  * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
@@ -105,7 +118,7 @@ export interface GetSecretVersionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const secret-version = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  * });
  * ```
  * ### Retrieve Specific Secret Version
@@ -115,9 +128,22 @@ export interface GetSecretVersionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const by-version-stage = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  *     versionStage: "example",
  * });
+ * ```
+ * ### Handling Key-Value Secret Strings in JSON
+ *
+ * Reading key-value pairs from JSON back into a native map
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * export const example = notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").key1;
  * ```
  */
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionResult> {

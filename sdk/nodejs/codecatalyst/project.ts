@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codecatalyst.Project("test", {
- *     description: "My CodeCatalyst Project created using Pulumi",
- *     displayName: "MyProject",
  *     spaceName: "myproject",
+ *     displayName: "MyProject",
+ *     description: "My CodeCatalyst Project created using Pulumi",
  * });
  * ```
  *

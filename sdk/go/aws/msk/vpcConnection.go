@@ -28,16 +28,16 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := msk.NewVpcConnection(ctx, "test", &msk.VpcConnectionArgs{
 // Authentication: pulumi.String("SASL_IAM"),
 // TargetClusterArn: pulumi.String("aws_msk_cluster.arn"),
-// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// VpcId: pulumi.Any(testAwsVpc.Id),
 // ClientSubnets: toPulumiArray(splat0),
 // SecurityGroups: pulumi.StringArray{
-// aws_security_group.Test.Id,
+// testAwsSecurityGroup.Id,
 // },
 // })
 // if err != nil {

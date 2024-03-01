@@ -25,7 +25,8 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxScalingGroup("example", new()
     ///     {
-    ///         EnvironmentId = aws_finspace_kx_environment.Example.Id,
+    ///         Name = "my-tf-kx-scalinggroup",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
     ///         AvailabilityZoneId = "use1-az2",
     ///         HostType = "kx.sg.4xlarge",
     ///     });

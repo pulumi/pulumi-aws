@@ -54,14 +54,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRolePolicyAttachment = new RolePolicyAttachment(&#34;testRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(aws_iam_role.test().name())
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonLexFullAccess&#34;, data.aws_partition().current().partition()))
+ *         var test = new RolePolicyAttachment(&#34;test&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(testAwsIamRole.name())
+ *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonLexFullAccess&#34;, current.partition()))
  *             .build());
  * 
  *         var testV2modelsBot = new V2modelsBot(&#34;testV2modelsBot&#34;, V2modelsBotArgs.builder()        
+ *             .name(&#34;testbot&#34;)
  *             .idleSessionTtlInSeconds(60)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(testAwsIamRole.arn())
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
  *                 .childDirected(true)
  *                 .build())
@@ -82,6 +83,7 @@ import javax.annotation.Nullable;
  *         var testV2modelsSlotType = new V2modelsSlotType(&#34;testV2modelsSlotType&#34;, V2modelsSlotTypeArgs.builder()        
  *             .botId(testV2modelsBot.id())
  *             .botVersion(testV2modelsBotLocale.botVersion())
+ *             .name(&#34;test&#34;)
  *             .localeId(testV2modelsBotLocale.localeId())
  *             .build());
  * 

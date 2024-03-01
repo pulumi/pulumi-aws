@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.DataLakeSettings("example", {admins: [
- *     aws_iam_user.test.arn,
- *     aws_iam_role.test.arn,
+ *     test.arn,
+ *     testAwsIamRole.arn,
  * ]});
  * ```
  * ### Create Default Permissions
@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lakeformation.DataLakeSettings("example", {
  *     admins: [
- *         aws_iam_user.test.arn,
- *         aws_iam_role.test.arn,
+ *         test.arn,
+ *         testAwsIamRole.arn,
  *     ],
  *     createDatabaseDefaultPermissions: [{
  *         permissions: [
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *             "ALTER",
  *             "DROP",
  *         ],
- *         principal: aws_iam_user.test.arn,
+ *         principal: test.arn,
  *     }],
  *     createTableDefaultPermissions: [{
  *         permissions: ["ALL"],
- *         principal: aws_iam_role.test.arn,
+ *         principal: testAwsIamRole.arn,
  *     }],
  * });
  * ```
@@ -57,8 +57,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lakeformation.DataLakeSettings("example", {
  *     admins: [
- *         aws_iam_user.test.arn,
- *         aws_iam_role.test.arn,
+ *         test.arn,
+ *         testAwsIamRole.arn,
  *     ],
  *     createDatabaseDefaultPermissions: [{
  *         permissions: [
@@ -66,16 +66,16 @@ import * as utilities from "../utilities";
  *             "ALTER",
  *             "DROP",
  *         ],
- *         principal: aws_iam_user.test.arn,
+ *         principal: test.arn,
  *     }],
  *     createTableDefaultPermissions: [{
  *         permissions: ["ALL"],
- *         principal: aws_iam_role.test.arn,
+ *         principal: testAwsIamRole.arn,
  *     }],
  *     allowExternalDataFiltering: true,
  *     externalDataFilteringAllowLists: [
- *         data.aws_caller_identity.current.account_id,
- *         data.aws_caller_identity.third_party.account_id,
+ *         current.accountId,
+ *         thirdParty.accountId,
  *     ],
  *     authorizedSessionTagValueLists: ["Amazon EMR"],
  * });

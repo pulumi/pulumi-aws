@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getOutposts({
- *     siteId: data.aws_outposts_site.id,
+ *     siteId: id,
  * });
  * ```
  */
@@ -83,7 +83,7 @@ export interface GetOutpostsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.outposts.getOutposts({
- *     siteId: data.aws_outposts_site.id,
+ *     siteId: id,
  * });
  * ```
  */

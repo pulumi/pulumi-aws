@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOpenZfsVolume(ctx, "test", &fsx.OpenZfsVolumeArgs{
-//				ParentVolumeId: pulumi.Any(aws_fsx_openzfs_file_system.Test.Root_volume_id),
+//				Name:           pulumi.String("testvolume"),
+//				ParentVolumeId: pulumi.Any(testAwsFsxOpenzfsFileSystem.RootVolumeId),
 //			})
 //			if err != nil {
 //				return err

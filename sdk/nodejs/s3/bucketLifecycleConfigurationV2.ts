@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         status: "Enabled",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {},
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [
  *         {
  *             id: "rule-1",
@@ -118,7 +118,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -164,7 +164,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -189,7 +189,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -208,7 +208,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
- *     bucket: aws_s3_bucket.bucket.id,
+ *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -228,8 +228,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "my-bucket"});
+ * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
@@ -274,8 +274,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {});
- * const versioningBucketAcl = new aws.s3.BucketAclV2("versioningBucketAcl", {
+ * const versioningBucket = new aws.s3.BucketV2("versioning_bucket", {bucket: "my-versioning-bucket"});
+ * const versioningBucketAcl = new aws.s3.BucketAclV2("versioning_bucket_acl", {
  *     bucket: versioningBucket.id,
  *     acl: "private",
  * });
@@ -307,8 +307,6 @@ import * as utilities from "../utilities";
  *         ],
  *         status: "Enabled",
  *     }],
- * }, {
- *     dependsOn: [versioning],
  * });
  * ```
  *

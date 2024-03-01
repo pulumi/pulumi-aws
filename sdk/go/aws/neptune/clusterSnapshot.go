@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewClusterSnapshot(ctx, "example", &neptune.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Example.Id),
+//				DbClusterIdentifier:         pulumi.Any(exampleAwsNeptuneCluster.Id),
 //				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
 //			})
 //			if err != nil {

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.Member;
  * import com.pulumi.aws.guardduty.MemberArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +46,12 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var memberDetector = new Detector(&#34;memberDetector&#34;, DetectorArgs.builder()        
+ *         var member = new Detector(&#34;member&#34;, DetectorArgs.builder()        
  *             .enable(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.dev())
- *                 .build());
+ *             .build());
  * 
  *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
- *             .accountId(memberDetector.accountId())
+ *             .accountId(member.accountId())
  *             .detectorId(primary.id())
  *             .email(&#34;required@example.com&#34;)
  *             .invite(true)

@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var account = new Aws.Cfg.ConfigurationAggregator("account", new()
     ///     {
+    ///         Name = "example",
     ///         AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
     ///         {
     ///             AccountIds = new[]
@@ -76,30 +77,26 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var organizationRole = new Aws.Iam.Role("organizationRole", new()
+    ///     var organizationRole = new Aws.Iam.Role("organization", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new()
+    ///     var organization = new Aws.Cfg.ConfigurationAggregator("organization", new()
     ///     {
-    ///         Role = organizationRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-    ///     });
-    /// 
-    ///     var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new()
-    ///     {
+    ///         Name = "example",
     ///         OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
     ///         {
     ///             AllRegions = true,
     ///             RoleArn = organizationRole.Arn,
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organization", new()
     ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             organizationRolePolicyAttachment,
-    ///         },
+    ///         Role = organizationRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
     ///     });
     /// 
     /// });

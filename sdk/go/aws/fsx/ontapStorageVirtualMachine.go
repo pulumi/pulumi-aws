@@ -31,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
+//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
+//				Name:         pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -58,7 +59,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
+//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
+//				Name:         pulumi.String("mysvm"),
 //				ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
 //					NetbiosName: pulumi.String("mysvm"),
 //					SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{

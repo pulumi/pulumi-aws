@@ -26,14 +26,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepter;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,13 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .name(&#34;vif-foo&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
@@ -67,9 +64,7 @@ import javax.annotation.Nullable;
  *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

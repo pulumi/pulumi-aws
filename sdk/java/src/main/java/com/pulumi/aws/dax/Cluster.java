@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bar = new Cluster(&#34;bar&#34;, ClusterArgs.builder()        
  *             .clusterName(&#34;cluster-example&#34;)
- *             .iamRoleArn(data.aws_iam_role().example().arn())
+ *             .iamRoleArn(example.arn())
  *             .nodeType(&#34;dax.r4.large&#34;)
  *             .replicationFactor(1)
  *             .build());

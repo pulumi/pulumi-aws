@@ -88,12 +88,13 @@ def get_user_pools(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
+    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
     cognito = aws.apigateway.Authorizer("cognito",
+        name="cognito",
         type="COGNITO_USER_POOLS",
-        rest_api=selected_rest_api.id,
-        provider_arns=selected_user_pools.arns)
+        rest_api=selected.id,
+        provider_arns=selected_get_user_pools.arns)
     ```
 
 
@@ -123,12 +124,13 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
+    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
     cognito = aws.apigateway.Authorizer("cognito",
+        name="cognito",
         type="COGNITO_USER_POOLS",
-        rest_api=selected_rest_api.id,
-        provider_arns=selected_user_pools.arns)
+        rest_api=selected.id,
+        provider_arns=selected_get_user_pools.arns)
     ```
 
 

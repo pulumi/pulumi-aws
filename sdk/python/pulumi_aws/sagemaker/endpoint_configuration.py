@@ -348,9 +348,10 @@ class EndpointConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec = aws.sagemaker.EndpointConfiguration("ec",
+            name="my-endpoint-config",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=m["name"],
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],
@@ -396,9 +397,10 @@ class EndpointConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec = aws.sagemaker.EndpointConfiguration("ec",
+            name="my-endpoint-config",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=m["name"],
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],

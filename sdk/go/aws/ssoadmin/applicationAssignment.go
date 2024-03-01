@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
-//				PrincipalId:    pulumi.Any(aws_identitystore_user.Example.User_id),
+//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.ApplicationArn),
+//				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreUser.UserId),
 //				PrincipalType:  pulumi.String("USER"),
 //			})
 //			if err != nil {
@@ -57,8 +57,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
-//				PrincipalId:    pulumi.Any(aws_identitystore_group.Example.Group_id),
+//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.ApplicationArn),
+//				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreGroup.GroupId),
 //				PrincipalType:  pulumi.String("GROUP"),
 //			})
 //			if err != nil {

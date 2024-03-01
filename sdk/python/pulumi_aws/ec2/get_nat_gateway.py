@@ -212,7 +212,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
     ```
     ### With tags
 
@@ -220,7 +220,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+    default = aws.ec2.get_nat_gateway(subnet_id=public["id"],
         tags={
             "Name": "gw NAT",
         })
@@ -283,7 +283,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
     ```
     ### With tags
 
@@ -291,7 +291,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+    default = aws.ec2.get_nat_gateway(subnet_id=public["id"],
         tags={
             "Name": "gw NAT",
         })

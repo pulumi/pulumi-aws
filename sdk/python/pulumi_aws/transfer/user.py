@@ -376,7 +376,7 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_server = aws.transfer.Server("fooServer",
+        foo_server = aws.transfer.Server("foo",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -389,17 +389,20 @@ class User(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
-        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo_role = aws.iam.Role("foo",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+        foo_role_policy = aws.iam.RolePolicy("foo",
+            name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
-            policy=foo_policy_document.json)
-        foo_user = aws.transfer.User("fooUser",
+            policy=foo.json)
+        foo_user = aws.transfer.User("foo",
             server_id=foo_server.id,
             user_name="tftestuser",
             role=foo_role.arn,
@@ -445,7 +448,7 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_server = aws.transfer.Server("fooServer",
+        foo_server = aws.transfer.Server("foo",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -458,17 +461,20 @@ class User(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
-        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo_role = aws.iam.Role("foo",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+        foo_role_policy = aws.iam.RolePolicy("foo",
+            name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
-            policy=foo_policy_document.json)
-        foo_user = aws.transfer.User("fooUser",
+            policy=foo.json)
+        foo_user = aws.transfer.User("foo",
             server_id=foo_server.id,
             user_name="tftestuser",
             role=foo_role.arn,

@@ -154,7 +154,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
         values=["foo-prod"],
     )])
     main = aws.ec2.VpnGateway("main",
-        vpc_id=aws_vpc["main"]["id"],
+        vpc_id=main_aws_vpc["id"],
         amazon_side_asn="7224")
     transit = aws.ec2.VpnConnection("transit",
         vpn_gateway_id=main.id,
@@ -208,7 +208,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
         values=["foo-prod"],
     )])
     main = aws.ec2.VpnGateway("main",
-        vpc_id=aws_vpc["main"]["id"],
+        vpc_id=main_aws_vpc["id"],
         amazon_side_asn="7224")
     transit = aws.ec2.VpnConnection("transit",
         vpn_gateway_id=main.id,

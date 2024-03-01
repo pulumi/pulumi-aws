@@ -108,7 +108,7 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.ResourcePolicy("example",
-            resource_arn=aws_kinesis_stream["example"]["arn"],
+            resource_arn=example_aws_kinesis_stream["arn"],
             policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "writePolicy",
@@ -124,7 +124,7 @@ class ResourcePolicy(pulumi.CustomResource):
               "kinesis:PutRecord",
               "kinesis:PutRecords"
             ],
-            "Resource": "{aws_kinesis_stream["example"]["arn"]}"
+            "Resource": "{example_aws_kinesis_stream["arn"]}"
           }}]
         }}
         \"\"\")
@@ -160,7 +160,7 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.ResourcePolicy("example",
-            resource_arn=aws_kinesis_stream["example"]["arn"],
+            resource_arn=example_aws_kinesis_stream["arn"],
             policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "writePolicy",
@@ -176,7 +176,7 @@ class ResourcePolicy(pulumi.CustomResource):
               "kinesis:PutRecord",
               "kinesis:PutRecords"
             ],
-            "Resource": "{aws_kinesis_stream["example"]["arn"]}"
+            "Resource": "{example_aws_kinesis_stream["arn"]}"
           }}]
         }}
         \"\"\")

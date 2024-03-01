@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var sample = new Aws.Emr.Cluster("sample", new()
     ///     {
+    ///         Name = "emr-sample-cluster",
     ///         ReleaseLabel = "emr-5.30.0",
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
@@ -35,7 +36,6 @@ namespace Pulumi.Aws.Emr
     ///         },
     ///     });
     /// 
-    ///     // skip ...
     ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new()
     ///     {
     ///         ClusterId = sample.Id,

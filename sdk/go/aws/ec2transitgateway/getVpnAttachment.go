@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.GetVpnAttachment(ctx, &ec2transitgateway.GetVpnAttachmentArgs{
-//				TransitGatewayId: pulumi.StringRef(aws_ec2_transit_gateway.Example.Id),
-//				VpnConnectionId:  pulumi.StringRef(aws_vpn_connection.Example.Id),
+//				TransitGatewayId: pulumi.StringRef(exampleAwsEc2TransitGateway.Id),
+//				VpnConnectionId:  pulumi.StringRef(exampleAwsVpnConnection.Id),
 //			}, nil)
 //			if err != nil {
 //				return err

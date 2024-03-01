@@ -24,10 +24,10 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationFsxLustre("example", new()
     ///     {
-    ///         FsxFilesystemArn = aws_fsx_lustre_file_system.Example.Arn,
+    ///         FsxFilesystemArn = exampleAwsFsxLustreFileSystem.Arn,
     ///         SecurityGroupArns = new[]
     ///         {
-    ///             aws_security_group.Example.Arn,
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///     });
     /// 

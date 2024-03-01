@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LoggingOptions(&#34;example&#34;, LoggingOptionsArgs.builder()        
  *             .defaultLogLevel(&#34;WARN&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

@@ -32,17 +32,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewEventConfigurations(ctx, "example", &iot.EventConfigurationsArgs{
 //				EventConfigurations: pulumi.BoolMap{
-//					"CA_CERTIFICATE":         pulumi.Bool(false),
-//					"CERTIFICATE":            pulumi.Bool(true),
+//					"THING":                  pulumi.Bool(true),
+//					"THING_GROUP":            pulumi.Bool(false),
+//					"THING_TYPE":             pulumi.Bool(false),
+//					"THING_GROUP_MEMBERSHIP": pulumi.Bool(false),
+//					"THING_GROUP_HIERARCHY":  pulumi.Bool(false),
+//					"THING_TYPE_ASSOCIATION": pulumi.Bool(false),
 //					"JOB":                    pulumi.Bool(false),
 //					"JOB_EXECUTION":          pulumi.Bool(false),
 //					"POLICY":                 pulumi.Bool(false),
-//					"THING":                  pulumi.Bool(true),
-//					"THING_GROUP":            pulumi.Bool(false),
-//					"THING_GROUP_HIERARCHY":  pulumi.Bool(false),
-//					"THING_GROUP_MEMBERSHIP": pulumi.Bool(false),
-//					"THING_TYPE":             pulumi.Bool(false),
-//					"THING_TYPE_ASSOCIATION": pulumi.Bool(false),
+//					"CERTIFICATE":            pulumi.Bool(true),
+//					"CA_CERTIFICATE":         pulumi.Bool(false),
 //				},
 //			})
 //			if err != nil {

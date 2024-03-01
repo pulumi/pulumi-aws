@@ -41,15 +41,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new LicenseGrant(&#34;test&#34;, LicenseGrantArgs.builder()        
+ *             .name(&#34;share-license-with-account&#34;)
  *             .allowedOperations(            
  *                 &#34;ListPurchasedLicenses&#34;,
  *                 &#34;CheckoutLicense&#34;,
  *                 &#34;CheckInLicense&#34;,
  *                 &#34;ExtendConsumptionLicense&#34;,
  *                 &#34;CreateToken&#34;)
- *             .homeRegion(&#34;us-east-1&#34;)
  *             .licenseArn(&#34;arn:aws:license-manager::111111111111:license:l-exampleARN&#34;)
  *             .principal(&#34;arn:aws:iam::111111111112:root&#34;)
+ *             .homeRegion(&#34;us-east-1&#34;)
  *             .build());
  * 
  *     }

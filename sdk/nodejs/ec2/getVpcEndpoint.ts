@@ -17,13 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const s3 = aws.ec2.getVpcEndpoint({
- *     vpcId: aws_vpc.foo.id,
+ *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("privateS3", {
+ * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("private_s3", {
  *     vpcEndpointId: s3.then(s3 => s3.id),
- *     routeTableId: aws_route_table["private"].id,
+ *     routeTableId: _private.id,
  * });
  * ```
  */
@@ -153,13 +154,14 @@ export interface GetVpcEndpointResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const s3 = aws.ec2.getVpcEndpoint({
- *     vpcId: aws_vpc.foo.id,
+ *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("privateS3", {
+ * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("private_s3", {
  *     vpcEndpointId: s3.then(s3 => s3.id),
- *     routeTableId: aws_route_table["private"].id,
+ *     routeTableId: _private.id,
  * });
  * ```
  */

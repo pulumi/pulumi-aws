@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResolverQueryLogConfigAssociation(&#34;example&#34;, ResolverQueryLogConfigAssociationArgs.builder()        
- *             .resolverQueryLogConfigId(aws_route53_resolver_query_log_config.example().id())
- *             .resourceId(aws_vpc.example().id())
+ *             .resolverQueryLogConfigId(exampleAwsRoute53ResolverQueryLogConfig.id())
+ *             .resourceId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }

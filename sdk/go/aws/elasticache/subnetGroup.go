@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test"),
@@ -38,8 +38,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
+//			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+//				VpcId:            foo.ID(),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Tags: pulumi.StringMap{
@@ -50,6 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
+//				Name: pulumi.String("tf-test-cache-subnet"),
 //				SubnetIds: pulumi.StringArray{
 //					fooSubnet.ID(),
 //				},

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ecs
         /// {
         ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
         ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///         TaskDefinition = mongo.Id,
         ///         ContainerName = "mongodb",
         ///     });
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ecs
         /// {
         ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
         ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///         TaskDefinition = mongo.Id,
         ///         ContainerName = "mongodb",
         ///     });
         /// 

@@ -174,9 +174,9 @@ class ApiMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.ApiMapping("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            domain_name=aws_apigatewayv2_domain_name["example"]["id"],
-            stage=aws_apigatewayv2_stage["example"]["id"])
+            api_id=example_aws_apigatewayv2_api["id"],
+            domain_name=example_aws_apigatewayv2_domain_name["id"],
+            stage=example_aws_apigatewayv2_stage["id"])
         ```
 
         ## Import
@@ -212,9 +212,9 @@ class ApiMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.ApiMapping("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            domain_name=aws_apigatewayv2_domain_name["example"]["id"],
-            stage=aws_apigatewayv2_stage["example"]["id"])
+            api_id=example_aws_apigatewayv2_api["id"],
+            domain_name=example_aws_apigatewayv2_domain_name["id"],
+            stage=example_aws_apigatewayv2_stage["id"])
         ```
 
         ## Import

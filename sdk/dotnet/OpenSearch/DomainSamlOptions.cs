@@ -17,15 +17,16 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
+    ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "example",
     ///         EngineVersion = "OpenSearch_1.1",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
@@ -41,16 +42,19 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("example", new()
     ///     {
-    ///         DomainName = exampleDomain.DomainName,
+    ///         DomainName = example.DomainName,
     ///         SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
     ///         {
     ///             Enabled = true,
     ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
     ///             {
     ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
+    ///                 MetadataContent = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "./saml-metadata.xml",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///     });

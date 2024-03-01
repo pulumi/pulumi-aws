@@ -23,36 +23,23 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
+    ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new()
     ///     {
     ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         OwnerAccountId = accepter.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Name = "vif-foo",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             vpnGw,
-    ///         },
     ///     });
     /// 
-    ///     var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", new()
+    ///     // Accepter's side of the VIF.
+    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpn_gw");
+    /// 
+    ///     var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepter", new()
     ///     {
     ///         VirtualInterfaceId = creator.Id,
     ///         VpnGatewayId = vpnGw.Id,
@@ -60,9 +47,6 @@ namespace Pulumi.Aws.DirectConnect
     ///         {
     ///             { "Side", "Accepter" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
     ///     });
     /// 
     /// });

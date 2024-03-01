@@ -17,6 +17,80 @@ import (
 // > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
 //
 // ## Example Usage
+// ### Attaching a customer-managed policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
+//				Name:        pulumi.String("Example"),
+//				InstanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"action": []string{
+//							"ec2:Describe*",
+//						},
+//						"effect":   "Allow",
+//						"resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:        pulumi.String("TestPolicy"),
+//				Description: pulumi.String("My test policy"),
+//				Policy:      pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
+//				InstanceArn:      examplePermissionSet.InstanceArn,
+//				PermissionSetArn: examplePermissionSet.Arn,
+//				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
+//					CustomerManagedPolicyReference: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{
+//						Name: examplePolicy.Name,
+//						Path: pulumi.String("/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Attaching an AWS-managed policy
 //
 // ```go
@@ -32,8 +106,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      pulumi.Any(aws_ssoadmin_permission_set.Example.Instance_arn),
-//				PermissionSetArn: pulumi.Any(aws_ssoadmin_permission_set.Example.Arn),
+//				InstanceArn:      pulumi.Any(exampleAwsSsoadminPermissionSet.InstanceArn),
+//				PermissionSetArn: pulumi.Any(exampleAwsSsoadminPermissionSet.Arn),
 //				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
 //					ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
 //				},

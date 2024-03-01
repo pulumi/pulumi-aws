@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupReplicationSubnetGroup(ctx, &dms.LookupReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupId: aws_dms_replication_subnet_group.Test.Replication_subnet_group_id,
+//				ReplicationSubnetGroupId: testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
 //			}, nil)
 //			if err != nil {
 //				return err

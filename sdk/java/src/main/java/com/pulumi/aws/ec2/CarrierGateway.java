@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CarrierGateway(&#34;example&#34;, CarrierGatewayArgs.builder()        
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-carrier-gateway&#34;))
  *             .build());
  * 

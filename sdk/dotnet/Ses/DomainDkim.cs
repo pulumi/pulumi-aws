@@ -24,21 +24,21 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var example = new Aws.Ses.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleDomainDkim = new Aws.Ses.DomainDkim("exampleDomainDkim", new()
+    ///     var exampleDomainDkim = new Aws.Ses.DomainDkim("example", new()
     ///     {
-    ///         Domain = exampleDomainIdentity.Domain,
+    ///         Domain = example.Domain,
     ///     });
     /// 
     ///     var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new()
+    ///         exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"example_amazonses_dkim_record-{range.Value}", new()
     ///         {
     ///             ZoneId = "ABCDEFGHIJ123",
     ///             Name = exampleDomainDkim.DkimTokens.Apply(dkimTokens =&gt; $"{dkimTokens[range.Value]}._domainkey"),

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cluster = new aws.emr.Cluster("cluster", {
+ *     name: "emr-test-arn",
  *     releaseLabel: "emr-4.6.0",
  *     applications: ["Spark"],
  *     additionalInfo: `{
@@ -31,10 +32,10 @@ import * as utilities from "../utilities";
  *     terminationProtection: false,
  *     keepJobFlowAliveWhenNoSteps: true,
  *     ec2Attributes: {
- *         subnetId: aws_subnet.main.id,
- *         emrManagedMasterSecurityGroup: aws_security_group.sg.id,
- *         emrManagedSlaveSecurityGroup: aws_security_group.sg.id,
- *         instanceProfile: aws_iam_instance_profile.emr_profile.arn,
+ *         subnetId: main.id,
+ *         emrManagedMasterSecurityGroup: sg.id,
+ *         emrManagedSlaveSecurityGroup: sg.id,
+ *         instanceProfile: emrProfile.arn,
  *     },
  *     masterInstanceGroup: {
  *         instanceType: "m4.large",
@@ -121,7 +122,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * `,
- *     serviceRole: aws_iam_role.iam_emr_service_role.arn,
+ *     serviceRole: iamEmrServiceRole.arn,
  * });
  * ```
  *
@@ -219,6 +220,7 @@ import * as utilities from "../utilities";
  *             timeoutDurationMinutes: 10,
  *         }],
  *     },
+ *     name: "task fleet",
  *     targetOnDemandCapacity: 1,
  *     targetSpotCapacity: 1,
  * });
@@ -231,7 +233,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const example = new aws.emr.Cluster("example", {steps: [{
  *     actionOnFailure: "TERMINATE_CLUSTER",
  *     name: "Setup Hadoop Debugging",
@@ -252,14 +253,12 @@ import * as utilities from "../utilities";
  * // This configuration is for illustrative purposes and highlights
  * // only relevant configurations for working with this functionality.
  * // Map public IP on launch must be enabled for public (Internet accessible) subnets
- * // ... other configuration ...
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {mapPublicIpOnLaunch: true});
- * // ... other configuration ...
- * const exampleCluster = new aws.emr.Cluster("exampleCluster", {
+ * const example = new aws.ec2.Subnet("example", {mapPublicIpOnLaunch: true});
+ * const exampleCluster = new aws.emr.Cluster("example", {
  *     releaseLabel: "emr-5.24.1",
  *     terminationProtection: true,
  *     ec2Attributes: {
- *         subnetId: exampleSubnet.id,
+ *         subnetId: example.id,
  *     },
  *     masterInstanceGroup: {
  *         instanceCount: 3,
@@ -357,7 +356,6 @@ export class Cluster extends pulumi.CustomResource {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */
@@ -618,7 +616,6 @@ export interface ClusterState {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */
@@ -780,7 +777,6 @@ export interface ClusterArgs {
      * "Properties": {}
      * }
      * ]
-     *
      * `});
      * ```
      */

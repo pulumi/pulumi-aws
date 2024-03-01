@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
- * const rolePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const rolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -41,9 +41,10 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const rolePolicyRolePolicy = new aws.iam.RolePolicy("rolePolicyRolePolicy", {
+ * const rolePolicyRolePolicy = new aws.iam.RolePolicy("role_policy", {
+ *     name: "role_policy",
  *     role: role.id,
- *     policy: rolePolicyPolicyDocument.then(rolePolicyPolicyDocument => rolePolicyPolicyDocument.json),
+ *     policy: rolePolicy.then(rolePolicy => rolePolicy.json),
  * });
  * ```
  *

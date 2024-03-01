@@ -211,8 +211,8 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .name(&#34;example&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .name(&#34;example&#34;)
      *             .build());
      * 
      *     }
@@ -250,8 +250,8 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .name(&#34;example&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .name(&#34;example&#34;)
      *             .build());
      * 
      *     }
@@ -289,8 +289,8 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .name(&#34;example&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .name(&#34;example&#34;)
      *             .build());
      * 
      *     }
@@ -328,8 +328,8 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .name(&#34;example&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .name(&#34;example&#34;)
      *             .build());
      * 
      *     }
@@ -670,7 +670,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.main().id())
+     *             .userPoolId(mainAwsCognitoUserPool.id())
      *             .build());
      * 
      *     }
@@ -707,7 +707,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.main().id())
+     *             .userPoolId(mainAwsCognitoUserPool.id())
      *             .build());
      * 
      *     }
@@ -744,7 +744,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.main().id())
+     *             .userPoolId(mainAwsCognitoUserPool.id())
      *             .build());
      * 
      *     }
@@ -781,7 +781,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.main().id())
+     *             .userPoolId(mainAwsCognitoUserPool.id())
      *             .build());
      * 
      *     }
@@ -818,7 +818,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.my_pool().id())
+     *             .userPoolId(myPool.id())
      *             .build());
      * 
      *     }
@@ -855,7 +855,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.my_pool().id())
+     *             .userPoolId(myPool.id())
      *             .build());
      * 
      *     }
@@ -892,7 +892,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.my_pool().id())
+     *             .userPoolId(myPool.id())
      *             .build());
      * 
      *     }
@@ -929,7 +929,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(aws_cognito_user_pool.my_pool().id())
+     *             .userPoolId(myPool.id())
      *             .build());
      * 
      *     }
@@ -969,18 +969,19 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name(var_.api_gateway_name())
+     *         final var selected = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .name(apiGatewayName)
      *             .build());
      * 
-     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
-     *             .name(var_.cognito_user_pool_name())
+     *         final var selectedGetUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *             .name(cognitoUserPoolName)
      *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
+     *             .name(&#34;cognito&#34;)
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -1020,18 +1021,19 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name(var_.api_gateway_name())
+     *         final var selected = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .name(apiGatewayName)
      *             .build());
      * 
-     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
-     *             .name(var_.cognito_user_pool_name())
+     *         final var selectedGetUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *             .name(cognitoUserPoolName)
      *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
+     *             .name(&#34;cognito&#34;)
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -1071,18 +1073,19 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name(var_.api_gateway_name())
+     *         final var selected = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .name(apiGatewayName)
      *             .build());
      * 
-     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
-     *             .name(var_.cognito_user_pool_name())
+     *         final var selectedGetUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *             .name(cognitoUserPoolName)
      *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
+     *             .name(&#34;cognito&#34;)
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -1122,18 +1125,19 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name(var_.api_gateway_name())
+     *         final var selected = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .name(apiGatewayName)
      *             .build());
      * 
-     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
-     *             .name(var_.cognito_user_pool_name())
+     *         final var selectedGetUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *             .name(cognitoUserPoolName)
      *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
+     *             .name(&#34;cognito&#34;)
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }

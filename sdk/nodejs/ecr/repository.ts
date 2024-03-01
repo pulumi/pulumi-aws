@@ -17,10 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ecr.Repository("foo", {
+ *     name: "bar",
+ *     imageTagMutability: "MUTABLE",
  *     imageScanningConfiguration: {
  *         scanOnPush: true,
  *     },
- *     imageTagMutability: "MUTABLE",
  * });
  * ```
  *

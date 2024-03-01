@@ -29,7 +29,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = aws_vpclattice_service_network.Example.Arn,
+        ///         ResourceArn = exampleAwsVpclatticeServiceNetwork.Arn,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = aws_vpclattice_service_network.Example.Arn,
+        ///         ResourceArn = exampleAwsVpclatticeServiceNetwork.Arn,
         ///     });
         /// 
         /// });

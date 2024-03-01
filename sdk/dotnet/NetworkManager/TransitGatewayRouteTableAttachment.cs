@@ -24,8 +24,8 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.TransitGatewayRouteTableAttachment("example", new()
     ///     {
-    ///         PeeringId = aws_networkmanager_transit_gateway_peering.Example.Id,
-    ///         TransitGatewayRouteTableArn = aws_ec2_transit_gateway_route_table.Example.Arn,
+    ///         PeeringId = exampleAwsNetworkmanagerTransitGatewayPeering.Id,
+    ///         TransitGatewayRouteTableArn = exampleAwsEc2TransitGatewayRouteTable.Arn,
     ///     });
     /// 
     /// });

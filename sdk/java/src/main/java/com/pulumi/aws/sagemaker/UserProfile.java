@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserProfile(&#34;example&#34;, UserProfileArgs.builder()        
- *             .domainId(aws_sagemaker_domain.test().id())
+ *             .domainId(test.id())
  *             .userProfileName(&#34;example&#34;)
  *             .build());
  * 

@@ -258,8 +258,8 @@ def get_catalog_table(catalog_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
+    example = aws.glue.get_catalog_table(name="MyCatalogTable",
+        database_name="MyCatalogDatabase")
     ```
 
 
@@ -315,8 +315,8 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
+    example = aws.glue.get_catalog_table(name="MyCatalogTable",
+        database_name="MyCatalogDatabase")
     ```
 
 

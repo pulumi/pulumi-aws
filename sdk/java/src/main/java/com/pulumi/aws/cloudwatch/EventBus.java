@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,7 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;);
+ *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
+ *             .name(&#34;chat-messages&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -69,12 +72,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplepartnerEventSource = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+ *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
  *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
  *             .build());
  * 
  *         var examplepartnerEventBus = new EventBus(&#34;examplepartnerEventBus&#34;, EventBusArgs.builder()        
- *             .eventSourceName(examplepartnerEventSource.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
+ *             .name(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
+ *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
  *             .build());
  * 
  *     }

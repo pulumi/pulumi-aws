@@ -16,22 +16,23 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
+ *     name: "example",
  *     type: "data",
  *     description: "read and write permissions",
  *     policy: JSON.stringify([{
- *         Rules: [
+ *         rules: [
  *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/example-collection/*"],
- *                 Permission: ["aoss:*"],
+ *                 resourceType: "index",
+ *                 resource: ["index/example-collection/*"],
+ *                 permission: ["aoss:*"],
  *             },
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *                 Permission: ["aoss:*"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
+ *                 permission: ["aoss:*"],
  *             },
  *         ],
- *         Principal: [current.then(current => current.arn)],
+ *         principal: [current.then(current => current.arn)],
  *     }]),
  * });
  * ```
@@ -43,25 +44,26 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
+ *     name: "example",
  *     type: "data",
  *     description: "read-only permissions",
  *     policy: JSON.stringify([{
- *         Rules: [
+ *         rules: [
  *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/example-collection/*"],
- *                 Permission: [
+ *                 resourceType: "index",
+ *                 resource: ["index/example-collection/*"],
+ *                 permission: [
  *                     "aoss:DescribeIndex",
  *                     "aoss:ReadDocument",
  *                 ],
  *             },
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *                 Permission: ["aoss:DescribeCollectionItems"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
+ *                 permission: ["aoss:DescribeCollectionItems"],
  *             },
  *         ],
- *         Principal: [current.then(current => current.arn)],
+ *         principal: [current.then(current => current.arn)],
  *     }]),
  * });
  * ```
@@ -72,22 +74,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
+ *     name: "example",
  *     type: "data",
  *     description: "saml permissions",
  *     policy: JSON.stringify([{
- *         Rules: [
+ *         rules: [
  *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/example-collection/*"],
- *                 Permission: ["aoss:*"],
+ *                 resourceType: "index",
+ *                 resource: ["index/example-collection/*"],
+ *                 permission: ["aoss:*"],
  *             },
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *                 Permission: ["aoss:*"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
+ *                 permission: ["aoss:*"],
  *             },
  *         ],
- *         Principal: [
+ *         principal: [
  *             "saml/123456789012/myprovider/user/Annie",
  *             "saml/123456789012/anotherprovider/group/Accounting",
  *         ],

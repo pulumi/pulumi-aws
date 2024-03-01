@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
  * });
  * ```
  */
@@ -141,8 +141,8 @@ export interface GetCatalogTableResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
  * });
  * ```
  */

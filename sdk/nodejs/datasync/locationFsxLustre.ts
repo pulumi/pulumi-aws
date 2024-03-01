@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationFsxLustre("example", {
- *     fsxFilesystemArn: aws_fsx_lustre_file_system.example.arn,
- *     securityGroupArns: [aws_security_group.example.arn],
+ *     fsxFilesystemArn: exampleAwsFsxLustreFileSystem.arn,
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
  * });
  * ```
  *

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.msk.getBrokerNodes({
- *     clusterArn: aws_msk_cluster.example.arn,
+ *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
  */
@@ -60,7 +60,7 @@ export interface GetBrokerNodesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.msk.getBrokerNodes({
- *     clusterArn: aws_msk_cluster.example.arn,
+ *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
  */

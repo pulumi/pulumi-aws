@@ -14,6 +14,40 @@ import (
 
 // Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
+//				Name:     pulumi.String("mytestbucket"),
+//				BundleId: pulumi.String("small_1_0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewLightsailBucketAccessKeyAccessKey(ctx, "test", &aws.LightsailBucketAccessKeyAccessKeyArgs{
+//				BucketName: testAwsLightsailBucketAccessKey.Id,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:

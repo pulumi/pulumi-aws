@@ -16,14 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccessGrantsInstance = new aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance", {});
- * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation", {
- *     iamRoleArn: aws_iam_role.example.arn,
+ * const example = new aws.s3control.AccessGrantsInstance("example", {});
+ * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("example", {
+ *     iamRoleArn: exampleAwsIamRole.arn,
  *     locationScope: "s3://",
- * }, {
- *     dependsOn: [exampleAccessGrantsInstance],
  * });
- * // Default scope.
  * ```
  *
  * ## Import

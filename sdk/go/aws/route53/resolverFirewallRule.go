@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResolverFirewallDomainList, err := route53.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53.ResolverFirewallDomainListArgs{
+//			example, err := route53.NewResolverFirewallDomainList(ctx, "example", &route53.ResolverFirewallDomainListArgs{
+//				Name: pulumi.String("example"),
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),
 //				},
@@ -37,19 +38,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53.ResolverFirewallRuleGroupArgs{
+//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
+//				Name: pulumi.String("example"),
 //				Tags: nil,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53.ResolverFirewallRuleArgs{
+//			_, err = route53.NewResolverFirewallRule(ctx, "example", &route53.ResolverFirewallRuleArgs{
+//				Name:                 pulumi.String("example"),
 //				Action:               pulumi.String("BLOCK"),
 //				BlockOverrideDnsType: pulumi.String("CNAME"),
 //				BlockOverrideDomain:  pulumi.String("example.com"),
 //				BlockOverrideTtl:     pulumi.Int(1),
 //				BlockResponse:        pulumi.String("OVERRIDE"),
-//				FirewallDomainListId: exampleResolverFirewallDomainList.ID(),
+//				FirewallDomainListId: example.ID(),
 //				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
 //				Priority:             pulumi.Int(100),
 //			})

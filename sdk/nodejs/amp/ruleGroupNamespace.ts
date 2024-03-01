@@ -13,9 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
- * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demoRuleGroupNamespace", {
- *     workspaceId: demoWorkspace.id,
+ * const demo = new aws.amp.Workspace("demo", {});
+ * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demo", {
+ *     name: "rules",
+ *     workspaceId: demo.id,
  *     data: `groups:
  *   - name: test
  *     rules:

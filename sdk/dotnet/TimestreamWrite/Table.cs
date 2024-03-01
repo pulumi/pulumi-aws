@@ -25,7 +25,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///     });
     /// 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///         RetentionProperties = new Aws.TimestreamWrite.Inputs.TableRetentionPropertiesArgs
     ///         {
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///         Schema = new Aws.TimestreamWrite.Inputs.TableSchemaArgs
     ///         {

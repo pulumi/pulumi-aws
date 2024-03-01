@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testRestApi = new aws.apigateway.RestApi("test", {name: "example-rest-api"});
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("testRestApiPolicy", {
+ * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("test", {
  *     restApiId: testRestApi.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ *     policy: test.apply(test => test.json),
  * });
  * ```
  *

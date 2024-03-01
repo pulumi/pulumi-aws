@@ -32,10 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "mongo", &ecs.ServiceArgs{
-//				Cluster:        pulumi.Any(aws_ecs_cluster.Foo.Id),
-//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Mongo.Arn),
+//				Name:           pulumi.String("mongodb"),
+//				Cluster:        pulumi.Any(fooAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(mongoAwsEcsTaskDefinition.Arn),
 //				DesiredCount:   pulumi.Int(3),
-//				IamRole:        pulumi.Any(aws_iam_role.Foo.Arn),
+//				IamRole:        pulumi.Any(fooAwsIamRole.Arn),
 //				OrderedPlacementStrategies: ecs.ServiceOrderedPlacementStrategyArray{
 //					&ecs.ServiceOrderedPlacementStrategyArgs{
 //						Type:  pulumi.String("binpack"),
@@ -44,7 +45,7 @@ import (
 //				},
 //				LoadBalancers: ecs.ServiceLoadBalancerArray{
 //					&ecs.ServiceLoadBalancerArgs{
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Foo.Arn),
+//						TargetGroupArn: pulumi.Any(foo.Arn),
 //						ContainerName:  pulumi.String("mongo"),
 //						ContainerPort:  pulumi.Int(8080),
 //					},
@@ -55,9 +56,7 @@ import (
 //						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Foo,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -82,7 +81,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configurations ...
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
 //				DesiredCount: pulumi.Int(2),
 //			})
@@ -109,8 +107,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "bar", &ecs.ServiceArgs{
-//				Cluster:            pulumi.Any(aws_ecs_cluster.Foo.Id),
-//				TaskDefinition:     pulumi.Any(aws_ecs_task_definition.Bar.Arn),
+//				Name:               pulumi.String("bar"),
+//				Cluster:            pulumi.Any(foo.Id),
+//				TaskDefinition:     pulumi.Any(barAwsEcsTaskDefinition.Arn),
 //				SchedulingStrategy: pulumi.String("DAEMON"),
 //			})
 //			if err != nil {
@@ -136,12 +135,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Cluster: pulumi.Any(aws_ecs_cluster.Example.Id),
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				Alarms: &ecs.ServiceAlarmsArgs{
 //					Enable:   pulumi.Bool(true),
 //					Rollback: pulumi.Bool(true),
 //					AlarmNames: pulumi.StringArray{
-//						aws_cloudwatch_metric_alarm.Example.Alarm_name,
+//						exampleAwsCloudwatchMetricAlarm.AlarmName,
 //					},
 //				},
 //			})
@@ -168,9 +168,44 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Cluster: pulumi.Any(aws_ecs_cluster.Example.Id),
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				DeploymentController: &ecs.ServiceDeploymentControllerArgs{
 //					Type: pulumi.String("EXTERNAL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Redeploy Service On Every Apply
+//
+// The key used with `triggers` is arbitrary.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				ForceNewDeployment: pulumi.Bool(true),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": notImplemented("plantimestamp()"),
 //				},
 //			})
 //			if err != nil {

@@ -13,8 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventCategories = aws.rds.getEventCategories({});
- * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
+ * export = async () => {
+ *     const example = await aws.rds.getEventCategories({});
+ *     return {
+ *         example: example.eventCategories,
+ *     };
+ * }
  * ```
  *
  * List the event categories specific to the RDS resource `db-snapshot`.
@@ -23,10 +27,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventCategories = aws.rds.getEventCategories({
- *     sourceType: "db-snapshot",
- * });
- * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
+ * export = async () => {
+ *     const example = await aws.rds.getEventCategories({
+ *         sourceType: "db-snapshot",
+ *     });
+ *     return {
+ *         example: example.eventCategories,
+ *     };
+ * }
  * ```
  */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
@@ -71,8 +79,12 @@ export interface GetEventCategoriesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventCategories = aws.rds.getEventCategories({});
- * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
+ * export = async () => {
+ *     const example = await aws.rds.getEventCategories({});
+ *     return {
+ *         example: example.eventCategories,
+ *     };
+ * }
  * ```
  *
  * List the event categories specific to the RDS resource `db-snapshot`.
@@ -81,10 +93,14 @@ export interface GetEventCategoriesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventCategories = aws.rds.getEventCategories({
- *     sourceType: "db-snapshot",
- * });
- * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
+ * export = async () => {
+ *     const example = await aws.rds.getEventCategories({
+ *         sourceType: "db-snapshot",
+ *     });
+ *     return {
+ *         example: example.eventCategories,
+ *     };
+ * }
  * ```
  */
 export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventCategoriesResult> {

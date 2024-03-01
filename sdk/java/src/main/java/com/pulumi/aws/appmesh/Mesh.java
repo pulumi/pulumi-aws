@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Mesh;
+ * import com.pulumi.aws.appmesh.MeshArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,7 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh(&#34;simple&#34;);
+ *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
+ *             .name(&#34;simpleapp&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -71,6 +74,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
+ *             .name(&#34;simpleapp&#34;)
  *             .spec(MeshSpecArgs.builder()
  *                 .egressFilter(MeshSpecEgressFilterArgs.builder()
  *                     .type(&#34;ALLOW_ALL&#34;)

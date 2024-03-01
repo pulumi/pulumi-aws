@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLfTag, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
+//			example, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
 //				Key: pulumi.String("right"),
 //				Values: pulumi.StringArray{
 //					pulumi.String("abbey"),
@@ -45,13 +45,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
+//			_, err = lakeformation.NewResourceLfTags(ctx, "example", &lakeformation.ResourceLfTagsArgs{
 //				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//					Name: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //				},
 //				LfTags: lakeformation.ResourceLfTagsLfTagArray{
 //					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   exampleLfTag.Key,
+//						Key:   example.Key,
 //						Value: pulumi.String("stowe"),
 //					},
 //				},
@@ -78,7 +78,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
+//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
 //				Key: pulumi.String("right"),
 //				Values: pulumi.StringArray{
 //					pulumi.String("abbey"),
@@ -109,9 +109,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
+//			_, err = lakeformation.NewResourceLfTags(ctx, "example", &lakeformation.ResourceLfTagsArgs{
 //				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//					Name: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //				},
 //				LfTags: lakeformation.ResourceLfTagsLfTagArray{
 //					&lakeformation.ResourceLfTagsLfTagArgs{

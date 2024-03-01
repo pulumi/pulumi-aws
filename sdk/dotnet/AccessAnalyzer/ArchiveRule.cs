@@ -26,6 +26,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///     var example = new Aws.AccessAnalyzer.ArchiveRule("example", new()
     ///     {
     ///         AnalyzerName = "example-analyzer",
+    ///         RuleName = "example-rule",
     ///         Filters = new[]
     ///         {
     ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
@@ -50,7 +51,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///                 },
     ///             },
     ///         },
-    ///         RuleName = "example-rule",
     ///     });
     /// 
     /// });

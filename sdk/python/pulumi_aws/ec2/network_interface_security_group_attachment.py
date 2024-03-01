@@ -136,7 +136,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", tags={
             "type": "test-security-group",
         })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
+        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
             security_group_id=sg.id,
             network_interface_id=instance.primary_network_interface_id)
         ```
@@ -153,7 +153,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", tags={
             "type": "test-security-group",
         })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
+        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
             security_group_id=sg.id,
             network_interface_id=instance.network_interface_id)
         ```
@@ -216,7 +216,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", tags={
             "type": "test-security-group",
         })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
+        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
             security_group_id=sg.id,
             network_interface_id=instance.primary_network_interface_id)
         ```
@@ -233,7 +233,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", tags={
             "type": "test-security-group",
         })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
+        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
             security_group_id=sg.id,
             network_interface_id=instance.network_interface_id)
         ```

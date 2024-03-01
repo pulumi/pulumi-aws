@@ -43,15 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConnect = new Connect(&#34;exampleConnect&#34;, ConnectArgs.builder()        
- *             .transportAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
+ *         var example = new Connect(&#34;example&#34;, ConnectArgs.builder()        
+ *             .transportAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
  *         var exampleConnectPeer = new ConnectPeer(&#34;exampleConnectPeer&#34;, ConnectPeerArgs.builder()        
  *             .peerAddress(&#34;10.1.2.3&#34;)
  *             .insideCidrBlocks(&#34;169.254.100.0/29&#34;)
- *             .transitGatewayAttachmentId(exampleConnect.id())
+ *             .transitGatewayAttachmentId(example.id())
  *             .build());
  * 
  *     }

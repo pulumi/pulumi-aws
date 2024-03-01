@@ -13,9 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const gdBucket = new aws.s3.BucketV2("gdBucket", {forceDestroy: true});
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const gdBucket = new aws.s3.BucketV2("gd_bucket", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
  * const bucketPol = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
@@ -38,12 +41,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const kmsPol = Promise.all([currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity, currentRegion1, currentCallerIdentity1, currentCallerIdentity2]) => aws.iam.getPolicyDocument({
+ * const kmsPol = Promise.all([currentGetRegion, current, currentGetRegion, current, current]).then(([currentGetRegion, current, currentGetRegion1, current1, current2]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "Allow GuardDuty to encrypt findings",
  *             actions: ["kms:GenerateDataKey"],
- *             resources: [`arn:aws:kms:${currentRegion.name}:${currentCallerIdentity.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
@@ -52,24 +55,24 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow all users to modify/delete key (test only)",
  *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentRegion1.name}:${currentCallerIdentity1.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion1.name}:${current1.accountId}:key/*`],
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [`arn:aws:iam::${currentCallerIdentity2.accountId}:root`],
+ *                 identifiers: [`arn:aws:iam::${current2.accountId}:root`],
  *             }],
  *         },
  *     ],
  * }));
- * const testGd = new aws.guardduty.Detector("testGd", {enable: true});
- * const gdBucketAcl = new aws.s3.BucketAclV2("gdBucketAcl", {
+ * const testGd = new aws.guardduty.Detector("test_gd", {enable: true});
+ * const gdBucketAcl = new aws.s3.BucketAclV2("gd_bucket_acl", {
  *     bucket: gdBucket.id,
  *     acl: "private",
  * });
- * const gdBucketPolicy = new aws.s3.BucketPolicy("gdBucketPolicy", {
+ * const gdBucketPolicy = new aws.s3.BucketPolicy("gd_bucket_policy", {
  *     bucket: gdBucket.id,
  *     policy: bucketPol.apply(bucketPol => bucketPol.json),
  * });
- * const gdKey = new aws.kms.Key("gdKey", {
+ * const gdKey = new aws.kms.Key("gd_key", {
  *     description: "Temporary key for AccTest of TF",
  *     deletionWindowInDays: 7,
  *     policy: kmsPol.then(kmsPol => kmsPol.json),
@@ -78,8 +81,6 @@ import * as utilities from "../utilities";
  *     detectorId: testGd.id,
  *     destinationArn: gdBucket.arn,
  *     kmsKeyArn: gdKey.arn,
- * }, {
- *     dependsOn: [gdBucketPolicy],
  * });
  * ```
  *

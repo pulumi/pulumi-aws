@@ -108,7 +108,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey");
+    ///     var exampleKey = new Aws.Kms.Key("example_key");
     /// 
     ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
     ///     {

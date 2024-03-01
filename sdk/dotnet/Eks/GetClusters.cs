@@ -13,12 +13,84 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve EKS Clusters list
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetClusters.Invoke();
+        /// 
+        ///     var exampleGetCluster = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetCluster.Invoke(new()
+        ///         {
+        ///             Name = __value,
+        ///         });
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClustersResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Retrieve EKS Clusters list
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetClusters.Invoke();
+        /// 
+        ///     var exampleGetCluster = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetCluster.Invoke(new()
+        ///         {
+        ///             Name = __value,
+        ///         });
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClustersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());

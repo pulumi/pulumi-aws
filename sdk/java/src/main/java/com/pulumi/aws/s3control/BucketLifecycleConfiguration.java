@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration(&#34;example&#34;, BucketLifecycleConfigurationArgs.builder()        
- *             .bucket(aws_s3control_bucket.example().arn())
+ *             .bucket(exampleAwsS3controlBucket.arn())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
  *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()

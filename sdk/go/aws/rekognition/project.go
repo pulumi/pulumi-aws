@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rekognition.NewProject(ctx, "example", &rekognition.ProjectArgs{
+//				Name:       pulumi.String("example-project"),
 //				AutoUpdate: pulumi.String("ENABLED"),
 //				Feature:    pulumi.String("CONTENT_MODERATION"),
 //			})

@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBot("example", {
+ *     name: "example",
  *     dataPrivacies: [{
  *         childDirected: "boolean",
  *     }],

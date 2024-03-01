@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
+ *         var example = new TransitGateway(&#34;example&#34;);
  * 
  *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
- *             .transitGatewayId(exampleTransitGateway.id())
+ *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
  *             .build());
  * 

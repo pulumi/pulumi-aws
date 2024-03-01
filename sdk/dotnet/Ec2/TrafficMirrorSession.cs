@@ -36,13 +36,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var target = new Aws.Ec2.TrafficMirrorTarget("target", new()
     ///     {
-    ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         NetworkLoadBalancerArn = lb.Arn,
     ///     });
     /// 
     ///     var session = new Aws.Ec2.TrafficMirrorSession("session", new()
     ///     {
     ///         Description = "traffic mirror session - example",
-    ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///         NetworkInterfaceId = test.PrimaryNetworkInterfaceId,
     ///         SessionNumber = 1,
     ///         TrafficMirrorFilterId = filter.Id,
     ///         TrafficMirrorTargetId = target.Id,

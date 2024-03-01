@@ -17,11 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.gamelift.Build("test", {
+ *     name: "example-build",
  *     operatingSystem: "WINDOWS_2012",
  *     storageLocation: {
- *         bucket: aws_s3_bucket.test.id,
- *         key: aws_s3_object.test.key,
- *         roleArn: aws_iam_role.test.arn,
+ *         bucket: testAwsS3Bucket.id,
+ *         key: testAwsS3Object.key,
+ *         roleArn: testAwsIamRole.arn,
  *     },
  * });
  * ```

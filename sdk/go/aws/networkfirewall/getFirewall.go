@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn: pulumi.StringRef(aws_networkfirewall_firewall.Arn),
+//				Arn: pulumi.StringRef(arn),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn:  pulumi.StringRef(aws_networkfirewall_firewall.Arn),
+//				Arn:  pulumi.StringRef(arn),
 //				Name: pulumi.StringRef("Test"),
 //			}, nil)
 //			if err != nil {

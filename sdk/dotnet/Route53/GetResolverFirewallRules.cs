@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var example = Aws.Route53.GetResolverFirewallRules.Invoke(new()
         ///     {
-        ///         FirewallRuleGroupId = aws_route53_resolver_firewall_rule_group.Example.Id,
+        ///         FirewallRuleGroupId = exampleAwsRoute53ResolverFirewallRuleGroup.Id,
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var example = Aws.Route53.GetResolverFirewallRules.Invoke(new()
         ///     {
-        ///         FirewallRuleGroupId = aws_route53_resolver_firewall_rule_group.Example.Id,
+        ///         FirewallRuleGroupId = exampleAwsRoute53ResolverFirewallRuleGroup.Id,
         ///     });
         /// 
         /// });

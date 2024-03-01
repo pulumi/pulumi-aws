@@ -51,12 +51,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Dashboard(&#34;example&#34;, DashboardArgs.builder()        
  *             .dashboardId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .versionDescription(&#34;version&#34;)
  *             .sourceEntity(DashboardSourceEntityArgs.builder()
  *                 .sourceTemplate(DashboardSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
+ *                     .arn(source.arn())
  *                     .dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(aws_quicksight_data_set.dataset().arn())
+ *                         .dataSetArn(dataset.arn())
  *                         .dataSetPlaceholder(&#34;1&#34;)
  *                         .build())
  *                     .build())
@@ -91,6 +92,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Dashboard(&#34;example&#34;, DashboardArgs.builder()        
  *             .dashboardId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .versionDescription(&#34;version&#34;)
  *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());

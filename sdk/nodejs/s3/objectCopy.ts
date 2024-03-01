@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.s3.ObjectCopy("test", {
  *     bucket: "destination_bucket",
- *     grants: [{
- *         permissions: ["READ"],
- *         type: "Group",
- *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
- *     }],
  *     key: "destination_key",
  *     source: "source_bucket/source_key",
+ *     grants: [{
+ *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
+ *         type: "Group",
+ *         permissions: ["READ"],
+ *     }],
  * });
  * ```
  */

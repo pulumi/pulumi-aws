@@ -535,7 +535,7 @@ class FileCache(pulumi.CustomResource):
                 per_unit_storage_throughput=1000,
                 weekly_maintenance_start_time="2:05:00",
             )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
 
@@ -605,7 +605,7 @@ class FileCache(pulumi.CustomResource):
                 per_unit_storage_throughput=1000,
                 weekly_maintenance_start_time="2:05:00",
             )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
 

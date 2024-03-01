@@ -877,11 +877,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -919,11 +919,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -961,11 +961,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1003,11 +1003,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1045,11 +1045,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
@@ -1087,11 +1087,11 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }

@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//			example, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				PermanentDeletionTimeInDays: pulumi.Int(7),
 //				Type:                        pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
@@ -50,9 +50,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificate(ctx, "testCertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-//				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
+//			_, err = acmpca.NewCertificate(ctx, "test", &acmpca.CertificateArgs{
+//				CertificateAuthorityArn:   example.Arn,
+//				CertificateSigningRequest: example.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
 //				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
 //				Validity: &acmpca.CertificateValidityArgs{
@@ -63,24 +63,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificateAuthorityCertificate, err := acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
-//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-//				Certificate:             pulumi.Any(aws_acmpca_certificate.Example.Certificate),
-//				CertificateChain:        pulumi.Any(aws_acmpca_certificate.Example.Certificate_chain),
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "example", &acmpca.CertificateAuthorityCertificateArgs{
+//				CertificateAuthorityArn: example.Arn,
+//				Certificate:             pulumi.Any(exampleAwsAcmpcaCertificate.Certificate),
+//				CertificateChain:        pulumi.Any(exampleAwsAcmpcaCertificate.CertificateChain),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rolesanywhere.NewTrustAnchor(ctx, "testTrustAnchor", &rolesanywhere.TrustAnchorArgs{
+//			_, err = rolesanywhere.NewTrustAnchor(ctx, "test", &rolesanywhere.TrustAnchorArgs{
+//				Name: pulumi.String("example"),
 //				Source: &rolesanywhere.TrustAnchorSourceArgs{
 //					SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
-//						AcmPcaArn: exampleCertificateAuthority.Arn,
+//						AcmPcaArn: example.Arn,
 //					},
 //					SourceType: pulumi.String("AWS_ACM_PCA"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleCertificateAuthorityCertificate,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

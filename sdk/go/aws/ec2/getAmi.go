@@ -32,6 +32,11 @@ import (
 //				ExecutableUsers: []string{
 //					"self",
 //				},
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+//				Owners: []string{
+//					"self",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -51,11 +56,6 @@ import (
 //							"hvm",
 //						},
 //					},
-//				},
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
-//				Owners: []string{
-//					"self",
 //				},
 //			}, nil)
 //			if err != nil {

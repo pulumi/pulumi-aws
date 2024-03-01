@@ -71,14 +71,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dms.amazonaws.com",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "dms.amazonaws.com",
 //						},
-//						"Action": "sts:AssumeRole",
+//						"action": "sts:AssumeRole",
 //					},
 //				},
 //			})
@@ -87,20 +87,21 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
+//				Name:             pulumi.String("dms-vpc-role"),
 //				Description:      pulumi.String("Allows DMS to manage VPC"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      dms_vpc_role.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dms.NewReplicationSubnetGroup(ctx, "exampleReplicationSubnetGroup", &dms.ReplicationSubnetGroupArgs{
+//			_, err = dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
 //				ReplicationSubnetGroupDescription: pulumi.String("Example"),
 //				ReplicationSubnetGroupId:          pulumi.String("example-id"),
 //				SubnetIds: pulumi.StringArray{
@@ -110,9 +111,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-id"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

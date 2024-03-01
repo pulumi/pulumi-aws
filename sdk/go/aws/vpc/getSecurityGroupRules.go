@@ -31,7 +31,7 @@ import (
 // {
 // Name: "group-id",
 // Values: interface{}{
-// _var.Security_group_id,
+// securityGroupId,
 // },
 // },
 // },

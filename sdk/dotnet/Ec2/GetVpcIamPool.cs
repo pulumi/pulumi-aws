@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -58,9 +58,9 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     var testVpc = new Aws.Ec2.Vpc("test", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///         Ipv4IpamPoolId = test.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -118,9 +118,9 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     var testVpc = new Aws.Ec2.Vpc("test", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///         Ipv4IpamPoolId = test.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 

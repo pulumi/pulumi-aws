@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
- *             .attachmentId(aws_networkmanager_vpc_attachment.vpc().id())
- *             .attachmentType(aws_networkmanager_vpc_attachment.vpc().attachment_type())
+ *             .attachmentId(vpc.id())
+ *             .attachmentType(vpc.attachmentType())
  *             .build());
  * 
  *     }
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
- *             .attachmentId(aws_networkmanager_site_to_site_vpn_attachment.vpn().id())
- *             .attachmentType(aws_networkmanager_site_to_site_vpn_attachment.vpn().attachment_type())
+ *             .attachmentId(vpn.id())
+ *             .attachmentType(vpn.attachmentType())
  *             .build());
  * 
  *     }

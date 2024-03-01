@@ -12,6 +12,103 @@ import (
 )
 
 // This resource can be useful for getting back a set of subnet IDs.
+//
+// ## Example Usage
+//
+// The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// vpcId,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleGetSubnet := "TODO: For expression";
+// ctx.Export("subnetCidrBlocks", "TODO: For expression")
+// return nil
+// })
+// }
+// ```
+//
+// The following example retrieves a set of all subnets in a VPC with a custom
+// tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+// can loop through the subnets, putting instances across availability zones.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// vpcId,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Tier": "Private",
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// var app []*ec2.Instance
+//
+//	for index := 0; index < notImplemented("toset(data.aws_subnets.private.ids)"); index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &ec2.InstanceArgs{
+// Ami: pulumi.Any(ami),
+// InstanceType: pulumi.String("t2.micro"),
+// SubnetId: pulumi.Any(val0),
+// })
+// if err != nil {
+// return err
+// }
+// app = append(app, __res)
+// }
+// return nil
+// })
+// }
+// ```
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubnetsResult

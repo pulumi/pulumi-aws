@@ -979,13 +979,14 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            name="test-lb-tf",
             internal=False,
             load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            security_groups=[lb_sg["id"]],
+            subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["id"],
+                bucket=lb_logs["id"],
                 prefix="test-lb",
                 enabled=True,
             ),
@@ -1000,9 +1001,10 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            name="test-lb-tf",
             internal=False,
             load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
             tags={
                 "Environment": "production",
@@ -1015,15 +1017,16 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
+            name="example",
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
+                    subnet_id=example1_aws_subnet["id"],
+                    allocation_id=example1["id"],
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
+                    subnet_id=example2_aws_subnet["id"],
+                    allocation_id=example2["id"],
                 ),
             ])
         ```
@@ -1034,14 +1037,15 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
+            name="example",
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
+                    subnet_id=example1["id"],
                     private_ipv4_address="10.0.1.15",
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
+                    subnet_id=example2["id"],
                     private_ipv4_address="10.0.2.15",
                 ),
             ])
@@ -1104,13 +1108,14 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            name="test-lb-tf",
             internal=False,
             load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            security_groups=[lb_sg["id"]],
+            subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["id"],
+                bucket=lb_logs["id"],
                 prefix="test-lb",
                 enabled=True,
             ),
@@ -1125,9 +1130,10 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            name="test-lb-tf",
             internal=False,
             load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
             tags={
                 "Environment": "production",
@@ -1140,15 +1146,16 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
+            name="example",
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
+                    subnet_id=example1_aws_subnet["id"],
+                    allocation_id=example1["id"],
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
+                    subnet_id=example2_aws_subnet["id"],
+                    allocation_id=example2["id"],
                 ),
             ])
         ```
@@ -1159,14 +1166,15 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
+            name="example",
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
+                    subnet_id=example1["id"],
                     private_ipv4_address="10.0.1.15",
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
+                    subnet_id=example2["id"],
                     private_ipv4_address="10.0.2.15",
                 ),
             ])

@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Workteam(&#34;example&#34;, WorkteamArgs.builder()        
  *             .workteamName(&#34;example&#34;)
- *             .workforceName(aws_sagemaker_workforce.example().id())
+ *             .workforceName(exampleAwsSagemakerWorkforce.id())
  *             .description(&#34;example&#34;)
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
- *                     .clientId(aws_cognito_user_pool_client.example().id())
- *                     .userPool(aws_cognito_user_pool_domain.example().user_pool_id())
- *                     .userGroup(aws_cognito_user_group.example().id())
+ *                     .clientId(exampleAwsCognitoUserPoolClient.id())
+ *                     .userPool(exampleAwsCognitoUserPoolDomain.userPoolId())
+ *                     .userGroup(exampleAwsCognitoUserGroup.id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Workteam(&#34;example&#34;, WorkteamArgs.builder()        
  *             .workteamName(&#34;example&#34;)
- *             .workforceName(aws_sagemaker_workforce.example().id())
+ *             .workforceName(exampleAwsSagemakerWorkforce.id())
  *             .description(&#34;example&#34;)
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs.builder()

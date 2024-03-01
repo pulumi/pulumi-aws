@@ -23,46 +23,30 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var local = new Aws.Provider("local", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
+    ///     var peer = Aws.GetRegion.Invoke();
     /// 
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var peerRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new()
+    ///     var local = new Aws.Ec2TransitGateway.TransitGateway("local", new()
     ///     {
     ///         Tags = 
     ///         {
     ///             { "Name", "Local TGW" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Local,
     ///     });
     /// 
-    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new()
+    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peer", new()
     ///     {
     ///         Tags = 
     ///         {
     ///             { "Name", "Peer TGW" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
     ///     var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new()
     ///     {
     ///         PeerAccountId = peerTransitGateway.OwnerId,
-    ///         PeerRegion = peerRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         PeerRegion = peer.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///         PeerTransitGatewayId = peerTransitGateway.Id,
-    ///         TransitGatewayId = localTransitGateway.Id,
+    ///         TransitGatewayId = local.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "TGW Peering Requestor" },

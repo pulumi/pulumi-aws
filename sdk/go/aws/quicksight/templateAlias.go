@@ -31,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplateAlias(ctx, "example", &quicksight.TemplateAliasArgs{
 //				AliasName:             pulumi.String("example-alias"),
-//				TemplateId:            pulumi.Any(aws_quicksight_template.Test.Template_id),
-//				TemplateVersionNumber: pulumi.Any(aws_quicksight_template.Test.Version_number),
+//				TemplateId:            pulumi.Any(test.TemplateId),
+//				TemplateVersionNumber: pulumi.Any(test.VersionNumber),
 //			})
 //			if err != nil {
 //				return err

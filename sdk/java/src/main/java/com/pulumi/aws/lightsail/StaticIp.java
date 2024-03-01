@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.StaticIp;
+ * import com.pulumi.aws.lightsail.StaticIpArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,7 +40,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new StaticIp(&#34;test&#34;);
+ *         var test = new StaticIp(&#34;test&#34;, StaticIpArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *     }
  * }

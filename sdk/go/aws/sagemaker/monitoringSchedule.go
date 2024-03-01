@@ -31,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
+//				Name: pulumi.String("my-monitoring-schedule"),
 //				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
-//					MonitoringJobDefinitionName: pulumi.Any(aws_sagemaker_data_quality_job_definition.Test.Name),
+//					MonitoringJobDefinitionName: pulumi.Any(testAwsSagemakerDataQualityJobDefinition.Name),
 //					MonitoringType:              pulumi.String("DataQuality"),
 //				},
 //			})

@@ -24,14 +24,16 @@ import * as utilities from "../utilities";
  *
  * const bar = new aws.autoscaling.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
+ *     name: "foobar3-test",
  *     maxSize: 5,
  *     minSize: 2,
  *     healthCheckGracePeriod: 300,
  *     healthCheckType: "ELB",
  *     forceDelete: true,
- *     launchConfiguration: aws_launch_configuration.foo.name,
+ *     launchConfiguration: foo.name,
  * });
  * const bat = new aws.autoscaling.Policy("bat", {
+ *     name: "foobar3-test",
  *     scalingAdjustment: 4,
  *     adjustmentType: "ChangeInCapacity",
  *     cooldown: 300,
@@ -46,51 +48,52 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.autoscaling.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
  *     policyType: "TargetTrackingScaling",
  *     targetTrackingConfiguration: {
+ *         targetValue: 100,
  *         customizedMetricSpecification: {
  *             metrics: [
  *                 {
- *                     id: "m1",
  *                     label: "Get the queue size (the number of messages waiting to be processed)",
+ *                     id: "m1",
  *                     metricStat: {
  *                         metric: {
+ *                             namespace: "AWS/SQS",
+ *                             metricName: "ApproximateNumberOfMessagesVisible",
  *                             dimensions: [{
  *                                 name: "QueueName",
  *                                 value: "my-queue",
  *                             }],
- *                             metricName: "ApproximateNumberOfMessagesVisible",
- *                             namespace: "AWS/SQS",
  *                         },
  *                         stat: "Sum",
  *                     },
  *                     returnData: false,
  *                 },
  *                 {
- *                     id: "m2",
  *                     label: "Get the group size (the number of InService instances)",
+ *                     id: "m2",
  *                     metricStat: {
  *                         metric: {
+ *                             namespace: "AWS/AutoScaling",
+ *                             metricName: "GroupInServiceInstances",
  *                             dimensions: [{
  *                                 name: "AutoScalingGroupName",
  *                                 value: "my-asg",
  *                             }],
- *                             metricName: "GroupInServiceInstances",
- *                             namespace: "AWS/AutoScaling",
  *                         },
  *                         stat: "Average",
  *                     },
  *                     returnData: false,
  *                 },
  *                 {
- *                     expression: "m1 / m2",
- *                     id: "e1",
  *                     label: "Calculate the backlog per instance",
+ *                     id: "e1",
+ *                     expression: "m1 / m2",
  *                     returnData: true,
  *                 },
  *             ],
  *         },
- *         targetValue: 100,
  *     },
  * });
  * ```
@@ -102,40 +105,41 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.autoscaling.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
  *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
  *         metricSpecification: {
- *             customizedCapacityMetricSpecification: {
- *                 metricDataQueries: [{
- *                     expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
- *                     id: "capacity_sum",
- *                 }],
- *             },
+ *             targetValue: 10,
  *             customizedLoadMetricSpecification: {
  *                 metricDataQueries: [{
- *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
  *                     id: "load_sum",
+ *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+ *                 }],
+ *             },
+ *             customizedCapacityMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     id: "capacity_sum",
+ *                     expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
  *                 }],
  *             },
  *             customizedScalingMetricSpecification: {
  *                 metricDataQueries: [
  *                     {
- *                         expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
  *                         id: "capacity_sum",
+ *                         expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
  *                         returnData: false,
  *                     },
  *                     {
- *                         expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
  *                         id: "load_sum",
+ *                         expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
  *                         returnData: false,
  *                     },
  *                     {
- *                         expression: "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
  *                         id: "weighted_average",
+ *                         expression: "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
  *                     },
  *                 ],
  *             },
- *             targetValue: 10,
  *         },
  *     },
  * });
@@ -148,30 +152,31 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.autoscaling.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
  *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
  *         metricSpecification: {
+ *             targetValue: 10,
+ *             predefinedLoadMetricSpecification: {
+ *                 predefinedMetricType: "ASGTotalCPUUtilization",
+ *                 resourceLabel: "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
+ *             },
  *             customizedScalingMetricSpecification: {
  *                 metricDataQueries: [{
  *                     id: "scaling",
  *                     metricStat: {
  *                         metric: {
+ *                             metricName: "CPUUtilization",
+ *                             namespace: "AWS/EC2",
  *                             dimensions: [{
  *                                 name: "AutoScalingGroupName",
  *                                 value: "my-test-asg",
  *                             }],
- *                             metricName: "CPUUtilization",
- *                             namespace: "AWS/EC2",
  *                         },
  *                         stat: "Average",
  *                     },
  *                 }],
  *             },
- *             predefinedLoadMetricSpecification: {
- *                 predefinedMetricType: "ASGTotalCPUUtilization",
- *                 resourceLabel: "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
- *             },
- *             targetValue: 10,
  *         },
  *     },
  * });
@@ -277,14 +282,14 @@ export class Policy extends pulumi.CustomResource {
      *
      * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
      *     {
+     *         scalingAdjustment: -1,
      *         metricIntervalLowerBound: "1",
      *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
      *     },
      *     {
+     *         scalingAdjustment: 1,
      *         metricIntervalLowerBound: "2",
      *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
      *     },
      * ]});
      * ```
@@ -431,14 +436,14 @@ export interface PolicyState {
      *
      * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
      *     {
+     *         scalingAdjustment: -1,
      *         metricIntervalLowerBound: "1",
      *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
      *     },
      *     {
+     *         scalingAdjustment: 1,
      *         metricIntervalLowerBound: "2",
      *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
      *     },
      * ]});
      * ```
@@ -530,14 +535,14 @@ export interface PolicyArgs {
      *
      * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
      *     {
+     *         scalingAdjustment: -1,
      *         metricIntervalLowerBound: "1",
      *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
      *     },
      *     {
+     *         scalingAdjustment: 1,
      *         metricIntervalLowerBound: "2",
      *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
      *     },
      * ]});
      * ```

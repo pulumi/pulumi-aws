@@ -27,14 +27,14 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEmailIdentity = Aws.SesV2.GetEmailIdentity.Invoke(new()
+        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
         ///     {
         ///         EmailIdentity = "example.com",
         ///     });
         /// 
-        ///     var exampleEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
+        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
         ///     {
-        ///         EmailIdentity = exampleEmailIdentity.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
+        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
         ///     });
         /// 
         /// });
@@ -61,14 +61,14 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEmailIdentity = Aws.SesV2.GetEmailIdentity.Invoke(new()
+        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
         ///     {
         ///         EmailIdentity = "example.com",
         ///     });
         /// 
-        ///     var exampleEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
+        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
         ///     {
-        ///         EmailIdentity = exampleEmailIdentity.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
+        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
         ///     });
         /// 
         /// });

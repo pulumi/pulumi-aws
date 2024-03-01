@@ -24,24 +24,24 @@ namespace Pulumi.Aws.Cur
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new()
+    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("example_cur_report_definition", new()
     ///     {
-    ///         AdditionalArtifacts = new[]
-    ///         {
-    ///             "REDSHIFT",
-    ///             "QUICKSIGHT",
-    ///         },
+    ///         ReportName = "example-cur-report-definition",
+    ///         TimeUnit = "HOURLY",
+    ///         Format = "textORcsv",
+    ///         Compression = "GZIP",
     ///         AdditionalSchemaElements = new[]
     ///         {
     ///             "RESOURCES",
     ///             "SPLIT_COST_ALLOCATION_DATA",
     ///         },
-    ///         Compression = "GZIP",
-    ///         Format = "textORcsv",
-    ///         ReportName = "example-cur-report-definition",
     ///         S3Bucket = "example-bucket-name",
     ///         S3Region = "us-east-1",
-    ///         TimeUnit = "HOURLY",
+    ///         AdditionalArtifacts = new[]
+    ///         {
+    ///             "REDSHIFT",
+    ///             "QUICKSIGHT",
+    ///         },
     ///     });
     /// 
     /// });

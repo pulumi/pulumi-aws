@@ -16,15 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRule = new aws.wafregional.Rule("exampleRule", {metricName: "example"});
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {
+ * const example = new aws.wafregional.Rule("example", {
+ *     name: "example",
+ *     metricName: "example",
+ * });
+ * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
+ *     name: "example",
  *     metricName: "example",
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
  *         },
  *         priority: 50,
- *         ruleId: exampleRule.id,
+ *         ruleId: example.id,
  *     }],
  * });
  * ```

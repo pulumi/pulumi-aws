@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ubuntu = aws.ec2.getAmiIds({
+ *     owners: ["099720109477"],
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
  *     }],
- *     owners: ["099720109477"],
  * });
  * ```
  */
@@ -103,11 +103,11 @@ export interface GetAmiIdsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const ubuntu = aws.ec2.getAmiIds({
+ *     owners: ["099720109477"],
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
  *     }],
- *     owners: ["099720109477"],
  * });
  * ```
  */

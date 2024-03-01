@@ -15,7 +15,40 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.Agent("example", {ipAddress: "1.2.3.4"});
+ * const example = new aws.datasync.Agent("example", {
+ *     ipAddress: "1.2.3.4",
+ *     name: "example",
+ * });
+ * ```
+ * ### With VPC Endpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const current = aws.getRegion({});
+ * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
+ *     serviceName: current.then(current => `com.amazonaws.${current.name}.datasync`),
+ *     vpcId: exampleAwsVpc.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: "Interface",
+ * });
+ * const example = aws.ec2.getNetworkInterface({
+ *     id: notImplemented("tolist(aws_vpc_endpoint.example.network_interface_ids)")[0],
+ * });
+ * const exampleAgent = new aws.datasync.Agent("example", {
+ *     ipAddress: "1.2.3.4",
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
+ *     subnetArns: [exampleAwsSubnet.arn],
+ *     vpcEndpointId: exampleVpcEndpoint.id,
+ *     privateLinkEndpoint: example.then(example => example.privateIp),
+ *     name: "example",
+ * });
  * ```
  *
  * ## Import

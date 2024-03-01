@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultAz1 = new Aws.Ec2.DefaultSubnet("defaultAz1", new()
+    ///     var defaultAz1 = new Aws.Ec2.DefaultSubnet("default_az1", new()
     ///     {
     ///         AvailabilityZone = "us-west-2a",
     ///         Tags = 

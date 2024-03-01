@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.DocumentationPart;
  * import com.pulumi.aws.apigateway.DocumentationPartArgs;
  * import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
@@ -41,9 +42,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
+ *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *             .name(&#34;example_api&#34;)
+ *             .build());
  * 
- *         var exampleDocumentationPart = new DocumentationPart(&#34;exampleDocumentationPart&#34;, DocumentationPartArgs.builder()        
+ *         var example = new DocumentationPart(&#34;example&#34;, DocumentationPartArgs.builder()        
  *             .location(DocumentationPartLocationArgs.builder()
  *                 .type(&#34;METHOD&#34;)
  *                 .method(&#34;GET&#34;)

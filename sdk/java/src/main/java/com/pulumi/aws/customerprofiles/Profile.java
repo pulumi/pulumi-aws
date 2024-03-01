@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
- *             .domainName(exampleDomain.domainName())
+ *             .domainName(example.domainName())
  *             .build());
  * 
  *     }

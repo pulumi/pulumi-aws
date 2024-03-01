@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * const test = new aws.msk.VpcConnection("test", {
  *     authentication: "SASL_IAM",
  *     targetClusterArn: "aws_msk_cluster.arn",
- *     vpcId: aws_vpc.test.id,
- *     clientSubnets: aws_subnet.test.map(__item => __item.id),
- *     securityGroups: [aws_security_group.test.id],
+ *     vpcId: testAwsVpc.id,
+ *     clientSubnets: testAwsSubnet.map(__item => __item.id),
+ *     securityGroups: [testAwsSecurityGroup.id],
  * });
  * ```
  *

@@ -28,13 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "testCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			testCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "test", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testCatalogTable, err := glue.NewCatalogTable(ctx, "testCatalogTable", &glue.CatalogTableArgs{
+//			testCatalogTable, err := glue.NewCatalogTable(ctx, "test", &glue.CatalogTableArgs{
 //				Name:             pulumi.String("example"),
 //				DatabaseName:     testCatalogDatabase.Name,
 //				Owner:            pulumi.String("my_owner"),
@@ -111,8 +111,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewMLTransform(ctx, "testMLTransform", &glue.MLTransformArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+//			_, err = glue.NewMLTransform(ctx, "test", &glue.MLTransformArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(testAwsIamRole.Arn),
 //				InputRecordTables: glue.MLTransformInputRecordTableArray{
 //					&glue.MLTransformInputRecordTableArgs{
 //						DatabaseName: testCatalogTable.DatabaseName,
@@ -125,9 +126,7 @@ import (
 //						PrimaryKeyColumnName: pulumi.String("my_column_1"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

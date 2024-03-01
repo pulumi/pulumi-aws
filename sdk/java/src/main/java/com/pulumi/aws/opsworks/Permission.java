@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *             .allowSsh(true)
  *             .allowSudo(true)
  *             .level(&#34;iam_only&#34;)
- *             .userArn(aws_iam_user.user().arn())
- *             .stackId(aws_opsworks_stack.stack().id())
+ *             .userArn(user.arn())
+ *             .stackId(stack.id())
  *             .build());
  * 
  *     }

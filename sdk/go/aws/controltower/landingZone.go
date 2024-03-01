@@ -23,25 +23,27 @@ import (
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
 //	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := controltower.NewLandingZone(ctx, "example", &controltower.LandingZoneArgs{
-//				ManifestJson: readFileOrPanic(fmt.Sprintf("%v/LandingZoneManifest.json", path.Module)),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: fmt.Sprintf("%v/LandingZoneManifest.json", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = controltower.NewLandingZone(ctx, "example", &controltower.LandingZoneArgs{
+//				ManifestJson: invokeFile.Result,
 //				Version:      pulumi.String("3.2"),
 //			})
 //			if err != nil {

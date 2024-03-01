@@ -402,10 +402,11 @@ class Template(pulumi.CustomResource):
 
         example = aws.quicksight.Template("example",
             template_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                 ),
             ))
         ```
@@ -448,10 +449,11 @@ class Template(pulumi.CustomResource):
 
         example = aws.quicksight.Template("example",
             template_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                 ),
             ))
         ```

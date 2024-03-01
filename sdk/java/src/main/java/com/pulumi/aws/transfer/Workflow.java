@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
  *                         .name(&#34;example&#34;)
  *                         .sourceFileLocation(&#34;${original.file}&#34;)
- *                         .target(aws_lambda_function.example().arn())
+ *                         .target(exampleAwsLambdaFunction.arn())
  *                         .timeoutSeconds(60)
  *                         .build())
  *                     .type(&#34;CUSTOM&#34;)

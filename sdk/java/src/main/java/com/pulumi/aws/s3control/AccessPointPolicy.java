@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3.inputs.AccessPointPublicAccessBlockConfigurationArgs;
@@ -46,10 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
+ *             .name(&#34;example&#34;)
  *             .publicAccessBlockConfiguration(AccessPointPublicAccessBlockConfigurationArgs.builder()
  *                 .blockPublicAcls(true)
  *                 .blockPublicPolicy(false)
@@ -62,14 +66,14 @@ import javax.annotation.Nullable;
  *             .accessPointArn(exampleAccessPoint.arn())
  *             .policy(exampleAccessPoint.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObjectTagging&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                     jsonProperty(&#34;version&#34;, &#34;2008-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObjectTagging&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, String.format(&#34;%s/object/*&#34;, arn))
+ *                         jsonProperty(&#34;resource&#34;, String.format(&#34;%s/object/*&#34;, arn))
  *                     )))
  *                 ))))
  *             .build());

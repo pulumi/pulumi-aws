@@ -295,7 +295,9 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        example = aws.glue.DataQualityRuleset("example",
+            name="example",
+            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With description
 
@@ -304,6 +306,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
@@ -314,6 +317,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
@@ -326,10 +330,11 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
+                database_name=example_aws_glue_catalog_database["name"],
+                table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
 
@@ -365,7 +370,9 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        example = aws.glue.DataQualityRuleset("example",
+            name="example",
+            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With description
 
@@ -374,6 +381,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
@@ -384,6 +392,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
@@ -396,10 +405,11 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
+                database_name=example_aws_glue_catalog_database["name"],
+                table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
 

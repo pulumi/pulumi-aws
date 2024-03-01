@@ -724,15 +724,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
+        test_volume_attachment = aws.ec2.VolumeAttachment("test",
             device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+            volume_id=test_aws_ebs_volume["id"],
+            instance_id=test_aws_instance["id"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_cache = aws.storagegateway.Cache("test",
+            disk_id=test.disk_id,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
         ### FSx File Gateway
 
@@ -849,15 +849,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
+        test_volume_attachment = aws.ec2.VolumeAttachment("test",
             device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+            volume_id=test_aws_ebs_volume["id"],
+            instance_id=test_aws_instance["id"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_cache = aws.storagegateway.Cache("test",
+            disk_id=test.disk_id,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
         ### FSx File Gateway
 

@@ -28,12 +28,13 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// FargateProfileName: pulumi.String("example"),
+// PodExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // SubnetIds: toPulumiArray(splat0),
 // Selectors: eks.FargateProfileSelectorArray{
 // &eks.FargateProfileSelectorArgs{
@@ -72,22 +73,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "eks-fargate-pods.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "eks-fargate-pods.amazonaws.com",
 //						},
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-fargate-profile-example"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {

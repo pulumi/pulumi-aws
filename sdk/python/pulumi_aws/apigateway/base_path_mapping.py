@@ -173,20 +173,25 @@ class BasePathMapping(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.Stage("example",
+            deployment=example_aws_api_gateway_deployment["id"],
+            rest_api=example_aws_api_gateway_rest_api["id"],
             stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+        example_domain_name = aws.apigateway.DomainName("example",
             domain_name="example.com",
             certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
+        example_base_path_mapping = aws.apigateway.BasePathMapping("example",
+            rest_api=example_aws_api_gateway_rest_api["id"],
+            stage_name=example.stage_name,
             domain_name=example_domain_name.domain_name)
         ```
 
@@ -230,20 +235,25 @@ class BasePathMapping(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.apigateway.Stage("example",
+            deployment=example_aws_api_gateway_deployment["id"],
+            rest_api=example_aws_api_gateway_rest_api["id"],
             stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+        example_domain_name = aws.apigateway.DomainName("example",
             domain_name="example.com",
             certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
+            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
+        example_base_path_mapping = aws.apigateway.BasePathMapping("example",
+            rest_api=example_aws_api_gateway_rest_api["id"],
+            stage_name=example.stage_name,
             domain_name=example_domain_name.domain_name)
         ```
 

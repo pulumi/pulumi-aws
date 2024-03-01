@@ -198,20 +198,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_directory = aws.directoryservice.Directory("exampleDirectory",
+        example = aws.directoryservice.Directory("example",
             name="tf-example",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+                vpc_id=example_aws_vpc["id"],
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
             ))
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=example_directory.id,
+        example_shared_directory = aws.directoryservice.SharedDirectory("example",
+            directory_id=example.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=receiver["accountId"],
             ))
         ```
 
@@ -247,20 +247,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_directory = aws.directoryservice.Directory("exampleDirectory",
+        example = aws.directoryservice.Directory("example",
             name="tf-example",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+                vpc_id=example_aws_vpc["id"],
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
             ))
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=example_directory.id,
+        example_shared_directory = aws.directoryservice.SharedDirectory("example",
+            directory_id=example.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=receiver["accountId"],
             ))
         ```
 

@@ -16,18 +16,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.SecurityConfiguration("example", {encryptionConfiguration: {
- *     cloudwatchEncryption: {
- *         cloudwatchEncryptionMode: "DISABLED",
+ * const example = new aws.glue.SecurityConfiguration("example", {
+ *     name: "example",
+ *     encryptionConfiguration: {
+ *         cloudwatchEncryption: {
+ *             cloudwatchEncryptionMode: "DISABLED",
+ *         },
+ *         jobBookmarksEncryption: {
+ *             jobBookmarksEncryptionMode: "DISABLED",
+ *         },
+ *         s3Encryption: {
+ *             kmsKeyArn: exampleAwsKmsKey.arn,
+ *             s3EncryptionMode: "SSE-KMS",
+ *         },
  *     },
- *     jobBookmarksEncryption: {
- *         jobBookmarksEncryptionMode: "DISABLED",
- *     },
- *     s3Encryption: {
- *         kmsKeyArn: data.aws_kms_key.example.arn,
- *         s3EncryptionMode: "SSE-KMS",
- *     },
- * }});
+ * });
  * ```
  *
  * ## Import

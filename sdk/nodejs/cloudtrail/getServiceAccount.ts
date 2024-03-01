@@ -17,8 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
- * const allowCloudtrailLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const bucket = new aws.s3.BucketV2("bucket", {
+ *     bucket: "tf-cloudtrail-logging-test-bucket",
+ *     forceDestroy: true,
+ * });
+ * const allowCloudtrailLogging = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for trails",
@@ -42,9 +45,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
- * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", {
+ * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
- *     policy: allowCloudtrailLoggingPolicyDocument.apply(allowCloudtrailLoggingPolicyDocument => allowCloudtrailLoggingPolicyDocument.json),
+ *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),
  * });
  * ```
  */
@@ -95,8 +98,11 @@ export interface GetServiceAccountResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
- * const allowCloudtrailLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const bucket = new aws.s3.BucketV2("bucket", {
+ *     bucket: "tf-cloudtrail-logging-test-bucket",
+ *     forceDestroy: true,
+ * });
+ * const allowCloudtrailLogging = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for trails",
@@ -120,9 +126,9 @@ export interface GetServiceAccountResult {
  *         },
  *     ],
  * }));
- * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", {
+ * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
- *     policy: allowCloudtrailLoggingPolicyDocument.apply(allowCloudtrailLoggingPolicyDocument => allowCloudtrailLoggingPolicyDocument.json),
+ *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),
  * });
  * ```
  */

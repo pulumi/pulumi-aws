@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Vpc
     /// {
     ///     var example = new Aws.Vpc.SecurityGroupEgressRule("example", new()
     ///     {
-    ///         SecurityGroupId = aws_security_group.Example.Id,
+    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
     ///         CidrIpv4 = "10.0.0.0/8",
     ///         FromPort = 80,
     ///         IpProtocol = "tcp",

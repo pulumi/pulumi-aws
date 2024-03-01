@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-primary&#34;)
  *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
@@ -63,12 +63,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-secondary&#34;)
  *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -96,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,6 +109,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-primary&#34;)
  *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;6.0&#34;)
@@ -125,12 +124,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-secondary&#34;)
  *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

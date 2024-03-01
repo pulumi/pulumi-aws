@@ -19,6 +19,183 @@ import (
 // > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
 //
 // ## Example Usage
+// ### Self Access-checking Example
+//
+// The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.LookupPrincipalPolicySimulation(ctx, &iam.LookupPrincipalPolicySimulationArgs{
+//				ActionNames: []string{
+//					"s3:GetObject",
+//					"s3:PutObject",
+//					"s3:DeleteObject",
+//				},
+//				PolicySourceArn: current.Arn,
+//				ResourceArns: []string{
+//					"arn:aws:s3:::my-test-bucket",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketObject(ctx, "example", &s3.BucketObjectArgs{
+//				Bucket: pulumi.Any("my-test-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Testing the Effect of a Declared Policy
+//
+// The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.NewUser(ctx, "example", &iam.UserArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-test-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewUserPolicy(ctx, "s3_access", &iam.UserPolicyArgs{
+//				Name: pulumi.String("example_s3_access"),
+//				User: example.Name,
+//				Policy: exampleBucketV2.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"action":   "s3:GetObject",
+//								"effect":   "Allow",
+//								"resource": arn,
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			accountAccess, err := s3.NewBucketPolicy(ctx, "account_access", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucketV2.Bucket,
+//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleBucketV2Arn := _args[0].(string)
+//					exampleBucketV2Arn1 := _args[1].(string)
+//					var _zero string
+//					tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"action": "s3:*",
+//								"effect": "Allow",
+//								"principal": map[string]interface{}{
+//									"AWS": current.AccountId,
+//								},
+//								"resource": []string{
+//									exampleBucketV2Arn,
+//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+//								},
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json1 := string(tmpJSON1)
+//					return json1, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = iam.LookupPrincipalPolicySimulationOutput(ctx, iam.GetPrincipalPolicySimulationOutputArgs{
+//				ActionNames: pulumi.StringArray{
+//					pulumi.String("s3:GetObject"),
+//				},
+//				PolicySourceArn: example.Arn,
+//				ResourceArns: pulumi.StringArray{
+//					exampleBucketV2.Arn,
+//				},
+//				ResourcePolicyJson: accountAccess.Policy,
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// When using `iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
 func LookupPrincipalPolicySimulation(ctx *pulumi.Context, args *LookupPrincipalPolicySimulationArgs, opts ...pulumi.InvokeOption) (*LookupPrincipalPolicySimulationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrincipalPolicySimulationResult

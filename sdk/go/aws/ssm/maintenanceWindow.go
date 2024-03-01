@@ -29,9 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewMaintenanceWindow(ctx, "production", &ssm.MaintenanceWindowArgs{
-//				Cutoff:   pulumi.Int(1),
-//				Duration: pulumi.Int(3),
+//				Name:     pulumi.String("maintenance-window-application"),
 //				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+//				Duration: pulumi.Int(3),
+//				Cutoff:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

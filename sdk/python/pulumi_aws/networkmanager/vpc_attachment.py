@@ -382,9 +382,9 @@ class VpcAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[aws_subnet["example"]["arn"]],
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpc_arn=aws_vpc["example"]["arn"])
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
         ```
 
         ## Import
@@ -422,9 +422,9 @@ class VpcAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[aws_subnet["example"]["arn"]],
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpc_arn=aws_vpc["example"]["arn"])
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
         ```
 
         ## Import

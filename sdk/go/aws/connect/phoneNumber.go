@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Tags: pulumi.StringMap{
@@ -61,7 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Description: pulumi.String("example description"),
@@ -89,7 +89,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Prefix:      pulumi.String("+18005"),

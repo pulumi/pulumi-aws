@@ -54,6 +54,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ram.LookupResourceShare(ctx, &ram.LookupResourceShareArgs{
+//				Name:          "MyResourceName",
+//				ResourceOwner: "SELF",
 //				Filters: []ram.GetResourceShareFilter{
 //					{
 //						Name: "NameOfTag",
@@ -62,8 +64,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:          "MyResourceName",
-//				ResourceOwner: "SELF",
 //			}, nil)
 //			if err != nil {
 //				return err

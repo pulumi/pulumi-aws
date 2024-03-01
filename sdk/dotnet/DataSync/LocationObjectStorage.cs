@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DataSync
     ///     {
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///         ServerHostname = "example",
     ///         BucketName = "example",

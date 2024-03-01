@@ -90,8 +90,8 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
     import pulumi
     import pulumi_aws as aws
 
-    example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", example_transit_gateway_route_tables.ids)
+    example = aws.ec2.get_transit_gateway_route_tables()
+    pulumi.export("example", example.ids)
     ```
 
 
@@ -130,8 +130,8 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
     import pulumi
     import pulumi_aws as aws
 
-    example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", example_transit_gateway_route_tables.ids)
+    example = aws.ec2.get_transit_gateway_route_tables()
+    pulumi.export("example", example.ids)
     ```
 
 

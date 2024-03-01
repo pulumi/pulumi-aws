@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .domainId(aws_sagemaker_domain.example().id())
- *             .userProfileName(aws_sagemaker_user_profile.example().user_profile_name())
+ *             .domainId(exampleAwsSagemakerDomain.id())
+ *             .userProfileName(exampleAwsSagemakerUserProfile.userProfileName())
  *             .appName(&#34;example&#34;)
  *             .appType(&#34;JupyterServer&#34;)
  *             .build());

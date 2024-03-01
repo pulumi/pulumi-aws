@@ -31,12 +31,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
 //				AnalysisId: pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
 //					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
+//						Arn: pulumi.Any(source.Arn),
 //						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
 //							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
+//								DataSetArn:         pulumi.Any(dataset.Arn),
 //								DataSetPlaceholder: pulumi.String("1"),
 //							},
 //						},

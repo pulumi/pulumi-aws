@@ -199,14 +199,14 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
@@ -221,7 +221,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
+        ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
             locale="us-east-1",
@@ -229,8 +229,8 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             publicly_advertisable=False,
             public_ip_source="amazon",
             aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
+        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6_test_public",
+            ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
 
@@ -274,14 +274,14 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
@@ -296,7 +296,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
+        ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
             locale="us-east-1",
@@ -304,8 +304,8 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             publicly_advertisable=False,
             public_ip_source="amazon",
             aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
+        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6_test_public",
+            ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
 

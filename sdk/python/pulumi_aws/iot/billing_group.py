@@ -206,6 +206,7 @@ class BillingGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.BillingGroup("example",
+            name="example",
             properties=aws.iot.BillingGroupPropertiesArgs(
                 description="This is my billing group",
             ),
@@ -244,6 +245,7 @@ class BillingGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.BillingGroup("example",
+            name="example",
             properties=aws.iot.BillingGroupPropertiesArgs(
                 description="This is my billing group",
             ),

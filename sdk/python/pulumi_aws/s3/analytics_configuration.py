@@ -178,10 +178,11 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        analytics = aws.s3.BucketV2("analytics")
+        example = aws.s3.BucketV2("example", bucket="example")
+        analytics = aws.s3.BucketV2("analytics", bucket="analytics destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
                 data_export=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs(
                     destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs(
@@ -198,9 +199,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.AnalyticsConfigurationFilterArgs(
                 prefix="documents/",
                 tags={
@@ -243,10 +245,11 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        analytics = aws.s3.BucketV2("analytics")
+        example = aws.s3.BucketV2("example", bucket="example")
+        analytics = aws.s3.BucketV2("analytics", bucket="analytics destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
                 data_export=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs(
                     destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs(
@@ -263,9 +266,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             filter=aws.s3.AnalyticsConfigurationFilterArgs(
                 prefix="documents/",
                 tags={

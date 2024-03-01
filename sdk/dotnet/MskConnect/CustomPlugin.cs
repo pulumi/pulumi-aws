@@ -23,23 +23,27 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Key = "debezium.zip",
     ///         Source = new FileAsset("debezium.zip"),
     ///     });
     /// 
-    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new()
+    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("example", new()
     ///     {
+    ///         Name = "debezium-example",
     ///         ContentType = "ZIP",
     ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
     ///         {
     ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
     ///             {
-    ///                 BucketArn = exampleBucketV2.Arn,
+    ///                 BucketArn = example.Arn,
     ///                 FileKey = exampleBucketObjectv2.Key,
     ///             },
     ///         },

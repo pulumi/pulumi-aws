@@ -30,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
@@ -43,8 +44,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
+//			_, err = apigateway.NewModel(ctx, "MyDemoModel", &apigateway.ModelArgs{
 //				RestApi:     myDemoAPI.ID(),
+//				Name:        pulumi.String("user"),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),
 //				Schema:      pulumi.String(json0),

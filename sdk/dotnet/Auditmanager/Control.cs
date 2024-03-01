@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var example = new Aws.Auditmanager.Control("example", new()
     ///     {
+    ///         Name = "example",
     ///         ControlMappingSources = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.ControlControlMappingSourceArgs

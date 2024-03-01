@@ -14,25 +14,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const exampleServiceNetwork = new aws.vpclattice.ServiceNetwork("exampleServiceNetwork", {});
- * const exampleResourcePolicy = new aws.vpclattice.ResourcePolicy("exampleResourcePolicy", {
- *     resourceArn: exampleServiceNetwork.arn,
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.vpclattice.ServiceNetwork("example", {name: "example-vpclattice-service-network"});
+ * const exampleResourcePolicy = new aws.vpclattice.ResourcePolicy("example", {
+ *     resourceArn: example.arn,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "test-pol-principals-6",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "test-pol-principals-6",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "vpc-lattice:CreateServiceNetworkVpcAssociation",
  *                 "vpc-lattice:CreateServiceNetworkServiceAssociation",
  *                 "vpc-lattice:GetServiceNetwork",
  *             ],
- *             Resource: exampleServiceNetwork.arn,
+ *             resource: example.arn,
  *         }],
  *     }),
  * });

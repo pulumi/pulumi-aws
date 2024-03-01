@@ -27,7 +27,7 @@ namespace Pulumi.Aws.EmrContainers
     ///     {
     ///         JobTemplateData = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataArgs
     ///         {
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///             ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///             ReleaseLabel = "emr-6.10.0-latest",
     ///             JobDriver = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataJobDriverArgs
     ///             {
@@ -37,6 +37,7 @@ namespace Pulumi.Aws.EmrContainers
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

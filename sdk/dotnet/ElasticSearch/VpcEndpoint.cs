@@ -25,18 +25,18 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var foo = new Aws.ElasticSearch.VpcEndpoint("foo", new()
     ///     {
-    ///         DomainArn = aws_elasticsearch_domain.Domain_1.Arn,
+    ///         DomainArn = domain1.Arn,
     ///         VpcOptions = new Aws.ElasticSearch.Inputs.VpcEndpointVpcOptionsArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Test.Id,
-    ///                 aws_security_group.Test2.Id,
+    ///                 test.Id,
+    ///                 test2.Id,
     ///             },
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Test.Id,
-    ///                 aws_subnet.Test2.Id,
+    ///                 testAwsSubnet.Id,
+    ///                 test2AwsSubnet.Id,
     ///             },
     ///         },
     ///     });

@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.LookupAlias(ctx, &sfn.LookupAliasArgs{
 //				Name:            "my_sfn_alias",
-//				StatemachineArn: aws_sfn_state_machine.Sfn_test.Arn,
+//				StatemachineArn: sfnTest.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err

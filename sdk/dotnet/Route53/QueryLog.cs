@@ -28,23 +28,21 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Example CloudWatch log group in us-east-1
-    ///     var us_east_1 = new Aws.Provider("us-east-1", new()
+    ///     // Example Route53 zone with query logging
+    ///     var exampleCom = new Aws.Route53.Zone("example_com", new()
     ///     {
-    ///         Region = "us-east-1",
+    ///         Name = "example.com",
     ///     });
     /// 
-    ///     var awsRoute53ExampleCom = new Aws.CloudWatch.LogGroup("awsRoute53ExampleCom", new()
+    ///     var awsRoute53ExampleCom = new Aws.CloudWatch.LogGroup("aws_route53_example_com", new()
     ///     {
+    ///         Name = exampleCom.Name.Apply(name =&gt; $"/aws/route53/{name}"),
     ///         RetentionInDays = 30,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
     ///     // Example CloudWatch log resource policy to allow Route53 to write logs
     ///     // to any log group under /aws/route53/*
-    ///     var route53_query_logging_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var route53_query_logging_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -74,28 +72,16 @@ namespace Pulumi.Aws.Route53
     ///         },
     ///     });
     /// 
-    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new()
+    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policy", new()
     ///     {
-    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = route53_query_logging_policy.Apply(route53_query_logging_policy =&gt; route53_query_logging_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "route53-query-logging-policy",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
-    ///     // Example Route53 zone with query logging
-    ///     var exampleComZone = new Aws.Route53.Zone("exampleComZone");
-    /// 
-    ///     var exampleComQueryLog = new Aws.Route53.QueryLog("exampleComQueryLog", new()
+    ///     var exampleComQueryLog = new Aws.Route53.QueryLog("example_com", new()
     ///     {
     ///         CloudwatchLogGroupArn = awsRoute53ExampleCom.Arn,
-    ///         ZoneId = exampleComZone.ZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             route53_query_logging_policyLogResourcePolicy,
-    ///         },
+    ///         ZoneId = exampleCom.ZoneId,
     ///     });
     /// 
     /// });

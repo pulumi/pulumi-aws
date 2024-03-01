@@ -28,18 +28,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//			_, err := signer.NewSigningProfile(ctx, "test_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-//				NamePrefix: pulumi.String("prod_sp_"),
+//			_, err = signer.NewSigningProfile(ctx, "prod_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("prod_sp_"),
 //				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.Int(5),
+//					Type:  pulumi.String("YEARS"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"tag1": pulumi.String("value1"),

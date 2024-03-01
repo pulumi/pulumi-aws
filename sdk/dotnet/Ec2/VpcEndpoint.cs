@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
     ///     });
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
     ///         Tags = 
     ///         {
@@ -73,12 +73,12 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.ec2",
     ///         VpcEndpointType = "Interface",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Sg1.Id,
+    ///             sg1.Id,
     ///         },
     ///         PrivateDnsEnabled = true,
     ///     });
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
+    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         AllowedPrincipals = new[]
@@ -106,19 +106,19 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///         GatewayLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Example.Arn,
+    ///             exampleAwsLb.Arn,
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = exampleVpcEndpointService.ServiceName,
+    ///         ServiceName = example.ServiceName,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         VpcEndpointType = exampleVpcEndpointService.ServiceType,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcEndpointType = example.ServiceType,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });

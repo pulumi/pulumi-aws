@@ -19,29 +19,30 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudsearch.Domain("example", {
- *     indexFields: [
- *         {
- *             analysisScheme: "_en_default_",
- *             highlight: false,
- *             name: "headline",
- *             "return": true,
- *             search: true,
- *             sort: true,
- *             type: "text",
- *         },
- *         {
- *             facet: true,
- *             name: "price",
- *             "return": true,
- *             search: true,
- *             sort: true,
- *             sourceFields: "headline",
- *             type: "double",
- *         },
- *     ],
+ *     name: "example-domain",
  *     scalingParameters: {
  *         desiredInstanceType: "search.medium",
  *     },
+ *     indexFields: [
+ *         {
+ *             name: "headline",
+ *             type: "text",
+ *             search: true,
+ *             "return": true,
+ *             sort: true,
+ *             highlight: false,
+ *             analysisScheme: "_en_default_",
+ *         },
+ *         {
+ *             name: "price",
+ *             type: "double",
+ *             search: true,
+ *             facet: true,
+ *             "return": true,
+ *             sort: true,
+ *             sourceFields: "headline",
+ *         },
+ *     ],
  * });
  * ```
  *

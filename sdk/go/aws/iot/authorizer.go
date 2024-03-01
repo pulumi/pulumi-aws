@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
-//				AuthorizerFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "test-fixtures/iot-authorizer-signing-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
+//				Name:                  pulumi.String("example"),
+//				AuthorizerFunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				SigningDisabled:       pulumi.Bool(false),
 //				Status:                pulumi.String("ACTIVE"),
 //				TokenKeyName:          pulumi.String("Token-Header"),
 //				TokenSigningPublicKeys: pulumi.StringMap{
-//					"Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
+//					"Key1": invokeFile.Result,
 //				},
 //			})
 //			if err != nil {

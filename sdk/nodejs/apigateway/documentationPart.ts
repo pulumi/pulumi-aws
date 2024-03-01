@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
+ * const exampleRestApi = new aws.apigateway.RestApi("example", {name: "example_api"});
+ * const example = new aws.apigateway.DocumentationPart("example", {
  *     location: {
  *         type: "METHOD",
  *         method: "GET",

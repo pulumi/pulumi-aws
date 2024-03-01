@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
     ///         MinimumHealthyHosts = new Aws.CodeDeploy.Inputs.DeploymentConfigMinimumHealthyHostsArgs
@@ -33,12 +33,12 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         AppName = fooApp.Name,
     ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
-    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///         Ec2TagFilters = new[]
     ///         {
     ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagFilterArgs
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
     ///         ComputePlatform = "Lambda",
@@ -105,12 +105,12 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         AppName = fooApp.Name,
     ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
-    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///         {
     ///             Enabled = true,

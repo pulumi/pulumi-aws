@@ -253,6 +253,7 @@ class Multiplex(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -305,6 +306,7 @@ class Multiplex(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],

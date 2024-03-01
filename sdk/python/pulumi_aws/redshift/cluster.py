@@ -1636,11 +1636,11 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
             database_name="mydb",
-            master_password="Mustbe8characters",
             master_username="exampleuser",
-            node_type="dc1.large")
+            master_password="Mustbe8characters",
+            node_type="dc1.large",
+            cluster_type="single-node")
         ```
         ### With Managed Credentials
 
@@ -1650,11 +1650,11 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
             database_name="mydb",
-            manage_master_password=True,
             master_username="exampleuser",
-            node_type="dc1.large")
+            node_type="dc1.large",
+            cluster_type="single-node",
+            manage_master_password=True)
         ```
 
         ## Import
@@ -1745,11 +1745,11 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
             database_name="mydb",
-            master_password="Mustbe8characters",
             master_username="exampleuser",
-            node_type="dc1.large")
+            master_password="Mustbe8characters",
+            node_type="dc1.large",
+            cluster_type="single-node")
         ```
         ### With Managed Credentials
 
@@ -1759,11 +1759,11 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
             database_name="mydb",
-            manage_master_password=True,
             master_username="exampleuser",
-            node_type="dc1.large")
+            node_type="dc1.large",
+            cluster_type="single-node",
+            manage_master_password=True)
         ```
 
         ## Import

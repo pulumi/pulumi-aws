@@ -19,15 +19,16 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     name: "test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
- *     insufficientDataActions: [],
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
  *     period: 120,
  *     statistic: "Average",
  *     threshold: 80,
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     insufficientDataActions: [],
  * });
  * ```
  * ## Example in Conjunction with Scaling Policies
@@ -36,13 +37,15 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const batPolicy = new aws.autoscaling.Policy("batPolicy", {
+ * const bat = new aws.autoscaling.Policy("bat", {
+ *     name: "foobar3-test",
  *     scalingAdjustment: 4,
  *     adjustmentType: "ChangeInCapacity",
  *     cooldown: 300,
- *     autoscalingGroupName: aws_autoscaling_group.bar.name,
+ *     autoscalingGroupName: bar.name,
  * });
- * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
+ * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {
+ *     name: "test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
@@ -51,10 +54,10 @@ import {Topic} from "../sns";
  *     statistic: "Average",
  *     threshold: 80,
  *     dimensions: {
- *         AutoScalingGroupName: aws_autoscaling_group.bar.name,
+ *         AutoScalingGroupName: bar.name,
  *     },
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
- *     alarmActions: [batPolicy.arn],
+ *     alarmActions: [bat.arn],
  * });
  * ```
  *
@@ -65,45 +68,46 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     alarmDescription: "Request error rate has exceeded 10%",
+ *     name: "test-foobar",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
+ *     threshold: 10,
+ *     alarmDescription: "Request error rate has exceeded 10%",
  *     insufficientDataActions: [],
  *     metricQueries: [
  *         {
- *             expression: "m2/m1*100",
  *             id: "e1",
+ *             expression: "m2/m1*100",
  *             label: "Error Rate",
  *             returnData: true,
  *         },
  *         {
  *             id: "m1",
  *             metric: {
- *                 dimensions: {
- *                     LoadBalancer: "app/web",
- *                 },
  *                 metricName: "RequestCount",
  *                 namespace: "AWS/ApplicationELB",
  *                 period: 120,
  *                 stat: "Sum",
  *                 unit: "Count",
+ *                 dimensions: {
+ *                     LoadBalancer: "app/web",
+ *                 },
  *             },
  *         },
  *         {
  *             id: "m2",
  *             metric: {
- *                 dimensions: {
- *                     LoadBalancer: "app/web",
- *                 },
  *                 metricName: "HTTPCode_ELB_5XX_Count",
  *                 namespace: "AWS/ApplicationELB",
  *                 period: 120,
  *                 stat: "Sum",
  *                 unit: "Count",
+ *                 dimensions: {
+ *                     LoadBalancer: "app/web",
+ *                 },
  *             },
  *         },
  *     ],
- *     threshold: 10,
  * });
  * ```
  *
@@ -111,34 +115,35 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xx_anomaly_detection", {
+ *     name: "test-foobar",
  *     comparisonOperator: "GreaterThanUpperThreshold",
  *     evaluationPeriods: 2,
+ *     thresholdMetricId: "e1",
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     insufficientDataActions: [],
  *     metricQueries: [
  *         {
- *             expression: "ANOMALY_DETECTION_BAND(m1)",
  *             id: "e1",
+ *             expression: "ANOMALY_DETECTION_BAND(m1)",
  *             label: "CPUUtilization (Expected)",
  *             returnData: true,
  *         },
  *         {
  *             id: "m1",
+ *             returnData: true,
  *             metric: {
- *                 dimensions: {
- *                     InstanceId: "i-abc123",
- *                 },
  *                 metricName: "CPUUtilization",
  *                 namespace: "AWS/EC2",
  *                 period: 120,
  *                 stat: "Average",
  *                 unit: "Count",
+ *                 dimensions: {
+ *                     InstanceId: "i-abc123",
+ *                 },
  *             },
- *             returnData: true,
  *         },
  *     ],
- *     thresholdMetricId: "e1",
  * });
  * ```
  *
@@ -148,21 +153,22 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
+ * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlb_healthyhosts", {
+ *     name: "alarmname",
  *     comparisonOperator: "LessThanThreshold",
  *     evaluationPeriods: 1,
  *     metricName: "HealthyHostCount",
  *     namespace: "AWS/NetworkELB",
  *     period: 60,
  *     statistic: "Average",
- *     threshold: _var.logstash_servers_count,
+ *     threshold: logstashServersCount,
  *     alarmDescription: "Number of healthy nodes in Target Group",
  *     actionsEnabled: true,
- *     alarmActions: [aws_sns_topic.sns.arn],
- *     okActions: [aws_sns_topic.sns.arn],
+ *     alarmActions: [sns.arn],
+ *     okActions: [sns.arn],
  *     dimensions: {
- *         TargetGroup: aws_lb_target_group["lb-tg"].arn_suffix,
- *         LoadBalancer: aws_lb.lb.arn_suffix,
+ *         TargetGroup: lb_tg.arnSuffix,
+ *         LoadBalancer: lb.arnSuffix,
  *     },
  * });
  * ```

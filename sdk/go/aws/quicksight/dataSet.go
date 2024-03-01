@@ -31,12 +31,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
 //				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
 //						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(aws_quicksight_data_source.Example.Arn),
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),
@@ -74,12 +75,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
 //				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
 //						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(aws_quicksight_data_source.Example.Arn),
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),
@@ -98,7 +100,7 @@ import (
 //							pulumi.String("Column1"),
 //						},
 //						Principals: pulumi.StringArray{
-//							aws_quicksight_user.Example.Arn,
+//							exampleAwsQuicksightUser.Arn,
 //						},
 //					},
 //				},
@@ -127,12 +129,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
 //				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
 //						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(aws_quicksight_data_source.Example.Arn),
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),
@@ -179,12 +182,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
 //				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
 //						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(aws_quicksight_data_source.Example.Arn),
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),
@@ -206,7 +210,7 @@ import (
 //							pulumi.String("quicksight:DescribeIngestion"),
 //							pulumi.String("quicksight:ListIngestions"),
 //						},
-//						Principal: pulumi.Any(aws_quicksight_user.Example.Arn),
+//						Principal: pulumi.Any(exampleAwsQuicksightUser.Arn),
 //					},
 //				},
 //			})
@@ -234,12 +238,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
 //				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
 //						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(aws_quicksight_data_source.Example.Arn),
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),

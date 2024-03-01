@@ -364,8 +364,9 @@ class HostedConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hosted = aws.directconnect.HostedConnection("hosted",
-            bandwidth="100Mbps",
             connection_id="dxcon-ffabc123",
+            bandwidth="100Mbps",
+            name="tf-dx-hosted-connection",
             owner_account_id="123456789012",
             vlan=1)
         ```
@@ -394,8 +395,9 @@ class HostedConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hosted = aws.directconnect.HostedConnection("hosted",
-            bandwidth="100Mbps",
             connection_id="dxcon-ffabc123",
+            bandwidth="100Mbps",
+            name="tf-dx-hosted-connection",
             owner_account_id="123456789012",
             vlan=1)
         ```

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecs
         ///     var example = Aws.Ecs.GetService.Invoke(new()
         ///     {
         ///         ServiceName = "example",
-        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
+        ///         ClusterArn = exampleAwsEcsCluster.Arn,
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ecs
         ///     var example = Aws.Ecs.GetService.Invoke(new()
         ///     {
         ///         ServiceName = "example",
-        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
+        ///         ClusterArn = exampleAwsEcsCluster.Arn,
         ///     });
         /// 
         /// });

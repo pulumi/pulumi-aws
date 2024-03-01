@@ -177,6 +177,78 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
     > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
 
     ## Example Usage
+    ### Self Access-checking Example
+
+    The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    s3_object_access = aws.iam.get_principal_policy_simulation(action_names=[
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject",
+        ],
+        policy_source_arn=current.arn,
+        resource_arns=["arn:aws:s3:::my-test-bucket"])
+    ```
+
+    If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.s3.BucketObject("example", bucket="my-test-bucket")
+    ```
+    ### Testing the Effect of a Declared Policy
+
+    The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    example = aws.iam.User("example", name="example")
+    example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test-bucket")
+    s3_access = aws.iam.UserPolicy("s3_access",
+        name="example_s3_access",
+        user=example.name,
+        policy=pulumi.Output.json_dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "s3:GetObject",
+                "effect": "Allow",
+                "resource": example_bucket_v2.arn,
+            }],
+        }))
+    account_access = aws.s3.BucketPolicy("account_access",
+        bucket=example_bucket_v2.bucket,
+        policy=pulumi.Output.json_dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "s3:*",
+                "effect": "Allow",
+                "principal": {
+                    "AWS": current.account_id,
+                },
+                "resource": [
+                    example_bucket_v2.arn,
+                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                ],
+            }],
+        }))
+    s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
+        policy_source_arn=example.arn,
+        resource_arns=[example_bucket_v2.arn],
+        resource_policy_json=account_access.policy)
+    ```
+
+    When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
 
 
     :param Sequence[str] action_names: A set of IAM action names to run simulations for. Each entry in this set adds an additional hypothetical request to the simulation.
@@ -255,6 +327,78 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
     > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
 
     ## Example Usage
+    ### Self Access-checking Example
+
+    The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    s3_object_access = aws.iam.get_principal_policy_simulation(action_names=[
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject",
+        ],
+        policy_source_arn=current.arn,
+        resource_arns=["arn:aws:s3:::my-test-bucket"])
+    ```
+
+    If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.s3.BucketObject("example", bucket="my-test-bucket")
+    ```
+    ### Testing the Effect of a Declared Policy
+
+    The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    example = aws.iam.User("example", name="example")
+    example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test-bucket")
+    s3_access = aws.iam.UserPolicy("s3_access",
+        name="example_s3_access",
+        user=example.name,
+        policy=pulumi.Output.json_dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "s3:GetObject",
+                "effect": "Allow",
+                "resource": example_bucket_v2.arn,
+            }],
+        }))
+    account_access = aws.s3.BucketPolicy("account_access",
+        bucket=example_bucket_v2.bucket,
+        policy=pulumi.Output.json_dumps({
+            "version": "2012-10-17",
+            "statement": [{
+                "action": "s3:*",
+                "effect": "Allow",
+                "principal": {
+                    "AWS": current.account_id,
+                },
+                "resource": [
+                    example_bucket_v2.arn,
+                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                ],
+            }],
+        }))
+    s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
+        policy_source_arn=example.arn,
+        resource_arns=[example_bucket_v2.arn],
+        resource_policy_json=account_access.policy)
+    ```
+
+    When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
 
 
     :param Sequence[str] action_names: A set of IAM action names to run simulations for. Each entry in this set adds an additional hypothetical request to the simulation.

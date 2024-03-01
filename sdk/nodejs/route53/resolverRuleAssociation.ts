@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverRuleAssociation("example", {
- *     resolverRuleId: aws_route53_resolver_rule.sys.id,
- *     vpcId: aws_vpc.foo.id,
+ *     resolverRuleId: sys.id,
+ *     vpcId: foo.id,
  * });
  * ```
  *

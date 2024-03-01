@@ -32,16 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
+//			test, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("yak_sail"),
+//				AvailabilityZone: pulumi.Any(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: testInstance.Name,
+//			_, err = lightsail.NewInstancePublicPorts(ctx, "test", &lightsail.InstancePublicPortsArgs{
+//				InstanceName: test.Name,
 //				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
 //					&lightsail.InstancePublicPortsPortInfoArgs{
 //						Protocol: pulumi.String("tcp"),

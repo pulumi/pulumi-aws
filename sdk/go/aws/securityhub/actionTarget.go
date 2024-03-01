@@ -28,16 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
+//			_, err = securityhub.NewActionTarget(ctx, "example", &securityhub.ActionTargetArgs{
+//				Name:        pulumi.String("Send notification to chat"),
 //				Identifier:  pulumi.String("SendToChat"),
 //				Description: pulumi.String("This is custom action sends selected findings to chat"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

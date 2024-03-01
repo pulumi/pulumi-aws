@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  * const example = new aws.ssmcontacts.Contact("example", {
  *     alias: "alias",
  *     type: "PERSONAL",
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
  * ### Usage With All Fields
@@ -34,8 +32,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
  *

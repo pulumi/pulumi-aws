@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var example = new Aws.Efs.FileSystem("example");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = exampleFileSystem.Id,
+    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             Region = "us-west-2",
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var example = new Aws.Efs.FileSystem("example");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = exampleFileSystem.Id,
+    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             AvailabilityZoneName = "us-west-2b",
@@ -75,11 +75,11 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var example = new Aws.Efs.FileSystem("example");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = exampleFileSystem.Id,
+    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             FileSystemId = "fs-1234567890",

@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *
  * const test = aws.costexplorer.getTags({
  *     timePeriod: {
- *         end: "2022-12-01",
  *         start: "2021-01-01",
+ *         end: "2022-12-01",
  *     },
  * });
  * ```
@@ -93,8 +93,8 @@ export interface GetTagsResult {
  *
  * const test = aws.costexplorer.getTags({
  *     timePeriod: {
- *         end: "2022-12-01",
  *         start: "2021-01-01",
+ *         end: "2022-12-01",
  *     },
  * });
  * ```

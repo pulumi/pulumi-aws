@@ -30,12 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+//			example, err := ecs.NewCluster(ctx, "example", &ecs.ClusterArgs{
+//				Name: pulumi.String("my-cluster"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: exampleCluster.Name,
+//			_, err = ecs.NewClusterCapacityProviders(ctx, "example", &ecs.ClusterCapacityProvidersArgs{
+//				ClusterName: example.Name,
 //				CapacityProviders: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},

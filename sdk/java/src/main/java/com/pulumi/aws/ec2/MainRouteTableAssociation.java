@@ -41,9 +41,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mainRouteTableAssociation = new MainRouteTableAssociation(&#34;mainRouteTableAssociation&#34;, MainRouteTableAssociationArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
- *             .routeTableId(aws_route_table.bar().id())
+ *         var a = new MainRouteTableAssociation(&#34;a&#34;, MainRouteTableAssociationArgs.builder()        
+ *             .vpcId(foo.id())
+ *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }

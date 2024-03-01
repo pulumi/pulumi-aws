@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
- *     ipamId: aws_vpc_ipam.test.id,
- *     ipamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.test.id,
+ *     ipamId: testAwsVpcIpam.id,
+ *     ipamResourceDiscoveryId: testAwsVpcIpamResourceDiscovery.id,
  *     tags: {
  *         Name: "test",
  *     },

@@ -304,12 +304,12 @@ class LayerVersionPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambdaLayerPermission",
-            action="lambda:GetLayerVersion",
+        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambda_layer_permission",
             layer_name="arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+            version_number=1,
             principal="111111111111",
-            statement_id="dev-account",
-            version_number=1)
+            action="lambda:GetLayerVersion",
+            statement_id="dev-account")
         ```
 
         ## Import
@@ -349,12 +349,12 @@ class LayerVersionPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambdaLayerPermission",
-            action="lambda:GetLayerVersion",
+        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambda_layer_permission",
             layer_name="arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+            version_number=1,
             principal="111111111111",
-            statement_id="dev-account",
-            version_number=1)
+            action="lambda:GetLayerVersion",
+            statement_id="dev-account")
         ```
 
         ## Import

@@ -50,8 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .name(&#34;example&#34;)
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(20)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
@@ -74,11 +75,11 @@ import javax.annotation.Nullable;
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example().id())
+ *                             .targetGroupIdentifier(example.id())
  *                             .weight(1)
  *                             .build(),
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example2().id())
+ *                             .targetGroupIdentifier(example2.id())
  *                             .weight(2)
  *                             .build())
  *                     .build())
@@ -117,8 +118,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .name(&#34;example&#34;)
+ *             .listenerIdentifier(example.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(10)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()

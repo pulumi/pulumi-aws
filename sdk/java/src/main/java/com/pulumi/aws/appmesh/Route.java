@@ -47,8 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -57,11 +58,11 @@ import javax.annotation.Nullable;
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(                        
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
+ *                                 .virtualNode(serviceb1.name())
  *                                 .weight(90)
  *                                 .build(),
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb2().name())
+ *                                 .virtualNode(serviceb2.name())
  *                                 .weight(10)
  *                                 .build())
  *                         .build())
@@ -99,8 +100,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -116,7 +118,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())
@@ -156,8 +158,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -173,7 +176,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())
@@ -210,13 +213,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .tcpRoute(RouteSpecTcpRouteArgs.builder()
  *                     .action(RouteSpecTcpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecTcpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
+ *                             .virtualNode(serviceb1.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())

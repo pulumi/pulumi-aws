@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.VpcNetworkPerformanceMetricSubscription("example", new()
     ///     {
-    ///         Destination = "us-west-1",
     ///         Source = "us-east-1",
+    ///         Destination = "us-west-1",
     ///     });
     /// 
     /// });

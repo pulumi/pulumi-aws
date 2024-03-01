@@ -29,8 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
+//			_, err := guardduty.NewDetector(ctx, "MyDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
 //				Datasources: &guardduty.DetectorDatasourcesArgs{
+//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
+//						Enable: pulumi.Bool(true),
+//					},
 //					Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
 //						AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
 //							Enable: pulumi.Bool(false),
@@ -43,11 +47,7 @@ import (
 //							},
 //						},
 //					},
-//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
-//						Enable: pulumi.Bool(true),
-//					},
 //				},
-//				Enable: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

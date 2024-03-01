@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEbsVolumes, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+//			example, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
 //				Tags: map[string]interface{}{
 //					"VolumeSet": "TestVolumeSet",
 //				},
@@ -39,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVolume := "TODO: For expression"
+//			exampleGetVolume := "TODO: For expression"
 //			ctx.Export("availabilityZoneToVolumeId", "TODO: For expression")
 //			return nil
 //		})

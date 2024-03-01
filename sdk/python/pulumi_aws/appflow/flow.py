@@ -358,8 +358,8 @@ class Flow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowSourceActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -375,15 +375,15 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-source/*",
             ],
         )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
+        example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
             bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            policy=example_source.json)
+        example = aws.s3.BucketObjectv2("example",
             bucket=example_source_bucket_v2.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowDestinationActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -403,10 +403,11 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-destination/*",
             ],
         )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
+        example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
             bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
+            policy=example_destination.json)
+        example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
                 connector_type="S3",
                 source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(
@@ -476,8 +477,8 @@ class Flow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowSourceActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -493,15 +494,15 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-source/*",
             ],
         )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
+        example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
             bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            policy=example_source.json)
+        example = aws.s3.BucketObjectv2("example",
             bucket=example_source_bucket_v2.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowDestinationActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -521,10 +522,11 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-destination/*",
             ],
         )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
+        example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
             bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
+            policy=example_destination.json)
+        example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
                 connector_type="S3",
                 source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(

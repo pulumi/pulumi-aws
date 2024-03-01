@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -51,28 +51,30 @@ namespace Pulumi.Aws.Transcribe
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new()
+    ///     var testPolicy = new Aws.Iam.RolePolicy("test_policy", new()
     ///     {
+    ///         Name = "example",
     ///         Role = exampleRole.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:GetObject",
     ///                         "s3:ListBucket",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = new[]
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "*",
     ///                     },
@@ -81,8 +83,9 @@ namespace Pulumi.Aws.Transcribe
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "example-transcribe",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -93,7 +96,7 @@ namespace Pulumi.Aws.Transcribe
     ///         Source = new FileAsset("test1.txt"),
     ///     });
     /// 
-    ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("exampleLanguageModel", new()
+    ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("example", new()
     ///     {
     ///         ModelName = "example",
     ///         BaseModelName = "NarrowBand",

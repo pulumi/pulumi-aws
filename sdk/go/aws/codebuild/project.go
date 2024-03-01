@@ -31,11 +31,13 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+// exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+// Bucket: pulumi.String("example"),
+// })
 // if err != nil {
 // return err
 // }
-// _, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+// _, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 // Bucket: exampleBucketV2.ID(),
 // Acl: pulumi.String("private"),
 // })
@@ -63,13 +65,14 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+// Name: pulumi.String("example"),
 // AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 // })
 // if err != nil {
 // return err
 // }
-// examplePolicyDocument := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// example := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // exampleBucketV2Arn := _args[0].(string)
 // exampleBucketV2Arn1 := _args[1].(string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
@@ -113,8 +116,8 @@ import (
 // Test: "StringEquals",
 // Variable: "ec2:Subnet",
 // Values: interface{}{
-// aws_subnet.Example1.Arn,
-// aws_subnet.Example2.Arn,
+// example1.Arn,
+// example2.Arn,
 // },
 // },
 // {
@@ -139,16 +142,17 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Role: exampleRole.Name,
-// Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &examplePolicyDocument.Json, nil
+// Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = codebuild.NewProject(ctx, "exampleProject", &codebuild.ProjectArgs{
+// _, err = codebuild.NewProject(ctx, "example", &codebuild.ProjectArgs{
+// Name: pulumi.String("test-project"),
 // Description: pulumi.String("test_codebuild_project"),
 // BuildTimeout: pulumi.Int(5),
 // ServiceRole: exampleRole.Arn,
@@ -198,14 +202,14 @@ import (
 // },
 // SourceVersion: pulumi.String("master"),
 // VpcConfig: &codebuild.ProjectVpcConfigArgs{
-// VpcId: pulumi.Any(aws_vpc.Example.Id),
+// VpcId: pulumi.Any(exampleAwsVpc.Id),
 // Subnets: pulumi.StringArray{
-// aws_subnet.Example1.Id,
-// aws_subnet.Example2.Id,
+// example1.Id,
+// example2.Id,
 // },
 // SecurityGroupIds: pulumi.StringArray{
-// aws_security_group.Example1.Id,
-// aws_security_group.Example2.Id,
+// example1AwsSecurityGroup.Id,
+// example2AwsSecurityGroup.Id,
 // },
 // },
 // Tags: pulumi.StringMap{
@@ -216,6 +220,7 @@ import (
 // return err
 // }
 // _, err = codebuild.NewProject(ctx, "project-with-cache", &codebuild.ProjectArgs{
+// Name: pulumi.String("test-project-cache"),
 // Description: pulumi.String("test_codebuild_project_cache"),
 // BuildTimeout: pulumi.Int(5),
 // QueuedTimeout: pulumi.Int(5),

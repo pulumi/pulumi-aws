@@ -13,28 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {});
- * const member = new aws.Provider("member", {});
- * const primaryDetector = new aws.guardduty.Detector("primaryDetector", {}, {
- *     provider: aws.primary,
+ * const primary = new aws.guardduty.Detector("primary", {});
+ * const memberDetector = new aws.guardduty.Detector("member", {});
+ * const member = new aws.guardduty.InviteAccepter("member", {
+ *     detectorId: memberDetector.id,
+ *     masterAccountId: primary.accountId,
  * });
- * const memberDetector = new aws.guardduty.Detector("memberDetector", {}, {
- *     provider: aws.member,
- * });
- * const memberMember = new aws.guardduty.Member("memberMember", {
+ * const memberMember = new aws.guardduty.Member("member", {
  *     accountId: memberDetector.accountId,
- *     detectorId: primaryDetector.id,
+ *     detectorId: primary.id,
  *     email: "required@example.com",
  *     invite: true,
- * }, {
- *     provider: aws.primary,
- * });
- * const memberInviteAccepter = new aws.guardduty.InviteAccepter("memberInviteAccepter", {
- *     detectorId: memberDetector.id,
- *     masterAccountId: primaryDetector.accountId,
- * }, {
- *     provider: aws.member,
- *     dependsOn: [memberMember],
  * });
  * ```
  *

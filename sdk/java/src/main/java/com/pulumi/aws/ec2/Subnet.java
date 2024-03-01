@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Subnet(&#34;main&#34;, SubnetArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(mainAwsVpc.id())
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Main&#34;))
  *             .build());
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 

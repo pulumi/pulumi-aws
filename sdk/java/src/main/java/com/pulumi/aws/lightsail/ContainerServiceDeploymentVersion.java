@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                     .successCodes(&#34;200-499&#34;)
  *                     .build())
  *                 .build())
- *             .serviceName(aws_lightsail_container_service.example().name())
+ *             .serviceName(exampleAwsLightsailContainerService.name())
  *             .build());
  * 
  *     }

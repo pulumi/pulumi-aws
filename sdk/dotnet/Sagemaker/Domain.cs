@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -48,20 +48,21 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         Path = "/",
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
@@ -81,13 +82,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleImage = new Aws.Sagemaker.Image("exampleImage", new()
+    ///     var example = new Aws.Sagemaker.Image("example", new()
     ///     {
     ///         ImageName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
-    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("exampleAppImageConfig", new()
+    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("example", new()
     ///     {
     ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
@@ -99,24 +100,24 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("exampleImageVersion", new()
+    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("example", new()
     ///     {
-    ///         ImageName = exampleImage.Id,
+    ///         ImageName = example.Id,
     ///         BaseImage = "base-image",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             ExecutionRole = aws_iam_role.Example.Arn,
+    ///             ExecutionRole = exampleAwsIamRole.Arn,
     ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
     ///             {
     ///                 CustomImages = new[]

@@ -20,14 +20,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.ManagedPrefixList("example", {
+ *     name: "All VPC CIDR-s",
  *     addressFamily: "IPv4",
  *     maxEntries: 5,
  *     tags: {
  *         Env: "live",
  *     },
  * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
- *     cidr: aws_vpc.example.cidr_block,
+ * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry_1", {
+ *     cidr: exampleAwsVpc.cidrBlock,
  *     description: "Primary",
  *     prefixListId: example.id,
  * });

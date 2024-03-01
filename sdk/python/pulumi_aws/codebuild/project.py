@@ -877,8 +877,8 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -889,8 +889,10 @@ class Project(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -922,8 +924,8 @@ class Project(pulumi.CustomResource):
                         test="StringEquals",
                         variable="ec2:Subnet",
                         values=[
-                            aws_subnet["example1"]["arn"],
-                            aws_subnet["example2"]["arn"],
+                            example1["arn"],
+                            example2["arn"],
                         ],
                     ),
                     aws.iam.GetPolicyDocumentStatementConditionArgs(
@@ -942,10 +944,11 @@ class Project(pulumi.CustomResource):
                 ],
             ),
         ]))
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
-            policy=example_policy_document.json)
-        example_project = aws.codebuild.Project("exampleProject",
+            policy=example.json)
+        example_project = aws.codebuild.Project("example",
+            name="test-project",
             description="test_codebuild_project",
             build_timeout=5,
             service_role=example_role.arn,
@@ -993,20 +996,21 @@ class Project(pulumi.CustomResource):
             ),
             source_version="master",
             vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=aws_vpc["example"]["id"],
+                vpc_id=example_aws_vpc["id"],
                 subnets=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
+                    example1["id"],
+                    example2["id"],
                 ],
                 security_group_ids=[
-                    aws_security_group["example1"]["id"],
-                    aws_security_group["example2"]["id"],
+                    example1_aws_security_group["id"],
+                    example2_aws_security_group["id"],
                 ],
             ),
             tags={
                 "Environment": "Test",
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
+            name="test-project-cache",
             description="test_codebuild_project_cache",
             build_timeout=5,
             queued_timeout=5,
@@ -1092,8 +1096,8 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -1104,8 +1108,10 @@ class Project(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -1137,8 +1143,8 @@ class Project(pulumi.CustomResource):
                         test="StringEquals",
                         variable="ec2:Subnet",
                         values=[
-                            aws_subnet["example1"]["arn"],
-                            aws_subnet["example2"]["arn"],
+                            example1["arn"],
+                            example2["arn"],
                         ],
                     ),
                     aws.iam.GetPolicyDocumentStatementConditionArgs(
@@ -1157,10 +1163,11 @@ class Project(pulumi.CustomResource):
                 ],
             ),
         ]))
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
-            policy=example_policy_document.json)
-        example_project = aws.codebuild.Project("exampleProject",
+            policy=example.json)
+        example_project = aws.codebuild.Project("example",
+            name="test-project",
             description="test_codebuild_project",
             build_timeout=5,
             service_role=example_role.arn,
@@ -1208,20 +1215,21 @@ class Project(pulumi.CustomResource):
             ),
             source_version="master",
             vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=aws_vpc["example"]["id"],
+                vpc_id=example_aws_vpc["id"],
                 subnets=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
+                    example1["id"],
+                    example2["id"],
                 ],
                 security_group_ids=[
-                    aws_security_group["example1"]["id"],
-                    aws_security_group["example2"]["id"],
+                    example1_aws_security_group["id"],
+                    example2_aws_security_group["id"],
                 ],
             ),
             tags={
                 "Environment": "Test",
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
+            name="test-project-cache",
             description="test_codebuild_project_cache",
             build_timeout=5,
             queued_timeout=5,

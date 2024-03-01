@@ -18,7 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.finspace.KxVolume("example", {
- *     environmentId: aws_finspace_kx_environment.example.id,
+ *     name: "my-tf-kx-volume",
+ *     environmentId: exampleAwsFinspaceKxEnvironment.id,
  *     availabilityZones: "use1-az2",
  *     azMode: "SINGLE",
  *     type: "NAS_1",

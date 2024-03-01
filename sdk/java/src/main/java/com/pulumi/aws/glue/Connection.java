@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
  *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
  *             ))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
@@ -81,14 +82,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
  *             .connectionProperties(Map.ofEntries(
- *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, String.format(&#34;jdbc:mysql://%s/exampledatabase&#34;, aws_rds_cluster.example().endpoint())),
+ *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, String.format(&#34;jdbc:mysql://%s/exampledatabase&#34;, exampleAwsRdsCluster.endpoint())),
  *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
  *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
  *             ))
+ *             .name(&#34;example&#34;)
  *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(aws_subnet.example().availability_zone())
- *                 .securityGroupIdLists(aws_security_group.example().id())
- *                 .subnetId(aws_subnet.example().id())
+ *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
+ *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .build());
  * 

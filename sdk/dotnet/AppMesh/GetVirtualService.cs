@@ -28,8 +28,8 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
         ///     {
-        ///         MeshName = "example-mesh",
         ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
         ///     });
         /// 
         /// });
@@ -77,8 +77,8 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
         ///     {
-        ///         MeshName = "example-mesh",
         ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
         ///     });
         /// 
         /// });

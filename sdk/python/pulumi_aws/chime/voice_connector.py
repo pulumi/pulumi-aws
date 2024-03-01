@@ -236,8 +236,9 @@ class VoiceConnector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
+            name="connector-test-1",
+            require_encryption=True,
+            aws_region="us-east-1")
         ```
 
         ## Import
@@ -273,8 +274,9 @@ class VoiceConnector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
+            name="connector-test-1",
+            require_encryption=True,
+            aws_region="us-east-1")
         ```
 
         ## Import

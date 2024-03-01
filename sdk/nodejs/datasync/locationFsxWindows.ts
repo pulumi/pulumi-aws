@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationFsxWindows("example", {
- *     fsxFilesystemArn: aws_fsx_windows_file_system.example.arn,
+ *     fsxFilesystemArn: exampleAwsFsxWindowsFileSystem.arn,
  *     user: "SomeUser",
  *     password: "SuperSecretPassw0rd",
- *     securityGroupArns: [aws_security_group.example.arn],
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
  * });
  * ```
  *

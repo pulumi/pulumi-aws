@@ -28,8 +28,8 @@ namespace Pulumi.Aws.StorageGateway
         /// {
         ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
         ///     {
-        ///         DiskPath = aws_volume_attachment.Test.Device_name,
-        ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+        ///         DiskPath = testAwsVolumeAttachment.DeviceName,
+        ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.StorageGateway
         /// {
         ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
         ///     {
-        ///         DiskPath = aws_volume_attachment.Test.Device_name,
-        ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+        ///         DiskPath = testAwsVolumeAttachment.DeviceName,
+        ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
         ///     });
         /// 
         /// });

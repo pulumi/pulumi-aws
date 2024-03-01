@@ -29,20 +29,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
+//				RuleName:      pulumi.String("example"),
+//				Priority:      pulumi.Int(9999),
+//				Version:       pulumi.Int(1),
+//				ReservoirSize: pulumi.Int(1),
+//				FixedRate:     pulumi.Float64(0.05),
+//				UrlPath:       pulumi.String("*"),
+//				Host:          pulumi.String("*"),
+//				HttpMethod:    pulumi.String("*"),
+//				ServiceType:   pulumi.String("*"),
+//				ServiceName:   pulumi.String("*"),
+//				ResourceArn:   pulumi.String("*"),
 //				Attributes: pulumi.StringMap{
 //					"Hello": pulumi.String("Tris"),
 //				},
-//				FixedRate:     pulumi.Float64(0.05),
-//				Host:          pulumi.String("*"),
-//				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(9999),
-//				ReservoirSize: pulumi.Int(1),
-//				ResourceArn:   pulumi.String("*"),
-//				RuleName:      pulumi.String("example"),
-//				ServiceName:   pulumi.String("*"),
-//				ServiceType:   pulumi.String("*"),
-//				UrlPath:       pulumi.String("*"),
-//				Version:       pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

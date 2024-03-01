@@ -25,48 +25,54 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Sid: "Customer Profiles SQS policy",
- *         Effect: "Allow",
- *         Action: ["sqs:SendMessage"],
- *         Resource: "*",
- *         Principal: {
- *             Service: "profile.amazonaws.com",
- *         },
- *     }],
- * })});
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.sqs.Queue("example", {
+ *     name: "example",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "Customer Profiles SQS policy",
+ *             effect: "Allow",
+ *             action: ["sqs:SendMessage"],
+ *             resource: "*",
+ *             principal: {
+ *                 service: "profile.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const exampleKey = new aws.kms.Key("example", {
  *     description: "example",
  *     deletionWindowInDays: 10,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucketV2.id,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "Customer Profiles S3 policy",
- *             Effect: "Allow",
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "Customer Profiles S3 policy",
+ *             effect: "Allow",
+ *             action: [
  *                 "s3:GetObject",
  *                 "s3:PutObject",
  *                 "s3:ListBucket",
  *             ],
- *             Resource: [
+ *             resource: [
  *                 exampleBucketV2.arn,
  *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *             ],
- *             Principal: {
- *                 Service: "profile.amazonaws.com",
+ *             principal: {
+ *                 service: "profile.amazonaws.com",
  *             },
  *         }],
  *     }),
  * });
  * const test = new aws.customerprofiles.Domain("test", {
  *     domainName: example,
- *     deadLetterQueueUrl: exampleQueue.id,
+ *     deadLetterQueueUrl: example.id,
  *     defaultEncryptionKey: exampleKey.arn,
  *     defaultExpirationDays: 365,
  * });

@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
+//			example, err := detective.NewGraph(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
+//			_, err = detective.NewMember(ctx, "example", &detective.MemberArgs{
 //				AccountId:                pulumi.String("AWS ACCOUNT ID"),
 //				EmailAddress:             pulumi.String("EMAIL"),
-//				GraphArn:                 exampleGraph.ID(),
+//				GraphArn:                 example.ID(),
 //				Message:                  pulumi.String("Message of the invitation"),
 //				DisableEmailNotification: pulumi.Bool(true),
 //			})

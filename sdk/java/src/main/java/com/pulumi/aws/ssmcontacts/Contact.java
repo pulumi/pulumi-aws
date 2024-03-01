@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmcontacts.Contact;
  * import com.pulumi.aws.ssmcontacts.ContactArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,9 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new Contact(&#34;example&#34;, ContactArgs.builder()        
  *             .alias(&#34;alias&#34;)
  *             .type(&#34;PERSONAL&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_ssmincidents_replication_set.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -61,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmcontacts.Contact;
  * import com.pulumi.aws.ssmcontacts.ContactArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,9 +76,7 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;displayName&#34;)
  *             .type(&#34;ESCALATION&#34;)
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_ssmincidents_replication_set.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

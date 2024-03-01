@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("wu-tang"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
@@ -99,6 +100,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("wu-tang"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},

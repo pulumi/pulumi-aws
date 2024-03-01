@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				DomainId:        pulumi.Any(test.Id),
 //				UserProfileName: pulumi.String("example"),
 //			})
 //			if err != nil {

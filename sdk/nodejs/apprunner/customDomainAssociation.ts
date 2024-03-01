@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apprunner.CustomDomainAssociation("example", {
  *     domainName: "example.com",
- *     serviceArn: aws_apprunner_service.example.arn,
+ *     serviceArn: exampleAwsApprunnerService.arn,
  * });
  * ```
  *

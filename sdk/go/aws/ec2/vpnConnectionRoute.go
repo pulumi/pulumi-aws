@@ -34,13 +34,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
+//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpn_gateway", &ec2.VpnGatewayArgs{
 //				VpcId: vpc.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
+//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customer_gateway", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.0.0.1"),
 //				Type:      pulumi.String("ipsec.1"),

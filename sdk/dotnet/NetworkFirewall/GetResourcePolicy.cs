@@ -28,7 +28,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = @var.Resource_policy_arn,
+        ///         ResourceArn = resourcePolicyArn,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = @var.Resource_policy_arn,
+        ///         ResourceArn = resourcePolicyArn,
         ///     });
         /// 
         /// });

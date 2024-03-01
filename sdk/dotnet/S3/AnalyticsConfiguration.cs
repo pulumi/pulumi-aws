@@ -25,13 +25,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var analytics = new Aws.S3.BucketV2("analytics");
+    ///     var analytics = new Aws.S3.BucketV2("analytics", new()
+    ///     {
+    ///         Bucket = "analytics destination",
+    ///     });
     /// 
     ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "EntireBucket",
     ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
     ///         {
     ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
@@ -59,11 +66,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
     ///         {
     ///             Prefix = "documents/",

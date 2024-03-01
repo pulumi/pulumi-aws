@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.ResolverQueryLogConfigAssociation("example", new()
     ///     {
-    ///         ResolverQueryLogConfigId = aws_route53_resolver_query_log_config.Example.Id,
-    ///         ResourceId = aws_vpc.Example.Id,
+    ///         ResolverQueryLogConfigId = exampleAwsRoute53ResolverQueryLogConfig.Id,
+    ///         ResourceId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });

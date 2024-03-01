@@ -262,8 +262,8 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.VpcIpamResourceDiscoveryAssociation("test",
-            ipam_id=aws_vpc_ipam["test"]["id"],
-            ipam_resource_discovery_id=aws_vpc_ipam_resource_discovery["test"]["id"],
+            ipam_id=test_aws_vpc_ipam["id"],
+            ipam_resource_discovery_id=test_aws_vpc_ipam_resource_discovery["id"],
             tags={
                 "Name": "test",
             })
@@ -303,8 +303,8 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.VpcIpamResourceDiscoveryAssociation("test",
-            ipam_id=aws_vpc_ipam["test"]["id"],
-            ipam_resource_discovery_id=aws_vpc_ipam_resource_discovery["test"]["id"],
+            ipam_id=test_aws_vpc_ipam["id"],
+            ipam_resource_discovery_id=test_aws_vpc_ipam_resource_discovery["id"],
             tags={
                 "Name": "test",
             })

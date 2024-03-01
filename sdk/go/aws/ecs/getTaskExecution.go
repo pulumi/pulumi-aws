@@ -16,6 +16,39 @@ import (
 // > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs.GetTaskExecution(ctx, &ecs.GetTaskExecutionArgs{
+// Cluster: exampleAwsEcsCluster.Id,
+// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
+// DesiredCount: pulumi.IntRef(1),
+// LaunchType: pulumi.StringRef("FARGATE"),
+// NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
+// Subnets: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44),
+// SecurityGroups: interface{}{
+// exampleAwsSecurityGroup.Id,
+// },
+// AssignPublicIp: pulumi.BoolRef(false),
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult

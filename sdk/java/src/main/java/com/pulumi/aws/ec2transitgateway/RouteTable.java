@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
  *     }

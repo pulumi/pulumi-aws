@@ -16,17 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAccount = new aws.macie2.Account("testAccount", {});
- * const testClassificationJob = new aws.macie2.ClassificationJob("testClassificationJob", {
+ * const test = new aws.macie2.Account("test", {});
+ * const testClassificationJob = new aws.macie2.ClassificationJob("test", {
  *     jobType: "ONE_TIME",
+ *     name: "NAME OF THE CLASSIFICATION JOB",
  *     s3JobDefinition: {
  *         bucketDefinitions: [{
  *             accountId: "ACCOUNT ID",
  *             buckets: ["S3 BUCKET NAME"],
  *         }],
  *     },
- * }, {
- *     dependsOn: [testAccount],
  * });
  * ```
  *

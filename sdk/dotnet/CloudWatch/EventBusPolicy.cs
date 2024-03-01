@@ -27,7 +27,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,10 +58,10 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Variable = "aws:PrincipalOrgID",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_organizations_organization.Example.Id,
+    ///                             example.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -123,10 +123,10 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Variable = "aws:PrincipalOrgID",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_organizations_organization.Example.Id,
+    ///                             example.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -212,10 +212,10 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });

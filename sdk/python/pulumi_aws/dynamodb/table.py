@@ -873,6 +873,12 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            name="GameScores",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle",
             attributes=[
                 aws.dynamodb.TableAttributeArgs(
                     name="UserId",
@@ -887,28 +893,23 @@ class Table(pulumi.CustomResource):
                     type="N",
                 ),
             ],
-            billing_mode="PROVISIONED",
-            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
-                hash_key="GameTitle",
-                name="GameTitleIndex",
-                non_key_attributes=["UserId"],
-                projection_type="INCLUDE",
-                range_key="TopScore",
-                read_capacity=10,
-                write_capacity=10,
-            )],
-            hash_key="UserId",
-            range_key="GameTitle",
-            read_capacity=20,
-            tags={
-                "Environment": "production",
-                "Name": "dynamodb-table-1",
-            },
             ttl=aws.dynamodb.TableTtlArgs(
                 attribute_name="TimeToExist",
                 enabled=False,
             ),
-            write_capacity=20)
+            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
+                name="GameTitleIndex",
+                hash_key="GameTitle",
+                range_key="TopScore",
+                write_capacity=10,
+                read_capacity=10,
+                projection_type="INCLUDE",
+                non_key_attributes=["UserId"],
+            )],
+            tags={
+                "Name": "dynamodb-table-1",
+                "Environment": "production",
+            })
         ```
         ### Global Tables
 
@@ -921,12 +922,15 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[aws.dynamodb.TableAttributeArgs(
                 name="TestTableHashKey",
                 type="S",
             )],
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
             replicas=[
                 aws.dynamodb.TableReplicaArgs(
                     region_name="us-east-2",
@@ -934,9 +938,49 @@ class Table(pulumi.CustomResource):
                 aws.dynamodb.TableReplicaArgs(
                     region_name="us-west-2",
                 ),
-            ],
+            ])
+        ```
+        ### Replica Tagging
+
+        You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_region()
+        alternate = aws.get_region()
+        third = aws.get_region()
+        example = aws.dynamodb.Table("example",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            name="example-13281",
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES")
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="TestTableHashKey",
+                type="S",
+            )],
+            replicas=[
+                aws.dynamodb.TableReplicaArgs(
+                    region_name=alternate.name,
+                ),
+                aws.dynamodb.TableReplicaArgs(
+                    region_name=third.name,
+                    propagate_tags=True,
+                ),
+            ],
+            tags={
+                "Architect": "Eleanor",
+                "Zone": "SW",
+            })
+        example_tag = aws.dynamodb.Tag("example",
+            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+                search=current.name,
+                replace=alternate.name)).apply(lambda invoke: invoke.result),
+            key="Architect",
+            value="Gigi")
         ```
 
         ## Import
@@ -1008,6 +1052,12 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            name="GameScores",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle",
             attributes=[
                 aws.dynamodb.TableAttributeArgs(
                     name="UserId",
@@ -1022,28 +1072,23 @@ class Table(pulumi.CustomResource):
                     type="N",
                 ),
             ],
-            billing_mode="PROVISIONED",
-            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
-                hash_key="GameTitle",
-                name="GameTitleIndex",
-                non_key_attributes=["UserId"],
-                projection_type="INCLUDE",
-                range_key="TopScore",
-                read_capacity=10,
-                write_capacity=10,
-            )],
-            hash_key="UserId",
-            range_key="GameTitle",
-            read_capacity=20,
-            tags={
-                "Environment": "production",
-                "Name": "dynamodb-table-1",
-            },
             ttl=aws.dynamodb.TableTtlArgs(
                 attribute_name="TimeToExist",
                 enabled=False,
             ),
-            write_capacity=20)
+            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
+                name="GameTitleIndex",
+                hash_key="GameTitle",
+                range_key="TopScore",
+                write_capacity=10,
+                read_capacity=10,
+                projection_type="INCLUDE",
+                non_key_attributes=["UserId"],
+            )],
+            tags={
+                "Name": "dynamodb-table-1",
+                "Environment": "production",
+            })
         ```
         ### Global Tables
 
@@ -1056,12 +1101,15 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[aws.dynamodb.TableAttributeArgs(
                 name="TestTableHashKey",
                 type="S",
             )],
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
             replicas=[
                 aws.dynamodb.TableReplicaArgs(
                     region_name="us-east-2",
@@ -1069,9 +1117,49 @@ class Table(pulumi.CustomResource):
                 aws.dynamodb.TableReplicaArgs(
                     region_name="us-west-2",
                 ),
-            ],
+            ])
+        ```
+        ### Replica Tagging
+
+        You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_region()
+        alternate = aws.get_region()
+        third = aws.get_region()
+        example = aws.dynamodb.Table("example",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            name="example-13281",
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES")
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="TestTableHashKey",
+                type="S",
+            )],
+            replicas=[
+                aws.dynamodb.TableReplicaArgs(
+                    region_name=alternate.name,
+                ),
+                aws.dynamodb.TableReplicaArgs(
+                    region_name=third.name,
+                    propagate_tags=True,
+                ),
+            ],
+            tags={
+                "Architect": "Eleanor",
+                "Zone": "SW",
+            })
+        example_tag = aws.dynamodb.Tag("example",
+            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+                search=current.name,
+                replace=alternate.name)).apply(lambda invoke: invoke.result),
+            key="Architect",
+            value="Gigi")
         ```
 
         ## Import

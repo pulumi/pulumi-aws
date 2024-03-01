@@ -44,11 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sqlInjectionMatchSet = new SqlInjectionMatchSet(&#34;sqlInjectionMatchSet&#34;, SqlInjectionMatchSetArgs.builder()        
+ *             .name(&#34;tf-sql_injection_match_set&#34;)
  *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
+ *                 .textTransformation(&#34;URL_DECODE&#34;)
  *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
  *                     .type(&#34;QUERY_STRING&#34;)
  *                     .build())
- *                 .textTransformation(&#34;URL_DECODE&#34;)
  *                 .build())
  *             .build());
  * 

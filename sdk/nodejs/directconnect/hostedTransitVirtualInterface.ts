@@ -16,7 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directconnect.HostedTransitVirtualInterface("example", {
- *     connectionId: aws_dx_connection.example.id,
+ *     connectionId: exampleAwsDxConnection.id,
+ *     name: "tf-transit-vif-example",
  *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,

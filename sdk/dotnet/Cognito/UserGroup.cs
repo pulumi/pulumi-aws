@@ -22,9 +22,12 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainUserPool = new Aws.Cognito.UserPool("mainUserPool");
+    ///     var main = new Aws.Cognito.UserPool("main", new()
+    ///     {
+    ///         Name = "identity pool",
+    ///     });
     /// 
-    ///     var groupRolePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var groupRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -71,14 +74,16 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var groupRoleRole = new Aws.Iam.Role("groupRoleRole", new()
+    ///     var groupRoleRole = new Aws.Iam.Role("group_role", new()
     ///     {
-    ///         AssumeRolePolicy = groupRolePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "user-group-role",
+    ///         AssumeRolePolicy = groupRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new()
+    ///     var mainUserGroup = new Aws.Cognito.UserGroup("main", new()
     ///     {
-    ///         UserPoolId = mainUserPool.Id,
+    ///         Name = "user-group",
+    ///         UserPoolId = main.Id,
     ///         Description = "Managed by Pulumi",
     ///         Precedence = 42,
     ///         RoleArn = groupRoleRole.Arn,

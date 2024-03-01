@@ -34,6 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
 //			streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -55,13 +56,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
+//			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metric_stream_to_firehose", &iam.RoleArgs{
+//				Name:             pulumi.String("metric_stream_to_firehose_role"),
 //				AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("metric-stream-test-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -86,13 +90,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
+//			firehoseToS3Role, err := iam.NewRole(ctx, "firehose_to_s3", &iam.RoleArgs{
 //				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+//			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("metric-stream-test-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseToS3Role.Arn,
@@ -103,6 +108,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
+//				Name:         pulumi.String("my-metric-stream"),
 //				RoleArn:      metricStreamToFirehoseRole.Arn,
 //				FirehoseArn:  s3Stream.Arn,
 //				OutputFormat: pulumi.String("json"),
@@ -123,7 +129,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			metricStreamToFirehosePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			// https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+//			metricStreamToFirehose := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -137,23 +144,24 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "metric_stream_to_firehose", &iam.RolePolicyArgs{
+//				Name: pulumi.String("default"),
 //				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: metricStreamToFirehosePolicyDocument.ApplyT(func(metricStreamToFirehosePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &metricStreamToFirehosePolicyDocument.Json, nil
+//				Policy: metricStreamToFirehose.ApplyT(func(metricStreamToFirehose iam.GetPolicyDocumentResult) (*string, error) {
+//					return &metricStreamToFirehose.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			firehoseToS3PolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			firehoseToS3 := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -174,10 +182,11 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "firehose_to_s3", &iam.RolePolicyArgs{
+//				Name: pulumi.String("default"),
 //				Role: firehoseToS3Role.ID(),
-//				Policy: firehoseToS3PolicyDocument.ApplyT(func(firehoseToS3PolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &firehoseToS3PolicyDocument.Json, nil
+//				Policy: firehoseToS3.ApplyT(func(firehoseToS3 iam.GetPolicyDocumentResult) (*string, error) {
+//					return &firehoseToS3.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -203,8 +212,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Metric_stream_to_firehose.Arn),
-//				FirehoseArn:  pulumi.Any(aws_kinesis_firehose_delivery_stream.S3_stream.Arn),
+//				Name:         pulumi.String("my-metric-stream"),
+//				RoleArn:      pulumi.Any(metricStreamToFirehose.Arn),
+//				FirehoseArn:  pulumi.Any(s3Stream.Arn),
 //				OutputFormat: pulumi.String("json"),
 //				StatisticsConfigurations: cloudwatch.MetricStreamStatisticsConfigurationArray{
 //					&cloudwatch.MetricStreamStatisticsConfigurationArgs{

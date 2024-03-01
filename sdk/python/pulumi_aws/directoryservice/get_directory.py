@@ -237,7 +237,7 @@ def get_directory(directory_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
+    example = aws.directoryservice.get_directory(directory_id=main["id"])
     ```
 
 
@@ -283,7 +283,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
+    example = aws.directoryservice.get_directory(directory_id=main["id"])
     ```
 
 

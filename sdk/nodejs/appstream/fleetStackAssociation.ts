@@ -13,16 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFleet = new aws.appstream.Fleet("exampleFleet", {
+ * const example = new aws.appstream.Fleet("example", {
+ *     name: "NAME",
  *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.small",
  *     computeCapacity: {
  *         desiredInstances: 1,
  *     },
  * });
- * const exampleStack = new aws.appstream.Stack("exampleStack", {});
- * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("exampleFleetStackAssociation", {
- *     fleetName: exampleFleet.name,
+ * const exampleStack = new aws.appstream.Stack("example", {name: "STACK NAME"});
+ * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("example", {
+ *     fleetName: example.name,
  *     stackName: exampleStack.name,
  * });
  * ```

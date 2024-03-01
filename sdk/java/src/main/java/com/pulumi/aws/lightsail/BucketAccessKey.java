@@ -16,6 +16,43 @@ import javax.annotation.Nullable;
 /**
  * Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Bucket;
+ * import com.pulumi.aws.lightsail.BucketArgs;
+ * import com.pulumi.aws.lightsailBucketAccessKeyAccessKey;
+ * import com.pulumi.aws.LightsailBucketAccessKeyAccessKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Bucket(&#34;test&#34;, BucketArgs.builder()        
+ *             .name(&#34;mytestbucket&#34;)
+ *             .bundleId(&#34;small_1_0&#34;)
+ *             .build());
+ * 
+ *         var testLightsailBucketAccessKeyAccessKey = new LightsailBucketAccessKeyAccessKey(&#34;testLightsailBucketAccessKeyAccessKey&#34;, LightsailBucketAccessKeyAccessKeyArgs.builder()        
+ *             .bucketName(testAwsLightsailBucketAccessKey.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:

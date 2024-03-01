@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApprovalRuleTemplateAssociation(&#34;example&#34;, ApprovalRuleTemplateAssociationArgs.builder()        
- *             .approvalRuleTemplateName(aws_codecommit_approval_rule_template.example().name())
- *             .repositoryName(aws_codecommit_repository.example().repository_name())
+ *             .approvalRuleTemplateName(exampleAwsCodecommitApprovalRuleTemplate.name())
+ *             .repositoryName(exampleAwsCodecommitRepository.repositoryName())
  *             .build());
  * 
  *     }

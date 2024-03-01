@@ -179,13 +179,13 @@ class UserStackAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stack = aws.appstream.Stack("testStack")
-        test_user = aws.appstream.User("testUser",
+        test = aws.appstream.Stack("test", name="STACK NAME")
+        test_user = aws.appstream.User("test",
             authentication_type="USERPOOL",
             user_name="EMAIL")
-        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+        test_user_stack_association = aws.appstream.UserStackAssociation("test",
             authentication_type=test_user.authentication_type,
-            stack_name=test_stack.name,
+            stack_name=test.name,
             user_name=test_user.user_name)
         ```
 
@@ -221,13 +221,13 @@ class UserStackAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stack = aws.appstream.Stack("testStack")
-        test_user = aws.appstream.User("testUser",
+        test = aws.appstream.Stack("test", name="STACK NAME")
+        test_user = aws.appstream.User("test",
             authentication_type="USERPOOL",
             user_name="EMAIL")
-        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+        test_user_stack_association = aws.appstream.UserStackAssociation("test",
             authentication_type=test_user.authentication_type,
-            stack_name=test_stack.name,
+            stack_name=test.name,
             user_name=test_user.user_name)
         ```
 

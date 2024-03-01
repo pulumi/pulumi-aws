@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
+//				Name: pulumi.String("white-hart"),
 //				Settings: ecs.ClusterSettingArray{
 //					&ecs.ClusterSettingArgs{
 //						Name:  pulumi.String("containerInsights"),
@@ -59,21 +60,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("example"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
+//				Name: pulumi.String("example"),
 //				Configuration: &ecs.ClusterConfigurationArgs{
 //					ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
-//						KmsKeyId: exampleKey.Arn,
+//						KmsKeyId: example.Arn,
 //						Logging:  pulumi.String("OVERRIDE"),
 //						LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
 //							CloudWatchEncryptionEnabled: pulumi.Bool(true),

@@ -38,18 +38,19 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
+    ///         Name = "All VPC CIDR-s",
     ///         AddressFamily = "IPv4",
     ///         MaxEntries = 5,
     ///         Entries = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 Cidr = aws_vpc.Example.Cidr_block,
+    ///                 Cidr = exampleAwsVpc.CidrBlock,
     ///                 Description = "Primary",
     ///             },
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
+    ///                 Cidr = exampleAwsVpcIpv4CidrBlockAssociation.CidrBlock,
     ///                 Description = "Secondary",
     ///             },
     ///         },

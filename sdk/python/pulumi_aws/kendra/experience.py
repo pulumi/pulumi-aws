@@ -281,13 +281,14 @@ class Experience(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
             description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.ExperienceConfigurationArgs(
                 content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
                     direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
+                    faq_ids=[example_aws_kendra_faq["faqId"]],
                 ),
                 user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
                     identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
@@ -330,13 +331,14 @@ class Experience(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
             description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.ExperienceConfigurationArgs(
                 content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
                     direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
+                    faq_ids=[example_aws_kendra_faq["faqId"]],
                 ),
                 user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
                     identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",

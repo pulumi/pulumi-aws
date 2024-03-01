@@ -24,7 +24,13 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var ec2 = new Aws.Budgets.Budget("ec2", new()
     ///     {
+    ///         Name = "budget-ec2-monthly",
     ///         BudgetType = "COST",
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         TimePeriodEnd = "2087-06-15_00:00",
+    ///         TimePeriodStart = "2017-07-01_00:00",
+    ///         TimeUnit = "MONTHLY",
     ///         CostFilters = new[]
     ///         {
     ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
@@ -36,25 +42,20 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
-    ///         LimitAmount = "1200",
-    ///         LimitUnit = "USD",
     ///         Notifications = new[]
     ///         {
     ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
     ///             {
     ///                 ComparisonOperator = "GREATER_THAN",
+    ///                 Threshold = 100,
+    ///                 ThresholdType = "PERCENTAGE",
     ///                 NotificationType = "FORECASTED",
     ///                 SubscriberEmailAddresses = new[]
     ///                 {
     ///                     "test@example.com",
     ///                 },
-    ///                 Threshold = 100,
-    ///                 ThresholdType = "PERCENTAGE",
     ///             },
     ///         },
-    ///         TimePeriodEnd = "2087-06-15_00:00",
-    ///         TimePeriodStart = "2017-07-01_00:00",
-    ///         TimeUnit = "MONTHLY",
     ///     });
     /// 
     /// });
@@ -96,14 +97,14 @@ namespace Pulumi.Aws.Budgets
     ///         {
     ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
     ///             {
-    ///                 Amount = "100",
     ///                 StartTime = "2017-07-01_00:00",
+    ///                 Amount = "100",
     ///                 Unit = "USD",
     ///             },
     ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
     ///             {
-    ///                 Amount = "200",
     ///                 StartTime = "2017-08-01_00:00",
+    ///                 Amount = "200",
     ///                 Unit = "USD",
     ///             },
     ///         },
@@ -142,9 +143,11 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savingsPlanUtilization", new()
+    ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savings_plan_utilization", new()
     ///     {
     ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
     ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///         {
     ///             IncludeCredit = false,
@@ -158,8 +161,6 @@ namespace Pulumi.Aws.Budgets
     ///             IncludeUpfront = false,
     ///             UseBlended = false,
     ///         },
-    ///         LimitAmount = "100.0",
-    ///         LimitUnit = "PERCENTAGE",
     ///     });
     /// 
     /// });
@@ -175,20 +176,11 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var riUtilization = new Aws.Budgets.Budget("riUtilization", new()
+    ///     var riUtilization = new Aws.Budgets.Budget("ri_utilization", new()
     ///     {
     ///         BudgetType = "RI_UTILIZATION",
-    ///         CostFilters = new[]
-    ///         {
-    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
-    ///             {
-    ///                 Name = "Service",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "Amazon Relational Database Service",
-    ///                 },
-    ///             },
-    ///         },
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
     ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///         {
     ///             IncludeCredit = false,
@@ -202,8 +194,17 @@ namespace Pulumi.Aws.Budgets
     ///             IncludeUpfront = false,
     ///             UseBlended = false,
     ///         },
-    ///         LimitAmount = "100.0",
-    ///         LimitUnit = "PERCENTAGE",
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "Service",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Amazon Relational Database Service",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -256,7 +257,7 @@ namespace Pulumi.Aws.Budgets
     ///                 Name = "TagKeyValue",
     ///                 Values = new[]
     ///                 {
-    ///                     "TagKey${var.TagValue}",
+    ///                     $"TagKey{"$"}{tagValue}",
     ///                 },
     ///             },
     ///         },

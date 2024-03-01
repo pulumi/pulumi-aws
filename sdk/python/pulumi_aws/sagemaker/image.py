@@ -246,7 +246,7 @@ class Image(pulumi.CustomResource):
 
         example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -283,7 +283,7 @@ class Image(pulumi.CustomResource):
 
         example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
+            role_arn=test["arn"])
         ```
 
         ## Import

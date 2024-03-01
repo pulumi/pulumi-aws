@@ -97,7 +97,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"])
     ```
     ### With Host ID Filter
 
@@ -105,7 +105,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
@@ -114,7 +114,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         status_id_filters=["ACTIVE"])
     ```
 
@@ -153,7 +153,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"])
     ```
     ### With Host ID Filter
 
@@ -161,7 +161,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
@@ -170,7 +170,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         status_id_filters=["ACTIVE"])
     ```
 

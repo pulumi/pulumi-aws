@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
+ *             .name(&#34;vc-name-test&#34;)
  *             .requireEncryption(true)
  *             .build());
  * 
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *             .callingRegions(            
  *                 &#34;US&#34;,
  *                 &#34;CA&#34;)
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .build());
  * 
  *     }

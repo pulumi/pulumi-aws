@@ -17,23 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePermission = new aws.lambda.Permission("examplePermission", {
+ * const example = new aws.lambda.Permission("example", {
  *     action: "lambda:InvokeFunction",
- *     "function": aws_lambda_function.example.arn,
+ *     "function": exampleAwsLambdaFunction.arn,
  *     principal: "config.amazonaws.com",
+ *     statementId: "AllowExecutionFromConfig",
  * });
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const exampleOrganization = new aws.organizations.Organization("example", {
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule", {
- *     lambdaFunctionArn: aws_lambda_function.example.arn,
+ * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("example", {
+ *     lambdaFunctionArn: exampleAwsLambdaFunction.arn,
+ *     name: "example",
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
- * }, {
- *     dependsOn: [
- *         examplePermission,
- *         exampleOrganization,
- *     ],
  * });
  * ```
  *

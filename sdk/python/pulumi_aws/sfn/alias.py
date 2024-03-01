@@ -175,20 +175,24 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_alias = aws.sfn.Alias("sfnAlias", routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-            state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
-            weight=100,
-        )])
-        my_sfn_alias = aws.sfn.Alias("mySfnAlias", routing_configurations=[
-            aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                weight=50,
-            ),
-            aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                weight=50,
-            ),
-        ])
+        sfn_alias = aws.sfn.Alias("sfn_alias",
+            name="my_sfn_alias",
+            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn=sfn_test["stateMachineVersionArn"],
+                weight=100,
+            )])
+        my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
+            name="my_sfn_alias",
+            routing_configurations=[
+                aws.sfn.AliasRoutingConfigurationArgs(
+                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                    weight=50,
+                ),
+                aws.sfn.AliasRoutingConfigurationArgs(
+                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                    weight=50,
+                ),
+            ])
         ```
 
         ## Import
@@ -221,20 +225,24 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_alias = aws.sfn.Alias("sfnAlias", routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-            state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
-            weight=100,
-        )])
-        my_sfn_alias = aws.sfn.Alias("mySfnAlias", routing_configurations=[
-            aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                weight=50,
-            ),
-            aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                weight=50,
-            ),
-        ])
+        sfn_alias = aws.sfn.Alias("sfn_alias",
+            name="my_sfn_alias",
+            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn=sfn_test["stateMachineVersionArn"],
+                weight=100,
+            )])
+        my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
+            name="my_sfn_alias",
+            routing_configurations=[
+                aws.sfn.AliasRoutingConfigurationArgs(
+                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                    weight=50,
+                ),
+                aws.sfn.AliasRoutingConfigurationArgs(
+                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                    weight=50,
+                ),
+            ])
         ```
 
         ## Import

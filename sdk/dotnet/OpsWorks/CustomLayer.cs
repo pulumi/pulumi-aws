@@ -24,8 +24,9 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var custlayer = new Aws.OpsWorks.CustomLayer("custlayer", new()
     ///     {
+    ///         Name = "My Awesome Custom Layer",
     ///         ShortName = "awesome",
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///     });
     /// 
     /// });

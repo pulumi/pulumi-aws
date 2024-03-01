@@ -606,7 +606,7 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3 = aws.ec2.VpcEndpoint("s3",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
         ### Basic w/ Tags
@@ -616,7 +616,7 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3 = aws.ec2.VpcEndpoint("s3",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3",
             tags={
                 "Environment": "test",
@@ -629,10 +629,10 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.ec2.VpcEndpoint("ec2",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.ec2",
             vpc_endpoint_type="Interface",
-            security_group_ids=[aws_security_group["sg1"]["id"]],
+            security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
         ### Gateway Load Balancer Endpoint Type
@@ -642,15 +642,15 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
             allowed_principals=[current.arn],
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_endpoint_type=example_vpc_endpoint_service.service_type,
-            vpc_id=aws_vpc["example"]["id"])
+            gateway_load_balancer_arns=[example_aws_lb["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
+            service_name=example.service_name,
+            subnet_ids=[example_aws_subnet["id"]],
+            vpc_endpoint_type=example.service_type,
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import
@@ -703,7 +703,7 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3 = aws.ec2.VpcEndpoint("s3",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
         ### Basic w/ Tags
@@ -713,7 +713,7 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3 = aws.ec2.VpcEndpoint("s3",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3",
             tags={
                 "Environment": "test",
@@ -726,10 +726,10 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.ec2.VpcEndpoint("ec2",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.ec2",
             vpc_endpoint_type="Interface",
-            security_group_ids=[aws_security_group["sg1"]["id"]],
+            security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
         ### Gateway Load Balancer Endpoint Type
@@ -739,15 +739,15 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
             allowed_principals=[current.arn],
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_endpoint_type=example_vpc_endpoint_service.service_type,
-            vpc_id=aws_vpc["example"]["id"])
+            gateway_load_balancer_arns=[example_aws_lb["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
+            service_name=example.service_name,
+            subnet_ids=[example_aws_subnet["id"]],
+            vpc_endpoint_type=example.service_type,
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import

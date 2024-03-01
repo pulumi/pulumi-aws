@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.AccessPolicyAssociation("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         PolicyArn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
-    ///         PrincipalArn = aws_iam_user.Example.Arn,
+    ///         PrincipalArn = exampleAwsIamUser.Arn,
     ///         AccessScope = new Aws.Eks.Inputs.AccessPolicyAssociationAccessScopeArgs
     ///         {
     ///             Type = "namespace",

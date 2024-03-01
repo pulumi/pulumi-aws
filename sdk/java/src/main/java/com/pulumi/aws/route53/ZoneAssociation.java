@@ -53,13 +53,14 @@ import javax.annotation.Nullable;
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var secondaryVpc = new Vpc(&#34;secondaryVpc&#34;, VpcArgs.builder()        
+ *         var secondary = new Vpc(&#34;secondary&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.7.0.0/16&#34;)
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
  *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(primary.id())
  *                 .build())
@@ -67,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var secondaryZoneAssociation = new ZoneAssociation(&#34;secondaryZoneAssociation&#34;, ZoneAssociationArgs.builder()        
  *             .zoneId(example.zoneId())
- *             .vpcId(secondaryVpc.id())
+ *             .vpcId(secondary.id())
  *             .build());
  * 
  *     }

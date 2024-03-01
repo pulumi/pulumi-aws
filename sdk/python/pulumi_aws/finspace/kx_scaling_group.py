@@ -332,7 +332,8 @@ class KxScalingGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxScalingGroup("example",
-            environment_id=aws_finspace_kx_environment["example"]["id"],
+            name="my-tf-kx-scalinggroup",
+            environment_id=example_aws_finspace_kx_environment["id"],
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```
@@ -372,7 +373,8 @@ class KxScalingGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxScalingGroup("example",
-            environment_id=aws_finspace_kx_environment["example"]["id"],
+            name="my-tf-kx-scalinggroup",
+            environment_id=example_aws_finspace_kx_environment["id"],
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```

@@ -37,6 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
+//				Name: pulumi.String("example-multiplex-changed"),
 //				AvailabilityZones: pulumi.StringArray{
 //					*pulumi.String(available.Names[0]),
 //					*pulumi.String(available.Names[1]),

@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
-//				RetentionPeriod:     pulumi.Int(14),
 //				SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
+//				RetentionPeriod:     pulumi.Int(14),
 //			})
 //			if err != nil {
 //				return err
@@ -59,8 +59,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
-//				KmsKeyId:            pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
 //				SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
+//				KmsKeyId:            pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +78,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -87,13 +86,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "replica", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
+//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(10),
 //				Identifier:            pulumi.String("mydb"),
 //				Engine:                pulumi.String("postgres"),
@@ -109,16 +102,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
+//			defaultKey, err := kms.NewKey(ctx, "default", &kms.KeyArgs{
 //				Description: pulumi.String("Encryption key for automated backups"),
-//			}, pulumi.Provider(aws.Replica))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "defaultInstanceAutomatedBackupsReplication", &rds.InstanceAutomatedBackupsReplicationArgs{
-//				SourceDbInstanceArn: defaultInstance.Arn,
+//			_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
+//				SourceDbInstanceArn: _default.Arn,
 //				KmsKeyId:            defaultKey.Arn,
-//			}, pulumi.Provider(aws.Replica))
+//			})
 //			if err != nil {
 //				return err
 //			}

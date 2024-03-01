@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.LambdaFunctionAssociation("example", new()
     ///     {
-    ///         FunctionArn = aws_lambda_function.Example.Arn,
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         FunctionArn = exampleAwsLambdaFunction.Arn,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///     });
     /// 
     /// });

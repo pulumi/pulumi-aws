@@ -50,13 +50,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
+//				Name:             pulumi.String("test_role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAttach, err := iam.NewRolePolicyAttachment(ctx, "testAttach", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "test_attach", &iam.RolePolicyAttachmentArgs{
 //				Role:      testRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //			})
@@ -64,12 +65,11 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
+//				Name:              pulumi.String("test_ssm_activation"),
 //				Description:       pulumi.String("Test"),
 //				IamRole:           testRole.ID(),
 //				RegistrationLimit: pulumi.Int(5),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAttach,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

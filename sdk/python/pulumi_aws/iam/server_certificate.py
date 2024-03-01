@@ -391,10 +391,12 @@ class ServerCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+        test_cert = aws.iam.ServerCertificate("test_cert",
+            name="some_test_cert",
+            certificate_body=std.file(input="self-ca-cert.pem").result,
+            private_key=std.file(input="test-key.pem").result)
         ```
 
         **Example with cert in-line:**
@@ -403,16 +405,15 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.ServerCertificate("testCertAlt",
+        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
+            name="alt_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
         \"\"\",
             private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
         [......] # cert contents
         -----END RSA PRIVATE KEY-----
-
         \"\"\")
         ```
 
@@ -428,12 +429,14 @@ class ServerCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.ServerCertificate("testCert",
+        test_cert = aws.iam.ServerCertificate("test_cert",
             name_prefix="example-cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result,
+            private_key=std.file(input="test-key.pem").result)
         ourapp = aws.elb.LoadBalancer("ourapp",
+            name="asg-deployment-example",
             availability_zones=["us-west-2a"],
             cross_zone_load_balancing=True,
             listeners=[aws.elb.LoadBalancerListenerArgs(
@@ -498,10 +501,12 @@ class ServerCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+        test_cert = aws.iam.ServerCertificate("test_cert",
+            name="some_test_cert",
+            certificate_body=std.file(input="self-ca-cert.pem").result,
+            private_key=std.file(input="test-key.pem").result)
         ```
 
         **Example with cert in-line:**
@@ -510,16 +515,15 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.ServerCertificate("testCertAlt",
+        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
+            name="alt_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
         \"\"\",
             private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
         [......] # cert contents
         -----END RSA PRIVATE KEY-----
-
         \"\"\")
         ```
 
@@ -535,12 +539,14 @@ class ServerCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.ServerCertificate("testCert",
+        test_cert = aws.iam.ServerCertificate("test_cert",
             name_prefix="example-cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result,
+            private_key=std.file(input="test-key.pem").result)
         ourapp = aws.elb.LoadBalancer("ourapp",
+            name="asg-deployment-example",
             availability_zones=["us-west-2a"],
             cross_zone_load_balancing=True,
             listeners=[aws.elb.LoadBalancerListenerArgs(

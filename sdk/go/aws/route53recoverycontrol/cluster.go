@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoverycontrol.NewCluster(ctx, "example", nil)
+//			_, err := route53recoverycontrol.NewCluster(ctx, "example", &route53recoverycontrol.ClusterArgs{
+//				Name: pulumi.String("georgefitzgerald"),
+//			})
 //			if err != nil {
 //				return err
 //			}

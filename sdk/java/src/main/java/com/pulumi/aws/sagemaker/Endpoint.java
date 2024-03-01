@@ -43,8 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var endpoint = new Endpoint(&#34;endpoint&#34;, EndpointArgs.builder()        
- *             .endpointConfigName(aws_sagemaker_endpoint_configuration.ec().name())
+ *         var e = new Endpoint(&#34;e&#34;, EndpointArgs.builder()        
+ *             .name(&#34;my-endpoint&#34;)
+ *             .endpointConfigName(ec.name())
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
  *             .build());
  * 

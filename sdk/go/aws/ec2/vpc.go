@@ -90,7 +90,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpam, err := ec2.NewVpcIpam(ctx, "testVpcIpam", &ec2.VpcIpamArgs{
+//			test, err := ec2.NewVpcIpam(ctx, "test", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
 //						RegionName: *pulumi.String(current.Name),
@@ -100,27 +100,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "testVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   testVpcIpam.PrivateDefaultScopeId,
+//				IpamScopeId:   test.PrivateDefaultScopeId,
 //				Locale:        *pulumi.String(current.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "testVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "test", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: testVpcIpamPool.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//			_, err = ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
 //				Ipv4IpamPoolId:    testVpcIpamPool.ID(),
 //				Ipv4NetmaskLength: pulumi.Int(28),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcIpamPoolCidr,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

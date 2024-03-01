@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .deviceId(aws_networkmanager_device.example1().id())
- *             .connectedDeviceId(aws_networkmanager_device.example2().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .deviceId(example1.id())
+ *             .connectedDeviceId(example2.id())
  *             .build());
  * 
  *     }

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var portfolio = new Aws.ServiceCatalog.Portfolio("portfolio", new()
     ///     {
+    ///         Name = "My App Portfolio",
     ///         Description = "List of my organizations apps",
     ///         ProviderName = "Brett",
     ///     });

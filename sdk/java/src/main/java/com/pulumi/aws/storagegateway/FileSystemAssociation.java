@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FileSystemAssociation(&#34;example&#34;, FileSystemAssociationArgs.builder()        
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_fsx_windows_file_system.example().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .locationArn(exampleAwsFsxWindowsFileSystem.arn())
  *             .username(&#34;Admin&#34;)
  *             .password(&#34;avoid-plaintext-passwords&#34;)
- *             .auditDestinationArn(aws_s3_bucket.example().arn())
+ *             .auditDestinationArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
@@ -74,7 +74,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.storagegateway.FileSystemAssociation;
  * import com.pulumi.aws.storagegateway.FileSystemAssociationArgs;
  * import com.pulumi.aws.storagegateway.inputs.FileSystemAssociationCacheAttributesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,36 +91,32 @@ import javax.annotation.Nullable;
  *             .name(&#34;/aws/service/storagegateway/ami/FILE_S3/latest&#34;)
  *             .build());
  * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
  *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -&gt; getParameterResult.value()))
  *             .associatePublicIpAddress(true)
- *             .instanceType(data.aws_ec2_instance_type_offering().available().instance_type())
- *             .vpcSecurityGroupIds(aws_security_group.test().id())
- *             .subnetId(aws_subnet.test()[0].id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_route.test(),
- *                     aws_vpc_dhcp_options_association.test())
- *                 .build());
+ *             .instanceType(available.instanceType())
+ *             .vpcSecurityGroupIds(testAwsSecurityGroup.id())
+ *             .subnetId(testAwsSubnet[0].id())
+ *             .build());
  * 
  *         var testGateway = new Gateway(&#34;testGateway&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(testInstance.publicIp())
+ *             .gatewayIpAddress(test.publicIp())
  *             .gatewayName(&#34;test-sgw&#34;)
  *             .gatewayTimezone(&#34;GMT&#34;)
  *             .gatewayType(&#34;FILE_FSX_SMB&#34;)
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
- *                 .domainName(aws_directory_service_directory.test().name())
- *                 .password(aws_directory_service_directory.test().password())
+ *                 .domainName(testAwsDirectoryServiceDirectory.name())
+ *                 .password(testAwsDirectoryServiceDirectory.password())
  *                 .username(&#34;Admin&#34;)
  *                 .build())
  *             .build());
  * 
  *         var testWindowsFileSystem = new WindowsFileSystem(&#34;testWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
- *             .activeDirectoryId(aws_directory_service_directory.test().id())
- *             .securityGroupIds(aws_security_group.test().id())
+ *             .activeDirectoryId(testAwsDirectoryServiceDirectory.id())
+ *             .securityGroupIds(testAwsSecurityGroup.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
- *             .subnetIds(aws_subnet.test()[0].id())
+ *             .subnetIds(testAwsSubnet[0].id())
  *             .throughputCapacity(8)
  *             .build());
  * 
@@ -129,11 +124,11 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testGateway.arn())
  *             .locationArn(testWindowsFileSystem.arn())
  *             .username(&#34;Admin&#34;)
- *             .password(aws_directory_service_directory.test().password())
+ *             .password(testAwsDirectoryServiceDirectory.password())
  *             .cacheAttributes(FileSystemAssociationCacheAttributesArgs.builder()
  *                 .cacheStaleTimeoutInSeconds(400)
  *                 .build())
- *             .auditDestinationArn(aws_cloudwatch_log_group.test().arn())
+ *             .auditDestinationArn(testAwsCloudwatchLogGroup.arn())
  *             .build());
  * 
  *     }

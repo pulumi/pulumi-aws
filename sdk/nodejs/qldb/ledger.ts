@@ -15,7 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sample_ledger = new aws.qldb.Ledger("sample-ledger", {permissionsMode: "STANDARD"});
+ * const sample_ledger = new aws.qldb.Ledger("sample-ledger", {
+ *     name: "sample-ledger",
+ *     permissionsMode: "STANDARD",
+ * });
  * ```
  *
  * ## Import

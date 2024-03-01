@@ -23,15 +23,20 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
     ///     });
     /// 
-    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
     ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("example", new()
+    ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
     ///         {
     ///             SupportingAccessPoint = exampleAccessPoint.Arn,
@@ -47,7 +52,7 @@ namespace Pulumi.Aws.S3Control
     ///                     {
     ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
     ///                         {
-    ///                             FunctionArn = aws_lambda_function.Example.Arn,
+    ///                             FunctionArn = exampleAwsLambdaFunction.Arn,
     ///                         },
     ///                     },
     ///                 },
@@ -55,22 +60,23 @@ namespace Pulumi.Aws.S3Control
     ///         },
     ///     });
     /// 
-    ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", new()
+    ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("example", new()
     ///     {
+    ///         Name = exampleObjectLambdaAccessPoint.Name,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2008-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3-object-lambda:GetObject",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = "s3-object-lambda:GetObject",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["AWS"] = data.Aws_caller_identity.Current.Account_id,
+    ///                         ["AWS"] = current.AccountId,
     ///                     },
-    ///                     ["Resource"] = exampleObjectLambdaAccessPoint.Arn,
+    ///                     ["resource"] = exampleObjectLambdaAccessPoint.Arn,
     ///                 },
     ///             },
     ///         })),

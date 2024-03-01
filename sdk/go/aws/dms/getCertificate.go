@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupCertificate(ctx, &dms.LookupCertificateArgs{
-//				CertificateId: aws_dms_certificate.Test.Certificate_id,
+//				CertificateId: test.CertificateId,
 //			}, nil)
 //			if err != nil {
 //				return err

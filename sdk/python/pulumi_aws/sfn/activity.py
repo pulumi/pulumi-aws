@@ -146,7 +146,7 @@ class Activity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_activity = aws.sfn.Activity("sfnActivity")
+        sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class Activity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_activity = aws.sfn.Activity("sfnActivity")
+        sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
 
         ## Import

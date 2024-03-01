@@ -23,33 +23,30 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
+    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Example.Arn,
+    ///             exampleAwsLb.Arn,
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Test_alternate.Id,
-    ///         ServiceName = aws_vpc_endpoint_service.Test.Service_name,
+    ///         VpcId = testAlternate.Id,
+    ///         ServiceName = testAwsVpcEndpointService.ServiceName,
     ///         VpcEndpointType = "Interface",
     ///         PrivateDnsEnabled = false,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             test.Id,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
     ///     });
     /// 
-    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
+    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("example", new()
     ///     {
-    ///         VpcEndpointServiceId = exampleVpcEndpointService.Id,
+    ///         VpcEndpointServiceId = example.Id,
     ///         VpcEndpointId = exampleVpcEndpoint.Id,
     ///     });
     /// 

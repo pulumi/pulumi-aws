@@ -13,13 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const example = new aws.organizations.Organization("example", {
  *     awsServiceAccessPrincipals: ["detective.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationAdminAccount = new aws.detective.OrganizationAdminAccount("exampleOrganizationAdminAccount", {accountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
+ * const exampleOrganizationAdminAccount = new aws.detective.OrganizationAdminAccount("example", {accountId: "123456789012"});
  * ```
  *
  * ## Import

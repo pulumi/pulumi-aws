@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsPath({
- *     networkInsightsPathId: aws_ec2_network_insights_path.example.id,
+ *     networkInsightsPathId: exampleAwsEc2NetworkInsightsPath.id,
  * });
  * ```
  */
@@ -111,7 +111,7 @@ export interface GetNetworkInsightsPathResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsPath({
- *     networkInsightsPathId: aws_ec2_network_insights_path.example.id,
+ *     networkInsightsPathId: exampleAwsEc2NetworkInsightsPath.id,
  * });
  * ```
  */

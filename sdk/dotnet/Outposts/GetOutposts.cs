@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
         ///     {
-        ///         SiteId = data.Aws_outposts_site.Id,
+        ///         SiteId = id,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
         ///     {
-        ///         SiteId = data.Aws_outposts_site.Id,
+        ///         SiteId = id,
         ///     });
         /// 
         /// });

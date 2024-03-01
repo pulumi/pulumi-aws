@@ -126,7 +126,7 @@ def get_export(api_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
+    test = aws.apigatewayv2.get_export(api_id=test_aws_apigatewayv2_route["apiId"],
         specification="OAS30",
         output_type="JSON")
     ```
@@ -177,7 +177,7 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
+    test = aws.apigatewayv2.get_export(api_id=test_aws_apigatewayv2_route["apiId"],
         specification="OAS30",
         output_type="JSON")
     ```

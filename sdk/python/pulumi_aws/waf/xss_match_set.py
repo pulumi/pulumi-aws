@@ -126,20 +126,22 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.waf.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.waf.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
 
         ## Import
@@ -170,20 +172,22 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.waf.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.waf.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
 
         ## Import

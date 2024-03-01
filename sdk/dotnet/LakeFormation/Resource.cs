@@ -27,14 +27,14 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucket = Aws.S3.GetBucket.Invoke(new()
+    ///     var example = Aws.S3.GetBucket.Invoke(new()
     ///     {
     ///         Bucket = "an-example-bucket",
     ///     });
     /// 
-    ///     var exampleResource = new Aws.LakeFormation.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.LakeFormation.Resource("example", new()
     ///     {
-    ///         Arn = exampleBucket.Apply(getBucketResult =&gt; getBucketResult.Arn),
+    ///         Arn = example.Apply(getBucketResult =&gt; getBucketResult.Arn),
     ///     });
     /// 
     /// });

@@ -41,8 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var hosted = new HostedConnection(&#34;hosted&#34;, HostedConnectionArgs.builder()        
- *             .bandwidth(&#34;100Mbps&#34;)
  *             .connectionId(&#34;dxcon-ffabc123&#34;)
+ *             .bandwidth(&#34;100Mbps&#34;)
+ *             .name(&#34;tf-dx-hosted-connection&#34;)
  *             .ownerAccountId(&#34;123456789012&#34;)
  *             .vlan(1)
  *             .build());

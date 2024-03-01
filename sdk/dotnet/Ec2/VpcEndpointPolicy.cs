@@ -23,23 +23,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpcEndpointService = Aws.Ec2.GetVpcEndpointService.Invoke(new()
+    ///     var example = Aws.Ec2.GetVpcEndpointService.Invoke(new()
     ///     {
     ///         Service = "dynamodb",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = exampleVpcEndpointService.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+    ///         ServiceName = example.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
     ///         VpcId = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new()
+    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("example", new()
     ///     {
     ///         VpcEndpointId = exampleVpcEndpoint.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

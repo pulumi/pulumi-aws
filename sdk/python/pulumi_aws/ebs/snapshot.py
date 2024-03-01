@@ -412,7 +412,7 @@ class Snapshot(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
@@ -458,7 +458,7 @@ class Snapshot(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",

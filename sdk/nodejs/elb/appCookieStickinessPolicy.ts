@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.elb.LoadBalancer("lb", {
+ *     name: "test-lb",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const foo = new aws.elb.AppCookieStickinessPolicy("foo", {
+ *     name: "foo_policy",
  *     loadBalancer: lb.name,
  *     lbPort: 80,
  *     cookieName: "MyAppCookie",

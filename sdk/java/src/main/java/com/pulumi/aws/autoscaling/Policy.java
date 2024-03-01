@@ -55,15 +55,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
+ *             .name(&#34;foobar3-test&#34;)
  *             .maxSize(5)
  *             .minSize(2)
  *             .healthCheckGracePeriod(300)
  *             .healthCheckType(&#34;ELB&#34;)
  *             .forceDelete(true)
- *             .launchConfiguration(aws_launch_configuration.foo().name())
+ *             .launchConfiguration(foo.name())
  *             .build());
  * 
  *         var bat = new Policy(&#34;bat&#34;, PolicyArgs.builder()        
+ *             .name(&#34;foobar3-test&#34;)
  *             .scalingAdjustment(4)
  *             .adjustmentType(&#34;ChangeInCapacity&#34;)
  *             .cooldown(300)
@@ -99,50 +101,51 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
+ *             .name(&#34;foo&#34;)
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+ *                 .targetValue(100)
  *                 .customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs.builder()
  *                     .metrics(                    
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .id(&#34;m1&#34;)
  *                             .label(&#34;Get the queue size (the number of messages waiting to be processed)&#34;)
+ *                             .id(&#34;m1&#34;)
  *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
+ *                                     .namespace(&#34;AWS/SQS&#34;)
+ *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
  *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
  *                                         .name(&#34;QueueName&#34;)
  *                                         .value(&#34;my-queue&#34;)
  *                                         .build())
- *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
- *                                     .namespace(&#34;AWS/SQS&#34;)
  *                                     .build())
  *                                 .stat(&#34;Sum&#34;)
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .id(&#34;m2&#34;)
  *                             .label(&#34;Get the group size (the number of InService instances)&#34;)
+ *                             .id(&#34;m2&#34;)
  *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
+ *                                     .namespace(&#34;AWS/AutoScaling&#34;)
+ *                                     .metricName(&#34;GroupInServiceInstances&#34;)
  *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
  *                                         .name(&#34;AutoScalingGroupName&#34;)
  *                                         .value(&#34;my-asg&#34;)
  *                                         .build())
- *                                     .metricName(&#34;GroupInServiceInstances&#34;)
- *                                     .namespace(&#34;AWS/AutoScaling&#34;)
  *                                     .build())
  *                                 .stat(&#34;Average&#34;)
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .expression(&#34;m1 / m2&#34;)
- *                             .id(&#34;e1&#34;)
  *                             .label(&#34;Calculate the backlog per instance&#34;)
+ *                             .id(&#34;e1&#34;)
+ *                             .expression(&#34;m1 / m2&#34;)
  *                             .returnData(true)
  *                             .build())
  *                     .build())
- *                 .targetValue(100)
  *                 .build())
  *             .build());
  * 
@@ -160,8 +163,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscaling.PolicyArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs;
+ * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -178,39 +181,40 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
+ *             .name(&#34;foo&#34;)
  *             .policyType(&#34;PredictiveScaling&#34;)
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
- *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
- *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
- *                             .id(&#34;capacity_sum&#34;)
- *                             .build())
- *                         .build())
+ *                     .targetValue(10)
  *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 3600))&#34;)
  *                             .id(&#34;load_sum&#34;)
+ *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 3600))&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
+ *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
+ *                             .id(&#34;capacity_sum&#34;)
+ *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
  *                             .build())
  *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
  *                         .metricDataQueries(                        
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
  *                                 .id(&#34;capacity_sum&#34;)
+ *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
  *                                 .id(&#34;load_sum&#34;)
+ *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)&#34;)
  *                                 .id(&#34;weighted_average&#34;)
+ *                                 .expression(&#34;load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)&#34;)
  *                                 .build())
  *                         .build())
- *                     .targetValue(10)
  *                     .build())
  *                 .build())
  *             .build());
@@ -229,8 +233,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscaling.PolicyArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
  * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs;
+ * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -246,30 +250,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
+ *             .name(&#34;foo&#34;)
  *             .policyType(&#34;PredictiveScaling&#34;)
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
+ *                     .targetValue(10)
+ *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
+ *                         .predefinedMetricType(&#34;ASGTotalCPUUtilization&#34;)
+ *                         .resourceLabel(&#34;app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff&#34;)
+ *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
  *                             .id(&#34;scaling&#34;)
  *                             .metricStat(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs.builder()
  *                                 .metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs.builder()
+ *                                     .metricName(&#34;CPUUtilization&#34;)
+ *                                     .namespace(&#34;AWS/EC2&#34;)
  *                                     .dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs.builder()
  *                                         .name(&#34;AutoScalingGroupName&#34;)
  *                                         .value(&#34;my-test-asg&#34;)
  *                                         .build())
- *                                     .metricName(&#34;CPUUtilization&#34;)
- *                                     .namespace(&#34;AWS/EC2&#34;)
  *                                     .build())
  *                                 .stat(&#34;Average&#34;)
  *                                 .build())
  *                             .build())
  *                         .build())
- *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
- *                         .predefinedMetricType(&#34;ASGTotalCPUUtilization&#34;)
- *                         .resourceLabel(&#34;app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff&#34;)
- *                         .build())
- *                     .targetValue(10)
  *                     .build())
  *                 .build())
  *             .build());

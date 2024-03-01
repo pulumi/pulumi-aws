@@ -362,9 +362,10 @@ class Model(pulumi.CustomResource):
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
+        example = aws.sagemaker.Model("example",
+            name="my-model",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
                 image=test.registry_path,
@@ -419,9 +420,10 @@ class Model(pulumi.CustomResource):
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
+        example = aws.sagemaker.Model("example",
+            name="my-model",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
                 image=test.registry_path,

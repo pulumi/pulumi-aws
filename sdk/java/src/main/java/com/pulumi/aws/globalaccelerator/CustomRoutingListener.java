@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCustomRoutingAccelerator = new CustomRoutingAccelerator(&#34;exampleCustomRoutingAccelerator&#34;, CustomRoutingAcceleratorArgs.builder()        
+ *         var example = new CustomRoutingAccelerator(&#34;example&#34;, CustomRoutingAcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomRoutingListener = new CustomRoutingListener(&#34;exampleCustomRoutingListener&#34;, CustomRoutingListenerArgs.builder()        
- *             .acceleratorArn(exampleCustomRoutingAccelerator.id())
+ *             .acceleratorArn(example.id())
  *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)

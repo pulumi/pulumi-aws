@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MonitoringSubscription(&#34;example&#34;, MonitoringSubscriptionArgs.builder()        
- *             .distributionId(aws_cloudfront_distribution.example().id())
+ *             .distributionId(exampleAwsCloudfrontDistribution.id())
  *             .monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs.builder()
  *                 .realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.builder()
  *                     .realtimeMetricsSubscriptionStatus(&#34;Enabled&#34;)

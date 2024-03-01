@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.Instance;
  * import com.pulumi.aws.rds.InstanceArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.rds.EventSubscription;
  * import com.pulumi.aws.rds.EventSubscriptionArgs;
  * import java.util.List;
@@ -45,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultInstance = new Instance(&#34;defaultInstance&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(10)
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.17&#34;)
@@ -57,12 +58,15 @@ import javax.annotation.Nullable;
  *             .parameterGroupName(&#34;default.mysql5.6&#34;)
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;);
+ *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;rds-events&#34;)
+ *             .build());
  * 
  *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
+ *             .name(&#34;rds-event-sub&#34;)
  *             .snsTopic(defaultTopic.arn())
  *             .sourceType(&#34;db-instance&#34;)
- *             .sourceIds(defaultInstance.identifier())
+ *             .sourceIds(default_.identifier())
  *             .eventCategories(            
  *                 &#34;availability&#34;,
  *                 &#34;deletion&#34;,

@@ -210,9 +210,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             tierings=[
                 aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
                     access_tier="DEEP_ARCHIVE_ACCESS",
@@ -230,9 +231,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             status="Disabled",
             filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
                 prefix="documents/",
@@ -281,9 +283,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             tierings=[
                 aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
                     access_tier="DEEP_ARCHIVE_ACCESS",
@@ -301,9 +304,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             status="Disabled",
             filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
                 prefix="documents/",

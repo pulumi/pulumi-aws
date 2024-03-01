@@ -309,9 +309,9 @@ class Access(pulumi.CustomResource):
 
         example = aws.transfer.Access("example",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["example"]["id"],
-            role=aws_iam_role["example"]["arn"],
-            home_directory=f"/{aws_s3_bucket['example']['id']}/")
+            server_id=example_aws_transfer_server["id"],
+            role=example_aws_iam_role["arn"],
+            home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
         ### Basic EFS
 
@@ -321,9 +321,9 @@ class Access(pulumi.CustomResource):
 
         test = aws.transfer.Access("test",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["test"]["id"],
-            role=aws_iam_role["test"]["arn"],
-            home_directory=f"/{aws_efs_file_system['test']['id']}/",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile=aws.transfer.AccessPosixProfileArgs(
                 gid=1000,
                 uid=1000,
@@ -367,9 +367,9 @@ class Access(pulumi.CustomResource):
 
         example = aws.transfer.Access("example",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["example"]["id"],
-            role=aws_iam_role["example"]["arn"],
-            home_directory=f"/{aws_s3_bucket['example']['id']}/")
+            server_id=example_aws_transfer_server["id"],
+            role=example_aws_iam_role["arn"],
+            home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
         ### Basic EFS
 
@@ -379,9 +379,9 @@ class Access(pulumi.CustomResource):
 
         test = aws.transfer.Access("test",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["test"]["id"],
-            role=aws_iam_role["test"]["arn"],
-            home_directory=f"/{aws_efs_file_system['test']['id']}/",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile=aws.transfer.AccessPosixProfileArgs(
                 gid=1000,
                 uid=1000,

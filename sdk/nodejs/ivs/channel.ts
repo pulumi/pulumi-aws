@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ivs.Channel("example", {});
+ * const example = new aws.ivs.Channel("example", {name: "channel-1"});
  * ```
  *
  * ## Import

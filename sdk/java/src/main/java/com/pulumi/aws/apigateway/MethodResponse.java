@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
@@ -118,6 +119,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
@@ -143,6 +145,7 @@ import javax.annotation.Nullable;
  * 
  *         var myDemoResponseModel = new Model(&#34;myDemoResponseModel&#34;, ModelArgs.builder()        
  *             .restApi(myDemoAPI.id())
+ *             .name(&#34;MyDemoResponseModel&#34;)
  *             .description(&#34;API response for MyDemoMethod&#34;)
  *             .contentType(&#34;application/json&#34;)
  *             .schema(serializeJson(
@@ -151,7 +154,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;title&#34;, &#34;MyDemoResponse&#34;),
  *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
  *                     jsonProperty(&#34;properties&#34;, jsonObject(
- *                         jsonProperty(&#34;Message&#34;, jsonObject(
+ *                         jsonProperty(&#34;message&#34;, jsonObject(
  *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
  *                         ))
  *                     ))

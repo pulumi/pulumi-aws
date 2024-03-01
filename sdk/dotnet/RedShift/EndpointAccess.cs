@@ -25,8 +25,8 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.EndpointAccess("example", new()
     ///     {
     ///         EndpointName = "example",
-    ///         SubnetGroupName = aws_redshift_subnet_group.Example.Id,
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         SubnetGroupName = exampleAwsRedshiftSubnetGroup.Id,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
     ///     });
     /// 
     /// });

@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         ActiveDirectoryId = aws_directory_service_directory.Example.Id,
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         ActiveDirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         StorageCapacity = 300,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         ThroughputCapacity = 1024,
     ///     });
@@ -55,11 +55,11 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         StorageCapacity = 300,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         ThroughputCapacity = 1024,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs

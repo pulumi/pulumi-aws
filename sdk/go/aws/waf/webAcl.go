@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -42,6 +43,7 @@ import (
 //				return err
 //			}
 //			wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: waf.RulePredicateArray{
 //					&waf.RulePredicateArgs{
@@ -50,13 +52,12 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+//			_, err = waf.NewWebAcl(ctx, "waf_acl", &waf.WebAclArgs{
+//				Name:       pulumi.String("tfWebACL"),
 //				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &waf.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -71,10 +72,7 @@ import (
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//				wafrule,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -101,7 +99,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
 //				LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{

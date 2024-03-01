@@ -25,10 +25,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new()
+    ///     var a = new Aws.Ec2.MainRouteTableAssociation("a", new()
     ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///         VpcId = foo.Id,
+    ///         RouteTableId = bar.Id,
     ///     });
     /// 
     /// });

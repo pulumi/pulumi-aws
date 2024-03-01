@@ -890,9 +890,9 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.LustreFileSystem("example",
-            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            import_path=f"s3://{example_aws_s3_bucket['bucket']}",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]])
+            subnet_ids=example_aws_subnet["id"])
         ```
 
         ## Import
@@ -947,9 +947,9 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.LustreFileSystem("example",
-            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            import_path=f"s3://{example_aws_s3_bucket['bucket']}",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]])
+            subnet_ids=example_aws_subnet["id"])
         ```
 
         ## Import

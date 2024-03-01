@@ -54,6 +54,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessLifecyclePolicy(ctx, "example", &opensearch.ServerlessLifecyclePolicyArgs{
+//				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("retention"),
 //				Policy: pulumi.String(json0),
 //			})

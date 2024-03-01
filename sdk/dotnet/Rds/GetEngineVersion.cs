@@ -54,6 +54,8 @@ namespace Pulumi.Aws.Rds
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
         ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
@@ -65,8 +67,6 @@ namespace Pulumi.Aws.Rds
         ///                 },
         ///             },
         ///         },
-        ///         IncludeAll = true,
-        ///         Version = "10.14",
         ///     });
         /// 
         /// });
@@ -120,6 +120,8 @@ namespace Pulumi.Aws.Rds
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
         ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
@@ -131,8 +133,6 @@ namespace Pulumi.Aws.Rds
         ///                 },
         ///             },
         ///         },
-        ///         IncludeAll = true,
-        ///         Version = "10.14",
         ///     });
         /// 
         /// });

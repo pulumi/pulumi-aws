@@ -21,6 +21,104 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Network Manager ConnectAttachment.
  * 
  * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.ConnectAttachment;
+ * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
+ *             .build());
+ * 
+ *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol(&#34;GRE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Usage with attachment accepter
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepter;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
+ * import com.pulumi.aws.networkmanager.ConnectAttachment;
+ * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
+ *             .build());
+ * 
+ *         var exampleAttachmentAccepter = new AttachmentAccepter(&#34;exampleAttachmentAccepter&#34;, AttachmentAccepterArgs.builder()        
+ *             .attachmentId(example.id())
+ *             .attachmentType(example.attachmentType())
+ *             .build());
+ * 
+ *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol(&#34;GRE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example2 = new AttachmentAccepter(&#34;example2&#34;, AttachmentAccepterArgs.builder()        
+ *             .attachmentId(exampleConnectAttachment.id())
+ *             .attachmentType(exampleConnectAttachment.attachmentType())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

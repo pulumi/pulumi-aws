@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.DataShareConsumerAssociation("example", {
- *     associateEntireAccount: true,
  *     dataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+ *     associateEntireAccount: true,
  * });
  * ```
  * ### Consumer Region
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.DataShareConsumerAssociation("example", {
- *     consumerRegion: "us-west-2",
  *     dataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+ *     consumerRegion: "us-west-2",
  * });
  * ```
  *

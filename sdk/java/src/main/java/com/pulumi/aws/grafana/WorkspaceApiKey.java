@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *             .keyName(&#34;test-key&#34;)
  *             .keyRole(&#34;VIEWER&#34;)
  *             .secondsToLive(3600)
- *             .workspaceId(aws_grafana_workspace.test().id())
+ *             .workspaceId(test.id())
  *             .build());
  * 
  *     }

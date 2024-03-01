@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;emr-test-arn&#34;)
  *             .releaseLabel(&#34;emr-4.6.0&#34;)
  *             .applications(&#34;Spark&#34;)
  *             .additionalInfo(&#34;&#34;&#34;
@@ -73,10 +74,10 @@ import javax.annotation.Nullable;
  *             .terminationProtection(false)
  *             .keepJobFlowAliveWhenNoSteps(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(aws_subnet.main().id())
- *                 .emrManagedMasterSecurityGroup(aws_security_group.sg().id())
- *                 .emrManagedSlaveSecurityGroup(aws_security_group.sg().id())
- *                 .instanceProfile(aws_iam_instance_profile.emr_profile().arn())
+ *                 .subnetId(main.id())
+ *                 .emrManagedMasterSecurityGroup(sg.id())
+ *                 .emrManagedSlaveSecurityGroup(sg.id())
+ *                 .instanceProfile(emrProfile.arn())
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceType(&#34;m4.large&#34;)
@@ -164,7 +165,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  *             &#34;&#34;&#34;)
- *             .serviceRole(aws_iam_role.iam_emr_service_role().arn())
+ *             .serviceRole(iamEmrServiceRole.arn())
  *             .build());
  * 
  *     }
@@ -287,6 +288,7 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .name(&#34;task fleet&#34;)
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
@@ -363,7 +365,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
  *             .mapPublicIpOnLaunch(true)
  *             .build());
  * 
@@ -371,7 +373,7 @@ import javax.annotation.Nullable;
  *             .releaseLabel(&#34;emr-5.24.1&#34;)
  *             .terminationProtection(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(exampleSubnet.id())
+ *                 .subnetId(example.id())
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceCount(3)
@@ -540,7 +542,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
@@ -593,7 +594,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 

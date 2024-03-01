@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
  *             .projectName(&#34;example&#34;)
  *             .serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs.builder()
- *                 .productId(aws_servicecatalog_product.example().id())
+ *                 .productId(exampleAwsServicecatalogProduct.id())
  *                 .build())
  *             .build());
  * 

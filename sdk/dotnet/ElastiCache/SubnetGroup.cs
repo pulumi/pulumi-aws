@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var foo = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         Tags = 
@@ -31,9 +31,9 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         AvailabilityZone = "us-west-2a",
     ///         Tags = 
@@ -44,6 +44,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
     ///     {
+    ///         Name = "tf-test-cache-subnet",
     ///         SubnetIds = new[]
     ///         {
     ///             fooSubnet.Id,

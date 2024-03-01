@@ -52,7 +52,8 @@ import javax.annotation.Nullable;
  *             .state(&#34;available&#34;)
  *             .build());
  * 
- *         var exampleMultiplex = new Multiplex(&#34;exampleMultiplex&#34;, MultiplexArgs.builder()        
+ *         var example = new Multiplex(&#34;example&#34;, MultiplexArgs.builder()        
+ *             .name(&#34;example-multiplex-changed&#34;)
  *             .availabilityZones(            
  *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]),
  *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
@@ -68,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMultiplexProgram = new MultiplexProgram(&#34;exampleMultiplexProgram&#34;, MultiplexProgramArgs.builder()        
  *             .programName(&#34;example_program&#34;)
- *             .multiplexId(exampleMultiplex.id())
+ *             .multiplexId(example.id())
  *             .multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs.builder()
  *                 .programNumber(1)
  *                 .preferredChannelPipeline(&#34;CURRENTLY_ACTIVE&#34;)

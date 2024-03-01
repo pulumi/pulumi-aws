@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
  *             .engine(&#34;REDIS&#34;)
  *             .passwords(&#34;password123456789&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }
@@ -78,13 +78,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~* +@all&#34;)
+ *             .engine(&#34;REDIS&#34;)
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type(&#34;iam&#34;)
  *                 .build())
- *             .engine(&#34;REDIS&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }
@@ -113,16 +113,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~* +@all&#34;)
+ *             .engine(&#34;REDIS&#34;)
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
+ *                 .type(&#34;password&#34;)
  *                 .passwords(                
  *                     &#34;password1&#34;,
  *                     &#34;password2&#34;)
- *                 .type(&#34;password&#34;)
  *                 .build())
- *             .engine(&#34;REDIS&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }

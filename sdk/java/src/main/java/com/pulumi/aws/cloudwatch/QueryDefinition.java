@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new QueryDefinition(&#34;example&#34;, QueryDefinitionArgs.builder()        
+ *             .name(&#34;custom_query&#34;)
  *             .logGroupNames(            
  *                 &#34;/aws/logGroup1&#34;,
  *                 &#34;/aws/logGroup2&#34;)
@@ -48,7 +49,6 @@ import javax.annotation.Nullable;
  * fields @timestamp, @message
  * | sort @timestamp desc
  * | limit 25
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 

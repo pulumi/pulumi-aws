@@ -19,9 +19,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
  *     bucket: example.id,
+ *     name: "EntireBucket",
  *     tierings: [
  *         {
  *             accessTier: "DEEP_ARCHIVE_ACCESS",
@@ -40,9 +41,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
  *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  *     status: "Disabled",
  *     filter: {
  *         prefix: "documents/",

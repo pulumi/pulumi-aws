@@ -317,6 +317,7 @@ class VideoStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.kinesis.VideoStream("default",
+            name="kinesis-video-stream",
             data_retention_in_hours=1,
             device_name="kinesis-video-device-name",
             media_type="video/h264",
@@ -361,6 +362,7 @@ class VideoStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.kinesis.VideoStream("default",
+            name="kinesis-video-stream",
             data_retention_in_hours=1,
             device_name="kinesis-video-device-name",
             media_type="video/h264",

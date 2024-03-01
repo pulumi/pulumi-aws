@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.ImageVersion("test", {
- *     imageName: aws_sagemaker_image.test.id,
+ *     imageName: testAwsSagemakerImage.id,
  *     baseImage: "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
  * });
  * ```

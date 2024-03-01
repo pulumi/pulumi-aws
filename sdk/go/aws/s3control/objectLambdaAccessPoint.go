@@ -30,17 +30,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
+//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "example", &s3control.ObjectLambdaAccessPointArgs{
+//				Name: pulumi.String("example"),
 //				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
 //					SupportingAccessPoint: exampleAccessPoint.Arn,
 //					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
@@ -50,7 +54,7 @@ import (
 //							},
 //							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
 //								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-//									FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//									FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								},
 //							},
 //						},

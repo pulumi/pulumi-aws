@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Device("example", new()
     ///     {
-    ///         DeviceFleetName = aws_sagemaker_device_fleet.Example.Device_fleet_name,
+    ///         DeviceFleetName = exampleAwsSagemakerDeviceFleet.DeviceFleetName,
     ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
     ///         {
     ///             DeviceName = "example",

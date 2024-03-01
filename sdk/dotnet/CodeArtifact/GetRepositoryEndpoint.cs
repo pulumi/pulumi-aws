@@ -28,8 +28,8 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
-        ///         Repository = aws_codeartifact_repository.Test.Repository,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
+        ///         Repository = testAwsCodeartifactRepository.Repository,
         ///         Format = "npm",
         ///     });
         /// 
@@ -58,8 +58,8 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
-        ///         Repository = aws_codeartifact_repository.Test.Repository,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
+        ///         Repository = testAwsCodeartifactRepository.Repository,
         ///         Format = "npm",
         ///     });
         /// 

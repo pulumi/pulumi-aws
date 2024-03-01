@@ -312,8 +312,8 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.App("example",
-            domain_id=aws_sagemaker_domain["example"]["id"],
-            user_profile_name=aws_sagemaker_user_profile["example"]["user_profile_name"],
+            domain_id=example_aws_sagemaker_domain["id"],
+            user_profile_name=example_aws_sagemaker_user_profile["userProfileName"],
             app_name="example",
             app_type="JupyterServer")
         ```
@@ -353,8 +353,8 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.App("example",
-            domain_id=aws_sagemaker_domain["example"]["id"],
-            user_profile_name=aws_sagemaker_user_profile["example"]["user_profile_name"],
+            domain_id=example_aws_sagemaker_domain["id"],
+            user_profile_name=example_aws_sagemaker_user_profile["userProfileName"],
             app_name="example",
             app_type="JupyterServer")
         ```

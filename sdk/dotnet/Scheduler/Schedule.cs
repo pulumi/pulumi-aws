@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Scheduler
     /// {
     ///     var example = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
     ///         GroupName = "default",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
@@ -37,8 +38,8 @@ namespace Pulumi.Aws.Scheduler
     ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
-    ///             Arn = aws_sqs_queue.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             Arn = exampleAwsSqsQueue.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
@@ -55,10 +56,11 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
+    ///     var example = new Aws.Sqs.Queue("example");
     /// 
-    ///     var exampleSchedule = new Aws.Scheduler.Schedule("exampleSchedule", new()
+    ///     var exampleSchedule = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
     ///             Mode = "OFF",
@@ -67,11 +69,11 @@ namespace Pulumi.Aws.Scheduler
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///             Input = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = exampleQueue.Url,
+    ///                 ["messageBody"] = "Greetings, programs!",
+    ///                 ["queueUrl"] = example.Url,
     ///             })),
     ///         },
     ///     });

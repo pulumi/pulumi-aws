@@ -227,19 +227,21 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc",
+        foo = aws.ec2.Vpc("foo",
             cidr_block="10.0.0.0/16",
             tags={
                 "Name": "tf-test",
             })
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
-            vpc_id=foo_vpc.id,
+        foo_subnet = aws.ec2.Subnet("foo",
+            vpc_id=foo.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-test",
             })
-        bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
+        bar = aws.elasticache.SubnetGroup("bar",
+            name="tf-test-cache-subnet",
+            subnet_ids=[foo_subnet.id])
         ```
 
         ## Import
@@ -272,19 +274,21 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc",
+        foo = aws.ec2.Vpc("foo",
             cidr_block="10.0.0.0/16",
             tags={
                 "Name": "tf-test",
             })
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
-            vpc_id=foo_vpc.id,
+        foo_subnet = aws.ec2.Subnet("foo",
+            vpc_id=foo.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-test",
             })
-        bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
+        bar = aws.elasticache.SubnetGroup("bar",
+            name="tf-test-cache-subnet",
+            subnet_ids=[foo_subnet.id])
         ```
 
         ## Import

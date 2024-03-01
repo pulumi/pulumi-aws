@@ -333,8 +333,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -357,11 +358,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
+                            target_group_identifier=example["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
+                            target_group_identifier=example2["id"],
                             weight=2,
                         ),
                     ],
@@ -375,8 +376,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -431,8 +433,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -455,11 +458,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
+                            target_group_identifier=example["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
+                            target_group_identifier=example2["id"],
                             weight=2,
                         ),
                     ],
@@ -473,8 +476,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(

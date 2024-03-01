@@ -31,10 +31,10 @@ import (
 //			// Create a new host with instance type of c5.18xlarge with Auto Placement
 //			// and Host Recovery enabled.
 //			_, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
-//				AutoPlacement:    pulumi.String("on"),
+//				InstanceType:     pulumi.String("c5.18xlarge"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				HostRecovery:     pulumi.String("on"),
-//				InstanceType:     pulumi.String("c5.18xlarge"),
+//				AutoPlacement:    pulumi.String("on"),
 //			})
 //			if err != nil {
 //				return err

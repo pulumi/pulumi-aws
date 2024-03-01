@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .releaseLabel(&#34;emr-6.6.0&#34;)
  *             .type(&#34;hive&#34;)
  *             .build());
@@ -82,18 +83,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .releaseLabel(&#34;emr-6.6.0&#34;)
+ *             .type(&#34;hive&#34;)
  *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
+ *                 .initialCapacityType(&#34;HiveDriver&#34;)
  *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
+ *                     .workerCount(1)
  *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
  *                         .cpu(&#34;2 vCPU&#34;)
  *                         .memory(&#34;10 GB&#34;)
  *                         .build())
- *                     .workerCount(1)
  *                     .build())
- *                 .initialCapacityType(&#34;HiveDriver&#34;)
  *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
  *             .build());
  * 
  *     }
@@ -123,12 +125,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .releaseLabel(&#34;emr-6.6.0&#34;)
+ *             .type(&#34;hive&#34;)
  *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
  *                 .cpu(&#34;2 vCPU&#34;)
  *                 .memory(&#34;10 GB&#34;)
  *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
  *             .build());
  * 
  *     }

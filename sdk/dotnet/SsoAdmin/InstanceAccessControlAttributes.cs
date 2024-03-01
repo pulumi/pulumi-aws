@@ -12,6 +12,63 @@ namespace Pulumi.Aws.SsoAdmin
     /// <summary>
     /// Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var exampleInstanceAccessControlAttributes = new Aws.SsoAdmin.InstanceAccessControlAttributes("example", new()
+    ///     {
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
+    ///             {
+    ///                 Key = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
+    ///                     {
+    ///                         Sources = new[]
+    ///                         {
+    ///                             "${path:name.givenName}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
+    ///             {
+    ///                 Key = "last",
+    ///                 Values = new[]
+    ///                 {
+    ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
+    ///                     {
+    ///                         Sources = new[]
+    ///                         {
+    ///                             "${path:name.familyName}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:

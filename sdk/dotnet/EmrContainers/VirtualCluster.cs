@@ -27,7 +27,7 @@ namespace Pulumi.Aws.EmrContainers
     ///     {
     ///         ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
     ///         {
-    ///             Id = aws_eks_cluster.Example.Name,
+    ///             Id = exampleAwsEksCluster.Name,
     ///             Type = "EKS",
     ///             Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
     ///             {
@@ -37,6 +37,7 @@ namespace Pulumi.Aws.EmrContainers
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

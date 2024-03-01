@@ -30,12 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			order, err := cloudwatch.NewEventBus(ctx, "order", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("orders"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
-//				EventSourceArn: orderEventBus.Arn,
+//			_, err = cloudwatch.NewEventArchive(ctx, "order", &cloudwatch.EventArchiveArgs{
+//				Name:           pulumi.String("order-archive"),
+//				EventSourceArn: order.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +64,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			order, err := cloudwatch.NewEventBus(ctx, "order", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("orders"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -74,9 +79,10 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
+//			_, err = cloudwatch.NewEventArchive(ctx, "order", &cloudwatch.EventArchiveArgs{
+//				Name:           pulumi.String("order-archive"),
 //				Description:    pulumi.String("Archived events from order service"),
-//				EventSourceArn: orderEventBus.Arn,
+//				EventSourceArn: order.Arn,
 //				RetentionDays:  pulumi.Int(7),
 //				EventPattern:   pulumi.String(json0),
 //			})

@@ -146,13 +146,10 @@ class Notification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example = aws.sns.Topic("example", name="example-topic")
+        bar = aws.autoscaling.Group("bar", name="foobar1-test")
+        foo = aws.autoscaling.Group("foo", name="barfoo-test")
+        example_notifications = aws.autoscaling.Notification("example_notifications",
             group_names=[
                 bar.name,
                 foo.name,
@@ -192,13 +189,10 @@ class Notification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example = aws.sns.Topic("example", name="example-topic")
+        bar = aws.autoscaling.Group("bar", name="foobar1-test")
+        foo = aws.autoscaling.Group("foo", name="barfoo-test")
+        example_notifications = aws.autoscaling.Notification("example_notifications",
             group_names=[
                 bar.name,
                 foo.name,

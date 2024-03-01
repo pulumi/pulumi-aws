@@ -31,12 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
 //				return err
@@ -60,12 +63,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -96,18 +102,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("example-access-point"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					AccessPoint: example_access_point.Arn,
 //					Tags: pulumi.StringMap{

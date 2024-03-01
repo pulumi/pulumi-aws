@@ -35,7 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewApplicationAssignmentConfiguration(ctx, "example", &ssoadmin.ApplicationAssignmentConfigurationArgs{
-//				ApplicationArn:     pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
+//				ApplicationArn:     pulumi.Any(exampleAwsSsoadminApplication.ApplicationArn),
 //				AssignmentRequired: pulumi.Bool(true),
 //			})
 //			if err != nil {

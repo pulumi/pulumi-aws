@@ -24,8 +24,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.ImagePipeline("example", new()
     ///     {
-    ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
-    ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
+    ///         ImageRecipeArn = exampleAwsImagebuilderImageRecipe.Arn,
+    ///         InfrastructureConfigurationArn = exampleAwsImagebuilderInfrastructureConfiguration.Arn,
+    ///         Name = "example",
     ///         Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
     ///         {
     ///             ScheduleExpression = "cron(0 0 * * ? *)",

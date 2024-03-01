@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NatGateway;
  * import com.pulumi.aws.ec2.NatGatewayArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,12 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .allocationId(aws_eip.example().id())
- *             .subnetId(aws_subnet.example().id())
+ *             .allocationId(exampleAwsEip.id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_internet_gateway.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -78,9 +75,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .allocationId(aws_eip.example().id())
- *             .subnetId(aws_subnet.example().id())
- *             .secondaryAllocationIds(aws_eip.secondary().id())
+ *             .allocationId(exampleAwsEip.id())
+ *             .subnetId(exampleAwsSubnet.id())
+ *             .secondaryAllocationIds(secondary.id())
  *             .secondaryPrivateIpAddresses(&#34;10.0.1.5&#34;)
  *             .build());
  * 
@@ -111,7 +108,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
  *             .connectivityType(&#34;private&#34;)
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
@@ -141,7 +138,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
  *             .connectivityType(&#34;private&#34;)
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryPrivateIpAddressCount(7)
  *             .build());
  * 

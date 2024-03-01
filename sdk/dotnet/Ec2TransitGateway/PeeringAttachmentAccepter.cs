@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
     ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayPeeringAttachment.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example cross-account attachment" },

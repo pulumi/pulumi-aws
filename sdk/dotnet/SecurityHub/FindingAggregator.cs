@@ -25,17 +25,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });
@@ -52,21 +46,15 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS_EXCEPT_SPECIFIED",
     ///         SpecifiedRegions = new[]
     ///         {
     ///             "eu-west-1",
     ///             "eu-west-2",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
     ///         },
     ///     });
     /// 
@@ -84,21 +72,15 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
     ///     {
     ///         LinkingMode = "SPECIFIED_REGIONS",
     ///         SpecifiedRegions = new[]
     ///         {
     ///             "eu-west-1",
     ///             "eu-west-2",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
     ///         },
     ///     });
     /// 

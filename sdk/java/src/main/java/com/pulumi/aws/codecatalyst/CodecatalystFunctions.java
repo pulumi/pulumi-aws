@@ -43,7 +43,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
@@ -83,7 +83,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
@@ -123,7 +123,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
@@ -163,7 +163,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }

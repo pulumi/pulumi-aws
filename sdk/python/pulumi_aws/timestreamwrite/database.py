@@ -205,7 +205,7 @@ class Database(pulumi.CustomResource):
 
         example = aws.timestreamwrite.Database("example",
             database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             tags={
                 "Name": "value",
             })
@@ -251,7 +251,7 @@ class Database(pulumi.CustomResource):
 
         example = aws.timestreamwrite.Database("example",
             database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             tags={
                 "Name": "value",
             })

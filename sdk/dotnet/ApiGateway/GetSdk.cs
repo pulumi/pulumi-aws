@@ -26,8 +26,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
+        ///         StageName = exampleAwsApiGatewayStage.StageName,
         ///         SdkType = "android",
         ///         Parameters = 
         ///         {
@@ -61,8 +61,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
+        ///         StageName = exampleAwsApiGatewayStage.StageName,
         ///         SdkType = "android",
         ///         Parameters = 
         ///         {

@@ -45,7 +45,9 @@ import javax.annotation.Nullable;
  *         var example = new HumanTaskUI(&#34;example&#34;, HumanTaskUIArgs.builder()        
  *             .humanTaskUiName(&#34;example&#34;)
  *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
- *                 .content(Files.readString(Paths.get(&#34;sagemaker-human-task-ui-template.html&#34;)))
+ *                 .content(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;sagemaker-human-task-ui-template.html&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .build());
  * 

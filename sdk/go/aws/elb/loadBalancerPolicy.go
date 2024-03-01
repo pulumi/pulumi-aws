@@ -21,24 +21,16 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("wu-tang"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
@@ -58,6 +50,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "wu-tang-pubkey",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ca-pubkey-policy", &elb.LoadBalancerPolicyArgs{
 //				LoadBalancerName: wu_tang.Name,
 //				PolicyName:       pulumi.String("wu-tang-ca-pubkey-policy"),
@@ -65,7 +63,7 @@ import (
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("PublicKey"),
-//						Value: readFileOrPanic("wu-tang-pubkey"),
+//						Value: invokeFile.Result,
 //					},
 //				},
 //			})
@@ -79,7 +77,7 @@ import (
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("PublicKeyPolicyName"),
-//						Value: pulumi.Any(aws_load_balancer_policy.WuTangRootCaPubkeyPolicy.Policy_name),
+//						Value: pulumi.Any(wu_tang_root_ca_pubkey_policy.PolicyName),
 //					},
 //				},
 //			})

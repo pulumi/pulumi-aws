@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Subnet("main", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: mainAwsVpc.id,
  *     cidrBlock: "10.0.1.0/24",
  *     tags: {
  *         Name: "Main",
@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
- *     vpcId: aws_vpc.main.id,
+ * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
+ *     vpcId: main.id,
  *     cidrBlock: "172.20.0.0/16",
  * });
- * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
+ * const inSecondaryCidr = new aws.ec2.Subnet("in_secondary_cidr", {
  *     vpcId: secondaryCidr.vpcId,
  *     cidrBlock: "172.20.0.0/24",
  * });

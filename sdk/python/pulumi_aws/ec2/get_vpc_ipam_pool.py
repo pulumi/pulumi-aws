@@ -282,7 +282,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = No
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+    test = aws.ec2.get_vpc_ipam_pool(filters=[
         aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
@@ -292,8 +292,8 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = No
             values=["ipv4"],
         ),
     ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+    test_vpc = aws.ec2.Vpc("test",
+        ipv4_ipam_pool_id=test.id,
         ipv4_netmask_length=28)
     ```
 
@@ -360,7 +360,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+    test = aws.ec2.get_vpc_ipam_pool(filters=[
         aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
@@ -370,8 +370,8 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
             values=["ipv4"],
         ),
     ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+    test_vpc = aws.ec2.Vpc("test",
+        ipv4_ipam_pool_id=test.id,
         ipv4_netmask_length=28)
     ```
 

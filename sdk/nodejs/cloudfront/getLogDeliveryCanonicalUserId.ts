@@ -14,14 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
+ *                 id: example.then(example => example.id),
  *                 type: "CanonicalUser",
  *             },
  *             permission: "FULL_CONTROL",
@@ -69,14 +69,14 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
+ *                 id: example.then(example => example.id),
  *                 type: "CanonicalUser",
  *             },
  *             permission: "FULL_CONTROL",

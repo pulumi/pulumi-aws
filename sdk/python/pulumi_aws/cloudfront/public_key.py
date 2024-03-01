@@ -212,10 +212,12 @@ class PublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=std.file(input="public_key.pem").result,
+            name="test_key")
         ```
 
         ## Import
@@ -249,10 +251,12 @@ class PublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=std.file(input="public_key.pem").result,
+            name="test_key")
         ```
 
         ## Import

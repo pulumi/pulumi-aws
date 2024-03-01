@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.Deployment("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
- *     configurationVersion: aws_appconfig_hosted_configuration_version.example.version_number,
- *     deploymentStrategyId: aws_appconfig_deployment_strategy.example.id,
+ *     applicationId: exampleAwsAppconfigApplication.id,
+ *     configurationProfileId: exampleAwsAppconfigConfigurationProfile.configurationProfileId,
+ *     configurationVersion: exampleAwsAppconfigHostedConfigurationVersion.versionNumber,
+ *     deploymentStrategyId: exampleAwsAppconfigDeploymentStrategy.id,
  *     description: "My example deployment",
- *     environmentId: aws_appconfig_environment.example.environment_id,
- *     kmsKeyIdentifier: aws_kms_key.example.arn,
+ *     environmentId: exampleAwsAppconfigEnvironment.environmentId,
+ *     kmsKeyIdentifier: exampleAwsKmsKey.arn,
  *     tags: {
  *         Type: "AppConfig Deployment",
  *     },

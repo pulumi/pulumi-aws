@@ -19,13 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _this = new aws.cloudwatch.EventEndpoint("this", {
- *     roleArn: aws_iam_role.replication.arn,
+ *     name: "global-endpoint",
+ *     roleArn: replication.arn,
  *     eventBuses: [
  *         {
- *             eventBusArn: aws_cloudwatch_event_bus.primary.arn,
+ *             eventBusArn: primary.arn,
  *         },
  *         {
- *             eventBusArn: aws_cloudwatch_event_bus.secondary.arn,
+ *             eventBusArn: secondary.arn,
  *         },
  *     ],
  *     replicationConfig: {
@@ -34,7 +35,7 @@ import * as utilities from "../utilities";
  *     routingConfig: {
  *         failoverConfig: {
  *             primary: {
- *                 healthCheck: aws_route53_health_check.primary.arn,
+ *                 healthCheck: primaryAwsRoute53HealthCheck.arn,
  *             },
  *             secondary: {
  *                 route: "us-east-2",

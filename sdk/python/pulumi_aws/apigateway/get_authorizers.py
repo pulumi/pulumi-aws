@@ -76,7 +76,7 @@ def get_authorizers(rest_api_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizers(rest_api_id=aws_api_gateway_rest_api["example"]["id"])
+    example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
     ```
 
 
@@ -105,7 +105,7 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizers(rest_api_id=aws_api_gateway_rest_api["example"]["id"])
+    example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
     ```
 
 

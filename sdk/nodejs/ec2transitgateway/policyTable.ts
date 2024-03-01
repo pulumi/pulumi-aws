@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PolicyTable("example", {
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  *     tags: {
  *         Name: "Example Policy Table",
  *     },

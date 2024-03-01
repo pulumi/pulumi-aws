@@ -8,6 +8,25 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Organizations Policies For Target.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.organizations.getOrganization({});
+ * const exampleGetPoliciesForTarget = example.then(example => aws.organizations.getPoliciesForTarget({
+ *     targetId: example.roots?.[0]?.id,
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * }));
+ * const exampleGetPolicy = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) }));
+ * ```
  */
 export function getPoliciesForTarget(args: GetPoliciesForTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesForTargetResult> {
 
@@ -51,6 +70,25 @@ export interface GetPoliciesForTargetResult {
  * Data source for managing an AWS Organizations Policies For Target.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.organizations.getOrganization({});
+ * const exampleGetPoliciesForTarget = example.then(example => aws.organizations.getPoliciesForTarget({
+ *     targetId: example.roots?.[0]?.id,
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * }));
+ * const exampleGetPolicy = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) }));
+ * ```
  */
 export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoliciesForTargetResult> {
     return pulumi.output(args).apply((a: any) => getPoliciesForTarget(a, opts))

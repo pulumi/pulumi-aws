@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Dms
     ///         ReplicationConfigIdentifier = "test-dms-serverless-replication-tf",
     ///         ResourceIdentifier = "test-dms-serverless-replication-tf",
     ///         ReplicationType = "cdc",
-    ///         SourceEndpointArn = aws_dms_endpoint.Source.Endpoint_arn,
-    ///         TargetEndpointArn = aws_dms_endpoint.Target.Endpoint_arn,
+    ///         SourceEndpointArn = source.EndpointArn,
+    ///         TargetEndpointArn = target.EndpointArn,
     ///         TableMappings = @"  {
     ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""rule-action"":""include"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%""}}]
     ///   }
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Dms
     ///         StartReplication = true,
     ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
     ///         {
-    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Default.Replication_subnet_group_id,
+    ///             ReplicationSubnetGroupId = @default.ReplicationSubnetGroupId,
     ///             MaxCapacityUnits = 64,
     ///             MinCapacityUnits = 2,
     ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",

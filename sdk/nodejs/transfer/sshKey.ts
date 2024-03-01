@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleServer = new aws.transfer.Server("exampleServer", {
+ * const exampleServer = new aws.transfer.Server("example", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
@@ -29,8 +29,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleUser = new aws.transfer.User("exampleUser", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "tf-test-transfer-user-iam-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleUser = new aws.transfer.User("example", {
  *     serverId: exampleServer.id,
  *     userName: "tftestuser",
  *     role: exampleRole.arn,
@@ -38,12 +41,12 @@ import * as utilities from "../utilities";
  *         NAME: "tftestuser",
  *     },
  * });
- * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
+ * const exampleSshKey = new aws.transfer.SshKey("example", {
  *     serverId: exampleServer.id,
  *     userName: exampleUser.userName,
  *     body: "... SSH key ...",
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowFullAccesstoS3",
  *         effect: "Allow",
@@ -51,9 +54,10 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "tf-test-transfer-user-iam-policy",
  *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
  *

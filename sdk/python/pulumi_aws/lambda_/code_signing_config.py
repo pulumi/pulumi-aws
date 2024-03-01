@@ -192,11 +192,11 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
+        new_csc = aws.lambda_.CodeSigningConfig("new_csc",
             allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
                 signing_profile_version_arns=[
-                    aws_signer_signing_profile["example1"]["arn"],
-                    aws_signer_signing_profile["example2"]["arn"],
+                    example1["arn"],
+                    example2["arn"],
                 ],
             ),
             policies=aws.lambda_.CodeSigningConfigPoliciesArgs(
@@ -236,11 +236,11 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
+        new_csc = aws.lambda_.CodeSigningConfig("new_csc",
             allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
                 signing_profile_version_arns=[
-                    aws_signer_signing_profile["example1"]["arn"],
-                    aws_signer_signing_profile["example2"]["arn"],
+                    example1["arn"],
+                    example2["arn"],
                 ],
             ),
             policies=aws.lambda_.CodeSigningConfigPoliciesArgs(

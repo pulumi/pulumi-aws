@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .directoryId(aws_directory_service_directory.test().id())
+ *             .directoryId(testAwsDirectoryServiceDirectory.id())
  *             .identityManagementType(&#34;EXISTING_DIRECTORY&#34;)
  *             .inboundCallsEnabled(true)
  *             .instanceAlias(&#34;friendly-name-connect&#34;)

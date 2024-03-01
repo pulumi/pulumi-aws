@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Framework("test", new()
     ///     {
+    ///         Name = "example",
     ///         ControlSets = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -34,7 +35,7 @@ namespace Pulumi.Aws.Auditmanager
     ///                 {
     ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
     ///                     {
-    ///                         Id = aws_auditmanager_control.Test.Id,
+    ///                         Id = testAwsAuditmanagerControl.Id,
     ///                     },
     ///                 },
     ///             },

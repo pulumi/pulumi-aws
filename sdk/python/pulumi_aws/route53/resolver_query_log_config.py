@@ -219,7 +219,8 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfig("example",
-            destination_arn=aws_s3_bucket["example"]["arn"],
+            name="example",
+            destination_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Environment": "Prod",
             })
@@ -258,7 +259,8 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfig("example",
-            destination_arn=aws_s3_bucket["example"]["arn"],
+            name="example",
+            destination_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Environment": "Prod",
             })

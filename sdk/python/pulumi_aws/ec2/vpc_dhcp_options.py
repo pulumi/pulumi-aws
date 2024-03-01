@@ -296,7 +296,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+        dns_resolver = aws.ec2.VpcDhcpOptions("dns_resolver", domain_name_servers=[
             "8.8.8.8",
             "8.8.4.4",
         ])
@@ -314,9 +314,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
             tags={
                 "Name": "foo-name",
             })
@@ -363,7 +363,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+        dns_resolver = aws.ec2.VpcDhcpOptions("dns_resolver", domain_name_servers=[
             "8.8.8.8",
             "8.8.4.4",
         ])
@@ -381,9 +381,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
             tags={
                 "Name": "foo-name",
             })

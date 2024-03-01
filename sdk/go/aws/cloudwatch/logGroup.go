@@ -28,9 +28,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("Yada"),
 //				Tags: pulumi.StringMap{
-//					"Application": pulumi.String("serviceA"),
 //					"Environment": pulumi.String("production"),
+//					"Application": pulumi.String("serviceA"),
 //				},
 //			})
 //			if err != nil {

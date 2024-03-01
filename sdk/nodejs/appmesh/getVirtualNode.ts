@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualNode({
- *     meshName: "example-mesh",
  *     name: "serviceBv1",
+ *     meshName: "example-mesh",
  * });
  * ```
  */
@@ -101,8 +101,8 @@ export interface GetVirtualNodeResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualNode({
- *     meshName: "example-mesh",
  *     name: "serviceBv1",
+ *     meshName: "example-mesh",
  * });
  * ```
  */

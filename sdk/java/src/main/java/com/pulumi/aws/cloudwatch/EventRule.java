@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRule;
  * import com.pulumi.aws.cloudwatch.EventRuleArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -52,6 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var console = new EventRule(&#34;console&#34;, EventRuleArgs.builder()        
+ *             .name(&#34;capture-aws-sign-in&#34;)
  *             .description(&#34;Capture each AWS Console Sign In&#34;)
  *             .eventPattern(serializeJson(
  *                 jsonObject(
@@ -59,10 +61,13 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var awsLogins = new Topic(&#34;awsLogins&#34;);
+ *         var awsLogins = new Topic(&#34;awsLogins&#34;, TopicArgs.builder()        
+ *             .name(&#34;aws-console-logins&#34;)
+ *             .build());
  * 
  *         var sns = new EventTarget(&#34;sns&#34;, EventTargetArgs.builder()        
  *             .rule(console.name())
+ *             .targetId(&#34;SendToSNS&#34;)
  *             .arn(awsLogins.arn())
  *             .build());
  * 

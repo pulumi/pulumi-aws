@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
  *             .imageId(&#34;ami-12345678&#34;)
+ *             .accountId(&#34;123456789012&#34;)
  *             .build());
  * 
  *     }
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .group(&#34;all&#34;)
  *             .imageId(&#34;ami-12345678&#34;)
+ *             .group(&#34;all&#34;)
  *             .build());
  * 
  *     }

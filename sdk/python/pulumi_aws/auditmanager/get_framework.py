@@ -120,8 +120,8 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.auditmanager.get_framework(framework_type="Standard",
-        name="Essential Eight")
+    example = aws.auditmanager.get_framework(name="Essential Eight",
+        framework_type="Standard")
     ```
 
 
@@ -160,8 +160,8 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.auditmanager.get_framework(framework_type="Standard",
-        name="Essential Eight")
+    example = aws.auditmanager.get_framework(name="Essential Eight",
+        framework_type="Standard")
     ```
 
 

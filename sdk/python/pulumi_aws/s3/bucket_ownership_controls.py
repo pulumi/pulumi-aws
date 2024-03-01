@@ -110,9 +110,9 @@ class BucketOwnershipControls(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
@@ -148,9 +148,9 @@ class BucketOwnershipControls(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))

@@ -239,7 +239,7 @@ def get_budget(account_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.budgets.get_budget(name=aws_budgets_budget["test"]["name"])
+    test = aws.budgets.get_budget(name=test_aws_budgets_budget["name"])
     ```
 
 
@@ -291,7 +291,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.budgets.get_budget(name=aws_budgets_budget["test"]["name"])
+    test = aws.budgets.get_budget(name=test_aws_budgets_budget["name"])
     ```
 
 

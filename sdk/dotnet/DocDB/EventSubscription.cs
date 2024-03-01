@@ -22,24 +22,28 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new()
+    ///     var example = new Aws.DocDB.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "example",
     ///         AvailabilityZones = new[]
     ///         {
-    ///             data.Aws_availability_zones.Available.Names[0],
-    ///             data.Aws_availability_zones.Available.Names[1],
-    ///             data.Aws_availability_zones.Available.Names[2],
+    ///             available.Names[0],
+    ///             available.Names[1],
+    ///             available.Names[2],
     ///         },
     ///         MasterUsername = "foo",
     ///         MasterPassword = "mustbeeightcharaters",
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("exampleEventSubscription", new()
+    ///     var exampleTopic = new Aws.Sns.Topic("example", new()
     ///     {
+    ///         Name = "example-events",
+    ///     });
+    /// 
+    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("example", new()
+    ///     {
+    ///         Name = "example",
     ///         Enabled = true,
     ///         EventCategories = new[]
     ///         {
@@ -49,7 +53,7 @@ namespace Pulumi.Aws.DocDB
     ///         SourceType = "db-cluster",
     ///         SourceIds = new[]
     ///         {
-    ///             exampleCluster.Id,
+    ///             example.Id,
     ///         },
     ///         SnsTopicArn = exampleTopic.Arn,
     ///     });

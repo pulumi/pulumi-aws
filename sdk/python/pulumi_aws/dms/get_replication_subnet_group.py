@@ -129,7 +129,7 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
     ```
 
 
@@ -166,7 +166,7 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
     ```
 
 

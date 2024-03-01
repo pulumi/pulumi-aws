@@ -274,7 +274,9 @@ class PlacementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.ec2.PlacementGroup("web", strategy="cluster")
+        web = aws.ec2.PlacementGroup("web",
+            name="hunky-dory-pg",
+            strategy="cluster")
         ```
 
         ## Import
@@ -312,7 +314,9 @@ class PlacementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.ec2.PlacementGroup("web", strategy="cluster")
+        web = aws.ec2.PlacementGroup("web",
+            name="hunky-dory-pg",
+            strategy="cluster")
         ```
 
         ## Import

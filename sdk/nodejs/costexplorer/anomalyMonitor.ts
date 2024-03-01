@@ -16,9 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const serviceMonitor = new aws.costexplorer.AnomalyMonitor("serviceMonitor", {
- *     monitorDimension: "SERVICE",
+ * const serviceMonitor = new aws.costexplorer.AnomalyMonitor("service_monitor", {
+ *     name: "AWSServiceMonitor",
  *     monitorType: "DIMENSIONAL",
+ *     monitorDimension: "SERVICE",
  * });
  * ```
  * ### Custom Example
@@ -28,17 +29,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalyMonitor("test", {
+ *     name: "AWSCustomAnomalyMonitor",
  *     monitorType: "CUSTOM",
  *     monitorSpecification: JSON.stringify({
- *         And: undefined,
- *         CostCategories: undefined,
- *         Dimensions: undefined,
- *         Not: undefined,
- *         Or: undefined,
- *         Tags: {
- *             Key: "CostCenter",
- *             MatchOptions: undefined,
- *             Values: ["10000"],
+ *         and: undefined,
+ *         costCategories: undefined,
+ *         dimensions: undefined,
+ *         not: undefined,
+ *         or: undefined,
+ *         tags: {
+ *             key: "CostCenter",
+ *             matchOptions: undefined,
+ *             values: ["10000"],
  *         },
  *     }),
  * });

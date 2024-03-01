@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationHdfs(&#34;example&#34;, LocationHdfsArgs.builder()        
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType(&#34;SIMPLE&#34;)
  *             .simpleUser(&#34;example&#34;)
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()
- *                 .hostname(aws_instance.example().private_dns())
+ *                 .hostname(exampleAwsInstance.privateDns())
  *                 .port(80)
  *                 .build())
  *             .build());

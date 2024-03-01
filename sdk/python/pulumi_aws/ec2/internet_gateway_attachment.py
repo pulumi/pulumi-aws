@@ -106,9 +106,9 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
-        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
+        example_internet_gateway = aws.ec2.InternetGateway("example")
+        example = aws.ec2.InternetGatewayAttachment("example",
             internet_gateway_id=example_internet_gateway.id,
             vpc_id=example_vpc.id)
         ```
@@ -141,9 +141,9 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
-        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
+        example_internet_gateway = aws.ec2.InternetGateway("example")
+        example = aws.ec2.InternetGatewayAttachment("example",
             internet_gateway_id=example_internet_gateway.id,
             vpc_id=example_vpc.id)
         ```

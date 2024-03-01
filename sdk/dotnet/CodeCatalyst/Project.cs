@@ -25,9 +25,9 @@ namespace Pulumi.Aws.CodeCatalyst
     /// {
     ///     var test = new Aws.CodeCatalyst.Project("test", new()
     ///     {
-    ///         Description = "My CodeCatalyst Project created using Pulumi",
-    ///         DisplayName = "MyProject",
     ///         SpaceName = "myproject",
+    ///         DisplayName = "MyProject",
+    ///         Description = "My CodeCatalyst Project created using Pulumi",
     ///     });
     /// 
     /// });

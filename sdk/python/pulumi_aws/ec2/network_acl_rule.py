@@ -431,14 +431,14 @@ class NetworkAclRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar_network_acl = aws.ec2.NetworkAcl("barNetworkAcl", vpc_id=aws_vpc["foo"]["id"])
-        bar_network_acl_rule = aws.ec2.NetworkAclRule("barNetworkAclRule",
-            network_acl_id=bar_network_acl.id,
+        bar = aws.ec2.NetworkAcl("bar", vpc_id=foo["id"])
+        bar_network_acl_rule = aws.ec2.NetworkAclRule("bar",
+            network_acl_id=bar.id,
             rule_number=200,
             egress=False,
             protocol="tcp",
             rule_action="allow",
-            cidr_block=aws_vpc["foo"]["cidr_block"],
+            cidr_block=foo["cidrBlock"],
             from_port=22,
             to_port=22)
         ```
@@ -503,14 +503,14 @@ class NetworkAclRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar_network_acl = aws.ec2.NetworkAcl("barNetworkAcl", vpc_id=aws_vpc["foo"]["id"])
-        bar_network_acl_rule = aws.ec2.NetworkAclRule("barNetworkAclRule",
-            network_acl_id=bar_network_acl.id,
+        bar = aws.ec2.NetworkAcl("bar", vpc_id=foo["id"])
+        bar_network_acl_rule = aws.ec2.NetworkAclRule("bar",
+            network_acl_id=bar.id,
             rule_number=200,
             egress=False,
             protocol="tcp",
             rule_action="allow",
-            cidr_block=aws_vpc["foo"]["cidr_block"],
+            cidr_block=foo["cidrBlock"],
             from_port=22,
             to_port=22)
         ```

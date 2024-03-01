@@ -211,6 +211,7 @@ class ContactChannel(pulumi.CustomResource):
             delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
                 simple_address="email@example.com",
             ),
+            name="Example contact channel",
             type="EMAIL")
         ```
         ### Usage with SSM Contact
@@ -219,7 +220,7 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_contact = aws.ssmcontacts.Contact("exampleContact",
+        example_contact = aws.ssmcontacts.Contact("example_contact",
             alias="example_contact",
             type="PERSONAL")
         example = aws.ssmcontacts.ContactChannel("example",
@@ -227,6 +228,7 @@ class ContactChannel(pulumi.CustomResource):
             delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
                 simple_address="email@example.com",
             ),
+            name="Example contact channel",
             type="EMAIL")
         ```
 
@@ -266,6 +268,7 @@ class ContactChannel(pulumi.CustomResource):
             delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
                 simple_address="email@example.com",
             ),
+            name="Example contact channel",
             type="EMAIL")
         ```
         ### Usage with SSM Contact
@@ -274,7 +277,7 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_contact = aws.ssmcontacts.Contact("exampleContact",
+        example_contact = aws.ssmcontacts.Contact("example_contact",
             alias="example_contact",
             type="PERSONAL")
         example = aws.ssmcontacts.ContactChannel("example",
@@ -282,6 +285,7 @@ class ContactChannel(pulumi.CustomResource):
             delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
                 simple_address="email@example.com",
             ),
+            name="Example contact channel",
             type="EMAIL")
         ```
 

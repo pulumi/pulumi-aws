@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := swf.NewDomain(ctx, "foo", &swf.DomainArgs{
+//				Name:                                   pulumi.String("foo"),
 //				Description:                            pulumi.String("SWF Domain"),
 //				WorkflowExecutionRetentionPeriodInDays: pulumi.String("30"),
 //			})

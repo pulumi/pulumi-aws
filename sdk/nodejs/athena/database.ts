@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleDatabase = new aws.athena.Database("exampleDatabase", {
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleDatabase = new aws.athena.Database("example", {
  *     name: "database_name",
- *     bucket: exampleBucketV2.id,
+ *     bucket: example.id,
  * });
  * ```
  *

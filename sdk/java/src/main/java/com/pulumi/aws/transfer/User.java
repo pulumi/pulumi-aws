@@ -69,10 +69,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooRole = new Role(&#34;fooRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;tf-test-transfer-user-iam-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var fooPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var foo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;AllowFullAccesstoS3&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -82,8 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooRolePolicy = new RolePolicy(&#34;fooRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;tf-test-transfer-user-iam-policy&#34;)
  *             .role(fooRole.id())
- *             .policy(fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(foo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        

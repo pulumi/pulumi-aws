@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //				RetentionProperties: &timestreamwrite.TableRetentionPropertiesArgs{
 //					MagneticStoreRetentionPeriodInDays: pulumi.Int(30),
@@ -89,7 +89,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //				Schema: &timestreamwrite.TableSchemaArgs{
 //					CompositePartitionKey: &timestreamwrite.TableSchemaCompositePartitionKeyArgs{

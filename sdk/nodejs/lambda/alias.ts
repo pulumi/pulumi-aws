@@ -19,9 +19,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLambdaAlias = new aws.lambda.Alias("testLambdaAlias", {
+ * const testLambdaAlias = new aws.lambda.Alias("test_lambda_alias", {
+ *     name: "my_alias",
  *     description: "a sample description",
- *     functionName: aws_lambda_function.lambda_function_test.arn,
+ *     functionName: lambdaFunctionTest.arn,
  *     functionVersion: "1",
  *     routingConfig: {
  *         additionalVersionWeights: {

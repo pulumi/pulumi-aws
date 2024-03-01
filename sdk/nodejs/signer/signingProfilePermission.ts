@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const prodSp = new aws.signer.SigningProfile("prodSp", {
+ * const prodSp = new aws.signer.SigningProfile("prod_sp", {
  *     platformId: "AWSLambda-SHA384-ECDSA",
  *     namePrefix: "prod_sp_",
  *     signatureValidityPeriod: {
@@ -25,18 +25,18 @@ import * as utilities from "../utilities";
  *         tag2: "value2",
  *     },
  * });
- * const spPermission1 = new aws.signer.SigningProfilePermission("spPermission1", {
+ * const spPermission1 = new aws.signer.SigningProfilePermission("sp_permission_1", {
  *     profileName: prodSp.name,
  *     action: "signer:StartSigningJob",
- *     principal: _var.aws_account,
+ *     principal: awsAccount,
  * });
- * const spPermission2 = new aws.signer.SigningProfilePermission("spPermission2", {
+ * const spPermission2 = new aws.signer.SigningProfilePermission("sp_permission_2", {
  *     profileName: prodSp.name,
  *     action: "signer:GetSigningProfile",
- *     principal: _var.aws_team_role_arn,
+ *     principal: awsTeamRoleArn,
  *     statementId: "ProdAccountStartSigningJob_StatementId",
  * });
- * const spPermission3 = new aws.signer.SigningProfilePermission("spPermission3", {
+ * const spPermission3 = new aws.signer.SigningProfilePermission("sp_permission_3", {
  *     profileName: prodSp.name,
  *     action: "signer:RevokeSignature",
  *     principal: "123456789012",

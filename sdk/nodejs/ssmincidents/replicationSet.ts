@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
+ * const exampleKey = new aws.kms.Key("example_key", {});
  * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {
  *     regions: [{
  *         name: "us-west-2",

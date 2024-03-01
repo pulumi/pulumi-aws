@@ -30,17 +30,21 @@ import {Role} from "./index";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const policyPolicyDocument = aws.iam.getPolicyDocument({
+ * const role = new aws.iam.Role("role", {
+ *     name: "test-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const policyPolicy = new aws.iam.Policy("policyPolicy", {
+ * const policyPolicy = new aws.iam.Policy("policy", {
+ *     name: "test-policy",
  *     description: "A test policy",
- *     policy: policyPolicyDocument.then(policyPolicyDocument => policyPolicyDocument.json),
+ *     policy: policy.then(policy => policy.json),
  * });
  * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
  *     role: role.name,

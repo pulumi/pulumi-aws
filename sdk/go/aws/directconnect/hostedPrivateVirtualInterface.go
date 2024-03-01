@@ -30,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "foo", &directconnect.HostedPrivateVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
+//				Name:          pulumi.String("vif-foo"),
+//				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),
 //				BgpAsn:        pulumi.Int(65352),
-//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
-//				Vlan:          pulumi.Int(4094),
 //			})
 //			if err != nil {
 //				return err

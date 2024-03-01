@@ -12,8 +12,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.redshift.SnapshotSchedule("default", {
- *     definitions: ["rate(12 hours)"],
  *     identifier: "tf-redshift-snapshot-schedule",
+ *     definitions: ["rate(12 hours)"],
  * });
  * ```
  *

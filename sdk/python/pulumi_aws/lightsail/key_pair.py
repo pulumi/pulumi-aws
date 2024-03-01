@@ -311,7 +311,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
         ### Create New Key Pair with PGP Encrypted Private Key
 
@@ -319,15 +319,20 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="lg_key_pair",
+            pgp_key="keybase:keybaseusername")
         ```
         ### Existing Public Key Import
 
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="importing",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import
@@ -364,7 +369,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
         ### Create New Key Pair with PGP Encrypted Private Key
 
@@ -372,15 +377,20 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="lg_key_pair",
+            pgp_key="keybase:keybaseusername")
         ```
         ### Existing Public Key Import
 
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="importing",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import

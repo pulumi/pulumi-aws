@@ -380,7 +380,7 @@ class Secret(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.secretsmanager.Secret("example")
+        example = aws.secretsmanager.Secret("example", name="example")
         ```
 
         ## Import
@@ -419,7 +419,7 @@ class Secret(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.secretsmanager.Secret("example")
+        example = aws.secretsmanager.Secret("example", name="example")
         ```
 
         ## Import

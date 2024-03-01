@@ -23,20 +23,22 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sfnAlias = new Aws.Sfn.Alias("sfnAlias", new()
+    ///     var sfnAlias = new Aws.Sfn.Alias("sfn_alias", new()
     ///     {
+    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
     ///             {
-    ///                 StateMachineVersionArn = aws_sfn_state_machine.Sfn_test.State_machine_version_arn,
+    ///                 StateMachineVersionArn = sfnTest.StateMachineVersionArn,
     ///                 Weight = 100,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var mySfnAlias = new Aws.Sfn.Alias("mySfnAlias", new()
+    ///     var mySfnAlias = new Aws.Sfn.Alias("my_sfn_alias", new()
     ///     {
+    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs

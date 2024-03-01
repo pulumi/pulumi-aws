@@ -180,16 +180,15 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private",
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
+            acl="private")
         ```
         ### With `public-read` ACL
 
@@ -200,25 +199,21 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
+        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
+            bucket=example.id,
             block_public_acls=False,
             block_public_policy=False,
             ignore_public_acls=False,
             restrict_public_buckets=False)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="public-read",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_bucket_ownership_controls,
-                    example_bucket_public_access_block,
-                ]))
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
+            acl="public-read")
         ```
         ### With Grants
 
@@ -227,14 +222,14 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
                 grants=[
                     aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
@@ -255,8 +250,7 @@ class BucketAclV2(pulumi.CustomResource):
                 owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
                     id=current.id,
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            ))
         ```
 
         ## Import
@@ -317,16 +311,15 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private",
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
+            acl="private")
         ```
         ### With `public-read` ACL
 
@@ -337,25 +330,21 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
+        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
+            bucket=example.id,
             block_public_acls=False,
             block_public_policy=False,
             ignore_public_acls=False,
             restrict_public_buckets=False)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="public-read",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_bucket_ownership_controls,
-                    example_bucket_public_access_block,
-                ]))
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
+            acl="public-read")
         ```
         ### With Grants
 
@@ -364,14 +353,14 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
                 grants=[
                     aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
@@ -392,8 +381,7 @@ class BucketAclV2(pulumi.CustomResource):
                 owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
                     id=current.id,
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            ))
         ```
 
         ## Import

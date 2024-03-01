@@ -43,7 +43,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -80,7 +80,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -117,7 +117,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -154,7 +154,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -191,7 +191,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -228,7 +228,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
+     *             .securityGroupRuleId(securityGroupRuleId)
      *             .build());
      * 
      *     }
@@ -267,7 +267,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
@@ -307,7 +307,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
@@ -347,7 +347,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
@@ -387,7 +387,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
@@ -427,7 +427,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
@@ -467,7 +467,7 @@ public final class VpcFunctions {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
      *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
+     *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 

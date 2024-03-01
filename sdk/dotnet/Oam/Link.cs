@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Oam
     ///         {
     ///             "AWS::CloudWatch::Metric",
     ///         },
-    ///         SinkIdentifier = aws_oam_sink.Test.Id,
+    ///         SinkIdentifier = test.Id,
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },

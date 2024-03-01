@@ -60,11 +60,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -109,11 +109,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -158,11 +158,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -207,11 +207,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -256,11 +256,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -305,11 +305,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())

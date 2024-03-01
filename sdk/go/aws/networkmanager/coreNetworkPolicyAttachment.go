@@ -31,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
+//			example, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-//				CoreNetworkId:  exampleCoreNetwork.ID(),
-//				PolicyDocument: pulumi.Any(data.Aws_networkmanager_core_network_policy_document.Example.Json),
+//			_, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+//				CoreNetworkId:  example.ID(),
+//				PolicyDocument: pulumi.Any(exampleAwsNetworkmanagerCoreNetworkPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -68,7 +68,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 // if err != nil {
 // return err
 // }
@@ -95,7 +95,7 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyDocument: *pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
@@ -104,18 +104,18 @@ import (
 // return err
 // }
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Arn)
 // }
-// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "exampleVpcAttachment", &networkmanager.VpcAttachmentArgs{
+// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
-// VpcArn: pulumi.Any(aws_vpc.Example.Arn),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
 // })
 // if err != nil {
 // return err
 // }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
 // AsnRanges: pulumi.StringArray{
@@ -147,10 +147,10 @@ import (
 // },
 // },
 // }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
+// PolicyDocument: example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -180,11 +180,11 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 // if err != nil {
 // return err
 // }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
@@ -192,18 +192,18 @@ import (
 // return err
 // }
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Arn)
 // }
-// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "exampleVpcAttachment", &networkmanager.VpcAttachmentArgs{
+// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
-// VpcArn: pulumi.Any(aws_vpc.Example.Arn),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
 // })
 // if err != nil {
 // return err
 // }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
 // AsnRanges: pulumi.StringArray{
@@ -234,10 +234,10 @@ import (
 // },
 // },
 // }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
+// PolicyDocument: example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -273,7 +273,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 // if err != nil {
 // return err
 // }
@@ -304,7 +304,7 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyDocument: *pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
@@ -313,30 +313,30 @@ import (
 // return err
 // }
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example_us_west_2 {
+// for _, val0 := range exampleUsWest2AwsSubnet {
 // splat0 = append(splat0, val0.Arn)
 // }
-// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "exampleUsWest2", &networkmanager.VpcAttachmentArgs{
+// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_west_2.Arn),
+// VpcArn: pulumi.Any(exampleUsWest2AwsVpc.Arn),
 // })
 // if err != nil {
 // return err
 // }
 // var splat1 []interface{}
-// for _, val0 := range aws_subnet.Example_us_east_1 {
+// for _, val0 := range exampleUsEast1AwsSubnet {
 // splat1 = append(splat1, val0.Arn)
 // }
-// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "exampleUsEast1", &networkmanager.VpcAttachmentArgs{
+// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat1),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_east_1.Arn),
-// }, pulumi.Provider("alternate"))
+// VpcArn: pulumi.Any(exampleUsEast1AwsVpc.Arn),
+// })
 // if err != nil {
 // return err
 // }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
 // AsnRanges: pulumi.StringArray{
@@ -385,10 +385,10 @@ import (
 // },
 // },
 // }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
+// PolicyDocument: example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -418,11 +418,11 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 // if err != nil {
 // return err
 // }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyRegions: pulumi.StringArray{
 // pulumi.String("us-west-2"),
@@ -434,30 +434,30 @@ import (
 // return err
 // }
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example_us_west_2 {
+// for _, val0 := range exampleUsWest2AwsSubnet {
 // splat0 = append(splat0, val0.Arn)
 // }
-// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "exampleUsWest2", &networkmanager.VpcAttachmentArgs{
+// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_west_2.Arn),
+// VpcArn: pulumi.Any(exampleUsWest2AwsVpc.Arn),
 // })
 // if err != nil {
 // return err
 // }
 // var splat1 []interface{}
-// for _, val0 := range aws_subnet.Example_us_east_1 {
+// for _, val0 := range exampleUsEast1AwsSubnet {
 // splat1 = append(splat1, val0.Arn)
 // }
-// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "exampleUsEast1", &networkmanager.VpcAttachmentArgs{
+// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat1),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_east_1.Arn),
-// }, pulumi.Provider("alternate"))
+// VpcArn: pulumi.Any(exampleUsEast1AwsVpc.Arn),
+// })
 // if err != nil {
 // return err
 // }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
 // AsnRanges: pulumi.StringArray{
@@ -504,10 +504,10 @@ import (
 // },
 // },
 // }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
+// PolicyDocument: example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {

@@ -16,15 +16,16 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
     ///     {
+    ///         Name = "wu-tang",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -56,7 +57,10 @@ namespace Pulumi.Aws.Elb
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
     ///             {
     ///                 Name = "PublicKey",
-    ///                 Value = File.ReadAllText("wu-tang-pubkey"),
+    ///                 Value = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "wu-tang-pubkey",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///     });
@@ -71,7 +75,7 @@ namespace Pulumi.Aws.Elb
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
     ///             {
     ///                 Name = "PublicKeyPolicyName",
-    ///                 Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
+    ///                 Value = wu_tang_root_ca_pubkey_policy.PolicyName,
     ///             },
     ///         },
     ///     });

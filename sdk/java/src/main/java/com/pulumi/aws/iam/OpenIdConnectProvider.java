@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new OpenIdConnectProvider(&#34;default&#34;, OpenIdConnectProviderArgs.builder()        
+ *             .url(&#34;https://accounts.google.com&#34;)
  *             .clientIdLists(&#34;266362248691-342342xasdasdasda-apps.googleusercontent.com&#34;)
  *             .thumbprintLists(&#34;cf23df2207d99a74fbe169e3eba035e633b65d94&#34;)
- *             .url(&#34;https://accounts.google.com&#34;)
  *             .build());
  * 
  *     }

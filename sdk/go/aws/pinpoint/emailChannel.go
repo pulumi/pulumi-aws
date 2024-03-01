@@ -75,7 +75,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			rolePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			rolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -92,9 +92,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "role_policy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("role_policy"),
 //				Role:   role.ID(),
-//				Policy: *pulumi.String(rolePolicyPolicyDocument.Json),
+//				Policy: *pulumi.String(rolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -13,17 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "orders",
  *     hashKey: "id",
  *     attributes: [{
  *         name: "id",
  *         type: "S",
  *     }],
  * });
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination", {
+ * const exampleStream = new aws.kinesis.Stream("example", {
+ *     name: "order_item_changes",
+ *     shardCount: 1,
+ * });
+ * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("example", {
  *     streamArn: exampleStream.arn,
- *     tableName: exampleTable.name,
+ *     tableName: example.name,
  * });
  * ```
  *

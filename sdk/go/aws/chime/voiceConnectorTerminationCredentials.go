@@ -30,13 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			defaultVoiceConnectorTermination, err := chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
+//			_, err = chime.NewVoiceConnectorTermination(ctx, "default", &chime.VoiceConnectorTerminationArgs{
 //				Disabled: pulumi.Bool(true),
 //				CpsLimit: pulumi.Int(1),
 //				CidrAllowLists: pulumi.StringArray{
@@ -46,22 +47,20 @@ import (
 //					pulumi.String("US"),
 //					pulumi.String("CA"),
 //				},
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "defaultVoiceConnectorTerminationCredentials", &chime.VoiceConnectorTerminationCredentialsArgs{
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "default", &chime.VoiceConnectorTerminationCredentialsArgs{
+//				VoiceConnectorId: _default.ID(),
 //				Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
 //					&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
 //						Username: pulumi.String("test"),
 //						Password: pulumi.String("test!"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				defaultVoiceConnectorTermination,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

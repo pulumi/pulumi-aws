@@ -341,9 +341,9 @@ class Statement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
+            database=example_aws_redshift_cluster["databaseName"],
+            db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
@@ -353,7 +353,7 @@ class Statement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftdata.Statement("example",
-            workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"],
+            workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"],
             database="dev",
             sql="CREATE GROUP group_name;")
         ```
@@ -396,9 +396,9 @@ class Statement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
+            database=example_aws_redshift_cluster["databaseName"],
+            db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
@@ -408,7 +408,7 @@ class Statement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshiftdata.Statement("example",
-            workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"],
+            workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"],
             database="dev",
             sql="CREATE GROUP group_name;")
         ```

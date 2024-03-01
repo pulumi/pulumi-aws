@@ -156,6 +156,7 @@ def get_listener(arn: Optional[str] = None,
     config = pulumi.Config()
     listener_arn = config.require("listenerArn")
     listener = aws.lb.get_listener(arn=listener_arn)
+    # get listener from load_balancer_arn and port
     selected = aws.lb.get_load_balancer(name="default-public")
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)
@@ -210,6 +211,7 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     config = pulumi.Config()
     listener_arn = config.require("listenerArn")
     listener = aws.lb.get_listener(arn=listener_arn)
+    # get listener from load_balancer_arn and port
     selected = aws.lb.get_load_balancer(name="default-public")
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)

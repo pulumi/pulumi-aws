@@ -41,8 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testDestination = new LogDestination(&#34;testDestination&#34;, LogDestinationArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_cloudwatch().arn())
- *             .targetArn(aws_kinesis_stream.kinesis_for_cloudwatch().arn())
+ *             .name(&#34;test_destination&#34;)
+ *             .roleArn(iamForCloudwatch.arn())
+ *             .targetArn(kinesisForCloudwatch.arn())
  *             .build());
  * 
  *     }

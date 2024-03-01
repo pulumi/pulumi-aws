@@ -22,8 +22,9 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new()
+    ///     var testFleet = new Aws.AppStream.ImageBuilder("test_fleet", new()
     ///     {
+    ///         Name = "Name",
     ///         Description = "Description of a ImageBuilder",
     ///         DisplayName = "Display name of a ImageBuilder",
     ///         EnableDefaultInternetAccess = false,
@@ -33,7 +34,7 @@ namespace Pulumi.Aws.AppStream
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 example.Id,
     ///             },
     ///         },
     ///         Tags = 

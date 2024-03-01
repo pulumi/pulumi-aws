@@ -17,14 +17,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.globalaccelerator.Accelerator("example", {
+ *     name: "Example",
+ *     ipAddressType: "IPV4",
+ *     ipAddresses: ["1.2.3.4"],
+ *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
- *     enabled: true,
- *     ipAddressType: "IPV4",
- *     ipAddresses: ["1.2.3.4"],
  * });
  * ```
  *

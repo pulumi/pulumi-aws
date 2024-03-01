@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
- *         var barDirectory = new Directory(&#34;barDirectory&#34;, DirectoryArgs.builder()        
+ *         var bar = new Directory(&#34;bar&#34;, DirectoryArgs.builder()        
  *             .name(&#34;corp.notexample.com&#34;)
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .size(&#34;Small&#34;)
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
- *         var barDirectory = new Directory(&#34;barDirectory&#34;, DirectoryArgs.builder()        
+ *         var bar = new Directory(&#34;bar&#34;, DirectoryArgs.builder()        
  *             .name(&#34;corp.notexample.com&#34;)
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .edition(&#34;Standard&#34;)

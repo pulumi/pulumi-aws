@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getGlobalNetwork({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  * });
  * ```
  */
@@ -73,7 +73,7 @@ export interface GetGlobalNetworkResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getGlobalNetwork({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  * });
  * ```
  */

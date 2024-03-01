@@ -37,6 +37,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.ParameterGroup("default", new()
     ///     {
+    ///         Name = "rds-pg",
     ///         Family = "mysql5.6",
     ///         Parameters = new[]
     ///         {
@@ -71,8 +72,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("exampleParameterGroup", new()
+    ///     var example = new Aws.Rds.ParameterGroup("example", new()
     ///     {
+    ///         Name = "my-pg",
     ///         Family = "postgres13",
     ///         Parameters = new[]
     ///         {
@@ -84,9 +86,9 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
     ///     {
-    ///         ParameterGroupName = exampleParameterGroup.Name,
+    ///         ParameterGroupName = example.Name,
     ///         ApplyImmediately = true,
     ///     });
     /// 

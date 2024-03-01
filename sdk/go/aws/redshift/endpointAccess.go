@@ -30,8 +30,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewEndpointAccess(ctx, "example", &redshift.EndpointAccessArgs{
 //				EndpointName:      pulumi.String("example"),
-//				SubnetGroupName:   pulumi.Any(aws_redshift_subnet_group.Example.Id),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				SubnetGroupName:   pulumi.Any(exampleAwsRedshiftSubnetGroup.Id),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //			})
 //			if err != nil {
 //				return err

@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Auditmanager
         /// {
         ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
         ///     {
-        ///         FrameworkType = "Standard",
         ///         Name = "Essential Eight",
+        ///         FrameworkType = "Standard",
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Aws.Auditmanager
         /// {
         ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
         ///     {
-        ///         FrameworkType = "Standard",
         ///         Name = "Essential Eight",
+        ///         FrameworkType = "Standard",
         ///     });
         /// 
         /// });

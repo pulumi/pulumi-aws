@@ -11,6 +11,98 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Network Manager Connect Peer.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
+ *     bgpOptions: {
+ *         peerAsn: 65000,
+ *     },
+ *     insideCidrBlocks: ["172.16.0.0/16"],
+ * });
+ * ```
+ * ### Usage with attachment accepter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleAttachmentAccepter = new aws.networkmanager.AttachmentAccepter("example", {
+ *     attachmentId: example.id,
+ *     attachmentType: example.attachmentType,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * const example2 = new aws.networkmanager.AttachmentAccepter("example2", {
+ *     attachmentId: exampleConnectAttachment.id,
+ *     attachmentType: exampleConnectAttachment.attachmentType,
+ * });
+ * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
+ *     bgpOptions: {
+ *         peerAsn: 65500,
+ *     },
+ *     insideCidrBlocks: ["172.16.0.0/16"],
+ * });
+ * ```
+ * ### Usage with a Tunnel-less Connect attachment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "NO_ENCAP",
+ *     },
+ * });
+ * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
+ *     bgpOptions: {
+ *         peerAsn: 65000,
+ *     },
+ *     subnetArn: test2.arn,
+ * });
+ * ```
  *
  * ## Import
  *

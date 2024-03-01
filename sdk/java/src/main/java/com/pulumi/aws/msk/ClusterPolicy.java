@@ -43,28 +43,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
  *         var example = new ClusterPolicy(&#34;example&#34;, ClusterPolicyArgs.builder()        
- *             .clusterArn(aws_msk_cluster.example().arn())
+ *             .clusterArn(exampleAwsMskCluster.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;kafka:Describe*&#34;, 
  *                             &#34;kafka:Get*&#34;, 
  *                             &#34;kafka:CreateVpcConnection&#34;, 
  *                             &#34;kafka:GetBootstrapBrokers&#34;
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, aws_msk_cluster.example().arn())
+ *                         jsonProperty(&#34;resource&#34;, exampleAwsMskCluster.arn())
  *                     )))
  *                 )))
  *             .build());

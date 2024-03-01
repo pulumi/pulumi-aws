@@ -28,7 +28,9 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "athena-data-catalog",
     ///         Description = "Example Athena data catalog",
+    ///         Type = "LAMBDA",
     ///         Parameters = 
     ///         {
     ///             { "function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
@@ -37,7 +39,6 @@ namespace Pulumi.Aws.Athena
     ///         {
     ///             { "Name", "example-athena-data-catalog" },
     ///         },
-    ///         Type = "LAMBDA",
     ///     });
     /// 
     /// });
@@ -54,12 +55,13 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "hive-data-catalog",
     ///         Description = "Hive based Data Catalog",
+    ///         Type = "HIVE",
     ///         Parameters = 
     ///         {
     ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
     ///         },
-    ///         Type = "HIVE",
     ///     });
     /// 
     /// });
@@ -76,12 +78,13 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "glue-data-catalog",
     ///         Description = "Glue based Data Catalog",
+    ///         Type = "GLUE",
     ///         Parameters = 
     ///         {
     ///             { "catalog-id", "123456789012" },
     ///         },
-    ///         Type = "GLUE",
     ///     });
     /// 
     /// });
@@ -98,13 +101,14 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "lambda-data-catalog",
     ///         Description = "Lambda based Data Catalog",
+    ///         Type = "LAMBDA",
     ///         Parameters = 
     ///         {
     ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1" },
     ///             { "record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2" },
     ///         },
-    ///         Type = "LAMBDA",
     ///     });
     /// 
     /// });

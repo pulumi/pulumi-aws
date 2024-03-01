@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationTask({
- *     replicationTaskId: aws_dms_replication_task.test.replication_task_id,
+ *     replicationTaskId: testAwsDmsReplicationTask.replicationTaskId,
  * });
  * ```
  */
@@ -110,7 +110,7 @@ export interface GetReplicationTaskResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationTask({
- *     replicationTaskId: aws_dms_replication_task.test.replication_task_id,
+ *     replicationTaskId: testAwsDmsReplicationTask.replicationTaskId,
  * });
  * ```
  */

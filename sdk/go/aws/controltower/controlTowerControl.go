@@ -37,17 +37,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleOrganization, err := organizations.LookupOrganization(ctx, nil, nil)
+//			example, err := organizations.LookupOrganization(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
-//				ParentId: exampleOrganization.Roots[0].Id,
+//			exampleGetOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
+//				ParentId: example.Roots[0].Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = controltower.NewControlTowerControl(ctx, "exampleControlTowerControl", &controltower.ControlTowerControlArgs{
+//			_, err = controltower.NewControlTowerControl(ctx, "example", &controltower.ControlTowerControlArgs{
 //				ControlIdentifier: pulumi.String(fmt.Sprintf("arn:aws:controltower:%v::control/AWS-GR_EC2_VOLUME_INUSE_CHECK", current.Name)),
 //				TargetIdentifier:  "TODO: For expression"[0],
 //			})

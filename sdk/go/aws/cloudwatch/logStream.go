@@ -28,11 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
+//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("Yada"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
+//				Name:         pulumi.String("SampleLogStream1234"),
 //				LogGroupName: yada.Name,
 //			})
 //			if err != nil {

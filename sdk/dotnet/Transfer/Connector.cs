@@ -25,16 +25,16 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         As2Config = new Aws.Transfer.Inputs.ConnectorAs2ConfigArgs
     ///         {
     ///             Compression = "DISABLED",
     ///             EncryptionAlgorithm = "AWS128_CBC",
     ///             MessageSubject = "For Connector",
-    ///             LocalProfileId = aws_transfer_profile.Local.Profile_id,
+    ///             LocalProfileId = local.ProfileId,
     ///             MdnResponse = "NONE",
     ///             MdnSigningAlgorithm = "NONE",
-    ///             PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
+    ///             PartnerProfileId = partner.ProfileId,
     ///             SigningAlgorithm = "NONE",
     ///         },
     ///         Url = "http://www.test.com",
@@ -54,14 +54,14 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
     ///         {
     ///             TrustedHostKeys = new[]
     ///             {
     ///                 "ssh-rsa AAAAB3NYourKeysHere",
     ///             },
-    ///             UserSecretId = aws_secretsmanager_secret.Example.Id,
+    ///             UserSecretId = exampleAwsSecretsmanagerSecret.Id,
     ///         },
     ///         Url = "sftp://test.com",
     ///     });

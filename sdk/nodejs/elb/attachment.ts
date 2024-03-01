@@ -22,8 +22,8 @@ import * as utilities from "../utilities";
  *
  * // Create a new load balancer attachment
  * const baz = new aws.elb.Attachment("baz", {
- *     elb: aws_elb.bar.id,
- *     instance: aws_instance.foo.id,
+ *     elb: bar.id,
+ *     instance: foo.id,
  * });
  * ```
  */

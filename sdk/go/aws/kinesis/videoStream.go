@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
+//				Name:                 pulumi.String("kinesis-video-stream"),
 //				DataRetentionInHours: pulumi.Int(1),
 //				DeviceName:           pulumi.String("kinesis-video-device-name"),
 //				MediaType:            pulumi.String("video/h264"),

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.codeartifact.getAuthorizationToken({
- *     domain: aws_codeartifact_domain.test.domain,
+ *     domain: testAwsCodeartifactDomain.domain,
  * });
  * ```
  */
@@ -76,7 +76,7 @@ export interface GetAuthorizationTokenResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.codeartifact.getAuthorizationToken({
- *     domain: aws_codeartifact_domain.test.domain,
+ *     domain: testAwsCodeartifactDomain.domain,
  * });
  * ```
  */

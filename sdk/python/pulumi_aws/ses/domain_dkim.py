@@ -102,11 +102,11 @@ class DomainDkim(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_domain_dkim = aws.ses.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_domain_dkim = aws.ses.DomainDkim("example", domain=example.domain)
         example_amazonses_dkim_record = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_amazonses_dkim_record.append(aws.route53.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
+            example_amazonses_dkim_record.append(aws.route53.Record(f"example_amazonses_dkim_record-{range['value']}",
                 zone_id="ABCDEFGHIJ123",
                 name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
                 type="CNAME",
@@ -143,11 +143,11 @@ class DomainDkim(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_domain_dkim = aws.ses.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_domain_dkim = aws.ses.DomainDkim("example", domain=example.domain)
         example_amazonses_dkim_record = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_amazonses_dkim_record.append(aws.route53.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
+            example_amazonses_dkim_record.append(aws.route53.Record(f"example_amazonses_dkim_record-{range['value']}",
                 zone_id="ABCDEFGHIJ123",
                 name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
                 type="CNAME",

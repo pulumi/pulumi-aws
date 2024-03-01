@@ -28,20 +28,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", nil)
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
 //				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
+//			_, err = amplify.NewWebhook(ctx, "master", &amplify.WebhookArgs{
 //				AppId:       example.ID(),
-//				BranchName:  masterBranch.BranchName,
+//				BranchName:  master.BranchName,
 //				Description: pulumi.String("triggermaster"),
 //			})
 //			if err != nil {

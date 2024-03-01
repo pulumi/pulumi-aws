@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
+ * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
  *     zoneId: "ABCDEFGHIJ123",
  *     name: "_amazonses.example.com",
  *     type: "TXT",

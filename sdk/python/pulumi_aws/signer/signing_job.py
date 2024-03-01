@@ -397,8 +397,8 @@ class SigningJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        build_signing_job = aws.signer.SigningJob("build_signing_job",
             profile_name=test_sp.name,
             source=aws.signer.SigningJobSourceArgs(
                 s3=aws.signer.SigningJobSourceS3Args(
@@ -446,8 +446,8 @@ class SigningJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        build_signing_job = aws.signer.SigningJob("build_signing_job",
             profile_name=test_sp.name,
             source=aws.signer.SigningJobSourceArgs(
                 s3=aws.signer.SigningJobSourceS3Args(

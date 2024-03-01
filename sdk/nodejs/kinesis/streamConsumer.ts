@@ -17,8 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleStreamConsumer = new aws.kinesis.StreamConsumer("exampleStreamConsumer", {streamArn: exampleStream.arn});
+ * const example = new aws.kinesis.Stream("example", {
+ *     name: "example-stream",
+ *     shardCount: 1,
+ * });
+ * const exampleStreamConsumer = new aws.kinesis.StreamConsumer("example", {
+ *     name: "example-consumer",
+ *     streamArn: example.arn,
+ * });
  * ```
  *
  * ## Import

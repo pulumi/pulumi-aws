@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
@@ -59,8 +59,9 @@ namespace Pulumi.Aws.Sagemaker
     ///         RepositoryName = "kmeans",
     ///     });
     /// 
-    ///     var exampleModel = new Aws.Sagemaker.Model("exampleModel", new()
+    ///     var example = new Aws.Sagemaker.Model("example", new()
     ///     {
+    ///         Name = "my-model",
     ///         ExecutionRoleArn = exampleRole.Arn,
     ///         PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
     ///         {

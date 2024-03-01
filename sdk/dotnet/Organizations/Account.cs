@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var account = new Aws.Organizations.Account("account", new()
     ///     {
+    ///         Name = "my_new_account",
     ///         Email = "john@doe.org",
     ///     });
     /// 

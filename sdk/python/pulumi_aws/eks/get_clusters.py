@@ -59,6 +59,20 @@ class AwaitableGetClustersResult(GetClustersResult):
 def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
     Retrieve EKS Clusters list
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = aws.eks.get_clusters()
+    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in not_implemented("toset(data.aws_eks_clusters.example.names)")}
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -73,5 +87,19 @@ def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClu
 def get_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClustersResult]:
     """
     Retrieve EKS Clusters list
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = aws.eks.get_clusters()
+    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in not_implemented("toset(data.aws_eks_clusters.example.names)")}
+    ```
     """
     ...

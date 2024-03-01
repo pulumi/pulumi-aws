@@ -209,7 +209,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lex.V2modelsBotVersion("test",
-            bot_id=aws_lexv2models["test"]["id"],
+            bot_id=test_aws_lexv2models["id"],
             locale_specification={
                 "en_US": aws.lex.V2modelsBotVersionLocaleSpecificationArgs(
                     source_bot_version="DRAFT",
@@ -251,7 +251,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lex.V2modelsBotVersion("test",
-            bot_id=aws_lexv2models["test"]["id"],
+            bot_id=test_aws_lexv2models["id"],
             locale_specification={
                 "en_US": aws.lex.V2modelsBotVersionLocaleSpecificationArgs(
                     source_bot_version="DRAFT",

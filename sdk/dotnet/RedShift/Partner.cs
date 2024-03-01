@@ -24,9 +24,9 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.Partner("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
     ///         AccountId = "1234567910",
-    ///         DatabaseName = aws_redshift_cluster.Example.Database_name,
+    ///         DatabaseName = exampleAwsRedshiftCluster.DatabaseName,
     ///         PartnerName = "example",
     ///     });
     /// 

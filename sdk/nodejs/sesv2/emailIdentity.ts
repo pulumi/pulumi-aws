@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("example", {
  *     emailIdentity: "example.com",
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ *     configurationSetName: example.configurationSetName,
  * });
  * ```
  * ### DKIM Signing Attributes (BYODKIM)
@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.EmailIdentity("example", {
+ *     emailIdentity: "example.com",
  *     dkimSigningAttributes: {
  *         domainSigningPrivateKey: "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
  *         domainSigningSelector: "example",
  *     },
- *     emailIdentity: "example.com",
  * });
  * ```
  *

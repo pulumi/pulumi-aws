@@ -133,7 +133,7 @@ def get_document(document_format: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
         document_format="JSON")
     ```
 
@@ -186,7 +186,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
         document_format="JSON")
     ```
 

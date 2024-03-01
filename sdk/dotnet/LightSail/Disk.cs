@@ -40,6 +40,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var test = new Aws.LightSail.Disk("test", new()
     ///     {
+    ///         Name = "test",
     ///         SizeInGb = 8,
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///     });

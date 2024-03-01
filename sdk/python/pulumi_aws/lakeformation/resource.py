@@ -235,8 +235,8 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
+        example = aws.s3.get_bucket(bucket="an-example-bucket")
+        example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,8 +270,8 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
+        example = aws.s3.get_bucket(bucket="an-example-bucket")
+        example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
 
         :param str resource_name: The name of the resource.

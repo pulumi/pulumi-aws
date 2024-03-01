@@ -43,23 +43,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-vpclattice-service&#34;)
  *             .authType(&#34;AWS_IAM&#34;)
  *             .customDomainName(&#34;example.com&#34;)
  *             .build());
  * 
  *         var exampleAuthPolicy = new AuthPolicy(&#34;exampleAuthPolicy&#34;, AuthPolicyArgs.builder()        
- *             .resourceIdentifier(exampleService.arn())
+ *             .resourceIdentifier(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;StringNotEqualsIgnoreCase&#34;, jsonObject(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;condition&#34;, jsonObject(
+ *                             jsonProperty(&#34;stringNotEqualsIgnoreCase&#34;, jsonObject(
  *                                 jsonProperty(&#34;aws:PrincipalType&#34;, &#34;anonymous&#34;)
  *                             ))
  *                         ))

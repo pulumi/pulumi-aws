@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationAzureBlob(&#34;example&#34;, LocationAzureBlobArgs.builder()        
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType(&#34;SAS&#34;)
  *             .containerUrl(&#34;https://example.com/path&#34;)
  *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()

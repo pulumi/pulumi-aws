@@ -47,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Experience(&#34;example&#34;, ExperienceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
  *             .description(&#34;My Kendra Experience&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(ExperienceConfigurationArgs.builder()
  *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
  *                     .directPutContent(true)
- *                     .faqIds(aws_kendra_faq.example().faq_id())
+ *                     .faqIds(exampleAwsKendraFaq.faqId())
  *                     .build())
  *                 .userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs.builder()
  *                     .identityAttributeName(&#34;12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245&#34;)

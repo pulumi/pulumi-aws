@@ -8,6 +8,21 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Studio Lifecycle Config resource.
  *
  * ## Example Usage
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.sagemaker.StudioLifecycleConfig("example", {
+ *     studioLifecycleConfigName: "example",
+ *     studioLifecycleConfigAppType: "JupyterServer",
+ *     studioLifecycleConfigContent: std.base64encode({
+ *         input: "echo Hello",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
  *
  * ## Import
  *

@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .distributionConfigurationArn(aws_imagebuilder_distribution_configuration.example().arn())
- *             .imageRecipeArn(aws_imagebuilder_image_recipe.example().arn())
- *             .infrastructureConfigurationArn(aws_imagebuilder_infrastructure_configuration.example().arn())
+ *             .distributionConfigurationArn(exampleAwsImagebuilderDistributionConfiguration.arn())
+ *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
+ *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
  *             .build());
  * 
  *     }

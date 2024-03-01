@@ -119,8 +119,8 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     import pulumi_aws as aws
 
     test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
         start="2021-01-01",
+        end="2022-12-01",
     ))
     ```
 
@@ -169,8 +169,8 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     import pulumi_aws as aws
 
     test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
         start="2021-01-01",
+        end="2022-12-01",
     ))
     ```
 

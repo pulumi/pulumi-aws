@@ -24,6 +24,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
     ///             StatelessDefaultActions = new[]
@@ -39,7 +40,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
     ///                 {
     ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
     ///             TlsInspectionConfigurationArn = "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
@@ -65,6 +66,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
     ///             PolicyVariables = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs
@@ -98,7 +100,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
     ///                 {
     ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
     ///         },
@@ -106,6 +108,56 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         {
     ///             { "Tag1", "Value1" },
     ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Policy with a Custom Action for Stateless Inspection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.NetworkFirewall.FirewallPolicy("test", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         {
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///                 "ExampleCustomAction",
+    ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessCustomActions = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs
+    ///                 {
+    ///                     ActionDefinition = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs
+    ///                     {
+    ///                         PublishMetricAction = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs
+    ///                         {
+    ///                             Dimensions = new[]
+    ///                             {
+    ///                                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs
+    ///                                 {
+    ///                                     Value = "1",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     ActionName = "ExampleCustomAction",
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 

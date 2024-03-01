@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dynamodb.getTableItem({
- *     tableName: aws_dynamodb_table.example.name,
+ *     tableName: example.name,
  *     expressionAttributeNames: {
  *         "#P": "Percentile",
  *     },
@@ -89,7 +89,7 @@ export interface GetTableItemResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dynamodb.getTableItem({
- *     tableName: aws_dynamodb_table.example.name,
+ *     tableName: example.name,
  *     expressionAttributeNames: {
  *         "#P": "Percentile",
  *     },

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.kinesis.getStreamConsumer({
  *     name: "example-consumer",
- *     streamArn: aws_kinesis_stream.example.arn,
+ *     streamArn: exampleAwsKinesisStream.arn,
  * });
  * ```
  */
@@ -82,7 +82,7 @@ export interface GetStreamConsumerResult {
  *
  * const example = aws.kinesis.getStreamConsumer({
  *     name: "example-consumer",
- *     streamArn: aws_kinesis_stream.example.arn,
+ *     streamArn: exampleAwsKinesisStream.arn,
  * });
  * ```
  */

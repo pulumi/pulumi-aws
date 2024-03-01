@@ -25,7 +25,7 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.EndpointAuthorization("example", new()
     ///     {
     ///         Account = "01234567910",
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
     ///     });
     /// 
     /// });

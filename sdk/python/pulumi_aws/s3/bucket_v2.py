@@ -1013,10 +1013,12 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", tags={
-            "Environment": "Dev",
-            "Name": "My bucket",
-        })
+        example = aws.s3.BucketV2("example",
+            bucket="my-tf-test-bucket",
+            tags={
+                "Name": "My bucket",
+                "Environment": "Dev",
+            })
         ```
 
         ## Import
@@ -1085,10 +1087,12 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", tags={
-            "Environment": "Dev",
-            "Name": "My bucket",
-        })
+        example = aws.s3.BucketV2("example",
+            bucket="my-tf-test-bucket",
+            tags={
+                "Name": "My bucket",
+                "Environment": "Dev",
+            })
         ```
 
         ## Import

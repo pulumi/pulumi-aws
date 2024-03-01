@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationObjectStorage(&#34;example&#34;, LocationObjectStorageArgs.builder()        
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .serverHostname(&#34;example&#34;)
  *             .bucketName(&#34;example&#34;)
  *             .build());

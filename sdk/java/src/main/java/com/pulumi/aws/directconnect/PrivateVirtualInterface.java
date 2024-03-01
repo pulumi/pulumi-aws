@@ -43,10 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new PrivateVirtualInterface(&#34;foo&#34;, PrivateVirtualInterfaceArgs.builder()        
+ *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
+ *             .name(&#34;vif-foo&#34;)
+ *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .vlan(4094)
  *             .build());
  * 
  *     }

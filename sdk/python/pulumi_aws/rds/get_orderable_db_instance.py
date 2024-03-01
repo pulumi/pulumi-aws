@@ -395,12 +395,12 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
     test = aws.rds.get_orderable_db_instance(engine="mysql",
         engine_version="5.7.22",
         license_model="general-public-license",
+        storage_type="standard",
         preferred_instance_classes=[
             "db.r6.xlarge",
             "db.m4.large",
             "db.t3.small",
-        ],
-        storage_type="standard")
+        ])
     ```
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
@@ -548,12 +548,12 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     test = aws.rds.get_orderable_db_instance(engine="mysql",
         engine_version="5.7.22",
         license_model="general-public-license",
+        storage_type="standard",
         preferred_instance_classes=[
             "db.r6.xlarge",
             "db.m4.large",
             "db.t3.small",
-        ],
-        storage_type="standard")
+        ])
     ```
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.

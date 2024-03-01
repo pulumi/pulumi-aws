@@ -36,15 +36,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				BrokerName: pulumi.String("example"),
 //				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+//					Id:       pulumi.Any(test.Id),
+//					Revision: pulumi.Any(test.LatestRevision),
 //				},
 //				EngineType:       pulumi.String("ActiveMQ"),
 //				EngineVersion:    pulumi.String("5.17.6"),
 //				HostInstanceType: pulumi.String("mq.t2.micro"),
 //				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					testAwsSecurityGroup.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
@@ -78,16 +79,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				BrokerName: pulumi.String("example"),
 //				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+//					Id:       pulumi.Any(test.Id),
+//					Revision: pulumi.Any(test.LatestRevision),
 //				},
 //				EngineType:       pulumi.String("ActiveMQ"),
 //				EngineVersion:    pulumi.String("5.17.6"),
 //				StorageType:      pulumi.String("ebs"),
 //				HostInstanceType: pulumi.String("mq.m5.large"),
 //				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					testAwsSecurityGroup.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{

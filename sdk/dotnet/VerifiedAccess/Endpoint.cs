@@ -28,12 +28,12 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
     ///         Description = "example",
-    ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "load-balancer",
     ///         LoadBalancerOptions = new Aws.VerifiedAccess.Inputs.EndpointLoadBalancerOptionsArgs
     ///         {
-    ///             LoadBalancerArn = aws_lb.Example.Arn,
+    ///             LoadBalancerArn = exampleAwsLb.Arn,
     ///             Port = 443,
     ///             Protocol = "https",
     ///             SubnetIds = .Select(subnet =&gt; 
@@ -43,9 +43,9 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         VerifiedAccessGroupId = aws_verifiedaccess_group.Example.Id,
+    ///         VerifiedAccessGroupId = exampleAwsVerifiedaccessGroup.Id,
     ///     });
     /// 
     /// });
@@ -65,20 +65,20 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
     ///         Description = "example",
-    ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "network-interface",
     ///         NetworkInterfaceOptions = new Aws.VerifiedAccess.Inputs.EndpointNetworkInterfaceOptionsArgs
     ///         {
-    ///             NetworkInterfaceId = aws_network_interface.Example.Id,
+    ///             NetworkInterfaceId = exampleAwsNetworkInterface.Id,
     ///             Port = 443,
     ///             Protocol = "https",
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         VerifiedAccessGroupId = aws_verifiedaccess_group.Example.Id,
+    ///         VerifiedAccessGroupId = exampleAwsVerifiedaccessGroup.Id,
     ///     });
     /// 
     /// });

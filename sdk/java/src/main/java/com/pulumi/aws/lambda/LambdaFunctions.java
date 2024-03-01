@@ -211,7 +211,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
@@ -250,7 +250,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
@@ -289,7 +289,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
@@ -328,7 +328,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
@@ -862,6 +862,8 @@ public final class LambdaFunctions {
      * 
      * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args) {
         return getInvocation(args, InvokeOptions.Empty);
@@ -872,6 +874,8 @@ public final class LambdaFunctions {
      * invocation type.
      * 
      * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args) {
@@ -884,6 +888,8 @@ public final class LambdaFunctions {
      * 
      * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
@@ -894,6 +900,8 @@ public final class LambdaFunctions {
      * invocation type.
      * 
      * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args, InvokeOptions options) {

@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OriginAccessControl(&#34;example&#34;, OriginAccessControlArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;Example Policy&#34;)
  *             .originAccessControlOriginType(&#34;s3&#34;)
  *             .signingBehavior(&#34;always&#34;)

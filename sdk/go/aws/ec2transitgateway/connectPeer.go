@@ -28,19 +28,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnect, err := ec2transitgateway.NewConnect(ctx, "exampleConnect", &ec2transitgateway.ConnectArgs{
-//				TransportAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//			example, err := ec2transitgateway.NewConnect(ctx, "example", &ec2transitgateway.ConnectArgs{
+//				TransportAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
+//				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2transitgateway.NewConnectPeer(ctx, "exampleConnectPeer", &ec2transitgateway.ConnectPeerArgs{
+//			_, err = ec2transitgateway.NewConnectPeer(ctx, "example", &ec2transitgateway.ConnectPeerArgs{
 //				PeerAddress: pulumi.String("10.1.2.3"),
 //				InsideCidrBlocks: pulumi.StringArray{
 //					pulumi.String("169.254.100.0/29"),
 //				},
-//				TransitGatewayAttachmentId: exampleConnect.ID(),
+//				TransitGatewayAttachmentId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

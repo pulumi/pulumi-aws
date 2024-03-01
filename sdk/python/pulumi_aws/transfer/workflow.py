@@ -233,7 +233,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=example_aws_lambda_function["arn"],
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",
@@ -302,7 +302,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=example_aws_lambda_function["arn"],
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",

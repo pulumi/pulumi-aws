@@ -25,7 +25,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Project = aws_evidently_project.Example.Name,
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
     ///         Description = "example description",
     ///         Variations = new[]
     ///         {
@@ -58,7 +59,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Project = aws_evidently_project.Example.Name,
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
     ///         DefaultVariation = "Variation2",
     ///         Variations = new[]
     ///         {
@@ -95,7 +97,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Project = aws_evidently_project.Example.Name,
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
     ///         EntityOverrides = 
     ///         {
     ///             { "test1", "Variation1" },
@@ -135,7 +138,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Project = aws_evidently_project.Example.Name,
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
     ///         EvaluationStrategy = "ALL_RULES",
     ///         EntityOverrides = 
     ///         {

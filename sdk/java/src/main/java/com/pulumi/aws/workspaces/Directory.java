@@ -31,25 +31,24 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.directoryservice.Directory;
+ * import com.pulumi.aws.directoryservice.DirectoryArgs;
+ * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.workspaces.Directory;
- * import com.pulumi.aws.workspaces.DirectoryArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
- * import com.pulumi.aws.directoryservice.Directory;
- * import com.pulumi.aws.directoryservice.DirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,32 +62,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess&#34;)
- *             .build());
- * 
- *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultSelfServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess&#34;)
- *             .build());
- * 
  *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleA = new Subnet(&#34;exampleA&#34;, SubnetArgs.builder()        
+ *             .vpcId(exampleVpc.id())
+ *             .availabilityZone(&#34;us-east-1a&#34;)
+ *             .cidrBlock(&#34;10.0.0.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleB = new Subnet(&#34;exampleB&#34;, SubnetArgs.builder()        
+ *             .vpcId(exampleVpc.id())
+ *             .availabilityZone(&#34;us-east-1b&#34;)
+ *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
+ *             .name(&#34;corp.example.com&#34;)
+ *             .password(&#34;#S1ncerely&#34;)
+ *             .size(&#34;Small&#34;)
+ *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
+ *                 .vpcId(exampleVpc.id())
+ *                 .subnetIds(                
+ *                     exampleA.id(),
+ *                     exampleB.id())
+ *                 .build())
  *             .build());
  * 
  *         var exampleC = new Subnet(&#34;exampleC&#34;, SubnetArgs.builder()        
@@ -103,8 +102,8 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.0.3.0/24&#34;)
  *             .build());
  * 
- *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
- *             .directoryId(exampleDirectoryservice / directoryDirectory.id())
+ *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
+ *             .directoryId(exampleDirectory.id())
  *             .subnetIds(            
  *                 exampleC.id(),
  *                 exampleD.id())
@@ -127,40 +126,37 @@ import javax.annotation.Nullable;
  *                 .deviceTypeZeroclient(&#34;DENY&#34;)
  *                 .build())
  *             .workspaceCreationProperties(DirectoryWorkspaceCreationPropertiesArgs.builder()
- *                 .customSecurityGroupId(aws_security_group.example().id())
+ *                 .customSecurityGroupId(exampleAwsSecurityGroup.id())
  *                 .defaultOu(&#34;OU=AWS,DC=Workgroup,DC=Example,DC=com&#34;)
  *                 .enableInternetAccess(true)
  *                 .enableMaintenanceMode(true)
  *                 .userEnabledAsLocalAdministrator(true)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     workspacesDefaultServiceAccess,
- *                     workspacesDefaultSelfServiceAccess)
- *                 .build());
- * 
- *         var exampleA = new Subnet(&#34;exampleA&#34;, SubnetArgs.builder()        
- *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .build());
  * 
- *         var exampleB = new Subnet(&#34;exampleB&#34;, SubnetArgs.builder()        
- *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
- *             .build());
- * 
- *         var exampleDirectoryservice_directoryDirectory = new Directory(&#34;exampleDirectoryservice/directoryDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;corp.example.com&#34;)
- *             .password(&#34;#S1ncerely&#34;)
- *             .size(&#34;Small&#34;)
- *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(exampleVpc.id())
- *                 .subnetIds(                
- *                     exampleA.id(),
- *                     exampleB.id())
+ *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
+ *                     .build())
  *                 .build())
+ *             .build());
+ * 
+ *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
+ *             .name(&#34;workspaces_DefaultRole&#34;)
+ *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(workspacesDefault.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess&#34;)
+ *             .build());
+ * 
+ *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultSelfServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(workspacesDefault.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess&#34;)
  *             .build());
  * 
  *     }
@@ -174,6 +170,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.workspaces.IpGroup;
+ * import com.pulumi.aws.workspaces.IpGroupArgs;
  * import com.pulumi.aws.workspaces.Directory;
  * import com.pulumi.aws.workspaces.DirectoryArgs;
  * import java.util.List;
@@ -189,10 +186,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleIpGroup = new IpGroup(&#34;exampleIpGroup&#34;);
+ *         var exampleIpGroup = new IpGroup(&#34;exampleIpGroup&#34;, IpGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
- *             .directoryId(aws_directory_service_directory.example().id())
+ *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .ipGroupIds(exampleIpGroup.id())
  *             .build());
  * 

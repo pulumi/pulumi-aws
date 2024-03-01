@@ -532,6 +532,7 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
             type="container",
             container_properties=json.dumps({
                 "command": [
@@ -579,6 +580,7 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
+            name="tf_test_batch_job_definition_multinode",
             type="multinode",
             node_properties=json.dumps({
                 "mainNode": 0,
@@ -611,6 +613,39 @@ class JobDefinition(pulumi.CustomResource):
                 "numNodes": 2,
             }))
         ```
+        ### Job Definitionn of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties=aws.batch.JobDefinitionEksPropertiesArgs(
+                pod_properties=aws.batch.JobDefinitionEksPropertiesPodPropertiesArgs(
+                    host_network=True,
+                    containers=aws.batch.JobDefinitionEksPropertiesPodPropertiesContainersArgs(
+                        image="public.ecr.aws/amazonlinux/amazonlinux:1",
+                        commands=[
+                            "sleep",
+                            "60",
+                        ],
+                        resources=aws.batch.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs(
+                            limits={
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        ),
+                    ),
+                    metadata=aws.batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs(
+                        labels={
+                            "environment": "test",
+                        },
+                    ),
+                ),
+            ))
+        ```
         ### Fargate Platform Capability
 
         ```python
@@ -625,11 +660,14 @@ class JobDefinition(pulumi.CustomResource):
                 identifiers=["ecs-tasks.amazonaws.com"],
             )],
         )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
+        ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
+            name="my_test_batch_exec_role",
+            assume_role_policy=assume_role_policy.json)
+        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy",
             role=ecs_task_execution_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
         test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
             type="container",
             platform_capabilities=["FARGATE"],
             container_properties=pulumi.Output.json_dumps({
@@ -702,6 +740,7 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
             type="container",
             container_properties=json.dumps({
                 "command": [
@@ -749,6 +788,7 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
+            name="tf_test_batch_job_definition_multinode",
             type="multinode",
             node_properties=json.dumps({
                 "mainNode": 0,
@@ -781,6 +821,39 @@ class JobDefinition(pulumi.CustomResource):
                 "numNodes": 2,
             }))
         ```
+        ### Job Definitionn of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties=aws.batch.JobDefinitionEksPropertiesArgs(
+                pod_properties=aws.batch.JobDefinitionEksPropertiesPodPropertiesArgs(
+                    host_network=True,
+                    containers=aws.batch.JobDefinitionEksPropertiesPodPropertiesContainersArgs(
+                        image="public.ecr.aws/amazonlinux/amazonlinux:1",
+                        commands=[
+                            "sleep",
+                            "60",
+                        ],
+                        resources=aws.batch.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs(
+                            limits={
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        ),
+                    ),
+                    metadata=aws.batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs(
+                        labels={
+                            "environment": "test",
+                        },
+                    ),
+                ),
+            ))
+        ```
         ### Fargate Platform Capability
 
         ```python
@@ -795,11 +868,14 @@ class JobDefinition(pulumi.CustomResource):
                 identifiers=["ecs-tasks.amazonaws.com"],
             )],
         )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
+        ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
+            name="my_test_batch_exec_role",
+            assume_role_policy=assume_role_policy.json)
+        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy",
             role=ecs_task_execution_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
         test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
             type="container",
             platform_capabilities=["FARGATE"],
             container_properties=pulumi.Output.json_dumps({

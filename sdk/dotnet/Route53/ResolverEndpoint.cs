@@ -24,21 +24,22 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         Direction = "INBOUND",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Sg1.Id,
-    ///             aws_security_group.Sg2.Id,
+    ///             sg1.Id,
+    ///             sg2.Id,
     ///         },
     ///         IpAddresses = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Sn1.Id,
+    ///                 SubnetId = sn1.Id,
     ///             },
     ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Sn2.Id,
+    ///                 SubnetId = sn2.Id,
     ///                 Ip = "10.0.64.4",
     ///             },
     ///         },

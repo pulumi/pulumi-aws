@@ -75,12 +75,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
+ *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;mybucket&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;My bucket&#34;))
  *             .build());
  * 
  *         var bAcl = new BucketAclV2(&#34;bAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(bucketV2.id())
+ *             .bucket(b.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
@@ -88,8 +89,8 @@ import javax.annotation.Nullable;
  * 
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(bucketV2.bucketRegionalDomainName())
- *                 .originAccessControlId(aws_cloudfront_origin_access_control.default().id())
+ *                 .domainName(b.bucketRegionalDomainName())
+ *                 .originAccessControlId(default_.id())
  *                 .originId(s3OriginId)
  *                 .build())
  *             .enabled(true)
@@ -244,17 +245,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .origins(            
  *                 DistributionOriginArgs.builder()
- *                     .domainName(aws_s3_bucket.primary().bucket_regional_domain_name())
+ *                     .domainName(primary.bucketRegionalDomainName())
  *                     .originId(&#34;primaryS3&#34;)
  *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                         .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
+ *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                         .build())
  *                     .build(),
  *                 DistributionOriginArgs.builder()
- *                     .domainName(aws_s3_bucket.failover().bucket_regional_domain_name())
+ *                     .domainName(failover.bucketRegionalDomainName())
  *                     .originId(&#34;failoverS3&#34;)
  *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                         .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
+ *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                         .build())
  *                     .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
@@ -299,10 +300,10 @@ import javax.annotation.Nullable;
  * 
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(aws_s3_bucket.primary().bucket_regional_domain_name())
+ *                 .domainName(primary.bucketRegionalDomainName())
  *                 .originId(&#34;myS3Origin&#34;)
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
+ *                     .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                     .build())
  *                 .build())
  *             .enabled(true)

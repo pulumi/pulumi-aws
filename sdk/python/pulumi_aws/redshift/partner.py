@@ -203,9 +203,9 @@ class Partner(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.Partner("example",
-            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            cluster_identifier=example_aws_redshift_cluster["id"],
             account_id="1234567910",
-            database_name=aws_redshift_cluster["example"]["database_name"],
+            database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
 
@@ -240,9 +240,9 @@ class Partner(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.Partner("example",
-            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            cluster_identifier=example_aws_redshift_cluster["id"],
             account_id="1234567910",
-            database_name=aws_redshift_cluster["example"]["database_name"],
+            database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
 

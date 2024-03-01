@@ -50,15 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+ *         final var example = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
  *             .modelId(&#34;amazon.titan-text-express-v1&#34;)
  *             .build());
  * 
  *         var exampleCustomModel = new CustomModel(&#34;exampleCustomModel&#34;, CustomModelArgs.builder()        
  *             .customModelName(&#34;example-model&#34;)
  *             .jobName(&#34;example-job-1&#34;)
- *             .baseModelIdentifier(exampleModel.applyValue(getModelResult -&gt; getModelResult.modelArn()))
- *             .roleArn(aws_iam_role.example().arn())
+ *             .baseModelIdentifier(example.applyValue(getModelResult -&gt; getModelResult.modelArn()))
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .hyperparameters(Map.ofEntries(
  *                 Map.entry(&#34;epochCount&#34;, &#34;1&#34;),
  *                 Map.entry(&#34;batchSize&#34;, &#34;1&#34;),
@@ -66,10 +66,10 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;learningRateWarmupSteps&#34;, &#34;0&#34;)
  *             ))
  *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format(&#34;s3://%s/data/&#34;, aws_s3_bucket.output().id()))
+ *                 .s3Uri(String.format(&#34;s3://%s/data/&#34;, output.id()))
  *                 .build())
  *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
- *                 .s3Uri(String.format(&#34;s3://%s/data/train.jsonl&#34;, aws_s3_bucket.training().id()))
+ *                 .s3Uri(String.format(&#34;s3://%s/data/train.jsonl&#34;, training.id()))
  *                 .build())
  *             .build());
  * 

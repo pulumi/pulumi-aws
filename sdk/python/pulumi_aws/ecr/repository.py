@@ -317,10 +317,11 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
+            name="bar",
+            image_tag_mutability="MUTABLE",
             image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
                 scan_on_push=True,
-            ),
-            image_tag_mutability="MUTABLE")
+            ))
         ```
 
         ## Import
@@ -357,10 +358,11 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
+            name="bar",
+            image_tag_mutability="MUTABLE",
             image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
                 scan_on_push=True,
-            ),
-            image_tag_mutability="MUTABLE")
+            ))
         ```
 
         ## Import

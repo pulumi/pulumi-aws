@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewDeployment(ctx, "example", &apigatewayv2.DeploymentArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId:       pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				Description: pulumi.String("Example deployment"),
 //			})
 //			if err != nil {
@@ -43,6 +43,52 @@ import (
 //		})
 //	}
 //
+// ```
+// ### Redeployment Triggers
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//	  panic(message)
+//	}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// invokeSha1, err := std.Sha1(ctx, invokeJoin1, err := std.Join(ctx, &std.JoinArgs{
+// Separator: ",",
+// Input: notImplemented("tolist([\njsonencode(aws_apigatewayv2_integration.example),\njsonencode(aws_apigatewayv2_route.example),\n])"),
+// }, nil)
+// if err != nil {
+// return err
+// }
+// &std.Sha1Args{
+// Input: invokeJoin1.Result,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// _, err = apigatewayv2.NewDeployment(ctx, "example", &apigatewayv2.DeploymentArgs{
+// ApiId: pulumi.Any(exampleAwsApigatewayv2Api.Id),
+// Description: pulumi.String("Example deployment"),
+// Triggers: pulumi.StringMap{
+// "redeployment": invokeSha1.Result,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -30,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
-//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n"),
 //				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:         pulumi.String("example"),
+//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	"),
 //				LanguageCode: pulumi.String("en-US"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),

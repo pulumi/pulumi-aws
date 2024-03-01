@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
-//				DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
+//				DataSetId: pulumi.Any(exampleAwsDataexchangeDataSet.Id),
 //			})
 //			if err != nil {
 //				return err

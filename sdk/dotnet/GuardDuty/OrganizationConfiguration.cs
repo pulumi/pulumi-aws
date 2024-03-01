@@ -24,15 +24,15 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new()
+    ///     var example = new Aws.GuardDuty.Detector("example", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("example", new()
     ///     {
     ///         AutoEnableOrganizationMembers = "ALL",
-    ///         DetectorId = exampleDetector.Id,
+    ///         DetectorId = example.Id,
     ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
     ///         {
     ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs

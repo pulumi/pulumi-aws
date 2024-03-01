@@ -39,17 +39,19 @@ import (
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
+//				Name:                   pulumi.String("foobar3-test"),
 //				MaxSize:                pulumi.Int(5),
 //				MinSize:                pulumi.Int(2),
 //				HealthCheckGracePeriod: pulumi.Int(300),
 //				HealthCheckType:        pulumi.String("ELB"),
 //				ForceDelete:            pulumi.Bool(true),
-//				LaunchConfiguration:    pulumi.Any(aws_launch_configuration.Foo.Name),
+//				LaunchConfiguration:    pulumi.Any(foo.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = autoscaling.NewPolicy(ctx, "bat", &autoscaling.PolicyArgs{
+//				Name:                 pulumi.String("foobar3-test"),
 //				ScalingAdjustment:    pulumi.Int(4),
 //				AdjustmentType:       pulumi.String("ChangeInCapacity"),
 //				Cooldown:             pulumi.Int(300),
@@ -79,55 +81,56 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 //				AutoscalingGroupName: pulumi.String("my-test-asg"),
+//				Name:                 pulumi.String("foo"),
 //				PolicyType:           pulumi.String("TargetTrackingScaling"),
 //				TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+//					TargetValue: pulumi.Float64(100),
 //					CustomizedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{
 //						Metrics: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArray{
 //							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
-//								Id:    pulumi.String("m1"),
 //								Label: pulumi.String("Get the queue size (the number of messages waiting to be processed)"),
+//								Id:    pulumi.String("m1"),
 //								MetricStat: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs{
 //									Metric: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs{
+//										Namespace:  pulumi.String("AWS/SQS"),
+//										MetricName: pulumi.String("ApproximateNumberOfMessagesVisible"),
 //										Dimensions: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray{
 //											&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs{
 //												Name:  pulumi.String("QueueName"),
 //												Value: pulumi.String("my-queue"),
 //											},
 //										},
-//										MetricName: pulumi.String("ApproximateNumberOfMessagesVisible"),
-//										Namespace:  pulumi.String("AWS/SQS"),
 //									},
 //									Stat: pulumi.String("Sum"),
 //								},
 //								ReturnData: pulumi.Bool(false),
 //							},
 //							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
-//								Id:    pulumi.String("m2"),
 //								Label: pulumi.String("Get the group size (the number of InService instances)"),
+//								Id:    pulumi.String("m2"),
 //								MetricStat: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs{
 //									Metric: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs{
+//										Namespace:  pulumi.String("AWS/AutoScaling"),
+//										MetricName: pulumi.String("GroupInServiceInstances"),
 //										Dimensions: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray{
 //											&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs{
 //												Name:  pulumi.String("AutoScalingGroupName"),
 //												Value: pulumi.String("my-asg"),
 //											},
 //										},
-//										MetricName: pulumi.String("GroupInServiceInstances"),
-//										Namespace:  pulumi.String("AWS/AutoScaling"),
 //									},
 //									Stat: pulumi.String("Average"),
 //								},
 //								ReturnData: pulumi.Bool(false),
 //							},
 //							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
-//								Expression: pulumi.String("m1 / m2"),
-//								Id:         pulumi.String("e1"),
 //								Label:      pulumi.String("Calculate the backlog per instance"),
+//								Id:         pulumi.String("e1"),
+//								Expression: pulumi.String("m1 / m2"),
 //								ReturnData: pulumi.Bool(true),
 //							},
 //						},
 //					},
-//					TargetValue: pulumi.Float64(100),
 //				},
 //			})
 //			if err != nil {
@@ -154,44 +157,45 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 //				AutoscalingGroupName: pulumi.String("my-test-asg"),
+//				Name:                 pulumi.String("foo"),
 //				PolicyType:           pulumi.String("PredictiveScaling"),
 //				PredictiveScalingConfiguration: &autoscaling.PolicyPredictiveScalingConfigurationArgs{
 //					MetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs{
-//						CustomizedCapacityMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{
-//							MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray{
-//								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{
-//									Expression: pulumi.String("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))"),
-//									Id:         pulumi.String("capacity_sum"),
-//								},
-//							},
-//						},
+//						TargetValue: pulumi.Float64(10),
 //						CustomizedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{
 //							MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray{
 //								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{
-//									Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))"),
 //									Id:         pulumi.String("load_sum"),
+//									Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))"),
+//								},
+//							},
+//						},
+//						CustomizedCapacityMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{
+//							MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray{
+//								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{
+//									Id:         pulumi.String("capacity_sum"),
+//									Expression: pulumi.String("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))"),
 //								},
 //							},
 //						},
 //						CustomizedScalingMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{
 //							MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{
 //								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
-//									Expression: pulumi.String("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))"),
 //									Id:         pulumi.String("capacity_sum"),
+//									Expression: pulumi.String("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))"),
 //									ReturnData: pulumi.Bool(false),
 //								},
 //								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
-//									Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))"),
 //									Id:         pulumi.String("load_sum"),
+//									Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))"),
 //									ReturnData: pulumi.Bool(false),
 //								},
 //								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
-//									Expression: pulumi.String("load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)"),
 //									Id:         pulumi.String("weighted_average"),
+//									Expression: pulumi.String("load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)"),
 //								},
 //							},
 //						},
-//						TargetValue: pulumi.Float64(10),
 //					},
 //				},
 //			})
@@ -219,34 +223,35 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 //				AutoscalingGroupName: pulumi.String("my-test-asg"),
+//				Name:                 pulumi.String("foo"),
 //				PolicyType:           pulumi.String("PredictiveScaling"),
 //				PredictiveScalingConfiguration: &autoscaling.PolicyPredictiveScalingConfigurationArgs{
 //					MetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs{
+//						TargetValue: pulumi.Float64(10),
+//						PredefinedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{
+//							PredefinedMetricType: pulumi.String("ASGTotalCPUUtilization"),
+//							ResourceLabel:        pulumi.String("app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"),
+//						},
 //						CustomizedScalingMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{
 //							MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{
 //								&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
 //									Id: pulumi.String("scaling"),
 //									MetricStat: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{
 //										Metric: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{
+//											MetricName: pulumi.String("CPUUtilization"),
+//											Namespace:  pulumi.String("AWS/EC2"),
 //											Dimensions: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{
 //												&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{
 //													Name:  pulumi.String("AutoScalingGroupName"),
 //													Value: pulumi.String("my-test-asg"),
 //												},
 //											},
-//											MetricName: pulumi.String("CPUUtilization"),
-//											Namespace:  pulumi.String("AWS/EC2"),
 //										},
 //										Stat: pulumi.String("Average"),
 //									},
 //								},
 //							},
 //						},
-//						PredefinedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{
-//							PredefinedMetricType: pulumi.String("ASGTotalCPUUtilization"),
-//							ResourceLabel:        pulumi.String("app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"),
-//						},
-//						TargetValue: pulumi.Float64(10),
 //					},
 //				},
 //			})
@@ -317,14 +322,14 @@ type Policy struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        -1,
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
-	// 					ScalingAdjustment:        -1,
 	// 				},
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 					MetricIntervalLowerBound: pulumi.String("2"),
 	// 					MetricIntervalUpperBound: pulumi.String("3"),
-	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 				},
 	// 			},
 	// 		})
@@ -449,14 +454,14 @@ type policyState struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        -1,
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
-	// 					ScalingAdjustment:        -1,
 	// 				},
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 					MetricIntervalLowerBound: pulumi.String("2"),
 	// 					MetricIntervalUpperBound: pulumi.String("3"),
-	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 				},
 	// 			},
 	// 		})
@@ -549,14 +554,14 @@ type PolicyState struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        -1,
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
-	// 					ScalingAdjustment:        -1,
 	// 				},
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 					MetricIntervalLowerBound: pulumi.String("2"),
 	// 					MetricIntervalUpperBound: pulumi.String("3"),
-	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 				},
 	// 			},
 	// 		})
@@ -651,14 +656,14 @@ type policyArgs struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        -1,
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
-	// 					ScalingAdjustment:        -1,
 	// 				},
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 					MetricIntervalLowerBound: pulumi.String("2"),
 	// 					MetricIntervalUpperBound: pulumi.String("3"),
-	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 				},
 	// 			},
 	// 		})
@@ -750,14 +755,14 @@ type PolicyArgs struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        -1,
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
-	// 					ScalingAdjustment:        -1,
 	// 				},
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 					MetricIntervalLowerBound: pulumi.String("2"),
 	// 					MetricIntervalUpperBound: pulumi.String("3"),
-	// 					ScalingAdjustment:        pulumi.Int(1),
 	// 				},
 	// 			},
 	// 		})
@@ -974,14 +979,14 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 //			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 //				StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 //					&autoscaling.PolicyStepAdjustmentArgs{
+//						ScalingAdjustment:        -1,
 //						MetricIntervalLowerBound: pulumi.String("1"),
 //						MetricIntervalUpperBound: pulumi.String("2"),
-//						ScalingAdjustment:        -1,
 //					},
 //					&autoscaling.PolicyStepAdjustmentArgs{
+//						ScalingAdjustment:        pulumi.Int(1),
 //						MetricIntervalLowerBound: pulumi.String("2"),
 //						MetricIntervalUpperBound: pulumi.String("3"),
-//						ScalingAdjustment:        pulumi.Int(1),
 //					},
 //				},
 //			})

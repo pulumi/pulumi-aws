@@ -20,9 +20,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
  *     },
  * });
  * ```
@@ -33,14 +34,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     glueVersion: "4.0",
  *     workerType: "Z.2X",
  *     command: {
  *         name: "glueray",
  *         pythonVersion: "3.9",
  *         runtime: "Ray2.4",
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
  *     },
  * });
  * ```
@@ -51,9 +53,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.scala`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.scala`,
  *     },
  *     defaultArguments: {
  *         "--job-language": "scala",
@@ -67,10 +70,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example streaming job",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
  *         name: "gluestreaming",
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.script`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.script`,
  *     },
  * });
  * ```
@@ -80,10 +84,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
- * // ... other configuration ...
- * const exampleJob = new aws.glue.Job("exampleJob", {defaultArguments: {
- *     "--continuous-log-logGroup": exampleLogGroup.name,
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: "example",
+ *     retentionInDays: 14,
+ * });
+ * const exampleJob = new aws.glue.Job("example", {defaultArguments: {
+ *     "--continuous-log-logGroup": example.name,
  *     "--enable-continuous-cloudwatch-log": "true",
  *     "--enable-continuous-log-filter": "true",
  *     "--enable-metrics": "",

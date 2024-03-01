@@ -209,8 +209,9 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessVpcEndpoint("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_id=aws_vpc["example"]["id"])
+            name="myendpoint",
+            subnet_ids=[example_aws_subnet["id"]],
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import
@@ -247,8 +248,9 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessVpcEndpoint("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_id=aws_vpc["example"]["id"])
+            name="myendpoint",
+            subnet_ids=[example_aws_subnet["id"]],
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ## Import

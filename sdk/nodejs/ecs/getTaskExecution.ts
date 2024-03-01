@@ -13,6 +13,24 @@ import * as utilities from "../utilities";
  * > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ecs.getTaskExecution({
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
+ *     networkConfiguration: {
+ *         subnets: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroups: [exampleAwsSecurityGroup.id],
+ *         assignPublicIp: false,
+ *     },
+ * });
+ * ```
  */
 export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskExecutionResult> {
 
@@ -156,6 +174,24 @@ export interface GetTaskExecutionResult {
  * > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ecs.getTaskExecution({
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
+ *     networkConfiguration: {
+ *         subnets: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroups: [exampleAwsSecurityGroup.id],
+ *         assignPublicIp: false,
+ *     },
+ * });
+ * ```
  */
 export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskExecutionResult> {
     return pulumi.output(args).apply((a: any) => getTaskExecution(a, opts))

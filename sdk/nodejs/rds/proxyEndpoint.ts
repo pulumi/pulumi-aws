@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ProxyEndpoint("example", {
- *     dbProxyName: aws_db_proxy.test.name,
+ *     dbProxyName: test.name,
  *     dbProxyEndpointName: "example",
- *     vpcSubnetIds: aws_subnet.test.map(__item => __item.id),
+ *     vpcSubnetIds: testAwsSubnet.map(__item => __item.id),
  *     targetRole: "READ_ONLY",
  * });
  * ```

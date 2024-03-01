@@ -46,8 +46,9 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId:       pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				ContentType: pulumi.String("application/json"),
+//				Name:        pulumi.String("example"),
 //				Schema:      pulumi.String(json0),
 //			})
 //			if err != nil {

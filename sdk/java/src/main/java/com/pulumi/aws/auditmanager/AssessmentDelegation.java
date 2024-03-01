@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AssessmentDelegation(&#34;example&#34;, AssessmentDelegationArgs.builder()        
- *             .assessmentId(aws_auditmanager_assessment.example().id())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .assessmentId(exampleAwsAuditmanagerAssessment.id())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .roleType(&#34;RESOURCE_OWNER&#34;)
  *             .controlSetId(&#34;example&#34;)
  *             .build());

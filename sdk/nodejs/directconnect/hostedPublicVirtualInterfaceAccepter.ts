@@ -14,13 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const accepter = new aws.Provider("accepter", {});
- * // Accepter's credentials.
- * const accepterCallerIdentity = aws.getCallerIdentity({});
+ * const accepter = aws.getCallerIdentity({});
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
  *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
+ *     ownerAccountId: accepter.then(accepter => accepter.accountId),
+ *     name: "vif-foo",
  *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
@@ -32,13 +31,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Accepter's side of the VIF.
- * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", {
+ * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter", {
  *     virtualInterfaceId: creator.id,
  *     tags: {
  *         Side: "Accepter",
  *     },
- * }, {
- *     provider: aws.accepter,
  * });
  * ```
  *

@@ -26,10 +26,10 @@ namespace Pulumi.Aws.CloudHsmV2
     /// {
     ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
     ///     {
-    ///         ClusterId = @var.Cloudhsm_cluster_id,
+    ///         ClusterId = cloudhsmClusterId,
     ///     });
     /// 
-    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new()
+    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsm_v2_hsm", new()
     ///     {
     ///         SubnetId = cluster.Apply(getClusterResult =&gt; getClusterResult.SubnetIds[0]),
     ///         ClusterId = cluster.Apply(getClusterResult =&gt; getClusterResult.ClusterId),

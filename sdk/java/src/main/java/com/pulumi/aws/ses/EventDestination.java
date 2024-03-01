@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cloudwatch = new EventDestination(&#34;cloudwatch&#34;, EventDestinationArgs.builder()        
- *             .configurationSetName(aws_ses_configuration_set.example().name())
+ *             .name(&#34;event-destination-cloudwatch&#34;)
+ *             .configurationSetName(example.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
@@ -86,14 +87,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var kinesis = new EventDestination(&#34;kinesis&#34;, EventDestinationArgs.builder()        
- *             .configurationSetName(aws_ses_configuration_set.example().name())
+ *             .name(&#34;event-destination-kinesis&#34;)
+ *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
  *                 &#34;send&#34;)
  *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
- *                 .streamArn(aws_kinesis_firehose_delivery_stream.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
+ *                 .streamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                 .roleArn(example.arn())
  *                 .build())
  *             .build());
  * 
@@ -124,13 +126,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sns = new EventDestination(&#34;sns&#34;, EventDestinationArgs.builder()        
- *             .configurationSetName(aws_ses_configuration_set.example().name())
+ *             .name(&#34;event-destination-sns&#34;)
+ *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
  *                 &#34;send&#34;)
  *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(aws_sns_topic.example().arn())
+ *                 .topicArn(example.arn())
  *                 .build())
  *             .build());
  * 

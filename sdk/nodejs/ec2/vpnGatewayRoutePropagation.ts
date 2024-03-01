@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
- *     vpnGatewayId: aws_vpn_gateway.example.id,
- *     routeTableId: aws_route_table.example.id,
+ *     vpnGatewayId: exampleAwsVpnGateway.id,
+ *     routeTableId: exampleAwsRouteTable.id,
  * });
  * ```
  */

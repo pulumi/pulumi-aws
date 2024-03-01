@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Space(&#34;example&#34;, SpaceArgs.builder()        
- *             .domainId(aws_sagemaker_domain.test().id())
+ *             .domainId(test.id())
  *             .spaceName(&#34;example&#34;)
  *             .build());
  * 

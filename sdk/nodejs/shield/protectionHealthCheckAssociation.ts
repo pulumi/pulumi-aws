@@ -17,18 +17,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.ec2.Eip("example", {
  *     domain: "vpc",
  *     tags: {
  *         Name: "example",
  *     },
  * });
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentPartition, currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentPartition, currentRegion, currentCallerIdentity, id]) => `arn:${currentPartition.partition}:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
- * const exampleHealthCheck = new aws.route53.HealthCheck("exampleHealthCheck", {
- *     ipAddress: exampleEip.publicIp,
+ * const exampleProtection = new aws.shield.Protection("example", {
+ *     name: "example-protection",
+ *     resourceArn: pulumi.all([currentGetPartition, current, currentGetCallerIdentity, example.id]).apply(([currentGetPartition, current, currentGetCallerIdentity, id]) => `arn:${currentGetPartition.partition}:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
+ * });
+ * const exampleHealthCheck = new aws.route53.HealthCheck("example", {
+ *     ipAddress: example.publicIp,
  *     port: 80,
  *     type: "HTTP",
  *     resourcePath: "/ready",
@@ -38,7 +41,7 @@ import * as utilities from "../utilities";
  *         Name: "tf-example-health-check",
  *     },
  * });
- * const exampleProtectionHealthCheckAssociation = new aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", {
+ * const exampleProtectionHealthCheckAssociation = new aws.shield.ProtectionHealthCheckAssociation("example", {
  *     healthCheckArn: exampleHealthCheck.arn,
  *     shieldProtectionId: exampleProtection.id,
  * });

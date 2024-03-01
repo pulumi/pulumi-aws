@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ebs
     ///         },
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("example_snapshot", new()
     ///     {
     ///         VolumeId = example.Id,
     ///         Tags = 

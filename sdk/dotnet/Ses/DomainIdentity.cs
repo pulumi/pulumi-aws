@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ses
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
+    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("example_amazonses_verification_record", new()
     ///     {
     ///         ZoneId = "ABCDEFGHIJ123",
     ///         Name = "_amazonses.example.com",

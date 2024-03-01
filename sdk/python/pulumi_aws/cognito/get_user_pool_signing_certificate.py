@@ -76,7 +76,7 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
     ```
 
 
@@ -105,7 +105,7 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
     ```
 
 

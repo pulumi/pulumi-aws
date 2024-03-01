@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.DedicatedIpAssignment("example", {
- *     destinationPoolName: "my-pool",
  *     ip: "0.0.0.0",
+ *     destinationPoolName: "my-pool",
  * });
  * ```
  *

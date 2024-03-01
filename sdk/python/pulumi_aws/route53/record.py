@@ -600,11 +600,11 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www.example.com",
             type="A",
             ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
+            records=[lb["publicIp"]])
         ```
         ### Weighted routing policy
 
@@ -615,7 +615,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www",
             type="CNAME",
             ttl=5,
@@ -625,7 +625,7 @@ class Record(pulumi.CustomResource):
             set_identifier="dev",
             records=["dev.example.com"])
         www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www",
             type="CNAME",
             ttl=5,
@@ -642,7 +642,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www.example.com",
             type="CNAME",
             ttl=300,
@@ -668,6 +668,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.elb.LoadBalancer("main",
+            name="foobar-elb",
             availability_zones=["us-east-1c"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=80,
@@ -676,7 +677,7 @@ class Record(pulumi.CustomResource):
                 lb_protocol="http",
             )])
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="example.com",
             type="A",
             aliases=[aws.route53.RecordAliasArgs(
@@ -693,18 +694,18 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
+        example = aws.route53.Zone("example", name="test.example.com")
+        example_record = aws.route53.Record("example",
             allow_overwrite=True,
             name="test.example.com",
             ttl=172800,
             type="NS",
-            zone_id=example_zone.zone_id,
+            zone_id=example.zone_id,
             records=[
-                example_zone.name_servers[0],
-                example_zone.name_servers[1],
-                example_zone.name_servers[2],
-                example_zone.name_servers[3],
+                example.name_servers[0],
+                example.name_servers[1],
+                example.name_servers[2],
+                example.name_servers[3],
             ])
         ```
 
@@ -766,11 +767,11 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www.example.com",
             type="A",
             ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
+            records=[lb["publicIp"]])
         ```
         ### Weighted routing policy
 
@@ -781,7 +782,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www",
             type="CNAME",
             ttl=5,
@@ -791,7 +792,7 @@ class Record(pulumi.CustomResource):
             set_identifier="dev",
             records=["dev.example.com"])
         www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www",
             type="CNAME",
             ttl=5,
@@ -808,7 +809,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="www.example.com",
             type="CNAME",
             ttl=300,
@@ -834,6 +835,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.elb.LoadBalancer("main",
+            name="foobar-elb",
             availability_zones=["us-east-1c"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=80,
@@ -842,7 +844,7 @@ class Record(pulumi.CustomResource):
                 lb_protocol="http",
             )])
         www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
+            zone_id=primary["zoneId"],
             name="example.com",
             type="A",
             aliases=[aws.route53.RecordAliasArgs(
@@ -859,18 +861,18 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
+        example = aws.route53.Zone("example", name="test.example.com")
+        example_record = aws.route53.Record("example",
             allow_overwrite=True,
             name="test.example.com",
             ttl=172800,
             type="NS",
-            zone_id=example_zone.zone_id,
+            zone_id=example.zone_id,
             records=[
-                example_zone.name_servers[0],
-                example_zone.name_servers[1],
-                example_zone.name_servers[2],
-                example_zone.name_servers[3],
+                example.name_servers[0],
+                example.name_servers[1],
+                example.name_servers[2],
+                example.name_servers[3],
             ])
         ```
 

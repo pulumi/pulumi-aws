@@ -29,9 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
-//				BuildId:         pulumi.Any(aws_gamelift_build.Example.Id),
+//				BuildId:         pulumi.Any(exampleAwsGameliftBuild.Id),
 //				Ec2InstanceType: pulumi.String("t2.micro"),
 //				FleetType:       pulumi.String("ON_DEMAND"),
+//				Name:            pulumi.String("example-fleet-name"),
 //				RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
 //					ServerProcesses: gamelift.FleetRuntimeConfigurationServerProcessArray{
 //						&gamelift.FleetRuntimeConfigurationServerProcessArgs{

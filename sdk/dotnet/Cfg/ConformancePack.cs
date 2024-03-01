@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.ConformancePack("example", new()
     ///     {
+    ///         Name = "example",
     ///         InputParameters = new[]
     ///         {
     ///             new Aws.Cfg.Inputs.ConformancePackInputParameterArgs
@@ -52,12 +53,6 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_config_configuration_recorder.Example,
-    ///         },
     ///     });
     /// 
     /// });
@@ -72,9 +67,12 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Key = "example-key",
@@ -89,20 +87,15 @@ namespace Pulumi.Aws.Cfg
     /// ",
     ///     });
     /// 
-    ///     var exampleConformancePack = new Aws.Cfg.ConformancePack("exampleConformancePack", new()
+    ///     var example = new Aws.Cfg.ConformancePack("example", new()
     ///     {
+    ///         Name = "example",
     ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///         {
     ///             var bucket = values.Item1;
     ///             var key = values.Item2;
     ///             return $"s3://{bucket}/{key}";
     ///         }),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_config_configuration_recorder.Example,
-    ///         },
     ///     });
     /// 
     /// });

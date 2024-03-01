@@ -96,7 +96,7 @@ def get_devices(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_devices(global_network_id=global_network_id,
         tags={
             "Env": "test",
         })
@@ -136,7 +136,7 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_devices(global_network_id=global_network_id,
         tags={
             "Env": "test",
         })

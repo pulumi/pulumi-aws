@@ -295,6 +295,10 @@ class HoursOfOperation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 aws.connect.HoursOfOperationConfigArgs(
                     day="MONDAY",
@@ -319,12 +323,9 @@ class HoursOfOperation(pulumi.CustomResource):
                     ),
                 ),
             ],
-            description="Monday office hours",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Hours of Operation",
-            },
-            time_zone="EST")
+            })
         ```
 
         ## Import
@@ -361,6 +362,10 @@ class HoursOfOperation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 aws.connect.HoursOfOperationConfigArgs(
                     day="MONDAY",
@@ -385,12 +390,9 @@ class HoursOfOperation(pulumi.CustomResource):
                     ),
                 ),
             ],
-            description="Monday office hours",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Hours of Operation",
-            },
-            time_zone="EST")
+            })
         ```
 
         ## Import

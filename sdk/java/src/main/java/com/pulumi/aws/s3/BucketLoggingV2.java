@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketLoggingV2;
@@ -51,14 +52,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         var logBucket = new BucketV2(&#34;logBucket&#34;);
+ *         var logBucket = new BucketV2(&#34;logBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-log-bucket&#34;)
+ *             .build());
  * 
  *         var logBucketAcl = new BucketAclV2(&#34;logBucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(logBucket.id())
@@ -66,7 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketLoggingV2 = new BucketLoggingV2(&#34;exampleBucketLoggingV2&#34;, BucketLoggingV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .targetBucket(logBucket.id())
  *             .targetPrefix(&#34;log/&#34;)
  *             .build());

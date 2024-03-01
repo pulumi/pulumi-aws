@@ -24,6 +24,7 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.Application("example", new()
     ///     {
+    ///         Name = "example-application-tf",
     ///         Description = "Example AppConfig Application",
     ///         Tags = 
     ///         {

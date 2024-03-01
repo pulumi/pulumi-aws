@@ -20,12 +20,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisRule = new aws.cfg.Rule("thisRule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }});
- * const thisRemediationConfiguration = new aws.cfg.RemediationConfiguration("thisRemediationConfiguration", {
- *     configRuleName: thisRule.name,
+ * const _this = new aws.cfg.Rule("this", {
+ *     name: "example",
+ *     source: {
+ *         owner: "AWS",
+ *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ *     },
+ * });
+ * const thisRemediationConfiguration = new aws.cfg.RemediationConfiguration("this", {
+ *     configRuleName: _this.name,
  *     resourceType: "AWS::S3::Bucket",
  *     targetType: "SSM_DOCUMENT",
  *     targetId: "AWS-EnableS3BucketEncryption",

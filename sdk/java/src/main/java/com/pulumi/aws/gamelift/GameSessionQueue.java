@@ -45,10 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new GameSessionQueue(&#34;test&#34;, GameSessionQueueArgs.builder()        
+ *             .name(&#34;example-session-queue&#34;)
  *             .destinations(            
- *                 aws_gamelift_fleet.us_west_2_fleet().arn(),
- *                 aws_gamelift_fleet.eu_central_1_fleet().arn())
- *             .notificationTarget(aws_sns_topic.game_session_queue_notifications().arn())
+ *                 usWest2Fleet.arn(),
+ *                 euCentral1Fleet.arn())
+ *             .notificationTarget(gameSessionQueueNotifications.arn())
  *             .playerLatencyPolicies(            
  *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
  *                     .maximumIndividualPlayerLatencyMilliseconds(100)

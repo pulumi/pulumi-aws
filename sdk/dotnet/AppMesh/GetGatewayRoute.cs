@@ -28,8 +28,8 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
         ///     {
-        ///         MeshName = "test-mesh",
         ///         Name = "test-route",
+        ///         MeshName = "test-mesh",
         ///         VirtualGatewayName = "test-gateway",
         ///     });
         /// 
@@ -58,8 +58,8 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
         ///     {
-        ///         MeshName = "test-mesh",
         ///         Name = "test-route",
+        ///         MeshName = "test-mesh",
         ///         VirtualGatewayName = "test-gateway",
         ///     });
         /// 

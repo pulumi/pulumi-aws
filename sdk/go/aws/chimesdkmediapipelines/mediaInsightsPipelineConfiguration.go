@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("example"),
 //				ShardCount: pulumi.Int(2),
 //			})
 //			if err != nil {
@@ -59,13 +60,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			callAnalyticsRole, err := iam.NewRole(ctx, "callAnalyticsRole", &iam.RoleArgs{
+//			callAnalyticsRole, err := iam.NewRole(ctx, "call_analytics_role", &iam.RoleArgs{
+//				Name:             pulumi.String("CallAnalyticsRole"),
 //				AssumeRolePolicy: *pulumi.String(mediaPipelinesAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyBasicConfiguration"),
 //				ResourceAccessRoleArn: callAnalyticsRole.Arn,
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
@@ -132,14 +135,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			postCallRole, err := iam.NewRole(ctx, "postCallRole", &iam.RoleArgs{
+//			postCallRole, err := iam.NewRole(ctx, "post_call_role", &iam.RoleArgs{
+//				Name:             pulumi.String("PostCallAccessRole"),
 //				AssumeRolePolicy: *pulumi.String(transcribeAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyCallAnalyticsConfiguration"),
+//				ResourceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
@@ -169,7 +174,7 @@ import (
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("KinesisDataStreamSink"),
 //						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//							InsightsTarget: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
@@ -196,8 +201,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Call_analytics_role.Arn),
+//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyRealTimeAlertConfiguration"),
+//				ResourceAccessRoleArn: pulumi.Any(callAnalyticsRole.Arn),
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
@@ -208,7 +214,7 @@ import (
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("KinesisDataStreamSink"),
 //						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//							InsightsTarget: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
@@ -265,8 +271,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyTranscribeConfiguration"),
+//				ResourceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("AmazonTranscribeProcessor"),
@@ -287,7 +294,7 @@ import (
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("KinesisDataStreamSink"),
 //						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//							InsightsTarget: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
@@ -314,8 +321,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyVoiceAnalyticsConfiguration"),
+//				ResourceAccessRoleArn: pulumi.Any(example.Arn),
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("VoiceAnalyticsProcessor"),
@@ -345,7 +353,7 @@ import (
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("KinesisDataStreamSink"),
 //						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Test.Arn),
+//							InsightsTarget: pulumi.Any(test.Arn),
 //						},
 //					},
 //				},
@@ -372,8 +380,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("MyS3RecordingConfiguration"),
+//				ResourceAccessRoleArn: pulumi.Any(example.Arn),
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
 //						Type: pulumi.String("S3RecordingSink"),

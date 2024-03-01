@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.Project("example", {
  *     projectName: "example",
  *     serviceCatalogProvisioningDetails: {
- *         productId: aws_servicecatalog_product.example.id,
+ *         productId: exampleAwsServicecatalogProduct.id,
  *     },
  * });
  * ```

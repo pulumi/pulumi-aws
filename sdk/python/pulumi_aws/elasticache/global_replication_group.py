@@ -512,6 +512,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_id="example-primary",
             description="primary replication group",
             engine="redis",
             engine_version="5.0.6",
@@ -521,10 +522,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id)
         secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_id="example-secondary",
             description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            num_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+            num_cache_clusters=1)
         ```
         ### Managing Redis Engine Versions
 
@@ -545,6 +546,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_id="example-primary",
             description="primary replication group",
             engine="redis",
             engine_version="6.0",
@@ -555,10 +557,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             primary_replication_group_id=primary.id,
             engine_version="6.2")
         secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_id="example-secondary",
             description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            num_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+            num_cache_clusters=1)
         ```
 
         ## Import
@@ -613,6 +615,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_id="example-primary",
             description="primary replication group",
             engine="redis",
             engine_version="5.0.6",
@@ -622,10 +625,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id)
         secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_id="example-secondary",
             description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            num_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+            num_cache_clusters=1)
         ```
         ### Managing Redis Engine Versions
 
@@ -646,6 +649,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_id="example-primary",
             description="primary replication group",
             engine="redis",
             engine_version="6.0",
@@ -656,10 +660,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             primary_replication_group_id=primary.id,
             engine_version="6.2")
         secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_id="example-secondary",
             description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            num_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+            num_cache_clusters=1)
         ```
 
         ## Import

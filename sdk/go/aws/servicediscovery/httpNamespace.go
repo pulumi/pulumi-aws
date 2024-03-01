@@ -26,6 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Name:        pulumi.String("development"),
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {

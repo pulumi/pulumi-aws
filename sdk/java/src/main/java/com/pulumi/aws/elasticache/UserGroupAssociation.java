@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .passwords(&#34;password123456789&#34;)
  *             .build());
  * 
- *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
+ *         var example = new UserGroup(&#34;example&#34;, UserGroupArgs.builder()        
  *             .engine(&#34;REDIS&#34;)
  *             .userGroupId(&#34;userGroupId&#34;)
  *             .userIds(default_.userId())
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserGroupAssociation = new UserGroupAssociation(&#34;exampleUserGroupAssociation&#34;, UserGroupAssociationArgs.builder()        
- *             .userGroupId(exampleUserGroup.userGroupId())
+ *             .userGroupId(example.userGroupId())
  *             .userId(exampleUser.userId())
  *             .build());
  * 

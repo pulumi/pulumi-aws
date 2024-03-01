@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codecommit.ApprovalRuleTemplateAssociation("example", {
- *     approvalRuleTemplateName: aws_codecommit_approval_rule_template.example.name,
- *     repositoryName: aws_codecommit_repository.example.repository_name,
+ *     approvalRuleTemplateName: exampleAwsCodecommitApprovalRuleTemplate.name,
+ *     repositoryName: exampleAwsCodecommitRepository.repositoryName,
  * });
  * ```
  *

@@ -31,11 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
@@ -69,12 +70,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				HierarchyGroupId: pulumi.Any(aws_connect_user_hierarchy_group.Example.Hierarchy_group_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
+//				HierarchyGroupId: pulumi.Any(exampleAwsConnectUserHierarchyGroup.HierarchyGroupId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
@@ -108,11 +110,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					Email:     pulumi.String("example@example.com"),
@@ -147,11 +150,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
@@ -181,12 +185,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//					aws_connect_security_profile.Example2.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
+//					example2.SecurityProfileId,
 //				},
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),

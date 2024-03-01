@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var eksRuntimeMonitoring = new DetectorFeature(&#34;eksRuntimeMonitoring&#34;, DetectorFeatureArgs.builder()        
  *             .detectorId(example.id())
+ *             .name(&#34;EKS_RUNTIME_MONITORING&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .additionalConfigurations(DetectorFeatureAdditionalConfigurationArgs.builder()
  *                 .name(&#34;EKS_ADDON_MANAGEMENT&#34;)

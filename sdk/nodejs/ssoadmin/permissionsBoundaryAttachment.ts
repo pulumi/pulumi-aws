@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
  *
  * ## Example Usage
+ * ### Attaching a customer-managed policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
+ *     name: "Example",
+ *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+ * });
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "TestPolicy",
+ *     description: "My test policy",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
+ * const examplePermissionsBoundaryAttachment = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
+ *     instanceArn: examplePermissionSet.instanceArn,
+ *     permissionSetArn: examplePermissionSet.arn,
+ *     permissionsBoundary: {
+ *         customerManagedPolicyReference: {
+ *             name: examplePolicy.name,
+ *             path: "/",
+ *         },
+ *     },
+ * });
+ * ```
  * ### Attaching an AWS-managed policy
  *
  * ```typescript
@@ -20,8 +58,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
- *     instanceArn: aws_ssoadmin_permission_set.example.instance_arn,
- *     permissionSetArn: aws_ssoadmin_permission_set.example.arn,
+ *     instanceArn: exampleAwsSsoadminPermissionSet.instanceArn,
+ *     permissionSetArn: exampleAwsSsoadminPermissionSet.arn,
  *     permissionsBoundary: {
  *         managedPolicyArn: "arn:aws:iam::aws:policy/ReadOnlyAccess",
  *     },

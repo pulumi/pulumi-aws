@@ -25,14 +25,14 @@ namespace Pulumi.Aws.ControlTower
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleOrganization = Aws.Organizations.GetOrganization.Invoke();
+    ///     var example = Aws.Organizations.GetOrganization.Invoke();
     /// 
-    ///     var exampleOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
+    ///     var exampleGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
     ///     {
-    ///         ParentId = exampleOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+    ///         ParentId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
     ///     });
     /// 
-    ///     var exampleControlTowerControl = new Aws.ControlTower.ControlTowerControl("exampleControlTowerControl", new()
+    ///     var exampleControlTowerControl = new Aws.ControlTower.ControlTowerControl("example", new()
     ///     {
     ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
     ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 

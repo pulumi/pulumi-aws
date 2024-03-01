@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ClusterRoleAssociation("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsRdsCluster.id,
  *     featureName: "S3_INTEGRATION",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

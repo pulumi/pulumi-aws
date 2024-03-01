@@ -168,9 +168,9 @@ def get_access_entry(cluster_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.eks.get_access_entry(cluster_name=aws_eks_cluster["example"]["name"],
-        principal_arn=aws_iam_role["example"]["arn"])
-    pulumi.export("eksAccessEntryOutputs", aws_eks_access_entry["example"])
+    example = aws.eks.get_access_entry(cluster_name=example_aws_eks_cluster["name"],
+        principal_arn=example_aws_iam_role["arn"])
+    pulumi.export("eksAccessEntryOutputs", example_aws_eks_access_entry)
     ```
 
 
@@ -212,9 +212,9 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.eks.get_access_entry(cluster_name=aws_eks_cluster["example"]["name"],
-        principal_arn=aws_iam_role["example"]["arn"])
-    pulumi.export("eksAccessEntryOutputs", aws_eks_access_entry["example"])
+    example = aws.eks.get_access_entry(cluster_name=example_aws_eks_cluster["name"],
+        principal_arn=example_aws_iam_role["arn"])
+    pulumi.export("eksAccessEntryOutputs", example_aws_eks_access_entry)
     ```
 
 

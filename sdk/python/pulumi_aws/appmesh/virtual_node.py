@@ -306,7 +306,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -332,9 +333,10 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example")
+        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -365,7 +367,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -400,7 +403,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -472,7 +476,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -498,9 +503,10 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example")
+        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -531,7 +537,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -566,7 +573,8 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(

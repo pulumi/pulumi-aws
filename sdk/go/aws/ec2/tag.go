@@ -31,11 +31,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			example, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.0.0.1"),
 //				Type:      pulumi.String("ipsec.1"),
@@ -43,15 +43,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
 //				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				TransitGatewayId:  example.ID(),
 //				Type:              exampleCustomerGateway.Type,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
+//			_, err = ec2.NewTag(ctx, "example", &ec2.TagArgs{
 //				ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
 //				Key:        pulumi.String("Name"),
 //				Value:      pulumi.String("Hello World"),

@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appintegrations.NewDataIntegration(ctx, "example", &appintegrations.DataIntegrationArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
-//				KmsKey:      pulumi.Any(aws_kms_key.Test.Arn),
+//				KmsKey:      pulumi.Any(test.Arn),
 //				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
 //				ScheduleConfig: &appintegrations.DataIntegrationScheduleConfigArgs{
 //					FirstExecutionFrom: pulumi.String("1439788442681"),

@@ -107,13 +107,15 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=pulumi.Output.json_dumps({
-            "deadLetterTargetArn": example_queue.arn,
-            "maxReceiveCount": 4,
-        }))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
-            queue_url=example_queue.id,
+        example = aws.sqs.Queue("example", name="examplequeue")
+        src = aws.sqs.Queue("src",
+            name="srcqueue",
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example.arn,
+                "maxReceiveCount": 4,
+            }))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example",
+            queue_url=example.id,
             redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
                 "sourceQueueArns": [src.arn],
@@ -149,13 +151,15 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=pulumi.Output.json_dumps({
-            "deadLetterTargetArn": example_queue.arn,
-            "maxReceiveCount": 4,
-        }))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
-            queue_url=example_queue.id,
+        example = aws.sqs.Queue("example", name="examplequeue")
+        src = aws.sqs.Queue("src",
+            name="srcqueue",
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example.arn,
+                "maxReceiveCount": 4,
+            }))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example",
+            queue_url=example.id,
             redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
                 "sourceQueueArns": [src.arn],

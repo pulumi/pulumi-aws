@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.sns.DataProtectionPolicy;
  * import com.pulumi.aws.sns.DataProtectionPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -40,10 +41,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;);
+ *         var example = new Topic(&#34;example&#34;, TopicArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleDataProtectionPolicy = new DataProtectionPolicy(&#34;exampleDataProtectionPolicy&#34;, DataProtectionPolicyArgs.builder()        
- *             .arn(exampleTopic.arn())
+ *             .arn(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Description&#34;, &#34;Example data protection policy&#34;),

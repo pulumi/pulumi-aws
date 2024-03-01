@@ -22,21 +22,23 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.mydomain.local",
     ///         Description = "example",
-    ///         Vpc = exampleVpc.Id,
+    ///         Vpc = example.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
     ///             NamespaceId = examplePrivateDnsNamespace.Id,
@@ -67,16 +69,18 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePublicDnsNamespace = new Aws.ServiceDiscovery.PublicDnsNamespace("examplePublicDnsNamespace", new()
+    ///     var example = new Aws.ServiceDiscovery.PublicDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.mydomain.com",
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             NamespaceId = examplePublicDnsNamespace.Id,
+    ///             NamespaceId = example.Id,
     ///             DnsRecords = new[]
     ///             {
     ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs

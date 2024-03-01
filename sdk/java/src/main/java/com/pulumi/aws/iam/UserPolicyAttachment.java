@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.UserPolicyAttachment;
@@ -43,9 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;);
+ *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .name(&#34;test-user&#34;)
+ *             .build());
  * 
  *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
  *             .policy(&#34;{ ... policy JSON ... }&#34;)
  *             .build());

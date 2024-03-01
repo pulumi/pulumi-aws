@@ -30,17 +30,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description: pulumi.String("example_rule"),
+//				Description:  pulumi.String("example_rule"),
+//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				ResourceTags: rbin.RuleResourceTagArray{
 //					&rbin.RuleResourceTagArgs{
 //						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
 //				},
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
 //					RetentionPeriodValue: pulumi.Int(10),
+//					RetentionPeriodUnit:  pulumi.String("DAYS"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"test_tag_key": pulumi.String("test_tag_value"),

@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.ConformancePack;
  * import com.pulumi.aws.cfg.ConformancePackArgs;
  * import com.pulumi.aws.cfg.inputs.ConformancePackInputParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConformancePack(&#34;example&#34;, ConformancePackArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .inputParameters(ConformancePackInputParameterArgs.builder()
  *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
  *                 .parameterValue(&#34;90&#34;)
@@ -69,9 +69,7 @@ import javax.annotation.Nullable;
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_config_configuration_recorder.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -84,11 +82,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.cfg.ConformancePack;
  * import com.pulumi.aws.cfg.ConformancePackArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -102,7 +100,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
  *             .bucket(exampleBucketV2.id())
@@ -119,15 +119,14 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
- *         var exampleConformancePack = new ConformancePack(&#34;exampleConformancePack&#34;, ConformancePackArgs.builder()        
+ *         var example = new ConformancePack(&#34;example&#34;, ConformancePackArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
  *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
  *             }))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_config_configuration_recorder.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

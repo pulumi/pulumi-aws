@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     tags: {
  *         Name: "main",
  *     },
@@ -74,11 +74,8 @@ export class InternetGateway extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -145,11 +142,8 @@ export interface InternetGatewayState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -178,11 +172,8 @@ export interface InternetGatewayArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

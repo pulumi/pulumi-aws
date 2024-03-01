@@ -58,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxCluster(&#34;example&#34;, KxClusterArgs.builder()        
- *             .environmentId(aws_finspace_kx_environment.example().id())
+ *             .name(&#34;my-tf-kx-cluster&#34;)
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .type(&#34;HDB&#34;)
  *             .releaseLabel(&#34;1.0&#34;)
  *             .azMode(&#34;SINGLE&#34;)
@@ -68,9 +69,9 @@ import javax.annotation.Nullable;
  *                 .nodeCount(2)
  *                 .build())
  *             .vpcConfiguration(KxClusterVpcConfigurationArgs.builder()
- *                 .vpcId(aws_vpc.test().id())
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.example().id())
+ *                 .vpcId(test.id())
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.id())
  *                 .ipAddressType(&#34;IP_V4&#34;)
  *                 .build())
  *             .cacheStorageConfigurations(KxClusterCacheStorageConfigurationArgs.builder()
@@ -78,14 +79,13 @@ import javax.annotation.Nullable;
  *                 .size(1200)
  *                 .build())
  *             .databases(KxClusterDatabaseArgs.builder()
- *                 .databaseName(aws_finspace_kx_database.example().name())
+ *                 .databaseName(exampleAwsFinspaceKxDatabase.name())
  *                 .cacheConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .code(KxClusterCodeArgs.builder()
- *                 .s3Bucket(aws_s3_bucket.test().id())
- *                 .s3Key(aws_s3_object.object().key())
+ *                 .s3Bucket(testAwsS3Bucket.id())
+ *                 .s3Key(object.key())
  *                 .build())
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

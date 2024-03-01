@@ -31,16 +31,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			analytics, err := s3.NewBucketV2(ctx, "analytics", nil)
+//			analytics, err := s3.NewBucketV2(ctx, "analytics", &s3.BucketV2Args{
+//				Bucket: pulumi.String("analytics destination"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("EntireBucket"),
 //				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
 //					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
 //						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
@@ -73,12 +78,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.AnalyticsConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{

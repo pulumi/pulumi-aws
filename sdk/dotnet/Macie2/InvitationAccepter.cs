@@ -22,39 +22,21 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
+    ///     var primary = new Aws.Macie2.Account("primary");
     /// 
-    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
+    ///     var member = new Aws.Macie2.Account("member");
     /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
+    ///     var primaryMember = new Aws.Macie2.Member("primary", new()
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         Email = "EMAIL",
     ///         Invite = true,
     ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryAccount,
-    ///         },
     ///     });
     /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
+    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("member", new()
     ///     {
     ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
     ///     });
     /// 
     /// });

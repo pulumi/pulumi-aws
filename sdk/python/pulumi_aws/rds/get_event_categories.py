@@ -76,8 +76,8 @@ def get_event_categories(source_type: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example_event_categories = aws.rds.get_event_categories()
-    pulumi.export("example", example_event_categories.event_categories)
+    example = aws.rds.get_event_categories()
+    pulumi.export("example", example.event_categories)
     ```
 
     List the event categories specific to the RDS resource `db-snapshot`.
@@ -86,8 +86,8 @@ def get_event_categories(source_type: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example_event_categories = aws.rds.get_event_categories(source_type="db-snapshot")
-    pulumi.export("example", example_event_categories.event_categories)
+    example = aws.rds.get_event_categories(source_type="db-snapshot")
+    pulumi.export("example", example.event_categories)
     ```
 
 
@@ -116,8 +116,8 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     import pulumi
     import pulumi_aws as aws
 
-    example_event_categories = aws.rds.get_event_categories()
-    pulumi.export("example", example_event_categories.event_categories)
+    example = aws.rds.get_event_categories()
+    pulumi.export("example", example.event_categories)
     ```
 
     List the event categories specific to the RDS resource `db-snapshot`.
@@ -126,8 +126,8 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     import pulumi
     import pulumi_aws as aws
 
-    example_event_categories = aws.rds.get_event_categories(source_type="db-snapshot")
-    pulumi.export("example", example_event_categories.event_categories)
+    example = aws.rds.get_event_categories(source_type="db-snapshot")
+    pulumi.export("example", example.event_categories)
     ```
 
 

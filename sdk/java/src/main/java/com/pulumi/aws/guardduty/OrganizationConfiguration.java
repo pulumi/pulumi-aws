@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDetector = new Detector(&#34;exampleDetector&#34;, DetectorArgs.builder()        
+ *         var example = new Detector(&#34;example&#34;, DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnableOrganizationMembers(&#34;ALL&#34;)
- *             .detectorId(exampleDetector.id())
+ *             .detectorId(example.id())
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
  *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
  *                     .autoEnable(true)

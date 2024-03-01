@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
-    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     var example = new Aws.Ec2.Eip("example", new()
     ///     {
     ///         Domain = "vpc",
     ///         Tags = 
@@ -41,21 +41,22 @@ namespace Pulumi.Aws.Shield
     ///         },
     ///     });
     /// 
-    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     var exampleProtection = new Aws.Shield.Protection("example", new()
     ///     {
-    ///         ResourceArn = Output.Tuple(currentPartition, currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
+    ///         Name = "example-protection",
+    ///         ResourceArn = Output.Tuple(currentGetPartition, current, currentGetCallerIdentity, example.Id).Apply(values =&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentRegion = values.Item2;
-    ///             var currentCallerIdentity = values.Item3;
+    ///             var currentGetPartition = values.Item1;
+    ///             var current = values.Item2;
+    ///             var currentGetCallerIdentity = values.Item3;
     ///             var id = values.Item4;
-    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///         }),
     ///     });
     /// 
-    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("exampleHealthCheck", new()
+    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("example", new()
     ///     {
-    ///         IpAddress = exampleEip.PublicIp,
+    ///         IpAddress = example.PublicIp,
     ///         Port = 80,
     ///         Type = "HTTP",
     ///         ResourcePath = "/ready",
@@ -67,7 +68,7 @@ namespace Pulumi.Aws.Shield
     ///         },
     ///     });
     /// 
-    ///     var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", new()
+    ///     var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("example", new()
     ///     {
     ///         HealthCheckArn = exampleHealthCheck.Arn,
     ///         ShieldProtectionId = exampleProtection.Id,

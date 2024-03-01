@@ -190,12 +190,12 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_template = aws.ses.Template("myTemplate",
-            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+        my_template = aws.ses.Template("MyTemplate",
+            name="MyTemplate",
             subject="Greetings, {{name}}!",
+            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
             text=\"\"\"Hello {{name}},
-        Your favorite animal is {{favoriteanimal}}.
-        \"\"\")
+        Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
 
         ## Import
@@ -228,12 +228,12 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_template = aws.ses.Template("myTemplate",
-            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+        my_template = aws.ses.Template("MyTemplate",
+            name="MyTemplate",
             subject="Greetings, {{name}}!",
+            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
             text=\"\"\"Hello {{name}},
-        Your favorite animal is {{favoriteanimal}}.
-        \"\"\")
+        Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
 
         ## Import

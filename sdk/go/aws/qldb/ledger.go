@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := qldb.NewLedger(ctx, "sample-ledger", &qldb.LedgerArgs{
+//				Name:            pulumi.String("sample-ledger"),
 //				PermissionsMode: pulumi.String("STANDARD"),
 //			})
 //			if err != nil {

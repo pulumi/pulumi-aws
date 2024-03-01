@@ -362,10 +362,10 @@ class DedicatedHost(pulumi.CustomResource):
         # Create a new host with instance type of c5.18xlarge with Auto Placement
         # and Host Recovery enabled.
         test = aws.ec2.DedicatedHost("test",
-            auto_placement="on",
+            instance_type="c5.18xlarge",
             availability_zone="us-west-2a",
             host_recovery="on",
-            instance_type="c5.18xlarge")
+            auto_placement="on")
         ```
 
         ## Import
@@ -405,10 +405,10 @@ class DedicatedHost(pulumi.CustomResource):
         # Create a new host with instance type of c5.18xlarge with Auto Placement
         # and Host Recovery enabled.
         test = aws.ec2.DedicatedHost("test",
-            auto_placement="on",
+            instance_type="c5.18xlarge",
             availability_zone="us-west-2a",
             host_recovery="on",
-            instance_type="c5.18xlarge")
+            auto_placement="on")
         ```
 
         ## Import

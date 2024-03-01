@@ -292,15 +292,16 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
+                    cidr=example_aws_vpc["cidrBlock"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
                     description="Secondary",
                 ),
             ],
@@ -355,15 +356,16 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
+                    cidr=example_aws_vpc["cidrBlock"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
                     description="Secondary",
                 ),
             ],

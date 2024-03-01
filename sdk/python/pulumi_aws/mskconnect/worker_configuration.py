@@ -181,9 +181,10 @@ class WorkerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mskconnect.WorkerConfiguration("example", properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
+        example = aws.mskconnect.WorkerConfiguration("example",
+            name="example",
+            properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
-
         \"\"\")
         ```
 
@@ -219,9 +220,10 @@ class WorkerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mskconnect.WorkerConfiguration("example", properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
+        example = aws.mskconnect.WorkerConfiguration("example",
+            name="example",
+            properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
-
         \"\"\")
         ```
 

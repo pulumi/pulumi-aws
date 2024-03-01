@@ -68,12 +68,13 @@ namespace Pulumi.Aws.S3
         ///         Key = "hello-world.zip",
         ///     });
         /// 
-        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
         ///     {
         ///         S3Bucket = lambda.Apply(getObjectResult =&gt; getObjectResult.Bucket),
         ///         S3Key = lambda.Apply(getObjectResult =&gt; getObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getObjectResult =&gt; getObjectResult.VersionId),
-        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Name = "lambda_function_name",
+        ///         Role = iamForLambda.Arn,
         ///         Handler = "exports.test",
         ///     });
         /// 
@@ -142,12 +143,13 @@ namespace Pulumi.Aws.S3
         ///         Key = "hello-world.zip",
         ///     });
         /// 
-        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
         ///     {
         ///         S3Bucket = lambda.Apply(getObjectResult =&gt; getObjectResult.Bucket),
         ///         S3Key = lambda.Apply(getObjectResult =&gt; getObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getObjectResult =&gt; getObjectResult.VersionId),
-        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Name = "lambda_function_name",
+        ///         Role = iamForLambda.Arn,
         ///         Handler = "exports.test",
         ///     });
         /// 

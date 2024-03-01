@@ -32,32 +32,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "testpolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//						"sid":    "testpolicy",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
-//						"Action": []string{
+//						"action": []string{
 //							"ecr:ReplicateImage",
 //						},
-//						"Resource": []string{
-//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//						"resource": []string{
+//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //						},
 //					},
 //				},

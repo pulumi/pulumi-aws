@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Qldb
     /// {
     ///     var sample_ledger = new Aws.Qldb.Ledger("sample-ledger", new()
     ///     {
+    ///         Name = "sample-ledger",
     ///         PermissionsMode = "STANDARD",
     ///     });
     /// 

@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewOpenIdConnectProvider(ctx, "default", &iam.OpenIdConnectProviderArgs{
+//				Url: pulumi.String("https://accounts.google.com"),
 //				ClientIdLists: pulumi.StringArray{
 //					pulumi.String("266362248691-342342xasdasdasda-apps.googleusercontent.com"),
 //				},
 //				ThumbprintLists: pulumi.StringArray{
 //					pulumi.String("cf23df2207d99a74fbe169e3eba035e633b65d94"),
 //				},
-//				Url: pulumi.String("https://accounts.google.com"),
 //			})
 //			if err != nil {
 //				return err

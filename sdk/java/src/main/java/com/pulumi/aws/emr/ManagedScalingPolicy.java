@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new Cluster(&#34;sample&#34;, ClusterArgs.builder()        
+ *             .name(&#34;emr-sample-cluster&#34;)
  *             .releaseLabel(&#34;emr-5.30.0&#34;)
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceType(&#34;m4.large&#34;)

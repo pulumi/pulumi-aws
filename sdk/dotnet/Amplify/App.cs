@@ -26,23 +26,24 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         BuildSpec = @"  version: 0.1
-    ///   frontend:
-    ///     phases:
-    ///       preBuild:
-    ///         commands:
-    ///           - yarn install
-    ///       build:
-    ///         commands:
-    ///           - yarn run build
-    ///     artifacts:
-    ///       baseDirectory: build
-    ///       files:
-    ///         - '**/*'
-    ///     cache:
-    ///       paths:
-    ///         - node_modules/**/*
-    /// 
+    ///         Name = "example",
+    ///         Repository = "https://github.com/example/app",
+    ///         BuildSpec = @"version: 0.1
+    /// frontend:
+    ///   phases:
+    ///     preBuild:
+    ///       commands:
+    ///         - yarn install
+    ///     build:
+    ///       commands:
+    ///         - yarn run build
+    ///   artifacts:
+    ///     baseDirectory: build
+    ///     files:
+    ///       - '**/*'
+    ///   cache:
+    ///     paths:
+    ///       - node_modules/**/*
     /// ",
     ///         CustomRules = new[]
     ///         {
@@ -57,7 +58,6 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             { "ENV", "test" },
     ///         },
-    ///         Repository = "https://github.com/example/app",
     ///     });
     /// 
     /// });
@@ -76,8 +76,9 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AccessToken = "...",
+    ///         Name = "example",
     ///         Repository = "https://github.com/example/app",
+    ///         AccessToken = "...",
     ///     });
     /// 
     /// });
@@ -96,16 +97,40 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
-    ///         {
-    ///             EnableAutoBuild = true,
-    ///         },
+    ///         Name = "example",
+    ///         EnableAutoBranchCreation = true,
     ///         AutoBranchCreationPatterns = new[]
     ///         {
     ///             "*",
     ///             "*/**",
     ///         },
-    ///         EnableAutoBranchCreation = true,
+    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
+    ///         {
+    ///             EnableAutoBuild = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Basic Authorization
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         EnableBasicAuth = true,
+    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "username1:password1",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -122,6 +147,7 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         CustomRules = new[]
     ///         {
     ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
@@ -153,6 +179,7 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         EnvironmentVariables = 
     ///         {
     ///             { "_CUSTOM_IMAGE", "node:16" },
@@ -173,20 +200,20 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         CustomHeaders = @"  customHeaders:
-    ///     - pattern: '**'
-    ///       headers:
-    ///         - key: 'Strict-Transport-Security'
-    ///           value: 'max-age=31536000; includeSubDomains'
-    ///         - key: 'X-Frame-Options'
-    ///           value: 'SAMEORIGIN'
-    ///         - key: 'X-XSS-Protection'
-    ///           value: '1; mode=block'
-    ///         - key: 'X-Content-Type-Options'
-    ///           value: 'nosniff'
-    ///         - key: 'Content-Security-Policy'
-    ///           value: ""default-src 'self'""
-    /// 
+    ///         Name = "example",
+    ///         CustomHeaders = @"customHeaders:
+    ///   - pattern: '**'
+    ///     headers:
+    ///       - key: 'Strict-Transport-Security'
+    ///         value: 'max-age=31536000; includeSubDomains'
+    ///       - key: 'X-Frame-Options'
+    ///         value: 'SAMEORIGIN'
+    ///       - key: 'X-XSS-Protection'
+    ///         value: '1; mode=block'
+    ///       - key: 'X-Content-Type-Options'
+    ///         value: 'nosniff'
+    ///       - key: 'Content-Security-Policy'
+    ///         value: ""default-src 'self'""
     /// ",
     ///     });
     /// 

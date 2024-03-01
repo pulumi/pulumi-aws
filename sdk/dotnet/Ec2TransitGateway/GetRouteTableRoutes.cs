@@ -39,9 +39,200 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///                 },
         ///             },
         ///         },
-        ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+        ///         TransitGatewayRouteTableId = example.Id,
         ///     });
         /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Complexe use case with transit gateway peering
+        /// 
+        /// This example allow to create a mesh of transit gateway for différent regions routing all traffic to on-prem VPN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = new Aws.Ec2TransitGateway.TransitGateway("this", new()
+        ///     {
+        ///         DefaultRouteTableAssociation = "disable",
+        ///         DefaultRouteTablePropagation = "disable",
+        ///     });
+        /// 
+        ///     var thisVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("this", new()
+        ///     {
+        ///         SubnetIds = .Select(s =&gt; 
+        ///         {
+        ///             return s.Id;
+        ///         }).ToList(),
+        ///         TransitGatewayId = @this[0].Id,
+        ///         VpcId = thisAwsVpc.Id,
+        ///         TransitGatewayDefaultRouteTableAssociation = false,
+        ///         TransitGatewayDefaultRouteTablePropagation = false,
+        ///     });
+        /// 
+        ///     var thisRouteTable = new Aws.Ec2TransitGateway.RouteTable("this", new()
+        ///     {
+        ///         TransitGatewayId = myTransitGatewayId,
+        ///     });
+        /// 
+        ///     var vpc = new Aws.Ec2TransitGateway.RouteTableAssociation("vpc", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisVpcAttachment.Id,
+        ///         TransitGatewayRouteTableId = myTransitGatewayIdRouteTable,
+        ///     });
+        /// 
+        ///     var vpn = new Aws.Ec2TransitGateway.RouteTableAssociation("vpn", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisAwsVpnConnection[0].TransitGatewayAttachmentId,
+        ///         TransitGatewayRouteTableId = myTransitGatewayIdRouteTable,
+        ///     });
+        /// 
+        ///     var vpcRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("vpc", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisVpcAttachment.Id,
+        ///         TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///     });
+        /// 
+        ///     var vpnRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("vpn", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisAwsVpnConnection[0].TransitGatewayAttachmentId,
+        ///         TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///     });
+        /// 
+        ///     var eu_central_1 = new Aws.Ec2TransitGateway.TransitGateway("eu-central-1", new()
+        ///     {
+        ///         DefaultRouteTableAssociation = "disable",
+        ///         DefaultRouteTablePropagation = "disable",
+        ///     });
+        /// 
+        ///     var eu_central_1PeeringAttachment = new Aws.Ec2TransitGateway.PeeringAttachment("eu-central-1", new()
+        ///     {
+        ///         PeerRegion = "eu-central-1",
+        ///         PeerTransitGatewayId = eu_central_1.Id,
+        ///         TransitGatewayId = @this[0].Id,
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "TGW mesh from eu-central-1" },
+        ///         },
+        ///     });
+        /// 
+        ///     var eu_central_1RouteTable = new Aws.Ec2TransitGateway.RouteTable("eu-central-1", new()
+        ///     {
+        ///         TransitGatewayId = eu_central_1.Id,
+        ///         Tags = NotImplemented("merge({Name=\"wl-transit-gateway-routetable-eu-central-1\"},local.global_tags)"),
+        ///     });
+        /// 
+        ///     var eu_central_1PeeringAttachmentAccepter = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("eu-central-1", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = eu_central_1PeeringAttachment.Id,
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "Accepter TGW peering eu-central-1" },
+        ///         },
+        ///     });
+        /// 
+        ///     var filtered_eu_central_1 = Aws.Ec2TransitGateway.GetVpcAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                     "available",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit_eu_central_1 = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
+        ///         {
+        ///             Id = __value,
+        ///         });
+        ///     });
+        /// 
+        ///     var trustedAwsAccountsIds = null;
+        /// 
+        ///     var trustedVpcAttachmentsListEu_central_1 = NotImplemented("compact([fork,tvaindata.aws_ec2_transit_gateway_vpc_attachment.unit-eu-central-1:contains(local.trusted_aws_accounts_ids,lookup(tva,\"vpc_owner_id\",\"\"))?tva.id:\"\"])");
+        /// 
+        ///     //# create a map with all vpc attachments trusted to be able to use for_each to avoid conflict on plan/apply ##
+        ///     var trustedVpcAttachementsEu_central_1 = NotImplemented("toset(sort(local.trusted_vpc_attachments_list_eu-central-1))");
+        /// 
+        ///     var trustedAccountsEu_central_1Tgw = new List&lt;Aws.Ec2TransitGateway.VpcAttachmentAccepter&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; trustedVpcAttachementsEu_central_1; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         trustedAccountsEu_central_1Tgw.Add(new Aws.Ec2TransitGateway.VpcAttachmentAccepter($"trusted_accounts_eu-central-1_tgw-{range.Value}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value,
+        ///             TransitGatewayDefaultRouteTablePropagation = false,
+        ///             TransitGatewayDefaultRouteTableAssociation = false,
+        ///             Tags = globalTags,
+        ///         }));
+        ///     }
+        ///     var trustedAccountsEu_central_1 = new List&lt;Aws.Ec2TransitGateway.RouteTableAssociation&gt;();
+        ///     foreach (var range in trustedAccountsEu_central_1Tgw.Select((v, k) =&gt; new { Key = k, Value = v }))
+        ///     {
+        ///         trustedAccountsEu_central_1.Add(new Aws.Ec2TransitGateway.RouteTableAssociation($"trusted_accounts_eu-central-1-{range.Key}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value.TransitGatewayAttachmentId,
+        ///             TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///         }));
+        ///     }
+        ///     var trustedAccountsEu_central_1RouteTablePropagation = new List&lt;Aws.Ec2TransitGateway.RouteTablePropagation&gt;();
+        ///     foreach (var range in trustedAccountsEu_central_1Tgw.Select((v, k) =&gt; new { Key = k, Value = v }))
+        ///     {
+        ///         trustedAccountsEu_central_1RouteTablePropagation.Add(new Aws.Ec2TransitGateway.RouteTablePropagation($"trusted_accounts_eu-central-1-{range.Key}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value.TransitGatewayAttachmentId,
+        ///             TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///         }));
+        ///     }
+        ///     var test = Aws.Ec2TransitGateway.GetRouteTableRoutes.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableRoutesFilterInputArgs
+        ///             {
+        ///                 Name = "type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "propagated",
+        ///                 },
+        ///             },
+        ///         },
+        ///         TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///     });
+        /// 
+        ///     var default_region_to_eu_central_1 = new List&lt;Aws.Ec2TransitGateway.Route&gt;();
+        ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
+        ///     {
+        ///         default_region_to_eu_central_1.Add(new Aws.Ec2TransitGateway.Route($"default-region-to-eu-central-1-{range.Key}", new()
+        ///         {
+        ///             DestinationCidrBlock = range.Key,
+        ///             TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///             TransitGatewayAttachmentId = eu_central_1PeeringAttachment.Id,
+        ///         }));
+        ///     }
         /// });
         /// ```
         /// {{% /example %}}
@@ -78,9 +269,200 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///                 },
         ///             },
         ///         },
-        ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+        ///         TransitGatewayRouteTableId = example.Id,
         ///     });
         /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Complexe use case with transit gateway peering
+        /// 
+        /// This example allow to create a mesh of transit gateway for différent regions routing all traffic to on-prem VPN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = new Aws.Ec2TransitGateway.TransitGateway("this", new()
+        ///     {
+        ///         DefaultRouteTableAssociation = "disable",
+        ///         DefaultRouteTablePropagation = "disable",
+        ///     });
+        /// 
+        ///     var thisVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("this", new()
+        ///     {
+        ///         SubnetIds = .Select(s =&gt; 
+        ///         {
+        ///             return s.Id;
+        ///         }).ToList(),
+        ///         TransitGatewayId = @this[0].Id,
+        ///         VpcId = thisAwsVpc.Id,
+        ///         TransitGatewayDefaultRouteTableAssociation = false,
+        ///         TransitGatewayDefaultRouteTablePropagation = false,
+        ///     });
+        /// 
+        ///     var thisRouteTable = new Aws.Ec2TransitGateway.RouteTable("this", new()
+        ///     {
+        ///         TransitGatewayId = myTransitGatewayId,
+        ///     });
+        /// 
+        ///     var vpc = new Aws.Ec2TransitGateway.RouteTableAssociation("vpc", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisVpcAttachment.Id,
+        ///         TransitGatewayRouteTableId = myTransitGatewayIdRouteTable,
+        ///     });
+        /// 
+        ///     var vpn = new Aws.Ec2TransitGateway.RouteTableAssociation("vpn", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisAwsVpnConnection[0].TransitGatewayAttachmentId,
+        ///         TransitGatewayRouteTableId = myTransitGatewayIdRouteTable,
+        ///     });
+        /// 
+        ///     var vpcRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("vpc", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisVpcAttachment.Id,
+        ///         TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///     });
+        /// 
+        ///     var vpnRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("vpn", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = thisAwsVpnConnection[0].TransitGatewayAttachmentId,
+        ///         TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///     });
+        /// 
+        ///     var eu_central_1 = new Aws.Ec2TransitGateway.TransitGateway("eu-central-1", new()
+        ///     {
+        ///         DefaultRouteTableAssociation = "disable",
+        ///         DefaultRouteTablePropagation = "disable",
+        ///     });
+        /// 
+        ///     var eu_central_1PeeringAttachment = new Aws.Ec2TransitGateway.PeeringAttachment("eu-central-1", new()
+        ///     {
+        ///         PeerRegion = "eu-central-1",
+        ///         PeerTransitGatewayId = eu_central_1.Id,
+        ///         TransitGatewayId = @this[0].Id,
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "TGW mesh from eu-central-1" },
+        ///         },
+        ///     });
+        /// 
+        ///     var eu_central_1RouteTable = new Aws.Ec2TransitGateway.RouteTable("eu-central-1", new()
+        ///     {
+        ///         TransitGatewayId = eu_central_1.Id,
+        ///         Tags = NotImplemented("merge({Name=\"wl-transit-gateway-routetable-eu-central-1\"},local.global_tags)"),
+        ///     });
+        /// 
+        ///     var eu_central_1PeeringAttachmentAccepter = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("eu-central-1", new()
+        ///     {
+        ///         TransitGatewayAttachmentId = eu_central_1PeeringAttachment.Id,
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "Accepter TGW peering eu-central-1" },
+        ///         },
+        ///     });
+        /// 
+        ///     var filtered_eu_central_1 = Aws.Ec2TransitGateway.GetVpcAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                     "available",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit_eu_central_1 = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
+        ///         {
+        ///             Id = __value,
+        ///         });
+        ///     });
+        /// 
+        ///     var trustedAwsAccountsIds = null;
+        /// 
+        ///     var trustedVpcAttachmentsListEu_central_1 = NotImplemented("compact([fork,tvaindata.aws_ec2_transit_gateway_vpc_attachment.unit-eu-central-1:contains(local.trusted_aws_accounts_ids,lookup(tva,\"vpc_owner_id\",\"\"))?tva.id:\"\"])");
+        /// 
+        ///     //# create a map with all vpc attachments trusted to be able to use for_each to avoid conflict on plan/apply ##
+        ///     var trustedVpcAttachementsEu_central_1 = NotImplemented("toset(sort(local.trusted_vpc_attachments_list_eu-central-1))");
+        /// 
+        ///     var trustedAccountsEu_central_1Tgw = new List&lt;Aws.Ec2TransitGateway.VpcAttachmentAccepter&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; trustedVpcAttachementsEu_central_1; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         trustedAccountsEu_central_1Tgw.Add(new Aws.Ec2TransitGateway.VpcAttachmentAccepter($"trusted_accounts_eu-central-1_tgw-{range.Value}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value,
+        ///             TransitGatewayDefaultRouteTablePropagation = false,
+        ///             TransitGatewayDefaultRouteTableAssociation = false,
+        ///             Tags = globalTags,
+        ///         }));
+        ///     }
+        ///     var trustedAccountsEu_central_1 = new List&lt;Aws.Ec2TransitGateway.RouteTableAssociation&gt;();
+        ///     foreach (var range in trustedAccountsEu_central_1Tgw.Select((v, k) =&gt; new { Key = k, Value = v }))
+        ///     {
+        ///         trustedAccountsEu_central_1.Add(new Aws.Ec2TransitGateway.RouteTableAssociation($"trusted_accounts_eu-central-1-{range.Key}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value.TransitGatewayAttachmentId,
+        ///             TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///         }));
+        ///     }
+        ///     var trustedAccountsEu_central_1RouteTablePropagation = new List&lt;Aws.Ec2TransitGateway.RouteTablePropagation&gt;();
+        ///     foreach (var range in trustedAccountsEu_central_1Tgw.Select((v, k) =&gt; new { Key = k, Value = v }))
+        ///     {
+        ///         trustedAccountsEu_central_1RouteTablePropagation.Add(new Aws.Ec2TransitGateway.RouteTablePropagation($"trusted_accounts_eu-central-1-{range.Key}", new()
+        ///         {
+        ///             TransitGatewayAttachmentId = range.Value.TransitGatewayAttachmentId,
+        ///             TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///         }));
+        ///     }
+        ///     var test = Aws.Ec2TransitGateway.GetRouteTableRoutes.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableRoutesFilterInputArgs
+        ///             {
+        ///                 Name = "type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "propagated",
+        ///                 },
+        ///             },
+        ///         },
+        ///         TransitGatewayRouteTableId = eu_central_1RouteTable.Id,
+        ///     });
+        /// 
+        ///     var default_region_to_eu_central_1 = new List&lt;Aws.Ec2TransitGateway.Route&gt;();
+        ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
+        ///     {
+        ///         default_region_to_eu_central_1.Add(new Aws.Ec2TransitGateway.Route($"default-region-to-eu-central-1-{range.Key}", new()
+        ///         {
+        ///             DestinationCidrBlock = range.Key,
+        ///             TransitGatewayRouteTableId = thisRouteTable.Id,
+        ///             TransitGatewayAttachmentId = eu_central_1PeeringAttachment.Id,
+        ///         }));
+        ///     }
         /// });
         /// ```
         /// {{% /example %}}

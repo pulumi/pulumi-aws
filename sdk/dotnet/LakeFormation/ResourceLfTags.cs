@@ -23,7 +23,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     var example = new Aws.LakeFormation.LfTag("example", new()
     ///     {
     ///         Key = "right",
     ///         Values = new[]
@@ -39,17 +39,17 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("example", new()
     ///     {
     ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             Name = exampleAwsGlueCatalogDatabase.Name,
     ///         },
     ///         LfTags = new[]
     ///         {
     ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
     ///             {
-    ///                 Key = exampleLfTag.Key,
+    ///                 Key = example.Key,
     ///                 Value = "stowe",
     ///             },
     ///         },
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     var example = new Aws.LakeFormation.LfTag("example", new()
     ///     {
     ///         Key = "right",
     ///         Values = new[]
@@ -98,11 +98,11 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("example", new()
     ///     {
     ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             Name = exampleAwsGlueCatalogDatabase.Name,
     ///         },
     ///         LfTags = new[]
     ///         {

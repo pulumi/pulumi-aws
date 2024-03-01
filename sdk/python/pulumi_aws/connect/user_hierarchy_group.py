@@ -271,6 +271,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         example = aws.connect.UserHierarchyGroup("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             tags={
                 "Name": "Example User Hierarchy Group",
             })
@@ -283,11 +284,13 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         parent = aws.connect.UserHierarchyGroup("parent",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="parent",
             tags={
                 "Name": "Example User Hierarchy Group Parent",
             })
         child = aws.connect.UserHierarchyGroup("child",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="child",
             parent_group_id=parent.hierarchy_group_id,
             tags={
                 "Name": "Example User Hierarchy Group Child",
@@ -331,6 +334,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         example = aws.connect.UserHierarchyGroup("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             tags={
                 "Name": "Example User Hierarchy Group",
             })
@@ -343,11 +347,13 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         parent = aws.connect.UserHierarchyGroup("parent",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="parent",
             tags={
                 "Name": "Example User Hierarchy Group Parent",
             })
         child = aws.connect.UserHierarchyGroup("child",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="child",
             parent_group_id=parent.hierarchy_group_id,
             tags={
                 "Name": "Example User Hierarchy Group Child",

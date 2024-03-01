@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Workflow;
+ * import com.pulumi.aws.glue.WorkflowArgs;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
  * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
@@ -46,9 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow(&#34;example&#34;);
+ *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_start = new Trigger(&#34;example-start&#34;, TriggerArgs.builder()        
+ *             .name(&#34;trigger-start&#34;)
  *             .type(&#34;ON_DEMAND&#34;)
  *             .workflowName(example.name())
  *             .actions(TriggerActionArgs.builder()
@@ -57,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_inner = new Trigger(&#34;example-inner&#34;, TriggerArgs.builder()        
+ *             .name(&#34;trigger-inner&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .workflowName(example.name())
  *             .predicate(TriggerPredicateArgs.builder()

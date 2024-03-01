@@ -1022,6 +1022,19 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+        ### Uploading a file to a bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        object = aws.s3.BucketObjectv2("object",
+            bucket="your_bucket_name",
+            key="new_object_key",
+            source=pulumi.FileAsset("path/to/file"),
+            etag=std.filemd5(input="path/to/file").result)
+        ```
         ### Encrypting with KMS Key
 
         ```python
@@ -1031,11 +1044,11 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1047,11 +1060,11 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1063,11 +1076,11 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1079,24 +1092,25 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket",
+            bucket="examplebuckettftest",
+            object_lock_enabled=True)
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=examplebucket.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
+        examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
         ### Ignoring Provider `default_tags`
 
@@ -1109,8 +1123,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
@@ -1186,6 +1200,19 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+        ### Uploading a file to a bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        object = aws.s3.BucketObjectv2("object",
+            bucket="your_bucket_name",
+            key="new_object_key",
+            source=pulumi.FileAsset("path/to/file"),
+            etag=std.filemd5(input="path/to/file").result)
+        ```
         ### Encrypting with KMS Key
 
         ```python
@@ -1195,11 +1222,11 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1211,11 +1238,11 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1227,11 +1254,11 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
@@ -1243,24 +1270,25 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket",
+            bucket="examplebuckettftest",
+            object_lock_enabled=True)
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=examplebucket.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
+        examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
         ### Ignoring Provider `default_tags`
 
@@ -1273,8 +1301,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),

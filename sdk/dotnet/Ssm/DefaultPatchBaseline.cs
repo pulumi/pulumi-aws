@@ -23,15 +23,16 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("examplePatchBaseline", new()
+    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("example", new()
     ///     {
+    ///         Name = "example",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",
     ///         },
     ///     });
     /// 
-    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
+    ///     var example = new Aws.Ssm.DefaultPatchBaseline("example", new()
     ///     {
     ///         BaselineId = examplePatchBaseline.Id,
     ///         OperatingSystem = examplePatchBaseline.OperatingSystem,

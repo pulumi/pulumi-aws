@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var topicPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -60,16 +60,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var topicTopic = new Topic(&#34;topicTopic&#34;, TopicArgs.builder()        
- *             .policy(topicPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;vpce-notification-topic&#34;)
+ *             .policy(topic.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooVpcEndpointService = new VpcEndpointService(&#34;fooVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
+ *         var foo = new VpcEndpointService(&#34;foo&#34;, VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(aws_lb.test().arn())
+ *             .networkLoadBalancerArns(test.arn())
  *             .build());
  * 
  *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification(&#34;fooVpcEndpointConnectionNotification&#34;, VpcEndpointConnectionNotificationArgs.builder()        
- *             .vpcEndpointServiceId(fooVpcEndpointService.id())
+ *             .vpcEndpointServiceId(foo.id())
  *             .connectionNotificationArn(topicTopic.arn())
  *             .connectionEvents(            
  *                 &#34;Accept&#34;,

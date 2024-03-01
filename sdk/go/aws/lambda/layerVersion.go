@@ -32,12 +32,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
+//			_, err := lambda.NewLayerVersion(ctx, "lambda_layer", &lambda.LayerVersionArgs{
+//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
+//				LayerName: pulumi.String("lambda_layer_name"),
 //				CompatibleRuntimes: pulumi.StringArray{
 //					pulumi.String("nodejs16.x"),
 //				},
-//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
-//				LayerName: pulumi.String("lambda_layer_name"),
 //			})
 //			if err != nil {
 //				return err

@@ -33,7 +33,7 @@ import (
 //				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
 //				Resources: route53recoveryreadiness.ResourceSetResourceArray{
 //					&route53recoveryreadiness.ResourceSetResourceArgs{
-//						ResourceArn: pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
+//						ResourceArn: pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
 //					},
 //				},
 //			})

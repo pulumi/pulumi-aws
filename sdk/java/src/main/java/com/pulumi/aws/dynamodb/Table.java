@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,6 +71,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var basic_dynamodb_table = new Table(&#34;basic-dynamodb-table&#34;, TableArgs.builder()        
+ *             .name(&#34;GameScores&#34;)
+ *             .billingMode(&#34;PROVISIONED&#34;)
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey(&#34;UserId&#34;)
+ *             .rangeKey(&#34;GameTitle&#34;)
  *             .attributes(            
  *                 TableAttributeArgs.builder()
  *                     .name(&#34;UserId&#34;)
@@ -84,28 +90,23 @@ import javax.annotation.Nullable;
  *                     .name(&#34;TopScore&#34;)
  *                     .type(&#34;N&#34;)
  *                     .build())
- *             .billingMode(&#34;PROVISIONED&#34;)
- *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
- *                 .hashKey(&#34;GameTitle&#34;)
- *                 .name(&#34;GameTitleIndex&#34;)
- *                 .nonKeyAttributes(&#34;UserId&#34;)
- *                 .projectionType(&#34;INCLUDE&#34;)
- *                 .rangeKey(&#34;TopScore&#34;)
- *                 .readCapacity(10)
- *                 .writeCapacity(10)
- *                 .build())
- *             .hashKey(&#34;UserId&#34;)
- *             .rangeKey(&#34;GameTitle&#34;)
- *             .readCapacity(20)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;dynamodb-table-1&#34;)
- *             ))
  *             .ttl(TableTtlArgs.builder()
  *                 .attributeName(&#34;TimeToExist&#34;)
  *                 .enabled(false)
  *                 .build())
- *             .writeCapacity(20)
+ *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
+ *                 .name(&#34;GameTitleIndex&#34;)
+ *                 .hashKey(&#34;GameTitle&#34;)
+ *                 .rangeKey(&#34;TopScore&#34;)
+ *                 .writeCapacity(10)
+ *                 .readCapacity(10)
+ *                 .projectionType(&#34;INCLUDE&#34;)
+ *                 .nonKeyAttributes(&#34;UserId&#34;)
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Name&#34;, &#34;dynamodb-table-1&#34;),
+ *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
+ *             ))
  *             .build());
  * 
  *     }
@@ -140,12 +141,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .hashKey(&#34;TestTableHashKey&#34;)
+ *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
+ *             .streamEnabled(true)
+ *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .attributes(TableAttributeArgs.builder()
  *                 .name(&#34;TestTableHashKey&#34;)
  *                 .type(&#34;S&#34;)
  *                 .build())
- *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
- *             .hashKey(&#34;TestTableHashKey&#34;)
  *             .replicas(            
  *                 TableReplicaArgs.builder()
  *                     .regionName(&#34;us-east-2&#34;)
@@ -153,8 +157,75 @@ import javax.annotation.Nullable;
  *                 TableReplicaArgs.builder()
  *                     .regionName(&#34;us-west-2&#34;)
  *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Replica Tagging
+ * 
+ * You can manage global table replicas&#39; tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
+ * import com.pulumi.aws.dynamodb.Tag;
+ * import com.pulumi.aws.dynamodb.TagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         final var alternate = AwsFunctions.getRegion();
+ * 
+ *         final var third = AwsFunctions.getRegion();
+ * 
+ *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
+ *             .hashKey(&#34;TestTableHashKey&#34;)
+ *             .name(&#34;example-13281&#34;)
  *             .streamEnabled(true)
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name(&#34;TestTableHashKey&#34;)
+ *                 .type(&#34;S&#34;)
+ *                 .build())
+ *             .replicas(            
+ *                 TableReplicaArgs.builder()
+ *                     .regionName(alternate.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                     .build(),
+ *                 TableReplicaArgs.builder()
+ *                     .regionName(third.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                     .propagateTags(true)
+ *                     .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Architect&#34;, &#34;Eleanor&#34;),
+ *                 Map.entry(&#34;Zone&#34;, &#34;SW&#34;)
+ *             ))
+ *             .build());
+ * 
+ *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
+ *             .resourceArn(example.arn().applyValue(arn -&gt; StdFunctions.replace()).applyValue(invoke -&gt; invoke.result()))
+ *             .key(&#34;Architect&#34;)
+ *             .value(&#34;Gigi&#34;)
  *             .build());
  * 
  *     }

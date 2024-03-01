@@ -357,8 +357,9 @@ class Authorizer(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
+        demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -367,7 +368,8 @@ class Authorizer(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        invocation_role = aws.iam.Role("invocationRole",
+        invocation_role = aws.iam.Role("invocation_role",
+            name="api_gateway_auth_invocation",
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -378,23 +380,29 @@ class Authorizer(pulumi.CustomResource):
                 identifiers=["lambda.amazonaws.com"],
             )],
         )])
-        lambda_ = aws.iam.Role("lambda", assume_role_policy=lambda_assume_role.json)
+        lambda_ = aws.iam.Role("lambda",
+            name="demo-lambda",
+            assume_role_policy=lambda_assume_role.json)
         authorizer = aws.lambda_.Function("authorizer",
             code=pulumi.FileArchive("lambda-function.zip"),
+            name="api_gateway_authorizer",
             role=lambda_.arn,
-            handler="exports.example")
-        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
+            handler="exports.example",
+            source_code_hash=std.filebase64sha256(input="lambda-function.zip").result)
+        demo = aws.apigateway.Authorizer("demo",
+            name="demo",
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        invocation_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["lambda:InvokeFunction"],
             resources=[authorizer.arn],
         )])
-        invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
+        invocation_policy_role_policy = aws.iam.RolePolicy("invocation_policy",
+            name="default",
             role=invocation_role.id,
-            policy=invocation_policy_policy_document.json)
+            policy=invocation_policy.json)
         ```
 
         ## Import
@@ -432,8 +440,9 @@ class Authorizer(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
+        demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -442,7 +451,8 @@ class Authorizer(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        invocation_role = aws.iam.Role("invocationRole",
+        invocation_role = aws.iam.Role("invocation_role",
+            name="api_gateway_auth_invocation",
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -453,23 +463,29 @@ class Authorizer(pulumi.CustomResource):
                 identifiers=["lambda.amazonaws.com"],
             )],
         )])
-        lambda_ = aws.iam.Role("lambda", assume_role_policy=lambda_assume_role.json)
+        lambda_ = aws.iam.Role("lambda",
+            name="demo-lambda",
+            assume_role_policy=lambda_assume_role.json)
         authorizer = aws.lambda_.Function("authorizer",
             code=pulumi.FileArchive("lambda-function.zip"),
+            name="api_gateway_authorizer",
             role=lambda_.arn,
-            handler="exports.example")
-        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
+            handler="exports.example",
+            source_code_hash=std.filebase64sha256(input="lambda-function.zip").result)
+        demo = aws.apigateway.Authorizer("demo",
+            name="demo",
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        invocation_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["lambda:InvokeFunction"],
             resources=[authorizer.arn],
         )])
-        invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
+        invocation_policy_role_policy = aws.iam.RolePolicy("invocation_policy",
+            name="default",
             role=invocation_role.id,
-            policy=invocation_policy_policy_document.json)
+            policy=invocation_policy.json)
         ```
 
         ## Import

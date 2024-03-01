@@ -18,20 +18,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "osis-pipelines.amazonaws.com",
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ *     version: "2012-10-17",
+ *     statement: [{
+ *         action: "sts:AssumeRole",
+ *         effect: "Allow",
+ *         sid: "",
+ *         principal: {
+ *             service: "osis-pipelines.amazonaws.com",
  *         },
  *     }],
  * })});
- * const examplePipeline = new aws.opensearchingest.Pipeline("examplePipeline", {
+ * const examplePipeline = new aws.opensearchingest.Pipeline("example", {
  *     pipelineName: "example",
- *     pipelineConfigurationBody: pulumi.all([exampleRole.arn, current]).apply(([arn, current]) => `version: "2"
+ *     pipelineConfigurationBody: pulumi.all([example.arn, current]).apply(([arn, current]) => `version: "2"
  * example-pipeline:
  *   source:
  *     http:
@@ -56,11 +56,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.opensearchingest.Pipeline("example", {
  *     pipelineName: "example",
- *     pipelineConfigurationBody: fs.readFileSync("example.yaml", "utf8"),
+ *     pipelineConfigurationBody: std.file({
+ *         input: "example.yaml",
+ *     }).then(invoke => invoke.result),
  *     maxUnits: 1,
  *     minUnits: 1,
  * });

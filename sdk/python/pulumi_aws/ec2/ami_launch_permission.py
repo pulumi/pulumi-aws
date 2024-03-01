@@ -208,8 +208,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            account_id="123456789012")
         ```
         ### Public Access
 
@@ -218,8 +218,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            group="all")
         ```
         ### Organization Access
 
@@ -266,8 +266,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            account_id="123456789012")
         ```
         ### Public Access
 
@@ -276,8 +276,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            group="all")
         ```
         ### Organization Access
 

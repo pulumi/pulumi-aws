@@ -351,8 +351,10 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -361,9 +363,12 @@ class Pipeline(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=assume_role.json)
+        codepipeline_role = aws.iam.Role("codepipeline_role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
@@ -424,13 +429,13 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
-        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipelineBucketPab",
+        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,
             block_public_policy=True,
             ignore_public_acls=True,
             restrict_public_buckets=True)
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+        codepipeline_policy = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -459,9 +464,10 @@ class Pipeline(pulumi.CustomResource):
                 resources=["*"],
             ),
         ])
-        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
+        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
+            name="codepipeline_policy",
             role=codepipeline_role.id,
-            policy=codepipeline_policy_policy_document.json)
+            policy=codepipeline_policy.json)
         ```
 
         ## Import
@@ -500,8 +506,10 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -510,9 +518,12 @@ class Pipeline(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=assume_role.json)
+        codepipeline_role = aws.iam.Role("codepipeline_role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
@@ -573,13 +584,13 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
-        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipelineBucketPab",
+        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,
             block_public_policy=True,
             ignore_public_acls=True,
             restrict_public_buckets=True)
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+        codepipeline_policy = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -608,9 +619,10 @@ class Pipeline(pulumi.CustomResource):
                 resources=["*"],
             ),
         ])
-        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
+        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
+            name="codepipeline_policy",
             role=codepipeline_role.id,
-            policy=codepipeline_policy_policy_document.json)
+            policy=codepipeline_policy.json)
         ```
 
         ## Import

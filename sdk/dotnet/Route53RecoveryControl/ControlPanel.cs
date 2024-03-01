@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// {
     ///     var example = new Aws.Route53RecoveryControl.ControlPanel("example", new()
     ///     {
+    ///         Name = "balmorhea",
     ///         ClusterArn = "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
     ///     });
     /// 

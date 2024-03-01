@@ -30,11 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
+//			_, err := lambda.NewCodeSigningConfig(ctx, "new_csc", &lambda.CodeSigningConfigArgs{
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
-//						aws_signer_signing_profile.Example1.Arn,
-//						aws_signer_signing_profile.Example2.Arn,
+//						example1.Arn,
+//						example2.Arn,
 //					},
 //				},
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{

@@ -46,19 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceQuery(GroupResourceQueryArgs.builder()
  *                 .query(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;ResourceTypeFilters&#34;, jsonArray(&#34;AWS::EC2::Instance&#34;)),
- *                         jsonProperty(&#34;TagFilters&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Key&#34;, &#34;Stage&#34;),
- *                             jsonProperty(&#34;Values&#34;, jsonArray(&#34;Test&#34;))
+ *                         jsonProperty(&#34;resourceTypeFilters&#34;, jsonArray(&#34;AWS::EC2::Instance&#34;)),
+ *                         jsonProperty(&#34;tagFilters&#34;, jsonArray(jsonObject(
+ *                             jsonProperty(&#34;key&#34;, &#34;Stage&#34;),
+ *                             jsonProperty(&#34;values&#34;, jsonArray(&#34;Test&#34;))
  *                         )))
  *                     )))
  *                 .build())
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .resourceGroupName(exampleGroup.name())
  *             .build());
  * 

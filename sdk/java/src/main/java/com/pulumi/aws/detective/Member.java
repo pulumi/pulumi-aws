@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraph = new Graph(&#34;exampleGraph&#34;);
+ *         var example = new Graph(&#34;example&#34;);
  * 
  *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;AWS ACCOUNT ID&#34;)
  *             .emailAddress(&#34;EMAIL&#34;)
- *             .graphArn(exampleGraph.id())
+ *             .graphArn(example.id())
  *             .message(&#34;Message of the invitation&#34;)
  *             .disableEmailNotification(true)
  *             .build());

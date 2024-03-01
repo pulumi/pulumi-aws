@@ -30,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
-//				BotId:      pulumi.Any(aws_lexv2models_bot.Example.Id),
-//				BotVersion: pulumi.Any(aws_lexv2models_bot_version.Example.Bot_version),
-//				IntentId:   pulumi.Any(aws_lexv2models_intent.Example.Id),
-//				LocaleId:   pulumi.Any(aws_lexv2models_bot_locale.Example.Locale_id),
+//				BotId:      pulumi.Any(exampleAwsLexv2modelsBot.Id),
+//				BotVersion: pulumi.Any(exampleAwsLexv2modelsBotVersion.BotVersion),
+//				IntentId:   pulumi.Any(exampleAwsLexv2modelsIntent.Id),
+//				LocaleId:   pulumi.Any(exampleAwsLexv2modelsBotLocale.LocaleId),
+//				Name:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

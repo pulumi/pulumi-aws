@@ -25,8 +25,8 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
     ///     {
-    ///         AssociateEntireAccount = true,
     ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+    ///         AssociateEntireAccount = true,
     ///     });
     /// 
     /// });
@@ -43,8 +43,8 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
     ///     {
-    ///         ConsumerRegion = "us-west-2",
     ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+    ///         ConsumerRegion = "us-west-2",
     ///     });
     /// 
     /// });

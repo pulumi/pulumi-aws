@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transcribe.VocabularyFilter("example", {
- *     languageCode: "en-US",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value3",
- *     },
  *     vocabularyFilterName: "example",
+ *     languageCode: "en-US",
  *     words: [
  *         "cars",
  *         "bucket",
  *     ],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value3",
+ *     },
  * });
  * ```
  *

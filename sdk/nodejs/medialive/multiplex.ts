@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.medialive.Multiplex("example", {
+ *     name: "example-multiplex-changed",
  *     availabilityZones: [
  *         available.then(available => available.names?.[0]),
  *         available.then(available => available.names?.[1]),

@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.AuthorizationRule("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     targetNetworkCidr: aws_subnet.example.cidr_block,
+ *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
+ *     targetNetworkCidr: exampleAwsSubnet.cidrBlock,
  *     authorizeAllGroups: true,
  * });
  * ```

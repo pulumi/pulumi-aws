@@ -15,18 +15,23 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const example = new aws.cognito.UserPool("example", {name: "example"});
+ * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
  *     domain: "example",
- *     userPoolId: exampleUserPool.id,
+ *     userPoolId: example.id,
  * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {userPoolId: exampleUserPool.id});
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
+ * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
+ *     name: "example",
+ *     userPoolId: example.id,
+ * });
+ * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
  *     clientId: exampleUserPoolClient.id,
  *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
+ *     imageFile: std.filebase64({
+ *         input: "logo.png",
+ *     }).then(invoke => invoke.result),
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```
@@ -35,16 +40,18 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const example = new aws.cognito.UserPool("example", {name: "example"});
+ * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
  *     domain: "example",
- *     userPoolId: exampleUserPool.id,
+ *     userPoolId: example.id,
  * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
+ * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
  *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
+ *     imageFile: std.filebase64({
+ *         input: "logo.png",
+ *     }).then(invoke => invoke.result),
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```

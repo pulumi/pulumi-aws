@@ -337,43 +337,44 @@ class ContactFlowModule(pulumi.CustomResource):
 
         example = aws.connect.ContactFlowModule("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example",
             description="Example Contact Flow Module Description",
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                "version": "2019-10-30",
+                "startAction": "12345678-1234-1234-1234-123456789012",
+                "actions": [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Parameters": {
-                            "Text": "Hello contact flow module",
+                        "identifier": "12345678-1234-1234-1234-123456789012",
+                        "parameters": {
+                            "text": "Hello contact flow module",
                         },
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        "transitions": {
+                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "errors": [],
+                            "conditions": [],
                         },
-                        "Type": "MessageParticipant",
+                        "type": "MessageParticipant",
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Parameters": {},
-                        "Transitions": {},
+                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "type": "DisconnectParticipant",
+                        "parameters": {},
+                        "transitions": {},
                     },
                 ],
-                "Settings": {
-                    "InputParameters": [],
-                    "OutputParameters": [],
-                    "Transitions": [
+                "settings": {
+                    "inputParameters": [],
+                    "outputParameters": [],
+                    "transitions": [
                         {
-                            "DisplayName": "Success",
-                            "ReferenceName": "Success",
-                            "Description": "",
+                            "displayName": "Success",
+                            "referenceName": "Success",
+                            "description": "",
                         },
                         {
-                            "DisplayName": "Error",
-                            "ReferenceName": "Error",
-                            "Description": "",
+                            "displayName": "Error",
+                            "referenceName": "Error",
+                            "description": "",
                         },
                     ],
                 },
@@ -429,43 +430,44 @@ class ContactFlowModule(pulumi.CustomResource):
 
         example = aws.connect.ContactFlowModule("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example",
             description="Example Contact Flow Module Description",
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                "version": "2019-10-30",
+                "startAction": "12345678-1234-1234-1234-123456789012",
+                "actions": [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Parameters": {
-                            "Text": "Hello contact flow module",
+                        "identifier": "12345678-1234-1234-1234-123456789012",
+                        "parameters": {
+                            "text": "Hello contact flow module",
                         },
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        "transitions": {
+                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "errors": [],
+                            "conditions": [],
                         },
-                        "Type": "MessageParticipant",
+                        "type": "MessageParticipant",
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Parameters": {},
-                        "Transitions": {},
+                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "type": "DisconnectParticipant",
+                        "parameters": {},
+                        "transitions": {},
                     },
                 ],
-                "Settings": {
-                    "InputParameters": [],
-                    "OutputParameters": [],
-                    "Transitions": [
+                "settings": {
+                    "inputParameters": [],
+                    "outputParameters": [],
+                    "transitions": [
                         {
-                            "DisplayName": "Success",
-                            "ReferenceName": "Success",
-                            "Description": "",
+                            "displayName": "Success",
+                            "referenceName": "Success",
+                            "description": "",
                         },
                         {
-                            "DisplayName": "Error",
-                            "ReferenceName": "Error",
-                            "Description": "",
+                            "displayName": "Error",
+                            "referenceName": "Error",
+                            "description": "",
                         },
                     ],
                 },

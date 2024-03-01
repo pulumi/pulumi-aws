@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Name: pulumi.StringRef(_var.Firewall_policy_name),
+//				Name: pulumi.StringRef(firewallPolicyName),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,7 +54,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn: pulumi.StringRef(_var.Firewall_policy_arn),
+//				Arn: pulumi.StringRef(firewallPolicyArn),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -79,8 +79,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn:  pulumi.StringRef(_var.Firewall_policy_arn),
-//				Name: pulumi.StringRef(_var.Firewall_policy_name),
+//				Arn:  pulumi.StringRef(firewallPolicyArn),
+//				Name: pulumi.StringRef(firewallPolicyName),
 //			}, nil)
 //			if err != nil {
 //				return err

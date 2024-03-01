@@ -639,10 +639,6 @@ class UserHomeDirectoryMapping(dict):
         :param str target: Represents the map target.
                
                The `Restricted` option is achieved using the following mapping:
-               
-               ```python
-               import pulumi
-               ```
         """
         pulumi.set(__self__, "entry", entry)
         pulumi.set(__self__, "target", target)
@@ -662,10 +658,6 @@ class UserHomeDirectoryMapping(dict):
         Represents the map target.
 
         The `Restricted` option is achieved using the following mapping:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "target")
 

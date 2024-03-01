@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PolicyTableAssociation("example", {
- *     transitGatewayAttachmentId: aws_networkmanager_transit_gateway_peering.example.transit_gateway_peering_attachment_id,
- *     transitGatewayPolicyTableId: aws_ec2_transit_gateway_policy_table.example.id,
+ *     transitGatewayAttachmentId: exampleAwsNetworkmanagerTransitGatewayPeering.transitGatewayPeeringAttachmentId,
+ *     transitGatewayPolicyTableId: exampleAwsEc2TransitGatewayPolicyTable.id,
  * });
  * ```
  *

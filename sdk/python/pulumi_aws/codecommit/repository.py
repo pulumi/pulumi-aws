@@ -293,8 +293,8 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
+            repository_name="MyTestRepository",
+            description="This is the Sample App Repository")
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -302,10 +302,10 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_key = aws.kms.Key("testKey",
+        test_key = aws.kms.Key("test",
             description="test",
             deletion_window_in_days=7)
-        test_repository = aws.codecommit.Repository("testRepository",
+        test = aws.codecommit.Repository("test",
             repository_name="MyTestRepository",
             description="This is the Sample App Repository",
             kms_key_id=test_key.arn)
@@ -343,8 +343,8 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
+            repository_name="MyTestRepository",
+            description="This is the Sample App Repository")
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -352,10 +352,10 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_key = aws.kms.Key("testKey",
+        test_key = aws.kms.Key("test",
             description="test",
             deletion_window_in_days=7)
-        test_repository = aws.codecommit.Repository("testRepository",
+        test = aws.codecommit.Repository("test",
             repository_name="MyTestRepository",
             description="This is the Sample App Repository",
             kms_key_id=test_key.arn)

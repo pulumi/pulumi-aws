@@ -6,6 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Information about single Outpost Instance Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpostInstanceType({
+ *     arn: exampleAwsOutpostsOutpost.arn,
+ *     preferredInstanceTypes: [
+ *         "m5.large",
+ *         "m5.4xlarge",
+ *     ],
+ * });
+ * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
+ * ```
  */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
 
@@ -51,6 +67,22 @@ export interface GetOutpostInstanceTypeResult {
 }
 /**
  * Information about single Outpost Instance Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpostInstanceType({
+ *     arn: exampleAwsOutpostsOutpost.arn,
+ *     preferredInstanceTypes: [
+ *         "m5.large",
+ *         "m5.4xlarge",
+ *     ],
+ * });
+ * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
+ * ```
  */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
     return pulumi.output(args).apply((a: any) => getOutpostInstanceType(a, opts))

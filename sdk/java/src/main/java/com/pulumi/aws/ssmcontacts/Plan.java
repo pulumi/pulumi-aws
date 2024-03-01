@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *                     PlanStageTargetArgs.builder()
  *                         .channelTargetInfo(PlanStageTargetChannelTargetInfoArgs.builder()
  *                             .retryIntervalInMinutes(2)
- *                             .contactChannelId(aws_ssmcontacts_contact_channel.channel().arn())
+ *                             .contactChannelId(channel.arn())
  *                             .build())
  *                         .build())
  *                 .build())

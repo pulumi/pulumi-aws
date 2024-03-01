@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainNameApiAssociation(&#34;example&#34;, DomainNameApiAssociationArgs.builder()        
- *             .apiId(aws_appsync_graphql_api.example().id())
- *             .domainName(aws_appsync_domain_name.example().domain_name())
+ *             .apiId(exampleAwsAppsyncGraphqlApi.id())
+ *             .domainName(exampleAwsAppsyncDomainName.domainName())
  *             .build());
  * 
  *     }

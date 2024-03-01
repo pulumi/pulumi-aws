@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Find a certificate that is issued
 //			_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
 //				Domain: "tf.example.com",
 //				Statuses: []string{
@@ -38,16 +39,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Find a certificate issued by (not imported into) ACM
 //			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-//				Domain:     "tf.example.com",
-//				MostRecent: pulumi.BoolRef(true),
+//				Domain: "tf.example.com",
 //				Types: []string{
 //					"AMAZON_ISSUED",
 //				},
+//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Find a RSA 4096 bit certificate
 //			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
 //				Domain: "tf.example.com",
 //				KeyTypes: []string{

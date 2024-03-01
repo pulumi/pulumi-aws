@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationAssignments({
- *     applicationArn: aws_ssoadmin_application.example.application_arn,
+ *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
  * });
  * ```
  */
@@ -70,7 +70,7 @@ export interface GetApplicationAssignmentsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationAssignments({
- *     applicationArn: aws_ssoadmin_application.example.application_arn,
+ *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
  * });
  * ```
  */

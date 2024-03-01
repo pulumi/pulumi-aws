@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessmentReport(ctx, "test", &auditmanager.AssessmentReportArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Test.Id),
+//				Name:         pulumi.String("example"),
+//				AssessmentId: pulumi.Any(testAwsAuditmanagerAssessment.Id),
 //			})
 //			if err != nil {
 //				return err

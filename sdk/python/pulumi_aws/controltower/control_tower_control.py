@@ -108,11 +108,11 @@ class ControlTowerControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_organization = aws.organizations.get_organization()
-        example_organizational_units = aws.organizations.get_organizational_units(parent_id=example_organization.roots[0].id)
-        example_control_tower_control = aws.controltower.ControlTowerControl("exampleControlTowerControl",
+        example = aws.organizations.get_organization()
+        example_get_organizational_units = aws.organizations.get_organizational_units(parent_id=example.roots[0].id)
+        example_control_tower_control = aws.controltower.ControlTowerControl("example",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_organizational_units.children if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
 
         ## Import
@@ -145,11 +145,11 @@ class ControlTowerControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_organization = aws.organizations.get_organization()
-        example_organizational_units = aws.organizations.get_organizational_units(parent_id=example_organization.roots[0].id)
-        example_control_tower_control = aws.controltower.ControlTowerControl("exampleControlTowerControl",
+        example = aws.organizations.get_organization()
+        example_get_organizational_units = aws.organizations.get_organizational_units(parent_id=example.roots[0].id)
+        example_control_tower_control = aws.controltower.ControlTowerControl("example",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_organizational_units.children if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
 
         ## Import

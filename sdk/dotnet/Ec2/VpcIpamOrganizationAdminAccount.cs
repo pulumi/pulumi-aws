@@ -31,9 +31,6 @@ namespace Pulumi.Aws.Ec2
     ///         DelegatedAdminAccountId = delegated.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///     });
     /// 
-    ///     var ipamDelegateAccount = new Aws.Provider("ipamDelegateAccount");
-    /// 
-    ///     // authentication arguments omitted
     /// });
     /// ```
     /// 

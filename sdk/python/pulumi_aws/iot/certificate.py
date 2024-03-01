@@ -269,9 +269,10 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            csr=std.file(input="/my/csr.pem").result,
             active=True)
         ```
         ### Without CSR
@@ -287,9 +288,10 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            certificate_pem=std.file(input="/my/cert.pem").result,
             active=True)
         ```
 
@@ -323,9 +325,10 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            csr=std.file(input="/my/csr.pem").result,
             active=True)
         ```
         ### Without CSR
@@ -341,9 +344,10 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            certificate_pem=std.file(input="/my/cert.pem").result,
             active=True)
         ```
 

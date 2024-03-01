@@ -31,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
+//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("chat-messages"),
+//			})
 //			if err != nil {
 //				return err
 //			}

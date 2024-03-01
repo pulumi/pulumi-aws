@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
+//				Name:      pulumi.String("tf-dx-connection"),
 //				Bandwidth: pulumi.String("1Gbps"),
 //				Location:  pulumi.String("EqDC2"),
 //			})
@@ -56,6 +57,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
+//				Name:          pulumi.String("tf-dx-connection"),
 //				Bandwidth:     pulumi.String("10Gbps"),
 //				Location:      pulumi.String("EqDA2"),
 //				RequestMacsec: pulumi.Bool(true),
@@ -85,10 +87,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
+//				Name:           pulumi.String("tf-dx-connection"),
 //				Bandwidth:      pulumi.String("10Gbps"),
-//				EncryptionMode: pulumi.String("must_encrypt"),
 //				Location:       pulumi.String("EqDC2"),
 //				RequestMacsec:  pulumi.Bool(true),
+//				EncryptionMode: pulumi.String("must_encrypt"),
 //			})
 //			if err != nil {
 //				return err

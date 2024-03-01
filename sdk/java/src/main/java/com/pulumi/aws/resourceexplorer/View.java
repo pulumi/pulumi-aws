@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.resourceexplorer.ViewArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewFiltersArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,20 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleIndex = new Index(&#34;exampleIndex&#34;, IndexArgs.builder()        
+ *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .type(&#34;LOCAL&#34;)
  *             .build());
  * 
  *         var exampleView = new View(&#34;exampleView&#34;, ViewArgs.builder()        
+ *             .name(&#34;exampleview&#34;)
  *             .filters(ViewFiltersArgs.builder()
  *                 .filterString(&#34;resourcetype:ec2:instance&#34;)
  *                 .build())
  *             .includedProperties(ViewIncludedPropertyArgs.builder()
  *                 .name(&#34;tags&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleIndex)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -292,9 +292,9 @@ class DeviceFleet(pulumi.CustomResource):
 
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
-                s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
+                s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
 
@@ -333,9 +333,9 @@ class DeviceFleet(pulumi.CustomResource):
 
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
-                s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
+                s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
 

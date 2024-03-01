@@ -43,10 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceAction(&#34;example&#34;, ServiceActionArgs.builder()        
+ *             .description(&#34;Motor generator unit&#34;)
+ *             .name(&#34;MGU&#34;)
  *             .definition(ServiceActionDefinitionArgs.builder()
  *                 .name(&#34;AWS-RestartEC2Instance&#34;)
  *                 .build())
- *             .description(&#34;Motor generator unit&#34;)
  *             .build());
  * 
  *     }

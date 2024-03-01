@@ -317,6 +317,7 @@ class Lb(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
@@ -355,6 +356,7 @@ class Lb(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.codeartifact.getRepositoryEndpoint({
- *     domain: aws_codeartifact_domain.test.domain,
- *     repository: aws_codeartifact_repository.test.repository,
+ *     domain: testAwsCodeartifactDomain.domain,
+ *     repository: testAwsCodeartifactRepository.repository,
  *     format: "npm",
  * });
  * ```
@@ -80,8 +80,8 @@ export interface GetRepositoryEndpointResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.codeartifact.getRepositoryEndpoint({
- *     domain: aws_codeartifact_domain.test.domain,
- *     repository: aws_codeartifact_repository.test.repository,
+ *     domain: testAwsCodeartifactDomain.domain,
+ *     repository: testAwsCodeartifactRepository.repository,
  *     format: "npm",
  * });
  * ```

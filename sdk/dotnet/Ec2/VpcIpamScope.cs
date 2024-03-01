@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -37,9 +37,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new()
+    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("example", new()
     ///     {
-    ///         IpamId = exampleVpcIpam.Id,
+    ///         IpamId = example.Id,
     ///         Description = "Another Scope",
     ///     });
     /// 

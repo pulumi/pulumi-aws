@@ -30,6 +30,7 @@ namespace Pulumi.Aws.SsmContacts
     ///         {
     ///             SimpleAddress = "email@example.com",
     ///         },
+    ///         Name = "Example contact channel",
     ///         Type = "EMAIL",
     ///     });
     /// 
@@ -45,7 +46,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleContact = new Aws.SsmContacts.Contact("exampleContact", new()
+    ///     var exampleContact = new Aws.SsmContacts.Contact("example_contact", new()
     ///     {
     ///         Alias = "example_contact",
     ///         Type = "PERSONAL",
@@ -58,6 +59,7 @@ namespace Pulumi.Aws.SsmContacts
     ///         {
     ///             SimpleAddress = "email@example.com",
     ///         },
+    ///         Name = "Example contact channel",
     ///         Type = "EMAIL",
     ///     });
     /// 

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.Link("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     siteId: aws_networkmanager_site.example.id,
+ *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
+ *     siteId: exampleAwsNetworkmanagerSite.id,
  *     bandwidth: {
  *         uploadSpeed: 10,
  *         downloadSpeed: 50,

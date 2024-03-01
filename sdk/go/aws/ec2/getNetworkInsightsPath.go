@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNetworkInsightsPath(ctx, &ec2.LookupNetworkInsightsPathArgs{
-//				NetworkInsightsPathId: pulumi.StringRef(aws_ec2_network_insights_path.Example.Id),
+//				NetworkInsightsPathId: pulumi.StringRef(exampleAwsEc2NetworkInsightsPath.Id),
 //			}, nil)
 //			if err != nil {
 //				return err

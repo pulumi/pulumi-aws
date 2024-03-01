@@ -51,7 +51,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
+//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatch", &iam.RoleArgs{
+//				Name:             pulumi.String("api_gateway_cloudwatch_global"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
@@ -63,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			cloudwatchPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			cloudwatch, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -85,9 +86,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "cloudwatch", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("default"),
 //				Role:   cloudwatchRole.ID(),
-//				Policy: *pulumi.String(cloudwatchPolicyDocument.Json),
+//				Policy: *pulumi.String(cloudwatch.Json),
 //			})
 //			if err != nil {
 //				return err

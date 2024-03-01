@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.redshift.EndpointAccess("example", {
  *     endpointName: "example",
- *     subnetGroupName: aws_redshift_subnet_group.example.id,
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
+ *     subnetGroupName: exampleAwsRedshiftSubnetGroup.id,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  * });
  * ```
  *

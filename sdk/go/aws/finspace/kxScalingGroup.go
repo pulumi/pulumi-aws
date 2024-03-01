@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxScalingGroup(ctx, "example", &finspace.KxScalingGroupArgs{
-//				EnvironmentId:      pulumi.Any(aws_finspace_kx_environment.Example.Id),
+//				Name:               pulumi.String("my-tf-kx-scalinggroup"),
+//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
 //				AvailabilityZoneId: pulumi.String("use1-az2"),
 //				HostType:           pulumi.String("kx.sg.4xlarge"),
 //			})

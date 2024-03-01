@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directoryservice.NewRadiusSettings(ctx, "example", &directoryservice.RadiusSettingsArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Example.Id),
+//				DirectoryId:            pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				AuthenticationProtocol: pulumi.String("PAP"),
 //				DisplayLabel:           pulumi.String("example"),
 //				RadiusPort:             pulumi.Int(1812),

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.FsxOpenZfsFileSystem("example", {
- *     fsxFilesystemArn: aws_fsx_openzfs_file_system.example.arn,
- *     securityGroupArns: [aws_security_group.example.arn],
+ *     fsxFilesystemArn: exampleAwsFsxOpenzfsFileSystem.arn,
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
  *     protocol: {
  *         nfs: {
  *             mountOptions: {

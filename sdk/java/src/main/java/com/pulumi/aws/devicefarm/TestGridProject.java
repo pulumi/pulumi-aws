@@ -21,6 +21,42 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.devicefarm.TestGridProject;
+ * import com.pulumi.aws.devicefarm.TestGridProjectArgs;
+ * import com.pulumi.aws.devicefarm.inputs.TestGridProjectVpcConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TestGridProject(&#34;example&#34;, TestGridProjectArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .vpcConfig(TestGridProjectVpcConfigArgs.builder()
+ *                 .vpcId(exampleAwsVpc.id())
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:

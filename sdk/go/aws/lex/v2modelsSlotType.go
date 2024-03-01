@@ -31,16 +31,17 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iam.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// Role: pulumi.Any(aws_iam_role.Test.Name),
-// PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", data.Aws_partition.Current.Partition)),
+// _, err := iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
+// Role: pulumi.Any(testAwsIamRole.Name),
+// PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", current.Partition)),
 // })
 // if err != nil {
 // return err
 // }
-// testV2modelsBot, err := lex.NewV2modelsBot(ctx, "testV2modelsBot", &lex.V2modelsBotArgs{
+// testV2modelsBot, err := lex.NewV2modelsBot(ctx, "test", &lex.V2modelsBotArgs{
+// Name: pulumi.String("testbot"),
 // IdleSessionTtlInSeconds: pulumi.Int(60),
-// RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+// RoleArn: pulumi.Any(testAwsIamRole.Arn),
 // DataPrivacies: lex.V2modelsBotDataPrivacyArray{
 // &lex.V2modelsBotDataPrivacyArgs{
 // ChildDirected: pulumi.Bool(true),
@@ -50,7 +51,7 @@ import (
 // if err != nil {
 // return err
 // }
-// testV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "testV2modelsBotLocale", &lex.V2modelsBotLocaleArgs{
+// testV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "test", &lex.V2modelsBotLocaleArgs{
 // LocaleId: pulumi.String("en_US"),
 // BotId: testV2modelsBot.ID(),
 // BotVersion: pulumi.String("DRAFT"),
@@ -59,7 +60,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = lex.NewV2modelsBotVersion(ctx, "testV2modelsBotVersion", &lex.V2modelsBotVersionArgs{
+// _, err = lex.NewV2modelsBotVersion(ctx, "test", &lex.V2modelsBotVersionArgs{
 // BotId: testV2modelsBot.ID(),
 // LocaleSpecification: testV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]interface{}, error) {
 // return map[string]map[string]interface{}{
@@ -72,9 +73,10 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = lex.NewV2modelsSlotType(ctx, "testV2modelsSlotType", &lex.V2modelsSlotTypeArgs{
+// _, err = lex.NewV2modelsSlotType(ctx, "test", &lex.V2modelsSlotTypeArgs{
 // BotId: testV2modelsBot.ID(),
 // BotVersion: testV2modelsBotLocale.BotVersion,
+// Name: pulumi.String("test"),
 // LocaleId: testV2modelsBotLocale.LocaleId,
 // })
 // if err != nil {

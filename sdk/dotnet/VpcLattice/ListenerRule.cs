@@ -24,8 +24,9 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
     ///     {
-    ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
     ///         Priority = 20,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
@@ -61,12 +62,12 @@ namespace Pulumi.Aws.VpcLattice
     ///                 {
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
+    ///                         TargetGroupIdentifier = example.Id,
     ///                         Weight = 1,
     ///                     },
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example2.Id,
+    ///                         TargetGroupIdentifier = example2.Id,
     ///                         Weight = 2,
     ///                     },
     ///                 },
@@ -88,8 +89,9 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
     ///     {
-    ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         Name = "example",
+    ///         ListenerIdentifier = example.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
     ///         Priority = 10,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {

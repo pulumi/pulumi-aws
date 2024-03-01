@@ -46,7 +46,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -83,7 +83,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -120,7 +120,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -157,7 +157,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -343,7 +343,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -381,7 +381,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -419,7 +419,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }
@@ -457,7 +457,7 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
      *             .build());
      * 
      *     }

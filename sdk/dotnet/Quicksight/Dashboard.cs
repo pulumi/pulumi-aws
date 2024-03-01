@@ -26,17 +26,18 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Dashboard("example", new()
     ///     {
     ///         DashboardId = "example-id",
+    ///         Name = "example-name",
     ///         VersionDescription = "version",
     ///         SourceEntity = new Aws.Quicksight.Inputs.DashboardSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateArgs
     ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
+    ///                 Arn = source.Arn,
     ///                 DataSetReferences = new[]
     ///                 {
     ///                     new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs
     ///                     {
-    ///                         DataSetArn = aws_quicksight_data_set.Dataset.Arn,
+    ///                         DataSetArn = dataset.Arn,
     ///                         DataSetPlaceholder = "1",
     ///                     },
     ///                 },

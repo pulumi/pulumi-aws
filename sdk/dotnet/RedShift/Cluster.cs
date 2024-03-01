@@ -28,11 +28,11 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         ClusterType = "single-node",
     ///         DatabaseName = "mydb",
-    ///         MasterPassword = "Mustbe8characters",
     ///         MasterUsername = "exampleuser",
+    ///         MasterPassword = "Mustbe8characters",
     ///         NodeType = "dc1.large",
+    ///         ClusterType = "single-node",
     ///     });
     /// 
     /// });
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         ClusterType = "single-node",
     ///         DatabaseName = "mydb",
-    ///         ManageMasterPassword = true,
     ///         MasterUsername = "exampleuser",
     ///         NodeType = "dc1.large",
+    ///         ClusterType = "single-node",
+    ///         ManageMasterPassword = true,
     ///     });
     /// 
     /// });

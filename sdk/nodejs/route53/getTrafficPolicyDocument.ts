@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleTrafficPolicyDocument = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -45,9 +45,10 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }));
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
  * ### Complex Example
@@ -58,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTrafficPolicyDocument = aws.route53.getTrafficPolicyDocument({
+ * const example = aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "geoproximity_rule",
  *     endpoints: [
@@ -120,9 +121,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
  */
@@ -200,7 +202,7 @@ export interface GetTrafficPolicyDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleTrafficPolicyDocument = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -227,9 +229,10 @@ export interface GetTrafficPolicyDocumentResult {
  *         },
  *     }],
  * }));
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
  * ### Complex Example
@@ -240,7 +243,7 @@ export interface GetTrafficPolicyDocumentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTrafficPolicyDocument = aws.route53.getTrafficPolicyDocument({
+ * const example = aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "geoproximity_rule",
  *     endpoints: [
@@ -302,9 +305,10 @@ export interface GetTrafficPolicyDocumentResult {
  *         },
  *     ],
  * });
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
  */

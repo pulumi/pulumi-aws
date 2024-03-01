@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-//				ResourceTypeManagementPreference: pulumi.BoolMap{
-//					"DynamoDB": pulumi.Bool(true),
-//					"EFS":      pulumi.Bool(true),
-//				},
 //				ResourceTypeOptInPreference: pulumi.BoolMap{
 //					"Aurora":          pulumi.Bool(true),
 //					"DocumentDB":      pulumi.Bool(true),
@@ -45,6 +41,10 @@ import (
 //					"RDS":             pulumi.Bool(true),
 //					"Storage Gateway": pulumi.Bool(true),
 //					"VirtualMachine":  pulumi.Bool(true),
+//				},
+//				ResourceTypeManagementPreference: pulumi.BoolMap{
+//					"DynamoDB": pulumi.Bool(true),
+//					"EFS":      pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {

@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_vpc_attachment.vpc.id,
- *     attachmentType: aws_networkmanager_vpc_attachment.vpc.attachment_type,
+ *     attachmentId: vpc.id,
+ *     attachmentType: vpc.attachmentType,
  * });
  * ```
  * ### Example with site-to-site VPN attachment
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_site_to_site_vpn_attachment.vpn.id,
- *     attachmentType: aws_networkmanager_site_to_site_vpn_attachment.vpn.attachment_type,
+ *     attachmentId: vpn.id,
+ *     attachmentType: vpn.attachmentType,
  * });
  * ```
  */

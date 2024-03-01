@@ -744,23 +744,24 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            build_spec=\"\"\"  version: 0.1
-          frontend:
-            phases:
-              preBuild:
-                commands:
-                  - yarn install
-              build:
-                commands:
-                  - yarn run build
-            artifacts:
-              baseDirectory: build
-              files:
-                - '**/*'
-            cache:
-              paths:
-                - node_modules/**/*
-
+            name="example",
+            repository="https://github.com/example/app",
+            build_spec=\"\"\"version: 0.1
+        frontend:
+          phases:
+            preBuild:
+              commands:
+                - yarn install
+            build:
+              commands:
+                - yarn run build
+          artifacts:
+            baseDirectory: build
+            files:
+              - '**/*'
+          cache:
+            paths:
+              - node_modules/**/*
         \"\"\",
             custom_rules=[aws.amplify.AppCustomRuleArgs(
                 source="/<*>",
@@ -769,8 +770,7 @@ class App(pulumi.CustomResource):
             )],
             environment_variables={
                 "ENV": "test",
-            },
-            repository="https://github.com/example/app")
+            })
         ```
         ### Repository with Tokens
 
@@ -781,8 +781,9 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            access_token="...",
-            repository="https://github.com/example/app")
+            name="example",
+            repository="https://github.com/example/app",
+            access_token="...")
         ```
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
@@ -793,14 +794,27 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
-                enable_auto_build=True,
-            ),
+            name="example",
+            enable_auto_branch_creation=True,
             auto_branch_creation_patterns=[
                 "*",
                 "*/**",
             ],
-            enable_auto_branch_creation=True)
+            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
+                enable_auto_build=True,
+            ))
+        ```
+        ### Basic Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.amplify.App("example",
+            name="example",
+            enable_basic_auth=True,
+            basic_auth_credentials=std.base64encode(input="username1:password1").result)
         ```
         ### Rewrites and Redirects
 
@@ -808,18 +822,20 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", custom_rules=[
-            aws.amplify.AppCustomRuleArgs(
-                source="/api/<*>",
-                status="200",
-                target="https://api.example.com/api/<*>",
-            ),
-            aws.amplify.AppCustomRuleArgs(
-                source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
-                status="200",
-                target="/index.html",
-            ),
-        ])
+        example = aws.amplify.App("example",
+            name="example",
+            custom_rules=[
+                aws.amplify.AppCustomRuleArgs(
+                    source="/api/<*>",
+                    status="200",
+                    target="https://api.example.com/api/<*>",
+                ),
+                aws.amplify.AppCustomRuleArgs(
+                    source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                    status="200",
+                    target="/index.html",
+                ),
+            ])
         ```
         ### Custom Image
 
@@ -827,9 +843,11 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", environment_variables={
-            "_CUSTOM_IMAGE": "node:16",
-        })
+        example = aws.amplify.App("example",
+            name="example",
+            environment_variables={
+                "_CUSTOM_IMAGE": "node:16",
+            })
         ```
         ### Custom Headers
 
@@ -837,20 +855,21 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", custom_headers=\"\"\"  customHeaders:
-            - pattern: '**'
-              headers:
-                - key: 'Strict-Transport-Security'
-                  value: 'max-age=31536000; includeSubDomains'
-                - key: 'X-Frame-Options'
-                  value: 'SAMEORIGIN'
-                - key: 'X-XSS-Protection'
-                  value: '1; mode=block'
-                - key: 'X-Content-Type-Options'
-                  value: 'nosniff'
-                - key: 'Content-Security-Policy'
-                  value: "default-src 'self'"
-
+        example = aws.amplify.App("example",
+            name="example",
+            custom_headers=\"\"\"customHeaders:
+          - pattern: '**'
+            headers:
+              - key: 'Strict-Transport-Security'
+                value: 'max-age=31536000; includeSubDomains'
+              - key: 'X-Frame-Options'
+                value: 'SAMEORIGIN'
+              - key: 'X-XSS-Protection'
+                value: '1; mode=block'
+              - key: 'X-Content-Type-Options'
+                value: 'nosniff'
+              - key: 'Content-Security-Policy'
+                value: "default-src 'self'"
         \"\"\")
         ```
 
@@ -903,23 +922,24 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            build_spec=\"\"\"  version: 0.1
-          frontend:
-            phases:
-              preBuild:
-                commands:
-                  - yarn install
-              build:
-                commands:
-                  - yarn run build
-            artifacts:
-              baseDirectory: build
-              files:
-                - '**/*'
-            cache:
-              paths:
-                - node_modules/**/*
-
+            name="example",
+            repository="https://github.com/example/app",
+            build_spec=\"\"\"version: 0.1
+        frontend:
+          phases:
+            preBuild:
+              commands:
+                - yarn install
+            build:
+              commands:
+                - yarn run build
+          artifacts:
+            baseDirectory: build
+            files:
+              - '**/*'
+          cache:
+            paths:
+              - node_modules/**/*
         \"\"\",
             custom_rules=[aws.amplify.AppCustomRuleArgs(
                 source="/<*>",
@@ -928,8 +948,7 @@ class App(pulumi.CustomResource):
             )],
             environment_variables={
                 "ENV": "test",
-            },
-            repository="https://github.com/example/app")
+            })
         ```
         ### Repository with Tokens
 
@@ -940,8 +959,9 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            access_token="...",
-            repository="https://github.com/example/app")
+            name="example",
+            repository="https://github.com/example/app",
+            access_token="...")
         ```
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
@@ -952,14 +972,27 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
-                enable_auto_build=True,
-            ),
+            name="example",
+            enable_auto_branch_creation=True,
             auto_branch_creation_patterns=[
                 "*",
                 "*/**",
             ],
-            enable_auto_branch_creation=True)
+            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
+                enable_auto_build=True,
+            ))
+        ```
+        ### Basic Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.amplify.App("example",
+            name="example",
+            enable_basic_auth=True,
+            basic_auth_credentials=std.base64encode(input="username1:password1").result)
         ```
         ### Rewrites and Redirects
 
@@ -967,18 +1000,20 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", custom_rules=[
-            aws.amplify.AppCustomRuleArgs(
-                source="/api/<*>",
-                status="200",
-                target="https://api.example.com/api/<*>",
-            ),
-            aws.amplify.AppCustomRuleArgs(
-                source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
-                status="200",
-                target="/index.html",
-            ),
-        ])
+        example = aws.amplify.App("example",
+            name="example",
+            custom_rules=[
+                aws.amplify.AppCustomRuleArgs(
+                    source="/api/<*>",
+                    status="200",
+                    target="https://api.example.com/api/<*>",
+                ),
+                aws.amplify.AppCustomRuleArgs(
+                    source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                    status="200",
+                    target="/index.html",
+                ),
+            ])
         ```
         ### Custom Image
 
@@ -986,9 +1021,11 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", environment_variables={
-            "_CUSTOM_IMAGE": "node:16",
-        })
+        example = aws.amplify.App("example",
+            name="example",
+            environment_variables={
+                "_CUSTOM_IMAGE": "node:16",
+            })
         ```
         ### Custom Headers
 
@@ -996,20 +1033,21 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example", custom_headers=\"\"\"  customHeaders:
-            - pattern: '**'
-              headers:
-                - key: 'Strict-Transport-Security'
-                  value: 'max-age=31536000; includeSubDomains'
-                - key: 'X-Frame-Options'
-                  value: 'SAMEORIGIN'
-                - key: 'X-XSS-Protection'
-                  value: '1; mode=block'
-                - key: 'X-Content-Type-Options'
-                  value: 'nosniff'
-                - key: 'Content-Security-Policy'
-                  value: "default-src 'self'"
-
+        example = aws.amplify.App("example",
+            name="example",
+            custom_headers=\"\"\"customHeaders:
+          - pattern: '**'
+            headers:
+              - key: 'Strict-Transport-Security'
+                value: 'max-age=31536000; includeSubDomains'
+              - key: 'X-Frame-Options'
+                value: 'SAMEORIGIN'
+              - key: 'X-XSS-Protection'
+                value: '1; mode=block'
+              - key: 'X-Content-Type-Options'
+                value: 'nosniff'
+              - key: 'Content-Security-Policy'
+                value: "default-src 'self'"
         \"\"\")
         ```
 

@@ -49,13 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
+ *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
+ *                     .jobName(example2.name())
  *                     .state(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())
@@ -88,9 +89,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;ON_DEMAND&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
+ *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
  *             .build());
  * 
@@ -121,10 +123,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .schedule(&#34;cron(15 12 * * ? *)&#34;)
  *             .type(&#34;SCHEDULED&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
+ *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
  *             .build());
  * 
@@ -158,13 +161,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .crawlerName(aws_glue_crawler.example1().name())
+ *                 .crawlerName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
+ *                     .jobName(example2.name())
  *                     .state(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())
@@ -200,13 +204,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
+ *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .crawlerName(aws_glue_crawler.example2().name())
+ *                     .crawlerName(example2.name())
  *                     .crawlState(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())

@@ -224,6 +224,7 @@ class OriginAccessControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginAccessControl("example",
+            name="example",
             description="Example Policy",
             origin_access_control_origin_type="s3",
             signing_behavior="always",
@@ -265,6 +266,7 @@ class OriginAccessControl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginAccessControl("example",
+            name="example",
             description="Example Policy",
             origin_access_control_origin_type="s3",
             signing_behavior="always",

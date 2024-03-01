@@ -110,8 +110,10 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
+        default = aws.chime.VoiceConnector("default",
+            name="test",
+            require_encryption=True)
+        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("default",
             disabled=True,
             cps_limit=1,
             cidr_allow_lists=["50.35.78.96/31"],
@@ -119,14 +121,13 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 "US",
                 "CA",
             ],
-            voice_connector_id=default_voice_connector.id)
-        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials",
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id)
+        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
+            voice_connector_id=default.id,
             credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
                 username="test",
                 password="test!",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
+            )])
         ```
 
         ## Import
@@ -159,8 +160,10 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
+        default = aws.chime.VoiceConnector("default",
+            name="test",
+            require_encryption=True)
+        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("default",
             disabled=True,
             cps_limit=1,
             cidr_allow_lists=["50.35.78.96/31"],
@@ -168,14 +171,13 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 "US",
                 "CA",
             ],
-            voice_connector_id=default_voice_connector.id)
-        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials",
-            voice_connector_id=default_voice_connector.id,
+            voice_connector_id=default.id)
+        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
+            voice_connector_id=default.id,
             credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
                 username="test",
                 password="test!",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
+            )])
         ```
 
         ## Import

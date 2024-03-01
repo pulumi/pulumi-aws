@@ -29,9 +29,10 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var task = new Aws.Emr.InstanceGroup("task", new()
     ///     {
-    ///         ClusterId = aws_emr_cluster.Tf_test_cluster.Id,
+    ///         ClusterId = tf_test_cluster.Id,
     ///         InstanceCount = 1,
     ///         InstanceType = "m5.xlarge",
+    ///         Name = "my little instance group",
     ///     });
     /// 
     /// });
@@ -93,7 +94,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
@@ -236,7 +236,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
@@ -335,7 +334,6 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 

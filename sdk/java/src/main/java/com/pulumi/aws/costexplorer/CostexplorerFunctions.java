@@ -193,8 +193,8 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
@@ -234,8 +234,8 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
@@ -275,8 +275,8 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
@@ -316,8 +316,8 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 

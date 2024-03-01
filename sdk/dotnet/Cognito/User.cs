@@ -23,11 +23,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         Name = "MyExamplePool",
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.Cognito.User("example", new()
+    ///     {
+    ///         UserPoolId = example.Id,
     ///         Username = "example",
     ///     });
     /// 
@@ -43,8 +46,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         Name = "mypool",
     ///         Schemas = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
@@ -67,9 +71,9 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
     ///         Username = "example",
     ///         Attributes = 
     ///         {

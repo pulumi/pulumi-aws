@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.NewFastSnapshotRestore(ctx, "example", &ebs.FastSnapshotRestoreArgs{
 //				AvailabilityZone: pulumi.String("us-west-2a"),
-//				SnapshotId:       pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				SnapshotId:       pulumi.Any(exampleAwsEbsSnapshot.Id),
 //			})
 //			if err != nil {
 //				return err

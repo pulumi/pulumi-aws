@@ -29,13 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
+//			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: exampleService.ID(),
+//				ServiceIdentifier: example.ID(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
 //						StatusCode: pulumi.Int(404),
@@ -64,24 +67,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "exampleTargetGroup", &vpclattice.TargetGroupArgs{
+//			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-1"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
+//			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: exampleService.ID(),
+//				ServiceIdentifier: example.ID(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -116,35 +123,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			example1, err := vpclattice.NewTargetGroup(ctx, "example1", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-1"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := vpclattice.NewTargetGroup(ctx, "example2", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-2"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(8080),
 //					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
+//			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: exampleService.ID(),
+//				ServiceIdentifier: example.ID(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{

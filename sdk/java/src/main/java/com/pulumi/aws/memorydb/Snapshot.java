@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
- *             .clusterName(aws_memorydb_cluster.example().name())
+ *             .clusterName(exampleAwsMemorydbCluster.name())
+ *             .name(&#34;my-snapshot&#34;)
  *             .build());
  * 
  *     }

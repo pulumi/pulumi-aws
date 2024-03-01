@@ -29,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", nil)
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example-pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -60,19 +62,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example-pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 //				Domain:         pulumi.String("example-domain"),
-//				CertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
+//				CertificateArn: pulumi.Any(cert.Arn),
 //				UserPoolId:     exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+//			example, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
 //				Name: pulumi.StringRef("example.com"),
 //			}, nil)
 //			if err != nil {
@@ -81,7 +85,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "auth-cognito-A", &route53.RecordArgs{
 //				Name:   main.Domain,
 //				Type:   pulumi.String("A"),
-//				ZoneId: *pulumi.String(exampleZone.ZoneId),
+//				ZoneId: *pulumi.String(example.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(false),

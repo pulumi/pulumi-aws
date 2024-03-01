@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Deployment(&#34;example&#34;, DeploymentArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .description(&#34;Example deployment&#34;)
  *             .build());
  * 

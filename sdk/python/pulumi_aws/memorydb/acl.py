@@ -230,10 +230,12 @@ class Acl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
+        example = aws.memorydb.Acl("example",
+            name="my-acl",
+            user_names=[
+                "my-user-1",
+                "my-user-2",
+            ])
         ```
 
         ## Import
@@ -268,10 +270,12 @@ class Acl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
+        example = aws.memorydb.Acl("example",
+            name="my-acl",
+            user_names=[
+                "my-user-1",
+                "my-user-2",
+            ])
         ```
 
         ## Import

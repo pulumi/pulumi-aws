@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
- *     resourceId: `table/${aws_dynamodb_table.example.name}`,
+ *     resourceId: `table/${example.name}`,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodbIndexReadTarget", {
+ * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodb_index_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
- *     resourceId: `table/${aws_dynamodb_table.example.name}/index/${_var.index_name}`,
+ *     resourceId: `table/${example.name}/index/${indexName}`,
  *     scalableDimension: "dynamodb:index:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
@@ -46,10 +46,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
- *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
+ *     resourceId: `service/${example.name}/${exampleAwsEcsService.name}`,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const replicas = new aws.appautoscaling.Target("replicas", {
- *     maxCapacity: 15,
- *     minCapacity: 1,
- *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
  *     serviceNamespace: "rds",
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     resourceId: `cluster:${example.id}`,
+ *     minCapacity: 1,
+ *     maxCapacity: 15,
  * });
  * ```
  * ### Suppressing `tagsAll` Differences For Older Resources
@@ -74,10 +74,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
- *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
+ *     resourceId: `service/${example.name}/${exampleAwsEcsService.name}`,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
@@ -88,12 +88,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mskTarget = new aws.appautoscaling.Target("mskTarget", {
- *     maxCapacity: 8,
- *     minCapacity: 1,
- *     resourceId: aws_msk_cluster.example.arn,
- *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ * const mskTarget = new aws.appautoscaling.Target("msk_target", {
  *     serviceNamespace: "kafka",
+ *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ *     resourceId: example.arn,
+ *     minCapacity: 1,
+ *     maxCapacity: 8,
  * });
  * ```
  *

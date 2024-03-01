@@ -47,9 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
+ *             .name(&#34;my_example_backup_plan&#34;)
  *             .rules(PlanRuleArgs.builder()
  *                 .ruleName(&#34;my_example_backup_rule&#34;)
- *                 .targetVaultName(aws_backup_vault.test().name())
+ *                 .targetVaultName(test.name())
  *                 .schedule(&#34;cron(0 12 * * ? *)&#34;)
  *                 .lifecycle(PlanRuleLifecycleArgs.builder()
  *                     .deleteAfter(14)

@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
+    ///         Name = exampleAwsSsmDocument.Name,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -32,7 +33,7 @@ namespace Pulumi.Aws.Ssm
     ///                 Key = "InstanceIds",
     ///                 Values = new[]
     ///                 {
-    ///                     aws_instance.Example.Id,
+    ///                     exampleAwsInstance.Id,
     ///                 },
     ///             },
     ///         },
@@ -54,6 +55,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
+    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -83,6 +85,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
+    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -112,6 +115,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
+    ///         Name = exampleAwsSsmDocument.Name,
     ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///         Targets = new[]
     ///         {
@@ -120,7 +124,7 @@ namespace Pulumi.Aws.Ssm
     ///                 Key = "InstanceIds",
     ///                 Values = new[]
     ///                 {
-    ///                     aws_instance.Example.Id,
+    ///                     exampleAwsInstance.Id,
     ///                 },
     ///             },
     ///         },

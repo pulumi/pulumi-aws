@@ -455,6 +455,25 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.KxDataview("example",
+            name="my-tf-kx-dataview",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            database_name=example_aws_finspace_kx_database["name"],
+            availability_zone_id="use1-az2",
+            description="Terraform managed Kx Dataview",
+            az_mode="SINGLE",
+            auto_update=True,
+            segment_configurations=[aws.finspace.KxDataviewSegmentConfigurationArgs(
+                volume_name=example_aws_finspace_kx_volume["name"],
+                db_paths=["/*"],
+            )])
+        ```
 
         ## Import
 
@@ -489,6 +508,25 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.KxDataview("example",
+            name="my-tf-kx-dataview",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            database_name=example_aws_finspace_kx_database["name"],
+            availability_zone_id="use1-az2",
+            description="Terraform managed Kx Dataview",
+            az_mode="SINGLE",
+            auto_update=True,
+            segment_configurations=[aws.finspace.KxDataviewSegmentConfigurationArgs(
+                volume_name=example_aws_finspace_kx_volume["name"],
+                db_paths=["/*"],
+            )])
+        ```
 
         ## Import
 

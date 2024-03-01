@@ -139,26 +139,25 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alternate = aws.Provider("alternate")
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=example_vpc.id,
-        )])
-        alternate_vpc = aws.ec2.Vpc("alternateVpc",
+        example_zone = aws.route53.Zone("example",
+            name="example.com",
+            vpcs=[aws.route53.ZoneVpcArgs(
+                vpc_id=example.id,
+            )])
+        alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
-            enable_dns_support=True,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization",
-            vpc_id=alternate_vpc.id,
+            enable_dns_support=True)
+        example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("example",
+            vpc_id=alternate.id,
             zone_id=example_zone.id)
-        example_zone_association = aws.route53.ZoneAssociation("exampleZoneAssociation",
+        example_zone_association = aws.route53.ZoneAssociation("example",
             vpc_id=example_vpc_association_authorization.vpc_id,
-            zone_id=example_vpc_association_authorization.zone_id,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+            zone_id=example_vpc_association_authorization.zone_id)
         ```
 
         ## Import
@@ -190,26 +189,25 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alternate = aws.Provider("alternate")
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=example_vpc.id,
-        )])
-        alternate_vpc = aws.ec2.Vpc("alternateVpc",
+        example_zone = aws.route53.Zone("example",
+            name="example.com",
+            vpcs=[aws.route53.ZoneVpcArgs(
+                vpc_id=example.id,
+            )])
+        alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
-            enable_dns_support=True,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization",
-            vpc_id=alternate_vpc.id,
+            enable_dns_support=True)
+        example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("example",
+            vpc_id=alternate.id,
             zone_id=example_zone.id)
-        example_zone_association = aws.route53.ZoneAssociation("exampleZoneAssociation",
+        example_zone_association = aws.route53.ZoneAssociation("example",
             vpc_id=example_vpc_association_authorization.vpc_id,
-            zone_id=example_vpc_association_authorization.zone_id,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+            zone_id=example_vpc_association_authorization.zone_id)
         ```
 
         ## Import

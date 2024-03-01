@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
 //				AddonName:   pulumi.String("vpc-cni"),
 //			})
 //			if err != nil {
@@ -57,7 +57,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName:              pulumi.Any(aws_eks_cluster.Example.Name),
+//				ClusterName:              pulumi.Any(exampleAwsEksCluster.Name),
 //				AddonName:                pulumi.String("coredns"),
 //				AddonVersion:             pulumi.String("v1.10.1-eksbuild.1"),
 //				ResolveConflictsOnUpdate: pulumi.String("PRESERVE"),
@@ -72,70 +72,95 @@ import (
 // ```
 //
 // ## Example add-on usage with custom configurationValues
-//
-// Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
-//
-// > **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
-//
-// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
-// This below is an example for extracting the `configurationValues` schema for `coredns`.
+// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Example to create a `coredns` managed addon with custom `configurationValues`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"replicaCount": 4,
-//				"resources": map[string]interface{}{
-//					"limits": map[string]interface{}{
-//						"cpu":    "100m",
-//						"memory": "150Mi",
-//					},
-//					"requests": map[string]interface{}{
-//						"cpu":    "100m",
-//						"memory": "150Mi",
-//					},
+//			exampleCluster, err := eks.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
+//				return tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
+//					Url: identities[0].Oidcs[0].Issuer,
+//				}, nil), nil
+//			}).(tls.GetCertificateResultOutput)
+//			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
+//				ClientIdLists: pulumi.StringArray{
+//					pulumi.String("sts.amazonaws.com"),
 //				},
+//				ThumbprintLists: pulumi.StringArray{
+//					example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//						return &example.Certificates[0].Sha1Fingerprint, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//				Url: exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (*string, error) {
+//					return &identities[0].Oidcs[0].Issuer, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			json0 := string(tmpJSON0)
-//			_, err = eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName:              pulumi.String("mycluster"),
-//				AddonName:                pulumi.String("coredns"),
-//				AddonVersion:             pulumi.String("v1.10.1-eksbuild.1"),
-//				ResolveConflictsOnCreate: pulumi.String("OVERWRITE"),
-//				ConfigurationValues:      pulumi.String(json0),
+//			exampleAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRoleWithWebIdentity"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test: pulumi.String("StringEquals"),
+//								Variable: std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//									Text:    exampleOpenIdConnectProvider.Url,
+//									Search:  pulumi.String("https://"),
+//									Replace: pulumi.String(""),
+//								}, nil).ApplyT(func(invoke std.ReplaceResult) (string, error) {
+//									return fmt.Sprintf("%v:sub", invoke.Result), nil
+//								}).(pulumi.StringOutput),
+//								Values: pulumi.StringArray{
+//									pulumi.String("system:serviceaccount:kube-system:aws-node"),
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									exampleOpenIdConnectProvider.Arn,
+//								},
+//								Type: pulumi.String("Federated"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &exampleAssumeRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("example-vpc-cni-role"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
+//				Role:      exampleRole.Name,
 //			})
 //			if err != nil {
 //				return err

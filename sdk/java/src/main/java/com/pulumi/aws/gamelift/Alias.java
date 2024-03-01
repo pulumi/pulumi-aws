@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Alias(&#34;example&#34;, AliasArgs.builder()        
+ *             .name(&#34;example-alias&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .routingStrategy(AliasRoutingStrategyArgs.builder()
  *                 .message(&#34;Example Message&#34;)

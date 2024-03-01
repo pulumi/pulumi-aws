@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -47,7 +46,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .internal(true)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
@@ -56,8 +56,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcLink = new VpcLink(&#34;exampleVpcLink&#34;, VpcLinkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example description&#34;)
- *             .targetArn(exampleLoadBalancer.arn())
+ *             .targetArn(example.arn())
  *             .build());
  * 
  *     }

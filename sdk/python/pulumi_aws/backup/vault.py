@@ -228,7 +228,9 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
+        example = aws.backup.Vault("example",
+            name="example_backup_vault",
+            kms_key_arn=example_aws_kms_key["arn"])
         ```
 
         ## Import
@@ -261,7 +263,9 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
+        example = aws.backup.Vault("example",
+            name="example_backup_vault",
+            kms_key_arn=example_aws_kms_key["arn"])
         ```
 
         ## Import

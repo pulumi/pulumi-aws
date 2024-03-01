@@ -42,13 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
+ *             .name(&#34;hoge.example.local&#34;)
  *             .description(&#34;example&#34;)
- *             .vpc(exampleVpc.id())
+ *             .vpc(example.id())
  *             .build());
  * 
  *     }

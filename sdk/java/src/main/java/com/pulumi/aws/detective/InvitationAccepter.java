@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.detective.MemberArgs;
  * import com.pulumi.aws.detective.InvitationAccepter;
  * import com.pulumi.aws.detective.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,21 +41,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryGraph = new Graph(&#34;primaryGraph&#34;);
+ *         var primary = new Graph(&#34;primary&#34;);
  * 
  *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;ACCOUNT ID&#34;)
  *             .emailAddress(&#34;EMAIL&#34;)
- *             .graphArn(primaryGraph.id())
+ *             .graphArn(primary.id())
  *             .message(&#34;Message of the invite&#34;)
  *             .build());
  * 
  *         var member = new InvitationAccepter(&#34;member&#34;, InvitationAccepterArgs.builder()        
- *             .graphArn(primaryGraph.graphArn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .dependsOn(primaryMember)
- *                 .build());
+ *             .graphArn(primary.graphArn())
+ *             .build());
  * 
  *     }
  * }

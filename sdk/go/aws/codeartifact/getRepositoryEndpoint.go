@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeartifact.GetRepositoryEndpoint(ctx, &codeartifact.GetRepositoryEndpointArgs{
-//				Domain:     aws_codeartifact_domain.Test.Domain,
-//				Repository: aws_codeartifact_repository.Test.Repository,
+//				Domain:     testAwsCodeartifactDomain.Domain,
+//				Repository: testAwsCodeartifactRepository.Repository,
 //				Format:     "npm",
 //			}, nil)
 //			if err != nil {

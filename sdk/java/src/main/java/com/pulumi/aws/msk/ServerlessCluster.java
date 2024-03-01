@@ -23,6 +23,51 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.msk.ServerlessCluster;
+ * import com.pulumi.aws.msk.ServerlessClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
+ * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationArgs;
+ * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslArgs;
+ * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslIamArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServerlessCluster(&#34;example&#34;, ServerlessClusterArgs.builder()        
+ *             .clusterName(&#34;Example&#34;)
+ *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .build())
+ *             .clientAuthentication(ServerlessClusterClientAuthenticationArgs.builder()
+ *                 .sasl(ServerlessClusterClientAuthenticationSaslArgs.builder()
+ *                     .iam(ServerlessClusterClientAuthenticationSaslIamArgs.builder()
+ *                         .enabled(true)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:

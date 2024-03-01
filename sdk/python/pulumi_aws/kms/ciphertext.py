@@ -158,7 +158,7 @@ class Ciphertext(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
+        oauth_config = aws.kms.Key("oauth_config",
             description="oauth config",
             is_enabled=True)
         oauth = aws.kms.Ciphertext("oauth",
@@ -194,7 +194,7 @@ class Ciphertext(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
+        oauth_config = aws.kms.Key("oauth_config",
             description="oauth config",
             is_enabled=True)
         oauth = aws.kms.Ciphertext("oauth",

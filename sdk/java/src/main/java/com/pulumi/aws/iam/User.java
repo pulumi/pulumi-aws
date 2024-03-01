@@ -49,16 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
+ *         var lb = new User(&#34;lb&#34;, UserArgs.builder()        
+ *             .name(&#34;loadbalancer&#34;)
  *             .path(&#34;/system/&#34;)
  *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
  *             .build());
  * 
  *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
- *             .user(lbUser.name())
+ *             .user(lb.name())
  *             .build());
  * 
- *         final var lbRoPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -67,8 +68,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
- *             .user(lbUser.name())
- *             .policy(lbRoPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;test&#34;)
+ *             .user(lb.name())
+ *             .policy(lbRo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

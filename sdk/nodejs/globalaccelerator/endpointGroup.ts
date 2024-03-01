@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.globalaccelerator.EndpointGroup("example", {
- *     listenerArn: aws_globalaccelerator_listener.example.id,
+ *     listenerArn: exampleAwsGlobalacceleratorListener.id,
  *     endpointConfigurations: [{
- *         endpointId: aws_lb.example.arn,
+ *         endpointId: exampleAwsLb.arn,
  *         weight: 100,
  *     }],
  * });

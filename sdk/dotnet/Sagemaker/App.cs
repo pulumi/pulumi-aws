@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.App("example", new()
     ///     {
-    ///         DomainId = aws_sagemaker_domain.Example.Id,
-    ///         UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,
+    ///         DomainId = exampleAwsSagemakerDomain.Id,
+    ///         UserProfileName = exampleAwsSagemakerUserProfile.UserProfileName,
     ///         AppName = "example",
     ///         AppType = "JupyterServer",
     ///     });

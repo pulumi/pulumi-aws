@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Group;
+ * import com.pulumi.aws.iam.GroupArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.GroupPolicyAttachment;
@@ -43,9 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;);
+ *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
+ *             .name(&#34;test-group&#34;)
+ *             .build());
  * 
  *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
  *             .policy(&#34;{ ... policy JSON ... }&#34;)
  *             .build());

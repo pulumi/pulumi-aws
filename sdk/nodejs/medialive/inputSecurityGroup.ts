@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.medialive.InputSecurityGroup("example", {
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
  *     whitelistRules: [{
  *         cidr: "10.0.0.8/32",
  *     }],
+ *     tags: {
+ *         ENVIRONMENT: "prod",
+ *     },
  * });
  * ```
  *

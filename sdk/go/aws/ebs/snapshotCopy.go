@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
 //				VolumeId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld_snap"),
@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
+//			_, err = ebs.NewSnapshotCopy(ctx, "example_copy", &ebs.SnapshotCopyArgs{
 //				SourceSnapshotId: exampleSnapshot.ID(),
 //				SourceRegion:     pulumi.String("us-west-2"),
 //				Tags: pulumi.StringMap{

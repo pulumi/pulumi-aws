@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
@@ -60,6 +62,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         Tags = 
     ///         {
@@ -81,11 +84,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
     ///         {
-    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///             TableName = aws_glue_catalog_table.Example.Name,
+    ///             DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
     ///     });
     /// 

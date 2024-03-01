@@ -595,8 +595,8 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route = aws.ec2.Route("route",
-            route_table_id=aws_route_table["testing"]["id"],
+        r = aws.ec2.Route("r",
+            route_table_id=testing["id"],
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
@@ -610,7 +610,7 @@ class Route(pulumi.CustomResource):
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
         egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        route = aws.ec2.Route("route",
+        r = aws.ec2.Route("r",
             route_table_id="rtb-4fbb3ac4",
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)
@@ -682,8 +682,8 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route = aws.ec2.Route("route",
-            route_table_id=aws_route_table["testing"]["id"],
+        r = aws.ec2.Route("r",
+            route_table_id=testing["id"],
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
@@ -697,7 +697,7 @@ class Route(pulumi.CustomResource):
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
         egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        route = aws.ec2.Route("route",
+        r = aws.ec2.Route("r",
             route_table_id="rtb-4fbb3ac4",
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)

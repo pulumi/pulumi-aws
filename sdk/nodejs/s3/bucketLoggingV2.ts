@@ -22,18 +22,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const logBucket = new aws.s3.BucketV2("logBucket", {});
- * const logBucketAcl = new aws.s3.BucketAclV2("logBucketAcl", {
+ * const logBucket = new aws.s3.BucketV2("log_bucket", {bucket: "my-tf-log-bucket"});
+ * const logBucketAcl = new aws.s3.BucketAclV2("log_bucket_acl", {
  *     bucket: logBucket.id,
  *     acl: "log-delivery-write",
  * });
- * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("exampleBucketLoggingV2", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("example", {
+ *     bucket: example.id,
  *     targetBucket: logBucket.id,
  *     targetPrefix: "log/",
  * });

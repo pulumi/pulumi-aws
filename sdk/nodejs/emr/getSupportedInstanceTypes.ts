@@ -21,6 +21,26 @@ import * as utilities from "../utilities";
  *     releaseLabel: "ebs-6.15.0",
  * });
  * ```
+ * ### With a Lifecycle Pre-Condition
+ *
+ * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const instanceType = "r7g.large";
+ * const releaseLabel = "emr-6.15.0";
+ * const test = aws.emr.getSupportedInstanceTypes({
+ *     releaseLabel: releaseLabel,
+ * });
+ * const testCluster = new aws.emr.Cluster("test", {
+ *     releaseLabel: releaseLabel,
+ *     masterInstanceGroup: {
+ *         instanceType: instanceType,
+ *     },
+ * });
+ * ```
  */
 export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportedInstanceTypesResult> {
 
@@ -68,6 +88,26 @@ export interface GetSupportedInstanceTypesResult {
  *
  * const example = aws.emr.getSupportedInstanceTypes({
  *     releaseLabel: "ebs-6.15.0",
+ * });
+ * ```
+ * ### With a Lifecycle Pre-Condition
+ *
+ * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const instanceType = "r7g.large";
+ * const releaseLabel = "emr-6.15.0";
+ * const test = aws.emr.getSupportedInstanceTypes({
+ *     releaseLabel: releaseLabel,
+ * });
+ * const testCluster = new aws.emr.Cluster("test", {
+ *     releaseLabel: releaseLabel,
+ *     masterInstanceGroup: {
+ *         instanceType: instanceType,
+ *     },
  * });
  * ```
  */

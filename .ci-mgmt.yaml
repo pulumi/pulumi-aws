@@ -27,7 +27,13 @@ plugins:
     version: "4.8.2"
   - name: github
     version: "5.14.0"
-team: ecosystem
+  - name: std
+    version: "1.6.2"
+  - name: terraform
+    version: "1.0.15"
+    kind: converter
+# Use `pulumi convert` for translating examples from TF to Pulumi.
+pulumiConvert: 1
 goBuildParallelism: 2
 actions:
   preTest:

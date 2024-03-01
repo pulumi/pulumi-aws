@@ -29,16 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
+//				Name:          pulumi.String("example"),
 //				Version:       pulumi.String("1.0.0"),
 //				ContainerType: pulumi.String("DOCKER"),
 //				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
-//					RepositoryName: pulumi.Any(aws_ecr_repository.Example.Name),
+//					RepositoryName: pulumi.Any(exampleAwsEcrRepository.Name),
 //					Service:        pulumi.String("ECR"),
 //				},
 //				Components: imagebuilder.ContainerRecipeComponentArray{
 //					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
 //							&imagebuilder.ContainerRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),

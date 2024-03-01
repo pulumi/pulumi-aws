@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .condition(EventPermissionConditionArgs.builder()
  *                 .key(&#34;aws:PrincipalOrgID&#34;)
  *                 .type(&#34;StringEquals&#34;)
- *                 .value(aws_organizations_organization.example().id())
+ *                 .value(example.id())
  *                 .build())
  *             .build());
  * 

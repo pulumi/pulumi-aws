@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := apigateway.NewRestApi(ctx, "main", nil)
+//			main, err := apigateway.NewRestApi(ctx, "main", &apigateway.RestApiArgs{
+//				Name: pulumi.String("MyDemoAPI"),
+//			})
 //			if err != nil {
 //				return err
 //			}

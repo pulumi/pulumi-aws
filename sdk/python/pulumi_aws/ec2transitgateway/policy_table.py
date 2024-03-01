@@ -162,7 +162,7 @@ class PolicyTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PolicyTable("example",
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             tags={
                 "Name": "Example Policy Table",
             })
@@ -197,7 +197,7 @@ class PolicyTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PolicyTable("example",
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             tags={
                 "Name": "Example Policy Table",
             })

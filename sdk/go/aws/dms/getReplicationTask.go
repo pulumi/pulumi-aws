@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupReplicationTask(ctx, &dms.LookupReplicationTaskArgs{
-//				ReplicationTaskId: aws_dms_replication_task.Test.Replication_task_id,
+//				ReplicationTaskId: testAwsDmsReplicationTask.ReplicationTaskId,
 //			}, nil)
 //			if err != nil {
 //				return err

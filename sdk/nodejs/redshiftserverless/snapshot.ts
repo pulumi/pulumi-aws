@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftserverless.Snapshot("example", {
- *     namespaceName: aws_redshiftserverless_workgroup.example.namespace_name,
+ *     namespaceName: exampleAwsRedshiftserverlessWorkgroup.namespaceName,
  *     snapshotName: "example",
  * });
  * ```

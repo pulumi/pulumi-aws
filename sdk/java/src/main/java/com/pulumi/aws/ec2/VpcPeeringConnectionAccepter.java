@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.AwsFunctions;
@@ -45,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,26 +56,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
  *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
+ *             .build());
  * 
- *         final var peerCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var peer = AwsFunctions.getCallerIdentity();
  * 
  *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peerCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .peerRegion(&#34;us-west-2&#34;)
  *             .autoAccept(false)
  *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
@@ -88,9 +79,7 @@ import javax.annotation.Nullable;
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

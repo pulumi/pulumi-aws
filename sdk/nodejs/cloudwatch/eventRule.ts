@@ -16,14 +16,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const console = new aws.cloudwatch.EventRule("console", {
+ *     name: "capture-aws-sign-in",
  *     description: "Capture each AWS Console Sign In",
  *     eventPattern: JSON.stringify({
  *         "detail-type": ["AWS Console Sign In via CloudTrail"],
  *     }),
  * });
- * const awsLogins = new aws.sns.Topic("awsLogins", {});
+ * const awsLogins = new aws.sns.Topic("aws_logins", {name: "aws-console-logins"});
  * const sns = new aws.cloudwatch.EventTarget("sns", {
  *     rule: console.name,
+ *     targetId: "SendToSNS",
  *     arn: awsLogins.arn,
  * });
  * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocumentOutput({

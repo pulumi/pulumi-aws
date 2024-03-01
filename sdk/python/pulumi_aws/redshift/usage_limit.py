@@ -308,7 +308,7 @@ class UsageLimit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.UsageLimit("example",
-            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            cluster_identifier=example_aws_redshift_cluster["id"],
             feature_type="concurrency-scaling",
             limit_type="time",
             amount=60)
@@ -348,7 +348,7 @@ class UsageLimit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.UsageLimit("example",
-            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            cluster_identifier=example_aws_redshift_cluster["id"],
             feature_type="concurrency-scaling",
             limit_type="time",
             amount=60)

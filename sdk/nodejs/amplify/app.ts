@@ -19,23 +19,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     buildSpec: `  version: 0.1
- *   frontend:
- *     phases:
- *       preBuild:
- *         commands:
- *           - yarn install
- *       build:
- *         commands:
- *           - yarn run build
- *     artifacts:
- *       baseDirectory: build
- *       files:
- *         - '**&#47;*'
- *     cache:
- *       paths:
- *         - node_modules/**&#47;*
- *
+ *     name: "example",
+ *     repository: "https://github.com/example/app",
+ *     buildSpec: `version: 0.1
+ * frontend:
+ *   phases:
+ *     preBuild:
+ *       commands:
+ *         - yarn install
+ *     build:
+ *       commands:
+ *         - yarn run build
+ *   artifacts:
+ *     baseDirectory: build
+ *     files:
+ *       - '**&#47;*'
+ *   cache:
+ *     paths:
+ *       - node_modules/**&#47;*
  * `,
  *     customRules: [{
  *         source: "/<*>",
@@ -45,7 +46,6 @@ import * as utilities from "../utilities";
  *     environmentVariables: {
  *         ENV: "test",
  *     },
- *     repository: "https://github.com/example/app",
  * });
  * ```
  * ### Repository with Tokens
@@ -57,8 +57,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     accessToken: "...",
+ *     name: "example",
  *     repository: "https://github.com/example/app",
+ *     accessToken: "...",
  * });
  * ```
  *
@@ -70,14 +71,30 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     autoBranchCreationConfig: {
- *         enableAutoBuild: true,
- *     },
+ *     name: "example",
+ *     enableAutoBranchCreation: true,
  *     autoBranchCreationPatterns: [
  *         "*",
  *         "*&#47;**",
  *     ],
- *     enableAutoBranchCreation: true,
+ *     autoBranchCreationConfig: {
+ *         enableAutoBuild: true,
+ *     },
+ * });
+ * ```
+ * ### Basic Authorization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     enableBasicAuth: true,
+ *     basicAuthCredentials: std.base64encode({
+ *         input: "username1:password1",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * ### Rewrites and Redirects
@@ -86,18 +103,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customRules: [
- *     {
- *         source: "/api/<*>",
- *         status: "200",
- *         target: "https://api.example.com/api/<*>",
- *     },
- *     {
- *         source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
- *         status: "200",
- *         target: "/index.html",
- *     },
- * ]});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     customRules: [
+ *         {
+ *             source: "/api/<*>",
+ *             status: "200",
+ *             target: "https://api.example.com/api/<*>",
+ *         },
+ *         {
+ *             source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+ *             status: "200",
+ *             target: "/index.html",
+ *         },
+ *     ],
+ * });
  * ```
  * ### Custom Image
  *
@@ -105,9 +125,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {environmentVariables: {
- *     _CUSTOM_IMAGE: "node:16",
- * }});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     environmentVariables: {
+ *         _CUSTOM_IMAGE: "node:16",
+ *     },
+ * });
  * ```
  * ### Custom Headers
  *
@@ -115,21 +138,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customHeaders: `  customHeaders:
- *     - pattern: '**'
- *       headers:
- *         - key: 'Strict-Transport-Security'
- *           value: 'max-age=31536000; includeSubDomains'
- *         - key: 'X-Frame-Options'
- *           value: 'SAMEORIGIN'
- *         - key: 'X-XSS-Protection'
- *           value: '1; mode=block'
- *         - key: 'X-Content-Type-Options'
- *           value: 'nosniff'
- *         - key: 'Content-Security-Policy'
- *           value: "default-src 'self'"
- *
- * `});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     customHeaders: `customHeaders:
+ *   - pattern: '**'
+ *     headers:
+ *       - key: 'Strict-Transport-Security'
+ *         value: 'max-age=31536000; includeSubDomains'
+ *       - key: 'X-Frame-Options'
+ *         value: 'SAMEORIGIN'
+ *       - key: 'X-XSS-Protection'
+ *         value: '1; mode=block'
+ *       - key: 'X-Content-Type-Options'
+ *         value: 'nosniff'
+ *       - key: 'Content-Security-Policy'
+ *         value: "default-src 'self'"
+ * `,
+ * });
  * ```
  *
  * ## Import

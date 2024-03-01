@@ -317,8 +317,8 @@ class AccessEntry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.AccessEntry("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            principal_arn=aws_iam_role["example"]["arn"],
+            cluster_name=example_aws_eks_cluster["name"],
+            principal_arn=example_aws_iam_role["arn"],
             kubernetes_groups=[
                 "group-1",
                 "group-2",
@@ -361,8 +361,8 @@ class AccessEntry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.AccessEntry("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            principal_arn=aws_iam_role["example"]["arn"],
+            cluster_name=example_aws_eks_cluster["name"],
+            principal_arn=example_aws_iam_role["arn"],
             kubernetes_groups=[
                 "group-1",
                 "group-2",

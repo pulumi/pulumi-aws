@@ -34,7 +34,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudtrail.NewEventDataStore(ctx, "example", nil)
+//			_, err := cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
+//				Name: pulumi.String("example-event-data-store"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -69,7 +71,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ... other configuration ...
 //			_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
 //				AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
 //					&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{

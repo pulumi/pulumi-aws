@@ -25,7 +25,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// {
     ///     var example = new Aws.KinesisAnalyticsV2.ApplicationSnapshot("example", new()
     ///     {
-    ///         ApplicationName = aws_kinesisanalyticsv2_application.Example.Name,
+    ///         ApplicationName = exampleAwsKinesisanalyticsv2Application.Name,
     ///         SnapshotName = "example-snapshot",
     ///     });
     /// 

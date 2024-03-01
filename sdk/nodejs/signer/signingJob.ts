@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const buildSigningJob = new aws.signer.SigningJob("buildSigningJob", {
+ * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
+ * const buildSigningJob = new aws.signer.SigningJob("build_signing_job", {
  *     profileName: testSp.name,
  *     source: {
  *         s3: {

@@ -139,11 +139,11 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="testing@example.com")
-        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("exampleEmailIdentityPolicy",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
+        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("example",
+            email_identity=example.email_identity,
             policy_name="example",
-            policy=example_email_identity.arn.apply(lambda arn: f\"\"\"{{
+            policy=example.arn.apply(lambda arn: f\"\"\"{{
           "Id":"ExampleAuthorizationPolicy",
           "Version":"2012-10-17",
           "Statement":[
@@ -197,11 +197,11 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="testing@example.com")
-        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("exampleEmailIdentityPolicy",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
+        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("example",
+            email_identity=example.email_identity,
             policy_name="example",
-            policy=example_email_identity.arn.apply(lambda arn: f\"\"\"{{
+            policy=example.arn.apply(lambda arn: f\"\"\"{{
           "Id":"ExampleAuthorizationPolicy",
           "Version":"2012-10-17",
           "Statement":[

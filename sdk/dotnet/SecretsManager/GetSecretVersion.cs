@@ -31,7 +31,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = example.Id,
         ///     });
         /// 
         /// });
@@ -50,10 +50,35 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = example.Id,
         ///         VersionStage = "example",
         ///     });
         /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native map
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = NotImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1,
+        ///     };
         /// });
         /// ```
         /// {{% /example %}}
@@ -82,7 +107,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = example.Id,
         ///     });
         /// 
         /// });
@@ -101,10 +126,35 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
         ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         SecretId = example.Id,
         ///         VersionStage = "example",
         ///     });
         /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native map
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = NotImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1,
+        ///     };
         /// });
         /// ```
         /// {{% /example %}}

@@ -27,6 +27,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-websocket-api",
     ///         ProtocolType = "WEBSOCKET",
     ///         RouteSelectionExpression = "$request.body.action",
     ///     });
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-http-api",
     ///         ProtocolType = "HTTP",
     ///     });
     /// 

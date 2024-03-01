@@ -15,13 +15,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: aws_eip.example.id,
- *     subnetId: aws_subnet.example.id,
+ *     allocationId: exampleAwsEip.id,
+ *     subnetId: exampleAwsSubnet.id,
  *     tags: {
  *         Name: "gw NAT",
  *     },
- * }, {
- *     dependsOn: [aws_internet_gateway.example],
  * });
  * ```
  * ### Public NAT with Secondary Private IP Addresses
@@ -31,9 +29,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: aws_eip.example.id,
- *     subnetId: aws_subnet.example.id,
- *     secondaryAllocationIds: [aws_eip.secondary.id],
+ *     allocationId: exampleAwsEip.id,
+ *     subnetId: exampleAwsSubnet.id,
+ *     secondaryAllocationIds: [secondary.id],
  *     secondaryPrivateIpAddresses: ["10.0.1.5"],
  * });
  * ```
@@ -45,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.NatGateway("example", {
  *     connectivityType: "private",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
  * ### Private NAT with Secondary Private IP Addresses
@@ -56,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.NatGateway("example", {
  *     connectivityType: "private",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  *     secondaryPrivateIpAddressCount: 7,
  * });
  * ```

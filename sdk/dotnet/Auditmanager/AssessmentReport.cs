@@ -25,7 +25,8 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.AssessmentReport("test", new()
     ///     {
-    ///         AssessmentId = aws_auditmanager_assessment.Test.Id,
+    ///         Name = "example",
+    ///         AssessmentId = testAwsAuditmanagerAssessment.Id,
     ///     });
     /// 
     /// });

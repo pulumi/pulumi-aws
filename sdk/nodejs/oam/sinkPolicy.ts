@@ -14,25 +14,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSink = new aws.oam.Sink("exampleSink", {});
- * const exampleSinkPolicy = new aws.oam.SinkPolicy("exampleSinkPolicy", {
- *     sinkIdentifier: exampleSink.id,
+ * const example = new aws.oam.Sink("example", {name: "ExampleSink"});
+ * const exampleSinkPolicy = new aws.oam.SinkPolicy("example", {
+ *     sinkIdentifier: example.id,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "oam:CreateLink",
  *                 "oam:UpdateLink",
  *             ],
- *             Effect: "Allow",
- *             Resource: "*",
- *             Principal: {
+ *             effect: "Allow",
+ *             resource: "*",
+ *             principal: {
  *                 AWS: [
  *                     "1111111111111",
  *                     "222222222222",
  *                 ],
  *             },
- *             Condition: {
+ *             condition: {
  *                 "ForAllValues:StringEquals": {
  *                     "oam:ResourceTypes": [
  *                         "AWS::CloudWatch::Metric",

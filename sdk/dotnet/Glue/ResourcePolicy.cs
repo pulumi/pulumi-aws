@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var glue_example_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
     ///                 },
     ///                 Principals = new[]
     ///                 {

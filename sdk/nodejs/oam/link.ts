@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = new aws.oam.Link("example", {
  *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
- *     sinkIdentifier: aws_oam_sink.test.id,
+ *     sinkIdentifier: test.id,
  *     tags: {
  *         Env: "prod",
  *     },

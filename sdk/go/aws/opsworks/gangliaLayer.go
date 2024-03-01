@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewGangliaLayer(ctx, "monitor", &opsworks.GangliaLayerArgs{
-//				StackId:  pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId:  pulumi.Any(main.Id),
 //				Password: pulumi.String("foobarbaz"),
 //			})
 //			if err != nil {

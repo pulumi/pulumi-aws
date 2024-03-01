@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;rds-pg&#34;)
  *             .family(&#34;mysql5.6&#34;)
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
@@ -103,7 +104,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
+ *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;my-pg&#34;)
  *             .family(&#34;postgres13&#34;)
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name(&#34;log_connections&#34;)
@@ -112,7 +114,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .parameterGroupName(exampleParameterGroup.name())
+ *             .parameterGroupName(example.name())
  *             .applyImmediately(true)
  *             .build());
  * 

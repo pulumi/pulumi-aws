@@ -31,8 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration, including potentially other tags ...
-//			testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
+//			test, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
 //				Tags: autoscaling.GroupTagArray{
 //					&autoscaling.GroupTagArgs{
 //						Key:               pulumi.String("AmazonECSManaged"),
@@ -44,9 +43,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
+//			_, err = ecs.NewCapacityProvider(ctx, "test", &ecs.CapacityProviderArgs{
+//				Name: pulumi.String("test"),
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn:          testGroup.Arn,
+//					AutoScalingGroupArn:          test.Arn,
 //					ManagedTerminationProtection: pulumi.String("ENABLED"),
 //					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
 //						MaximumScalingStepSize: pulumi.Int(1000),

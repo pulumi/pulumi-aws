@@ -28,13 +28,13 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetAccessEntry.Invoke(new()
         ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
-        ///         PrincipalArn = aws_iam_role.Example.Arn,
+        ///         ClusterName = exampleAwsEksCluster.Name,
+        ///         PrincipalArn = exampleAwsIamRole.Arn,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAccessEntryOutputs"] = aws_eks_access_entry.Example,
+        ///         ["eksAccessEntryOutputs"] = exampleAwsEksAccessEntry,
         ///     };
         /// });
         /// ```
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetAccessEntry.Invoke(new()
         ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
-        ///         PrincipalArn = aws_iam_role.Example.Arn,
+        ///         ClusterName = exampleAwsEksCluster.Name,
+        ///         PrincipalArn = exampleAwsIamRole.Arn,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAccessEntryOutputs"] = aws_eks_access_entry.Example,
+        ///         ["eksAccessEntryOutputs"] = exampleAwsEksAccessEntry,
         ///     };
         /// });
         /// ```

@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3outposts.NewEndpoint(ctx, "example", &s3outposts.EndpointArgs{
-//				OutpostId:       pulumi.Any(data.Aws_outposts_outpost.Example.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
+//				OutpostId:       pulumi.Any(exampleAwsOutpostsOutpost.Id),
+//				SecurityGroupId: pulumi.Any(exampleAwsSecurityGroup.Id),
+//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err

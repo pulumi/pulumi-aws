@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleBucket = S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var example = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;an-example-bucket&#34;)
  *             .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .arn(exampleBucket.applyValue(getBucketResult -&gt; getBucketResult.arn()))
+ *             .arn(example.applyValue(getBucketResult -&gt; getBucketResult.arn()))
  *             .build());
  * 
  *     }

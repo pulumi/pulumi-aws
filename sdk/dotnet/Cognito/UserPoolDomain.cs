@@ -23,7 +23,10 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cognito.UserPool("example");
+    ///     var example = new Aws.Cognito.UserPool("example", new()
+    ///     {
+    ///         Name = "example-pool",
+    ///     });
     /// 
     ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
     ///     {
@@ -43,16 +46,19 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("example", new()
+    ///     {
+    ///         Name = "example-pool",
+    ///     });
     /// 
     ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
     ///     {
     ///         Domain = "example-domain",
-    ///         CertificateArn = aws_acm_certificate.Cert.Arn,
+    ///         CertificateArn = cert.Arn,
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleZone = Aws.Route53.GetZone.Invoke(new()
+    ///     var example = Aws.Route53.GetZone.Invoke(new()
     ///     {
     ///         Name = "example.com",
     ///     });
@@ -61,7 +67,7 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         Name = main.Domain,
     ///         Type = "A",
-    ///         ZoneId = exampleZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///         ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs

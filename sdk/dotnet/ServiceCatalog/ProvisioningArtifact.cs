@@ -31,9 +31,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new()
     ///     {
-    ///         ProductId = aws_servicecatalog_product.Example.Id,
+    ///         Name = "example",
+    ///         ProductId = exampleAwsServicecatalogProduct.Id,
     ///         Type = "CLOUD_FORMATION_TEMPLATE",
-    ///         TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
+    ///         TemplateUrl = $"https://{exampleAwsS3Bucket.BucketRegionalDomainName}/{exampleAwsS3Object.Key}",
     ///     });
     /// 
     /// });

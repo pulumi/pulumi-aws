@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var target = new TrafficMirrorTarget(&#34;target&#34;, TrafficMirrorTargetArgs.builder()        
- *             .networkLoadBalancerArn(aws_lb.lb().arn())
+ *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
  *         var session = new TrafficMirrorSession(&#34;session&#34;, TrafficMirrorSessionArgs.builder()        
  *             .description(&#34;traffic mirror session - example&#34;)
- *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
+ *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .sessionNumber(1)
  *             .trafficMirrorFilterId(filter.id())
  *             .trafficMirrorTargetId(target.id())

@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
@@ -62,6 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
@@ -71,6 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafacl = new WebAcl(&#34;wafacl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;tfWebACL&#34;)
  *             .metricName(&#34;tfWebACL&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
@@ -114,13 +117,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
  *                 .build())
  *             .rules(WebAclRuleArgs.builder()
  *                 .priority(1)
- *                 .ruleId(aws_wafregional_rule_group.example().id())
+ *                 .ruleId(exampleAwsWafregionalRuleGroup.id())
  *                 .type(&#34;GROUP&#34;)
  *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
  *                     .type(&#34;NONE&#34;)
@@ -159,7 +163,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(aws_kinesis_firehose_delivery_stream.example().arn())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
  *                     .fieldToMatches(                    
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()

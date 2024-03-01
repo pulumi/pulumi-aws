@@ -611,6 +611,7 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Api("example",
+            name="example-websocket-api",
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
@@ -620,7 +621,9 @@ class Api(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
+        example = aws.apigatewayv2.Api("example",
+            name="example-http-api",
+            protocol_type="HTTP")
         ```
 
         ## Import
@@ -674,6 +677,7 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.Api("example",
+            name="example-websocket-api",
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
@@ -683,7 +687,9 @@ class Api(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
+        example = aws.apigatewayv2.Api("example",
+            name="example-http-api",
+            protocol_type="HTTP")
         ```
 
         ## Import

@@ -47,15 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;);
+ *         var example = new Certificate(&#34;example&#34;);
  * 
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;);
  * 
  *         var exampleListenerCertificate = new ListenerCertificate(&#34;exampleListenerCertificate&#34;, ListenerCertificateArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
- *             .certificateArn(exampleCertificate.arn())
+ *             .certificateArn(example.arn())
  *             .build());
  * 
  *     }

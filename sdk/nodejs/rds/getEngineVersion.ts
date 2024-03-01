@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  *
  * const test = aws.rds.getEngineVersion({
  *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
- *     includeAll: true,
- *     version: "10.14",
  * });
  * ```
  */
@@ -209,12 +209,12 @@ export interface GetEngineVersionResult {
  *
  * const test = aws.rds.getEngineVersion({
  *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
- *     includeAll: true,
- *     version: "10.14",
  * });
  * ```
  */

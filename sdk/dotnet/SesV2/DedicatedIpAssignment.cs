@@ -27,8 +27,8 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.DedicatedIpAssignment("example", new()
     ///     {
-    ///         DestinationPoolName = "my-pool",
     ///         Ip = "0.0.0.0",
+    ///         DestinationPoolName = "my-pool",
     ///     });
     /// 
     /// });

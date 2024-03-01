@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleInternetGateway = new InternetGateway(&#34;exampleInternetGateway&#34;);
  * 
- *         var exampleInternetGatewayAttachment = new InternetGatewayAttachment(&#34;exampleInternetGatewayAttachment&#34;, InternetGatewayAttachmentArgs.builder()        
+ *         var example = new InternetGatewayAttachment(&#34;example&#34;, InternetGatewayAttachmentArgs.builder()        
  *             .internetGatewayId(exampleInternetGateway.id())
  *             .vpcId(exampleVpc.id())
  *             .build());

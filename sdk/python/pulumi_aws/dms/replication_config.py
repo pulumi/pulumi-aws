@@ -445,15 +445,15 @@ class ReplicationConfig(pulumi.CustomResource):
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
-            source_endpoint_arn=aws_dms_endpoint["source"]["endpoint_arn"],
-            target_endpoint_arn=aws_dms_endpoint["target"]["endpoint_arn"],
+            source_endpoint_arn=source["endpointArn"],
+            target_endpoint_arn=target["endpointArn"],
             table_mappings=\"\"\"  {
             "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
           }
         \"\"\",
             start_replication=True,
             compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=aws_dms_replication_subnet_group["default"]["replication_subnet_group_id"],
+                replication_subnet_group_id=default["replicationSubnetGroupId"],
                 max_capacity_units=64,
                 min_capacity_units=2,
                 preferred_maintenance_window="sun:23:45-mon:00:30",
@@ -503,15 +503,15 @@ class ReplicationConfig(pulumi.CustomResource):
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
-            source_endpoint_arn=aws_dms_endpoint["source"]["endpoint_arn"],
-            target_endpoint_arn=aws_dms_endpoint["target"]["endpoint_arn"],
+            source_endpoint_arn=source["endpointArn"],
+            target_endpoint_arn=target["endpointArn"],
             table_mappings=\"\"\"  {
             "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
           }
         \"\"\",
             start_replication=True,
             compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=aws_dms_replication_subnet_group["default"]["replication_subnet_group_id"],
+                replication_subnet_group_id=default["replicationSubnetGroupId"],
                 max_capacity_units=64,
                 min_capacity_units=2,
                 preferred_maintenance_window="sun:23:45-mon:00:30",

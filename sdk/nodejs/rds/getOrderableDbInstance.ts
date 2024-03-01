@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7.22",
  *     licenseModel: "general-public-license",
+ *     storageType: "standard",
  *     preferredInstanceClasses: [
  *         "db.r6.xlarge",
  *         "db.m4.large",
  *         "db.t3.small",
  *     ],
- *     storageType: "standard",
  * });
  * ```
  *
@@ -257,12 +257,12 @@ export interface GetOrderableDbInstanceResult {
  *     engine: "mysql",
  *     engineVersion: "5.7.22",
  *     licenseModel: "general-public-license",
+ *     storageType: "standard",
  *     preferredInstanceClasses: [
  *         "db.r6.xlarge",
  *         "db.m4.large",
  *         "db.t3.small",
  *     ],
- *     storageType: "standard",
  * });
  * ```
  *

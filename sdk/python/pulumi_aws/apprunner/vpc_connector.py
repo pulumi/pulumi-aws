@@ -242,15 +242,15 @@ class VpcConnector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         connector = aws.apprunner.VpcConnector("connector",
-            security_groups=[
-                "sg1",
-                "sg2",
-            ],
+            vpc_connector_name="name",
             subnets=[
                 "subnet1",
                 "subnet2",
             ],
-            vpc_connector_name="name")
+            security_groups=[
+                "sg1",
+                "sg2",
+            ])
         ```
 
         ## Import
@@ -284,15 +284,15 @@ class VpcConnector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         connector = aws.apprunner.VpcConnector("connector",
-            security_groups=[
-                "sg1",
-                "sg2",
-            ],
+            vpc_connector_name="name",
             subnets=[
                 "subnet1",
                 "subnet2",
             ],
-            vpc_connector_name="name")
+            security_groups=[
+                "sg1",
+                "sg2",
+            ])
         ```
 
         ## Import

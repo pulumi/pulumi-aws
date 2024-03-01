@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;example&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRegistryPolicy = new RegistryPolicy(&#34;exampleRegistryPolicy&#34;, RegistryPolicyArgs.builder()        
  *             .registryName(&#34;example&#34;)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

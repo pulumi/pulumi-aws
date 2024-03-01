@@ -30,6 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
 //				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("My Cool Data in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{

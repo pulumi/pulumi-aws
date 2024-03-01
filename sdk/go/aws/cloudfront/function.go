@@ -27,28 +27,31 @@ import (
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
 //	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewFunction(ctx, "test", &cloudfront.FunctionArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: fmt.Sprintf("%v/function.js", notImplemented("path.module")),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewFunction(ctx, "test", &cloudfront.FunctionArgs{
+//				Name:    pulumi.String("test"),
 //				Runtime: pulumi.String("cloudfront-js-2.0"),
 //				Comment: pulumi.String("my function"),
 //				Publish: pulumi.Bool(true),
-//				Code:    readFileOrPanic(fmt.Sprintf("%v/function.js", path.Module)),
+//				Code:    invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

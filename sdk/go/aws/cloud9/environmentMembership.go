@@ -29,18 +29,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEnvironmentEC2, err := cloud9.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9.EnvironmentEC2Args{
+//			test, err := cloud9.NewEnvironmentEC2(ctx, "test", &cloud9.EnvironmentEC2Args{
 //				InstanceType: pulumi.String("t2.micro"),
+//				Name:         pulumi.String("some-env"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testUser, err := iam.NewUser(ctx, "testUser", nil)
+//			testUser, err := iam.NewUser(ctx, "test", &iam.UserArgs{
+//				Name: pulumi.String("some-user"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloud9.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9.EnvironmentMembershipArgs{
-//				EnvironmentId: testEnvironmentEC2.ID(),
+//			_, err = cloud9.NewEnvironmentMembership(ctx, "test", &cloud9.EnvironmentMembershipArgs{
+//				EnvironmentId: test.ID(),
 //				Permissions:   pulumi.String("read-only"),
 //				UserArn:       testUser.Arn,
 //			})

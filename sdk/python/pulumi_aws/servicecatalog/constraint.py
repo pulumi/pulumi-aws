@@ -278,8 +278,8 @@ class Constraint(pulumi.CustomResource):
 
         example = aws.servicecatalog.Constraint("example",
             description="Back off, man. I'm a scientist.",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            product_id=aws_servicecatalog_product["example"]["id"],
+            portfolio_id=example_aws_servicecatalog_portfolio["id"],
+            product_id=example_aws_servicecatalog_product["id"],
             type="LAUNCH",
             parameters=json.dumps({
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
@@ -326,8 +326,8 @@ class Constraint(pulumi.CustomResource):
 
         example = aws.servicecatalog.Constraint("example",
             description="Back off, man. I'm a scientist.",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            product_id=aws_servicecatalog_product["example"]["id"],
+            portfolio_id=example_aws_servicecatalog_portfolio["id"],
+            product_id=example_aws_servicecatalog_product["id"],
             type="LAUNCH",
             parameters=json.dumps({
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",

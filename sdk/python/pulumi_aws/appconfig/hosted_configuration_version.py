@@ -238,8 +238,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -260,8 +260,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -338,8 +338,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -360,8 +360,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({

@@ -49,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -91,10 +92,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .description(&#34;example description&#34;)
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -134,16 +136,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .description(&#34;first-group&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .description(&#34;second-group&#34;)
@@ -189,9 +192,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -250,10 +254,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .randomizationSalt(&#34;example randomization salt&#34;)
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -293,15 +298,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .build())
@@ -352,15 +358,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .build())
@@ -373,12 +380,12 @@ import javax.annotation.Nullable;
  *                     .segmentOverrides(                    
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(1)
- *                             .segment(aws_evidently_segment.example().name())
+ *                             .segment(exampleAwsEvidentlySegment.name())
  *                             .weights(Map.of(&#34;Variation2&#34;, 10000))
  *                             .build(),
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(2)
- *                             .segment(aws_evidently_segment.example().name())
+ *                             .segment(exampleAwsEvidentlySegment.name())
  *                             .weights(Map.ofEntries(
  *                                 Map.entry(&#34;Variation1&#34;, 40000),
  *                                 Map.entry(&#34;Variation2&#34;, 30000)

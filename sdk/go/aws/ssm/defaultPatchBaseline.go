@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm.PatchBaselineArgs{
+//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "example", &ssm.PatchBaselineArgs{
+//				Name: pulumi.String("example"),
 //				ApprovedPatches: pulumi.StringArray{
 //					pulumi.String("KB123456"),
 //				},
@@ -37,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ssm.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm.DefaultPatchBaselineArgs{
+//			_, err = ssm.NewDefaultPatchBaseline(ctx, "example", &ssm.DefaultPatchBaselineArgs{
 //				BaselineId:      examplePatchBaseline.ID(),
 //				OperatingSystem: examplePatchBaseline.OperatingSystem,
 //			})

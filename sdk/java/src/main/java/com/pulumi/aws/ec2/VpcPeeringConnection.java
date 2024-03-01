@@ -58,9 +58,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
- *             .peerVpcId(aws_vpc.bar().id())
- *             .vpcId(aws_vpc.foo().id())
+ *             .peerOwnerId(peerOwnerId)
+ *             .peerVpcId(bar.id())
+ *             .vpcId(fooAwsVpc.id())
  *             .build());
  * 
  *     }
@@ -92,9 +92,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
- *             .peerVpcId(aws_vpc.bar().id())
- *             .vpcId(aws_vpc.foo().id())
+ *             .peerOwnerId(peerOwnerId)
+ *             .peerVpcId(bar.id())
+ *             .vpcId(fooAwsVpc.id())
  *             .accepter(VpcPeeringConnectionAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
@@ -139,8 +139,8 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.2.0.0/16&#34;)
  *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection(&#34;fooVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
+ *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .autoAccept(true)
@@ -162,7 +162,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnection;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -178,18 +177,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-west-2())
- *                 .build());
+ *             .build());
  * 
  *         var bar = new Vpc(&#34;bar&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.2.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
+ *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection(&#34;fooVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
+ *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .peerRegion(&#34;us-east-1&#34;)

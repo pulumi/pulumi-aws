@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", &ec2.InstanceArgs{
+//			test, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
 //				Ami:          *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t3.micro"),
 //				Tags: pulumi.StringMap{
@@ -64,8 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2transitgateway.NewInstanceState(ctx, "testInstanceState", &ec2transitgateway.InstanceStateArgs{
-//				InstanceId: testInstance.ID(),
+//			_, err = ec2transitgateway.NewInstanceState(ctx, "test", &ec2transitgateway.InstanceStateArgs{
+//				InstanceId: test.ID(),
 //				State:      pulumi.String("stopped"),
 //			})
 //			if err != nil {

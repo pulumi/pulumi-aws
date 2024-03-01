@@ -22,9 +22,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     name: "tf-test-name",
  *     description: "tf-test-desc",
  *     appversionLifecycle: {
- *         serviceRole: aws_iam_role.beanstalk_service.arn,
+ *         serviceRole: beanstalkService.arn,
  *         maxCount: 128,
  *         deleteSourceFromS3: true,
  *     },

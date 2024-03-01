@@ -58,11 +58,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     proxyConfiguration: {
  *         type: "APPMESH",
  *         containerName: "applicationContainerName",
@@ -81,11 +83,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         dockerVolumeConfiguration: {
@@ -94,8 +98,8 @@ import * as utilities from "../utilities";
  *             driver: "local",
  *             driverOpts: {
  *                 type: "nfs",
- *                 device: `${aws_efs_file_system.fs.dns_name}:/`,
- *                 o: `addr=${aws_efs_file_system.fs.dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport`,
+ *                 device: `${fs.dnsName}:/`,
+ *                 o: `addr=${fs.dnsName},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport`,
  *             },
  *         },
  *     }],
@@ -106,20 +110,22 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         efsVolumeConfiguration: {
- *             fileSystemId: aws_efs_file_system.fs.id,
+ *             fileSystemId: fs.id,
  *             rootDirectory: "/opt/data",
  *             transitEncryption: "ENABLED",
  *             transitEncryptionPort: 2999,
  *             authorizationConfig: {
- *                 accessPointId: aws_efs_access_point.test.id,
+ *                 accessPointId: test.id,
  *                 iam: "ENABLED",
  *             },
  *         },
@@ -131,26 +137,28 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const test = new aws.secretsmanager.SecretVersion("test", {
- *     secretId: aws_secretsmanager_secret.test.id,
+ *     secretId: testAwsSecretsmanagerSecret.id,
  *     secretString: JSON.stringify({
  *         username: "admin",
- *         password: aws_directory_service_directory.test.password,
+ *         password: testAwsDirectoryServiceDirectory.password,
  *     }),
  * });
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         fsxWindowsFileServerVolumeConfiguration: {
- *             fileSystemId: aws_fsx_windows_file_system.test.id,
+ *             fileSystemId: testAwsFsxWindowsFileSystem.id,
  *             rootDirectory: "\\data",
  *             authorizationConfig: {
  *                 credentialsParameter: test.arn,
- *                 domain: aws_directory_service_directory.test.name,
+ *                 domain: testAwsDirectoryServiceDirectory.name,
  *             },
  *         },
  *     }],
@@ -163,6 +171,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
+ *     family: "test",
  *     containerDefinitions: `[
  *   {
  *     "cpu": 10,
@@ -189,9 +198,7 @@ import * as utilities from "../utilities";
  *         ]
  *   }
  * ]
- *
  * `,
- *     family: "test",
  *     inferenceAccelerators: [{
  *         deviceName: "device_1",
  *         deviceType: "eia1.medium",
@@ -205,6 +212,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
+ *     family: "test",
+ *     requiresCompatibilities: ["FARGATE"],
+ *     networkMode: "awsvpc",
+ *     cpu: "1024",
+ *     memory: "2048",
  *     containerDefinitions: `[
  *   {
  *     "name": "iis",
@@ -214,16 +226,10 @@ import * as utilities from "../utilities";
  *     "essential": true
  *   }
  * ]
- *
  * `,
- *     cpu: "1024",
- *     family: "test",
- *     memory: "2048",
- *     networkMode: "awsvpc",
- *     requiresCompatibilities: ["FARGATE"],
  *     runtimePlatform: {
- *         cpuArchitecture: "X86_64",
  *         operatingSystemFamily: "WINDOWS_SERVER_2019_CORE",
+ *         cpuArchitecture: "X86_64",
  *     },
  * });
  * ```

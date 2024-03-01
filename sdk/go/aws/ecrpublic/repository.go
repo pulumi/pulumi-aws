@@ -23,28 +23,17 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecrpublic"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "usEast1", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: png,
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -56,7 +45,7 @@ import (
 //						pulumi.String("ARM"),
 //					},
 //					Description:   pulumi.String("Description"),
-//					LogoImageBlob: filebase64OrPanic(image.Png),
+//					LogoImageBlob: invokeFilebase64.Result,
 //					OperatingSystems: pulumi.StringArray{
 //						pulumi.String("Linux"),
 //					},
@@ -65,7 +54,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("production"),
 //				},
-//			}, pulumi.Provider(aws.Us_east_1))
+//			})
 //			if err != nil {
 //				return err
 //			}

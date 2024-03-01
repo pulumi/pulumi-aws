@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LustreFileSystem(&#34;example&#34;, LustreFileSystemArgs.builder()        
- *             .importPath(String.format(&#34;s3://%s&#34;, aws_s3_bucket.example().bucket()))
+ *             .importPath(String.format(&#34;s3://%s&#34;, exampleAwsS3Bucket.bucket()))
  *             .storageCapacity(1200)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }

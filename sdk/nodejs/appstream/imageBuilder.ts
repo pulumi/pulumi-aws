@@ -16,14 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.ImageBuilder("testFleet", {
+ * const testFleet = new aws.appstream.ImageBuilder("test_fleet", {
+ *     name: "Name",
  *     description: "Description of a ImageBuilder",
  *     displayName: "Display name of a ImageBuilder",
  *     enableDefaultInternetAccess: false,
  *     imageName: "AppStream-WinServer2019-10-05-2022",
  *     instanceType: "stream.standard.large",
  *     vpcConfig: {
- *         subnetIds: [aws_subnet.example.id],
+ *         subnetIds: [example.id],
  *     },
  *     tags: {
  *         Name: "Example Image Builder",

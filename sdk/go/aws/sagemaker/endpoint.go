@@ -30,8 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpoint(ctx, "endpoint", &sagemaker.EndpointArgs{
-//				EndpointConfigName: pulumi.Any(aws_sagemaker_endpoint_configuration.Ec.Name),
+//			_, err := sagemaker.NewEndpoint(ctx, "e", &sagemaker.EndpointArgs{
+//				Name:               pulumi.String("my-endpoint"),
+//				EndpointConfigName: pulumi.Any(ec.Name),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo"),
 //				},

@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *         protocol: "-1",
  *         ruleNo: 100,
  *         action: "allow",
- *         cidrBlock: aws_default_vpc.mainvpc.cidr_block,
+ *         cidrBlock: mainvpcAwsDefaultVpc.cidrBlock,
  *         fromPort: 0,
  *         toPort: 0,
  *     }],
@@ -79,7 +79,6 @@ import * as utilities from "../utilities";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {defaultNetworkAclId: mainvpc.defaultNetworkAclId});
- * // no rules defined, deny all traffic in this ACL
  * ```
  * ### Managing Subnets In A Default Network ACL
  *
@@ -95,7 +94,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {});
  * ```
  * ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration

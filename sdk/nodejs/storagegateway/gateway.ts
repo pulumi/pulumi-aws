@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVolumeAttachment = new aws.ec2.VolumeAttachment("testVolumeAttachment", {
+ * const testVolumeAttachment = new aws.ec2.VolumeAttachment("test", {
  *     deviceName: "/dev/xvdb",
- *     volumeId: aws_ebs_volume.test.id,
- *     instanceId: aws_instance.test.id,
+ *     volumeId: testAwsEbsVolume.id,
+ *     instanceId: testAwsInstance.id,
  * });
- * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDiskOutput({
- *     diskNode: deviceName,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * }));
- * const testCache = new aws.storagegateway.Cache("testCache", {
- *     diskId: testLocalDisk.apply(testLocalDisk => testLocalDisk.diskId),
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskNode: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
+ * });
+ * const testCache = new aws.storagegateway.Cache("test", {
+ *     diskId: test.then(test => test.diskId),
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
  * ### FSx File Gateway

@@ -17,14 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("testConfiguredTable", {
+ * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("test_configured_table", {
+ *     name: "pulumi-example-table",
+ *     description: "I made this table with Pulumi!",
+ *     analysisMethod: "DIRECT_QUERY",
  *     allowedColumns: [
  *         "column1",
  *         "column2",
  *         "column3",
  *     ],
- *     analysisMethod: "DIRECT_QUERY",
- *     description: "I made this table with Pulumi!",
  *     tableReference: {
  *         databaseName: "example_database",
  *         tableName: "example_table",

@@ -25,10 +25,12 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var configuration = new Aws.Ecr.RegistryScanningConfiguration("configuration", new()
     ///     {
+    ///         ScanType = "ENHANCED",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
     ///             {
+    ///                 ScanFrequency = "CONTINUOUS_SCAN",
     ///                 RepositoryFilters = new[]
     ///                 {
     ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
@@ -37,10 +39,8 @@ namespace Pulumi.Aws.Ecr
     ///                         FilterType = "WILDCARD",
     ///                     },
     ///                 },
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
     ///             },
     ///         },
-    ///         ScanType = "ENHANCED",
     ///     });
     /// 
     /// });
@@ -57,10 +57,12 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var test = new Aws.Ecr.RegistryScanningConfiguration("test", new()
     ///     {
+    ///         ScanType = "ENHANCED",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
     ///             {
+    ///                 ScanFrequency = "SCAN_ON_PUSH",
     ///                 RepositoryFilters = new[]
     ///                 {
     ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
@@ -69,10 +71,10 @@ namespace Pulumi.Aws.Ecr
     ///                         FilterType = "WILDCARD",
     ///                     },
     ///                 },
-    ///                 ScanFrequency = "SCAN_ON_PUSH",
     ///             },
     ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
     ///             {
+    ///                 ScanFrequency = "CONTINUOUS_SCAN",
     ///                 RepositoryFilters = new[]
     ///                 {
     ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
@@ -81,10 +83,8 @@ namespace Pulumi.Aws.Ecr
     ///                         FilterType = "WILDCARD",
     ///                     },
     ///                 },
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
     ///             },
     ///         },
-    ///         ScanType = "ENHANCED",
     ///     });
     /// 
     /// });

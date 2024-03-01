@@ -36,33 +36,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
+//			peerVpc, err := ec2.NewVpc(ctx, "peer", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			peerCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			peer, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Requester's side of the connection.
-//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
+//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
 //				VpcId:       main.ID(),
 //				PeerVpcId:   peerVpc.ID(),
-//				PeerOwnerId: *pulumi.String(peerCallerIdentity.AccountId),
+//				PeerOwnerId: *pulumi.String(peer.AccountId),
 //				PeerRegion:  pulumi.String("us-west-2"),
 //				AutoAccept:  pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
@@ -73,13 +67,13 @@ import (
 //				return err
 //			}
 //			// Accepter's side of the connection.
-//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
+//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
 //				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
 //				AutoAccept:             pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}

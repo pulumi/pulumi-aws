@@ -30,18 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "accepter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			accepter, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
 //				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId:  *pulumi.String(accepterCallerIdentity.AccountId),
+//				OwnerAccountId:  *pulumi.String(accepter.AccountId),
+//				Name:            pulumi.String("vif-foo"),
 //				Vlan:            pulumi.Int(4094),
 //				AddressFamily:   pulumi.String("ipv4"),
 //				BgpAsn:          pulumi.Int(65352),
@@ -56,12 +53,12 @@ import (
 //				return err
 //			}
 //			// Accepter's side of the VIF.
-//			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepterHostedPublicVirtualInterfaceAccepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
+//			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
 //				VirtualInterfaceId: creator.ID(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Accepter))
+//			})
 //			if err != nil {
 //				return err
 //			}

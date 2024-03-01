@@ -35,12 +35,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := codestarconnections.NewConnection(ctx, "example", &codestarconnections.ConnectionArgs{
+//				Name:         pulumi.String("example-connection"),
 //				ProviderType: pulumi.String("GitHub"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", nil)
+//			codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipeline_bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("test-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -65,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			codepipelineRole, err := iam.NewRole(ctx, "codepipelineRole", &iam.RoleArgs{
+//			codepipelineRole, err := iam.NewRole(ctx, "codepipeline_role", &iam.RoleArgs{
+//				Name:             pulumi.String("test-role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
@@ -78,6 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
+//				Name:    pulumi.String("tf-test-pipeline"),
 //				RoleArn: codepipelineRole.Arn,
 //				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
 //					&codepipeline.PipelineArtifactStoreArgs{
@@ -158,7 +163,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketPublicAccessBlock(ctx, "codepipelineBucketPab", &s3.BucketPublicAccessBlockArgs{
+//			_, err = s3.NewBucketPublicAccessBlock(ctx, "codepipeline_bucket_pab", &s3.BucketPublicAccessBlockArgs{
 //				Bucket:                codepipelineBucket.ID(),
 //				BlockPublicAcls:       pulumi.Bool(true),
 //				BlockPublicPolicy:     pulumi.Bool(true),
@@ -168,7 +173,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			codepipelinePolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			codepipelinePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -207,10 +212,11 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "codepipelinePolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "codepipeline_policy", &iam.RolePolicyArgs{
+//				Name: pulumi.String("codepipeline_policy"),
 //				Role: codepipelineRole.ID(),
-//				Policy: codepipelinePolicyPolicyDocument.ApplyT(func(codepipelinePolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &codepipelinePolicyPolicyDocument.Json, nil
+//				Policy: codepipelinePolicy.ApplyT(func(codepipelinePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &codepipelinePolicy.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

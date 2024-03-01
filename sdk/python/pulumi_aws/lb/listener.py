@@ -400,12 +400,10 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=443,
             protocol="HTTPS",
             ssl_policy="ELBSecurityPolicy-2016-08",
@@ -422,15 +420,15 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end = aws.lb.Listener("frontEnd",
-            load_balancer_arn=aws_lb["front_end"]["arn"],
+        front_end = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end_aws_lb["arn"],
             port=443,
             protocol="TLS",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             alpn_policy="HTTP2Preferred",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["front_end"]["arn"],
+                target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
         ### Redirect Action
@@ -439,10 +437,9 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
@@ -460,10 +457,9 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
@@ -481,18 +477,13 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
         pool = aws.cognito.UserPool("pool")
-        # ...
         client = aws.cognito.UserPoolClient("client")
-        # ...
         domain = aws.cognito.UserPoolDomain("domain")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[
@@ -516,12 +507,10 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[
@@ -548,46 +537,27 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
+        example = aws.lb.LoadBalancer("example",
             load_balancer_type="gateway",
+            name="example",
             subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
+                subnet_id=example_aws_subnet["id"],
             )])
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
+        example_target_group = aws.lb.TargetGroup("example",
+            name="example",
             port=6081,
             protocol="GENEVE",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             health_check=aws.lb.TargetGroupHealthCheckArgs(
                 port="80",
                 protocol="HTTP",
             ))
-        example_listener = aws.lb.Listener("exampleListener",
-            load_balancer_arn=example_load_balancer.id,
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example.id,
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 target_group_arn=example_target_group.id,
                 type="forward",
             )])
-        ```
-        ### Mutual TLS Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer", load_balancer_type="application")
-        # ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ...
-        example_listener = aws.lb.Listener("exampleListener",
-            load_balancer_arn=example_load_balancer.id,
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
-                target_group_arn=example_target_group.id,
-                type="forward",
-            )],
-            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
-                mode="verify",
-                trust_store_arn="...",
-            ))
         ```
 
         ## Import
@@ -632,12 +602,10 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=443,
             protocol="HTTPS",
             ssl_policy="ELBSecurityPolicy-2016-08",
@@ -654,15 +622,15 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end = aws.lb.Listener("frontEnd",
-            load_balancer_arn=aws_lb["front_end"]["arn"],
+        front_end = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end_aws_lb["arn"],
             port=443,
             protocol="TLS",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             alpn_policy="HTTP2Preferred",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["front_end"]["arn"],
+                target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
         ### Redirect Action
@@ -671,10 +639,9 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
@@ -692,10 +659,9 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
@@ -713,18 +679,13 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
         pool = aws.cognito.UserPool("pool")
-        # ...
         client = aws.cognito.UserPoolClient("client")
-        # ...
         domain = aws.cognito.UserPoolDomain("domain")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[
@@ -748,12 +709,10 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener",
-            load_balancer_arn=front_end_load_balancer.arn,
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_target_group = aws.lb.TargetGroup("front_end")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
             port=80,
             protocol="HTTP",
             default_actions=[
@@ -780,46 +739,27 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
+        example = aws.lb.LoadBalancer("example",
             load_balancer_type="gateway",
+            name="example",
             subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
+                subnet_id=example_aws_subnet["id"],
             )])
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
+        example_target_group = aws.lb.TargetGroup("example",
+            name="example",
             port=6081,
             protocol="GENEVE",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             health_check=aws.lb.TargetGroupHealthCheckArgs(
                 port="80",
                 protocol="HTTP",
             ))
-        example_listener = aws.lb.Listener("exampleListener",
-            load_balancer_arn=example_load_balancer.id,
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example.id,
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 target_group_arn=example_target_group.id,
                 type="forward",
             )])
-        ```
-        ### Mutual TLS Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer", load_balancer_type="application")
-        # ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ...
-        example_listener = aws.lb.Listener("exampleListener",
-            load_balancer_arn=example_load_balancer.id,
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
-                target_group_arn=example_target_group.id,
-                type="forward",
-            )],
-            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
-                mode="verify",
-                trust_store_arn="...",
-            ))
         ```
 
         ## Import

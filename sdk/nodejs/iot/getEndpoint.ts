@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Kubernetes_pod("agent", {
+ * const agent = new kubernetes.index.Pod("agent", {
  *     metadata: [{
  *         name: "my-device",
  *     }],
@@ -81,7 +81,7 @@ export interface GetEndpointResult {
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Kubernetes_pod("agent", {
+ * const agent = new kubernetes.index.Pod("agent", {
  *     metadata: [{
  *         name: "my-device",
  *     }],

@@ -41,9 +41,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubnetGroup(&#34;example&#34;, SubnetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .subnetIds(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
+ *                 example1.id(),
+ *                 example2.id())
  *             .build());
  * 
  *     }

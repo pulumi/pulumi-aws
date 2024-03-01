@@ -58,7 +58,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-//				Name:           aws_ssm_document.Test.Name,
+//				Name:           testAwsSsmDocument.Name,
 //				DocumentFormat: pulumi.StringRef("JSON"),
 //			}, nil)
 //			if err != nil {

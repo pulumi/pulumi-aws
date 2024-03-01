@@ -24,10 +24,11 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var @default = new Aws.Neptune.SubnetGroup("default", new()
     ///     {
+    ///         Name = "main",
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Frontend.Id,
-    ///             aws_subnet.Backend.Id,
+    ///             frontend.Id,
+    ///             backend.Id,
     ///         },
     ///         Tags = 
     ///         {

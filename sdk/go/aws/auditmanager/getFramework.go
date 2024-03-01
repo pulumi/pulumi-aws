@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.LookupFramework(ctx, &auditmanager.LookupFrameworkArgs{
-//				FrameworkType: "Standard",
 //				Name:          "Essential Eight",
+//				FrameworkType: "Standard",
 //			}, nil)
 //			if err != nil {
 //				return err

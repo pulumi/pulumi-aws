@@ -279,11 +279,14 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.wafregional.RulePredicateArgs(
                 data_id=ipset.id,
@@ -291,6 +294,7 @@ class WebAcl(pulumi.CustomResource):
                 type="IPMatch",
             )])
         wafacl = aws.wafregional.WebAcl("wafacl",
+            name="tfWebACL",
             metric_name="tfWebACL",
             default_action=aws.wafregional.WebAclDefaultActionArgs(
                 type="ALLOW",
@@ -311,13 +315,14 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example",
+            name="example",
             metric_name="example",
             default_action=aws.wafregional.WebAclDefaultActionArgs(
                 type="ALLOW",
             ),
             rules=[aws.wafregional.WebAclRuleArgs(
                 priority=1,
-                rule_id=aws_wafregional_rule_group["example"]["id"],
+                rule_id=example_aws_wafregional_rule_group["id"],
                 type="GROUP",
                 override_action=aws.wafregional.WebAclRuleOverrideActionArgs(
                     type="NONE",
@@ -332,9 +337,8 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            log_destination=example_aws_kinesis_firehose_delivery_stream["arn"],
             redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
@@ -382,11 +386,14 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.wafregional.RulePredicateArgs(
                 data_id=ipset.id,
@@ -394,6 +401,7 @@ class WebAcl(pulumi.CustomResource):
                 type="IPMatch",
             )])
         wafacl = aws.wafregional.WebAcl("wafacl",
+            name="tfWebACL",
             metric_name="tfWebACL",
             default_action=aws.wafregional.WebAclDefaultActionArgs(
                 type="ALLOW",
@@ -414,13 +422,14 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example",
+            name="example",
             metric_name="example",
             default_action=aws.wafregional.WebAclDefaultActionArgs(
                 type="ALLOW",
             ),
             rules=[aws.wafregional.WebAclRuleArgs(
                 priority=1,
-                rule_id=aws_wafregional_rule_group["example"]["id"],
+                rule_id=example_aws_wafregional_rule_group["id"],
                 type="GROUP",
                 override_action=aws.wafregional.WebAclRuleOverrideActionArgs(
                     type="NONE",
@@ -435,9 +444,8 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            log_destination=example_aws_kinesis_firehose_delivery_stream["arn"],
             redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(

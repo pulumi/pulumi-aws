@@ -18,8 +18,9 @@ import {Group} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const group = new aws.iam.Group("group", {});
+ * const group = new aws.iam.Group("group", {name: "test-group"});
  * const policy = new aws.iam.Policy("policy", {
+ *     name: "test-policy",
  *     description: "A test policy",
  *     policy: "{ ... policy JSON ... }",
  * });

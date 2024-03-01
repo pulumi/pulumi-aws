@@ -419,6 +419,7 @@ class DataSource(pulumi.CustomResource):
 
         default = aws.quicksight.DataSource("default",
             data_source_id="example-id",
+            name="My Cool Data in S3",
             parameters=aws.quicksight.DataSourceParametersArgs(
                 s3=aws.quicksight.DataSourceParametersS3Args(
                     manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(
@@ -470,6 +471,7 @@ class DataSource(pulumi.CustomResource):
 
         default = aws.quicksight.DataSource("default",
             data_source_id="example-id",
+            name="My Cool Data in S3",
             parameters=aws.quicksight.DataSourceParametersArgs(
                 s3=aws.quicksight.DataSourceParametersS3Args(
                     manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(

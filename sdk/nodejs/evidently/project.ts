@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
  *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
@@ -31,12 +32,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
+ *     description: "Example Description",
  *     dataDelivery: {
  *         cloudwatchLogs: {
  *             logGroup: "example-log-group-name",
  *         },
  *     },
- *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
  *     },
@@ -49,13 +51,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
+ *     description: "Example Description",
  *     dataDelivery: {
  *         s3Destination: {
  *             bucket: "example-bucket-name",
  *             prefix: "example",
  *         },
  *     },
- *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
  *     },

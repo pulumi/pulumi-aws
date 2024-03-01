@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "DevAccountAccess",
  *         effect: "Allow",
@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
  * ### Organization Access
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "OrganizationAccess",
  *         effect: "Allow",
@@ -62,13 +62,13 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:PrincipalOrgID",
- *             values: [aws_organizations_organization.example.id],
+ *             values: [example.id],
  *         }],
  *     }],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
  * ### Multiple Statements
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "DevAccountAccess",
@@ -109,14 +109,14 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:PrincipalOrgID",
- *                 values: [aws_organizations_organization.example.id],
+ *                 values: [example.id],
  *             }],
  *         },
  *     ],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
  *

@@ -21,12 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     targetName: "example",
  *     volumeSizeInBytes: 5368709120,
  * });
- * // 5 GB
  * ```
  * ### Create Cached iSCSI Volume From Snapshot
  *
@@ -35,11 +34,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     snapshotId: aws_ebs_snapshot.example.id,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     snapshotId: exampleAwsEbsSnapshot.id,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_ebs_snapshot.example.volume_size * 1024 * 1024 * 1024,
+ *     volumeSizeInBytes: exampleAwsEbsSnapshot.volumeSize * 1024 * 1024 * 1024,
  * });
  * ```
  * ### Create Cached iSCSI Volume From Source Volume
@@ -49,11 +48,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     sourceVolumeArn: aws_storagegateway_cached_iscsi_volume.existing.arn,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     sourceVolumeArn: existing.arn,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume.existing.volume_size_in_bytes,
+ *     volumeSizeInBytes: existing.volumeSizeInBytes,
  * });
  * ```
  *

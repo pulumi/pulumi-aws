@@ -23,38 +23,40 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var test = new Aws.Iam.Role("test", new()
     ///     {
+    ///         Name = "test",
     ///         Path = "/",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
     ///                         "sts:TagSession",
     ///                         "sts:SetSourceIdentity",
     ///                     },
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "rolesanywhere.amazonaws.com",
+    ///                         ["service"] = "rolesanywhere.amazonaws.com",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new()
+    ///     var testProfile = new Aws.RolesAnywhere.Profile("test", new()
     ///     {
+    ///         Name = "example",
     ///         RoleArns = new[]
     ///         {
-    ///             testRole.Arn,
+    ///             test.Arn,
     ///         },
     ///     });
     /// 

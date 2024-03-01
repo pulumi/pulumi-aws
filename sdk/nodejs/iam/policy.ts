@@ -16,14 +16,15 @@ import {PolicyDocument} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const policy = new aws.iam.Policy("policy", {
+ *     name: "test_policy",
  *     path: "/",
  *     description: "My test policy",
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });

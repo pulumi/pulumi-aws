@@ -26,8 +26,9 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Model("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
     ///         ContentType = "application/json",
+    ///         Name = "example",
     ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["$schema"] = "http://json-schema.org/draft-04/schema#",

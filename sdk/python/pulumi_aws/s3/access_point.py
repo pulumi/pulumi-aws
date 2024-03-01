@@ -387,8 +387,10 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
         ```
         ### S3 on Outposts Bucket
 
@@ -396,10 +398,11 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3control.Bucket("exampleBucket", bucket="example")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket.arn,
+        example = aws.s3control.Bucket("example", bucket="example")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.arn,
+            name="example",
             vpc_configuration=aws.s3.AccessPointVpcConfigurationArgs(
                 vpc_id=example_vpc.id,
             ))
@@ -456,8 +459,10 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
         ```
         ### S3 on Outposts Bucket
 
@@ -465,10 +470,11 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3control.Bucket("exampleBucket", bucket="example")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket.arn,
+        example = aws.s3control.Bucket("example", bucket="example")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.arn,
+            name="example",
             vpc_configuration=aws.s3.AccessPointVpcConfigurationArgs(
                 vpc_id=example_vpc.id,
             ))

@@ -18,10 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codeguruprofiler.ProfilingGroup("example", {
+ *     name: "example",
+ *     computePlatform: "Default",
  *     agentOrchestrationConfig: {
  *         profilingEnabled: true,
  *     },
- *     computePlatform: "Default",
  * });
  * ```
  *

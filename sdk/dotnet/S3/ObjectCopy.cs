@@ -25,20 +25,20 @@ namespace Pulumi.Aws.S3
     ///     var test = new Aws.S3.ObjectCopy("test", new()
     ///     {
     ///         Bucket = "destination_bucket",
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
     ///         Grants = new[]
     ///         {
     ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
     ///             {
+    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
+    ///                 Type = "Group",
     ///                 Permissions = new[]
     ///                 {
     ///                     "READ",
     ///                 },
-    ///                 Type = "Group",
-    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
     ///             },
     ///         },
-    ///         Key = "destination_key",
-    ///         Source = "source_bucket/source_key",
     ///     });
     /// 
     /// });

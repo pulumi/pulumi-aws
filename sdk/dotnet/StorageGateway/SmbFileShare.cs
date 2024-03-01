@@ -28,9 +28,9 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "ActiveDirectory",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -50,9 +50,9 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "GuestAccess",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

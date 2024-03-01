@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var web = new StaticWebLayer(&#34;web&#34;, StaticWebLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .build());
  * 
  *     }

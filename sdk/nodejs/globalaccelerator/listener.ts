@@ -16,7 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccelerator = new aws.globalaccelerator.Accelerator("exampleAccelerator", {
+ * const example = new aws.globalaccelerator.Accelerator("example", {
+ *     name: "Example",
  *     ipAddressType: "IPV4",
  *     enabled: true,
  *     attributes: {
@@ -25,8 +26,8 @@ import * as utilities from "../utilities";
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
  * });
- * const exampleListener = new aws.globalaccelerator.Listener("exampleListener", {
- *     acceleratorArn: exampleAccelerator.id,
+ * const exampleListener = new aws.globalaccelerator.Listener("example", {
+ *     acceleratorArn: example.id,
  *     clientAffinity: "SOURCE_IP",
  *     protocol: "TCP",
  *     portRanges: [{

@@ -469,12 +469,12 @@ class SnapshotCopy(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.SnapshotCopy("example_copy",
             source_snapshot_id=example_snapshot.id,
             source_region="us-west-2",
             tags={
@@ -515,12 +515,12 @@ class SnapshotCopy(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.SnapshotCopy("example_copy",
             source_snapshot_id=example_snapshot.id,
             source_region="us-west-2",
             tags={

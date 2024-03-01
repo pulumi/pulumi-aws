@@ -15,33 +15,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: exampleLogGroup.name,
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
+ *     logGroupName: example.name,
  *     policyDocument: pulumi.jsonStringify({
- *         Name: "Example",
- *         Version: "2021-06-01",
- *         Statement: [
+ *         name: "Example",
+ *         version: "2021-06-01",
+ *         statement: [
  *             {
- *                 Sid: "Audit",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Audit: {
- *                         FindingsDestination: {
+ *                 sid: "Audit",
+ *                 dataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+ *                 operation: {
+ *                     audit: {
+ *                         findingsDestination: {
  *                             S3: {
- *                                 Bucket: exampleBucketV2.bucket,
+ *                                 bucket: exampleBucketV2.bucket,
  *                             },
  *                         },
  *                     },
  *                 },
  *             },
  *             {
- *                 Sid: "Redact",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Deidentify: {
- *                         MaskConfig: {},
+ *                 sid: "Redact",
+ *                 dataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+ *                 operation: {
+ *                     deidentify: {
+ *                         maskConfig: {},
  *                     },
  *                 },
  *             },

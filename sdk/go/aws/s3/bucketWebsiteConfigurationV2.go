@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
 //					Suffix: pulumi.String("index.html"),
 //				},
@@ -73,7 +73,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
 //					Suffix: pulumi.String("index.html"),
 //				},

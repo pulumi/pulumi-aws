@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
-//				DirectoryId:      pulumi.Any(aws_directory_service_directory.Ad.Id),
+//				DirectoryId:      pulumi.Any(ad.Id),
 //				RemoteDomainName: pulumi.String("example.com"),
 //				DnsIps: pulumi.StringArray{
 //					pulumi.String("8.8.8.8"),

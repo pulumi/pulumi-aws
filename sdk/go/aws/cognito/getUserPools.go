@@ -28,22 +28,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selectedRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
-//				Name: _var.Api_gateway_name,
+//			selected, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//				Name: apiGatewayName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			selectedUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
-//				Name: _var.Cognito_user_pool_name,
+//			selectedGetUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
+//				Name: cognitoUserPoolName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
+//				Name:         pulumi.String("cognito"),
 //				Type:         pulumi.String("COGNITO_USER_POOLS"),
-//				RestApi:      *pulumi.String(selectedRestApi.Id),
-//				ProviderArns: interface{}(selectedUserPools.Arns),
+//				RestApi:      *pulumi.String(selected.Id),
+//				ProviderArns: interface{}(selectedGetUserPools.Arns),
 //			})
 //			if err != nil {
 //				return err

@@ -26,9 +26,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///     {
     ///         AssertedControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///         Name = "daisyguttridge",
     ///         WaitPeriodMs = 5000,
     ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
     ///         {
@@ -51,15 +52,16 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// {
     ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
+    ///         Name = "i_o",
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         WaitPeriodMs = 5000,
     ///         GatingControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         TargetControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
     ///         {

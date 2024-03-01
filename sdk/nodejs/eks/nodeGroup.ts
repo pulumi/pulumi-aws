@@ -17,9 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     nodeRoleArn: aws_iam_role.example.arn,
- *     subnetIds: aws_subnet.example.map(__item => __item.id),
+ *     clusterName: exampleAwsEksCluster.name,
+ *     nodeGroupName: "example",
+ *     nodeRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     scalingConfig: {
  *         desiredSize: 1,
  *         maxSize: 2,
@@ -28,12 +29,6 @@ import * as utilities from "../utilities";
  *     updateConfig: {
  *         maxUnavailable: 1,
  *     },
- * }, {
- *     dependsOn: [
- *         aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
- *         aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
- *         aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
- *     ],
  * });
  * ```
  * ### Ignoring Changes to Desired Size
@@ -44,10 +39,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configurations ...
  * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
  *     desiredSize: 2,
  * }});
+ * ```
+ * ### Tracking the latest EKS Node Group AMI releases
+ *
+ * You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const eksAmiReleaseVersion = aws.ssm.getParameter({
+ *     name: `/aws/service/eks/optimized-ami/${exampleAwsEksCluster.version}/amazon-linux-2/recommended/release_version`,
+ * });
+ * const example = new aws.eks.NodeGroup("example", {
+ *     clusterName: exampleAwsEksCluster.name,
+ *     nodeGroupName: "example",
+ *     version: exampleAwsEksCluster.version,
+ *     releaseVersion: notImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
+ *     nodeRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ * });
  * ```
  * ### Example IAM Role for EKS Node Group
  *
@@ -55,21 +73,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- *     Version: "2012-10-17",
- * })});
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-node-group-example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
+ *             },
+ *         }],
+ *         version: "2012-10-17",
+ *     }),
+ * });
  * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
  *     role: example.name,
  * });
- * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
+ * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
  *     role: example.name,
  * });
@@ -77,6 +98,29 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
  *     role: example.name,
  * });
+ * ```
+ * ### Example Subnets for EKS Node Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const example: aws.ec2.Subnet[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     example.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ *         availabilityZone: available.then(available => available.names[range.value]),
+ *         cidrBlock: std.cidrsubnet({
+ *             input: exampleAwsVpc.cidrBlock,
+ *             newbits: 8,
+ *             netnum: range.value,
+ *         }).then(invoke => invoke.result),
+ *         vpcId: exampleAwsVpc.id,
+ *     }));
+ * }
  * ```
  *
  * ## Import

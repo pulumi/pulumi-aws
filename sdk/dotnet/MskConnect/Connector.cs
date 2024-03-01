@@ -25,6 +25,7 @@ namespace Pulumi.Aws.MskConnect
     /// {
     ///     var example = new Aws.MskConnect.Connector("example", new()
     ///     {
+    ///         Name = "example",
     ///         KafkaconnectVersion = "2.7.1",
     ///         Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
     ///         {
@@ -53,18 +54,18 @@ namespace Pulumi.Aws.MskConnect
     ///         {
     ///             ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
     ///             {
-    ///                 BootstrapServers = aws_msk_cluster.Example.Bootstrap_brokers_tls,
+    ///                 BootstrapServers = exampleAwsMskCluster.BootstrapBrokersTls,
     ///                 Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
     ///                 {
     ///                     SecurityGroups = new[]
     ///                     {
-    ///                         aws_security_group.Example.Id,
+    ///                         exampleAwsSecurityGroup.Id,
     ///                     },
     ///                     Subnets = new[]
     ///                     {
-    ///                         aws_subnet.Example1.Id,
-    ///                         aws_subnet.Example2.Id,
-    ///                         aws_subnet.Example3.Id,
+    ///                         example1.Id,
+    ///                         example2.Id,
+    ///                         example3.Id,
     ///                     },
     ///                 },
     ///             },
@@ -83,12 +84,12 @@ namespace Pulumi.Aws.MskConnect
     ///             {
     ///                 CustomPlugin = new Aws.MskConnect.Inputs.ConnectorPluginCustomPluginArgs
     ///                 {
-    ///                     Arn = aws_mskconnect_custom_plugin.Example.Arn,
-    ///                     Revision = aws_mskconnect_custom_plugin.Example.Latest_revision,
+    ///                     Arn = exampleAwsMskconnectCustomPlugin.Arn,
+    ///                     Revision = exampleAwsMskconnectCustomPlugin.LatestRevision,
     ///                 },
     ///             },
     ///         },
-    ///         ServiceExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ServiceExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

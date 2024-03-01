@@ -127,7 +127,7 @@ def get_connection(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
     ### By Name
 
@@ -135,7 +135,7 @@ def get_connection(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
 
 
@@ -177,7 +177,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
     ### By Name
 
@@ -185,7 +185,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
 
 

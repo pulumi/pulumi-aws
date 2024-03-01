@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderFlowersProd = new Aws.Lex.BotAlias("orderFlowersProd", new()
+    ///     var orderFlowersProd = new Aws.Lex.BotAlias("order_flowers_prod", new()
     ///     {
     ///         BotName = "OrderFlowers",
     ///         BotVersion = "1",

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new OpenZfsFileSystem(&#34;test&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.test1().id())
+ *             .subnetIds(test1.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());

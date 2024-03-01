@@ -50,16 +50,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
+ *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
  *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .name(&#34;example&#34;)
+ *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Dev&#34;))
  *             .build());
  * 

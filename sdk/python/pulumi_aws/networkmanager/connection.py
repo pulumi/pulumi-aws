@@ -310,9 +310,9 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Connection("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example1"]["id"],
-            connected_device_id=aws_networkmanager_device["example2"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            device_id=example1["id"],
+            connected_device_id=example2["id"])
         ```
 
         ## Import
@@ -350,9 +350,9 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Connection("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example1"]["id"],
-            connected_device_id=aws_networkmanager_device["example2"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            device_id=example1["id"],
+            connected_device_id=example2["id"])
         ```
 
         ## Import

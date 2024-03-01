@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.LookupGlobalNetwork(ctx, &networkmanager.LookupGlobalNetworkArgs{
-//				GlobalNetworkId: _var.Global_network_id,
+//				GlobalNetworkId: globalNetworkId,
 //			}, nil)
 //			if err != nil {
 //				return err

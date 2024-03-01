@@ -17,39 +17,40 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.CostCategory("test", {
+ *     name: "NAME",
+ *     ruleVersion: "CostCategoryExpression.v1",
  *     rules: [
  *         {
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-prod"],
- *                 },
- *             },
  *             value: "production",
- *         },
- *         {
  *             rule: {
  *                 dimension: {
  *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-prod"],
  *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-stg"],
  *                 },
  *             },
+ *         },
+ *         {
  *             value: "staging",
- *         },
- *         {
  *             rule: {
  *                 dimension: {
  *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-stg"],
  *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-dev"],
  *                 },
  *             },
+ *         },
+ *         {
  *             value: "testing",
+ *             rule: {
+ *                 dimension: {
+ *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-dev"],
+ *                     matchOptions: ["ENDS_WITH"],
+ *                 },
+ *             },
  *         },
  *     ],
- *     ruleVersion: "CostCategoryExpression.v1",
  * });
  * ```
  *

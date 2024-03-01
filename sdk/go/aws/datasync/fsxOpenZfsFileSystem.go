@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxOpenzfsFileSystem.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
 //					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{

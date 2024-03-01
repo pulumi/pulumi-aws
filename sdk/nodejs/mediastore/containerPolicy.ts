@@ -13,19 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleContainer = new aws.mediastore.Container("exampleContainer", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const exampleContainer = new aws.mediastore.Container("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "MediaStoreFullAccess",
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [currentCallerIdentity.then(currentCallerIdentity => `arn:aws:iam::${currentCallerIdentity.accountId}:root`)],
+ *             identifiers: [currentGetCallerIdentity.then(currentGetCallerIdentity => `arn:aws:iam::${currentGetCallerIdentity.accountId}:root`)],
  *         }],
  *         actions: ["mediastore:*"],
- *         resources: [pulumi.all([currentRegion, currentCallerIdentity, exampleContainer.name]).apply(([currentRegion, currentCallerIdentity, name]) => `arn:aws:mediastore:${currentRegion.name}:${currentCallerIdentity.accountId}:container/${name}/*`)],
+ *         resources: [pulumi.all([current, currentGetCallerIdentity, exampleContainer.name]).apply(([current, currentGetCallerIdentity, name]) => `arn:aws:mediastore:${current.name}:${currentGetCallerIdentity.accountId}:container/${name}/*`)],
  *         conditions: [{
  *             test: "Bool",
  *             variable: "aws:SecureTransport",
@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("exampleContainerPolicy", {
+ * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("example", {
  *     containerName: exampleContainer.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
  * ```
  *

@@ -16,8 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
+ * const test = new aws.appsync.GraphQLApi("test", {
  *     authenticationType: "API_KEY",
+ *     name: "tf-example",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
  * }
@@ -37,8 +38,8 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("testDataSource", {
- *     apiId: testGraphQLApi.id,
+ * const testDataSource = new aws.appsync.DataSource("test", {
+ *     apiId: test.id,
  *     name: "my_example",
  *     type: "HTTP",
  *     httpConfig: {
@@ -46,8 +47,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // UNIT type resolver (default)
- * const testResolver = new aws.appsync.Resolver("testResolver", {
- *     apiId: testGraphQLApi.id,
+ * const testResolver = new aws.appsync.Resolver("test", {
+ *     apiId: test.id,
  *     field: "singlePost",
  *     type: "Query",
  *     dataSource: testDataSource.name,
@@ -75,18 +76,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("mutationPipelineTest", {
+ * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
  *     type: "Mutation",
- *     apiId: testGraphQLApi.id,
+ *     apiId: test.id,
  *     field: "pipelineTest",
  *     requestTemplate: "{}",
  *     responseTemplate: "$util.toJson($ctx.result)",
  *     kind: "PIPELINE",
  *     pipelineConfig: {
  *         functions: [
- *             aws_appsync_function.test1.function_id,
- *             aws_appsync_function.test2.function_id,
- *             aws_appsync_function.test3.function_id,
+ *             test1.functionId,
+ *             test2.functionId,
+ *             test3.functionId,
  *         ],
  *     },
  * });
@@ -96,20 +97,22 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.appsync.Resolver("example", {
  *     type: "Query",
- *     apiId: aws_appsync_graphql_api.test.id,
+ *     apiId: testAwsAppsyncGraphqlApi.id,
  *     field: "pipelineTest",
  *     kind: "PIPELINE",
- *     code: fs.readFileSync("some-code-dir", "utf8"),
+ *     code: std.file({
+ *         input: "some-code-dir",
+ *     }).then(invoke => invoke.result),
  *     runtime: {
  *         name: "APPSYNC_JS",
  *         runtimeVersion: "1.0.0",
  *     },
  *     pipelineConfig: {
- *         functions: [aws_appsync_function.test.function_id],
+ *         functions: [test.functionId],
  *     },
  * });
  * ```

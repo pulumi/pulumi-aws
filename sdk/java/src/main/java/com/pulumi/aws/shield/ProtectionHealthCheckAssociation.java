@@ -52,23 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
+ *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
  *             .domain(&#34;vpc&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .name(&#34;example-protection&#34;)
+ *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
  *         var exampleHealthCheck = new HealthCheck(&#34;exampleHealthCheck&#34;, HealthCheckArgs.builder()        
- *             .ipAddress(exampleEip.publicIp())
+ *             .ipAddress(example.publicIp())
  *             .port(80)
  *             .type(&#34;HTTP&#34;)
  *             .resourcePath(&#34;/ready&#34;)

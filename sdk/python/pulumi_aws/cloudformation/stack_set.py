@@ -573,42 +573,46 @@ class StackSet(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json)
+        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
+            assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
+            name="AWSCloudFormationStackSetAdministrationRole")
         example = aws.cloudformation.StackSet("example",
             administration_role_arn=a_ws_cloud_formation_stack_set_administration_role.arn,
+            name="example",
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "parameters": {
+                    "vPCCidr": {
+                        "type": "String",
+                        "default": "10.0.0.0/16",
+                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
+                        "type": "AWS::EC2::VPC",
+                        "properties": {
+                            "cidrBlock": {
+                                "ref": "VPCCidr",
                             },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
+                            "tags": [{
+                                "key": "Name",
+                                "value": "Primary_CF_VPC",
                             }],
                         },
                     },
                 },
             }))
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",
             resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
         )])
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy",
+            name="ExecutionPolicy",
+            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)
         ```
 
@@ -672,42 +676,46 @@ class StackSet(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json)
+        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
+            assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
+            name="AWSCloudFormationStackSetAdministrationRole")
         example = aws.cloudformation.StackSet("example",
             administration_role_arn=a_ws_cloud_formation_stack_set_administration_role.arn,
+            name="example",
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "parameters": {
+                    "vPCCidr": {
+                        "type": "String",
+                        "default": "10.0.0.0/16",
+                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
+                        "type": "AWS::EC2::VPC",
+                        "properties": {
+                            "cidrBlock": {
+                                "ref": "VPCCidr",
                             },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
+                            "tags": [{
+                                "key": "Name",
+                                "value": "Primary_CF_VPC",
                             }],
                         },
                     },
                 },
             }))
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",
             resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
         )])
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy",
+            name="ExecutionPolicy",
+            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)
         ```
 

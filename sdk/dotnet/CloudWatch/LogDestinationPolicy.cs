@@ -22,13 +22,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
+    ///     var testDestination = new Aws.CloudWatch.LogDestination("test_destination", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
+    ///         Name = "test_destination",
+    ///         RoleArn = iamForCloudwatch.Arn,
+    ///         TargetArn = kinesisForCloudwatch.Arn,
     ///     });
     /// 
-    ///     var testDestinationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var testDestinationPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,10 +59,10 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new()
+    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("test_destination_policy", new()
     ///     {
     ///         DestinationName = testDestination.Name,
-    ///         AccessPolicy = testDestinationPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicy = testDestinationPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

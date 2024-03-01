@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HostedTransitVirtualInterface(&#34;example&#34;, HostedTransitVirtualInterfaceArgs.builder()        
- *             .connectionId(aws_dx_connection.example().id())
+ *             .connectionId(exampleAwsDxConnection.id())
+ *             .name(&#34;tf-transit-vif-example&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)

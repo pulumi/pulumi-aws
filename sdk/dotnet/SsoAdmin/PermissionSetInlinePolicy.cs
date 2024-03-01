@@ -15,6 +15,60 @@ namespace Pulumi.Aws.SsoAdmin
     /// &gt; **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `aws.ssoadmin.PermissionSet` resource.
     /// Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///     });
+    /// 
+    ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "1",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:ListAllMyBuckets",
+    ///                     "s3:GetBucketLocation",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:s3:::*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePermissionSetInlinePolicy = new Aws.SsoAdmin.PermissionSetInlinePolicy("example", new()
+    ///     {
+    ///         InlinePolicy = exampleGetPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:

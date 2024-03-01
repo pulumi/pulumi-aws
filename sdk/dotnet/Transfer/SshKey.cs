@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleServer = new Aws.Transfer.Server("exampleServer", new()
+    ///     var exampleServer = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///         Tags = 
@@ -57,12 +57,13 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Transfer.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Transfer.User("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = "tftestuser",
@@ -73,14 +74,14 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new()
+    ///     var exampleSshKey = new Aws.Transfer.SshKey("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = exampleUser.UserName,
     ///         Body = "... SSH key ...",
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -100,10 +101,11 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-policy",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

@@ -206,9 +206,10 @@ class DomainEntry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
-        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
-            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+        test = aws.lightsail.Domain("test", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("test",
+            domain_name=domain_test["domainName"],
+            name="www",
             type="A",
             target="127.0.0.1")
         ```
@@ -246,9 +247,10 @@ class DomainEntry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
-        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
-            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+        test = aws.lightsail.Domain("test", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("test",
+            domain_name=domain_test["domainName"],
+            name="www",
             type="A",
             target="127.0.0.1")
         ```

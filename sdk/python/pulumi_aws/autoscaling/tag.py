@@ -106,6 +106,34 @@ class Tag(pulumi.CustomResource):
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.eks.NodeGroup("example",
+            cluster_name="example",
+            node_group_name="example")
+        example_tag = []
+        for range in [{"value": i} for i in range(0, not_implemented(toset(
+        [forasginflatten(
+        [forresourcesinaws_eks_node_group.example.resources:resources.autoscaling_groups]
+        ):asg.name]
+        )))]:
+            example_tag.append(aws.autoscaling.Tag(f"example-{range['value']}",
+                autoscaling_group_name=range["value"],
+                tag=aws.autoscaling.TagTagArgs(
+                    key="k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+                    value="SPOT",
+                    propagate_at_launch=False,
+                )))
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
@@ -131,6 +159,34 @@ class Tag(pulumi.CustomResource):
         > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.eks.NodeGroup("example",
+            cluster_name="example",
+            node_group_name="example")
+        example_tag = []
+        for range in [{"value": i} for i in range(0, not_implemented(toset(
+        [forasginflatten(
+        [forresourcesinaws_eks_node_group.example.resources:resources.autoscaling_groups]
+        ):asg.name]
+        )))]:
+            example_tag.append(aws.autoscaling.Tag(f"example-{range['value']}",
+                autoscaling_group_name=range["value"],
+                tag=aws.autoscaling.TagTagArgs(
+                    key="k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+                    value="SPOT",
+                    propagate_at_launch=False,
+                )))
+        ```
 
         ## Import
 

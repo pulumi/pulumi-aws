@@ -245,6 +245,22 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE",
+        network_configuration=aws.ecs.GetTaskExecutionNetworkConfigurationArgs(
+            subnets=[__item["id"] for __item in example_aws_subnet],
+            security_groups=[example_aws_security_group["id"]],
+            assign_public_ip=False,
+        ))
+    ```
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
@@ -339,6 +355,22 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE",
+        network_configuration=aws.ecs.GetTaskExecutionNetworkConfigurationArgs(
+            subnets=[__item["id"] for __item in example_aws_subnet],
+            security_groups=[example_aws_security_group["id"]],
+            assign_public_ip=False,
+        ))
+    ```
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.

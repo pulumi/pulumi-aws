@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -38,8 +39,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
+//			_, err = lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("test-load-balancer-certificate"),
+//				LbName:     test.ID(),
 //				DomainName: pulumi.String("test.com"),
 //			})
 //			if err != nil {

@@ -161,14 +161,14 @@ class InstanceState(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=ubuntu.id,
             instance_type="t3.micro",
             tags={
                 "Name": "HelloWorld",
             })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
+        test_instance_state = aws.ec2transitgateway.InstanceState("test",
+            instance_id=test.id,
             state="stopped")
         ```
 
@@ -217,14 +217,14 @@ class InstanceState(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=ubuntu.id,
             instance_type="t3.micro",
             tags={
                 "Name": "HelloWorld",
             })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
+        test_instance_state = aws.ec2transitgateway.InstanceState("test",
+            instance_id=test.id,
             state="stopped")
         ```
 

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -29,14 +29,17 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleFlowLog = new aws.ec2.FlowLog("example", {
  *     iamRoleArn: exampleRole.arn,
  *     logDestination: exampleLogGroup.arn,
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -49,9 +52,10 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "example",
  *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
  * ### S3 Logging
@@ -60,12 +64,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.ec2.FlowLog("example", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
  * ### S3 Logging in Apache Parquet format with per-hour partitions
@@ -74,12 +78,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.ec2.FlowLog("example", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     destinationOptions: {
  *         fileFormat: "parquet",
  *         perHourPartition: true,

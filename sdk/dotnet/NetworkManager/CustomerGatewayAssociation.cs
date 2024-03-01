@@ -23,32 +23,32 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
+    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     var exampleSite = new Aws.NetworkManager.Site("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///     });
     /// 
-    ///     var exampleDevice = new Aws.NetworkManager.Device("exampleDevice", new()
+    ///     var exampleDevice = new Aws.NetworkManager.Device("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///         SiteId = exampleSite.Id,
     ///     });
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("example", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.83.124.10",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("example", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
     ///         TransitGatewayId = exampleTransitGateway.Id,
@@ -56,29 +56,17 @@ namespace Pulumi.Aws.NetworkManager
     ///         StaticRoutesOnly = true,
     ///     });
     /// 
-    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
+    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///         TransitGatewayArn = exampleTransitGateway.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpnConnection,
-    ///         },
     ///     });
     /// 
-    ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new()
+    ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///         CustomerGatewayArn = exampleCustomerGateway.Arn,
     ///         DeviceId = exampleDevice.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleTransitGatewayRegistration,
-    ///         },
     ///     });
     /// 
     /// });

@@ -39,10 +39,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoWorkspace = new Workspace(&#34;demoWorkspace&#34;);
+ *         var demo = new Workspace(&#34;demo&#34;);
  * 
  *         var demoAlertManagerDefinition = new AlertManagerDefinition(&#34;demoAlertManagerDefinition&#34;, AlertManagerDefinitionArgs.builder()        
- *             .workspaceId(demoWorkspace.id())
+ *             .workspaceId(demo.id())
  *             .definition(&#34;&#34;&#34;
  * alertmanager_config: |
  *   route:

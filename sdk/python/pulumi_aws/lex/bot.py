@@ -620,7 +620,7 @@ class Bot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
+        order_flowers_bot = aws.lex.Bot("order_flowers_bot",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time",
@@ -689,7 +689,7 @@ class Bot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
+        order_flowers_bot = aws.lex.Bot("order_flowers_bot",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time",

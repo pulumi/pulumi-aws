@@ -13,11 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {});
- * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", {
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
+ * const example = new aws.route53.ResolverFirewallRuleGroup("example", {name: "example"});
+ * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("example", {
+ *     name: "example",
+ *     firewallRuleGroupId: example.id,
  *     priority: 100,
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
  *

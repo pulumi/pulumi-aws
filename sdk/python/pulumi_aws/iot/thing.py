@@ -189,9 +189,11 @@ class Thing(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.Thing("example", attributes={
-            "First": "examplevalue",
-        })
+        example = aws.iot.Thing("example",
+            name="example",
+            attributes={
+                "First": "examplevalue",
+            })
         ```
 
         ## Import
@@ -223,9 +225,11 @@ class Thing(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.Thing("example", attributes={
-            "First": "examplevalue",
-        })
+        example = aws.iot.Thing("example",
+            name="example",
+            attributes={
+                "First": "examplevalue",
+            })
         ```
 
         ## Import

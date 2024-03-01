@@ -441,11 +441,15 @@ class ComputeEnvironment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
+        ecs_instance_role = aws.iam.Role("ecs_instance_role",
+            name="ecs_instance_role",
+            assume_role_policy=ec2_assume_role.json)
+        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecs_instance_role",
+            role=ecs_instance_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
+        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecs_instance_role",
+            name="ecs_instance_role",
+            role=ecs_instance_role.name)
         batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -454,22 +458,28 @@ class ComputeEnvironment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
+        aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
+            name="aws_batch_service_role",
+            assume_role_policy=batch_assume_role.json)
+        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("aws_batch_service_role",
+            role=aws_batch_service_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
+        sample = aws.ec2.SecurityGroup("sample",
+            name="aws_batch_compute_environment_security_group",
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+            )])
+        sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
+        sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
-        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
+        sample_placement_group = aws.ec2.PlacementGroup("sample",
+            name="sample",
+            strategy="cluster")
+        sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 instance_role=ecs_instance_role_instance_profile.arn,
@@ -477,13 +487,12 @@ class ComputeEnvironment(pulumi.CustomResource):
                 max_vcpus=16,
                 min_vcpus=0,
                 placement_group=sample_placement_group.name,
-                security_group_ids=[sample_security_group.id],
+                security_group_ids=[sample.id],
                 subnets=[sample_subnet.id],
                 type="EC2",
             ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
+            service_role=aws_batch_service_role.arn,
+            type="MANAGED")
         ```
         ### Fargate Type
 
@@ -495,13 +504,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
+                security_group_ids=[sample_aws_security_group["id"]],
+                subnets=[sample_aws_subnet["id"]],
                 type="FARGATE",
             ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
+            service_role=aws_batch_service_role["arn"],
+            type="MANAGED")
         ```
         ### Setting Update Policy
 
@@ -513,12 +521,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 allocation_strategy="BEST_FIT_PROGRESSIVE",
-                instance_role=aws_iam_instance_profile["ecs_instance"]["arn"],
+                instance_role=ecs_instance["arn"],
                 instance_types=["optimal"],
                 max_vcpus=4,
                 min_vcpus=0,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
+                security_group_ids=[sample_aws_security_group["id"]],
+                subnets=[sample_aws_subnet["id"]],
                 type="EC2",
             ),
             update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(
@@ -578,11 +586,15 @@ class ComputeEnvironment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
+        ecs_instance_role = aws.iam.Role("ecs_instance_role",
+            name="ecs_instance_role",
+            assume_role_policy=ec2_assume_role.json)
+        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecs_instance_role",
+            role=ecs_instance_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
+        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecs_instance_role",
+            name="ecs_instance_role",
+            role=ecs_instance_role.name)
         batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -591,22 +603,28 @@ class ComputeEnvironment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
+        aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
+            name="aws_batch_service_role",
+            assume_role_policy=batch_assume_role.json)
+        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("aws_batch_service_role",
+            role=aws_batch_service_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
+        sample = aws.ec2.SecurityGroup("sample",
+            name="aws_batch_compute_environment_security_group",
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+            )])
+        sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
+        sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
-        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
+        sample_placement_group = aws.ec2.PlacementGroup("sample",
+            name="sample",
+            strategy="cluster")
+        sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 instance_role=ecs_instance_role_instance_profile.arn,
@@ -614,13 +632,12 @@ class ComputeEnvironment(pulumi.CustomResource):
                 max_vcpus=16,
                 min_vcpus=0,
                 placement_group=sample_placement_group.name,
-                security_group_ids=[sample_security_group.id],
+                security_group_ids=[sample.id],
                 subnets=[sample_subnet.id],
                 type="EC2",
             ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
+            service_role=aws_batch_service_role.arn,
+            type="MANAGED")
         ```
         ### Fargate Type
 
@@ -632,13 +649,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
+                security_group_ids=[sample_aws_security_group["id"]],
+                subnets=[sample_aws_subnet["id"]],
                 type="FARGATE",
             ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
+            service_role=aws_batch_service_role["arn"],
+            type="MANAGED")
         ```
         ### Setting Update Policy
 
@@ -650,12 +666,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
                 allocation_strategy="BEST_FIT_PROGRESSIVE",
-                instance_role=aws_iam_instance_profile["ecs_instance"]["arn"],
+                instance_role=ecs_instance["arn"],
                 instance_types=["optimal"],
                 max_vcpus=4,
                 min_vcpus=0,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
+                security_group_ids=[sample_aws_security_group["id"]],
+                subnets=[sample_aws_subnet["id"]],
                 type="EC2",
             ),
             update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(

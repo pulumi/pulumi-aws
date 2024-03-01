@@ -436,27 +436,32 @@ class Permission(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "lambda.amazonaws.com",
-                },
-            }],
-        }))
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
+                    },
+                }],
+            }))
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambdatest.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
             runtime="nodejs16.x")
-        test_alias = aws.lambda_.Alias("testAlias",
+        test_alias = aws.lambda_.Alias("test_alias",
+            name="testalias",
             description="a sample description",
             function_name=test_lambda.name,
             function_version="$LATEST")
-        allow_cloudwatch = aws.lambda_.Permission("allowCloudwatch",
+        allow_cloudwatch = aws.lambda_.Permission("allow_cloudwatch",
+            statement_id="AllowExecutionFromCloudWatch",
             action="lambda:InvokeFunction",
             function=test_lambda.name,
             principal="events.amazonaws.com",
@@ -470,30 +475,34 @@ class Permission(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "lambda.amazonaws.com",
-                },
-            }],
-        }))
+        default = aws.sns.Topic("default", name="call-lambda-maybe")
+        default_role = aws.iam.Role("default",
+            name="iam_for_lambda_with_sns",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
+                    },
+                }],
+            }))
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("lambdatest.zip"),
+            name="lambda_called_from_sns",
             role=default_role.arn,
             handler="exports.handler",
             runtime="python3.7")
-        with_sns = aws.lambda_.Permission("withSns",
+        with_sns = aws.lambda_.Permission("with_sns",
+            statement_id="AllowExecutionFromSNS",
             action="lambda:InvokeFunction",
             function=func.name,
             principal="sns.amazonaws.com",
-            source_arn=default_topic.arn)
+            source_arn=default.arn)
         lambda_ = aws.sns.TopicSubscription("lambda",
-            topic=default_topic.arn,
+            topic=default.arn,
             protocol="lambda",
             endpoint=func.arn)
         ```
@@ -503,8 +512,11 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        lambda_permission = aws.lambda_.Permission("lambdaPermission",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        lambda_permission = aws.lambda_.Permission("lambda_permission",
+            statement_id="AllowMyDemoAPIInvoke",
             action="lambda:InvokeFunction",
             function="MyDemoFunction",
             principal="apigateway.amazonaws.com",
@@ -516,7 +528,7 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
+        default = aws.cloudwatch.LogGroup("default", name="/default")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -525,22 +537,25 @@ class Permission(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=assume_role.json)
-        logging_function = aws.lambda_.Function("loggingFunction",
+        default_role = aws.iam.Role("default",
+            name="iam_for_lambda_called_from_cloudwatch_logs",
+            assume_role_policy=assume_role.json)
+        logging_function = aws.lambda_.Function("logging",
             code=pulumi.FileArchive("lamba_logging.zip"),
+            name="lambda_called_from_cloudwatch_logs",
             handler="exports.handler",
             role=default_role.arn,
             runtime="python3.7")
-        logging_permission = aws.lambda_.Permission("loggingPermission",
+        logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
             function=logging_function.name,
             principal="logs.eu-west-1.amazonaws.com",
-            source_arn=default_log_group.arn.apply(lambda arn: f"{arn}:*"))
-        logging_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter",
+            source_arn=default.arn.apply(lambda arn: f"{arn}:*"))
+        logging_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("logging",
             destination_arn=logging_function.arn,
             filter_pattern="",
-            log_group=default_log_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
+            log_group=default.name,
+            name="logging_default")
         ```
         ### With Cross-Account Invocation Policy
 
@@ -548,12 +563,12 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        url_function_url = aws.lambda_.FunctionUrl("urlFunctionUrl",
-            function_name=aws_lambda_function["example"]["function_name"],
+        url = aws.lambda_.FunctionUrl("url",
+            function_name=example["functionName"],
             authorization_type="AWS_IAM")
-        url_permission = aws.lambda_.Permission("urlPermission",
+        url_permission = aws.lambda_.Permission("url",
             action="lambda:InvokeFunctionUrl",
-            function=aws_lambda_function["example"]["function_name"],
+            function=example["functionName"],
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
@@ -568,7 +583,7 @@ class Permission(pulumi.CustomResource):
 
         logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["function_name"],
+            function=example["functionName"],
             principal="events.amazonaws.com",
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
@@ -623,27 +638,32 @@ class Permission(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "lambda.amazonaws.com",
-                },
-            }],
-        }))
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
+                    },
+                }],
+            }))
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambdatest.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
             runtime="nodejs16.x")
-        test_alias = aws.lambda_.Alias("testAlias",
+        test_alias = aws.lambda_.Alias("test_alias",
+            name="testalias",
             description="a sample description",
             function_name=test_lambda.name,
             function_version="$LATEST")
-        allow_cloudwatch = aws.lambda_.Permission("allowCloudwatch",
+        allow_cloudwatch = aws.lambda_.Permission("allow_cloudwatch",
+            statement_id="AllowExecutionFromCloudWatch",
             action="lambda:InvokeFunction",
             function=test_lambda.name,
             principal="events.amazonaws.com",
@@ -657,30 +677,34 @@ class Permission(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "lambda.amazonaws.com",
-                },
-            }],
-        }))
+        default = aws.sns.Topic("default", name="call-lambda-maybe")
+        default_role = aws.iam.Role("default",
+            name="iam_for_lambda_with_sns",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
+                    },
+                }],
+            }))
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("lambdatest.zip"),
+            name="lambda_called_from_sns",
             role=default_role.arn,
             handler="exports.handler",
             runtime="python3.7")
-        with_sns = aws.lambda_.Permission("withSns",
+        with_sns = aws.lambda_.Permission("with_sns",
+            statement_id="AllowExecutionFromSNS",
             action="lambda:InvokeFunction",
             function=func.name,
             principal="sns.amazonaws.com",
-            source_arn=default_topic.arn)
+            source_arn=default.arn)
         lambda_ = aws.sns.TopicSubscription("lambda",
-            topic=default_topic.arn,
+            topic=default.arn,
             protocol="lambda",
             endpoint=func.arn)
         ```
@@ -690,8 +714,11 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        lambda_permission = aws.lambda_.Permission("lambdaPermission",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        lambda_permission = aws.lambda_.Permission("lambda_permission",
+            statement_id="AllowMyDemoAPIInvoke",
             action="lambda:InvokeFunction",
             function="MyDemoFunction",
             principal="apigateway.amazonaws.com",
@@ -703,7 +730,7 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
+        default = aws.cloudwatch.LogGroup("default", name="/default")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -712,22 +739,25 @@ class Permission(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=assume_role.json)
-        logging_function = aws.lambda_.Function("loggingFunction",
+        default_role = aws.iam.Role("default",
+            name="iam_for_lambda_called_from_cloudwatch_logs",
+            assume_role_policy=assume_role.json)
+        logging_function = aws.lambda_.Function("logging",
             code=pulumi.FileArchive("lamba_logging.zip"),
+            name="lambda_called_from_cloudwatch_logs",
             handler="exports.handler",
             role=default_role.arn,
             runtime="python3.7")
-        logging_permission = aws.lambda_.Permission("loggingPermission",
+        logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
             function=logging_function.name,
             principal="logs.eu-west-1.amazonaws.com",
-            source_arn=default_log_group.arn.apply(lambda arn: f"{arn}:*"))
-        logging_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter",
+            source_arn=default.arn.apply(lambda arn: f"{arn}:*"))
+        logging_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("logging",
             destination_arn=logging_function.arn,
             filter_pattern="",
-            log_group=default_log_group.name,
-            opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
+            log_group=default.name,
+            name="logging_default")
         ```
         ### With Cross-Account Invocation Policy
 
@@ -735,12 +765,12 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        url_function_url = aws.lambda_.FunctionUrl("urlFunctionUrl",
-            function_name=aws_lambda_function["example"]["function_name"],
+        url = aws.lambda_.FunctionUrl("url",
+            function_name=example["functionName"],
             authorization_type="AWS_IAM")
-        url_permission = aws.lambda_.Permission("urlPermission",
+        url_permission = aws.lambda_.Permission("url",
             action="lambda:InvokeFunctionUrl",
-            function=aws_lambda_function["example"]["function_name"],
+            function=example["functionName"],
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
@@ -755,7 +785,7 @@ class Permission(pulumi.CustomResource):
 
         logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["function_name"],
+            function=example["functionName"],
             principal="events.amazonaws.com",
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```

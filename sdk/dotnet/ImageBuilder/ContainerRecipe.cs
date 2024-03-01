@@ -24,19 +24,20 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
     ///     {
+    ///         Name = "example",
     ///         Version = "1.0.0",
     ///         ContainerType = "DOCKER",
     ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
     ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
     ///         {
-    ///             RepositoryName = aws_ecr_repository.Example.Name,
+    ///             RepositoryName = exampleAwsEcrRepository.Name,
     ///             Service = "ECR",
     ///         },
     ///         Components = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs

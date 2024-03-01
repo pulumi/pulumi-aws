@@ -36,12 +36,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// e.g., Create subnets in the first two available availability zones
 //			_, err = ec2.NewSubnet(ctx, "primary", &ec2.SubnetArgs{
 //				AvailabilityZone: *pulumi.String(available.Names[0]),
 //			})

@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testModels = aws.bedrockfoundation.getModels({});
- * const testModel = testModels.then(testModels => aws.bedrockfoundation.getModel({
- *     modelId: testModels.modelSummaries?.[0]?.modelId,
+ * const test = aws.bedrockfoundation.getModels({});
+ * const testGetModel = test.then(test => aws.bedrockfoundation.getModel({
+ *     modelId: test.modelSummaries?.[0]?.modelId,
  * }));
  * ```
  */
@@ -87,9 +87,9 @@ export interface GetModelResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testModels = aws.bedrockfoundation.getModels({});
- * const testModel = testModels.then(testModels => aws.bedrockfoundation.getModel({
- *     modelId: testModels.modelSummaries?.[0]?.modelId,
+ * const test = aws.bedrockfoundation.getModels({});
+ * const testGetModel = test.then(test => aws.bedrockfoundation.getModel({
+ *     modelId: test.modelSummaries?.[0]?.modelId,
  * }));
  * ```
  */

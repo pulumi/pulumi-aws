@@ -487,6 +487,7 @@ class ElasticCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.docdb.ElasticCluster("example",
+            name="my-docdb-cluster",
             admin_user_name="foo",
             admin_user_password="mustbeeightchars",
             auth_type="PLAIN_TEXT",
@@ -535,6 +536,7 @@ class ElasticCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.docdb.ElasticCluster("example",
+            name="my-docdb-cluster",
             admin_user_name="foo",
             admin_user_password="mustbeeightchars",
             auth_type="PLAIN_TEXT",

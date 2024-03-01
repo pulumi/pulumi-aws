@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AccountSettingDefault(&#34;test&#34;, AccountSettingDefaultArgs.builder()        
+ *             .name(&#34;taskLongArnFormat&#34;)
  *             .value(&#34;enabled&#34;)
  *             .build());
  * 

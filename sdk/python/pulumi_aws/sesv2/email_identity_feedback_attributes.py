@@ -108,9 +108,9 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
+            email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
 
@@ -143,9 +143,9 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
+            email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
 

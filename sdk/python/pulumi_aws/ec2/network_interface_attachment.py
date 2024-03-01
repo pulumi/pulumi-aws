@@ -171,8 +171,8 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterfaceAttachment("test",
-            instance_id=aws_instance["test"]["id"],
-            network_interface_id=aws_network_interface["test"]["id"],
+            instance_id=test_aws_instance["id"],
+            network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
 
@@ -206,8 +206,8 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterfaceAttachment("test",
-            instance_id=aws_instance["test"]["id"],
-            network_interface_id=aws_network_interface["test"]["id"],
+            instance_id=test_aws_instance["id"],
+            network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
 

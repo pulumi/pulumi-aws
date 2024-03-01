@@ -278,6 +278,7 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
+            name="example_name",
             description="example description",
             report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
                 formats=[
@@ -326,6 +327,7 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
+            name="example_name",
             description="example description",
             report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
                 formats=[

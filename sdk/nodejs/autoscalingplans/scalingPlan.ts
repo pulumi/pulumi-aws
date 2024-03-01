@@ -16,6 +16,104 @@ import * as utilities from "../utilities";
  * See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
  *
  * ## Example Usage
+ * ### Basic Dynamic Scaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const available = aws.getAvailabilityZones({});
+ * const example = new aws.autoscaling.Group("example", {
+ *     namePrefix: "example",
+ *     launchConfiguration: exampleAwsLaunchConfiguration.name,
+ *     availabilityZones: [available.then(available => available.names?.[0])],
+ *     minSize: 0,
+ *     maxSize: 3,
+ *     tags: [{
+ *         key: "application",
+ *         value: "example",
+ *         propagateAtLaunch: true,
+ *     }],
+ * });
+ * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-dynamic-cost-optimization",
+ *     applicationSource: {
+ *         tagFilters: [{
+ *             key: "application",
+ *             values: ["example"],
+ *         }],
+ *     },
+ *     scalingInstructions: [{
+ *         maxCapacity: 3,
+ *         minCapacity: 0,
+ *         resourceId: notImplemented("format(\"autoScalingGroup/%s\",aws_autoscaling_group.example.name)"),
+ *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
+ *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
+ *     }],
+ * });
+ * ```
+ * ### Basic Predictive Scaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const available = aws.getAvailabilityZones({});
+ * const example = new aws.autoscaling.Group("example", {
+ *     namePrefix: "example",
+ *     launchConfiguration: exampleAwsLaunchConfiguration.name,
+ *     availabilityZones: [available.then(available => available.names?.[0])],
+ *     minSize: 0,
+ *     maxSize: 3,
+ *     tags: [{
+ *         key: "application",
+ *         value: "example",
+ *         propagateAtLaunch: true,
+ *     }],
+ * });
+ * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-predictive-cost-optimization",
+ *     applicationSource: {
+ *         tagFilters: [{
+ *             key: "application",
+ *             values: ["example"],
+ *         }],
+ *     },
+ *     scalingInstructions: [{
+ *         disableDynamicScaling: true,
+ *         maxCapacity: 3,
+ *         minCapacity: 0,
+ *         resourceId: notImplemented("format(\"autoScalingGroup/%s\",aws_autoscaling_group.example.name)"),
+ *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
+ *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
+ *         predictiveScalingMaxCapacityBehavior: "SetForecastCapacityToMaxCapacity",
+ *         predictiveScalingMode: "ForecastAndScale",
+ *         predefinedLoadMetricSpecification: {
+ *             predefinedLoadMetricType: "ASGTotalCPUUtilization",
+ *         },
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

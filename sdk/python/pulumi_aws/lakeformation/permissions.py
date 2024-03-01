@@ -442,9 +442,9 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
+        current = aws.get_caller_identity()
+        current_get_session_context = aws.iam.get_session_context(arn=current.arn)
+        test = aws.lakeformation.DataLakeSettings("test", admins=[current_get_session_context.issuer_arn])
         ```
 
         To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
@@ -466,17 +466,17 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
+        example = aws.glue.CatalogDatabase("example", name="sadabate")
+        example_catalog_table = aws.glue.CatalogTable("example",
             name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
+            database_name=test["name"],
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
                 columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
                     name="event",
                     type="string",
                 )],
             ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
+        example_permissions = aws.lakeformation.Permissions("example",
             permissions=["SELECT"],
             principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
             table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
@@ -508,10 +508,10 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+            principal=workflow_role["arn"],
             permissions=["DATA_LOCATION_ACCESS"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
+                arn=example_aws_lakeformation_resource["arn"],
             ))
         ```
         ### Grant Permissions For A Glue Catalog Database
@@ -521,14 +521,14 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+            principal=workflow_role["arn"],
             permissions=[
                 "CREATE_TABLE",
                 "ALTER",
                 "DROP",
             ],
             database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
                 catalog_id="110376042874",
             ))
         ```
@@ -539,7 +539,7 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
+            principal=sales_role["arn"],
             permissions=[
                 "CREATE_TABLE",
                 "ALTER",
@@ -611,9 +611,9 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
+        current = aws.get_caller_identity()
+        current_get_session_context = aws.iam.get_session_context(arn=current.arn)
+        test = aws.lakeformation.DataLakeSettings("test", admins=[current_get_session_context.issuer_arn])
         ```
 
         To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
@@ -635,17 +635,17 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
+        example = aws.glue.CatalogDatabase("example", name="sadabate")
+        example_catalog_table = aws.glue.CatalogTable("example",
             name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
+            database_name=test["name"],
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
                 columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
                     name="event",
                     type="string",
                 )],
             ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
+        example_permissions = aws.lakeformation.Permissions("example",
             permissions=["SELECT"],
             principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
             table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
@@ -677,10 +677,10 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+            principal=workflow_role["arn"],
             permissions=["DATA_LOCATION_ACCESS"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
+                arn=example_aws_lakeformation_resource["arn"],
             ))
         ```
         ### Grant Permissions For A Glue Catalog Database
@@ -690,14 +690,14 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+            principal=workflow_role["arn"],
             permissions=[
                 "CREATE_TABLE",
                 "ALTER",
                 "DROP",
             ],
             database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
                 catalog_id="110376042874",
             ))
         ```
@@ -708,7 +708,7 @@ class Permissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
+            principal=sales_role["arn"],
             permissions=[
                 "CREATE_TABLE",
                 "ALTER",

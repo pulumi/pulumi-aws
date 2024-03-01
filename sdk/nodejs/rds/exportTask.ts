@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.rds.ExportTask("example", {
  *     exportTaskIdentifier: "example",
- *     sourceArn: aws_db_snapshot.example.db_snapshot_arn,
- *     s3BucketName: aws_s3_bucket.example.id,
- *     iamRoleArn: aws_iam_role.example.arn,
- *     kmsKeyId: aws_kms_key.example.arn,
+ *     sourceArn: exampleAwsDbSnapshot.dbSnapshotArn,
+ *     s3BucketName: exampleAwsS3Bucket.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     kmsKeyId: exampleAwsKmsKey.arn,
  * });
  * ```
  * ### Complete Usage
@@ -31,23 +31,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "export.rds.amazonaws.com",
- *         },
- *     }],
- * })});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "export.rds.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             actions: ["s3:ListAllMyBuckets"],
@@ -70,13 +76,16 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example",
+ *     policy: example.apply(example => example.json),
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     role: exampleRole.name,
  *     policyArn: examplePolicy.arn,
  * });
- * const exampleKey = new aws.kms.Key("exampleKey", {deletionWindowInDays: 10});
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ * const exampleKey = new aws.kms.Key("example", {deletionWindowInDays: 10});
+ * const exampleInstance = new aws.rds.Instance("example", {
  *     identifier: "example",
  *     allocatedStorage: 10,
  *     dbName: "test",
@@ -88,11 +97,11 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.mysql5.7",
  *     skipFinalSnapshot: true,
  * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.rds.Snapshot("example", {
  *     dbInstanceIdentifier: exampleInstance.identifier,
  *     dbSnapshotIdentifier: "example",
  * });
- * const exampleExportTask = new aws.rds.ExportTask("exampleExportTask", {
+ * const exampleExportTask = new aws.rds.ExportTask("example", {
  *     exportTaskIdentifier: "example",
  *     sourceArn: exampleSnapshot.dbSnapshotArn,
  *     s3BucketName: exampleBucketV2.id,

@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpnGatewayRoutePropagation(&#34;example&#34;, VpnGatewayRoutePropagationArgs.builder()        
- *             .vpnGatewayId(aws_vpn_gateway.example().id())
- *             .routeTableId(aws_route_table.example().id())
+ *             .vpnGatewayId(exampleAwsVpnGateway.id())
+ *             .routeTableId(exampleAwsRouteTable.id())
  *             .build());
  * 
  *     }

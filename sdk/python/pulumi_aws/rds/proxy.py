@@ -425,18 +425,19 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",
@@ -481,18 +482,19 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",

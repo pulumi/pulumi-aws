@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryCluster, err := rds.NewCluster(ctx, "primaryCluster", &rds.ClusterArgs{
+//			primary, err := rds.NewCluster(ctx, "primary", &rds.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
@@ -49,41 +49,39 @@ import (
 //				DatabaseName:            pulumi.String("example_db"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryClusterInstance, err := rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "primary", &rds.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primaryCluster.ID(),
+//				ClusterIdentifier: primary.ID(),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				DbSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryCluster, err := rds.NewCluster(ctx, "secondaryCluster", &rds.ClusterArgs{
+//			secondary, err := rds.NewCluster(ctx, "secondary", &rds.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterInstance(ctx, "secondaryClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "secondary", &rds.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondaryCluster.ID(),
+//				ClusterIdentifier: secondary.ID(),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				DbSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -99,7 +97,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -107,18 +104,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			example, err := rds.NewGlobalCluster(ctx, "example", &rds.GlobalClusterArgs{
 //				GlobalClusterIdentifier: pulumi.String("global-test"),
 //				Engine:                  pulumi.String("aurora-postgresql"),
@@ -128,7 +113,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryCluster, err := rds.NewCluster(ctx, "primaryCluster", &rds.ClusterArgs{
+//			primary, err := rds.NewCluster(ctx, "primary", &rds.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
@@ -137,42 +122,40 @@ import (
 //				DatabaseName:            pulumi.String("example_db"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryClusterInstance, err := rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "primary", &rds.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primaryCluster.ID(),
+//				ClusterIdentifier: primary.ID(),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				DbSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryCluster, err := rds.NewCluster(ctx, "secondaryCluster", &rds.ClusterArgs{
+//			secondary, err := rds.NewCluster(ctx, "secondary", &rds.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
 //				GlobalClusterIdentifier: example.ID(),
 //				SkipFinalSnapshot:       pulumi.Bool(true),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterInstance(ctx, "secondaryClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "secondary", &rds.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondaryCluster.ID(),
+//				ClusterIdentifier: secondary.ID(),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				DbSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -195,15 +178,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration ...
-//			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", nil)
+//			example, err := rds.NewCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewGlobalCluster(ctx, "exampleGlobalCluster", &rds.GlobalClusterArgs{
+//			_, err = rds.NewGlobalCluster(ctx, "example", &rds.GlobalClusterArgs{
 //				ForceDestroy:              pulumi.Bool(true),
 //				GlobalClusterIdentifier:   pulumi.String("example"),
-//				SourceDbClusterIdentifier: exampleCluster.Arn,
+//				SourceDbClusterIdentifier: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -237,7 +219,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryCluster, err := rds.NewCluster(ctx, "primaryCluster", &rds.ClusterArgs{
+//			primary, err := rds.NewCluster(ctx, "primary", &rds.ClusterArgs{
 //				AllowMajorVersionUpgrade: pulumi.Bool(true),
 //				ApplyImmediately:         pulumi.Bool(true),
 //				ClusterIdentifier:        pulumi.String("odessadnipro"),
@@ -252,11 +234,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
+//			_, err = rds.NewClusterInstance(ctx, "primary", &rds.ClusterInstanceArgs{
 //				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: primaryCluster.ID(),
-//				Engine:            primaryCluster.Engine,
-//				EngineVersion:     primaryCluster.EngineVersion,
+//				ClusterIdentifier: primary.ID(),
+//				Engine:            primary.Engine,
+//				EngineVersion:     primary.EngineVersion,
 //				Identifier:        pulumi.String("donetsklviv"),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //			})

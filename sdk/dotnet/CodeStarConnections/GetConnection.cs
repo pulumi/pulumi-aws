@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///         Arn = exampleAwsCodestarconnectionsConnection.Arn,
         ///     });
         /// 
         /// });
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///         Name = exampleAwsCodestarconnectionsConnection.Name,
         ///     });
         /// 
         /// });
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///         Arn = exampleAwsCodestarconnectionsConnection.Arn,
         ///     });
         /// 
         /// });
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///         Name = exampleAwsCodestarconnectionsConnection.Name,
         ///     });
         /// 
         /// });

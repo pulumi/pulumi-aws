@@ -28,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := appconfig.NewApplication(ctx, "exampleApplication", &appconfig.ApplicationArgs{
+//			exampleApplication, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
+//				Name:        pulumi.String("example-application-tf"),
 //				Description: pulumi.String("Example AppConfig Application"),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Application"),
@@ -37,13 +38,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appconfig.NewEnvironment(ctx, "exampleEnvironment", &appconfig.EnvironmentArgs{
+//			_, err = appconfig.NewEnvironment(ctx, "example", &appconfig.EnvironmentArgs{
+//				Name:          pulumi.String("example-environment-tf"),
 //				Description:   pulumi.String("Example AppConfig Environment"),
 //				ApplicationId: exampleApplication.ID(),
 //				Monitors: appconfig.EnvironmentMonitorArray{
 //					&appconfig.EnvironmentMonitorArgs{
-//						AlarmArn:     pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
-//						AlarmRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//						AlarmArn:     pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
+//						AlarmRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

@@ -138,8 +138,10 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -157,7 +159,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="PublicKeyPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
+                value=std.file(input="wu-tang-pubkey").result,
             )])
         wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
             load_balancer_name=wu_tang.name,
@@ -165,7 +167,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
+                value=wu_tang_root_ca_pubkey_policy["policyName"],
             )])
         wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
             load_balancer_name=wu_tang.name,
@@ -193,8 +195,10 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -212,7 +216,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="PublicKeyPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
+                value=std.file(input="wu-tang-pubkey").result,
             )])
         wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
             load_balancer_name=wu_tang.name,
@@ -220,7 +224,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
+                value=wu_tang_root_ca_pubkey_policy["policyName"],
             )])
         wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
             load_balancer_name=wu_tang.name,

@@ -1161,13 +1161,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.neptune.Cluster("default",
-            apply_immediately=True,
-            backup_retention_period=5,
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
-            iam_database_authentication_enabled=True,
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
+            skip_final_snapshot=True,
+            iam_database_authentication_enabled=True,
+            apply_immediately=True)
         ```
 
         > **Note:** AWS Neptune does not support user name/password–based access control.
@@ -1238,13 +1238,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.neptune.Cluster("default",
-            apply_immediately=True,
-            backup_retention_period=5,
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
-            iam_database_authentication_enabled=True,
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
+            skip_final_snapshot=True,
+            iam_database_authentication_enabled=True,
+            apply_immediately=True)
         ```
 
         > **Note:** AWS Neptune does not support user name/password–based access control.

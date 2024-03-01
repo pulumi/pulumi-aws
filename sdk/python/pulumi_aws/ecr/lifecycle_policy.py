@@ -127,7 +127,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -155,7 +155,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -211,7 +211,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -239,7 +239,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{

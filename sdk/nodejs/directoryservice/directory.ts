@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2.Subnet("bar", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const bar = new aws.directoryservice.Directory("bar", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2.Subnet("bar", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const bar = new aws.directoryservice.Directory("bar", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     edition: "Standard",

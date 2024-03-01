@@ -30,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			example, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,8 +60,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = sns.NewDataProtectionPolicy(ctx, "exampleDataProtectionPolicy", &sns.DataProtectionPolicyArgs{
-//				Arn:    exampleTopic.Arn,
+//			_, err = sns.NewDataProtectionPolicy(ctx, "example", &sns.DataProtectionPolicyArgs{
+//				Arn:    example.Arn,
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {

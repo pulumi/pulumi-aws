@@ -32,7 +32,8 @@ import (
 //				KafkaVersions: pulumi.StringArray{
 //					pulumi.String("2.1.0"),
 //				},
-//				ServerProperties: pulumi.String("auto.create.topics.enable = true\ndelete.topic.enable = true\n\n"),
+//				Name:             pulumi.String("example"),
+//				ServerProperties: pulumi.String("auto.create.topics.enable = true\ndelete.topic.enable = true\n"),
 //			})
 //			if err != nil {
 //				return err

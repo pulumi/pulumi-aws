@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
  *         var exampleVpcIpamScope = new VpcIpamScope(&#34;exampleVpcIpamScope&#34;, VpcIpamScopeArgs.builder()        
- *             .ipamId(exampleVpcIpam.id())
+ *             .ipamId(example.id())
  *             .description(&#34;Another Scope&#34;)
  *             .build());
  * 

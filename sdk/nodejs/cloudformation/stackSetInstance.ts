@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudformation.StackSetInstance("example", {
  *     accountId: "123456789012",
  *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
+ *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
  * ### Example IAM Setup in Target Account
@@ -38,13 +38,18 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
  *         principals: [{
- *             identifiers: [aws_iam_role.AWSCloudFormationStackSetAdministrationRole.arn],
+ *             identifiers: [aWSCloudFormationStackSetAdministrationRole.arn],
  *             type: "AWS",
  *         }],
  *     }],
  * });
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("aWSCloudFormationStackSetExecutionRole", {assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json)});
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
+ *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json),
+ *     name: "AWSCloudFormationStackSetExecutionRole",
+ * });
+ * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+ * // Additional IAM permissions necessary depend on the resources defined in the StackSet template
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "cloudformation:*",
@@ -55,8 +60,9 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json),
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
+ *     name: "MinimumExecutionPolicy",
+ *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.json),
  *     role: aWSCloudFormationStackSetExecutionRole.name,
  * });
  * ```
@@ -68,10 +74,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cloudformation.StackSetInstance("example", {
  *     deploymentTargets: {
- *         organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
+ *         organizationalUnitIds: [exampleAwsOrganizationsOrganization.roots[0].id],
  *     },
  *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
+ *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
  *

@@ -16,8 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloud9.EnvironmentEC2("example", {
- *     imageId: "amazonlinux-2023-x86_64",
  *     instanceType: "t2.micro",
+ *     name: "example-env",
+ *     imageId: "amazonlinux-2023-x86_64",
  * });
  * ```
  *
@@ -34,7 +35,7 @@ import * as utilities from "../utilities";
  *         values: [example.id],
  *     }],
  * });
- * export const cloud9Url = pulumi.interpolate`https://${_var.region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
+ * export const cloud9Url = pulumi.interpolate`https://${region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
  * ```
  *
  * Allocate a static IP to the Cloud9 environment:
@@ -50,7 +51,7 @@ import * as utilities from "../utilities";
  *         values: [example.id],
  *     }],
  * });
- * const cloud9Eip = new aws.ec2.Eip("cloud9Eip", {
+ * const cloud9Eip = new aws.ec2.Eip("cloud9_eip", {
  *     instance: cloud9Instance.apply(cloud9Instance => cloud9Instance.id),
  *     domain: "vpc",
  * });

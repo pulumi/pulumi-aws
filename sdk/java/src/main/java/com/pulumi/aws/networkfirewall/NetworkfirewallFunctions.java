@@ -47,7 +47,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -105,7 +105,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -144,7 +144,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -202,7 +202,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -241,7 +241,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -299,7 +299,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -338,7 +338,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -396,7 +396,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -435,7 +435,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -493,7 +493,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -532,7 +532,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
@@ -590,7 +590,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
@@ -629,7 +629,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -658,7 +658,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -687,8 +687,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -730,7 +730,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -759,7 +759,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -788,8 +788,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -831,7 +831,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -860,7 +860,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -889,8 +889,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -932,7 +932,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -961,7 +961,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -990,8 +990,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -1033,7 +1033,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -1062,7 +1062,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -1091,8 +1091,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -1134,7 +1134,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -1163,7 +1163,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
@@ -1192,8 +1192,8 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
@@ -1234,7 +1234,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
@@ -1271,7 +1271,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
@@ -1308,7 +1308,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
@@ -1345,7 +1345,7 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }

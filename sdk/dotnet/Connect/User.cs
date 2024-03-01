@@ -26,12 +26,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -59,13 +60,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///         HierarchyGroupId = aws_connect_user_hierarchy_group.Example.Hierarchy_group_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
+    ///         HierarchyGroupId = exampleAwsConnectUserHierarchyGroup.HierarchyGroupId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -93,12 +95,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -127,12 +130,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
     ///         {
@@ -155,13 +159,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
-    ///             aws_connect_security_profile.Example2.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///             example2.SecurityProfileId,
     ///         },
     ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
     ///         {

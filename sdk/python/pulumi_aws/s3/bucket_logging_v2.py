@@ -245,16 +245,16 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             acl="private")
-        log_bucket = aws.s3.BucketV2("logBucket")
-        log_bucket_acl = aws.s3.BucketAclV2("logBucketAcl",
+        log_bucket = aws.s3.BucketV2("log_bucket", bucket="my-tf-log-bucket")
+        log_bucket_acl = aws.s3.BucketAclV2("log_bucket_acl",
             bucket=log_bucket.id,
             acl="log-delivery-write")
-        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("exampleBucketLoggingV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("example",
+            bucket=example.id,
             target_bucket=log_bucket.id,
             target_prefix="log/")
         ```
@@ -306,16 +306,16 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             acl="private")
-        log_bucket = aws.s3.BucketV2("logBucket")
-        log_bucket_acl = aws.s3.BucketAclV2("logBucketAcl",
+        log_bucket = aws.s3.BucketV2("log_bucket", bucket="my-tf-log-bucket")
+        log_bucket_acl = aws.s3.BucketAclV2("log_bucket_acl",
             bucket=log_bucket.id,
             acl="log-delivery-write")
-        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("exampleBucketLoggingV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("example",
+            bucket=example.id,
             target_bucket=log_bucket.id,
             target_prefix="log/")
         ```

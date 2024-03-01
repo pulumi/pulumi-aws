@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const task = new aws.emr.InstanceFleet("task", {
- *     clusterId: aws_emr_cluster.cluster.id,
+ *     clusterId: cluster.id,
  *     instanceTypeConfigs: [
  *         {
  *             bidPriceAsPercentageOfOnDemandPrice: 100,
@@ -53,6 +53,7 @@ import * as utilities from "../utilities";
  *             timeoutDurationMinutes: 10,
  *         }],
  *     },
+ *     name: "task fleet",
  *     targetOnDemandCapacity: 1,
  *     targetSpotCapacity: 1,
  * });

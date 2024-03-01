@@ -15,8 +15,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.SecurityProfile("example", {
- *     description: "example description",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
+ *     description: "example description",
  *     permissions: [
  *         "BasicAgentAccess",
  *         "OutboundCallAccess",

@@ -13,6 +13,40 @@ namespace Pulumi.Aws.FinSpace
     /// Resource for managing an AWS FinSpace Kx Dataview.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.FinSpace.KxDataview("example", new()
+    ///     {
+    ///         Name = "my-tf-kx-dataview",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         DatabaseName = exampleAwsFinspaceKxDatabase.Name,
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         Description = "Terraform managed Kx Dataview",
+    ///         AzMode = "SINGLE",
+    ///         AutoUpdate = true,
+    ///         SegmentConfigurations = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxDataviewSegmentConfigurationArgs
+    ///             {
+    ///                 VolumeName = exampleAwsFinspaceKxVolume.Name,
+    ///                 DbPaths = new[]
+    ///                 {
+    ///                     "/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

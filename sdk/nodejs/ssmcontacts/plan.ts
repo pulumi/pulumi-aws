@@ -47,15 +47,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const escalationPlan = new aws.ssmcontacts.Contact("escalationPlan", {
+ * const escalationPlan = new aws.ssmcontacts.Contact("escalation_plan", {
  *     alias: "escalation-plan-alias",
  *     type: "ESCALATION",
  * });
- * const contactOne = new aws.ssmcontacts.Contact("contactOne", {
+ * const contactOne = new aws.ssmcontacts.Contact("contact_one", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
- * const contactTwo = new aws.ssmcontacts.Contact("contactTwo", {
+ * const contactTwo = new aws.ssmcontacts.Contact("contact_two", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *             {
  *                 channelTargetInfo: {
  *                     retryIntervalInMinutes: 2,
- *                     contactChannelId: aws_ssmcontacts_contact_channel.channel.arn,
+ *                     contactChannelId: channel.arn,
  *                 },
  *             },
  *         ],

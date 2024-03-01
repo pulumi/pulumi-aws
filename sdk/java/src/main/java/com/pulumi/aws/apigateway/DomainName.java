@@ -72,66 +72,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
- *             .certificateArn(aws_acm_certificate_validation.example().certificate_arn())
+ *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
+ *             .certificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .domainName(&#34;api.example.com&#34;)
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
+ *             .name(example.domainName())
  *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().id())
+ *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.cloudfrontDomainName())
- *                 .zoneId(exampleDomainName.cloudfrontZoneId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Edge Optimized (IAM Certificate)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.DomainName;
- * import com.pulumi.aws.apigateway.DomainNameArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;api.example.com&#34;)
- *             .certificateName(&#34;example-api&#34;)
- *             .certificateBody(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.crt&#34;, path.module()))))
- *             .certificateChain(Files.readString(Paths.get(String.format(&#34;%s/example.com/ca.crt&#34;, path.module()))))
- *             .certificatePrivateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
- *             .build());
- * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.example().id())
- *             .name(exampleDomainName.domainName())
- *             .type(&#34;A&#34;)
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.cloudfrontDomainName())
- *                 .zoneId(exampleDomainName.cloudfrontZoneId())
- *                 .evaluateTargetHealth(true)
+ *                 .name(example.cloudfrontDomainName())
+ *                 .zoneId(example.cloudfrontZoneId())
  *                 .build())
  *             .build());
  * 
@@ -139,7 +92,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Regional (ACM Certificate)
- * 
  * ```java
  * package generated_program;
  * 
@@ -165,74 +117,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
+ *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;api.example.com&#34;)
- *             .regionalCertificateArn(aws_acm_certificate_validation.example().certificate_arn())
+ *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
  *                 .types(&#34;REGIONAL&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
+ *             .name(example.domainName())
  *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().id())
+ *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.regionalDomainName())
- *                 .zoneId(exampleDomainName.regionalZoneId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Regional (IAM Certificate)
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.DomainName;
- * import com.pulumi.aws.apigateway.DomainNameArgs;
- * import com.pulumi.aws.apigateway.inputs.DomainNameEndpointConfigurationArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
- *             .certificateBody(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.crt&#34;, path.module()))))
- *             .certificateChain(Files.readString(Paths.get(String.format(&#34;%s/example.com/ca.crt&#34;, path.module()))))
- *             .certificatePrivateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
- *             .domainName(&#34;api.example.com&#34;)
- *             .regionalCertificateName(&#34;example-api&#34;)
- *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
- *                 .types(&#34;REGIONAL&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
- *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.regionalDomainName())
- *                 .zoneId(exampleDomainName.regionalZoneId())
+ *                 .name(example.regionalDomainName())
+ *                 .zoneId(example.regionalZoneId())
  *                 .build())
  *             .build());
  * 

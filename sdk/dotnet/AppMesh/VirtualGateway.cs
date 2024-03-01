@@ -25,6 +25,7 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
+    ///         Name = "example-virtual-gateway",
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
@@ -60,6 +61,7 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
+    ///         Name = "example-virtual-gateway",
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
@@ -78,7 +80,7 @@ namespace Pulumi.Aws.AppMesh
     ///                         {
     ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
     ///                             {
-    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
+    ///                                 CertificateArn = exampleAwsAcmCertificate.Arn,
     ///                             },
     ///                         },
     ///                         Mode = "STRICT",

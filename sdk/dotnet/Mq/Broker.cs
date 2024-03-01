@@ -31,17 +31,18 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
+    ///         BrokerName = "example",
     ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
-    ///             Id = aws_mq_configuration.Test.Id,
-    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             Id = test.Id,
+    ///             Revision = test.LatestRevision,
     ///         },
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.17.6",
     ///         HostInstanceType = "mq.t2.micro",
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///         Users = new[]
     ///         {
@@ -69,10 +70,11 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
+    ///         BrokerName = "example",
     ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
-    ///             Id = aws_mq_configuration.Test.Id,
-    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             Id = test.Id,
+    ///             Revision = test.LatestRevision,
     ///         },
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.17.6",
@@ -80,7 +82,7 @@ namespace Pulumi.Aws.Mq
     ///         HostInstanceType = "mq.m5.large",
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///         Users = new[]
     ///         {

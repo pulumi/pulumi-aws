@@ -32,12 +32,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "exampleBucketCorsConfigurationV2", &s3.BucketCorsConfigurationV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "example", &s3.BucketCorsConfigurationV2Args{
+//				Bucket: example.ID(),
 //				CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
 //					&s3.BucketCorsConfigurationV2CorsRuleArgs{
 //						AllowedHeaders: pulumi.StringArray{

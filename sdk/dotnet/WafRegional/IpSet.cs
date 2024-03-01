@@ -24,6 +24,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs

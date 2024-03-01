@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("securityhub.amazonaws.com"),
 //				},
@@ -38,20 +38,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err = securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &securityhub.OrganizationAdminAccountArgs{
+//			_, err = securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			// Auto enable security hub in organization member accounts
-//			_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
+//			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
 //				AutoEnable: pulumi.Bool(true),
 //			})
 //			if err != nil {

@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
-//				ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
-//				ResourceId:               pulumi.Any(aws_vpc.Example.Id),
+//				ResolverQueryLogConfigId: pulumi.Any(exampleAwsRoute53ResolverQueryLogConfig.Id),
+//				ResourceId:               pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err

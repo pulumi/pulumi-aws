@@ -45,11 +45,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
-    /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
     ///     {
-    ///         SecretId = exampleSecret.Id,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["username"] = "example",
@@ -57,19 +60,13 @@ namespace Pulumi.Aws.Sagemaker
     ///         }),
     ///     });
     /// 
-    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new()
+    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
     ///         CodeRepositoryName = "example",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
     ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///             SecretArn = exampleSecret.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleSecretVersion,
+    ///             SecretArn = example.Arn,
     ///         },
     ///     });
     /// 

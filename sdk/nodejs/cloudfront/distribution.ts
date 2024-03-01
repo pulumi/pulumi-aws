@@ -23,18 +23,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {tags: {
- *     Name: "My bucket",
- * }});
- * const bAcl = new aws.s3.BucketAclV2("bAcl", {
- *     bucket: bucketV2.id,
+ * const b = new aws.s3.BucketV2("b", {
+ *     bucket: "mybucket",
+ *     tags: {
+ *         Name: "My bucket",
+ *     },
+ * });
+ * const bAcl = new aws.s3.BucketAclV2("b_acl", {
+ *     bucket: b.id,
  *     acl: "private",
  * });
  * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     origins: [{
- *         domainName: bucketV2.bucketRegionalDomainName,
- *         originAccessControlId: aws_cloudfront_origin_access_control["default"].id,
+ *         domainName: b.bucketRegionalDomainName,
+ *         originAccessControlId: _default.id,
  *         originId: s3OriginId,
  *     }],
  *     enabled: true,
@@ -156,7 +159,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     originGroups: [{
  *         originId: "groupS3",
  *         failoverCriteria: {
@@ -178,17 +181,17 @@ import * as utilities from "../utilities";
  *     }],
  *     origins: [
  *         {
- *             domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
+ *             domainName: primary.bucketRegionalDomainName,
  *             originId: "primaryS3",
  *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *                 originAccessIdentity: _default.cloudfrontAccessIdentityPath,
  *             },
  *         },
  *         {
- *             domainName: aws_s3_bucket.failover.bucket_regional_domain_name,
+ *             domainName: failover.bucketRegionalDomainName,
  *             originId: "failoverS3",
  *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *                 originAccessIdentity: _default.cloudfrontAccessIdentityPath,
  *             },
  *         },
  *     ],
@@ -196,7 +199,6 @@ import * as utilities from "../utilities";
  *         targetOriginId: "groupS3",
  *     },
  * });
- * // ... other configuration ...
  * ```
  * ### With Managed Caching Policy
  *
@@ -207,12 +209,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     origins: [{
- *         domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
+ *         domainName: primary.bucketRegionalDomainName,
  *         originId: "myS3Origin",
  *         s3OriginConfig: {
- *             originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *             originAccessIdentity: _default.cloudfrontAccessIdentityPath,
  *         },
  *     }],
  *     enabled: true,
@@ -243,7 +245,6 @@ import * as utilities from "../utilities";
  *         cloudfrontDefaultCertificate: true,
  *     },
  * });
- * // ... other configuration ...
  * ```
  *
  * ## Import

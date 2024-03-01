@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedProduct(&#34;example&#34;, ProvisionedProductArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .productName(&#34;Example product&#34;)
  *             .provisioningArtifactName(&#34;Example version&#34;)
  *             .provisioningParameters(ProvisionedProductProvisioningParameterArgs.builder()

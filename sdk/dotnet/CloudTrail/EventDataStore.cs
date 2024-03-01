@@ -29,7 +29,10 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudTrail.EventDataStore("example");
+    ///     var example = new Aws.CloudTrail.EventDataStore("example", new()
+    ///     {
+    ///         Name = "example-event-data-store",
+    ///     });
     /// 
     /// });
     /// ```
@@ -53,7 +56,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         Name = "not-important-dynamodb-table",
     ///     });
     /// 
-    ///     // ... other configuration ...
     ///     var example = new Aws.CloudTrail.EventDataStore("example", new()
     ///     {
     ///         AdvancedEventSelectors = new[]

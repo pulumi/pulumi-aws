@@ -52,7 +52,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.CloudFront.Distribution("example", new()
     ///     {
     ///         Origins = new[]
@@ -61,7 +60,7 @@ namespace Pulumi.Aws.CloudFront
     ///             {
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
+    ///                     OriginAccessIdentity = exampleAwsCloudfrontOriginAccessIdentity.CloudfrontAccessIdentityPath,
     ///                 },
     ///             },
     ///         },
@@ -97,7 +96,7 @@ namespace Pulumi.Aws.CloudFront
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{aws_s3_bucket.Example.Arn}/*",
+    ///                     $"{exampleAwsS3Bucket.Arn}/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -106,7 +105,7 @@ namespace Pulumi.Aws.CloudFront
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             aws_cloudfront_origin_access_identity.Example.Iam_arn,
+    ///                             exampleAwsCloudfrontOriginAccessIdentity.IamArn,
     ///                         },
     ///                     },
     ///                 },
@@ -116,7 +115,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var example = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         Policy = s3Policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 

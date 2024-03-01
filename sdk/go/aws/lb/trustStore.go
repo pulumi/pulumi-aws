@@ -15,48 +15,6 @@ import (
 // Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
 //
 // ## Example Usage
-// ### Trust Store Load Balancer Listener
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lb.NewTrustStore(ctx, "test", &lb.TrustStoreArgs{
-//				CaCertificatesBundleS3Bucket: pulumi.String("..."),
-//				CaCertificatesBundleS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
-//				LoadBalancerArn: pulumi.Any(aws_lb.Example.Id),
-//				DefaultActions: lb.ListenerDefaultActionArray{
-//					&lb.ListenerDefaultActionArgs{
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Example.Id),
-//						Type:           pulumi.String("forward"),
-//					},
-//				},
-//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
-//					Mode:          pulumi.String("verify"),
-//					TrustStoreArn: test.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

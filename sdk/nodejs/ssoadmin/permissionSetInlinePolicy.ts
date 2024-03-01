@@ -10,6 +10,38 @@ import * as utilities from "../utilities";
  * > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `aws.ssoadmin.PermissionSet` resource.
  * Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
+ *     name: "Example",
+ *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+ * });
+ * const exampleGetPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "1",
+ *         actions: [
+ *             "s3:ListAllMyBuckets",
+ *             "s3:GetBucketLocation",
+ *         ],
+ *         resources: ["arn:aws:s3:::*"],
+ *     }],
+ * });
+ * const examplePermissionSetInlinePolicy = new aws.ssoadmin.PermissionSetInlinePolicy("example", {
+ *     inlinePolicy: exampleGetPolicyDocument.then(exampleGetPolicyDocument => exampleGetPolicyDocument.json),
+ *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+ *     permissionSetArn: examplePermissionSet.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:

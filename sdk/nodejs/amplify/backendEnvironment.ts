@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApp = new aws.amplify.App("exampleApp", {});
- * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("exampleBackendEnvironment", {
- *     appId: exampleApp.id,
+ * const example = new aws.amplify.App("example", {name: "example"});
+ * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("example", {
+ *     appId: example.id,
  *     environmentName: "example",
  *     deploymentArtifacts: "app-example-deployment",
  *     stackName: "amplify-app-example",

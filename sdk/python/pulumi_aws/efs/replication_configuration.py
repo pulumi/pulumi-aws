@@ -180,9 +180,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 region="us-west-2",
             ))
@@ -194,9 +194,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 availability_zone_name="us-west-2b",
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
@@ -209,9 +209,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 file_system_id="fs-1234567890",
                 region="us-west-2",
@@ -250,9 +250,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 region="us-west-2",
             ))
@@ -264,9 +264,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 availability_zone_name="us-west-2b",
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
@@ -279,9 +279,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_file_system = aws.efs.FileSystem("exampleFileSystem")
-        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
-            source_file_system_id=example_file_system.id,
+        example = aws.efs.FileSystem("example")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("example",
+            source_file_system_id=example.id,
             destination=aws.efs.ReplicationConfigurationDestinationArgs(
                 file_system_id="fs-1234567890",
                 region="us-west-2",

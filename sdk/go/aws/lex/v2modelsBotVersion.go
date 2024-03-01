@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBotVersion(ctx, "test", &lex.V2modelsBotVersionArgs{
-//				BotId: pulumi.Any(aws_lexv2models.Test.Id),
+//				BotId: pulumi.Any(testAwsLexv2models.Id),
 //				LocaleSpecification: lex.V2modelsBotVersionLocaleSpecificationMap{
 //					"en_US": &lex.V2modelsBotVersionLocaleSpecificationArgs{
 //						SourceBotVersion: pulumi.String("DRAFT"),

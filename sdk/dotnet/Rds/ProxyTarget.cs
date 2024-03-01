@@ -22,20 +22,21 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new()
+    ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
+    ///         Name = "example",
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
     ///         IdleClientTimeout = 1800,
     ///         RequireTls = true,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         VpcSubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         Auths = new[]
     ///         {
@@ -44,7 +45,7 @@ namespace Pulumi.Aws.Rds
     ///                 AuthScheme = "SECRETS",
     ///                 Description = "example",
     ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
     ///             },
     ///         },
     ///         Tags = 
@@ -54,9 +55,9 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
+    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("example", new()
     ///     {
-    ///         DbProxyName = exampleProxy.Name,
+    ///         DbProxyName = example.Name,
     ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
     ///         {
     ///             ConnectionBorrowTimeout = 120,
@@ -70,10 +71,10 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new()
+    ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("example", new()
     ///     {
-    ///         DbInstanceIdentifier = aws_db_instance.Example.Identifier,
-    ///         DbProxyName = exampleProxy.Name,
+    ///         DbInstanceIdentifier = exampleAwsDbInstance.Identifier,
+    ///         DbProxyName = example.Name,
     ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
     ///     });
     /// 

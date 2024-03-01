@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetwork(&#34;example&#34;, ServiceNetworkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .authType(&#34;AWS_IAM&#34;)
  *             .build());
  * 

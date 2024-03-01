@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				FilterExpression: pulumi.String("responsetime > 5"),
 //				GroupName:        pulumi.String("example"),
+//				FilterExpression: pulumi.String("responsetime > 5"),
 //				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
 //					InsightsEnabled:      pulumi.Bool(true),
 //					NotificationsEnabled: pulumi.Bool(true),

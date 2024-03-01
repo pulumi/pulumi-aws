@@ -24,26 +24,29 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSink = new Aws.Oam.Sink("exampleSink");
-    /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("exampleSinkPolicy", new()
+    ///     var example = new Aws.Oam.Sink("example", new()
     ///     {
-    ///         SinkIdentifier = exampleSink.Id,
+    ///         Name = "ExampleSink",
+    ///     });
+    /// 
+    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
+    ///     {
+    ///         SinkIdentifier = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "oam:CreateLink",
     ///                         "oam:UpdateLink",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = new[]
     ///                         {
@@ -51,7 +54,7 @@ namespace Pulumi.Aws.Oam
     ///                             "222222222222",
     ///                         },
     ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                         {

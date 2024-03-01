@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getLocalGatewayVirtualInterfaceGroup({
- *     localGatewayId: data.aws_ec2_local_gateway.example.id,
+ *     localGatewayId: exampleAwsEc2LocalGateway.id,
  * });
  * ```
  */
@@ -78,7 +78,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getLocalGatewayVirtualInterfaceGroup({
- *     localGatewayId: data.aws_ec2_local_gateway.example.id,
+ *     localGatewayId: exampleAwsEc2LocalGateway.id,
  * });
  * ```
  */

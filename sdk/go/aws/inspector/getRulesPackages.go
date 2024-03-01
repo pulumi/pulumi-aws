@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			rules, err := inspector.GetRulesPackages(ctx, nil, nil)
 //			if err != nil {
 //				return err
@@ -42,14 +43,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			assessmentAssessmentTarget, err := inspector.NewAssessmentTarget(ctx, "assessmentAssessmentTarget", &inspector.AssessmentTargetArgs{
+//			assessment, err := inspector.NewAssessmentTarget(ctx, "assessment", &inspector.AssessmentTargetArgs{
+//				Name:             pulumi.String("test"),
 //				ResourceGroupArn: group.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
-//				TargetArn:        assessmentAssessmentTarget.Arn,
+//			_, err = inspector.NewAssessmentTemplate(ctx, "assessment", &inspector.AssessmentTemplateArgs{
+//				Name:             pulumi.String("Test"),
+//				TargetArn:        assessment.Arn,
 //				Duration:         pulumi.Int(60),
 //				RulesPackageArns: interface{}(rules.Arns),
 //			})

@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -40,6 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{

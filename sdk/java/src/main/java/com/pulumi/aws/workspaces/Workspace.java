@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
- *             .directoryId(aws_workspaces_directory.example().id())
+ *             .directoryId(exampleAwsWorkspacesDirectory.id())
  *             .bundleId(valueWindows10.applyValue(getBundleResult -&gt; getBundleResult.id()))
  *             .userName(&#34;john.doe&#34;)
  *             .rootVolumeEncryptionEnabled(true)

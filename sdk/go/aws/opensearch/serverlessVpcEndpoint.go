@@ -30,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewServerlessVpcEndpoint(ctx, "example", &opensearch.ServerlessVpcEndpointArgs{
+//				Name: pulumi.String("myendpoint"),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err

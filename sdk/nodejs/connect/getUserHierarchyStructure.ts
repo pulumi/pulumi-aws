@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.connect.getUserHierarchyStructure({
- *     instanceId: aws_connect_instance.test.id,
+ *     instanceId: testAwsConnectInstance.id,
  * });
  * ```
  */
@@ -63,7 +63,7 @@ export interface GetUserHierarchyStructureResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.connect.getUserHierarchyStructure({
- *     instanceId: aws_connect_instance.test.id,
+ *     instanceId: testAwsConnectInstance.id,
  * });
  * ```
  */

@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
+ * const exampleKey = new aws.kms.Key("example", {description: "domain key"});
+ * const exampleDomain = new aws.codeartifact.Domain("example", {
  *     domain: "example",
  *     encryptionKey: exampleKey.arn,
  * });
- * const exampleRepository = new aws.codeartifact.Repository("exampleRepository", {
+ * const exampleRepository = new aws.codeartifact.Repository("example", {
  *     repository: "example",
  *     domain: exampleDomain.domain,
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -33,10 +33,10 @@ import * as utilities from "../utilities";
  *         resources: [exampleRepository.arn],
  *     }],
  * });
- * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", {
+ * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("example", {
  *     repository: exampleRepository.repository,
  *     domain: exampleDomain.domain,
- *     policyDocument: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policyDocument: example.apply(example => example.json),
  * });
  * ```
  *

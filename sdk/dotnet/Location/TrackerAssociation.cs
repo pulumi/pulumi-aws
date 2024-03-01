@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGeofenceCollection = new Aws.Location.GeofenceCollection("exampleGeofenceCollection", new()
+    ///     var example = new Aws.Location.GeofenceCollection("example", new()
     ///     {
     ///         CollectionName = "example",
     ///     });
     /// 
-    ///     var exampleTracker = new Aws.Location.Tracker("exampleTracker", new()
+    ///     var exampleTracker = new Aws.Location.Tracker("example", new()
     ///     {
     ///         TrackerName = "example",
     ///     });
     /// 
-    ///     var exampleTrackerAssociation = new Aws.Location.TrackerAssociation("exampleTrackerAssociation", new()
+    ///     var exampleTrackerAssociation = new Aws.Location.TrackerAssociation("example", new()
     ///     {
-    ///         ConsumerArn = exampleGeofenceCollection.CollectionArn,
+    ///         ConsumerArn = example.CollectionArn,
     ///         TrackerName = exampleTracker.TrackerName,
     ///     });
     /// 

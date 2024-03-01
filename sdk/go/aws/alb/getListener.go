@@ -40,6 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// get listener from load_balancer_arn and port
 //			selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
 //				Name: pulumi.StringRef("default-public"),
 //			}, nil)

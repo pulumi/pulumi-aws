@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;example&#34;)
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;new policy&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
  *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

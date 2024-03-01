@@ -22,10 +22,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dnsResolver", new()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dns_resolver", new()
     ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///         DhcpOptionsId = aws_vpc_dhcp_options.Foo.Id,
+    ///         VpcId = fooAwsVpc.Id,
+    ///         DhcpOptionsId = foo.Id,
     ///     });
     /// 
     /// });

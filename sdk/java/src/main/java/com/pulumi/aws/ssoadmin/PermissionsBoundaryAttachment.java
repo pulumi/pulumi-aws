@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PermissionsBoundaryAttachment(&#34;example&#34;, PermissionsBoundaryAttachmentArgs.builder()        
- *             .instanceArn(aws_ssoadmin_permission_set.example().instance_arn())
- *             .permissionSetArn(aws_ssoadmin_permission_set.example().arn())
+ *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
+ *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .managedPolicyArn(&#34;arn:aws:iam::aws:policy/ReadOnlyAccess&#34;)
  *                 .build())

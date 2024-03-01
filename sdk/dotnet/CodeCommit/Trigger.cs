@@ -22,14 +22,14 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRepository = new Aws.CodeCommit.Repository("testRepository", new()
+    ///     var test = new Aws.CodeCommit.Repository("test", new()
     ///     {
     ///         RepositoryName = "test",
     ///     });
     /// 
-    ///     var testTrigger = new Aws.CodeCommit.Trigger("testTrigger", new()
+    ///     var testTrigger = new Aws.CodeCommit.Trigger("test", new()
     ///     {
-    ///         RepositoryName = testRepository.RepositoryName,
+    ///         RepositoryName = test.RepositoryName,
     ///         Triggers = new[]
     ///         {
     ///             new Aws.CodeCommit.Inputs.TriggerTriggerArgs
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CodeCommit
     ///                 {
     ///                     "all",
     ///                 },
-    ///                 DestinationArn = aws_sns_topic.Test.Arn,
+    ///                 DestinationArn = testAwsSnsTopic.Arn,
     ///             },
     ///         },
     ///     });

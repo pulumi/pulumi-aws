@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///     });
         /// 
         /// });
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         HostIdFilters = new[]
         ///         {
         ///             "h-x38g5n0yd2a0ueb61",
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         StatusIdFilters = new[]
         ///         {
         ///             "ACTIVE",
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///     });
         /// 
         /// });
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         HostIdFilters = new[]
         ///         {
         ///             "h-x38g5n0yd2a0ueb61",
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         StatusIdFilters = new[]
         ///         {
         ///             "ACTIVE",

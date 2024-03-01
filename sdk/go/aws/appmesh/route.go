@@ -30,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -40,11 +41,11 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									VirtualNode: pulumi.Any(serviceb1.Name),
 //									Weight:      pulumi.Int(90),
 //								},
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb2.Name),
+//									VirtualNode: pulumi.Any(serviceb2.Name),
 //									Weight:      pulumi.Int(10),
 //								},
 //							},
@@ -75,8 +76,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -95,7 +97,7 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									VirtualNode: pulumi.Any(servicebAwsAppmeshVirtualNode.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},
@@ -126,8 +128,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -146,7 +149,7 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									VirtualNode: pulumi.Any(servicebAwsAppmeshVirtualNode.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},
@@ -177,14 +180,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
 //						Action: &appmesh.RouteSpecTcpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecTcpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecTcpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									VirtualNode: pulumi.Any(serviceb1.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},

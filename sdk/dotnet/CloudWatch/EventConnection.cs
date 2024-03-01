@@ -26,6 +26,9 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "API_KEY",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
@@ -34,8 +37,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Value = "1234",
     ///             },
     ///         },
-    ///         AuthorizationType = "API_KEY",
-    ///         Description = "A connection description",
     ///     });
     /// 
     /// });
@@ -52,16 +53,142 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
     ///             {
-    ///                 Password = "Pass1234!",
     ///                 Username = "user",
+    ///                 Password = "Pass1234!",
     ///             },
     ///         },
-    ///         AuthorizationType = "BASIC",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### OAuth Authorization
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         Name = "ngrok-connection",
     ///         Description = "A connection description",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
+    ///             {
+    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
+    ///                 HttpMethod = "GET",
+    ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
+    ///                 {
+    ///                     ClientId = "1234567890",
+    ///                     ClientSecret = "Pass1234!",
+    ///                 },
+    ///                 OauthHttpParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs
+    ///                 {
+    ///                     Bodies = new[]
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs
+    ///                         {
+    ///                             Key = "body-parameter-key",
+    ///                             Value = "body-parameter-value",
+    ///                             IsValueSecret = false,
+    ///                         },
+    ///                     },
+    ///                     Headers = new[]
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs
+    ///                         {
+    ///                             Key = "header-parameter-key",
+    ///                             Value = "header-parameter-value",
+    ///                             IsValueSecret = false,
+    ///                         },
+    ///                     },
+    ///                     QueryStrings = new[]
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs
+    ///                         {
+    ///                             Key = "query-string-parameter-key",
+    ///                             Value = "query-string-parameter-value",
+    ///                             IsValueSecret = false,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Invocation Http Parameters
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
+    ///             {
+    ///                 Username = "user",
+    ///                 Password = "Pass1234!",
+    ///             },
+    ///             InvocationHttpParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersArgs
+    ///             {
+    ///                 Bodies = new[]
+    ///                 {
+    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs
+    ///                     {
+    ///                         Key = "body-parameter-key",
+    ///                         Value = "body-parameter-value",
+    ///                         IsValueSecret = false,
+    ///                     },
+    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs
+    ///                     {
+    ///                         Key = "body-parameter-key2",
+    ///                         Value = "body-parameter-value2",
+    ///                         IsValueSecret = true,
+    ///                     },
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs
+    ///                     {
+    ///                         Key = "header-parameter-key",
+    ///                         Value = "header-parameter-value",
+    ///                         IsValueSecret = false,
+    ///                     },
+    ///                 },
+    ///                 QueryStrings = new[]
+    ///                 {
+    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs
+    ///                     {
+    ///                         Key = "query-string-parameter-key",
+    ///                         Value = "query-string-parameter-value",
+    ///                         IsValueSecret = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

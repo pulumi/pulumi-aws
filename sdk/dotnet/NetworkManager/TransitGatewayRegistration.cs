@@ -24,16 +24,16 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
+    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
+    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///         TransitGatewayArn = exampleTransitGateway.Arn,
     ///     });
     /// 

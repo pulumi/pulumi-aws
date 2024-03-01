@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
 //							LogDestination: pulumi.StringMap{
-//								"bucketName": pulumi.Any(aws_s3_bucket.Example.Bucket),
+//								"bucketName": pulumi.Any(exampleAwsS3Bucket.Bucket),
 //								"prefix":     pulumi.String("/example"),
 //							},
 //							LogDestinationType: pulumi.String("S3"),
@@ -67,12 +67,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
 //							LogDestination: pulumi.StringMap{
-//								"logGroup": pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+//								"logGroup": pulumi.Any(exampleAwsCloudwatchLogGroup.Name),
 //							},
 //							LogDestinationType: pulumi.String("CloudWatchLogs"),
 //							LogType:            pulumi.String("ALERT"),
@@ -103,12 +103,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
 //							LogDestination: pulumi.StringMap{
-//								"deliveryStream": pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+//								"deliveryStream": pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Name),
 //							},
 //							LogDestinationType: pulumi.String("KinesisDataFirehose"),
 //							LogType:            pulumi.String("ALERT"),

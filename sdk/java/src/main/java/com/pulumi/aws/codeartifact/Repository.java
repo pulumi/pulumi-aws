@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;domain key&#34;)
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domain(&#34;example&#34;)
- *             .encryptionKey(exampleKey.arn())
+ *             .encryptionKey(example.arn())
  *             .build());
  * 
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
@@ -89,12 +89,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var upstream = new Repository(&#34;upstream&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;upstream&#34;)
- *             .domain(aws_codeartifact_domain.test().domain())
+ *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;example&#34;)
- *             .domain(aws_codeartifact_domain.example().domain())
+ *             .domain(example.domain())
  *             .upstreams(RepositoryUpstreamArgs.builder()
  *                 .repositoryName(upstream.repository())
  *                 .build())
@@ -128,12 +128,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var upstream = new Repository(&#34;upstream&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;upstream&#34;)
- *             .domain(aws_codeartifact_domain.test().domain())
+ *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;example&#34;)
- *             .domain(aws_codeartifact_domain.example().domain())
+ *             .domain(example.domain())
  *             .externalConnections(RepositoryExternalConnectionsArgs.builder()
  *                 .externalConnectionName(&#34;public:npmjs&#34;)
  *                 .build())

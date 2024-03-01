@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sagemaker.Workteam("example", {
  *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
  *     description: "example",
  *     memberDefinitions: [{
  *         cognitoMemberDefinition: {
- *             clientId: aws_cognito_user_pool_client.example.id,
- *             userPool: aws_cognito_user_pool_domain.example.user_pool_id,
- *             userGroup: aws_cognito_user_group.example.id,
+ *             clientId: exampleAwsCognitoUserPoolClient.id,
+ *             userPool: exampleAwsCognitoUserPoolDomain.userPoolId,
+ *             userGroup: exampleAwsCognitoUserGroup.id,
  *         },
  *     }],
  * });
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sagemaker.Workteam("example", {
  *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
  *     description: "example",
  *     memberDefinitions: [{
  *         oidcMemberDefinition: {

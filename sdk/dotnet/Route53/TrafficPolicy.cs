@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.TrafficPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Comment = "example comment",
     ///         Document = @"{
     ///   ""AWSPolicyFormatVersion"": ""2015-10-01"",
@@ -36,7 +37,6 @@ namespace Pulumi.Aws.Route53
     ///   },
     ///   ""StartEndpoint"": ""endpoint-start-NkPh""
     /// }
-    /// 
     /// ",
     ///     });
     /// 

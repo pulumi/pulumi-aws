@@ -58,8 +58,9 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
     ///     {
+    ///         Name = "iam_for_lambda",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -70,11 +71,13 @@ namespace Pulumi.Aws.Lambda
     ///         OutputPath = "lambda_function_payload.zip",
     ///     });
     /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
     ///     {
     ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
+    ///         SourceCodeHash = lambda.Apply(getFileResult =&gt; getFileResult.OutputBase64sha256),
     ///         Runtime = "nodejs18.x",
     ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
     ///         {
@@ -97,14 +100,13 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLayerVersion = new Aws.Lambda.LayerVersion("exampleLayerVersion");
+    ///     var example = new Aws.Lambda.LayerVersion("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
+    ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
     ///         Layers = new[]
     ///         {
-    ///             exampleLayerVersion.Arn,
+    ///             example.Arn,
     ///         },
     ///     });
     /// 
@@ -148,14 +150,16 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
     ///     {
+    ///         Name = "iam_for_lambda",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
     ///     {
     ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
     ///         Runtime = "nodejs18.x",
@@ -180,7 +184,7 @@ namespace Pulumi.Aws.Lambda
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // EFS file system
-    ///     var efsForLambda = new Aws.Efs.FileSystem("efsForLambda", new()
+    ///     var efsForLambda = new Aws.Efs.FileSystem("efs_for_lambda", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -188,19 +192,8 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     // Mount target connects the file system to the subnet
-    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
-    ///     {
-    ///         FileSystemId = efsForLambda.Id,
-    ///         SubnetId = aws_subnet.Subnet_for_lambda.Id,
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             aws_security_group.Sg_for_lambda.Id,
-    ///         },
-    ///     });
-    /// 
     ///     // EFS access point used by lambda file system
-    ///     var accessPointForLambda = new Aws.Efs.AccessPoint("accessPointForLambda", new()
+    ///     var accessPointForLambda = new Aws.Efs.AccessPoint("access_point_for_lambda", new()
     ///     {
     ///         FileSystemId = efsForLambda.Id,
     ///         RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
@@ -221,7 +214,6 @@ namespace Pulumi.Aws.Lambda
     ///     });
     /// 
     ///     // A lambda function connected to an EFS file system
-    ///     // ... other configuration ...
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
     ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
@@ -233,18 +225,23 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Subnet_for_lambda.Id,
+    ///                 subnetForLambda.Id,
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Sg_for_lambda.Id,
+    ///                 sgForLambda.Id,
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     // Mount target connects the file system to the subnet
+    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
     ///     {
-    ///         DependsOn = new[]
+    ///         FileSystemId = efsForLambda.Id,
+    ///         SubnetId = subnetForLambda.Id,
+    ///         SecurityGroups = new[]
     ///         {
-    ///             alpha,
+    ///             sgForLambda.Id,
     ///         },
     ///     });
     /// 
@@ -267,14 +264,25 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var config = new Config();
     ///     var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
+    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
+    ///     {
+    ///         Name = lambdaFunctionName,
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
+    ///         {
+    ///             LogFormat = "Text",
+    ///         },
+    ///     });
+    /// 
     ///     // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
     ///     // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
     ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
+    ///         Name = $"/aws/lambda/{lambdaFunctionName}",
     ///         RetentionInDays = 14,
     ///     });
     /// 
-    ///     var lambdaLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+    ///     var lambdaLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -295,32 +303,18 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     var lambdaLoggingPolicy = new Aws.Iam.Policy("lambdaLoggingPolicy", new()
+    ///     var lambdaLoggingPolicy = new Aws.Iam.Policy("lambda_logging", new()
     ///     {
+    ///         Name = "lambda_logging",
     ///         Path = "/",
     ///         Description = "IAM policy for logging from a lambda",
-    ///         PolicyDocument = lambdaLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = lambdaLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new()
+    ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambda_logs", new()
     ///     {
-    ///         Role = aws_iam_role.Iam_for_lambda.Name,
+    ///         Role = iamForLambda.Name,
     ///         PolicyArn = lambdaLoggingPolicy.Arn,
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
-    ///     {
-    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
-    ///         {
-    ///             LogFormat = "Text",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             lambdaLogs,
-    ///             example,
-    ///         },
     ///     });
     /// 
     /// });

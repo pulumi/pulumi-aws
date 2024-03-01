@@ -167,8 +167,8 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_hours_of_operation(hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 
@@ -224,8 +224,8 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_hours_of_operation(hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
 
 

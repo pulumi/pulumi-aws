@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleInsight = new aws.securityhub.Insight("example", {
  *     filters: {
  *         awsAccountIds: [
  *             {
@@ -32,8 +32,7 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     groupByAttribute: "AwsAccountId",
- * }, {
- *     dependsOn: [exampleAccount],
+ *     name: "example-insight",
  * });
  * ```
  * ### Filter by date range
@@ -42,8 +41,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleInsight = new aws.securityhub.Insight("example", {
  *     filters: {
  *         createdAts: [{
  *             dateRange: {
@@ -53,8 +52,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     groupByAttribute: "CreatedAt",
- * }, {
- *     dependsOn: [exampleAccount],
+ *     name: "example-insight",
  * });
  * ```
  * ### Filter by destination IPv4 address
@@ -63,16 +61,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleInsight = new aws.securityhub.Insight("example", {
  *     filters: {
  *         networkDestinationIpv4s: [{
  *             cidr: "10.0.0.0/16",
  *         }],
  *     },
  *     groupByAttribute: "NetworkDestinationIpV4",
- * }, {
- *     dependsOn: [exampleAccount],
+ *     name: "example-insight",
  * });
  * ```
  * ### Filter by finding's confidence
@@ -81,16 +78,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleInsight = new aws.securityhub.Insight("example", {
  *     filters: {
  *         confidences: [{
  *             gte: "80",
  *         }],
  *     },
  *     groupByAttribute: "Confidence",
- * }, {
- *     dependsOn: [exampleAccount],
+ *     name: "example-insight",
  * });
  * ```
  * ### Filter by resource tags
@@ -99,8 +95,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const example = new aws.securityhub.Account("example", {});
+ * const exampleInsight = new aws.securityhub.Insight("example", {
  *     filters: {
  *         resourceTags: [{
  *             comparison: "EQUALS",
@@ -109,8 +105,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     groupByAttribute: "ResourceTags",
- * }, {
- *     dependsOn: [exampleAccount],
+ *     name: "example-insight",
  * });
  * ```
  *

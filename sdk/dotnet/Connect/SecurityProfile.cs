@@ -25,8 +25,9 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.SecurityProfile("example", new()
     ///     {
-    ///         Description = "example description",
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
+    ///         Description = "example description",
     ///         Permissions = new[]
     ///         {
     ///             "BasicAgentAccess",

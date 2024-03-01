@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     staging: true,
  * });
- * // ... other configuration ...
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
@@ -39,7 +38,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     continuousDeploymentPolicyId: example.id,
  * });
- * // ... other configuration ...
  * ```
  * ### Single Weight Config with Session Stickiness
  *
@@ -50,7 +48,7 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
- *         items: [aws_cloudfront_distribution.staging.domain_name],
+ *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
@@ -74,7 +72,7 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
- *         items: [aws_cloudfront_distribution.staging.domain_name],
+ *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {

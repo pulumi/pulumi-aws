@@ -246,7 +246,7 @@ class Mesh(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple")
+        simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
         ### Egress Filter
 
@@ -254,11 +254,13 @@ class Mesh(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
-            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
-                type="ALLOW_ALL",
-            ),
-        ))
+        simple = aws.appmesh.Mesh("simple",
+            name="simpleapp",
+            spec=aws.appmesh.MeshSpecArgs(
+                egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                    type="ALLOW_ALL",
+                ),
+            ))
         ```
 
         ## Import
@@ -291,7 +293,7 @@ class Mesh(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple")
+        simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
         ### Egress Filter
 
@@ -299,11 +301,13 @@ class Mesh(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
-            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
-                type="ALLOW_ALL",
-            ),
-        ))
+        simple = aws.appmesh.Mesh("simple",
+            name="simpleapp",
+            spec=aws.appmesh.MeshSpecArgs(
+                egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                    type="ALLOW_ALL",
+                ),
+            ))
         ```
 
         ## Import

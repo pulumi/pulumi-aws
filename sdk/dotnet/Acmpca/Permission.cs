@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var examplePermission = new Aws.Acmpca.Permission("examplePermission", new()
+    ///     var example = new Aws.Acmpca.Permission("example", new()
     ///     {
     ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
     ///         Actions = new[]

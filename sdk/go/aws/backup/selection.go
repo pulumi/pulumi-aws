@@ -55,22 +55,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"),
-//				Role:      exampleRole.Name,
+//				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// ... other configuration ...
-//			_, err = backup.NewSelection(ctx, "exampleSelection", &backup.SelectionArgs{
-//				IamRoleArn: exampleRole.Arn,
+//			_, err = backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -95,8 +95,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				SelectionTags: backup.SelectionSelectionTagArray{
 //					&backup.SelectionSelectionTagArgs{
 //						Type:  pulumi.String("STRINGEQUALS"),
@@ -128,8 +129,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				Resources: pulumi.StringArray{
 //					pulumi.String("*"),
 //				},
@@ -185,12 +187,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				Resources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					exampleAwsDbInstance.Arn,
+//					exampleAwsEbsVolume.Arn,
+//					exampleAwsEfsFileSystem.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -216,12 +219,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				NotResources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					exampleAwsDbInstance.Arn,
+//					exampleAwsEbsVolume.Arn,
+//					exampleAwsEfsFileSystem.Arn,
 //				},
 //			})
 //			if err != nil {

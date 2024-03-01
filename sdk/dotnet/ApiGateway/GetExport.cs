@@ -26,8 +26,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
+        ///         StageName = exampleAwsApiGatewayStage.StageName,
         ///         ExportType = "oas30",
         ///     });
         /// 
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
+        ///         StageName = exampleAwsApiGatewayStage.StageName,
         ///         ExportType = "oas30",
         ///     });
         /// 

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogDataProtectionPolicyDocument, err := cloudwatch.GetLogDataProtectionPolicyDocument(ctx, &cloudwatch.GetLogDataProtectionPolicyDocumentArgs{
+//			example, err := cloudwatch.GetLogDataProtectionPolicyDocument(ctx, &cloudwatch.GetLogDataProtectionPolicyDocumentArgs{
 //				Name: "Example",
 //				Statements: []cloudwatch.GetLogDataProtectionPolicyDocumentStatement{
 //					{
@@ -42,13 +42,13 @@ import (
 //							Audit: {
 //								FindingsDestination: {
 //									CloudwatchLogs: {
-//										LogGroup: aws_cloudwatch_log_group.Audit.Name,
+//										LogGroup: audit.Name,
 //									},
 //									Firehose: {
-//										DeliveryStream: aws_kinesis_firehose_delivery_stream.Audit.Name,
+//										DeliveryStream: auditAwsKinesisFirehoseDeliveryStream.Name,
 //									},
 //									S3: {
-//										Bucket: aws_s3_bucket.Audit.Bucket,
+//										Bucket: auditAwsS3Bucket.Bucket,
 //									},
 //								},
 //							},
@@ -71,9 +71,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "exampleLogDataProtectionPolicy", &cloudwatch.LogDataProtectionPolicyArgs{
-//				LogGroupName:   pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//				PolicyDocument: *pulumi.String(exampleLogDataProtectionPolicyDocument.Json),
+//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "example", &cloudwatch.LogDataProtectionPolicyArgs{
+//				LogGroupName:   pulumi.Any(exampleAwsCloudwatchLogGroup.Name),
+//				PolicyDocument: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

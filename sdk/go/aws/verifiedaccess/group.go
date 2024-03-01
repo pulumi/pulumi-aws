@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := verifiedaccess.NewGroup(ctx, "example", &verifiedaccess.GroupArgs{
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err

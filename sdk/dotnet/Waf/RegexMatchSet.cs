@@ -22,8 +22,9 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet("exampleRegexPatternSet", new()
+    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet("example", new()
     ///     {
+    ///         Name = "example",
     ///         RegexPatternStrings = new[]
     ///         {
     ///             "one",
@@ -31,8 +32,9 @@ namespace Pulumi.Aws.Waf
     ///         },
     ///     });
     /// 
-    ///     var exampleRegexMatchSet = new Aws.Waf.RegexMatchSet("exampleRegexMatchSet", new()
+    ///     var example = new Aws.Waf.RegexMatchSet("example", new()
     ///     {
+    ///         Name = "example",
     ///         RegexMatchTuples = new[]
     ///         {
     ///             new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleArgs

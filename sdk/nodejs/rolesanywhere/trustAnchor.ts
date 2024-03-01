@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ * const example = new aws.acmpca.CertificateAuthority("example", {
  *     permanentDeletionTimeInDays: 7,
  *     type: "ROOT",
  *     certificateAuthorityConfiguration: {
@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const current = aws.getPartition({});
- * const testCertificate = new aws.acmpca.Certificate("testCertificate", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificateSigningRequest: exampleCertificateAuthority.certificateSigningRequest,
+ * const test = new aws.acmpca.Certificate("test", {
+ *     certificateAuthorityArn: example.arn,
+ *     certificateSigningRequest: example.certificateSigningRequest,
  *     signingAlgorithm: "SHA512WITHRSA",
  *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
  *     validity: {
@@ -38,18 +38,19 @@ import * as utilities from "../utilities";
  *         value: "1",
  *     },
  * });
- * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificate: aws_acmpca_certificate.example.certificate,
- *     certificateChain: aws_acmpca_certificate.example.certificate_chain,
+ * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("example", {
+ *     certificateAuthorityArn: example.arn,
+ *     certificate: exampleAwsAcmpcaCertificate.certificate,
+ *     certificateChain: exampleAwsAcmpcaCertificate.certificateChain,
  * });
- * const testTrustAnchor = new aws.rolesanywhere.TrustAnchor("testTrustAnchor", {source: {
- *     sourceData: {
- *         acmPcaArn: exampleCertificateAuthority.arn,
+ * const testTrustAnchor = new aws.rolesanywhere.TrustAnchor("test", {
+ *     name: "example",
+ *     source: {
+ *         sourceData: {
+ *             acmPcaArn: example.arn,
+ *         },
+ *         sourceType: "AWS_ACM_PCA",
  *     },
- *     sourceType: "AWS_ACM_PCA",
- * }}, {
- *     dependsOn: [exampleCertificateAuthorityCertificate],
  * });
  * ```
  *

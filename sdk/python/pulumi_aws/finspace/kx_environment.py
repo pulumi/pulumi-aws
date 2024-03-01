@@ -368,10 +368,12 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
         ```
         ### With Transit Gateway Configuration
 
@@ -379,13 +381,14 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_env = aws.finspace.KxEnvironment("example_env",
+            name="my-tf-kx-environment",
             description="Environment description",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
                 transit_gateway_id=example_transit_gateway.id,
                 routable_cidr_space="100.64.0.0/26",
@@ -401,13 +404,14 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_env = aws.finspace.KxEnvironment("example_env",
+            name="my-tf-kx-environment",
             description="Environment description",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
                 transit_gateway_id=example_transit_gateway.id,
                 routable_cidr_space="100.64.0.0/26",
@@ -467,10 +471,12 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
         ```
         ### With Transit Gateway Configuration
 
@@ -478,13 +484,14 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_env = aws.finspace.KxEnvironment("example_env",
+            name="my-tf-kx-environment",
             description="Environment description",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
                 transit_gateway_id=example_transit_gateway.id,
                 routable_cidr_space="100.64.0.0/26",
@@ -500,13 +507,14 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_env = aws.finspace.KxEnvironment("example_env",
+            name="my-tf-kx-environment",
             description="Environment description",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
                 transit_gateway_id=example_transit_gateway.id,
                 routable_cidr_space="100.64.0.0/26",

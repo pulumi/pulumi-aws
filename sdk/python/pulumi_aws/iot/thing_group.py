@@ -238,8 +238,9 @@ class ThingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
+        parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
+            name="example",
             parent_group_name=parent.name,
             properties=aws.iot.ThingGroupPropertiesArgs(
                 attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
@@ -285,8 +286,9 @@ class ThingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
+        parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
+            name="example",
             parent_group_name=parent.name,
             properties=aws.iot.ThingGroupPropertiesArgs(
                 attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(

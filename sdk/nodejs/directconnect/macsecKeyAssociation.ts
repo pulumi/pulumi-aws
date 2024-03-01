@@ -34,15 +34,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = aws.directconnect.getConnection({
+ * const example = aws.directconnect.getConnection({
  *     name: "tf-dx-connection",
  * });
- * const exampleSecret = aws.secretsmanager.getSecret({
+ * const exampleGetSecret = aws.secretsmanager.getSecret({
  *     name: "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
  * });
  * const test = new aws.directconnect.MacsecKeyAssociation("test", {
- *     connectionId: exampleConnection.then(exampleConnection => exampleConnection.id),
- *     secretArn: exampleSecret.then(exampleSecret => exampleSecret.arn),
+ *     connectionId: example.then(example => example.id),
+ *     secretArn: exampleGetSecret.then(exampleGetSecret => exampleGetSecret.arn),
  * });
  * ```
  */

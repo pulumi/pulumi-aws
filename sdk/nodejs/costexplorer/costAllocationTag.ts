@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.costexplorer.CostAllocationTag("example", {
- *     status: "Active",
  *     tagKey: "example",
+ *     status: "Active",
  * });
  * ```
  *

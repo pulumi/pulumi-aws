@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetArns(aws_subnet.example().arn())
- *             .coreNetworkId(awscc_networkmanager_core_network.example().id())
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
  *     }

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DirectoryService
     /// {
     ///     var example = new Aws.DirectoryService.RadiusSettings("example", new()
     ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///         AuthenticationProtocol = "PAP",
     ///         DisplayLabel = "example",
     ///         RadiusPort = 1812,

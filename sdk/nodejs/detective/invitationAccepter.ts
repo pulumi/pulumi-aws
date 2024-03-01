@@ -13,17 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primaryGraph = new aws.detective.Graph("primaryGraph", {});
- * const primaryMember = new aws.detective.Member("primaryMember", {
+ * const primary = new aws.detective.Graph("primary", {});
+ * const primaryMember = new aws.detective.Member("primary", {
  *     accountId: "ACCOUNT ID",
  *     emailAddress: "EMAIL",
- *     graphArn: primaryGraph.id,
+ *     graphArn: primary.id,
  *     message: "Message of the invite",
  * });
- * const member = new aws.detective.InvitationAccepter("member", {graphArn: primaryGraph.graphArn}, {
- *     provider: "awsalternate",
- *     dependsOn: [primaryMember],
- * });
+ * const member = new aws.detective.InvitationAccepter("member", {graphArn: primary.graphArn});
  * ```
  *
  * ## Import

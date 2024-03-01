@@ -13,6 +13,50 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Theme.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Theme("example", new()
+    ///     {
+    ///         ThemeId = "example",
+    ///         Name = "example",
+    ///         BaseThemeId = "MIDNIGHT",
+    ///         Configuration = new Aws.Quicksight.Inputs.ThemeConfigurationArgs
+    ///         {
+    ///             DataColorPalette = new Aws.Quicksight.Inputs.ThemeConfigurationDataColorPaletteArgs
+    ///             {
+    ///                 Colors = new[]
+    ///                 {
+    ///                     "#FFFFFF",
+    ///                     "#111111",
+    ///                     "#222222",
+    ///                     "#333333",
+    ///                     "#444444",
+    ///                     "#555555",
+    ///                     "#666666",
+    ///                     "#777777",
+    ///                     "#888888",
+    ///                     "#999999",
+    ///                 },
+    ///                 EmptyFillColor = "#FFFFFF",
+    ///                 MinMaxGradients = new[]
+    ///                 {
+    ///                     "#FFFFFF",
+    ///                     "#111111",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

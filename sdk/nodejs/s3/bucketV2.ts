@@ -21,10 +21,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {tags: {
- *     Environment: "Dev",
- *     Name: "My bucket",
- * }});
+ * const example = new aws.s3.BucketV2("example", {
+ *     bucket: "my-tf-test-bucket",
+ *     tags: {
+ *         Name: "My bucket",
+ *         Environment: "Dev",
+ *     },
+ * });
  * ```
  *
  * ## Import

@@ -140,7 +140,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
                 key_algorithm="RSA_4096",
@@ -150,7 +150,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 ),
             ))
         current = aws.get_partition()
-        example_certificate = aws.acmpca.Certificate("exampleCertificate",
+        example_certificate = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
@@ -159,7 +159,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 type="YEARS",
                 value="1",
             ))
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate",
+        example = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate=example_certificate.certificate,
             certificate_chain=example_certificate.certificate_chain)
@@ -172,7 +172,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinateCertificateAuthority",
+        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
                 key_algorithm="RSA_2048",
@@ -181,11 +181,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                     common_name="sub.example.com",
                 ),
             ))
-        root_certificate_authority = aws.acmpca.CertificateAuthority("rootCertificateAuthority")
-        # ...
+        root = aws.acmpca.CertificateAuthority("root")
         current = aws.get_partition()
-        subordinate_certificate = aws.acmpca.Certificate("subordinateCertificate",
-            certificate_authority_arn=root_certificate_authority.arn,
+        subordinate_certificate = aws.acmpca.Certificate("subordinate",
+            certificate_authority_arn=root.arn,
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
@@ -193,14 +192,12 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 type="YEARS",
                 value="1",
             ))
-        subordinate_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate",
+        subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
             certificate_authority_arn=subordinate_certificate_authority.arn,
             certificate=subordinate_certificate.certificate,
             certificate_chain=subordinate_certificate.certificate_chain)
-        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("rootCertificateAuthorityCertificate")
-        # ...
-        root_certificate = aws.acmpca.Certificate("rootCertificate")
-        # ...
+        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
+        root_certificate = aws.acmpca.Certificate("root")
         ```
 
         :param str resource_name: The name of the resource.
@@ -225,7 +222,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
                 key_algorithm="RSA_4096",
@@ -235,7 +232,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 ),
             ))
         current = aws.get_partition()
-        example_certificate = aws.acmpca.Certificate("exampleCertificate",
+        example_certificate = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
@@ -244,7 +241,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 type="YEARS",
                 value="1",
             ))
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate",
+        example = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate=example_certificate.certificate,
             certificate_chain=example_certificate.certificate_chain)
@@ -257,7 +254,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinateCertificateAuthority",
+        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
                 key_algorithm="RSA_2048",
@@ -266,11 +263,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                     common_name="sub.example.com",
                 ),
             ))
-        root_certificate_authority = aws.acmpca.CertificateAuthority("rootCertificateAuthority")
-        # ...
+        root = aws.acmpca.CertificateAuthority("root")
         current = aws.get_partition()
-        subordinate_certificate = aws.acmpca.Certificate("subordinateCertificate",
-            certificate_authority_arn=root_certificate_authority.arn,
+        subordinate_certificate = aws.acmpca.Certificate("subordinate",
+            certificate_authority_arn=root.arn,
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
@@ -278,14 +274,12 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 type="YEARS",
                 value="1",
             ))
-        subordinate_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate",
+        subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
             certificate_authority_arn=subordinate_certificate_authority.arn,
             certificate=subordinate_certificate.certificate,
             certificate_chain=subordinate_certificate.certificate_chain)
-        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("rootCertificateAuthorityCertificate")
-        # ...
-        root_certificate = aws.acmpca.Certificate("rootCertificate")
-        # ...
+        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
+        root_certificate = aws.acmpca.Certificate("root")
         ```
 
         :param str resource_name: The name of the resource.

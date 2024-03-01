@@ -30,9 +30,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-//				RetentionPeriod: pulumi.Int(48),
+//			_, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:            pulumi.String("kinesis-test"),
 //				ShardCount:      pulumi.Int(1),
+//				RetentionPeriod: pulumi.Int(48),
 //				ShardLevelMetrics: pulumi.StringArray{
 //					pulumi.String("IncomingBytes"),
 //					pulumi.String("OutgoingBytes"),

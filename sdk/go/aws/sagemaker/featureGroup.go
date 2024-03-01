@@ -34,7 +34,7 @@ import (
 //				FeatureGroupName:            pulumi.String("example"),
 //				RecordIdentifierFeatureName: pulumi.String("example"),
 //				EventTimeFeatureName:        pulumi.String("example"),
-//				RoleArn:                     pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:                     pulumi.Any(test.Arn),
 //				FeatureDefinitions: sagemaker.FeatureGroupFeatureDefinitionArray{
 //					&sagemaker.FeatureGroupFeatureDefinitionArgs{
 //						FeatureName: pulumi.String("example"),

@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewSchema(ctx, "example", &glue.SchemaArgs{
 //				SchemaName:       pulumi.String("example"),
-//				RegistryArn:      pulumi.Any(aws_glue_registry.Test.Arn),
+//				RegistryArn:      pulumi.Any(test.Arn),
 //				DataFormat:       pulumi.String("AVRO"),
 //				Compatibility:    pulumi.String("NONE"),
 //				SchemaDefinition: pulumi.String("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}"),

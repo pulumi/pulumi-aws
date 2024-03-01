@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpcId: aws_vpc.example.id,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * const attachment = new aws.ec2transitgateway.Connect("attachment", {
  *     transportAttachmentId: example.id,
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  * });
  * ```
  *

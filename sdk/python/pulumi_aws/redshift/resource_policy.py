@@ -108,17 +108,17 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+            resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    "action": "redshift:CreateInboundIntegration",
+                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "sid": "",
                 }],
             }))
         ```
@@ -153,17 +153,17 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+            resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    "action": "redshift:CreateInboundIntegration",
+                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "sid": "",
                 }],
             }))
         ```

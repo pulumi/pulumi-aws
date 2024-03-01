@@ -41,7 +41,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -88,12 +89,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", nil)
+//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Name: pulumi.String("example-ns"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -144,7 +148,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -199,7 +204,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{

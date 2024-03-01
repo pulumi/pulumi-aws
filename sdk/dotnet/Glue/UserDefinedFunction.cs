@@ -22,15 +22,16 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "my_database",
     ///     });
     /// 
-    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("exampleUserDefinedFunction", new()
+    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("example", new()
     ///     {
-    ///         CatalogId = exampleCatalogDatabase.CatalogId,
-    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         Name = "my_func",
+    ///         CatalogId = example.CatalogId,
+    ///         DatabaseName = example.Name,
     ///         ClassName = "class",
     ///         OwnerName = "owner",
     ///         OwnerType = "GROUP",

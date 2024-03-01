@@ -14,8 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.chime.VoiceConnector("test", {
- *     awsRegion: "us-east-1",
+ *     name: "connector-test-1",
  *     requireEncryption: true,
+ *     awsRegion: "us-east-1",
  * });
  * ```
  *

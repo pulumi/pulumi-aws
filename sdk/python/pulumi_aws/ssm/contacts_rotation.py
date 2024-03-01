@@ -286,7 +286,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -295,8 +296,7 @@ class ContactsRotation(pulumi.CustomResource):
                     minute_of_hour=0,
                 )],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            time_zone_id="Australia/Sydney")
         ```
         ### Usage with Weekly Settings and Shift Coverages Fields
 
@@ -305,7 +305,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -344,8 +345,7 @@ class ContactsRotation(pulumi.CustomResource):
             tags={
                 "key1": "tag1",
                 "key2": "tag2",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
         ### Usage with Monthly Settings Fields
 
@@ -354,7 +354,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -375,8 +376,7 @@ class ContactsRotation(pulumi.CustomResource):
                     ),
                 ],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            time_zone_id="Australia/Sydney")
         ```
 
         ## Import
@@ -413,7 +413,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -422,8 +423,7 @@ class ContactsRotation(pulumi.CustomResource):
                     minute_of_hour=0,
                 )],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            time_zone_id="Australia/Sydney")
         ```
         ### Usage with Weekly Settings and Shift Coverages Fields
 
@@ -432,7 +432,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -471,8 +472,7 @@ class ContactsRotation(pulumi.CustomResource):
             tags={
                 "key1": "tag1",
                 "key2": "tag2",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
         ### Usage with Monthly Settings Fields
 
@@ -481,7 +481,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[aws_ssmcontacts_contact["example"]["arn"]],
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence=aws.ssm.ContactsRotationRecurrenceArgs(
                 number_of_on_calls=1,
                 recurrence_multiplier=1,
@@ -502,8 +503,7 @@ class ContactsRotation(pulumi.CustomResource):
                     ),
                 ],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            time_zone_id="Australia/Sydney")
         ```
 
         ## Import

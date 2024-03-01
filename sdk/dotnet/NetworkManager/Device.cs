@@ -25,8 +25,8 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.Device("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         SiteId = aws_networkmanager_site.Example.Id,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
+    ///         SiteId = exampleAwsNetworkmanagerSite.Id,
     ///     });
     /// 
     /// });

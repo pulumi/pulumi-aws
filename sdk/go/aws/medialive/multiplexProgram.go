@@ -36,7 +36,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleMultiplex, err := medialive.NewMultiplex(ctx, "exampleMultiplex", &medialive.MultiplexArgs{
+//			example, err := medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
+//				Name: pulumi.String("example-multiplex-changed"),
 //				AvailabilityZones: pulumi.StringArray{
 //					*pulumi.String(available.Names[0]),
 //					*pulumi.String(available.Names[1]),
@@ -55,9 +56,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = medialive.NewMultiplexProgram(ctx, "exampleMultiplexProgram", &medialive.MultiplexProgramArgs{
+//			_, err = medialive.NewMultiplexProgram(ctx, "example", &medialive.MultiplexProgramArgs{
 //				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: exampleMultiplex.ID(),
+//				MultiplexId: example.ID(),
 //				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
 //					ProgramNumber:            pulumi.Int(1),
 //					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),

@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .validationMethod(&#34;DNS&#34;)
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .build());
  * 
  *     }
@@ -154,13 +154,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrivateKey = new PrivateKey(&#34;examplePrivateKey&#34;, PrivateKeyArgs.builder()        
+ *         var example = new PrivateKey(&#34;example&#34;, PrivateKeyArgs.builder()        
  *             .algorithm(&#34;RSA&#34;)
  *             .build());
  * 
  *         var exampleSelfSignedCert = new SelfSignedCert(&#34;exampleSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
- *             .privateKeyPem(examplePrivateKey.privateKeyPem())
+ *             .privateKeyPem(example.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
  *                 .commonName(&#34;example.com&#34;)
  *                 .organization(&#34;ACME Examples, Inc&#34;)
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .privateKey(examplePrivateKey.privateKeyPem())
+ *             .privateKey(example.privateKeyPem())
  *             .certificateBody(exampleSelfSignedCert.certPem())
  *             .build());
  * 

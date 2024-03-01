@@ -320,11 +320,16 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
+            certificate=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
             description="example",
             usage="SIGNING")
         ```
@@ -361,11 +366,16 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
 
         example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
+            certificate=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
+            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
+            private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
             description="example",
             usage="SIGNING")
         ```

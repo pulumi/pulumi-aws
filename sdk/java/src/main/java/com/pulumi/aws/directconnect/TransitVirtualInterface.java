@@ -45,13 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
+ *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .name(&#34;tf-dxg-example&#34;)
  *             .amazonSideAsn(64512)
  *             .build());
  * 
  *         var exampleTransitVirtualInterface = new TransitVirtualInterface(&#34;exampleTransitVirtualInterface&#34;, TransitVirtualInterfaceArgs.builder()        
- *             .connectionId(aws_dx_connection.example().id())
- *             .dxGatewayId(exampleGateway.id())
+ *             .connectionId(exampleAwsDxConnection.id())
+ *             .dxGatewayId(example.id())
+ *             .name(&#34;tf-transit-vif-example&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)

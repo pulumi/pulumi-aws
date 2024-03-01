@@ -27,8 +27,9 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.ClusterParameterGroup("default", new()
     ///     {
-    ///         Description = "RDS default cluster parameter group",
+    ///         Name = "rds-cluster-pg",
     ///         Family = "aurora5.6",
+    ///         Description = "RDS default cluster parameter group",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs

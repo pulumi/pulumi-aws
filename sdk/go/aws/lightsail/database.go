@@ -34,13 +34,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("mysql_8_0"),
-//				BundleId:               pulumi.String("micro_1_0"),
 //				MasterDatabaseName:     pulumi.String("testdatabasename"),
 //				MasterPassword:         pulumi.String("testdatabasepassword"),
 //				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
+//				BlueprintId:            pulumi.String("mysql_8_0"),
+//				BundleId:               pulumi.String("micro_1_0"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,13 +65,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
 //				MasterDatabaseName:     pulumi.String("testdatabasename"),
 //				MasterPassword:         pulumi.String("testdatabasepassword"),
 //				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
+//				BlueprintId:            pulumi.String("postgres_12"),
+//				BundleId:               pulumi.String("micro_1_0"),
 //			})
 //			if err != nil {
 //				return err
@@ -98,15 +98,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName:     pulumi.String("test"),
 //				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
 //				MasterDatabaseName:         pulumi.String("testdatabasename"),
 //				MasterPassword:             pulumi.String("testdatabasepassword"),
 //				MasterUsername:             pulumi.String("test"),
+//				BlueprintId:                pulumi.String("postgres_12"),
+//				BundleId:                   pulumi.String("micro_1_0"),
 //				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
 //				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -133,16 +133,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName:     pulumi.String("test"),
 //				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
-//				FinalSnapshotName:          pulumi.String("MyFinalSnapshot"),
 //				MasterDatabaseName:         pulumi.String("testdatabasename"),
 //				MasterPassword:             pulumi.String("testdatabasepassword"),
 //				MasterUsername:             pulumi.String("test"),
+//				BlueprintId:                pulumi.String("postgres_12"),
+//				BundleId:                   pulumi.String("micro_1_0"),
 //				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
 //				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
+//				FinalSnapshotName:          pulumi.String("MyFinalSnapshot"),
 //			})
 //			if err != nil {
 //				return err
@@ -169,14 +169,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				ApplyImmediately:       pulumi.Bool(true),
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
 //				MasterDatabaseName:     pulumi.String("testdatabasename"),
 //				MasterPassword:         pulumi.String("testdatabasepassword"),
 //				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
+//				BlueprintId:            pulumi.String("postgres_12"),
+//				BundleId:               pulumi.String("micro_1_0"),
+//				ApplyImmediately:       pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

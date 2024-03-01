@@ -22,9 +22,12 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
@@ -56,12 +59,13 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -116,8 +120,8 @@ namespace Pulumi.Aws.CodeBuild
     ///                         Variable = "ec2:Subnet",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_subnet.Example1.Arn,
-    ///                             aws_subnet.Example2.Arn,
+    ///                             example1.Arn,
+    ///                             example2.Arn,
     ///                         },
     ///                     },
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -147,14 +151,15 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
     ///         Role = exampleRole.Name,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleProject = new Aws.CodeBuild.Project("exampleProject", new()
+    ///     var exampleProject = new Aws.CodeBuild.Project("example", new()
     ///     {
+    ///         Name = "test-project",
     ///         Description = "test_codebuild_project",
     ///         BuildTimeout = 5,
     ///         ServiceRole = exampleRole.Arn,
@@ -214,16 +219,16 @@ namespace Pulumi.Aws.CodeBuild
     ///         SourceVersion = "master",
     ///         VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///             Subnets = new[]
     ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
+    ///                 example1.Id,
+    ///                 example2.Id,
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example1.Id,
-    ///                 aws_security_group.Example2.Id,
+    ///                 example1AwsSecurityGroup.Id,
+    ///                 example2AwsSecurityGroup.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -234,6 +239,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new()
     ///     {
+    ///         Name = "test-project-cache",
     ///         Description = "test_codebuild_project_cache",
     ///         BuildTimeout = 5,
     ///         QueuedTimeout = 5,

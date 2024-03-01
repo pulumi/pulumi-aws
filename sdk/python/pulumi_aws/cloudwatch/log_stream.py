@@ -123,8 +123,10 @@ class LogStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
+        yada = aws.cloudwatch.LogGroup("yada", name="Yada")
+        foo = aws.cloudwatch.LogStream("foo",
+            name="SampleLogStream1234",
+            log_group_name=yada.name)
         ```
 
         ## Import
@@ -155,8 +157,10 @@ class LogStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
+        yada = aws.cloudwatch.LogGroup("yada", name="Yada")
+        foo = aws.cloudwatch.LogStream("foo",
+            name="SampleLogStream1234",
+            log_group_name=yada.name)
         ```
 
         ## Import

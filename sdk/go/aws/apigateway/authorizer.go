@@ -24,13 +24,16 @@ import (
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
+//			demoRestApi, err := apigateway.NewRestApi(ctx, "demo", &apigateway.RestApiArgs{
+//				Name: pulumi.String("auth-demo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -55,7 +58,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
+//			invocationRole, err := iam.NewRole(ctx, "invocation_role", &iam.RoleArgs{
+//				Name:             pulumi.String("api_gateway_auth_invocation"),
 //				Path:             pulumi.String("/"),
 //				AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
 //			})
@@ -84,20 +88,30 @@ import (
 //				return err
 //			}
 //			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+//				Name:             pulumi.String("demo-lambda"),
 //				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
+//				Input: "lambda-function.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda-function.zip"),
-//				Role:    lambda.Arn,
-//				Handler: pulumi.String("exports.example"),
+//				Code:           pulumi.NewFileArchive("lambda-function.zip"),
+//				Name:           pulumi.String("api_gateway_authorizer"),
+//				Role:           lambda.Arn,
+//				Handler:        pulumi.String("exports.example"),
+//				SourceCodeHash: invokeFilebase64sha256.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
+//			_, err = apigateway.NewAuthorizer(ctx, "demo", &apigateway.AuthorizerArgs{
+//				Name:                  pulumi.String("demo"),
 //				RestApi:               demoRestApi.ID(),
 //				AuthorizerUri:         authorizer.InvokeArn,
 //				AuthorizerCredentials: invocationRole.Arn,
@@ -105,7 +119,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invocationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			invocationPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -118,10 +132,11 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "invocationPolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "invocation_policy", &iam.RolePolicyArgs{
+//				Name: pulumi.String("default"),
 //				Role: invocationRole.ID(),
-//				Policy: invocationPolicyPolicyDocument.ApplyT(func(invocationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &invocationPolicyPolicyDocument.Json, nil
+//				Policy: invocationPolicy.ApplyT(func(invocationPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &invocationPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

@@ -24,10 +24,10 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new()
     ///     {
-    ///         FsxFilesystemArn = aws_fsx_openzfs_file_system.Example.Arn,
+    ///         FsxFilesystemArn = exampleAwsFsxOpenzfsFileSystem.Arn,
     ///         SecurityGroupArns = new[]
     ///         {
-    ///             aws_security_group.Example.Arn,
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///         Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
     ///         {

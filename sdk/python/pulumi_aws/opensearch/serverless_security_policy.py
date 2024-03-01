@@ -201,14 +201,15 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy for example-collection",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example-collection"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/example-collection"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": True,
+                "aWSOwnedKey": True,
             }))
         ```
         ### Applies to multiple collections
@@ -219,14 +220,15 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy for collections that begin with \\"example\\"",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example*"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/example*"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": True,
+                "aWSOwnedKey": True,
             }))
         ```
         ### Using a customer managed key
@@ -237,15 +239,16 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy using customer KMS key",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/customer-managed-key-collection"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/customer-managed-key-collection"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": False,
-                "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+                "aWSOwnedKey": False,
+                "kmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
         ### Network Security Policy
@@ -257,21 +260,22 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="Public access",
             policy=json.dumps([{
-                "Description": "Public access to collection and Dashboards endpoint for example collection",
-                "Rules": [
+                "description": "Public access to collection and Dashboards endpoint for example collection",
+                "rules": [
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "collection",
+                        "resource": ["collection/example-collection"],
                     },
                     {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "dashboard",
+                        "resource": ["collection/example-collection"],
                     },
                 ],
-                "AllowFromPublic": True,
+                "allowFromPublic": True,
             }]))
         ```
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
@@ -282,22 +286,23 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="VPC access",
             policy=json.dumps([{
-                "Description": "VPC access to collection and Dashboards endpoint for example collection",
-                "Rules": [
+                "description": "VPC access to collection and Dashboards endpoint for example collection",
+                "rules": [
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "collection",
+                        "resource": ["collection/example-collection"],
                     },
                     {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "dashboard",
+                        "resource": ["collection/example-collection"],
                     },
                 ],
-                "AllowFromPublic": False,
-                "SourceVPCEs": ["vpce-050f79086ee71ac05"],
+                "allowFromPublic": False,
+                "sourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
         ### Mixed access for different collections
@@ -308,6 +313,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="Mixed access for marketing and sales",
             policy=json.dumps([
@@ -374,14 +380,15 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy for example-collection",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example-collection"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/example-collection"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": True,
+                "aWSOwnedKey": True,
             }))
         ```
         ### Applies to multiple collections
@@ -392,14 +399,15 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy for collections that begin with \\"example\\"",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example*"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/example*"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": True,
+                "aWSOwnedKey": True,
             }))
         ```
         ### Using a customer managed key
@@ -410,15 +418,16 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             description="encryption security policy using customer KMS key",
             policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/customer-managed-key-collection"],
-                    "ResourceType": "collection",
+                "rules": [{
+                    "resource": ["collection/customer-managed-key-collection"],
+                    "resourceType": "collection",
                 }],
-                "AWSOwnedKey": False,
-                "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+                "aWSOwnedKey": False,
+                "kmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
         ### Network Security Policy
@@ -430,21 +439,22 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="Public access",
             policy=json.dumps([{
-                "Description": "Public access to collection and Dashboards endpoint for example collection",
-                "Rules": [
+                "description": "Public access to collection and Dashboards endpoint for example collection",
+                "rules": [
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "collection",
+                        "resource": ["collection/example-collection"],
                     },
                     {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "dashboard",
+                        "resource": ["collection/example-collection"],
                     },
                 ],
-                "AllowFromPublic": True,
+                "allowFromPublic": True,
             }]))
         ```
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
@@ -455,22 +465,23 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="VPC access",
             policy=json.dumps([{
-                "Description": "VPC access to collection and Dashboards endpoint for example collection",
-                "Rules": [
+                "description": "VPC access to collection and Dashboards endpoint for example collection",
+                "rules": [
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "collection",
+                        "resource": ["collection/example-collection"],
                     },
                     {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
+                        "resourceType": "dashboard",
+                        "resource": ["collection/example-collection"],
                     },
                 ],
-                "AllowFromPublic": False,
-                "SourceVPCEs": ["vpce-050f79086ee71ac05"],
+                "allowFromPublic": False,
+                "sourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
         ### Mixed access for different collections
@@ -481,6 +492,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="network",
             description="Mixed access for marketing and sales",
             policy=json.dumps([

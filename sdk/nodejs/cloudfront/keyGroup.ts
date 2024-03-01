@@ -12,15 +12,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const examplePublicKey = new aws.cloudfront.PublicKey("examplePublicKey", {
+ * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "example public key",
- *     encodedKey: fs.readFileSync("public_key.pem", "utf8"),
+ *     encodedKey: std.file({
+ *         input: "public_key.pem",
+ *     }).then(invoke => invoke.result),
+ *     name: "example-key",
  * });
- * const exampleKeyGroup = new aws.cloudfront.KeyGroup("exampleKeyGroup", {
+ * const exampleKeyGroup = new aws.cloudfront.KeyGroup("example", {
  *     comment: "example key group",
- *     items: [examplePublicKey.id],
+ *     items: [example.id],
+ *     name: "example-key-group",
  * });
  * ```
  *

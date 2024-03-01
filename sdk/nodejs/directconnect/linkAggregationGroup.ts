@@ -16,9 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
+ *     name: "tf-dx-lag",
  *     connectionsBandwidth: "1Gbps",
- *     forceDestroy: true,
  *     location: "EqDC2",
+ *     forceDestroy: true,
  * });
  * ```
  *

@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConditionalForwader(&#34;example&#34;, ConditionalForwaderArgs.builder()        
- *             .directoryId(aws_directory_service_directory.ad().id())
+ *             .directoryId(ad.id())
  *             .remoteDomainName(&#34;example.com&#34;)
  *             .dnsIps(            
  *                 &#34;8.8.8.8&#34;,

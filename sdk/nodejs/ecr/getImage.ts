@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceImage = aws.ecr.getImage({
- *     imageTag: "latest",
  *     repositoryName: "my/service",
+ *     imageTag: "latest",
  * });
  * ```
  */
@@ -97,8 +97,8 @@ export interface GetImageResult {
  * import * as aws from "@pulumi/aws";
  *
  * const serviceImage = aws.ecr.getImage({
- *     imageTag: "latest",
  *     repositoryName: "my/service",
+ *     imageTag: "latest",
  * });
  * ```
  */

@@ -22,26 +22,18 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var primaryKey = new Aws.Kms.Key("primaryKey", new()
+    ///     var primary = new Aws.Kms.Key("primary", new()
     ///     {
     ///         Description = "Multi-Region primary key",
     ///         DeletionWindowInDays = 30,
     ///         MultiRegion = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
     ///     var replica = new Aws.Kms.ReplicaKey("replica", new()
     ///     {
     ///         Description = "Multi-Region replica key",
     ///         DeletionWindowInDays = 7,
-    ///         PrimaryKeyArn = primaryKey.Arn,
+    ///         PrimaryKeyArn = primary.Arn,
     ///     });
     /// 
     /// });

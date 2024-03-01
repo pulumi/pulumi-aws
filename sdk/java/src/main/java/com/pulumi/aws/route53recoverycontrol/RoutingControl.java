@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoutingControl(&#34;example&#34;, RoutingControlArgs.builder()        
+ *             .name(&#34;tinlicker&#34;)
  *             .clusterArn(&#34;arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393&#34;)
  *             .build());
  * 
@@ -67,6 +68,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoutingControl(&#34;example&#34;, RoutingControlArgs.builder()        
+ *             .name(&#34;thomasoliver&#34;)
  *             .clusterArn(&#34;arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393&#34;)
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
  *             .build());

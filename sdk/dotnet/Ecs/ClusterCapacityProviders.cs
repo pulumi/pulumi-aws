@@ -24,11 +24,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
-    /// 
-    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
+    ///     var example = new Aws.Ecs.Cluster("example", new()
     ///     {
-    ///         ClusterName = exampleCluster.Name,
+    ///         Name = "my-cluster",
+    ///     });
+    /// 
+    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("example", new()
+    ///     {
+    ///         ClusterName = example.Name,
     ///         CapacityProviders = new[]
     ///         {
     ///             "FARGATE",

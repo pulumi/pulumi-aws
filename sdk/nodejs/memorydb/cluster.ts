@@ -20,11 +20,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.memorydb.Cluster("example", {
  *     aclName: "open-access",
+ *     name: "my-cluster",
  *     nodeType: "db.t4g.small",
  *     numShards: 2,
- *     securityGroupIds: [aws_security_group.example.id],
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     snapshotRetentionLimit: 7,
- *     subnetGroupName: aws_memorydb_subnet_group.example.id,
+ *     subnetGroupName: exampleAwsMemorydbSubnetGroup.id,
  * });
  * ```
  *

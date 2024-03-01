@@ -167,11 +167,14 @@ def get_certificate(domain: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
+    # Find a certificate that is issued
     issued = aws.acm.get_certificate(domain="tf.example.com",
         statuses=["ISSUED"])
+    # Find a certificate issued by (not imported into) ACM
     amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        most_recent=True,
-        types=["AMAZON_ISSUED"])
+        types=["AMAZON_ISSUED"],
+        most_recent=True)
+    # Find a RSA 4096 bit certificate
     rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
         key_types=["RSA_4096"])
     ```
@@ -229,11 +232,14 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
+    # Find a certificate that is issued
     issued = aws.acm.get_certificate(domain="tf.example.com",
         statuses=["ISSUED"])
+    # Find a certificate issued by (not imported into) ACM
     amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        most_recent=True,
-        types=["AMAZON_ISSUED"])
+        types=["AMAZON_ISSUED"],
+        most_recent=True)
+    # Find a RSA 4096 bit certificate
     rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
         key_types=["RSA_4096"])
     ```

@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iot.TopicRule;
  * import com.pulumi.aws.iot.TopicRuleArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
@@ -72,24 +73,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mytopic = new Topic(&#34;mytopic&#34;);
+ *         var mytopic = new Topic(&#34;mytopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;mytopic&#34;)
+ *             .build());
  * 
- *         var myerrortopic = new Topic(&#34;myerrortopic&#34;);
+ *         var myerrortopic = new Topic(&#34;myerrortopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;myerrortopic&#34;)
+ *             .build());
  * 
  *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
+ *             .name(&#34;MyRule&#34;)
  *             .description(&#34;Example rule&#34;)
  *             .enabled(true)
  *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
  *             .sqlVersion(&#34;2016-03-23&#34;)
  *             .sns(TopicRuleSnsArgs.builder()
  *                 .messageFormat(&#34;RAW&#34;)
- *                 .roleArn(aws_iam_role.role().arn())
+ *                 .roleArn(role.arn())
  *                 .targetArn(mytopic.arn())
  *                 .build())
  *             .errorAction(TopicRuleErrorActionArgs.builder()
  *                 .sns(TopicRuleErrorActionSnsArgs.builder()
  *                     .messageFormat(&#34;RAW&#34;)
- *                     .roleArn(aws_iam_role.role().arn())
+ *                     .roleArn(role.arn())
  *                     .targetArn(myerrortopic.arn())
  *                     .build())
  *                 .build())
@@ -107,10 +113,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var myrole = new Role(&#34;myrole&#34;, RoleArgs.builder()        
+ *             .name(&#34;myrole&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var mypolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var mypolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;sns:Publish&#34;)
@@ -119,8 +126,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mypolicyRolePolicy = new RolePolicy(&#34;mypolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;mypolicy&#34;)
  *             .role(myrole.id())
- *             .policy(mypolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mypolicyPolicyDocument -&gt; mypolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mypolicy -&gt; mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

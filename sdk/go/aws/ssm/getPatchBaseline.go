@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+//				Owner:           "AWS",
 //				NamePrefix:      pulumi.StringRef("AWS-"),
 //				OperatingSystem: pulumi.StringRef("CENTOS"),
-//				Owner:           "AWS",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -58,10 +58,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-//				DefaultBaseline: pulumi.BoolRef(true),
-//				NamePrefix:      pulumi.StringRef("MyCustomBaseline"),
-//				OperatingSystem: pulumi.StringRef("WINDOWS"),
 //				Owner:           "Self",
+//				NamePrefix:      pulumi.StringRef("MyCustomBaseline"),
+//				DefaultBaseline: pulumi.BoolRef(true),
+//				OperatingSystem: pulumi.StringRef("WINDOWS"),
 //			}, nil)
 //			if err != nil {
 //				return err

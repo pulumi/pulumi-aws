@@ -115,8 +115,8 @@ class Attachment(pulumi.CustomResource):
 
         # Create a new load balancer attachment
         baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
+            elb=bar["id"],
+            instance=foo["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -148,8 +148,8 @@ class Attachment(pulumi.CustomResource):
 
         # Create a new load balancer attachment
         baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
+            elb=bar["id"],
+            instance=foo["id"])
         ```
 
         :param str resource_name: The name of the resource.

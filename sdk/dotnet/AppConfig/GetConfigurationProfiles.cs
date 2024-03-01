@@ -28,19 +28,12 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleConfigurationProfiles = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
+        ///     var example = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
         ///     {
         ///         ApplicationId = "a1d3rpe",
         ///     });
         /// 
-        ///     var exampleConfigurationProfile = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
-        ///         {
-        ///             ConfigurationProfileId = __value,
-        ///             ApplicationId = aws_appconfig_application.Example.Id,
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetConfigurationProfile = ;
         /// 
         /// });
         /// ```
@@ -67,19 +60,12 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleConfigurationProfiles = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
+        ///     var example = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
         ///     {
         ///         ApplicationId = "a1d3rpe",
         ///     });
         /// 
-        ///     var exampleConfigurationProfile = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
-        ///         {
-        ///             ConfigurationProfileId = __value,
-        ///             ApplicationId = aws_appconfig_application.Example.Id,
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetConfigurationProfile = ;
         /// 
         /// });
         /// ```

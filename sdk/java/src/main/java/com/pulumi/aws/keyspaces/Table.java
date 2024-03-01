@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .keyspaceName(aws_keyspaces_keyspace.example().name())
+ *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
  *             .tableName(&#34;my_table&#34;)
  *             .schemaDefinition(TableSchemaDefinitionArgs.builder()
  *                 .columns(TableSchemaDefinitionColumnArgs.builder()

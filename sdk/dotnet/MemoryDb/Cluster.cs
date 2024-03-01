@@ -27,14 +27,15 @@ namespace Pulumi.Aws.MemoryDb
     ///     var example = new Aws.MemoryDb.Cluster("example", new()
     ///     {
     ///         AclName = "open-access",
+    ///         Name = "my-cluster",
     ///         NodeType = "db.t4g.small",
     ///         NumShards = 2,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         SnapshotRetentionLimit = 7,
-    ///         SubnetGroupName = aws_memorydb_subnet_group.Example.Id,
+    ///         SubnetGroupName = exampleAwsMemorydbSubnetGroup.Id,
     ///     });
     /// 
     /// });

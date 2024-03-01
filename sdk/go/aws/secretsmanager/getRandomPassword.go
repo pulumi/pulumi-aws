@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.GetRandomPassword(ctx, &secretsmanager.GetRandomPasswordArgs{
-//				ExcludeNumbers: pulumi.BoolRef(true),
 //				PasswordLength: pulumi.IntRef(50),
+//				ExcludeNumbers: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  *     hostInstanceType: "mq.m5.large",
  * });
  * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
  *     hostInstanceType: "mq.m5.large",
  *     storageType: "EBS",
+ *     engineType: "ACTIVEMQ",
  * });
  * ```
  */
@@ -107,9 +107,9 @@ export interface GetInstanceTypeOfferingsResult {
  *     hostInstanceType: "mq.m5.large",
  * });
  * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
  *     hostInstanceType: "mq.m5.large",
  *     storageType: "EBS",
+ *     engineType: "ACTIVEMQ",
  * });
  * ```
  */

@@ -36,7 +36,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.NewDefaultKmsKey(ctx, "example", &ebs.DefaultKmsKeyArgs{
-//				KeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//				KeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
 //			})
 //			if err != nil {
 //				return err

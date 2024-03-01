@@ -24,12 +24,13 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Plan("example", new()
     ///     {
+    ///         Name = "my_example_backup_plan",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Backup.Inputs.PlanRuleArgs
     ///             {
     ///                 RuleName = "my_example_backup_rule",
-    ///                 TargetVaultName = aws_backup_vault.Test.Name,
+    ///                 TargetVaultName = test.Name,
     ///                 Schedule = "cron(0 12 * * ? *)",
     ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
     ///                 {

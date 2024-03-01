@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EfsLocation(&#34;example&#34;, EfsLocationArgs.builder()        
- *             .efsFileSystemArn(aws_efs_mount_target.example().file_system_arn())
+ *             .efsFileSystemArn(exampleAwsEfsMountTarget.fileSystemArn())
  *             .ec2Config(EfsLocationEc2ConfigArgs.builder()
- *                 .securityGroupArns(aws_security_group.example().arn())
- *                 .subnetArn(aws_subnet.example().arn())
+ *                 .securityGroupArns(exampleAwsSecurityGroup.arn())
+ *                 .subnetArn(exampleAwsSubnet.arn())
  *                 .build())
  *             .build());
  * 

@@ -29,15 +29,15 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verificationPrivateKey = new Tls.PrivateKey("verificationPrivateKey", new()
+        ///     var verification = new Tls.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.CertRequest("verificationCertRequest", new()
+        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
+        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
         ///         {
         ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
@@ -70,15 +70,15 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verificationPrivateKey = new Tls.PrivateKey("verificationPrivateKey", new()
+        ///     var verification = new Tls.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.CertRequest("verificationCertRequest", new()
+        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
+        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
         ///         {
         ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Sfn
         ///     var example = Aws.Sfn.GetAlias.Invoke(new()
         ///     {
         ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = aws_sfn_state_machine.Sfn_test.Arn,
+        ///         StatemachineArn = sfnTest.Arn,
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sfn
         ///     var example = Aws.Sfn.GetAlias.Invoke(new()
         ///     {
         ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = aws_sfn_state_machine.Sfn_test.Arn,
+        ///         StatemachineArn = sfnTest.Arn,
         ///     });
         /// 
         /// });

@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
-//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
 //				RepositoryName: "sagemaker-scikit-learn",
+//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -60,7 +60,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -72,22 +74,20 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewCodeRepository(ctx, "exampleCodeRepository", &sagemaker.CodeRepositoryArgs{
+//			_, err = sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
 //				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//					SecretArn:     exampleSecret.Arn,
+//					SecretArn:     example.Arn,
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -13,6 +13,84 @@ namespace Pulumi.Aws.Msk
     /// Resource for managing an AWS Managed Streaming for Kafka Replicator.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Msk.Replicator("test", new()
+    ///     {
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         KafkaClusters = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = source.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = sourceAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         sourceAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = target.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = targetAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         targetAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -312,7 +312,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             tags={
@@ -326,7 +326,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             description="example description")
@@ -338,7 +338,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             prefix="+18005")
@@ -379,7 +379,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             tags={
@@ -393,7 +393,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             description="example description")
@@ -405,7 +405,7 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             prefix="+18005")

@@ -100,8 +100,8 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=example_access_grants_instance.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
+        example = aws.s3control.AccessGrantsInstance("example")
+        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "S3AccessGrantsPolicy",
           "Statement": [{{
@@ -118,7 +118,6 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
             "Resource": "{access_grants_instance_arn}"
           }}]
         }}
-
         \"\"\"))
         ```
 
@@ -150,8 +149,8 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=example_access_grants_instance.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
+        example = aws.s3control.AccessGrantsInstance("example")
+        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "S3AccessGrantsPolicy",
           "Statement": [{{
@@ -168,7 +167,6 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
             "Resource": "{access_grants_instance_arn}"
           }}]
         }}
-
         \"\"\"))
         ```
 

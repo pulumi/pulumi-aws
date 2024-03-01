@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         var myThreatIntelSetBucketObjectv2 = new BucketObjectv2(&#34;myThreatIntelSetBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var myThreatIntelSet = new BucketObjectv2(&#34;myThreatIntelSet&#34;, BucketObjectv2Args.builder()        
  *             .acl(&#34;public-read&#34;)
  *             .content(&#34;&#34;&#34;
  * 10.0.0.0/8
@@ -74,11 +74,12 @@ import javax.annotation.Nullable;
  *             .activate(true)
  *             .detectorId(primary.id())
  *             .format(&#34;TXT&#34;)
- *             .location(Output.tuple(myThreatIntelSetBucketObjectv2.bucket(), myThreatIntelSetBucketObjectv2.key()).applyValue(values -&gt; {
+ *             .location(Output.tuple(myThreatIntelSet.bucket(), myThreatIntelSet.key()).applyValue(values -&gt; {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
  *                 return String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, bucket,key);
  *             }))
+ *             .name(&#34;MyThreatIntelSet&#34;)
  *             .build());
  * 
  *     }

@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
@@ -76,12 +77,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .description(&#34;Example Description&#34;)
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .cloudwatchLogs(ProjectDataDeliveryCloudwatchLogsArgs.builder()
  *                     .logGroup(&#34;example-log-group-name&#34;)
  *                     .build())
  *                 .build())
- *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
  * 
@@ -113,13 +115,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .description(&#34;Example Description&#34;)
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .s3Destination(ProjectDataDeliveryS3DestinationArgs.builder()
  *                     .bucket(&#34;example-bucket-name&#34;)
  *                     .prefix(&#34;example&#34;)
  *                     .build())
  *                 .build())
- *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
  * 

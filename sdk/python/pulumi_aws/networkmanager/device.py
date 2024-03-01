@@ -413,8 +413,8 @@ class Device(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Device("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"])
         ```
 
         ## Import
@@ -455,8 +455,8 @@ class Device(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Device("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"])
         ```
 
         ## Import

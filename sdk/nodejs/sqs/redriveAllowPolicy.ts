@@ -13,13 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {});
- * const src = new aws.sqs.Queue("src", {redrivePolicy: pulumi.jsonStringify({
- *     deadLetterTargetArn: exampleQueue.arn,
- *     maxReceiveCount: 4,
- * })});
- * const exampleRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy", {
- *     queueUrl: exampleQueue.id,
+ * const example = new aws.sqs.Queue("example", {name: "examplequeue"});
+ * const src = new aws.sqs.Queue("src", {
+ *     name: "srcqueue",
+ *     redrivePolicy: pulumi.jsonStringify({
+ *         deadLetterTargetArn: example.arn,
+ *         maxReceiveCount: 4,
+ *     }),
+ * });
+ * const exampleRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("example", {
+ *     queueUrl: example.id,
  *     redriveAllowPolicy: pulumi.jsonStringify({
  *         redrivePermission: "byQueue",
  *         sourceQueueArns: [src.arn],

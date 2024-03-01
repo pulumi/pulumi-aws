@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
 //						RegionName: *pulumi.String(current.Name),
@@ -50,15 +50,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				IpamScopeId:   example.PrivateDefaultScopeId,
 //				Locale:        *pulumi.String(current.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
@@ -100,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ipv6TestPublicVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "ipv6TestPublicVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			ipv6TestPublic, err := ec2.NewVpcIpamPool(ctx, "ipv6_test_public", &ec2.VpcIpamPoolArgs{
 //				AddressFamily:        pulumi.String("ipv6"),
 //				IpamScopeId:          example.PublicDefaultScopeId,
 //				Locale:               pulumi.String("us-east-1"),
@@ -112,8 +112,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6TestPublicVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId:    ipv6TestPublicVpcIpamPool.ID(),
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6_test_public", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId:    ipv6TestPublic.ID(),
 //				NetmaskLength: pulumi.Int(52),
 //			})
 //			if err != nil {

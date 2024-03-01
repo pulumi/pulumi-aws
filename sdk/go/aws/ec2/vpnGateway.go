@@ -27,8 +27,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpnGateway(ctx, "vpnGw", &ec2.VpnGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
+//			_, err := ec2.NewVpnGateway(ctx, "vpn_gw", &ec2.VpnGatewayArgs{
+//				VpcId: pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main"),
 //				},

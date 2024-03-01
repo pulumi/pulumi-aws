@@ -32,8 +32,8 @@ import (
 //				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
 //					&ec2.FleetLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-//							Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//							LaunchTemplateId: pulumi.Any(exampleAwsLaunchTemplate.Id),
+//							Version:          pulumi.Any(exampleAwsLaunchTemplate.LatestVersion),
 //						},
 //					},
 //				},

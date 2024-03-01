@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const test = new aws.lb.TargetGroup("test", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     vpcId: main.id,
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const ip_example = new aws.lb.TargetGroup("ip-example", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
@@ -46,7 +48,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambda_example = new aws.lb.TargetGroup("lambda-example", {targetType: "lambda"});
+ * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
+ *     name: "tf-example-lb-tg",
+ *     targetType: "lambda",
+ * });
  * ```
  * ### ALB Target Group
  *
@@ -55,10 +60,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const alb_example = new aws.lb.TargetGroup("alb-example", {
+ *     name: "tf-example-lb-alb-tg",
  *     targetType: "alb",
  *     port: 80,
  *     protocol: "TCP",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  * });
  * ```
  * ### Target group with unhealthy connection termination disabled
@@ -68,9 +74,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ *     name: "tf-example-lb-nlb-tg",
  *     port: 25,
  *     protocol: "TCP",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     targetHealthStates: [{
  *         enableUnhealthyConnectionTermination: false,
  *     }],

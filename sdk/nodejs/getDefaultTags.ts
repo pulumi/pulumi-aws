@@ -18,6 +18,19 @@ import * as utilities from "./utilities";
  *
  * const example = aws.getDefaultTags({});
  * ```
+ * ### Dynamically Apply Default Tags to Auto Scaling Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.getDefaultTags({});
+ * const exampleGroup = new aws.autoscaling.Group("example", {tags: .map(entry => ({
+ *     key: entry.key,
+ *     value: entry.value,
+ *     propagateAtLaunch: true,
+ * }))});
+ * ```
  */
 export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultTagsResult> {
     args = args || {};
@@ -58,6 +71,19 @@ export interface GetDefaultTagsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getDefaultTags({});
+ * ```
+ * ### Dynamically Apply Default Tags to Auto Scaling Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.getDefaultTags({});
+ * const exampleGroup = new aws.autoscaling.Group("example", {tags: .map(entry => ({
+ *     key: entry.key,
+ *     value: entry.value,
+ *     propagateAtLaunch: true,
+ * }))});
  * ```
  */
 export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultTagsResult> {

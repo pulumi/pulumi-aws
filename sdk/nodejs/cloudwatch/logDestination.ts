@@ -13,9 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
- *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
- *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
+ * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
+ *     name: "test_destination",
+ *     roleArn: iamForCloudwatch.arn,
+ *     targetArn: kinesisForCloudwatch.arn,
  * });
  * ```
  *

@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataShareConsumerAssociation(&#34;example&#34;, DataShareConsumerAssociationArgs.builder()        
- *             .associateEntireAccount(true)
  *             .dataShareArn(&#34;arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example&#34;)
+ *             .associateEntireAccount(true)
  *             .build());
  * 
  *     }
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataShareConsumerAssociation(&#34;example&#34;, DataShareConsumerAssociationArgs.builder()        
- *             .consumerRegion(&#34;us-west-2&#34;)
  *             .dataShareArn(&#34;arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example&#34;)
+ *             .consumerRegion(&#34;us-west-2&#34;)
  *             .build());
  * 
  *     }

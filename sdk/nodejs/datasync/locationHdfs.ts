@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationHdfs("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
  *     authenticationType: "SIMPLE",
  *     simpleUser: "example",
  *     nameNodes: [{
- *         hostname: aws_instance.example.private_dns,
+ *         hostname: exampleAwsInstance.privateDns,
  *         port: 80,
  *     }],
  * });

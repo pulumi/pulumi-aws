@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.memorydb.ParameterGroup("example", {
+ *     name: "my-parameter-group",
  *     family: "memorydb_redis6",
  *     parameters: [{
  *         name: "activedefrag",

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
     ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
+    ///         PolicyId = example.Id,
     ///         TargetId = "123456789012",
     ///     });
     /// 
@@ -43,8 +43,8 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
     ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organization.Example.Roots[0].Id,
+    ///         PolicyId = example.Id,
+    ///         TargetId = exampleAwsOrganizationsOrganization.Roots[0].Id,
     ///     });
     /// 
     /// });
@@ -61,8 +61,8 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
     ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organizational_unit.Example.Id,
+    ///         PolicyId = example.Id,
+    ///         TargetId = exampleAwsOrganizationsOrganizationalUnit.Id,
     ///     });
     /// 
     /// });

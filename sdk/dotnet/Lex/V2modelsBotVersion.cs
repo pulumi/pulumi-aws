@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var test = new Aws.Lex.V2modelsBotVersion("test", new()
     ///     {
-    ///         BotId = aws_lexv2models.Test.Id,
+    ///         BotId = testAwsLexv2models.Id,
     ///         LocaleSpecification = 
     ///         {
     ///             { "en_US", new Aws.Lex.Inputs.V2modelsBotVersionLocaleSpecificationArgs

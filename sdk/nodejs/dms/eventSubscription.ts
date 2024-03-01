@@ -19,8 +19,9 @@ import * as utilities from "../utilities";
  *         "creation",
  *         "failure",
  *     ],
- *     snsTopicArn: aws_sns_topic.example.arn,
- *     sourceIds: [aws_dms_replication_task.example.replication_task_id],
+ *     name: "my-favorite-event-subscription",
+ *     snsTopicArn: exampleAwsSnsTopic.arn,
+ *     sourceIds: [exampleAwsDmsReplicationTask.replicationTaskId],
  *     sourceType: "replication-task",
  *     tags: {
  *         Name: "example",

@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iot.ThingType;
+ * import com.pulumi.aws.iot.ThingTypeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,7 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ThingType(&#34;foo&#34;);
+ *         var foo = new ThingType(&#34;foo&#34;, ThingTypeArgs.builder()        
+ *             .name(&#34;my_iot_thing&#34;)
+ *             .build());
  * 
  *     }
  * }

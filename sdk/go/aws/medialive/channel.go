@@ -32,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := medialive.NewChannel(ctx, "example", &medialive.ChannelArgs{
+//				Name:         pulumi.String("example-channel"),
 //				ChannelClass: pulumi.String("STANDARD"),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				InputSpecification: &medialive.ChannelInputSpecificationArgs{
 //					Codec:           pulumi.String("AVC"),
 //					InputResolution: pulumi.String("HD"),
@@ -42,7 +43,7 @@ import (
 //				InputAttachments: medialive.ChannelInputAttachmentArray{
 //					&medialive.ChannelInputAttachmentArgs{
 //						InputAttachmentName: pulumi.String("example-input"),
-//						InputId:             pulumi.Any(aws_medialive_input.Example.Id),
+//						InputId:             pulumi.Any(exampleAwsMedialiveInput.Id),
 //					},
 //				},
 //				Destinations: medialive.ChannelDestinationArray{
@@ -50,10 +51,10 @@ import (
 //						Id: pulumi.String("destination"),
 //						Settings: medialive.ChannelDestinationSettingArray{
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", aws_s3_bucket.Main.Id)),
+//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", main.Id)),
 //							},
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", aws_s3_bucket.Main2.Id)),
+//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", main2.Id)),
 //							},
 //						},
 //					},

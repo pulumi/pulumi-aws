@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachmentAccepter(&#34;example&#34;, VpcAttachmentAccepterArgs.builder()        
- *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
  *             .build());
  * 

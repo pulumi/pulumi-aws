@@ -18,6 +18,35 @@ namespace Pulumi.Aws.Eks
         /// [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
+        /// 
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetCluster.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     var exampleGetClusterAuth = Aws.Eks.GetClusterAuth.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterAuthResult> InvokeAsync(GetClusterAuthArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthArgs(), options.WithDefaults());
@@ -29,6 +58,35 @@ namespace Pulumi.Aws.Eks
         /// [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
+        /// 
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetCluster.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     var exampleGetClusterAuth = Aws.Eks.GetClusterAuth.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterAuthResult> Invoke(GetClusterAuthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthInvokeArgs(), options.WithDefaults());

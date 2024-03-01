@@ -114,9 +114,9 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            subnet_id=aws_subnet["sn"]["id"])
+        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("sn_ec2",
+            vpc_endpoint_id=ec2["id"],
+            subnet_id=sn["id"])
         ```
 
         ## Import
@@ -155,9 +155,9 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            subnet_id=aws_subnet["sn"]["id"])
+        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("sn_ec2",
+            vpc_endpoint_id=ec2["id"],
+            subnet_id=sn["id"])
         ```
 
         ## Import

@@ -26,19 +26,12 @@ namespace Pulumi.Aws.Eks
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNodeGroups = Aws.Eks.GetNodeGroups.Invoke(new()
+        ///     var example = Aws.Eks.GetNodeGroups.Invoke(new()
         ///     {
         ///         ClusterName = "example",
         ///     });
         /// 
-        ///     var exampleNodeGroup = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = __value,
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetNodeGroup = ;
         /// 
         /// });
         /// ```
@@ -63,19 +56,12 @@ namespace Pulumi.Aws.Eks
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNodeGroups = Aws.Eks.GetNodeGroups.Invoke(new()
+        ///     var example = Aws.Eks.GetNodeGroups.Invoke(new()
         ///     {
         ///         ClusterName = "example",
         ///     });
         /// 
-        ///     var exampleNodeGroup = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = __value,
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetNodeGroup = ;
         /// 
         /// });
         /// ```

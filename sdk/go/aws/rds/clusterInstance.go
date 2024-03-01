@@ -63,7 +63,7 @@ import (
 //			for index := 0; index < 2; index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
+//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("cluster_instances-%v", key0), &rds.ClusterInstanceArgs{
 //					Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
 //					ClusterIdentifier: _default.ID(),
 //					InstanceClass:     pulumi.String("db.r4.large"),

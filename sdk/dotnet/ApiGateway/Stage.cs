@@ -17,22 +17,14 @@ namespace Pulumi.Aws.ApiGateway
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// string ComputeSHA1(string input) 
-    /// {
-    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
-    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -59,27 +51,31 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new()
+    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "*/*",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
@@ -105,27 +101,19 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var config = new Config();
     ///     var stageName = config.Get("stageName") ?? "example";
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var example = new Aws.ApiGateway.RestApi("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
+    ///         StageName = stageName,
+    ///     });
+    /// 
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = example.Id.Apply(id =&gt; $"API-Gateway-Execution-Logs_{id}/{stageName}"),
     ///         RetentionInDays = 7,
     ///     });
     /// 
-    ///     // ... potentially other configuration ...
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
-    ///     {
-    ///         StageName = stageName,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleLogGroup,
-    ///         },
-    ///     });
-    /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// 

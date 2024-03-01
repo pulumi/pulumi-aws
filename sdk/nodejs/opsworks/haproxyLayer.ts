@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.opsworks.HaproxyLayer("lb", {
- *     stackId: aws_opsworks_stack.main.id,
+ *     stackId: main.id,
  *     statsPassword: "foobarbaz",
  * });
  * ```

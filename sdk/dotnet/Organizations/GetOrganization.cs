@@ -49,9 +49,12 @@ namespace Pulumi.Aws.Organizations
         /// {
         ///     var example = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var snsTopic = new Aws.Sns.Topic("snsTopic");
+        ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
+        ///     {
+        ///         Name = "my-sns-topic",
+        ///     });
         /// 
-        ///     var snsTopicPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -94,10 +97,10 @@ namespace Pulumi.Aws.Organizations
         ///         },
         ///     });
         /// 
-        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new()
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("sns_topic_policy", new()
         ///     {
         ///         Arn = snsTopic.Arn,
-        ///         Policy = snsTopicPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -146,9 +149,12 @@ namespace Pulumi.Aws.Organizations
         /// {
         ///     var example = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var snsTopic = new Aws.Sns.Topic("snsTopic");
+        ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
+        ///     {
+        ///         Name = "my-sns-topic",
+        ///     });
         /// 
-        ///     var snsTopicPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -191,10 +197,10 @@ namespace Pulumi.Aws.Organizations
         ///         },
         ///     });
         /// 
-        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new()
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("sns_topic_policy", new()
         ///     {
         ///         Arn = snsTopic.Arn,
-        ///         Policy = snsTopicPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

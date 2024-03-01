@@ -33,21 +33,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
+//			example, err := acm.NewCertificate(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			_, err = lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+//			frontEndListener, err := lb.NewListener(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
+//			_, err = lb.NewListenerCertificate(ctx, "example", &lb.ListenerCertificateArgs{
 //				ListenerArn:    frontEndListener.Arn,
-//				CertificateArn: exampleCertificate.Arn,
+//				CertificateArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

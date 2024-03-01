@@ -109,7 +109,7 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
             backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
@@ -146,7 +146,7 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
             backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(

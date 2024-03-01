@@ -236,6 +236,28 @@ def get_vpc(cidr_block: Optional[str] = None,
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
 
+    ## Example Usage
+
+    The following example shows how one might accept a VPC id as a variable
+    and use this data source to obtain the data necessary to create a subnet
+    within it.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    selected = aws.ec2.get_vpc(id=vpc_id)
+    example = aws.ec2.Subnet("example",
+        vpc_id=selected.id,
+        availability_zone="us-west-2a",
+        cidr_block=std.cidrsubnet(input=selected.cidr_block,
+            newbits=4,
+            netnum=1).result)
+    ```
+
 
     :param str cidr_block: Cidr block of the desired VPC.
     :param bool default: Boolean constraint on whether the desired VPC is
@@ -297,6 +319,28 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
     This resource can prove useful when a module accepts a vpc id as
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
+
+    ## Example Usage
+
+    The following example shows how one might accept a VPC id as a variable
+    and use this data source to obtain the data necessary to create a subnet
+    within it.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    selected = aws.ec2.get_vpc(id=vpc_id)
+    example = aws.ec2.Subnet("example",
+        vpc_id=selected.id,
+        availability_zone="us-west-2a",
+        cidr_block=std.cidrsubnet(input=selected.cidr_block,
+            newbits=4,
+            netnum=1).result)
+    ```
 
 
     :param str cidr_block: Cidr block of the desired VPC.

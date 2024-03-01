@@ -24,12 +24,13 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.EventIntegration("example", new()
     ///     {
+    ///         Name = "example-name",
     ///         Description = "Example Description",
+    ///         EventbridgeBus = "default",
     ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
     ///         {
     ///             Source = "aws.partner/examplepartner.com",
     ///         },
-    ///         EventbridgeBus = "default",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Event Integration" },

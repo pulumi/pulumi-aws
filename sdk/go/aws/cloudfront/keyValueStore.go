@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewKeyValueStore(ctx, "example", &cloudfront.KeyValueStoreArgs{
+//				Name:    pulumi.String("ExampleKeyValueStore"),
 //				Comment: pulumi.String("This is an example key value store"),
 //			})
 //			if err != nil {

@@ -139,8 +139,8 @@ class RouteTablePropagation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
 
         ## Import
@@ -172,8 +172,8 @@ class RouteTablePropagation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
 
         ## Import

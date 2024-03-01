@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSnapshotCopyGrant = new SnapshotCopyGrant(&#34;testSnapshotCopyGrant&#34;, SnapshotCopyGrantArgs.builder()        
+ *         var test = new SnapshotCopyGrant(&#34;test&#34;, SnapshotCopyGrantArgs.builder()        
  *             .snapshotCopyGrantName(&#34;my-grant&#34;)
  *             .build());
  * 
  *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
  *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
  *                 .destinationRegion(&#34;us-east-2&#34;)
- *                 .grantName(testSnapshotCopyGrant.snapshotCopyGrantName())
+ *                 .grantName(test.snapshotCopyGrantName())
  *                 .build())
  *             .build());
  * 

@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 2,
@@ -50,11 +51,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
  *     engine: "redis",
- *     engineVersion: "3.2.10",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 1,
  *     parameterGroupName: "default.redis3.2",
+ *     engineVersion: "3.2.10",
  *     port: 6379,
  * });
  * ```
@@ -66,7 +68,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
+ * const replica = new aws.elasticache.Cluster("replica", {
+ *     clusterId: "cluster-example",
+ *     replicationGroupId: example.id,
+ * });
  * ```
  * ### Redis Log Delivery configuration
  *
@@ -75,6 +80,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.Cluster("test", {
+ *     clusterId: "mycluster",
  *     engine: "redis",
  *     nodeType: "cache.t3.micro",
  *     numCacheNodes: 1,
@@ -82,18 +88,56 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     logDeliveryConfigurations: [
  *         {
- *             destination: aws_cloudwatch_log_group.example.name,
+ *             destination: example.name,
  *             destinationType: "cloudwatch-logs",
  *             logFormat: "text",
  *             logType: "slow-log",
  *         },
  *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
+ *             destination: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             destinationType: "kinesis-firehose",
  *             logFormat: "json",
  *             logType: "engine-log",
  *         },
  *     ],
+ * });
+ * ```
+ * ### Elasticache Cluster in Outpost
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = aws.outposts.getOutposts({});
+ * const exampleGetOutpost = aws.outposts.getOutpost({
+ *     id: notImplemented("tolist(data.aws_outposts_outposts.example.ids)")[0],
+ * });
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: exampleVpc.id,
+ *     cidrBlock: "10.0.1.0/24",
+ *     tags: {
+ *         Name: "my-subnet",
+ *     },
+ * });
+ * const exampleSubnetGroup = new aws.elasticache.SubnetGroup("example", {
+ *     name: "my-cache-subnet",
+ *     subnetIds: [exampleSubnet.id],
+ * });
+ * const exampleCluster = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
+ *     outpostMode: "single-outpost",
+ *     preferredOutpostArn: exampleGetOutpost.then(exampleGetOutpost => exampleGetOutpost.arn),
+ *     engine: "memcached",
+ *     nodeType: "cache.r5.large",
+ *     numCacheNodes: 2,
+ *     parameterGroupName: "default.memcached1.4",
+ *     port: 11211,
+ *     subnetGroupName: exampleSubnetGroup.name,
  * });
  * ```
  *

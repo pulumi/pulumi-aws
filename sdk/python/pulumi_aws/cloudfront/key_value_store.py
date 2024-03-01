@@ -188,7 +188,9 @@ class KeyValueStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.KeyValueStore("example", comment="This is an example key value store")
+        example = aws.cloudfront.KeyValueStore("example",
+            name="ExampleKeyValueStore",
+            comment="This is an example key value store")
         ```
 
         ## Import
@@ -222,7 +224,9 @@ class KeyValueStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.KeyValueStore("example", comment="This is an example key value store")
+        example = aws.cloudfront.KeyValueStore("example",
+            name="ExampleKeyValueStore",
+            comment="This is an example key value store")
         ```
 
         ## Import

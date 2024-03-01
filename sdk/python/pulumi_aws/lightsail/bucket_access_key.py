@@ -132,6 +132,18 @@ class BucketAccessKey(pulumi.CustomResource):
         """
         Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
+        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
@@ -152,6 +164,18 @@ class BucketAccessKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
+        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        ```
 
         ## Import
 

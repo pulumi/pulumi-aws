@@ -490,15 +490,16 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test_role = aws.iam.Role("test_role",
+            name="test_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
             }),
@@ -520,6 +521,7 @@ class Role(pulumi.CustomResource):
             )],
         )])
         instance = aws.iam.Role("instance",
+            name="instance_role",
             path="/system/",
             assume_role_policy=instance_assume_role_policy.json)
         ```
@@ -537,16 +539,17 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
                     policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
+                        "version": "2012-10-17",
+                        "statement": [{
+                            "action": ["ec2:Describe*"],
+                            "effect": "Allow",
+                            "resource": "*",
                         }],
                     }),
                 ),
@@ -565,8 +568,9 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
+            inline_policies=[aws.iam.RoleInlinePolicyArgs()],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"])
         ```
         ### Example of Exclusive Managed Policies
 
@@ -577,28 +581,33 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
-                ],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
+        policy_one = aws.iam.Policy("policy_one",
+            name="policy-618033",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
+                }],
+            }))
+        policy_two = aws.iam.Policy("policy_two",
+            name="policy-381966",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
+                        "s3:ListAllMyBuckets",
+                        "s3:ListBucket",
+                        "s3:HeadBucket",
+                    ],
+                    "effect": "Allow",
+                    "resource": "*",
+                }],
+            }))
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -613,7 +622,8 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[])
         ```
 
@@ -663,15 +673,16 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test_role = aws.iam.Role("test_role",
+            name="test_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
             }),
@@ -693,6 +704,7 @@ class Role(pulumi.CustomResource):
             )],
         )])
         instance = aws.iam.Role("instance",
+            name="instance_role",
             path="/system/",
             assume_role_policy=instance_assume_role_policy.json)
         ```
@@ -710,16 +722,17 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
                     policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
+                        "version": "2012-10-17",
+                        "statement": [{
+                            "action": ["ec2:Describe*"],
+                            "effect": "Allow",
+                            "resource": "*",
                         }],
                     }),
                 ),
@@ -738,8 +751,9 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
+            inline_policies=[aws.iam.RoleInlinePolicyArgs()],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"])
         ```
         ### Example of Exclusive Managed Policies
 
@@ -750,28 +764,33 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
-                ],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
+        policy_one = aws.iam.Policy("policy_one",
+            name="policy-618033",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
+                }],
+            }))
+        policy_two = aws.iam.Policy("policy_two",
+            name="policy-381966",
+            policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
+                        "s3:ListAllMyBuckets",
+                        "s3:ListBucket",
+                        "s3:HeadBucket",
+                    ],
+                    "effect": "Allow",
+                    "resource": "*",
+                }],
+            }))
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -786,7 +805,8 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[])
         ```
 

@@ -183,9 +183,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+            function_name=example_aws_lambda_alias["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=example_aws_lambda_alias["name"])
         ```
         ### Function Version
 
@@ -194,9 +194,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+            function_name=example_aws_lambda_function["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=example_aws_lambda_function["version"])
         ```
 
         ## Import
@@ -235,9 +235,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+            function_name=example_aws_lambda_alias["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=example_aws_lambda_alias["name"])
         ```
         ### Function Version
 
@@ -246,9 +246,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+            function_name=example_aws_lambda_function["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=example_aws_lambda_function["version"])
         ```
 
         ## Import

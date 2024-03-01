@@ -43,6 +43,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new IndexingConfiguration(&#34;example&#34;, IndexingConfigurationArgs.builder()        
  *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
+ *                 .thingIndexingMode(&#34;REGISTRY_AND_SHADOW&#34;)
+ *                 .thingConnectivityIndexingMode(&#34;STATUS&#34;)
+ *                 .deviceDefenderIndexingMode(&#34;VIOLATIONS&#34;)
+ *                 .namedShadowIndexingMode(&#34;ON&#34;)
+ *                 .filter(IndexingConfigurationThingIndexingConfigurationFilterArgs.builder()
+ *                     .namedShadowNames(&#34;thing1shadow&#34;)
+ *                     .build())
  *                 .customFields(                
  *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
  *                         .name(&#34;shadow.desired.power&#34;)
@@ -60,13 +67,6 @@ import javax.annotation.Nullable;
  *                         .name(&#34;deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number&#34;)
  *                         .type(&#34;Number&#34;)
  *                         .build())
- *                 .deviceDefenderIndexingMode(&#34;VIOLATIONS&#34;)
- *                 .filter(IndexingConfigurationThingIndexingConfigurationFilterArgs.builder()
- *                     .namedShadowNames(&#34;thing1shadow&#34;)
- *                     .build())
- *                 .namedShadowIndexingMode(&#34;ON&#34;)
- *                 .thingConnectivityIndexingMode(&#34;STATUS&#34;)
- *                 .thingIndexingMode(&#34;REGISTRY_AND_SHADOW&#34;)
  *                 .build())
  *             .build());
  * 

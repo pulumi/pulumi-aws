@@ -173,7 +173,7 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.appsync.DomainName("example",
             domain_name="api.example.com",
-            certificate_arn=aws_acm_certificate["example"]["arn"])
+            certificate_arn=example_aws_acm_certificate["arn"])
         ```
 
         ## Import
@@ -207,7 +207,7 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.appsync.DomainName("example",
             domain_name="api.example.com",
-            certificate_arn=aws_acm_certificate["example"]["arn"])
+            certificate_arn=example_aws_acm_certificate["arn"])
         ```
 
         ## Import

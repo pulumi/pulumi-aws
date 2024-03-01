@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
+    ///     var test = new Aws.Ec2.Instance("test", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = "t3.micro",
@@ -62,9 +62,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///         },
     ///     });
     /// 
-    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("testInstanceState", new()
+    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("test", new()
     ///     {
-    ///         InstanceId = testInstance.Id,
+    ///         InstanceId = test.Id,
     ///         State = "stopped",
     ///     });
     /// 

@@ -18,15 +18,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
  *   "StartAt": "HelloWorld",
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -41,8 +42,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     type: "EXPRESS",
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -50,7 +52,7 @@ import * as utilities from "../utilities";
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -65,8 +67,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     publish: true,
  *     type: "EXPRESS",
  *     definition: `{
@@ -75,7 +78,7 @@ import * as utilities from "../utilities";
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -92,22 +95,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
  *   "StartAt": "HelloWorld",
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
  * }
  * `,
  *     loggingConfiguration: {
- *         logDestination: `${aws_cloudwatch_log_group.log_group_for_sfn.arn}:*`,
+ *         logDestination: `${logGroupForSfn.arn}:*`,
  *         includeExecutionData: true,
  *         level: "ERROR",
  *     },

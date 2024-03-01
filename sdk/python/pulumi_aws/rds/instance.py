@@ -2786,10 +2786,90 @@ class Instance(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.7",
             instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
+            username="foo",
             password="foobarbaz",
+            parameter_group_name="default.mysql5.7",
+            skip_final_snapshot=True)
+        ```
+        ### RDS Custom for Oracle Usage with Replica
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_oracle = aws.rds.get_orderable_db_instance(engine="custom-oracle-ee",
+            engine_version="19.c.ee.002",
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        default = aws.rds.Instance("default",
+            allocated_storage=50,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_oracle.engine,
+            engine_version=custom_oracle.engine_version,
+            identifier="ee-instance-demo",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            license_model=custom_oracle.license_model,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            username="test",
+            storage_encrypted=True)
+        test_replica = aws.rds.Instance("test-replica",
+            replicate_source_db=default.identifier,
+            replica_mode="mounted",
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            identifier="ee-instance-replica",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
             skip_final_snapshot=True,
-            username="foo")
+            storage_encrypted=True)
+        ```
+        ### RDS Custom for SQL Server
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_sqlserver = aws.rds.get_orderable_db_instance(engine="custom-sqlserver-se",
+            engine_version="15.00.4249.2.v1",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        example = aws.rds.Instance("example",
+            allocated_storage=500,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomSQLServerInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_sqlserver.engine,
+            engine_version=custom_sqlserver.engine_version,
+            identifier="sql-instance-demo",
+            instance_class=custom_sqlserver.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            storage_encrypted=True,
+            username="test")
         ```
         ### RDS Db2 Usage
 
@@ -2797,8 +2877,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
         default = aws.rds.get_engine_version(engine="db2-se")
-        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
+        # Lookup the available instance classes for the engine in the region being operated in
+        example = aws.rds.get_orderable_db_instance(engine=default.engine,
             engine_version=default.version,
             license_model="bring-your-own-license",
             storage_type="gp3",
@@ -2808,7 +2890,8 @@ class Instance(pulumi.CustomResource):
                 "db.m6i.large",
             ])
         # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+        example_parameter_group = aws.rds.ParameterGroup("example",
+            name="db-db2-params",
             family=default.parameter_group_family,
             parameters=[
                 aws.rds.ParameterGroupParameterArgs(
@@ -2823,14 +2906,14 @@ class Instance(pulumi.CustomResource):
                 ),
             ])
         # Create the RDS Db2 instance, use the data sources defined to set attributes
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_instance = aws.rds.Instance("example",
             allocated_storage=100,
             backup_retention_period=7,
             db_name="test",
-            engine=example_orderable_db_instance.engine,
-            engine_version=example_orderable_db_instance.engine_version,
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="db2-instance-demo",
-            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            instance_class=example.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
             parameter_group_name=example_parameter_group.name,
             password="avoid-plaintext-passwords",
             username="test")
@@ -2864,8 +2947,8 @@ class Instance(pulumi.CustomResource):
             engine_version="5.7",
             instance_class="db.t3.micro",
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            username="foo",
+            parameter_group_name="default.mysql5.7")
         ```
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
@@ -3104,10 +3187,90 @@ class Instance(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.7",
             instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
+            username="foo",
             password="foobarbaz",
+            parameter_group_name="default.mysql5.7",
+            skip_final_snapshot=True)
+        ```
+        ### RDS Custom for Oracle Usage with Replica
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_oracle = aws.rds.get_orderable_db_instance(engine="custom-oracle-ee",
+            engine_version="19.c.ee.002",
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        default = aws.rds.Instance("default",
+            allocated_storage=50,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_oracle.engine,
+            engine_version=custom_oracle.engine_version,
+            identifier="ee-instance-demo",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            license_model=custom_oracle.license_model,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            username="test",
+            storage_encrypted=True)
+        test_replica = aws.rds.Instance("test-replica",
+            replicate_source_db=default.identifier,
+            replica_mode="mounted",
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            identifier="ee-instance-replica",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
             skip_final_snapshot=True,
-            username="foo")
+            storage_encrypted=True)
+        ```
+        ### RDS Custom for SQL Server
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_sqlserver = aws.rds.get_orderable_db_instance(engine="custom-sqlserver-se",
+            engine_version="15.00.4249.2.v1",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        example = aws.rds.Instance("example",
+            allocated_storage=500,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomSQLServerInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_sqlserver.engine,
+            engine_version=custom_sqlserver.engine_version,
+            identifier="sql-instance-demo",
+            instance_class=custom_sqlserver.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            storage_encrypted=True,
+            username="test")
         ```
         ### RDS Db2 Usage
 
@@ -3115,8 +3278,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
         default = aws.rds.get_engine_version(engine="db2-se")
-        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
+        # Lookup the available instance classes for the engine in the region being operated in
+        example = aws.rds.get_orderable_db_instance(engine=default.engine,
             engine_version=default.version,
             license_model="bring-your-own-license",
             storage_type="gp3",
@@ -3126,7 +3291,8 @@ class Instance(pulumi.CustomResource):
                 "db.m6i.large",
             ])
         # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+        example_parameter_group = aws.rds.ParameterGroup("example",
+            name="db-db2-params",
             family=default.parameter_group_family,
             parameters=[
                 aws.rds.ParameterGroupParameterArgs(
@@ -3141,14 +3307,14 @@ class Instance(pulumi.CustomResource):
                 ),
             ])
         # Create the RDS Db2 instance, use the data sources defined to set attributes
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_instance = aws.rds.Instance("example",
             allocated_storage=100,
             backup_retention_period=7,
             db_name="test",
-            engine=example_orderable_db_instance.engine,
-            engine_version=example_orderable_db_instance.engine_version,
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="db2-instance-demo",
-            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            instance_class=example.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
             parameter_group_name=example_parameter_group.name,
             password="avoid-plaintext-passwords",
             username="test")
@@ -3182,8 +3348,8 @@ class Instance(pulumi.CustomResource):
             engine_version="5.7",
             instance_class="db.t3.micro",
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            username="foo",
+            parameter_group_name="default.mysql5.7")
         ```
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 

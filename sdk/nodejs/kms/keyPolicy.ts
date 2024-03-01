@@ -13,21 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "example"});
- * const exampleKeyPolicy = new aws.kms.KeyPolicy("exampleKeyPolicy", {
- *     keyId: exampleKey.id,
+ * const example = new aws.kms.Key("example", {description: "example"});
+ * const exampleKeyPolicy = new aws.kms.KeyPolicy("example", {
+ *     keyId: example.id,
  *     policy: JSON.stringify({
- *         Id: "example",
- *         Statement: [{
- *             Action: "kms:*",
- *             Effect: "Allow",
- *             Principal: {
+ *         id: "example",
+ *         statement: [{
+ *             action: "kms:*",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: "*",
- *             Sid: "Enable IAM User Permissions",
+ *             resource: "*",
+ *             sid: "Enable IAM User Permissions",
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```

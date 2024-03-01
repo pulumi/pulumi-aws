@@ -176,8 +176,8 @@ class VaultLock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.glacier.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["glacier:DeleteArchive"],
             effect="Deny",
             resources=[example_vault.arn],
@@ -187,9 +187,9 @@ class VaultLock(pulumi.CustomResource):
                 values=["365"],
             )],
         )])
-        example_vault_lock = aws.glacier.VaultLock("exampleVaultLock",
+        example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,
-            policy=example_policy_document.json,
+            policy=example.json,
             vault_name=example_vault.name)
         ```
         ### Permanently Applying Glacier Vault Lock Policy
@@ -200,8 +200,8 @@ class VaultLock(pulumi.CustomResource):
 
         example = aws.glacier.VaultLock("example",
             complete_lock=True,
-            policy=data["aws_iam_policy_document"]["example"]["json"],
-            vault_name=aws_glacier_vault["example"]["name"])
+            policy=example_aws_iam_policy_document["json"],
+            vault_name=example_aws_glacier_vault["name"])
         ```
 
         ## Import
@@ -239,8 +239,8 @@ class VaultLock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.glacier.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["glacier:DeleteArchive"],
             effect="Deny",
             resources=[example_vault.arn],
@@ -250,9 +250,9 @@ class VaultLock(pulumi.CustomResource):
                 values=["365"],
             )],
         )])
-        example_vault_lock = aws.glacier.VaultLock("exampleVaultLock",
+        example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,
-            policy=example_policy_document.json,
+            policy=example.json,
             vault_name=example_vault.name)
         ```
         ### Permanently Applying Glacier Vault Lock Policy
@@ -263,8 +263,8 @@ class VaultLock(pulumi.CustomResource):
 
         example = aws.glacier.VaultLock("example",
             complete_lock=True,
-            policy=data["aws_iam_policy_document"]["example"]["json"],
-            vault_name=aws_glacier_vault["example"]["name"])
+            policy=example_aws_iam_policy_document["json"],
+            vault_name=example_aws_glacier_vault["name"])
         ```
 
         ## Import

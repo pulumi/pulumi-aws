@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
+//			_, err := ec2.NewVpcDhcpOptions(ctx, "dns_resolver", &ec2.VpcDhcpOptionsArgs{
 //				DomainNameServers: pulumi.StringArray{
 //					pulumi.String("8.8.8.8"),
 //					pulumi.String("8.8.4.4"),
@@ -64,13 +64,13 @@ import (
 //					pulumi.String("127.0.0.1"),
 //					pulumi.String("10.0.0.2"),
 //				},
+//				NtpServers: pulumi.StringArray{
+//					pulumi.String("127.0.0.1"),
+//				},
 //				NetbiosNameServers: pulumi.StringArray{
 //					pulumi.String("127.0.0.1"),
 //				},
 //				NetbiosNodeType: pulumi.String("2"),
-//				NtpServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo-name"),
 //				},

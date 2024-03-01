@@ -53,7 +53,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new VirtualRouter(&#34;serviceb&#34;, VirtualRouterArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceB&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualRouterSpecArgs.builder()
  *                 .listeners(VirtualRouterSpecListenerArgs.builder()
  *                     .portMapping(VirtualRouterSpecListenerPortMappingArgs.builder()

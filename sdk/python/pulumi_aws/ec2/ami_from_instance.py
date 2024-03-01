@@ -685,7 +685,9 @@ class AmiFromInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        example = aws.ec2.AmiFromInstance("example",
+            name="example",
+            source_instance_id="i-xxxxxxxx")
         ```
 
         :param str resource_name: The name of the resource.
@@ -735,7 +737,9 @@ class AmiFromInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        example = aws.ec2.AmiFromInstance("example",
+            name="example",
+            source_instance_id="i-xxxxxxxx")
         ```
 
         :param str resource_name: The name of the resource.

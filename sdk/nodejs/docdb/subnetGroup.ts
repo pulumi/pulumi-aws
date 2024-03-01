@@ -14,9 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.docdb.SubnetGroup("default", {
+ *     name: "main",
  *     subnetIds: [
- *         aws_subnet.frontend.id,
- *         aws_subnet.backend.id,
+ *         frontend.id,
+ *         backend.id,
  *     ],
  *     tags: {
  *         Name: "My docdb subnet group",

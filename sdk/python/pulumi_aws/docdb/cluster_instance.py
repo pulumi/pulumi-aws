@@ -847,7 +847,7 @@ class ClusterInstance(pulumi.CustomResource):
             master_password="barbut8chars")
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"clusterInstances-{range['value']}",
+            cluster_instances.append(aws.docdb.ClusterInstance(f"cluster_instances-{range['value']}",
                 identifier=f"docdb-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class="db.r5.large"))
@@ -937,7 +937,7 @@ class ClusterInstance(pulumi.CustomResource):
             master_password="barbut8chars")
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"clusterInstances-{range['value']}",
+            cluster_instances.append(aws.docdb.ClusterInstance(f"cluster_instances-{range['value']}",
                 identifier=f"docdb-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class="db.r5.large"))

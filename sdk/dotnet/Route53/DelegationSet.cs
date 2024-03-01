@@ -29,11 +29,13 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var primary = new Aws.Route53.Zone("primary", new()
     ///     {
+    ///         Name = "mydomain.com",
     ///         DelegationSetId = main.Id,
     ///     });
     /// 
     ///     var secondary = new Aws.Route53.Zone("secondary", new()
     ///     {
+    ///         Name = "coolcompany.io",
     ///         DelegationSetId = main.Id,
     ///     });
     /// 

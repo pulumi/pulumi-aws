@@ -217,14 +217,14 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="mybucket")
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+            bucket=example.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
+            bucket=example.id,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
                 default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
                     mode="COMPLIANCE",
@@ -285,14 +285,14 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="mybucket")
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+            bucket=example.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
+        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
+            bucket=example.id,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
                 default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
                     mode="COMPLIANCE",

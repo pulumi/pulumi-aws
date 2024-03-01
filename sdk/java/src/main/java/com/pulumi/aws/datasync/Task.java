@@ -48,8 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
- *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
- *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
+ *             .destinationLocationArn(destination.arn())
+ *             .name(&#34;example&#34;)
+ *             .sourceLocationArn(source.arn())
  *             .schedule(TaskScheduleArgs.builder()
  *                 .scheduleExpression(&#34;cron(0 12 ? * SUN,WED *)&#34;)
  *                 .build())
@@ -83,8 +84,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
- *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
- *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
+ *             .destinationLocationArn(destination.arn())
+ *             .name(&#34;example&#34;)
+ *             .sourceLocationArn(source.arn())
  *             .excludes(TaskExcludesArgs.builder()
  *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
  *                 .value(&#34;/folder1|/folder2&#34;)

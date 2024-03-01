@@ -21,10 +21,10 @@ import {ARN} from "..";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.EfsLocation("example", {
- *     efsFileSystemArn: aws_efs_mount_target.example.file_system_arn,
+ *     efsFileSystemArn: exampleAwsEfsMountTarget.fileSystemArn,
  *     ec2Config: {
- *         securityGroupArns: [aws_security_group.example.arn],
- *         subnetArn: aws_subnet.example.arn,
+ *         securityGroupArns: [exampleAwsSecurityGroup.arn],
+ *         subnetArn: exampleAwsSubnet.arn,
  *     },
  * });
  * ```

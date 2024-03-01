@@ -32,11 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+//			testRestApi, err := apigateway.NewRestApi(ctx, "test", &apigateway.RestApiArgs{
+//				Name: pulumi.String("example-rest-api"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -66,10 +68,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
+//			_, err = apigateway.NewRestApiPolicy(ctx, "test", &apigateway.RestApiPolicyArgs{
 //				RestApiId: testRestApi.ID(),
-//				Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &testPolicyDocument.Json, nil
+//				Policy: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+//					return &test.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

@@ -519,10 +519,10 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too",
+        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
+            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic",
             protocol="sqs",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic")
+            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
         ```
 
         Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
@@ -531,9 +531,9 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
-        user_updates_queue = aws.sqs.Queue("userUpdatesQueue")
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
+        user_updates_queue = aws.sqs.Queue("user_updates_queue", name="user-updates-queue")
+        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
             topic=user_updates.arn,
             protocol="sqs",
             endpoint=user_updates_queue.arn)
@@ -550,18 +550,18 @@ class TopicSubscription(pulumi.CustomResource):
         if sns is None:
             sns = {
                 "account-id": "111111111111",
-                "role-name": "service/service",
+                "displayName": "example",
                 "name": "example-sns-topic",
-                "display_name": "example",
                 "region": "us-west-1",
+                "role-name": "service/service",
             }
         sqs = config.get_object("sqs")
         if sqs is None:
             sqs = {
                 "account-id": "222222222222",
-                "role-name": "service/service",
                 "name": "example-sqs-queue",
                 "region": "us-east-1",
+                "role-name": "service/service",
             }
         sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
@@ -624,38 +624,17 @@ class TopicSubscription(pulumi.CustomResource):
                     values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 )],
             )])
-        # provider to manage SNS topics
-        aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
-                session_name=f"sns-{sns['region']}",
-            ))
-        # provider to manage SQS queues
-        aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sqs-{sqs['region']}",
-            ))
-        # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sns2sqs-{sns['region']}",
-            ))
-        sns_topic_topic = aws.sns.Topic("sns-topicTopic",
+        sns_topic = aws.sns.Topic("sns-topic",
+            name=sns["name"],
             display_name=sns["display_name"],
-            policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider=aws["sns"]))
-        sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
-            topic=sns_topic_topic.arn,
+            policy=sns_topic_policy.json)
+        sqs_queue = aws.sqs.Queue("sqs-queue",
+            name=sqs["name"],
+            policy=sqs_queue_policy.json)
+        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topic",
+            topic=sns_topic.arn,
             protocol="sqs",
-            endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
+            endpoint=sqs_queue.arn)
         ```
 
         ## Import
@@ -710,10 +689,10 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too",
+        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
+            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic",
             protocol="sqs",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic")
+            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
         ```
 
         Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
@@ -722,9 +701,9 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
-        user_updates_queue = aws.sqs.Queue("userUpdatesQueue")
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
+        user_updates_queue = aws.sqs.Queue("user_updates_queue", name="user-updates-queue")
+        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
             topic=user_updates.arn,
             protocol="sqs",
             endpoint=user_updates_queue.arn)
@@ -741,18 +720,18 @@ class TopicSubscription(pulumi.CustomResource):
         if sns is None:
             sns = {
                 "account-id": "111111111111",
-                "role-name": "service/service",
+                "displayName": "example",
                 "name": "example-sns-topic",
-                "display_name": "example",
                 "region": "us-west-1",
+                "role-name": "service/service",
             }
         sqs = config.get_object("sqs")
         if sqs is None:
             sqs = {
                 "account-id": "222222222222",
-                "role-name": "service/service",
                 "name": "example-sqs-queue",
                 "region": "us-east-1",
+                "role-name": "service/service",
             }
         sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
@@ -815,38 +794,17 @@ class TopicSubscription(pulumi.CustomResource):
                     values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 )],
             )])
-        # provider to manage SNS topics
-        aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
-                session_name=f"sns-{sns['region']}",
-            ))
-        # provider to manage SQS queues
-        aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sqs-{sqs['region']}",
-            ))
-        # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sns2sqs-{sns['region']}",
-            ))
-        sns_topic_topic = aws.sns.Topic("sns-topicTopic",
+        sns_topic = aws.sns.Topic("sns-topic",
+            name=sns["name"],
             display_name=sns["display_name"],
-            policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider=aws["sns"]))
-        sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
-            topic=sns_topic_topic.arn,
+            policy=sns_topic_policy.json)
+        sqs_queue = aws.sqs.Queue("sqs-queue",
+            name=sqs["name"],
+            policy=sqs_queue_policy.json)
+        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topic",
+            topic=sns_topic.arn,
             protocol="sqs",
-            endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
+            endpoint=sqs_queue.arn)
         ```
 
         ## Import

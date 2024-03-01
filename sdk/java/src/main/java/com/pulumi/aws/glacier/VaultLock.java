@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glacier.Vault;
+ * import com.pulumi.aws.glacier.VaultArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.glacier.VaultLock;
@@ -48,9 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault(&#34;exampleVault&#34;);
+ *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;glacier:DeleteArchive&#34;)
  *                 .effect(&#34;Deny&#34;)
@@ -65,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVaultLock = new VaultLock(&#34;exampleVaultLock&#34;, VaultLockArgs.builder()        
  *             .completeLock(false)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .vaultName(exampleVault.name())
  *             .build());
  * 
@@ -96,8 +99,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VaultLock(&#34;example&#34;, VaultLockArgs.builder()        
  *             .completeLock(true)
- *             .policy(data.aws_iam_policy_document().example().json())
- *             .vaultName(aws_glacier_vault.example().name())
+ *             .policy(exampleAwsIamPolicyDocument.json())
+ *             .vaultName(exampleAwsGlacierVault.name())
  *             .build());
  * 
  *     }

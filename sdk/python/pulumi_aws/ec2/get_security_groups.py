@@ -129,7 +129,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
         ),
         aws.ec2.GetSecurityGroupsFilterArgs(
             name="vpc-id",
-            values=[var["vpc_id"]],
+            values=[vpc_id],
         ),
     ])
     ```
@@ -183,7 +183,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
         ),
         aws.ec2.GetSecurityGroupsFilterArgs(
             name="vpc-id",
-            values=[var["vpc_id"]],
+            values=[vpc_id],
         ),
     ])
     ```

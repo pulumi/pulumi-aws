@@ -30,10 +30,11 @@ namespace Pulumi.Aws.Dms
     ///             "creation",
     ///             "failure",
     ///         },
-    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
+    ///         Name = "my-favorite-event-subscription",
+    ///         SnsTopicArn = exampleAwsSnsTopic.Arn,
     ///         SourceIds = new[]
     ///         {
-    ///             aws_dms_replication_task.Example.Replication_task_id,
+    ///             exampleAwsDmsReplicationTask.ReplicationTaskId,
     ///         },
     ///         SourceType = "replication-task",
     ///         Tags = 

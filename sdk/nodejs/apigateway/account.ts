@@ -28,9 +28,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const cloudwatchRole = new aws.iam.Role("cloudwatchRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
+ *     name: "api_gateway_cloudwatch_global",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const demo = new aws.apigateway.Account("demo", {cloudwatchRoleArn: cloudwatchRole.arn});
- * const cloudwatchPolicyDocument = aws.iam.getPolicyDocument({
+ * const cloudwatch = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -45,9 +48,10 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
+ * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatch", {
+ *     name: "default",
  *     role: cloudwatchRole.id,
- *     policy: cloudwatchPolicyDocument.then(cloudwatchPolicyDocument => cloudwatchPolicyDocument.json),
+ *     policy: cloudwatch.then(cloudwatch => cloudwatch.json),
  * });
  * ```
  *

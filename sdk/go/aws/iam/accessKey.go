@@ -28,20 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+//			lbUser, err := iam.NewUser(ctx, "lb", &iam.UserArgs{
+//				Name: pulumi.String("loadbalancer"),
 //				Path: pulumi.String("/system/"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lbAccessKey, err := iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
+//			lb, err := iam.NewAccessKey(ctx, "lb", &iam.AccessKeyArgs{
 //				User:   lbUser.Name,
 //				PgpKey: pulumi.String("keybase:some_person_that_exists"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lbRoPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			lbRo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -57,14 +58,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewUserPolicy(ctx, "lbRoUserPolicy", &iam.UserPolicyArgs{
+//			_, err = iam.NewUserPolicy(ctx, "lb_ro", &iam.UserPolicyArgs{
+//				Name:   pulumi.String("test"),
 //				User:   lbUser.Name,
-//				Policy: *pulumi.String(lbRoPolicyDocument.Json),
+//				Policy: *pulumi.String(lbRo.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("secret", lbAccessKey.EncryptedSecret)
+//			ctx.Export("secret", lb.EncryptedSecret)
 //			return nil
 //		})
 //	}
@@ -83,14 +85,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := iam.NewUser(ctx, "testUser", &iam.UserArgs{
+//			test, err := iam.NewUser(ctx, "test", &iam.UserArgs{
+//				Name: pulumi.String("test"),
 //				Path: pulumi.String("/test/"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAccessKey, err := iam.NewAccessKey(ctx, "testAccessKey", &iam.AccessKeyArgs{
-//				User: testUser.Name,
+//			testAccessKey, err := iam.NewAccessKey(ctx, "test", &iam.AccessKeyArgs{
+//				User: test.Name,
 //			})
 //			if err != nil {
 //				return err

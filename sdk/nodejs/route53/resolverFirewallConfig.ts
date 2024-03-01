@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverFirewallConfig = new aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig", {
- *     resourceId: exampleVpc.id,
+ * const exampleResolverFirewallConfig = new aws.route53.ResolverFirewallConfig("example", {
+ *     resourceId: example.id,
  *     firewallFailOpen: "ENABLED",
  * });
  * ```

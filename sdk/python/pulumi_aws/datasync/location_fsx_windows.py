@@ -340,10 +340,10 @@ class LocationFsxWindows(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationFsxWindows("example",
-            fsx_filesystem_arn=aws_fsx_windows_file_system["example"]["arn"],
+            fsx_filesystem_arn=example_aws_fsx_windows_file_system["arn"],
             user="SomeUser",
             password="SuperSecretPassw0rd",
-            security_group_arns=[aws_security_group["example"]["arn"]])
+            security_group_arns=[example_aws_security_group["arn"]])
         ```
 
         ## Import
@@ -380,10 +380,10 @@ class LocationFsxWindows(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationFsxWindows("example",
-            fsx_filesystem_arn=aws_fsx_windows_file_system["example"]["arn"],
+            fsx_filesystem_arn=example_aws_fsx_windows_file_system["arn"],
             user="SomeUser",
             password="SuperSecretPassw0rd",
-            security_group_arns=[aws_security_group["example"]["arn"]])
+            security_group_arns=[example_aws_security_group["arn"]])
         ```
 
         ## Import

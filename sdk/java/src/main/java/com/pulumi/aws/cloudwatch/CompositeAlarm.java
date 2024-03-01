@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *         var example = new CompositeAlarm(&#34;example&#34;, CompositeAlarmArgs.builder()        
  *             .alarmDescription(&#34;This is a composite alarm!&#34;)
  *             .alarmName(&#34;example-composite-alarm&#34;)
- *             .alarmActions(aws_sns_topic.example().arn())
- *             .okActions(aws_sns_topic.example().arn())
+ *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .okActions(exampleAwsSnsTopic.arn())
  *             .alarmRule(&#34;&#34;&#34;
  * ALARM(%s) OR
  * ALARM(%s)
- * &#34;, aws_cloudwatch_metric_alarm.alpha().alarm_name(),aws_cloudwatch_metric_alarm.bravo().alarm_name()))
+ * &#34;, alpha.alarmName(),bravo.alarmName()))
  *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
  *                 .alarm(&#34;suppressor-alarm&#34;)
  *                 .extensionPeriod(10)

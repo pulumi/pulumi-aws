@@ -104,7 +104,6 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
@@ -155,7 +154,6 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
@@ -377,7 +375,6 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * &#34;Properties&#34;: {}
          * }
          * ]
-         * 
          *             &#34;&#34;&#34;)
          *             .build());
          * 
@@ -432,7 +429,6 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * &#34;Properties&#34;: {}
          * }
          * ]
-         * 
          *             &#34;&#34;&#34;)
          *             .build());
          * 

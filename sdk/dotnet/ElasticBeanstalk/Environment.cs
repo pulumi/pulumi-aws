@@ -29,11 +29,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// {
     ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Description = "tf-test-desc",
     ///     });
     /// 
     ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Application = tftest.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
     ///     });
@@ -64,11 +66,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// {
     ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Description = "tf-test-desc",
     ///     });
     /// 
     ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Application = tftest.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
     ///         Settings = new[]

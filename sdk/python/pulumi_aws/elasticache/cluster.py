@@ -1175,6 +1175,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="memcached",
             node_type="cache.m4.large",
             num_cache_nodes=2,
@@ -1188,11 +1189,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="redis",
-            engine_version="3.2.10",
             node_type="cache.m4.large",
             num_cache_nodes=1,
             parameter_group_name="default.redis3.2",
+            engine_version="3.2.10",
             port=6379)
         ```
         ### Redis Cluster Mode Disabled Read Replica Instance
@@ -1203,7 +1205,9 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.Cluster("replica",
+            cluster_id="cluster-example",
+            replication_group_id=example["id"])
         ```
         ### Redis Log Delivery configuration
 
@@ -1212,6 +1216,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
+            cluster_id="mycluster",
             engine="redis",
             node_type="cache.t3.micro",
             num_cache_nodes=1,
@@ -1219,18 +1224,51 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=example["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
                 ),
             ])
+        ```
+        ### Elasticache Cluster in Outpost
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.outposts.get_outposts()
+        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
+            cidr_block="10.0.1.0/24",
+            tags={
+                "Name": "my-subnet",
+            })
+        example_subnet_group = aws.elasticache.SubnetGroup("example",
+            name="my-cache-subnet",
+            subnet_ids=[example_subnet.id])
+        example_cluster = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
+            outpost_mode="single-outpost",
+            preferred_outpost_arn=example_get_outpost.arn,
+            engine="memcached",
+            node_type="cache.r5.large",
+            num_cache_nodes=2,
+            parameter_group_name="default.memcached1.4",
+            port=11211,
+            subnet_group_name=example_subnet_group.name)
         ```
 
         ## Import
@@ -1321,6 +1359,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="memcached",
             node_type="cache.m4.large",
             num_cache_nodes=2,
@@ -1334,11 +1373,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="redis",
-            engine_version="3.2.10",
             node_type="cache.m4.large",
             num_cache_nodes=1,
             parameter_group_name="default.redis3.2",
+            engine_version="3.2.10",
             port=6379)
         ```
         ### Redis Cluster Mode Disabled Read Replica Instance
@@ -1349,7 +1389,9 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.Cluster("replica",
+            cluster_id="cluster-example",
+            replication_group_id=example["id"])
         ```
         ### Redis Log Delivery configuration
 
@@ -1358,6 +1400,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
+            cluster_id="mycluster",
             engine="redis",
             node_type="cache.t3.micro",
             num_cache_nodes=1,
@@ -1365,18 +1408,51 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=example["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
                 ),
             ])
+        ```
+        ### Elasticache Cluster in Outpost
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.outposts.get_outposts()
+        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
+            cidr_block="10.0.1.0/24",
+            tags={
+                "Name": "my-subnet",
+            })
+        example_subnet_group = aws.elasticache.SubnetGroup("example",
+            name="my-cache-subnet",
+            subnet_ids=[example_subnet.id])
+        example_cluster = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
+            outpost_mode="single-outpost",
+            preferred_outpost_arn=example_get_outpost.arn,
+            engine="memcached",
+            node_type="cache.r5.large",
+            num_cache_nodes=2,
+            parameter_group_name="default.memcached1.4",
+            port=11211,
+            subnet_group_name=example_subnet_group.name)
         ```
 
         ## Import

@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Acm
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
     ///         DomainName = "example.com",
+    ///         ValidationMethod = "DNS",
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },
     ///         },
-    ///         ValidationMethod = "DNS",
     ///     });
     /// 
     /// });
@@ -108,15 +108,15 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new()
+    ///     var example = new Tls.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new()
+    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
     ///     {
     ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
     ///         {
     ///             CommonName = "example.com",
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Acm
     /// 
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
-    ///         PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///         PrivateKey = example.PrivateKeyPem,
     ///         CertificateBody = exampleSelfSignedCert.CertPem,
     ///     });
     /// 
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Acm
     ///             },
     ///             Ttl = 60,
     ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
-    ///             ZoneId = aws_route53_zone.Example.Zone_id,
+    ///             ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         }));
     ///     }
     /// });

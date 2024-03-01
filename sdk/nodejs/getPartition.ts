@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * const current = aws.getPartition({});
  * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "1",
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *         sid: "1",
  *     }],
  * }));
  * ```
@@ -77,9 +77,9 @@ export interface GetPartitionResult {
  * const current = aws.getPartition({});
  * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "1",
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *         sid: "1",
  *     }],
  * }));
  * ```

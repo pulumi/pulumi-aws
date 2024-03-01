@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFileSystem = new FileSystem(&#34;exampleFileSystem&#34;);
+ *         var example = new FileSystem(&#34;example&#34;);
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
- *             .sourceFileSystemId(exampleFileSystem.id())
+ *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .region(&#34;us-west-2&#34;)
  *                 .build())
@@ -82,10 +82,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFileSystem = new FileSystem(&#34;exampleFileSystem&#34;);
+ *         var example = new FileSystem(&#34;example&#34;);
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
- *             .sourceFileSystemId(exampleFileSystem.id())
+ *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .availabilityZoneName(&#34;us-west-2b&#34;)
  *                 .kmsKeyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
@@ -120,10 +120,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFileSystem = new FileSystem(&#34;exampleFileSystem&#34;);
+ *         var example = new FileSystem(&#34;example&#34;);
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
- *             .sourceFileSystemId(exampleFileSystem.id())
+ *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .fileSystemId(&#34;fs-1234567890&#34;)
  *                 .region(&#34;us-west-2&#34;)

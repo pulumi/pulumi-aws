@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				AssociateEntireAccount: pulumi.Bool(true),
 //				DataShareArn:           pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
+//				AssociateEntireAccount: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -56,8 +56,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				ConsumerRegion: pulumi.String("us-west-2"),
 //				DataShareArn:   pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
+//				ConsumerRegion: pulumi.String("us-west-2"),
 //			})
 //			if err != nil {
 //				return err

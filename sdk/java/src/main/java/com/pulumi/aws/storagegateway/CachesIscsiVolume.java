@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName(&#34;example&#34;)
  *             .volumeSizeInBytes(5368709120)
  *             .build());
@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .snapshotId(aws_ebs_snapshot.example().id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .targetName(&#34;example&#34;)
- *             .volumeSizeInBytes(aws_ebs_snapshot.example().volume_size() * 1024 * 1024 * 1024)
+ *             .volumeSizeInBytes(exampleAwsEbsSnapshot.volumeSize() * 1024 * 1024 * 1024)
  *             .build());
  * 
  *     }
@@ -115,11 +115,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .sourceVolumeArn(aws_storagegateway_cached_iscsi_volume.existing().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .sourceVolumeArn(existing.arn())
  *             .targetName(&#34;example&#34;)
- *             .volumeSizeInBytes(aws_storagegateway_cached_iscsi_volume.existing().volume_size_in_bytes())
+ *             .volumeSizeInBytes(existing.volumeSizeInBytes())
  *             .build());
  * 
  *     }

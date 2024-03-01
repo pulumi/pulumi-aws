@@ -60,24 +60,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-pod-identity-example"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleS3", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example_s3", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"),
-//				Role:      exampleRole.Name,
+//				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewPodIdentityAssociation(ctx, "examplePodIdentityAssociation", &eks.PodIdentityAssociationArgs{
-//				ClusterName:    pulumi.Any(aws_eks_cluster.Example.Name),
+//			_, err = eks.NewPodIdentityAssociation(ctx, "example", &eks.PodIdentityAssociationArgs{
+//				ClusterName:    pulumi.Any(exampleAwsEksCluster.Name),
 //				Namespace:      pulumi.String("example"),
 //				ServiceAccount: pulumi.String("example-sa"),
-//				RoleArn:        exampleRole.Arn,
+//				RoleArn:        example.Arn,
 //			})
 //			if err != nil {
 //				return err

@@ -42,13 +42,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Vocabulary(&#34;example&#34;, VocabularyArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;example&#34;)
  *             .content(&#34;&#34;&#34;
  * Phrase	IPA	SoundsLike	DisplayAs
  * Los-Angeles			Los Angeles
  * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	
- *             &#34;&#34;&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ * Etienne		eh-tee-en	            &#34;&#34;&#34;)
  *             .languageCode(&#34;en-US&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
  *             .build());

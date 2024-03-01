@@ -113,7 +113,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+            bucket=example_aws_s3control_bucket["arn"],
             rules=[
                 aws.s3control.BucketLifecycleConfigurationRuleArgs(
                     expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
@@ -169,7 +169,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+            bucket=example_aws_s3control_bucket["arn"],
             rules=[
                 aws.s3control.BucketLifecycleConfigurationRuleArgs(
                     expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(

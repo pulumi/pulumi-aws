@@ -17,9 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Plan("example", {
+ *     name: "my_example_backup_plan",
  *     rules: [{
  *         ruleName: "my_example_backup_rule",
- *         targetVaultName: aws_backup_vault.test.name,
+ *         targetVaultName: test.name,
  *         schedule: "cron(0 12 * * ? *)",
  *         lifecycle: {
  *             deleteAfter: 14,

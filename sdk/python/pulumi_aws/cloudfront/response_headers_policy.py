@@ -314,6 +314,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
             comment="test comment",
             cors_config=aws.cloudfront.ResponseHeadersPolicyCorsConfigArgs(
                 access_control_allow_credentials=True,
@@ -336,20 +337,22 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
-            items=[
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Permitted-Cross-Domain-Policies",
-                    override=True,
-                    value="none",
-                ),
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Test",
-                    override=True,
-                    value="none",
-                ),
-            ],
-        ))
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Permitted-Cross-Domain-Policies",
+                        override=True,
+                        value="none",
+                    ),
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Test",
+                        override=True,
+                        value="none",
+                    ),
+                ],
+            ))
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
@@ -359,6 +362,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
                 items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
                     header="X-Permitted-Cross-Domain-Policies",
@@ -412,6 +416,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
             comment="test comment",
             cors_config=aws.cloudfront.ResponseHeadersPolicyCorsConfigArgs(
                 access_control_allow_credentials=True,
@@ -434,20 +439,22 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
-            items=[
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Permitted-Cross-Domain-Policies",
-                    override=True,
-                    value="none",
-                ),
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Test",
-                    override=True,
-                    value="none",
-                ),
-            ],
-        ))
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Permitted-Cross-Domain-Policies",
+                        override=True,
+                        value="none",
+                    ),
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Test",
+                        override=True,
+                        value="none",
+                    ),
+                ],
+            ))
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
@@ -457,6 +464,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
                 items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
                     header="X-Permitted-Cross-Domain-Policies",

@@ -55,7 +55,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//			_, err = ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
+//				Name:         pulumi.String("web_config"),
 //				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
@@ -113,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				NamePrefix:   pulumi.String("lc-example-"),
 //				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
@@ -122,6 +123,7 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name:                pulumi.String("asg-example"),
 //				LaunchConfiguration: asConf.Name,
 //				MinSize:             pulumi.Int(1),
 //				MaxSize:             pulumi.Int(2),
@@ -184,7 +186,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("m4.large"),
 //				SpotPrice:    pulumi.String("0.001"),
@@ -193,6 +195,7 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name:                pulumi.String("asg-example"),
 //				LaunchConfiguration: asConf.Name,
 //			})
 //			if err != nil {

@@ -32,8 +32,8 @@ namespace Pulumi.Aws.Elb
     ///     // Create a new load balancer attachment
     ///     var baz = new Aws.Elb.Attachment("baz", new()
     ///     {
-    ///         Elb = aws_elb.Bar.Id,
-    ///         Instance = aws_instance.Foo.Id,
+    ///         Elb = bar.Id,
+    ///         Instance = foo.Id,
     ///     });
     /// 
     /// });

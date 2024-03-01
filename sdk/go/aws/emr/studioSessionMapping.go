@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-//				StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
+//				StudioId:         pulumi.Any(exampleAwsEmrStudio.Id),
 //				IdentityType:     pulumi.String("USER"),
 //				IdentityId:       pulumi.String("example"),
-//				SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
+//				SessionPolicyArn: pulumi.Any(exampleAwsIamPolicy.Arn),
 //			})
 //			if err != nil {
 //				return err

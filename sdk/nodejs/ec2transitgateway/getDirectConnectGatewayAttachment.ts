@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     dxGatewayId: aws_dx_gateway.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     dxGatewayId: exampleAwsDxGateway.id,
  * });
  * ```
  */
@@ -84,8 +84,8 @@ export interface GetDirectConnectGatewayAttachmentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     dxGatewayId: aws_dx_gateway.example.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     dxGatewayId: exampleAwsDxGateway.id,
  * });
  * ```
  */

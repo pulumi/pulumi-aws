@@ -18,17 +18,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.macie2.Account("example", {});
  * const test = new aws.macie.FindingsFilter("test", {
+ *     name: "NAME OF THE FINDINGS FILTER",
  *     description: "DESCRIPTION",
  *     position: 1,
  *     action: "ARCHIVE",
  *     findingCriteria: {
  *         criterions: [{
  *             field: "region",
- *             eqs: [data.aws_region.current.name],
+ *             eqs: [current.name],
  *         }],
  *     },
- * }, {
- *     dependsOn: [aws_macie2_account.test],
  * });
  * ```
  *

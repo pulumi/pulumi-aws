@@ -86,7 +86,7 @@ def get_finding_ids(detector_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.guardduty.get_finding_ids(detector_id=aws_guardduty_detector["example"]["id"])
+    example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
     ```
 
 
@@ -117,7 +117,7 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.guardduty.get_finding_ids(detector_id=aws_guardduty_detector["example"]["id"])
+    example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
     ```
 
 

@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.opensearch.getServerlessAccessPolicy({
- *     name: aws_opensearchserverless_access_policy.example.name,
- *     type: aws_opensearchserverless_access_policy.example.type,
+ *     name: exampleAwsOpensearchserverlessAccessPolicy.name,
+ *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
  */
@@ -74,8 +74,8 @@ export interface GetServerlessAccessPolicyResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.opensearch.getServerlessAccessPolicy({
- *     name: aws_opensearchserverless_access_policy.example.name,
- *     type: aws_opensearchserverless_access_policy.example.type,
+ *     name: exampleAwsOpensearchserverlessAccessPolicy.name,
+ *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
  */

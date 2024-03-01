@@ -13,12 +13,98 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following returns all NAT gateways in a specified VPC that are marked as available
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ngws = Aws.Ec2.GetNatGateways.Invoke(new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetNatGatewaysFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "available",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var ngw = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNatGatewaysResult> InvokeAsync(GetNatGatewaysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following returns all NAT gateways in a specified VPC that are marked as available
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ngws = Aws.Ec2.GetNatGateways.Invoke(new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetNatGatewaysFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "available",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var ngw = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNatGatewaysResult> Invoke(GetNatGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysInvokeArgs(), options.WithDefaults());

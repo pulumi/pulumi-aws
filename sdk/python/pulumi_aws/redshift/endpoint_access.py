@@ -256,8 +256,8 @@ class EndpointAccess(pulumi.CustomResource):
 
         example = aws.redshift.EndpointAccess("example",
             endpoint_name="example",
-            subnet_group_name=aws_redshift_subnet_group["example"]["id"],
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            subnet_group_name=example_aws_redshift_subnet_group["id"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
 
         ## Import
@@ -293,8 +293,8 @@ class EndpointAccess(pulumi.CustomResource):
 
         example = aws.redshift.EndpointAccess("example",
             endpoint_name="example",
-            subnet_group_name=aws_redshift_subnet_group["example"]["id"],
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            subnet_group_name=example_aws_redshift_subnet_group["id"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
 
         ## Import

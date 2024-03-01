@@ -31,12 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "myTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
+//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "my_template", &elasticbeanstalk.ConfigurationTemplateArgs{
+//				Name:              pulumi.String("tf-test-template-config"),
 //				Application:       tftest.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
 //			})

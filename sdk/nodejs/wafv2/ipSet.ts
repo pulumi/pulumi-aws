@@ -14,13 +14,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.IpSet("example", {
+ *     name: "example",
+ *     description: "Example IP set",
+ *     scope: "REGIONAL",
+ *     ipAddressVersion: "IPV4",
  *     addresses: [
  *         "1.2.3.4/32",
  *         "5.6.7.8/32",
  *     ],
- *     description: "Example IP set",
- *     ipAddressVersion: "IPV4",
- *     scope: "REGIONAL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",

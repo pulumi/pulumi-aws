@@ -30,7 +30,9 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// test, err := sns.NewTopic(ctx, "test", nil)
+// test, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
+// Name: pulumi.String("my-topic-with-policy"),
+// })
 // if err != nil {
 // return err
 // }
@@ -55,7 +57,7 @@ import (
 // Test: "StringEquals",
 // Variable: "AWS:SourceOwner",
 // Values: interface{}{
-// _var.AccountId,
+// account_id,
 // },
 // },
 // },

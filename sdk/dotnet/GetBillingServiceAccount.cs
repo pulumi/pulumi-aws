@@ -28,15 +28,18 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
+        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     {
+        ///         Bucket = "my-billing-tf-test-bucket",
+        ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowBillingLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowBillingLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -90,10 +93,10 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowBillingLoggingBucketPolicy", new()
+        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_billing_logging", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = allowBillingLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowBillingLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -121,15 +124,18 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
+        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     {
+        ///         Bucket = "my-billing-tf-test-bucket",
+        ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowBillingLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowBillingLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -183,10 +189,10 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowBillingLoggingBucketPolicy", new()
+        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_billing_logging", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = allowBillingLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowBillingLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

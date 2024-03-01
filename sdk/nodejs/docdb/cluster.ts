@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const docdb = new aws.docdb.Cluster("docdb", {
- *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "my-docdb-cluster",
  *     engine: "docdb",
- *     masterPassword: "mustbeeightchars",
  *     masterUsername: "foo",
+ *     masterPassword: "mustbeeightchars",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
  * });

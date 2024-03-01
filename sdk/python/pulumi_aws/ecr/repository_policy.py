@@ -124,8 +124,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo = aws.ecr.Repository("foo", name="bar")
+        foopolicy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -149,9 +149,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy",
+        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicy",
             repository=foo.name,
-            policy=foopolicy_policy_document.json)
+            policy=foopolicy.json)
         ```
 
         ## Import
@@ -184,8 +184,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo = aws.ecr.Repository("foo", name="bar")
+        foopolicy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -209,9 +209,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy",
+        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicy",
             repository=foo.name,
-            policy=foopolicy_policy_document.json)
+            policy=foopolicy.json)
         ```
 
         ## Import

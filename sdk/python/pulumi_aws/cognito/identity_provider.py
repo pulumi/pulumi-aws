@@ -236,8 +236,10 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", auto_verified_attributes=["email"])
-        example_provider = aws.cognito.IdentityProvider("exampleProvider",
+        example = aws.cognito.UserPool("example",
+            name="example-pool",
+            auto_verified_attributes=["email"])
+        example_provider = aws.cognito.IdentityProvider("example_provider",
             user_pool_id=example.id,
             provider_name="Google",
             provider_type="Google",
@@ -284,8 +286,10 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", auto_verified_attributes=["email"])
-        example_provider = aws.cognito.IdentityProvider("exampleProvider",
+        example = aws.cognito.UserPool("example",
+            name="example-pool",
+            auto_verified_attributes=["email"])
+        example_provider = aws.cognito.IdentityProvider("example_provider",
             user_pool_id=example.id,
             provider_name="Google",
             provider_type="Google",

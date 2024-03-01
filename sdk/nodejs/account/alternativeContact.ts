@@ -15,9 +15,10 @@ import * as utilities from "../utilities";
  *
  * const operations = new aws.account.AlternativeContact("operations", {
  *     alternateContactType: "OPERATIONS",
+ *     name: "Example",
+ *     title: "Example",
  *     emailAddress: "test@example.com",
  *     phoneNumber: "+1234567890",
- *     title: "Example",
  * });
  * ```
  *

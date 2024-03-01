@@ -50,18 +50,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
  *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
+ *             .name(&#34;example.mydomain.local&#34;)
  *             .description(&#34;example&#34;)
- *             .vpc(exampleVpc.id())
+ *             .vpc(example.id())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
@@ -103,13 +105,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePublicDnsNamespace = new PublicDnsNamespace(&#34;examplePublicDnsNamespace&#34;, PublicDnsNamespaceArgs.builder()        
+ *         var example = new PublicDnsNamespace(&#34;example&#34;, PublicDnsNamespaceArgs.builder()        
+ *             .name(&#34;example.mydomain.com&#34;)
  *             .description(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePublicDnsNamespace.id())
+ *                 .namespaceId(example.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
  *                     .type(&#34;A&#34;)

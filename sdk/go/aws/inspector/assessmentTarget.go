@@ -37,6 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = inspector.NewAssessmentTarget(ctx, "foo", &inspector.AssessmentTargetArgs{
+//				Name:             pulumi.String("assessment target"),
 //				ResourceGroupArn: bar.Arn,
 //			})
 //			if err != nil {

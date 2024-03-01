@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ram
     /// {
     ///     var example = new Aws.Ram.ResourceShare("example", new()
     ///     {
+    ///         Name = "example",
     ///         AllowExternalPrincipals = true,
     ///         Tags = 
     ///         {

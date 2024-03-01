@@ -47,38 +47,39 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new CostCategory(&#34;test&#34;, CostCategoryArgs.builder()        
+ *             .name(&#34;NAME&#34;)
+ *             .ruleVersion(&#34;CostCategoryExpression.v1&#34;)
  *             .rules(            
  *                 CostCategoryRuleArgs.builder()
- *                     .rule(CostCategoryRuleRuleArgs.builder()
- *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-prod&#34;)
- *                             .build())
- *                         .build())
  *                     .value(&#34;production&#34;)
- *                     .build(),
- *                 CostCategoryRuleArgs.builder()
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
  *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
+ *                             .values(&#34;-prod&#34;)
  *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-stg&#34;)
  *                             .build())
  *                         .build())
+ *                     .build(),
+ *                 CostCategoryRuleArgs.builder()
  *                     .value(&#34;staging&#34;)
- *                     .build(),
- *                 CostCategoryRuleArgs.builder()
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
  *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
+ *                             .values(&#34;-stg&#34;)
  *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-dev&#34;)
  *                             .build())
  *                         .build())
+ *                     .build(),
+ *                 CostCategoryRuleArgs.builder()
  *                     .value(&#34;testing&#34;)
+ *                     .rule(CostCategoryRuleRuleArgs.builder()
+ *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
+ *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
+ *                             .values(&#34;-dev&#34;)
+ *                             .matchOptions(&#34;ENDS_WITH&#34;)
+ *                             .build())
+ *                         .build())
  *                     .build())
- *             .ruleVersion(&#34;CostCategoryExpression.v1&#34;)
  *             .build());
  * 
  *     }

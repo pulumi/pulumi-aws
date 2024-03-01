@@ -24,20 +24,20 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.NetworkInterface("test", new()
     ///     {
-    ///         SubnetId = aws_subnet.Public_a.Id,
+    ///         SubnetId = publicA.Id,
     ///         PrivateIps = new[]
     ///         {
     ///             "10.0.0.50",
     ///         },
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Web.Id,
+    ///             web.Id,
     ///         },
     ///         Attachments = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
     ///             {
-    ///                 Instance = aws_instance.Test.Id,
+    ///                 Instance = testAwsInstance.Id,
     ///                 DeviceIndex = 1,
     ///             },
     ///         },

@@ -50,7 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
+//			subnetAz1, err := ec2.NewSubnet(ctx, "subnet_az1", &ec2.SubnetArgs{
 //				AvailabilityZone: *pulumi.String(azs.Names[0]),
 //				CidrBlock:        pulumi.String("192.168.0.0/24"),
 //				VpcId:            vpc.ID(),
@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
+//			subnetAz2, err := ec2.NewSubnet(ctx, "subnet_az2", &ec2.SubnetArgs{
 //				AvailabilityZone: *pulumi.String(azs.Names[1]),
 //				CidrBlock:        pulumi.String("192.168.1.0/24"),
 //				VpcId:            vpc.ID(),
@@ -66,7 +66,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
+//			subnetAz3, err := ec2.NewSubnet(ctx, "subnet_az3", &ec2.SubnetArgs{
 //				AvailabilityZone: *pulumi.String(azs.Names[2]),
 //				CidrBlock:        pulumi.String("192.168.2.0/24"),
 //				VpcId:            vpc.ID(),
@@ -86,15 +86,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := cloudwatch.NewLogGroup(ctx, "test", nil)
+//			test, err := cloudwatch.NewLogGroup(ctx, "test", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("msk_broker_logs"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("msk-broker-logs-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -122,13 +126,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
+//			firehoseRole, err := iam.NewRole(ctx, "firehose_role", &iam.RoleArgs{
+//				Name:             pulumi.String("firehose_test_role"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("kinesis-firehose-msk-broker-logs-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseRole.Arn,
@@ -142,6 +148,7 @@ import (
 //				return err
 //			}
 //			example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+//				ClusterName:         pulumi.String("example"),
 //				KafkaVersion:        pulumi.String("3.2.0"),
 //				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
@@ -219,14 +226,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+//				ClusterName:         pulumi.String("example"),
 //				KafkaVersion:        pulumi.String("2.7.1"),
 //				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.4xlarge"),
 //					ClientSubnets: pulumi.StringArray{
-//						aws_subnet.Subnet_az1.Id,
-//						aws_subnet.Subnet_az2.Id,
-//						aws_subnet.Subnet_az3.Id,
+//						subnetAz1.Id,
+//						subnetAz2.Id,
+//						subnetAz3.Id,
 //					},
 //					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
 //						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
@@ -238,7 +246,7 @@ import (
 //						},
 //					},
 //					SecurityGroups: pulumi.StringArray{
-//						aws_security_group.Sg.Id,
+//						sg.Id,
 //					},
 //				},
 //			})

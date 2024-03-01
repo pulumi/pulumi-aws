@@ -22,19 +22,13 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("exampleProductSubscription", new()
+    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("example", new()
     ///     {
     ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });

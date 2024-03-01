@@ -27,11 +27,12 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var test = new Aws.LB.LoadBalancer("test", new()
     ///     {
+    ///         Name = "test-lb-tf",
     ///         Internal = false,
     ///         LoadBalancerType = "application",
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Lb_sg.Id,
+    ///             lbSg.Id,
     ///         },
     ///         Subnets = .Select(subnet =&gt; 
     ///         {
@@ -40,7 +41,7 @@ namespace Pulumi.Aws.Alb
     ///         EnableDeletionProtection = true,
     ///         AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Lb_logs.Id,
+    ///             Bucket = lbLogs.Id,
     ///             Prefix = "test-lb",
     ///             Enabled = true,
     ///         },
@@ -64,6 +65,7 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var test = new Aws.LB.LoadBalancer("test", new()
     ///     {
+    ///         Name = "test-lb-tf",
     ///         Internal = false,
     ///         LoadBalancerType = "network",
     ///         Subnets = .Select(subnet =&gt; 
@@ -91,18 +93,19 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadBalancerType = "network",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
-    ///                 AllocationId = aws_eip.Example1.Id,
+    ///                 SubnetId = example1AwsSubnet.Id,
+    ///                 AllocationId = example1.Id,
     ///             },
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
-    ///                 AllocationId = aws_eip.Example2.Id,
+    ///                 SubnetId = example2AwsSubnet.Id,
+    ///                 AllocationId = example2.Id,
     ///             },
     ///         },
     ///     });
@@ -121,17 +124,18 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadBalancerType = "network",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
+    ///                 SubnetId = example1.Id,
     ///                 PrivateIpv4Address = "10.0.1.15",
     ///             },
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
+    ///                 SubnetId = example2.Id,
     ///                 PrivateIpv4Address = "10.0.2.15",
     ///             },
     ///         },

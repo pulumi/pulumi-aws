@@ -524,8 +524,11 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.RuleGroup("example",
+            metric_name="WAFRuleGroupExample",
+            name="WAF-Rule-Group-Example")
+        example = aws.fms.Policy("example",
+            name="FMS-Policy-Example",
             exclude_resource_tags=False,
             remediation_enabled=False,
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -592,8 +595,11 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.RuleGroup("example",
+            metric_name="WAFRuleGroupExample",
+            name="WAF-Rule-Group-Example")
+        example = aws.fms.Policy("example",
+            name="FMS-Policy-Example",
             exclude_resource_tags=False,
             remediation_enabled=False,
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",

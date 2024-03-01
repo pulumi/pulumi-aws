@@ -111,12 +111,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+            ))
         ```
         ### With Five Levels
 
@@ -125,24 +125,24 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
-                    name="levelfive",
-                ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
-                    name="levelfour",
-                ),
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
-                ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
-                    name="levelthree",
                 ),
                 level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
                     name="leveltwo",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                    name="levelthree",
+                ),
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                    name="levelfour",
+                ),
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+                    name="levelfive",
+                ),
+            ))
         ```
 
         ## Import
@@ -176,12 +176,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+            ))
         ```
         ### With Five Levels
 
@@ -190,24 +190,24 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
-                    name="levelfive",
-                ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
-                    name="levelfour",
-                ),
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
-                ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
-                    name="levelthree",
                 ),
                 level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
                     name="leveltwo",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                    name="levelthree",
+                ),
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                    name="levelfour",
+                ),
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+                    name="levelfive",
+                ),
+            ))
         ```
 
         ## Import

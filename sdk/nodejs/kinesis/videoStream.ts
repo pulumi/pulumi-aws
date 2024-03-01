@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.kinesis.VideoStream("default", {
+ *     name: "kinesis-video-stream",
  *     dataRetentionInHours: 1,
  *     deviceName: "kinesis-video-device-name",
  *     mediaType: "video/h264",

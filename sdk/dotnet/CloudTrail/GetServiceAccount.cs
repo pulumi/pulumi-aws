@@ -33,10 +33,11 @@ namespace Pulumi.Aws.CloudTrail
         /// 
         ///     var bucket = new Aws.S3.BucketV2("bucket", new()
         ///     {
+        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
         ///         ForceDestroy = true,
         ///     });
         /// 
-        ///     var allowCloudtrailLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowCloudtrailLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -91,10 +92,10 @@ namespace Pulumi.Aws.CloudTrail
         ///         },
         ///     });
         /// 
-        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", new()
+        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_cloudtrail_logging", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = allowCloudtrailLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowCloudtrailLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -127,10 +128,11 @@ namespace Pulumi.Aws.CloudTrail
         /// 
         ///     var bucket = new Aws.S3.BucketV2("bucket", new()
         ///     {
+        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
         ///         ForceDestroy = true,
         ///     });
         /// 
-        ///     var allowCloudtrailLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowCloudtrailLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -185,10 +187,10 @@ namespace Pulumi.Aws.CloudTrail
         ///         },
         ///     });
         /// 
-        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", new()
+        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_cloudtrail_logging", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = allowCloudtrailLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowCloudtrailLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

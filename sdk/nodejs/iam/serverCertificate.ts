@@ -23,11 +23,16 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
- *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
+ *     name: "some_test_cert",
+ *     certificateBody: std.file({
+ *         input: "self-ca-cert.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "test-key.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *
@@ -37,16 +42,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
+ * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
+ *     name: "alt_test_cert",
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- *
  * `,
  *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
- *
  * `,
  * });
  * ```
@@ -63,14 +67,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     namePrefix: "example-cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
- *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
+ *     certificateBody: std.file({
+ *         input: "self-ca-cert.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "test-key.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * const ourapp = new aws.elb.LoadBalancer("ourapp", {
+ *     name: "asg-deployment-example",
  *     availabilityZones: ["us-west-2a"],
  *     crossZoneLoadBalancing: true,
  *     listeners: [{

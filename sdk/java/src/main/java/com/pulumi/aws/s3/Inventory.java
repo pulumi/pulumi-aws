@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
  * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
@@ -51,12 +52,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testBucketV2 = new BucketV2(&#34;testBucketV2&#34;);
+ *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;);
+ *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *             .build());
  * 
  *         var testInventory = new Inventory(&#34;testInventory&#34;, InventoryArgs.builder()        
- *             .bucket(testBucketV2.id())
+ *             .bucket(test.id())
+ *             .name(&#34;EntireBucketDaily&#34;)
  *             .includedObjectVersions(&#34;All&#34;)
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency(&#34;Daily&#34;)
@@ -80,6 +86,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
  * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
@@ -99,12 +106,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2(&#34;test&#34;);
+ *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;);
+ *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *             .build());
  * 
  *         var test_prefix = new Inventory(&#34;test-prefix&#34;, InventoryArgs.builder()        
  *             .bucket(test.id())
+ *             .name(&#34;DocumentsWeekly&#34;)
  *             .includedObjectVersions(&#34;All&#34;)
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency(&#34;Daily&#34;)

@@ -32,15 +32,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -51,7 +51,7 @@ import (
 //							"glue:CreateTable",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{

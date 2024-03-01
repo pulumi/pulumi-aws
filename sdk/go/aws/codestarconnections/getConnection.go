@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
-//				Arn: pulumi.StringRef(aws_codestarconnections_connection.Example.Arn),
+//				Arn: pulumi.StringRef(exampleAwsCodestarconnectionsConnection.Arn),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,7 +54,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
-//				Name: pulumi.StringRef(aws_codestarconnections_connection.Example.Name),
+//				Name: pulumi.StringRef(exampleAwsCodestarconnectionsConnection.Name),
 //			}, nil)
 //			if err != nil {
 //				return err

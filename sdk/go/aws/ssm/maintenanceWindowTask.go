@@ -35,12 +35,12 @@ import (
 //				Priority:       pulumi.Int(1),
 //				TaskArn:        pulumi.String("AWS-RestartEC2Instance"),
 //				TaskType:       pulumi.String("AUTOMATION"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
+//				WindowId:       pulumi.Any(exampleAwsSsmMaintenanceWindow.Id),
 //				Targets: ssm.MaintenanceWindowTaskTargetArray{
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
+//							exampleAwsInstance.Id,
 //						},
 //					},
 //				},
@@ -51,10 +51,61 @@ import (
 //							&ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{
 //								Name: pulumi.String("InstanceId"),
 //								Values: pulumi.StringArray{
-//									aws_instance.Example.Id,
+//									exampleAwsInstance.Id,
 //								},
 //							},
 //						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Lambda Tasks
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "{\"key1\":\"value1\"}",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
+//				MaxConcurrency: pulumi.String("2"),
+//				MaxErrors:      pulumi.String("1"),
+//				Priority:       pulumi.Int(1),
+//				TaskArn:        pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				TaskType:       pulumi.String("LAMBDA"),
+//				WindowId:       pulumi.Any(exampleAwsSsmMaintenanceWindow.Id),
+//				Targets: ssm.MaintenanceWindowTaskTargetArray{
+//					&ssm.MaintenanceWindowTaskTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							exampleAwsInstance.Id,
+//						},
+//					},
+//				},
+//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
+//					LambdaParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{
+//						ClientContext: invokeBase64encode.Result,
+//						Payload:       pulumi.String("{\"key1\":\"value1\"}"),
 //					},
 //				},
 //			})
@@ -86,23 +137,23 @@ import (
 //				Priority:       pulumi.Int(1),
 //				TaskArn:        pulumi.String("AWS-RunShellScript"),
 //				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
+//				WindowId:       pulumi.Any(exampleAwsSsmMaintenanceWindow.Id),
 //				Targets: ssm.MaintenanceWindowTaskTargetArray{
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
+//							exampleAwsInstance.Id,
 //						},
 //					},
 //				},
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					RunCommandParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{
-//						OutputS3Bucket:    pulumi.Any(aws_s3_bucket.Example.Id),
+//						OutputS3Bucket:    pulumi.Any(exampleAwsS3Bucket.Id),
 //						OutputS3KeyPrefix: pulumi.String("output"),
-//						ServiceRoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
+//						ServiceRoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //						TimeoutSeconds:    pulumi.Int(600),
 //						NotificationConfig: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{
-//							NotificationArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//							NotificationArn: pulumi.Any(exampleAwsSnsTopic.Arn),
 //							NotificationEvents: pulumi.StringArray{
 //								pulumi.String("All"),
 //							},
@@ -145,14 +196,14 @@ import (
 //				MaxConcurrency: pulumi.String("2"),
 //				MaxErrors:      pulumi.String("1"),
 //				Priority:       pulumi.Int(1),
-//				TaskArn:        pulumi.Any(aws_sfn_activity.Example.Id),
+//				TaskArn:        pulumi.Any(exampleAwsSfnActivity.Id),
 //				TaskType:       pulumi.String("STEP_FUNCTIONS"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
+//				WindowId:       pulumi.Any(exampleAwsSsmMaintenanceWindow.Id),
 //				Targets: ssm.MaintenanceWindowTaskTargetArray{
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
+//							exampleAwsInstance.Id,
 //						},
 //					},
 //				},

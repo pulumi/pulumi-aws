@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
+//				Name:  pulumi.String("taskLongArnFormat"),
 //				Value: pulumi.String("enabled"),
 //			})
 //			if err != nil {

@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ *         var example = new GlobalNetwork(&#34;example&#34;);
  * 
  *         var exampleSite = new Site(&#34;exampleSite&#34;, SiteArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .build());
  * 
  *     }

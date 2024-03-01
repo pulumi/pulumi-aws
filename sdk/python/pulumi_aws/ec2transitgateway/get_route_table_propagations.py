@@ -89,7 +89,7 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
     ```
 
 
@@ -128,7 +128,7 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
     ```
 
 

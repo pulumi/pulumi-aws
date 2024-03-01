@@ -13,7 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.emr.SecurityConfiguration("foo", {configuration: `{
+ * const foo = new aws.emr.SecurityConfiguration("foo", {
+ *     name: "emrsc_other",
+ *     configuration: `{
  *   "EncryptionConfiguration": {
  *     "AtRestEncryptionConfiguration": {
  *       "S3EncryptionConfiguration": {
@@ -28,8 +30,8 @@ import * as utilities from "../utilities";
  *     "EnableAtRestEncryption": true
  *   }
  * }
- *
- * `});
+ * `,
+ * });
  * ```
  *
  * ## Import

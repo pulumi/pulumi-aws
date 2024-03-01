@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const exampleDomainDkim = new aws.ses.DomainDkim("exampleDomainDkim", {domain: exampleDomainIdentity.domain});
+ * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
+ * const exampleDomainDkim = new aws.ses.DomainDkim("example", {domain: example.domain});
  * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
  * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
+ *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
  *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
  *         type: "CNAME",

@@ -419,7 +419,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -458,7 +458,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -497,7 +497,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -536,7 +536,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());

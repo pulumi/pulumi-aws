@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.LookupAuthPolicy(ctx, &vpclattice.LookupAuthPolicyArgs{
-//				ResourceIdentifier: aws_vpclattice_auth_policy.Test.Resource_identifier,
+//				ResourceIdentifier: testAwsVpclatticeAuthPolicy.ResourceIdentifier,
 //			}, nil)
 //			if err != nil {
 //				return err

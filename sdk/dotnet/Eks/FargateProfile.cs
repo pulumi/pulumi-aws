@@ -24,9 +24,10 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.FargateProfile("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         PodExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         FargateProfileName = "example",
+    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         Selectors = new[]
     ///         {
     ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
@@ -51,21 +52,22 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-fargate-profile-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "eks-fargate-pods.amazonaws.com",
+    ///                         ["service"] = "eks-fargate-pods.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

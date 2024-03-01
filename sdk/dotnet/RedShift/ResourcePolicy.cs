@@ -25,22 +25,22 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.ResourcePolicy("example", new()
     ///     {
-    ///         ResourceArn = aws_redshift_cluster.Example.Cluster_namespace_arn,
+    ///         ResourceArn = exampleAwsRedshiftCluster.ClusterNamespaceArn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "arn:aws:iam::12345678901:root",
     ///                     },
-    ///                     ["Action"] = "redshift:CreateInboundIntegration",
-    ///                     ["Resource"] = aws_redshift_cluster.Example.Cluster_namespace_arn,
-    ///                     ["Sid"] = "",
+    ///                     ["action"] = "redshift:CreateInboundIntegration",
+    ///                     ["resource"] = exampleAwsRedshiftCluster.ClusterNamespaceArn,
+    ///                     ["sid"] = "",
     ///                 },
     ///             },
     ///         }),

@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.LinkAssociation("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     linkId: aws_networkmanager_link.example.id,
- *     deviceId: aws_networkmanager_device.example.id,
+ *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
+ *     linkId: exampleAwsNetworkmanagerLink.id,
+ *     deviceId: exampleAwsNetworkmanagerDevice.id,
  * });
  * ```
  *

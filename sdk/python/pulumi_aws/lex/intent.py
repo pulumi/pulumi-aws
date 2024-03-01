@@ -604,6 +604,88 @@ class Intent(pulumi.CustomResource):
         Provides an Amazon Lex Intent resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_flowers_intent = aws.lex.Intent("order_flowers_intent",
+            confirmation_prompt=aws.lex.IntentConfirmationPromptArgs(
+                max_attempts=2,
+                messages=[aws.lex.IntentConfirmationPromptMessageArgs(
+                    content="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
+                    content_type="PlainText",
+                )],
+            ),
+            create_version=False,
+            name="OrderFlowers",
+            description="Intent to order a bouquet of flowers for pick up",
+            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
+                type="ReturnIntent",
+            ),
+            rejection_statement=aws.lex.IntentRejectionStatementArgs(
+                messages=[aws.lex.IntentRejectionStatementMessageArgs(
+                    content="Okay, I will not place your order.",
+                    content_type="PlainText",
+                )],
+            ),
+            sample_utterances=[
+                "I would like to order some flowers",
+                "I would like to pick up flowers",
+            ],
+            slots=[
+                aws.lex.IntentSlotArgs(
+                    description="The type of flowers to pick up",
+                    name="FlowerType",
+                    priority=1,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="FlowerTypes",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="What type of flowers would you like to order?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+                aws.lex.IntentSlotArgs(
+                    description="The date to pick up the flowers",
+                    name="PickupDate",
+                    priority=2,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="AMAZON.DATE",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="What day do you want the {FlowerType} to be picked up?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+                aws.lex.IntentSlotArgs(
+                    description="The time to pick up the flowers",
+                    name="PickupTime",
+                    priority=3,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="AMAZON.TIME",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="Pick up the {FlowerType} at what time on {PickupDate}?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Using `pulumi import`, import intents using their name. For example:
@@ -658,6 +740,88 @@ class Intent(pulumi.CustomResource):
         """
         Provides an Amazon Lex Intent resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_flowers_intent = aws.lex.Intent("order_flowers_intent",
+            confirmation_prompt=aws.lex.IntentConfirmationPromptArgs(
+                max_attempts=2,
+                messages=[aws.lex.IntentConfirmationPromptMessageArgs(
+                    content="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
+                    content_type="PlainText",
+                )],
+            ),
+            create_version=False,
+            name="OrderFlowers",
+            description="Intent to order a bouquet of flowers for pick up",
+            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
+                type="ReturnIntent",
+            ),
+            rejection_statement=aws.lex.IntentRejectionStatementArgs(
+                messages=[aws.lex.IntentRejectionStatementMessageArgs(
+                    content="Okay, I will not place your order.",
+                    content_type="PlainText",
+                )],
+            ),
+            sample_utterances=[
+                "I would like to order some flowers",
+                "I would like to pick up flowers",
+            ],
+            slots=[
+                aws.lex.IntentSlotArgs(
+                    description="The type of flowers to pick up",
+                    name="FlowerType",
+                    priority=1,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="FlowerTypes",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="What type of flowers would you like to order?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+                aws.lex.IntentSlotArgs(
+                    description="The date to pick up the flowers",
+                    name="PickupDate",
+                    priority=2,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="AMAZON.DATE",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="What day do you want the {FlowerType} to be picked up?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+                aws.lex.IntentSlotArgs(
+                    description="The time to pick up the flowers",
+                    name="PickupTime",
+                    priority=3,
+                    sample_utterances=["I would like to order {FlowerType}"],
+                    slot_constraint="Required",
+                    slot_type="AMAZON.TIME",
+                    slot_type_version="$$LATEST",
+                    value_elicitation_prompt=aws.lex.IntentSlotValueElicitationPromptArgs(
+                        max_attempts=2,
+                        messages=[aws.lex.IntentSlotValueElicitationPromptMessageArgs(
+                            content="Pick up the {FlowerType} at what time on {PickupDate}?",
+                            content_type="PlainText",
+                        )],
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

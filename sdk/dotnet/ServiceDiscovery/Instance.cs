@@ -22,21 +22,23 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.domain.local",
     ///         Description = "example",
-    ///         Vpc = exampleVpc.Id,
+    ///         Vpc = example.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
     ///             NamespaceId = examplePrivateDnsNamespace.Id,
@@ -56,7 +58,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,
@@ -78,17 +80,19 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleHttpNamespace = new Aws.ServiceDiscovery.HttpNamespace("exampleHttpNamespace", new()
+    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
     ///     {
+    ///         Name = "example.domain.test",
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
-    ///         NamespaceId = exampleHttpNamespace.Id,
+    ///         Name = "example",
+    ///         NamespaceId = example.Id,
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,

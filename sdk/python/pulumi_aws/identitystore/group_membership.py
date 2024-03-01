@@ -148,6 +148,35 @@ class GroupMembership(pulumi.CustomResource):
         """
         Resource for managing an AWS IdentityStore Group Membership.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.ssoadmin.get_instances()
+        example_user = aws.identitystore.User("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            display_name="John Doe",
+            user_name="john.doe@example.com",
+            name=aws.identitystore.UserNameArgs(
+                family_name="Doe",
+                given_name="John",
+            ))
+        example_group = aws.identitystore.Group("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            display_name="MyGroup",
+            description="Some group name")
+        example_group_membership = aws.identitystore.GroupMembership("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            group_id=example_group.group_id,
+            member_id=example_user.user_id)
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
@@ -170,6 +199,35 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS IdentityStore Group Membership.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = aws.ssoadmin.get_instances()
+        example_user = aws.identitystore.User("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            display_name="John Doe",
+            user_name="john.doe@example.com",
+            name=aws.identitystore.UserNameArgs(
+                family_name="Doe",
+                given_name="John",
+            ))
+        example_group = aws.identitystore.Group("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            display_name="MyGroup",
+            description="Some group name")
+        example_group_membership = aws.identitystore.GroupMembership("example",
+            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+            group_id=example_group.group_id,
+            member_id=example_user.user_id)
+        ```
 
         ## Import
 

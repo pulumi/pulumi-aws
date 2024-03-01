@@ -209,14 +209,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="API_KEY",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
                 api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
                     key="x-signature",
                     value="1234",
                 ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
+            ))
         ```
         ### Basic Authorization
 
@@ -225,14 +226,94 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
                 basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
                     username="user",
+                    password="Pass1234!",
                 ),
-            ),
+            ))
+        ```
+        ### OAuth Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
+            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
+                oauth=aws.cloudwatch.EventConnectionAuthParametersOauthArgs(
+                    authorization_endpoint="https://auth.url.com/endpoint",
+                    http_method="GET",
+                    client_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs(
+                        client_id="1234567890",
+                        client_secret="Pass1234!",
+                    ),
+                    oauth_http_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs(
+                        bodies=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs(
+                            key="body-parameter-key",
+                            value="body-parameter-value",
+                            is_value_secret=False,
+                        )],
+                        headers=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs(
+                            key="header-parameter-key",
+                            value="header-parameter-value",
+                            is_value_secret=False,
+                        )],
+                        query_strings=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs(
+                            key="query-string-parameter-key",
+                            value="query-string-parameter-value",
+                            is_value_secret=False,
+                        )],
+                    ),
+                ),
+            ))
+        ```
+        ### Invocation Http Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
             authorization_type="BASIC",
-            description="A connection description")
+            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
+                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
+                    username="user",
+                    password="Pass1234!",
+                ),
+                invocation_http_parameters=aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs(
+                    bodies=[
+                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
+                            key="body-parameter-key",
+                            value="body-parameter-value",
+                            is_value_secret=False,
+                        ),
+                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
+                            key="body-parameter-key2",
+                            value="body-parameter-value2",
+                            is_value_secret=True,
+                        ),
+                    ],
+                    headers=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs(
+                        key="header-parameter-key",
+                        value="header-parameter-value",
+                        is_value_secret=False,
+                    )],
+                    query_strings=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs(
+                        key="query-string-parameter-key",
+                        value="query-string-parameter-value",
+                        is_value_secret=False,
+                    )],
+                ),
+            ))
         ```
 
         ## Import
@@ -268,14 +349,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="API_KEY",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
                 api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
                     key="x-signature",
                     value="1234",
                 ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
+            ))
         ```
         ### Basic Authorization
 
@@ -284,14 +366,94 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
                 basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
                     username="user",
+                    password="Pass1234!",
                 ),
-            ),
+            ))
+        ```
+        ### OAuth Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
+            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
+                oauth=aws.cloudwatch.EventConnectionAuthParametersOauthArgs(
+                    authorization_endpoint="https://auth.url.com/endpoint",
+                    http_method="GET",
+                    client_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs(
+                        client_id="1234567890",
+                        client_secret="Pass1234!",
+                    ),
+                    oauth_http_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs(
+                        bodies=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs(
+                            key="body-parameter-key",
+                            value="body-parameter-value",
+                            is_value_secret=False,
+                        )],
+                        headers=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs(
+                            key="header-parameter-key",
+                            value="header-parameter-value",
+                            is_value_secret=False,
+                        )],
+                        query_strings=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs(
+                            key="query-string-parameter-key",
+                            value="query-string-parameter-value",
+                            is_value_secret=False,
+                        )],
+                    ),
+                ),
+            ))
+        ```
+        ### Invocation Http Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="ngrok-connection",
+            description="A connection description",
             authorization_type="BASIC",
-            description="A connection description")
+            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
+                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
+                    username="user",
+                    password="Pass1234!",
+                ),
+                invocation_http_parameters=aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs(
+                    bodies=[
+                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
+                            key="body-parameter-key",
+                            value="body-parameter-value",
+                            is_value_secret=False,
+                        ),
+                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
+                            key="body-parameter-key2",
+                            value="body-parameter-value2",
+                            is_value_secret=True,
+                        ),
+                    ],
+                    headers=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs(
+                        key="header-parameter-key",
+                        value="header-parameter-value",
+                        is_value_secret=False,
+                    )],
+                    query_strings=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs(
+                        key="query-string-parameter-key",
+                        value="query-string-parameter-value",
+                        is_value_secret=False,
+                    )],
+                ),
+            ))
         ```
 
         ## Import

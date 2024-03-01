@@ -34,11 +34,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-test-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			allowAccessFromAnotherAccountPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			allowAccessFromAnotherAccount := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
@@ -62,10 +64,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "allowAccessFromAnotherAccountBucketPolicy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "allow_access_from_another_account", &s3.BucketPolicyArgs{
 //				Bucket: example.ID(),
-//				Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &allowAccessFromAnotherAccountPolicyDocument.Json, nil
+//				Policy: allowAccessFromAnotherAccount.ApplyT(func(allowAccessFromAnotherAccount iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowAccessFromAnotherAccount.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

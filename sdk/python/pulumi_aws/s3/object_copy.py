@@ -1512,13 +1512,13 @@ class ObjectCopy(pulumi.CustomResource):
 
         test = aws.s3.ObjectCopy("test",
             bucket="destination_bucket",
-            grants=[aws.s3.ObjectCopyGrantArgs(
-                permissions=["READ"],
-                type="Group",
-                uri="http://acs.amazonaws.com/groups/global/AllUsers",
-            )],
             key="destination_key",
-            source="source_bucket/source_key")
+            source="source_bucket/source_key",
+            grants=[aws.s3.ObjectCopyGrantArgs(
+                uri="http://acs.amazonaws.com/groups/global/AllUsers",
+                type="Group",
+                permissions=["READ"],
+            )])
         ```
 
         :param str resource_name: The name of the resource.
@@ -1581,13 +1581,13 @@ class ObjectCopy(pulumi.CustomResource):
 
         test = aws.s3.ObjectCopy("test",
             bucket="destination_bucket",
-            grants=[aws.s3.ObjectCopyGrantArgs(
-                permissions=["READ"],
-                type="Group",
-                uri="http://acs.amazonaws.com/groups/global/AllUsers",
-            )],
             key="destination_key",
-            source="source_bucket/source_key")
+            source="source_bucket/source_key",
+            grants=[aws.s3.ObjectCopyGrantArgs(
+                uri="http://acs.amazonaws.com/groups/global/AllUsers",
+                type="Group",
+                permissions=["READ"],
+            )])
         ```
 
         :param str resource_name: The name of the resource.

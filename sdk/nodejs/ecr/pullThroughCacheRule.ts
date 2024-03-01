@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecr.PullThroughCacheRule("example", {
- *     credentialArn: "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
  *     ecrRepositoryPrefix: "ecr-public",
  *     upstreamRegistryUrl: "public.ecr.aws",
+ *     credentialArn: "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
  * });
  * ```
  *

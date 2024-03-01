@@ -157,30 +157,36 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
+            name="example",
+            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+                supporting_access_point=example_access_point.arn,
+                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                    actions=["GetObject"],
+                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                            function_arn=example_aws_lambda_function["arn"],
+                        ),
                     ),
-                ),
-            )],
-        ))
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=pulumi.Output.json_dumps({
-            "Version": "2008-10-17",
-            "Statement": [{
-                "Effect": "Allow",
-                "Action": "s3-object-lambda:GetObject",
-                "Principal": {
-                    "AWS": data["aws_caller_identity"]["current"]["account_id"],
-                },
-                "Resource": example_object_lambda_access_point.arn,
-            }],
-        }))
+                )],
+            ))
+        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
+            name=example_object_lambda_access_point.name,
+            policy=pulumi.Output.json_dumps({
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3-object-lambda:GetObject",
+                    "principal": {
+                        "AWS": current["accountId"],
+                    },
+                    "resource": example_object_lambda_access_point.arn,
+                }],
+            }))
         ```
 
         ## Import
@@ -213,30 +219,36 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
+            name="example",
+            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+                supporting_access_point=example_access_point.arn,
+                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                    actions=["GetObject"],
+                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                            function_arn=example_aws_lambda_function["arn"],
+                        ),
                     ),
-                ),
-            )],
-        ))
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=pulumi.Output.json_dumps({
-            "Version": "2008-10-17",
-            "Statement": [{
-                "Effect": "Allow",
-                "Action": "s3-object-lambda:GetObject",
-                "Principal": {
-                    "AWS": data["aws_caller_identity"]["current"]["account_id"],
-                },
-                "Resource": example_object_lambda_access_point.arn,
-            }],
-        }))
+                )],
+            ))
+        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
+            name=example_object_lambda_access_point.name,
+            policy=pulumi.Output.json_dumps({
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3-object-lambda:GetObject",
+                    "principal": {
+                        "AWS": current["accountId"],
+                    },
+                    "resource": example_object_lambda_access_point.arn,
+                }],
+            }))
         ```
 
         ## Import

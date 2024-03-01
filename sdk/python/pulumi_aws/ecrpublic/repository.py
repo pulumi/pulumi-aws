@@ -237,24 +237,22 @@ class Repository(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                logo_image_blob=std.filebase64(input=png).result,
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
             tags={
                 "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+            })
         ```
 
         ## Import
@@ -286,24 +284,22 @@ class Repository(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                logo_image_blob=std.filebase64(input=png).result,
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
             tags={
                 "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+            })
         ```
 
         ## Import

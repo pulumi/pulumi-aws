@@ -31,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
 //				ExportTaskIdentifier: pulumi.String("example"),
-//				SourceArn:            pulumi.Any(aws_db_snapshot.Example.Db_snapshot_arn),
-//				S3BucketName:         pulumi.Any(aws_s3_bucket.Example.Id),
-//				IamRoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-//				KmsKeyId:             pulumi.Any(aws_kms_key.Example.Arn),
+//				SourceArn:            pulumi.Any(exampleAwsDbSnapshot.DbSnapshotArn),
+//				S3BucketName:         pulumi.Any(exampleAwsS3Bucket.Id),
+//				IamRoleArn:           pulumi.Any(exampleAwsIamRole.Arn),
+//				KmsKeyId:             pulumi.Any(exampleAwsKmsKey.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -64,13 +64,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: exampleBucketV2.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -78,14 +79,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "export.rds.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "export.rds.amazonaws.com",
 //						},
 //					},
 //				},
@@ -94,13 +95,14 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Actions: pulumi.StringArray{
@@ -133,28 +135,29 @@ import (
 //					},
 //				},
 //			}, nil)
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name: pulumi.String("example"),
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      exampleRole.Name,
 //				PolicyArn: examplePolicy.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				DeletionWindowInDays: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+//			exampleInstance, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 //				Identifier:         pulumi.String("example"),
 //				AllocatedStorage:   pulumi.Int(10),
 //				DbName:             pulumi.String("test"),
@@ -169,14 +172,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
+//			exampleSnapshot, err := rds.NewSnapshot(ctx, "example", &rds.SnapshotArgs{
 //				DbInstanceIdentifier: exampleInstance.Identifier,
 //				DbSnapshotIdentifier: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewExportTask(ctx, "exampleExportTask", &rds.ExportTaskArgs{
+//			_, err = rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
 //				ExportTaskIdentifier: pulumi.String("example"),
 //				SourceArn:            exampleSnapshot.DbSnapshotArn,
 //				S3BucketName:         exampleBucketV2.ID(),

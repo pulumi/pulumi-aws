@@ -21,17 +21,17 @@ import * as utilities from "../utilities";
  *     applicationDomain: "example.com",
  *     attachmentType: "vpc",
  *     description: "example",
- *     domainCertificateArn: aws_acm_certificate.example.arn,
+ *     domainCertificateArn: exampleAwsAcmCertificate.arn,
  *     endpointDomainPrefix: "example",
  *     endpointType: "load-balancer",
  *     loadBalancerOptions: {
- *         loadBalancerArn: aws_lb.example.arn,
+ *         loadBalancerArn: exampleAwsLb.arn,
  *         port: 443,
  *         protocol: "https",
  *         subnetIds: .map(subnet => (subnet.id)),
  *     },
- *     securityGroupIds: [aws_security_group.example.id],
- *     verifiedAccessGroupId: aws_verifiedaccess_group.example.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
  * ### Network Interface Example
@@ -44,16 +44,16 @@ import * as utilities from "../utilities";
  *     applicationDomain: "example.com",
  *     attachmentType: "vpc",
  *     description: "example",
- *     domainCertificateArn: aws_acm_certificate.example.arn,
+ *     domainCertificateArn: exampleAwsAcmCertificate.arn,
  *     endpointDomainPrefix: "example",
  *     endpointType: "network-interface",
  *     networkInterfaceOptions: {
- *         networkInterfaceId: aws_network_interface.example.id,
+ *         networkInterfaceId: exampleAwsNetworkInterface.id,
  *         port: 443,
  *         protocol: "https",
  *     },
- *     securityGroupIds: [aws_security_group.example.id],
- *     verifiedAccessGroupId: aws_verifiedaccess_group.example.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
  *

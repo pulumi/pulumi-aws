@@ -44,11 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(String.format(&#34;/aws/directoryservice/%s&#34;, exampleAwsDirectoryServiceDirectory.id()))
  *             .retentionInDays(14)
  *             .build());
  * 
- *         final var ad-log-policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var ad-log-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
@@ -57,19 +58,19 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;ds.amazonaws.com&#34;)
  *                     .type(&#34;Service&#34;)
  *                     .build())
- *                 .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                 .effect(&#34;Allow&#34;)
  *                 .build())
  *             .build());
  * 
  *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy(&#34;ad-log-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(ad_log_policyPolicyDocument.applyValue(ad_log_policyPolicyDocument -&gt; ad_log_policyPolicyDocument.json()))
+ *             .policyDocument(ad_log_policy.applyValue(ad_log_policy -&gt; ad_log_policy.json()))
  *             .policyName(&#34;ad-log-policy&#34;)
  *             .build());
  * 
  *         var exampleLogService = new LogService(&#34;exampleLogService&#34;, LogServiceArgs.builder()        
- *             .directoryId(aws_directory_service_directory.example().id())
- *             .logGroupName(exampleLogGroup.name())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .logGroupName(example.name())
  *             .build());
  * 
  *     }

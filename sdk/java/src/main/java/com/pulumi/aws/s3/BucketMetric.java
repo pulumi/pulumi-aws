@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
  * import java.util.List;
@@ -44,10 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_entire_bucket = new BucketMetric(&#34;example-entire-bucket&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;EntireBucket&#34;)
  *             .build());
  * 
  *     }
@@ -61,6 +65,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
  * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
@@ -77,10 +82,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(
@@ -101,6 +109,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3.BucketMetric;
@@ -119,14 +128,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_access_point = new AccessPoint(&#34;example-access-point&#34;, AccessPointArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;example-access-point&#34;)
  *             .build());
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .accessPoint(example_access_point.arn())
  *                 .tags(Map.ofEntries(

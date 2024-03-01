@@ -13,12 +13,122 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following adds a route for a particular cidr block to every (private
+        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// connection.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetRouteTablesFilterInputArgs
+        ///             {
+        ///                 Name = "tag:kubernetes.io/kops/role",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "private*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var r = new List&lt;Aws.Ec2.Route&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         r.Add(new Aws.Ec2.Route($"r-{range.Value}", new()
+        ///         {
+        ///             RouteTableId = NotImplemented("tolist(data.aws_route_tables.rts.ids)")[range.Value],
+        ///             DestinationCidrBlock = "10.0.0.0/22",
+        ///             VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTablesResult> InvokeAsync(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following adds a route for a particular cidr block to every (private
+        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// connection.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetRouteTablesFilterInputArgs
+        ///             {
+        ///                 Name = "tag:kubernetes.io/kops/role",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "private*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var r = new List&lt;Aws.Ec2.Route&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         r.Add(new Aws.Ec2.Route($"r-{range.Value}", new()
+        ///         {
+        ///             RouteTableId = NotImplemented("tolist(data.aws_route_tables.rts.ids)")[range.Value],
+        ///             DestinationCidrBlock = "10.0.0.0/22",
+        ///             VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouteTablesResult> Invoke(GetRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesInvokeArgs(), options.WithDefaults());

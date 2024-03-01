@@ -48,12 +48,13 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "cloudfront-realtime-log-config-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,20 +70,22 @@ namespace Pulumi.Aws.CloudFront
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     aws_kinesis_stream.Example.Arn,
+    ///                     exampleAwsKinesisStream.Arn,
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "cloudfront-realtime-log-config-example",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("exampleRealtimeLogConfig", new()
+    ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("example", new()
     ///     {
+    ///         Name = "example",
     ///         SamplingRate = 75,
     ///         Fields = new[]
     ///         {
@@ -95,14 +98,8 @@ namespace Pulumi.Aws.CloudFront
     ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
     ///             {
     ///                 RoleArn = exampleRole.Arn,
-    ///                 StreamArn = aws_kinesis_stream.Example.Arn,
+    ///                 StreamArn = exampleAwsKinesisStream.Arn,
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleRolePolicy,
     ///         },
     ///     });
     /// 

@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraph = new Aws.Detective.Graph("exampleGraph");
+    ///     var example = new Aws.Detective.Graph("example");
     /// 
-    ///     var exampleMember = new Aws.Detective.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Detective.Member("example", new()
     ///     {
     ///         AccountId = "AWS ACCOUNT ID",
     ///         EmailAddress = "EMAIL",
-    ///         GraphArn = exampleGraph.Id,
+    ///         GraphArn = example.Id,
     ///         Message = "Message of the invitation",
     ///         DisableEmailNotification = true,
     ///     });

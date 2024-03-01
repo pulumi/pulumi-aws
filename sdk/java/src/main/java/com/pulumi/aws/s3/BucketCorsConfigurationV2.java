@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2Args;
  * import com.pulumi.aws.s3.inputs.BucketCorsConfigurationV2CorsRuleArgs;
@@ -47,10 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;mybucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2(&#34;exampleBucketCorsConfigurationV2&#34;, BucketCorsConfigurationV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .corsRules(            
  *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
  *                     .allowedHeaders(&#34;*&#34;)

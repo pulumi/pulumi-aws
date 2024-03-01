@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myProfile = new UserProfile(&#34;myProfile&#34;, UserProfileArgs.builder()        
- *             .userArn(aws_iam_user.user().arn())
+ *             .userArn(user.arn())
  *             .sshUsername(&#34;my_user&#34;)
  *             .build());
  * 

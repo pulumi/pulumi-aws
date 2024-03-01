@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Keyspaces
     /// {
     ///     var example = new Aws.Keyspaces.Table("example", new()
     ///     {
-    ///         KeyspaceName = aws_keyspaces_keyspace.Example.Name,
+    ///         KeyspaceName = exampleAwsKeyspacesKeyspace.Name,
     ///         TableName = "my_table",
     ///         SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
     ///         {

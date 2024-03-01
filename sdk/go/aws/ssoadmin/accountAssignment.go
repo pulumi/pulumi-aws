@@ -15,6 +15,128 @@ import (
 // Provides a Single Sign-On (SSO) Account Assignment resource
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetPermissionSet, err := ssoadmin.LookupPermissionSet(ctx, &ssoadmin.LookupPermissionSetArgs{
+//				InstanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//				Name:        pulumi.StringRef("AWSReadOnlyAccess"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
+//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
+//				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
+//					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
+//						AttributePath:  "DisplayName",
+//						AttributeValue: "ExampleGroup",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
+//				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//				PermissionSetArn: *pulumi.String(exampleGetPermissionSet.Arn),
+//				PrincipalId:      *pulumi.String(exampleGetGroup.GroupId),
+//				PrincipalType:    pulumi.String("GROUP"),
+//				TargetId:         pulumi.String("123456789012"),
+//				TargetType:       pulumi.String("AWS_ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Managed Policy Attachment
+//
+// > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
+//				Name:        pulumi.String("Example"),
+//				InstanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
+//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.sso_instance.identity_store_ids)")[0],
+//				DisplayName:     pulumi.String("Admin"),
+//				Description:     pulumi.String("Admin Group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewAccountAssignment(ctx, "account_assignment", &ssoadmin.AccountAssignmentArgs{
+//				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//				PermissionSetArn: examplePermissionSet.Arn,
+//				PrincipalId:      exampleGroup.GroupId,
+//				PrincipalType:    pulumi.String("GROUP"),
+//				TargetId:         pulumi.String("123456789012"),
+//				TargetType:       pulumi.String("AWS_ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
+//				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
+//				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
+//				PermissionSetArn: examplePermissionSet.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

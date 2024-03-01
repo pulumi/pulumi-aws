@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("site_switch"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
@@ -67,9 +67,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
+//				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +96,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("geoproximity_rule"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
@@ -160,9 +161,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
+//				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: *pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

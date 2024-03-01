@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
 //				ReleaseLabel: pulumi.String("emr-6.6.0"),
 //				Type:         pulumi.String("hive"),
 //			})
@@ -56,20 +57,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
 //					&emrserverless.ApplicationInitialCapacityArgs{
+//						InitialCapacityType: pulumi.String("HiveDriver"),
 //						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
+//							WorkerCount: pulumi.Int(1),
 //							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
 //								Cpu:    pulumi.String("2 vCPU"),
 //								Memory: pulumi.String("10 GB"),
 //							},
-//							WorkerCount: pulumi.Int(1),
 //						},
-//						InitialCapacityType: pulumi.String("HiveDriver"),
 //					},
 //				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err
@@ -94,12 +96,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
 //					Cpu:    pulumi.String("2 vCPU"),
 //					Memory: pulumi.String("10 GB"),
 //				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err

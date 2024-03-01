@@ -17,11 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Sample KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("example", {
+ *     name: "my-tf-kx-environment",
+ *     kmsKeyId: example.arn,
+ * });
  * ```
  * ### With Transit Gateway Configuration
  *
@@ -29,14 +32,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Sample KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {description: "example"});
- * const exampleEnv = new aws.finspace.KxEnvironment("exampleEnv", {
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
+ * const exampleEnv = new aws.finspace.KxEnvironment("example_env", {
+ *     name: "my-tf-kx-environment",
  *     description: "Environment description",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     transitGatewayConfiguration: {
  *         transitGatewayId: exampleTransitGateway.id,
  *         routableCidrSpace: "100.64.0.0/26",
@@ -53,14 +57,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Sample KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {description: "example"});
- * const exampleEnv = new aws.finspace.KxEnvironment("exampleEnv", {
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
+ * const exampleEnv = new aws.finspace.KxEnvironment("example_env", {
+ *     name: "my-tf-kx-environment",
  *     description: "Environment description",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     transitGatewayConfiguration: {
  *         transitGatewayId: exampleTransitGateway.id,
  *         routableCidrSpace: "100.64.0.0/26",

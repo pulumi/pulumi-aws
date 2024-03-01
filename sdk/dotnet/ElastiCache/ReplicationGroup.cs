@@ -47,16 +47,17 @@ namespace Pulumi.Aws.ElastiCache
     ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
     ///         AutomaticFailoverEnabled = true,
-    ///         Description = "example description",
-    ///         NodeType = "cache.m4.large",
-    ///         NumCacheClusters = 2,
-    ///         ParameterGroupName = "default.redis3.2",
-    ///         Port = 6379,
     ///         PreferredCacheClusterAzs = new[]
     ///         {
     ///             "us-west-2a",
     ///             "us-west-2b",
     ///         },
+    ///         ReplicationGroupId = "tf-rep-group-1",
+    ///         Description = "example description",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheClusters = 2,
+    ///         ParameterGroupName = "default.redis3.2",
+    ///         Port = 6379,
     ///     });
     /// 
     /// });
@@ -83,6 +84,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             "us-west-2a",
     ///             "us-west-2b",
     ///         },
+    ///         ReplicationGroupId = "tf-rep-group-1",
     ///         Description = "example description",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheClusters = 2,
@@ -91,11 +93,12 @@ namespace Pulumi.Aws.ElastiCache
     ///     });
     /// 
     ///     var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; (1 == true); rangeIndex++)
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 1; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
     ///         replica.Add(new Aws.ElastiCache.Cluster($"replica-{range.Value}", new()
     ///         {
+    ///             ClusterId = $"tf-rep-group-1-{range.Value}",
     ///             ReplicationGroupId = example.Id,
     ///         }));
     ///     }
@@ -115,12 +118,13 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var baz = new Aws.ElastiCache.ReplicationGroup("baz", new()
     ///     {
-    ///         AutomaticFailoverEnabled = true,
+    ///         ReplicationGroupId = "tf-redis-cluster",
     ///         Description = "example description",
     ///         NodeType = "cache.t2.small",
-    ///         NumNodeGroups = 2,
-    ///         ParameterGroupName = "default.redis3.2.cluster.on",
     ///         Port = 6379,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         AutomaticFailoverEnabled = true,
+    ///         NumNodeGroups = 2,
     ///         ReplicasPerNodeGroup = 1,
     ///     });
     /// 
@@ -138,6 +142,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.ReplicationGroup("test", new()
     ///     {
+    ///         ReplicationGroupId = "myreplicaciongroup",
     ///         Description = "test description",
     ///         NodeType = "cache.t3.small",
     ///         Port = 6379,
@@ -149,14 +154,14 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 Destination = example.Name,
     ///                 DestinationType = "cloudwatch-logs",
     ///                 LogFormat = "text",
     ///                 LogType = "slow-log",
     ///             },
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 Destination = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 DestinationType = "kinesis-firehose",
     ///                 LogFormat = "json",
     ///                 LogType = "engine-log",
@@ -186,27 +191,23 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
+    ///         ReplicationGroupId = "example-primary",
     ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "5.0.6",
     ///         NodeType = "cache.m5.large",
     ///         NumCacheClusters = 1,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
     ///     {
     ///         GlobalReplicationGroupIdSuffix = "example",
     ///         PrimaryReplicationGroupId = primary.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
+    ///         ReplicationGroupId = "example-secondary",
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
     ///         NumCacheClusters = 1,
@@ -226,14 +227,15 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
+    ///         ReplicationGroupId = "example",
     ///         Description = "example with authentication",
     ///         NodeType = "cache.t2.micro",
     ///         NumCacheClusters = 1,
     ///         Port = 6379,
-    ///         SubnetGroupName = aws_elasticache_subnet_group.Example.Name,
+    ///         SubnetGroupName = exampleAwsElasticacheSubnetGroup.Name,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         ParameterGroupName = "default.redis5.0",
     ///         EngineVersion = "5.0.6",

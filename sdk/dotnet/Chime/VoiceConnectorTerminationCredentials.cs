@@ -24,12 +24,13 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
     ///     {
+    ///         Name = "test",
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
+    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("default", new()
     ///     {
     ///         Disabled = true,
     ///         CpsLimit = 1,
@@ -42,12 +43,12 @@ namespace Pulumi.Aws.Chime
     ///             "US",
     ///             "CA",
     ///         },
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", new()
+    ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("default", new()
     ///     {
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///         Credentials = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorTerminationCredentialsCredentialArgs
@@ -55,12 +56,6 @@ namespace Pulumi.Aws.Chime
     ///                 Username = "test",
     ///                 Password = "test!",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             defaultVoiceConnectorTermination,
     ///         },
     ///     });
     /// 

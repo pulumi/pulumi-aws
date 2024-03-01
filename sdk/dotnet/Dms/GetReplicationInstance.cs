@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationInstance.Invoke(new()
         ///     {
-        ///         ReplicationInstanceId = aws_dms_replication_instance.Test.Replication_instance_id,
+        ///         ReplicationInstanceId = testAwsDmsReplicationInstance.ReplicationInstanceId,
         ///     });
         /// 
         /// });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationInstance.Invoke(new()
         ///     {
-        ///         ReplicationInstanceId = aws_dms_replication_instance.Test.Replication_instance_id,
+        ///         ReplicationInstanceId = testAwsDmsReplicationInstance.ReplicationInstanceId,
         ///     });
         /// 
         /// });

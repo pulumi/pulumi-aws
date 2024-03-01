@@ -238,7 +238,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         example = aws.redshift.EndpointAuthorization("example",
             account="01234567910",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
 
         ## Import
@@ -273,7 +273,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         example = aws.redshift.EndpointAuthorization("example",
             account="01234567910",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
 
         ## Import

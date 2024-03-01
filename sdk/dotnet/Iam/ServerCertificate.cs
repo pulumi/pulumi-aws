@@ -27,17 +27,24 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
     ///     {
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         Name = "some_test_cert",
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "test-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -53,17 +60,16 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.ServerCertificate("test_cert_alt", new()
     ///     {
+    ///         Name = "alt_test_cert",
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
     /// -----END CERTIFICATE-----
-    /// 
     /// ",
     ///         PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
     /// [......] # cert contents
     /// -----END RSA PRIVATE KEY-----
-    /// 
     /// ",
     ///     });
     /// 
@@ -81,22 +87,29 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
     ///     {
     ///         NamePrefix = "example-cert",
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "test-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var ourapp = new Aws.Elb.LoadBalancer("ourapp", new()
     ///     {
+    ///         Name = "asg-deployment-example",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",

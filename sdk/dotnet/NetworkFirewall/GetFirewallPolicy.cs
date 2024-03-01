@@ -29,7 +29,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Name = @var.Firewall_policy_name,
+        ///         Name = firewallPolicyName,
         ///     });
         /// 
         /// });
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Arn = @var.Firewall_policy_arn,
+        ///         Arn = firewallPolicyArn,
         ///     });
         /// 
         /// });
@@ -67,8 +67,8 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Arn = @var.Firewall_policy_arn,
-        ///         Name = @var.Firewall_policy_name,
+        ///         Arn = firewallPolicyArn,
+        ///         Name = firewallPolicyName,
         ///     });
         /// 
         /// });
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Name = @var.Firewall_policy_name,
+        ///         Name = firewallPolicyName,
         ///     });
         /// 
         /// });
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Arn = @var.Firewall_policy_arn,
+        ///         Arn = firewallPolicyArn,
         ///     });
         /// 
         /// });
@@ -139,8 +139,8 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         Arn = @var.Firewall_policy_arn,
-        ///         Name = @var.Firewall_policy_name,
+        ///         Arn = firewallPolicyArn,
+        ///         Name = firewallPolicyName,
         ///     });
         /// 
         /// });

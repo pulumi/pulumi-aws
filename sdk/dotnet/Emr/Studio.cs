@@ -25,16 +25,17 @@ namespace Pulumi.Aws.Emr
     ///     var example = new Aws.Emr.Studio("example", new()
     ///     {
     ///         AuthMode = "SSO",
-    ///         DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",
-    ///         EngineSecurityGroupId = aws_security_group.Test.Id,
-    ///         ServiceRole = aws_iam_role.Test.Arn,
+    ///         DefaultS3Location = $"s3://{test.Bucket}/test",
+    ///         EngineSecurityGroupId = testAwsSecurityGroup.Id,
+    ///         Name = "example",
+    ///         ServiceRole = testAwsIamRole.Arn,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test.Id,
+    ///             testAwsSubnet.Id,
     ///         },
-    ///         UserRole = aws_iam_role.Test.Arn,
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         WorkspaceSecurityGroupId = aws_security_group.Test.Id,
+    ///         UserRole = testAwsIamRole.Arn,
+    ///         VpcId = testAwsVpc.Id,
+    ///         WorkspaceSecurityGroupId = testAwsSecurityGroup.Id,
     ///     });
     /// 
     /// });

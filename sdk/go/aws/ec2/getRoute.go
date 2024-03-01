@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			route, err := ec2.LookupRoute(ctx, &ec2.LookupRouteArgs{
-//				RouteTableId:         aws_route_table.Selected.Id,
+//				RouteTableId:         selectedAwsRouteTable.Id,
 //				DestinationCidrBlock: pulumi.StringRef("10.0.1.0/24"),
 //			}, nil)
 //			if err != nil {

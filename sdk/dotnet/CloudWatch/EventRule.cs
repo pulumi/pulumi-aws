@@ -27,6 +27,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var console = new Aws.CloudWatch.EventRule("console", new()
     ///     {
+    ///         Name = "capture-aws-sign-in",
     ///         Description = "Capture each AWS Console Sign In",
     ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -37,11 +38,15 @@ namespace Pulumi.Aws.CloudWatch
     ///         }),
     ///     });
     /// 
-    ///     var awsLogins = new Aws.Sns.Topic("awsLogins");
+    ///     var awsLogins = new Aws.Sns.Topic("aws_logins", new()
+    ///     {
+    ///         Name = "aws-console-logins",
+    ///     });
     /// 
     ///     var sns = new Aws.CloudWatch.EventTarget("sns", new()
     ///     {
     ///         Rule = console.Name,
+    ///         TargetId = "SendToSNS",
     ///         Arn = awsLogins.Arn,
     ///     });
     /// 

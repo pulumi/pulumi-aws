@@ -233,7 +233,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=target["arn"],
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
@@ -243,8 +243,8 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
                 exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
                     buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
+                        b1["arn"],
+                        b2["arn"],
                     ],
                     regions=["us-east-2"],
                 ),
@@ -302,7 +302,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=target["arn"],
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
@@ -312,8 +312,8 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
                 exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
                     buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
+                        b1["arn"],
+                        b2["arn"],
                     ],
                     regions=["us-east-2"],
                 ),

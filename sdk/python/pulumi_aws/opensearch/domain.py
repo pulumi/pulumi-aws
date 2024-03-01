@@ -785,10 +785,11 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="example",
+            engine_version="Elasticsearch_7.10",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
             ),
-            engine_version="Elasticsearch_7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -805,23 +806,25 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["es:*"],
-            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["66.193.100.22/32"],
             )],
         )])
-        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
+        example_domain = aws.opensearch.Domain("example",
+            domain_name=domain,
+            access_policies=example.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -829,8 +832,8 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -843,11 +846,10 @@ class Domain(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*"],
         )])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
-            policy_document=example_policy_document.json)
-        # .. other configuration ...
-        example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
+            policy_document=example.json)
+        example_domain = aws.opensearch.Domain("example", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
@@ -863,38 +865,40 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        example_vpc = aws.ec2.get_vpc(tags={
+        example = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        example_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        example_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
                 name="vpc-id",
-                values=[example_vpc.id],
+                values=[example.id],
             )],
             tags={
                 "Tier": "private",
             })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_security_group = aws.ec2.SecurityGroup("example",
+            name=f"{vpc}-opensearch-{domain}",
             description="Managed by Pulumi",
-            vpc_id=example_vpc.id,
+            vpc_id=example.id,
             ingress=[aws.ec2.SecurityGroupIngressArgs(
                 from_port=443,
                 to_port=443,
                 protocol="tcp",
-                cidr_blocks=[example_vpc.cidr_block],
+                cidr_blocks=[example.cidr_block],
             )])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
+        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["es:*"],
-            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         )])
-        example_domain = aws.opensearch.Domain("exampleDomain",
+        example_domain = aws.opensearch.Domain("example",
+            domain_name=domain,
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="m4.large.search",
@@ -902,19 +906,18 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.opensearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    example_subnets.ids[0],
-                    example_subnets.ids[1],
+                    example_get_subnets.ids[0],
+                    example_get_subnets.ids[1],
                 ],
                 security_group_ids=[example_security_group.id],
             ),
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=example_policy_document.json,
+            access_policies=example_get_policy_document.json,
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            })
         ```
         ### Enabling fine-grained access control on an existing domain
 
@@ -926,32 +929,33 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="ggkitty",
+            engine_version="Elasticsearch_7.1",
+            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+                instance_type="r5.large.search",
+            ),
             advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                anonymous_auth_enabled=True,
                 enabled=False,
+                anonymous_auth_enabled=True,
                 internal_user_database_enabled=True,
                 master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
                     master_user_name="example",
                     master_user_password="Barbarbarbar1!",
                 ),
             ),
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
+            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
+                enabled=True,
             ),
             domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
                 enforce_https=True,
                 tls_security_policy="Policy-Min-TLS-1-2-2019-07",
             ),
+            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
+                enabled=True,
+            ),
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            engine_version="Elasticsearch_7.1",
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
             ))
         ```
         ### Second apply
@@ -963,32 +967,33 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="ggkitty",
+            engine_version="Elasticsearch_7.1",
+            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+                instance_type="r5.large.search",
+            ),
             advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                anonymous_auth_enabled=True,
                 enabled=True,
+                anonymous_auth_enabled=True,
                 internal_user_database_enabled=True,
                 master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
                     master_user_name="example",
                     master_user_password="Barbarbarbar1!",
                 ),
             ),
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
+            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
+                enabled=True,
             ),
             domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
                 enforce_https=True,
                 tls_security_policy="Policy-Min-TLS-1-2-2019-07",
             ),
+            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
+                enabled=True,
+            ),
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            engine_version="Elasticsearch_7.1",
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
             ))
         ```
 
@@ -1059,10 +1064,11 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="example",
+            engine_version="Elasticsearch_7.10",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
             ),
-            engine_version="Elasticsearch_7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -1079,23 +1085,25 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["es:*"],
-            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["66.193.100.22/32"],
             )],
         )])
-        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
+        example_domain = aws.opensearch.Domain("example",
+            domain_name=domain,
+            access_policies=example.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -1103,8 +1111,8 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -1117,11 +1125,10 @@ class Domain(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*"],
         )])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
-            policy_document=example_policy_document.json)
-        # .. other configuration ...
-        example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
+            policy_document=example.json)
+        example_domain = aws.opensearch.Domain("example", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
@@ -1137,38 +1144,40 @@ class Domain(pulumi.CustomResource):
         domain = config.get("domain")
         if domain is None:
             domain = "tf-test"
-        example_vpc = aws.ec2.get_vpc(tags={
+        example = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        example_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        example_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
                 name="vpc-id",
-                values=[example_vpc.id],
+                values=[example.id],
             )],
             tags={
                 "Tier": "private",
             })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_security_group = aws.ec2.SecurityGroup("example",
+            name=f"{vpc}-opensearch-{domain}",
             description="Managed by Pulumi",
-            vpc_id=example_vpc.id,
+            vpc_id=example.id,
             ingress=[aws.ec2.SecurityGroupIngressArgs(
                 from_port=443,
                 to_port=443,
                 protocol="tcp",
-                cidr_blocks=[example_vpc.cidr_block],
+                cidr_blocks=[example.cidr_block],
             )])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
+        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["es:*"],
-            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         )])
-        example_domain = aws.opensearch.Domain("exampleDomain",
+        example_domain = aws.opensearch.Domain("example",
+            domain_name=domain,
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="m4.large.search",
@@ -1176,19 +1185,18 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.opensearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    example_subnets.ids[0],
-                    example_subnets.ids[1],
+                    example_get_subnets.ids[0],
+                    example_get_subnets.ids[1],
                 ],
                 security_group_ids=[example_security_group.id],
             ),
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=example_policy_document.json,
+            access_policies=example_get_policy_document.json,
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            })
         ```
         ### Enabling fine-grained access control on an existing domain
 
@@ -1200,32 +1208,33 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="ggkitty",
+            engine_version="Elasticsearch_7.1",
+            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+                instance_type="r5.large.search",
+            ),
             advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                anonymous_auth_enabled=True,
                 enabled=False,
+                anonymous_auth_enabled=True,
                 internal_user_database_enabled=True,
                 master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
                     master_user_name="example",
                     master_user_password="Barbarbarbar1!",
                 ),
             ),
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
+            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
+                enabled=True,
             ),
             domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
                 enforce_https=True,
                 tls_security_policy="Policy-Min-TLS-1-2-2019-07",
             ),
+            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
+                enabled=True,
+            ),
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            engine_version="Elasticsearch_7.1",
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
             ))
         ```
         ### Second apply
@@ -1237,32 +1246,33 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="ggkitty",
+            engine_version="Elasticsearch_7.1",
+            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+                instance_type="r5.large.search",
+            ),
             advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                anonymous_auth_enabled=True,
                 enabled=True,
+                anonymous_auth_enabled=True,
                 internal_user_database_enabled=True,
                 master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
                     master_user_name="example",
                     master_user_password="Barbarbarbar1!",
                 ),
             ),
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
+            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
+                enabled=True,
             ),
             domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
                 enforce_https=True,
                 tls_security_policy="Policy-Min-TLS-1-2-2019-07",
             ),
+            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
+                enabled=True,
+            ),
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            engine_version="Elasticsearch_7.1",
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
             ))
         ```
 

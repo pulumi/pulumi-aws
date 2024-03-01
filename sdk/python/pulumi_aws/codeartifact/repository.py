@@ -327,10 +327,10 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
+            encryption_key=example.arn)
         test = aws.codeartifact.Repository("test",
             repository="example",
             domain=example_domain.domain)
@@ -343,10 +343,10 @@ class Repository(pulumi.CustomResource):
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             upstreams=[aws.codeartifact.RepositoryUpstreamArgs(
                 repository_name=upstream.repository,
             )])
@@ -359,10 +359,10 @@ class Repository(pulumi.CustomResource):
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             external_connections=aws.codeartifact.RepositoryExternalConnectionsArgs(
                 external_connection_name="public:npmjs",
             ))
@@ -401,10 +401,10 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
+            encryption_key=example.arn)
         test = aws.codeartifact.Repository("test",
             repository="example",
             domain=example_domain.domain)
@@ -417,10 +417,10 @@ class Repository(pulumi.CustomResource):
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             upstreams=[aws.codeartifact.RepositoryUpstreamArgs(
                 repository_name=upstream.repository,
             )])
@@ -433,10 +433,10 @@ class Repository(pulumi.CustomResource):
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             external_connections=aws.codeartifact.RepositoryExternalConnectionsArgs(
                 external_connection_name="public:npmjs",
             ))

@@ -223,7 +223,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
 
@@ -263,7 +263,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
 

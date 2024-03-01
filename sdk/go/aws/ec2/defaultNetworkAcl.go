@@ -105,7 +105,7 @@ import (
 //						Protocol:  pulumi.String("-1"),
 //						RuleNo:    pulumi.Int(100),
 //						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.Any(aws_default_vpc.Mainvpc.Cidr_block),
+//						CidrBlock: pulumi.Any(mainvpcAwsDefaultVpc.CidrBlock),
 //						FromPort:  pulumi.Int(0),
 //						ToPort:    pulumi.Int(0),
 //					},
@@ -174,7 +174,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ... other configuration ...
 //			_, err := ec2.NewDefaultNetworkAcl(ctx, "default", nil)
 //			if err != nil {
 //				return err

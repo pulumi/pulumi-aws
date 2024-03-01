@@ -33,11 +33,11 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var docdb = new Aws.DocDB.Cluster("docdb", new()
     ///     {
-    ///         BackupRetentionPeriod = 5,
     ///         ClusterIdentifier = "my-docdb-cluster",
     ///         Engine = "docdb",
-    ///         MasterPassword = "mustbeeightchars",
     ///         MasterUsername = "foo",
+    ///         MasterPassword = "mustbeeightchars",
+    ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///         SkipFinalSnapshot = true,
     ///     });

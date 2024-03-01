@@ -290,7 +290,7 @@ class EipAssociation(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        eip_assoc = aws.ec2.EipAssociation("eip_assoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```
@@ -350,7 +350,7 @@ class EipAssociation(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        eip_assoc = aws.ec2.EipAssociation("eip_assoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```

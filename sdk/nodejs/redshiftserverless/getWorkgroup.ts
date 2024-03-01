@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getWorkgroup({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
  */
@@ -90,7 +90,7 @@ export interface GetWorkgroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getWorkgroup({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
  */

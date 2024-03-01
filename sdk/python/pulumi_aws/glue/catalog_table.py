@@ -563,9 +563,9 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
-            name="MyCatalogTable")
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase")
         ```
         ### Parquet Table for Athena
 
@@ -573,14 +573,25 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
             name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
             parameters={
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+                location="s3://my-bucket/event-streams/my-stream",
+                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                    name="my-stream",
+                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    parameters={
+                        "serialization.format": "1",
+                    },
+                ),
                 columns=[
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
                         name="my_string",
@@ -591,33 +602,22 @@ class CatalogTable(pulumi.CustomResource):
                         type="double",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_date",
                         type="date",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_bigint",
                         type="bigint",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
+                        comment="",
                     ),
                 ],
-                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                location="s3://my-bucket/event-streams/my-stream",
-                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="my-stream",
-                    parameters={
-                        "serialization.format": "1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
-                ),
-            ),
-            table_type="EXTERNAL_TABLE")
+            ))
         ```
 
         ## Import
@@ -664,9 +664,9 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
-            name="MyCatalogTable")
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase")
         ```
         ### Parquet Table for Athena
 
@@ -674,14 +674,25 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
             name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
             parameters={
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+                location="s3://my-bucket/event-streams/my-stream",
+                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                    name="my-stream",
+                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    parameters={
+                        "serialization.format": "1",
+                    },
+                ),
                 columns=[
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
                         name="my_string",
@@ -692,33 +703,22 @@ class CatalogTable(pulumi.CustomResource):
                         type="double",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_date",
                         type="date",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_bigint",
                         type="bigint",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
+                        comment="",
                     ),
                 ],
-                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                location="s3://my-bucket/event-streams/my-stream",
-                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="my-stream",
-                    parameters={
-                        "serialization.format": "1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
-                ),
-            ),
-            table_type="EXTERNAL_TABLE")
+            ))
         ```
 
         ## Import

@@ -24,8 +24,9 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var test = new Aws.Chime.VoiceConnector("test", new()
     ///     {
-    ///         AwsRegion = "us-east-1",
+    ///         Name = "connector-test-1",
     ///         RequireEncryption = true,
+    ///         AwsRegion = "us-east-1",
     ///     });
     /// 
     /// });

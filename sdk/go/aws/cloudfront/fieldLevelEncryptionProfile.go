@@ -21,32 +21,31 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "public_key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
 //				Comment:    pulumi.String("test public key"),
-//				EncodedKey: readFileOrPanic("public_key.pem"),
+//				EncodedKey: invokeFile.Result,
+//				Name:       pulumi.String("test_key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
 //				Comment: pulumi.String("test comment"),
+//				Name:    pulumi.String("test profile"),
 //				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
 //					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
 //						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{

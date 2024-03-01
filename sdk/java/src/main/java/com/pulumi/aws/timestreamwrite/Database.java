@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Database(&#34;example&#34;, DatabaseArgs.builder()        
  *             .databaseName(&#34;database-example&#34;)
- *             .kmsKeyId(aws_kms_key.example().arn())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .tags(Map.of(&#34;Name&#34;, &#34;value&#34;))
  *             .build());
  * 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -62,12 +62,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
+        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = testInstances.Ids[range.Value],
+        ///             Instance = test.Ids[range.Value],
         ///         }));
         ///     }
         /// });
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -129,12 +129,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
+        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = testInstances.Ids[range.Value],
+        ///             Instance = test.Ids[range.Value],
         ///         }));
         ///     }
         /// });

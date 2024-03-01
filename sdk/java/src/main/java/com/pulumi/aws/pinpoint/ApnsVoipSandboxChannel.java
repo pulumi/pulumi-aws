@@ -47,8 +47,12 @@ import javax.annotation.Nullable;
  * 
  *         var apnsVoipSandbox = new ApnsVoipSandboxChannel(&#34;apnsVoipSandbox&#34;, ApnsVoipSandboxChannelArgs.builder()        
  *             .applicationId(app.applicationId())
- *             .certificate(Files.readString(Paths.get(&#34;./certificate.pem&#34;)))
- *             .privateKey(Files.readString(Paths.get(&#34;./private_key.key&#34;)))
+ *             .certificate(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;./certificate.pem&#34;)
+ *                 .build()).result())
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;./private_key.key&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

@@ -829,8 +829,8 @@ class EcsClusterLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opsworks.EcsClusterLayer("example",
-            stack_id=aws_opsworks_stack["example"]["id"],
-            ecs_cluster_arn=aws_ecs_cluster["example"]["arn"])
+            stack_id=example_aws_opsworks_stack["id"],
+            ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -873,8 +873,8 @@ class EcsClusterLayer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opsworks.EcsClusterLayer("example",
-            stack_id=aws_opsworks_stack["example"]["id"],
-            ecs_cluster_arn=aws_ecs_cluster["example"]["arn"])
+            stack_id=example_aws_opsworks_stack["id"],
+            ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
 
         :param str resource_name: The name of the resource.

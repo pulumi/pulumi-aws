@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomain = new aws.customerprofiles.Domain("exampleDomain", {domainName: "example"});
- * const exampleProfile = new aws.customerprofiles.Profile("exampleProfile", {domainName: exampleDomain.domainName});
+ * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
+ * const exampleProfile = new aws.customerprofiles.Profile("example", {domainName: example.domainName});
  * ```
  *
  * ## Import

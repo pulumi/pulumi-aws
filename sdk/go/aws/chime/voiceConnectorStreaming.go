@@ -29,15 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("vc-name-test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
@@ -68,7 +69,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("vc-name-test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -95,19 +97,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("ExampleResourceAccessRole"),
 //				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("ExampleStream"),
 //				ShardCount: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMediaInsightsPipelineConfiguration, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "exampleMediaInsightsPipelineConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//			example, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "example", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("ExampleConfig"),
 //				ResourceAccessRoleArn: exampleRole.Arn,
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
@@ -127,16 +132,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
 //				},
 //				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
 //					Disabled:         pulumi.Bool(false),
-//					ConfigurationArn: exampleMediaInsightsPipelineConfiguration.Arn,
+//					ConfigurationArn: example.Arn,
 //				},
 //			})
 //			if err != nil {

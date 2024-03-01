@@ -41,9 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new IdentityNotificationTopic(&#34;test&#34;, IdentityNotificationTopicArgs.builder()        
- *             .topicArn(aws_sns_topic.example().arn())
+ *             .topicArn(exampleAwsSnsTopic.arn())
  *             .notificationType(&#34;Bounce&#34;)
- *             .identity(aws_ses_domain_identity.example().domain())
+ *             .identity(example.domain())
  *             .includeOriginalHeaders(true)
  *             .build());
  * 

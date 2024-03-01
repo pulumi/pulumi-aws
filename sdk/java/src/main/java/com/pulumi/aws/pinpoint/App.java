@@ -46,12 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;test-app&#34;)
  *             .limits(AppLimitsArgs.builder()
  *                 .maximumDuration(600)
  *                 .build())
  *             .quietTime(AppQuietTimeArgs.builder()
- *                 .end(&#34;06:00&#34;)
  *                 .start(&#34;00:00&#34;)
+ *                 .end(&#34;06:00&#34;)
  *                 .build())
  *             .build());
  * 

@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {userPoolId: pool.id});
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
+ * const client = new aws.cognito.UserPoolClient("client", {
+ *     name: "client",
+ *     userPoolId: pool.id,
+ * });
  * ```
  * ### Create a user pool client with no SRP authentication
  *
@@ -29,8 +32,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
  * const client = new aws.cognito.UserPoolClient("client", {
+ *     name: "client",
  *     userPoolId: pool.id,
  *     generateSecret: true,
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
@@ -42,8 +46,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testUserPool = new aws.cognito.UserPool("testUserPool", {});
- * const testApp = new aws.pinpoint.App("testApp", {});
+ * const testUserPool = new aws.cognito.UserPool("test", {name: "pool"});
+ * const testApp = new aws.pinpoint.App("test", {name: "pinpoint"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -54,8 +58,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testUserPoolClient = new aws.cognito.UserPoolClient("testUserPoolClient", {
+ * const testRole = new aws.iam.Role("test", {
+ *     name: "role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testUserPoolClient = new aws.cognito.UserPoolClient("test", {
+ *     name: "pool_client",
  *     userPoolId: testUserPool.id,
  *     analyticsConfiguration: {
  *         applicationId: testApp.applicationId,
@@ -65,7 +73,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const current = aws.getCallerIdentity({});
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -75,9 +83,10 @@ import * as utilities from "../utilities";
  *         resources: [pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*`)],
  *     }],
  * });
- * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ * const testRolePolicy = new aws.iam.RolePolicy("test", {
+ *     name: "role_policy",
  *     role: testRole.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ *     policy: test.apply(test => test.json),
  * });
  * ```
  * ### Create a user pool client with Cognito as the identity provider
@@ -86,8 +95,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const userpoolClient = new aws.cognito.UserPoolClient("userpoolClient", {
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
+ * const userpoolClient = new aws.cognito.UserPoolClient("userpool_client", {
+ *     name: "client",
  *     userPoolId: pool.id,
  *     callbackUrls: ["https://example.com"],
  *     allowedOauthFlowsUserPoolClient: true,

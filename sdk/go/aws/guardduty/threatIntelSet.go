@@ -43,14 +43,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myThreatIntelSetBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "myThreatIntelSetBucketObjectv2", &s3.BucketObjectv2Args{
+//			myThreatIntelSet, err := s3.NewBucketObjectv2(ctx, "MyThreatIntelSet", &s3.BucketObjectv2Args{
 //				Acl:     pulumi.String("public-read"),
 //				Content: pulumi.String("10.0.0.0/8\n"),
 //				Bucket:  bucket.ID(),
@@ -59,15 +59,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewThreatIntelSet(ctx, "myThreatIntelSetThreatIntelSet", &guardduty.ThreatIntelSetArgs{
+//			_, err = guardduty.NewThreatIntelSet(ctx, "MyThreatIntelSet", &guardduty.ThreatIntelSetArgs{
 //				Activate:   pulumi.Bool(true),
 //				DetectorId: primary.ID(),
 //				Format:     pulumi.String("TXT"),
-//				Location: pulumi.All(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//				Location: pulumi.All(myThreatIntelSet.Bucket, myThreatIntelSet.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
+//				Name: pulumi.String("MyThreatIntelSet"),
 //			})
 //			if err != nil {
 //				return err

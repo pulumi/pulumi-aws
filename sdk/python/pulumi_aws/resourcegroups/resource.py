@@ -131,15 +131,15 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
+        example = aws.ec2.DedicatedHost("example",
             instance_family="t3",
             availability_zone="us-east-1a",
             host_recovery="off",
             auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_group = aws.resourcegroups.Group("example", name="example")
+        example_resource = aws.resourcegroups.Resource("example",
             group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
+            resource_arn=example.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,15 +165,15 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
+        example = aws.ec2.DedicatedHost("example",
             instance_family="t3",
             availability_zone="us-east-1a",
             host_recovery="off",
             auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_group = aws.resourcegroups.Group("example", name="example")
+        example_resource = aws.resourcegroups.Resource("example",
             group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
+            resource_arn=example.arn)
         ```
 
         :param str resource_name: The name of the resource.

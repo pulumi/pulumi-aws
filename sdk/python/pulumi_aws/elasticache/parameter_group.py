@@ -253,6 +253,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.elasticache.ParameterGroup("default",
+            name="cache-params",
             family="redis2.8",
             parameters=[
                 aws.elasticache.ParameterGroupParameterArgs(
@@ -300,6 +301,7 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.elasticache.ParameterGroup("default",
+            name="cache-params",
             family="redis2.8",
             parameters=[
                 aws.elasticache.ParameterGroupParameterArgs(

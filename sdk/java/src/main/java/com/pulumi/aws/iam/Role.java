@@ -51,15 +51,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test_role&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -104,6 +105,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var instance = new Role(&#34;instance&#34;, RoleArgs.builder()        
+ *             .name(&#34;instance_role&#34;)
  *             .path(&#34;/system/&#34;)
  *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
@@ -147,17 +149,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().instance_assume_role_policy().json())
+ *             .name(&#34;yak_role&#34;)
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .inlinePolicies(            
  *                 RoleInlinePolicyArgs.builder()
  *                     .name(&#34;my_inline_policy&#34;)
  *                     .policy(serializeJson(
  *                         jsonObject(
- *                             jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                             jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                                 jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                                 jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                             jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                             jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                                 jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                                 jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                             )))
  *                         )))
  *                     .build(),
@@ -196,8 +199,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().instance_assume_role_policy().json())
  *             .inlinePolicies()
+ *             .name(&#34;yak_role&#34;)
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .build());
  * 
  *     }
@@ -231,35 +235,38 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var policyOne = new Policy(&#34;policyOne&#34;, PolicyArgs.builder()        
+ *             .name(&#34;policy-618033&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                     )))
  *                 )))
  *             .build());
  * 
  *         var policyTwo = new Policy(&#34;policyTwo&#34;, PolicyArgs.builder()        
+ *             .name(&#34;policy-381966&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;s3:ListAllMyBuckets&#34;, 
  *                             &#34;s3:ListBucket&#34;, 
  *                             &#34;s3:HeadBucket&#34;
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                     )))
  *                 )))
  *             .build());
  * 
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().instance_assume_role_policy().json())
+ *             .name(&#34;yak_role&#34;)
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .managedPolicyArns(            
  *                 policyOne.arn(),
  *                 policyTwo.arn())
@@ -293,7 +300,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().instance_assume_role_policy().json())
+ *             .name(&#34;yak_role&#34;)
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .managedPolicyArns()
  *             .build());
  * 

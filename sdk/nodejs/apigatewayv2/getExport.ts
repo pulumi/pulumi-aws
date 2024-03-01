@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.apigatewayv2.getExport({
- *     apiId: aws_apigatewayv2_route.test.api_id,
+ *     apiId: testAwsApigatewayv2Route.apiId,
  *     specification: "OAS30",
  *     outputType: "JSON",
  * });
@@ -92,7 +92,7 @@ export interface GetExportResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.apigatewayv2.getExport({
- *     apiId: aws_apigatewayv2_route.test.api_id,
+ *     apiId: testAwsApigatewayv2Route.apiId,
  *     specification: "OAS30",
  *     outputType: "JSON",
  * });

@@ -30,11 +30,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
 //				ObservabilityConfigurationName: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-observability-configuration"),
-//				},
 //				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
 //					Vendor: pulumi.String("AWSXRAY"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-observability-configuration"),
 //				},
 //			})
 //			if err != nil {

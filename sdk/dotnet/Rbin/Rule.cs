@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Rbin
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
     ///         Description = "example_rule",
+    ///         ResourceType = "EBS_SNAPSHOT",
     ///         ResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
@@ -34,11 +35,10 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         ResourceType = "EBS_SNAPSHOT",
     ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
     ///         {
-    ///             RetentionPeriodUnit = "DAYS",
     ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
     ///         },
     ///         Tags = 
     ///         {

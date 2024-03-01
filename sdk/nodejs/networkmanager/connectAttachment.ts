@@ -11,6 +11,54 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Network Manager ConnectAttachment.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * ```
+ * ### Usage with attachment accepter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleAttachmentAccepter = new aws.networkmanager.AttachmentAccepter("example", {
+ *     attachmentId: example.id,
+ *     attachmentType: example.attachmentType,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * const example2 = new aws.networkmanager.AttachmentAccepter("example2", {
+ *     attachmentId: exampleConnectAttachment.id,
+ *     attachmentType: exampleConnectAttachment.attachmentType,
+ * });
+ * ```
  *
  * ## Import
  *

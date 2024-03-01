@@ -24,10 +24,10 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var example = new Aws.Emr.StudioSessionMapping("example", new()
     ///     {
-    ///         StudioId = aws_emr_studio.Example.Id,
+    ///         StudioId = exampleAwsEmrStudio.Id,
     ///         IdentityType = "USER",
     ///         IdentityId = "example",
-    ///         SessionPolicyArn = aws_iam_policy.Example.Arn,
+    ///         SessionPolicyArn = exampleAwsIamPolicy.Arn,
     ///     });
     /// 
     /// });

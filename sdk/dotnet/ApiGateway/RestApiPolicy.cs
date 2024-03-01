@@ -25,9 +25,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRestApi = new Aws.ApiGateway.RestApi("testRestApi");
+    ///     var testRestApi = new Aws.ApiGateway.RestApi("test", new()
+    ///     {
+    ///         Name = "example-rest-api",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,10 +72,10 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new()
+    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("test", new()
     ///     {
     ///         RestApiId = testRestApi.Id,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

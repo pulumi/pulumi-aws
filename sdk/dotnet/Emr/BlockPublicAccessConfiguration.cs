@@ -49,8 +49,8 @@ namespace Pulumi.Aws.Emr
     ///         {
     ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
     ///             {
-    ///                 MaxRange = 22,
     ///                 MinRange = 22,
+    ///                 MaxRange = 22,
     ///             },
     ///         },
     ///     });
@@ -78,13 +78,13 @@ namespace Pulumi.Aws.Emr
     ///         {
     ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
     ///             {
-    ///                 MaxRange = 22,
     ///                 MinRange = 22,
+    ///                 MaxRange = 22,
     ///             },
     ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
     ///             {
-    ///                 MaxRange = 101,
     ///                 MinRange = 100,
+    ///                 MaxRange = 101,
     ///             },
     ///         },
     ///     });

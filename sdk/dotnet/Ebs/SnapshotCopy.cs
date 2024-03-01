@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ebs
     ///         },
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("example_snapshot", new()
     ///     {
     ///         VolumeId = example.Id,
     ///         Tags = 
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ebs
     ///         },
     ///     });
     /// 
-    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new()
+    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("example_copy", new()
     ///     {
     ///         SourceSnapshotId = exampleSnapshot.Id,
     ///         SourceRegion = "us-west-2",

@@ -22,18 +22,19 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lbUser = new Aws.Iam.User("lb", new()
     ///     {
+    ///         Name = "loadbalancer",
     ///         Path = "/system/",
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lb = new Aws.Iam.AccessKey("lb", new()
     ///     {
     ///         User = lbUser.Name,
     ///         PgpKey = "keybase:some_person_that_exists",
     ///     });
     /// 
-    ///     var lbRoPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var lbRo = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -52,15 +53,16 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lbRoUserPolicy", new()
+    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lb_ro", new()
     ///     {
+    ///         Name = "test",
     ///         User = lbUser.Name,
-    ///         Policy = lbRoPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = lbRo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["secret"] = lbAccessKey.EncryptedSecret,
+    ///         ["secret"] = lb.EncryptedSecret,
     ///     };
     /// });
     /// ```
@@ -73,14 +75,15 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testUser = new Aws.Iam.User("testUser", new()
+    ///     var test = new Aws.Iam.User("test", new()
     ///     {
+    ///         Name = "test",
     ///         Path = "/test/",
     ///     });
     /// 
-    ///     var testAccessKey = new Aws.Iam.AccessKey("testAccessKey", new()
+    ///     var testAccessKey = new Aws.Iam.AccessKey("test", new()
     ///     {
-    ///         User = testUser.Name,
+    ///         User = test.Name,
     ///     });
     /// 
     ///     return new Dictionary&lt;string, object?&gt;

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEbsVolumes = Aws.Ebs.GetEbsVolumes.Invoke(new()
+        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
         ///     {
         ///         Tags = 
         ///         {
@@ -38,27 +38,17 @@ namespace Pulumi.Aws.Ebs
         ///         },
         ///     });
         /// 
-        ///     var exampleVolume = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Ebs.GetVolume.Invoke(new()
-        ///         {
-        ///             Filters = new[]
-        ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
-        ///                 {
-        ///                     Name = "volume-id",
-        ///                     Values = new[]
-        ///                     {
-        ///                         each.Value,
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetVolume = ;
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
+        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.Id;
+        ///         }, item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.AvailabilityZone;
+        ///         })),
         ///     };
         /// });
         /// ```
@@ -87,7 +77,7 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEbsVolumes = Aws.Ebs.GetEbsVolumes.Invoke(new()
+        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
         ///     {
         ///         Tags = 
         ///         {
@@ -95,27 +85,17 @@ namespace Pulumi.Aws.Ebs
         ///         },
         ///     });
         /// 
-        ///     var exampleVolume = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Ebs.GetVolume.Invoke(new()
-        ///         {
-        ///             Filters = new[]
-        ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
-        ///                 {
-        ///                     Name = "volume-id",
-        ///                     Values = new[]
-        ///                     {
-        ///                         each.Value,
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }).ToList();
+        ///     var exampleGetVolume = ;
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
+        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.Id;
+        ///         }, item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.AvailabilityZone;
+        ///         })),
         ///     };
         /// });
         /// ```

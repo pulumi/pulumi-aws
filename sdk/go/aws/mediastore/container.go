@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediastore.NewContainer(ctx, "example", nil)
+//			_, err := mediastore.NewContainer(ctx, "example", &mediastore.ContainerArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}

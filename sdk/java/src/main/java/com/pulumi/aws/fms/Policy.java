@@ -53,9 +53,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
  *             .metricName(&#34;WAFRuleGroupExample&#34;)
+ *             .name(&#34;WAF-Rule-Group-Example&#34;)
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .name(&#34;FMS-Policy-Example&#34;)
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)
  *             .resourceType(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)

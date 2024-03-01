@@ -29,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testDestination, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
-//				RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
-//				TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+//			testDestination, err := cloudwatch.NewLogDestination(ctx, "test_destination", &cloudwatch.LogDestinationArgs{
+//				Name:      pulumi.String("test_destination"),
+//				RoleArn:   pulumi.Any(iamForCloudwatch.Arn),
+//				TargetArn: pulumi.Any(kinesisForCloudwatch.Arn),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testDestinationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			testDestinationPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -57,10 +58,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = cloudwatch.NewLogDestinationPolicy(ctx, "testDestinationPolicyLogDestinationPolicy", &cloudwatch.LogDestinationPolicyArgs{
+//			_, err = cloudwatch.NewLogDestinationPolicy(ctx, "test_destination_policy", &cloudwatch.LogDestinationPolicyArgs{
 //				DestinationName: testDestination.Name,
-//				AccessPolicy: testDestinationPolicyPolicyDocument.ApplyT(func(testDestinationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &testDestinationPolicyPolicyDocument.Json, nil
+//				AccessPolicy: testDestinationPolicy.ApplyT(func(testDestinationPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &testDestinationPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

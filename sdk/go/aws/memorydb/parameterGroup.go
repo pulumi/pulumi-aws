@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
+//				Name:   pulumi.String("my-parameter-group"),
 //				Family: pulumi.String("memorydb_redis6"),
 //				Parameters: memorydb.ParameterGroupParameterArray{
 //					&memorydb.ParameterGroupParameterArgs{

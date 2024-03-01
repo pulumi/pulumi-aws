@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
     ///     {
+    ///         Name = "taskLongArnFormat",
     ///         Value = "enabled",
     ///     });
     /// 

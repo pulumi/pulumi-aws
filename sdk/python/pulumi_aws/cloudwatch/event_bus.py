@@ -181,15 +181,17 @@ class EventBus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
+            name=examplepartner.name,
+            event_source_name=examplepartner.name)
         ```
 
         ## Import
@@ -223,15 +225,17 @@ class EventBus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
+            name=examplepartner.name,
+            event_source_name=examplepartner.name)
         ```
 
         ## Import

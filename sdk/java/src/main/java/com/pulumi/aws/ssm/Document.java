@@ -48,6 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
+ *             .name(&#34;test_document&#34;)
+ *             .documentType(&#34;Command&#34;)
  *             .content(&#34;&#34;&#34;
  *   {
  *     &#34;schemaVersion&#34;: &#34;1.2&#34;,
@@ -66,9 +68,7 @@ import javax.annotation.Nullable;
  *       }
  *     }
  *   }
- * 
  *             &#34;&#34;&#34;)
- *             .documentType(&#34;Command&#34;)
  *             .build());
  * 
  *     }
@@ -97,6 +97,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
+ *             .name(&#34;test_document&#34;)
+ *             .documentFormat(&#34;YAML&#34;)
+ *             .documentType(&#34;Command&#34;)
  *             .content(&#34;&#34;&#34;
  * schemaVersion: &#39;1.2&#39;
  * description: Check ip configuration of a Linux instance.
@@ -107,10 +110,7 @@ import javax.annotation.Nullable;
  *       - id: &#39;0.aws:runShellScript&#39;
  *         runCommand:
  *           - ifconfig
- * 
  *             &#34;&#34;&#34;)
- *             .documentFormat(&#34;YAML&#34;)
- *             .documentType(&#34;Command&#34;)
  *             .build());
  * 
  *     }

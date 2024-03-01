@@ -25,8 +25,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
     ///     {
-    ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
-    ///         PrincipalId = aws_identitystore_user.Example.User_id,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         PrincipalId = exampleAwsIdentitystoreUser.UserId,
     ///         PrincipalType = "USER",
     ///     });
     /// 
@@ -44,8 +44,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
     ///     {
-    ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
-    ///         PrincipalId = aws_identitystore_group.Example.Group_id,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         PrincipalId = exampleAwsIdentitystoreGroup.GroupId,
     ///         PrincipalType = "GROUP",
     ///     });
     /// 

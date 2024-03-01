@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Multiplex(&#34;example&#34;, MultiplexArgs.builder()        
+ *             .name(&#34;example-multiplex-changed&#34;)
  *             .availabilityZones(            
  *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]),
  *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))

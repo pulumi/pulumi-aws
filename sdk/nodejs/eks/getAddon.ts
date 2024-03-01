@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  *
  * const example = aws.eks.getAddon({
  *     addonName: "vpc-cni",
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  * });
- * export const eksAddonOutputs = aws_eks_addon.example;
+ * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
@@ -94,9 +94,9 @@ export interface GetAddonResult {
  *
  * const example = aws.eks.getAddon({
  *     addonName: "vpc-cni",
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  * });
- * export const eksAddonOutputs = aws_eks_addon.example;
+ * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {

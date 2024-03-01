@@ -370,6 +370,48 @@ class ConnectAttachment(pulumi.CustomResource):
         Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        ```
+        ### Usage with attachment accepter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        ```
 
         ## Import
 
@@ -399,6 +441,48 @@ class ConnectAttachment(pulumi.CustomResource):
         Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        ```
+        ### Usage with attachment accepter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        ```
 
         ## Import
 

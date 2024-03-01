@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     ///         {
     ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
     ///             {
-    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
+    ///                 ResourceArn = exampleAwsCloudwatchMetricAlarm.Arn,
     ///             },
     ///         },
     ///     });

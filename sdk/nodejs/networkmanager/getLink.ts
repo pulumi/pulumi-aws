@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getLink({
- *     globalNetworkId: _var.global_network_id,
- *     linkId: _var.link_id,
+ *     globalNetworkId: globalNetworkId,
+ *     linkId: linkId,
  * });
  * ```
  */
@@ -99,8 +99,8 @@ export interface GetLinkResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getLink({
- *     globalNetworkId: _var.global_network_id,
- *     linkId: _var.link_id,
+ *     globalNetworkId: globalNetworkId,
+ *     linkId: linkId,
  * });
  * ```
  */

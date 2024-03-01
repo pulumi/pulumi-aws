@@ -30,37 +30,40 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewWorkflow(ctx, "example", &imagebuilder.WorkflowArgs{
-//				Data: pulumi.String(`  name: example
-//	  description: Workflow to test an image
-//	  schemaVersion: 1.0
+//				Name:    pulumi.String("example"),
+//				Version: pulumi.String("1.0.0"),
+//				Type:    pulumi.String("TEST"),
+//				Data: pulumi.String(`name: example
 //
-//	  parameters:
-//	    - name: waitForActionAtEnd
-//	      type: boolean
+// description: Workflow to test an image
+// schemaVersion: 1.0
 //
-//	  steps:
-//	    - name: LaunchTestInstance
-//	      action: LaunchInstance
-//	      onFailure: Abort
-//	      inputs:
-//	        waitFor: "ssmAgent"
+// parameters:
+//   - name: waitForActionAtEnd
+//     type: boolean
 //
-//	    - name: TerminateTestInstance
-//	      action: TerminateInstance
-//	      onFailure: Continue
-//	      inputs:
-//	        instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+// steps:
 //
-//	    - name: WaitForActionAtEnd
-//	      action: WaitForAction
-//	      if:
-//	        booleanEquals: true
-//	        value: "$.parameters.waitForActionAtEnd"
+//   - name: LaunchTestInstance
+//     action: LaunchInstance
+//     onFailure: Abort
+//     inputs:
+//     waitFor: "ssmAgent"
+//
+//   - name: TerminateTestInstance
+//     action: TerminateInstance
+//     onFailure: Continue
+//     inputs:
+//     instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+//
+//   - name: WaitForActionAtEnd
+//     action: WaitForAction
+//     if:
+//     booleanEquals: true
+//     value: "$.parameters.waitForActionAtEnd"
 //
 // `),
 //
-//				Type:    pulumi.String("TEST"),
-//				Version: pulumi.String("1.0.0"),
 //			})
 //			if err != nil {
 //				return err

@@ -28,12 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testModels, err := bedrockfoundation.GetModels(ctx, nil, nil)
+//			test, err := bedrockfoundation.GetModels(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
-//				ModelId: testModels.ModelSummaries[0].ModelId,
+//				ModelId: test.ModelSummaries[0].ModelId,
 //			}, nil)
 //			if err != nil {
 //				return err

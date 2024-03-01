@@ -171,7 +171,7 @@ def get_container_definition(container_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=aws_ecs_task_definition["mongo"]["id"],
+    ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
         container_name="mongodb")
     ```
 
@@ -213,7 +213,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     import pulumi
     import pulumi_aws as aws
 
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=aws_ecs_task_definition["mongo"]["id"],
+    ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
         container_name="mongodb")
     ```
 

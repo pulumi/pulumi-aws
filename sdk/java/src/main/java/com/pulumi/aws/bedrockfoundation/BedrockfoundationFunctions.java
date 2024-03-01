@@ -44,10 +44,10 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
@@ -85,10 +85,10 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
@@ -126,10 +126,10 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
@@ -167,10 +167,10 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }

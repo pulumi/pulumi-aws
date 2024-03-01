@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .userId(&#34;testUserId&#34;)
  *             .userName(&#34;default&#34;)
  *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var testUserGroup = new UserGroup(&#34;testUserGroup&#34;, UserGroupArgs.builder()        
  *             .engine(&#34;REDIS&#34;)
  *             .userGroupId(&#34;userGroupId&#34;)
- *             .userIds(testUser.userId())
+ *             .userIds(test.userId())
  *             .build());
  * 
  *     }

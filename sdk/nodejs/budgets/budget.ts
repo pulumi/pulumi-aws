@@ -17,23 +17,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ec2 = new aws.budgets.Budget("ec2", {
+ *     name: "budget-ec2-monthly",
  *     budgetType: "COST",
+ *     limitAmount: "1200",
+ *     limitUnit: "USD",
+ *     timePeriodEnd: "2087-06-15_00:00",
+ *     timePeriodStart: "2017-07-01_00:00",
+ *     timeUnit: "MONTHLY",
  *     costFilters: [{
  *         name: "Service",
  *         values: ["Amazon Elastic Compute Cloud - Compute"],
  *     }],
- *     limitAmount: "1200",
- *     limitUnit: "USD",
  *     notifications: [{
  *         comparisonOperator: "GREATER_THAN",
- *         notificationType: "FORECASTED",
- *         subscriberEmailAddresses: ["test@example.com"],
  *         threshold: 100,
  *         thresholdType: "PERCENTAGE",
+ *         notificationType: "FORECASTED",
+ *         subscriberEmailAddresses: ["test@example.com"],
  *     }],
- *     timePeriodEnd: "2087-06-15_00:00",
- *     timePeriodStart: "2017-07-01_00:00",
- *     timeUnit: "MONTHLY",
  * });
  * ```
  *
@@ -58,13 +59,13 @@ import * as utilities from "../utilities";
  *
  * const cost = new aws.budgets.Budget("cost", {plannedLimits: [
  *     {
- *         amount: "100",
  *         startTime: "2017-07-01_00:00",
+ *         amount: "100",
  *         unit: "USD",
  *     },
  *     {
- *         amount: "200",
  *         startTime: "2017-08-01_00:00",
+ *         amount: "200",
  *         unit: "USD",
  *     },
  * ]});
@@ -89,8 +90,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const savingsPlanUtilization = new aws.budgets.Budget("savingsPlanUtilization", {
+ * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
  *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
  *     costTypes: {
  *         includeCredit: false,
  *         includeDiscount: false,
@@ -103,8 +106,6 @@ import * as utilities from "../utilities";
  *         includeUpfront: false,
  *         useBlended: false,
  *     },
- *     limitAmount: "100.0",
- *     limitUnit: "PERCENTAGE",
  * });
  * ```
  *
@@ -114,12 +115,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const riUtilization = new aws.budgets.Budget("riUtilization", {
+ * const riUtilization = new aws.budgets.Budget("ri_utilization", {
  *     budgetType: "RI_UTILIZATION",
- *     costFilters: [{
- *         name: "Service",
- *         values: ["Amazon Relational Database Service"],
- *     }],
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
  *     costTypes: {
  *         includeCredit: false,
  *         includeDiscount: false,
@@ -132,8 +131,10 @@ import * as utilities from "../utilities";
  *         includeUpfront: false,
  *         useBlended: false,
  *     },
- *     limitAmount: "100.0",
- *     limitUnit: "PERCENTAGE",
+ *     costFilters: [{
+ *         name: "Service",
+ *         values: ["Amazon Relational Database Service"],
+ *     }],
  * });
  * ```
  *
@@ -157,7 +158,7 @@ import * as utilities from "../utilities";
  *
  * const cost = new aws.budgets.Budget("cost", {costFilters: [{
  *     name: "TagKeyValue",
- *     values: ["TagKey${var.TagValue}"],
+ *     values: [`TagKey${"$"}${tagValue}`],
  * }]});
  * ```
  *

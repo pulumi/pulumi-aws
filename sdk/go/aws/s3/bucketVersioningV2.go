@@ -37,19 +37,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning_example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -76,19 +78,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning_example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Disabled"),
 //				},
@@ -121,12 +125,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("yotto"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -134,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleBucketVersioningV2.ID(),
 //				Key:    pulumi.String("droeloe"),
 //				Source: pulumi.NewFileAsset("example.txt"),

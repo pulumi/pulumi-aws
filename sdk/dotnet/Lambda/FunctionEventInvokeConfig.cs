@@ -27,16 +27,16 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_alias.Example.Function_name,
+    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
     ///             {
-    ///                 Destination = aws_sqs_queue.Example.Arn,
+    ///                 Destination = exampleAwsSqsQueue.Arn,
     ///             },
     ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
     ///             {
-    ///                 Destination = aws_sns_topic.Example.Arn,
+    ///                 Destination = exampleAwsSnsTopic.Arn,
     ///             },
     ///         },
     ///     });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_alias.Example.Function_name,
+    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
     ///         MaximumEventAgeInSeconds = 60,
     ///         MaximumRetryAttempts = 0,
     ///     });
@@ -74,11 +74,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_alias.Example.Function_name,
-    ///         Qualifier = aws_lambda_alias.Example.Name,
+    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
+    ///         Qualifier = exampleAwsLambdaAlias.Name,
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// ### Configuration for Function Latest Unpublished Version
@@ -93,11 +92,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         Qualifier = "$LATEST",
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// ### Configuration for Function Published Version
@@ -112,11 +110,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Function_name,
-    ///         Qualifier = aws_lambda_function.Example.Version,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = exampleAwsLambdaFunction.Version,
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
     /// 

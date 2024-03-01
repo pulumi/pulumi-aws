@@ -508,6 +508,7 @@ class Parameter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ssm.Parameter("foo",
+            name="foo",
             type="String",
             value="bar")
         ```
@@ -525,13 +526,14 @@ class Parameter(pulumi.CustomResource):
             instance_class="db.t2.micro",
             db_name="mydb",
             username="foo",
-            password=var["database_master_password"],
+            password=database_master_password,
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.7")
         secret = aws.ssm.Parameter("secret",
+            name="/production/database/password/master",
             description="The parameter description",
             type="SecureString",
-            value=var["database_master_password"],
+            value=database_master_password,
             tags={
                 "environment": "production",
             })
@@ -583,6 +585,7 @@ class Parameter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ssm.Parameter("foo",
+            name="foo",
             type="String",
             value="bar")
         ```
@@ -600,13 +603,14 @@ class Parameter(pulumi.CustomResource):
             instance_class="db.t2.micro",
             db_name="mydb",
             username="foo",
-            password=var["database_master_password"],
+            password=database_master_password,
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.7")
         secret = aws.ssm.Parameter("secret",
+            name="/production/database/password/master",
             description="The parameter description",
             type="SecureString",
-            value=var["database_master_password"],
+            value=database_master_password,
             tags={
                 "environment": "production",
             })

@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewFolderMembership(ctx, "example", &quicksight.FolderMembershipArgs{
-//				FolderId:   pulumi.Any(aws_quicksight_folder.Example.Folder_id),
+//				FolderId:   pulumi.Any(exampleAwsQuicksightFolder.FolderId),
 //				MemberType: pulumi.String("DATASET"),
-//				MemberId:   pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
+//				MemberId:   pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
 //			})
 //			if err != nil {
 //				return err
