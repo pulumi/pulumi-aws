@@ -38,6 +38,11 @@ on:
         required: false
         type: string
         default: ""
+      pr-title-prefix:
+        description: Prefix to add to the auto-opened pull request title
+        required: false
+        type: string
+        default: ""
       automerge:
         description: Mark created PR for auto-merging?
         required: false
@@ -53,7 +58,7 @@ jobs:
     steps:
     - name: Call upgrade provider action
       if: github.event_name == 'workflow_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.11
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
       with:
         kind: ${{ inputs.kind }}
         email: bot@pulumi.com
@@ -63,9 +68,10 @@ jobs:
         target-pulumi-version: ${{ inputs.target-pulumi-version }}
         pr-reviewers: ${{ inputs.pr-reviewers }}
         pr-description: ${{ inputs.pr-description }}
+        pr-title-prefix: ${{ inputs.pr-title-prefix }}
     - name: Call upgrade provider action
       if: github.event_name == 'repository_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.11
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
       with:
         kind: ${{ github.event.client_payload.kind || 'bridge' }}
         email: bot@pulumi.com
@@ -75,6 +81,7 @@ jobs:
         target-bridge-version: ${{ github.event.client_payload.target-bridge-version }}
         pr-reviewers: ${{ github.event.client_payload.pr-reviewers }}
         pr-description: ${{ github.event.client_payload.pr-description }}
+        pr-title-prefix: ${{ github.event.client_payload.pr-title-prefix }}
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#7CFC00"
