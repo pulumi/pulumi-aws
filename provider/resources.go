@@ -786,7 +786,7 @@ func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
 	return upstreamProvider
 }
 
-func depricateRuntime(value, name string) schema.EnumValueSpec {
+func deprecateRuntime(value, name string) schema.EnumValueSpec {
 	s := schema.EnumValueSpec{Value: value, Name: name}
 	s.DeprecationMessage = "This runtime is now deprecated"
 	return s
@@ -4886,20 +4886,20 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Value: "python3.9", Name: "Python3d9"},
 					{Value: "ruby3.2", Name: "Ruby3d2"},
 
-					depricateRuntime("dotnet5.0", "Dotnet5d0"),
-					depricateRuntime("dotnetcore2.1", "DotnetCore2d1"),
-					depricateRuntime("dotnetcore3.1", "DotnetCore3d1"),
-					depricateRuntime("go1.x", "Go1dx"),
-					depricateRuntime("java8", "Java8"),
-					depricateRuntime("nodejs10.x", "NodeJS10dX"),
-					depricateRuntime("nodejs12.x", "NodeJS12dX"),
-					depricateRuntime("nodejs14.x", "NodeJS14dX"),
-					depricateRuntime("provided", "Custom"),
-					depricateRuntime("python2.7", "Python2d7"),
-					depricateRuntime("python3.6", "Python3d6"),
-					depricateRuntime("python3.7", "Python3d7"),
-					depricateRuntime("ruby2.5", "Ruby2d5"),
-					depricateRuntime("ruby2.7", "Ruby2d7"),
+					deprecateRuntime("dotnet5.0", "Dotnet5d0"),
+					deprecateRuntime("dotnetcore2.1", "DotnetCore2d1"),
+					deprecateRuntime("dotnetcore3.1", "DotnetCore3d1"),
+					deprecateRuntime("go1.x", "Go1dx"),
+					deprecateRuntime("java8", "Java8"),
+					deprecateRuntime("nodejs10.x", "NodeJS10dX"),
+					deprecateRuntime("nodejs12.x", "NodeJS12dX"),
+					deprecateRuntime("nodejs14.x", "NodeJS14dX"),
+					deprecateRuntime("provided", "Custom"),
+					deprecateRuntime("python2.7", "Python2d7"),
+					deprecateRuntime("python3.6", "Python3d6"),
+					deprecateRuntime("python3.7", "Python3d7"),
+					deprecateRuntime("ruby2.5", "Ruby2d5"),
+					deprecateRuntime("ruby2.7", "Ruby2d7"),
 				},
 			},
 			"aws:rds/EngineMode:EngineMode": {
