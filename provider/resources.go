@@ -786,6 +786,12 @@ func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
 	return upstreamProvider
 }
 
+func depricateRuntime(value, name string) schema.EnumValueSpec {
+	s := schema.EnumValueSpec{Value: value, Name: name}
+	s.DeprecationMessage = "This runtime is now deprecated"
+	return s
+}
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
@@ -4861,37 +4867,39 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					Description: "See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
 				},
 				Enum: []schema.EnumValueSpec{
-					{Value: "dotnetcore2.1", Name: "DotnetCore2d1", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "dotnetcore3.1", Name: "DotnetCore3d1", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "dotnet5.0", Name: "Dotnet5d0", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "dotnet6", Name: "Dotnet6"},
 					{Value: "dotnet7", Name: "Dotnet7"},
-					{Value: "go1.x", Name: "Go1dx", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "java8", Name: "Java8", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "java8.al2", Name: "Java8AL2"},
+					{Value: "dotnet8", Name: "Dotnet8"},
 					{Value: "java11", Name: "Java11"},
 					{Value: "java17", Name: "Java17"},
 					{Value: "java21", Name: "Java21"},
-					{Value: "ruby2.5", Name: "Ruby2d5", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "ruby2.7", Name: "Ruby2d7", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "ruby3.2", Name: "Ruby3d2"},
-					{Value: "nodejs10.x", Name: "NodeJS10dX", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "nodejs12.x", Name: "NodeJS12dX", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "nodejs14.x", Name: "NodeJS14dX", DeprecationMessage: "This runtime is now deprecated"},
+					{Value: "java8.al2", Name: "Java8AL2"},
 					{Value: "nodejs16.x", Name: "NodeJS16dX"},
 					{Value: "nodejs18.x", Name: "NodeJS18dX"},
 					{Value: "nodejs20.x", Name: "NodeJS20dX"},
-					{Value: "python2.7", Name: "Python2d7", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.6", Name: "Python3d6", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.7", Name: "Python3d7", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.8", Name: "Python3d8"},
-					{Value: "python3.9", Name: "Python3d9"},
+					{Value: "provided.al2", Name: "CustomAL2"},
+					{Value: "provided.al2023", Name: "CustomAL2023"},
 					{Value: "python3.10", Name: "Python3d10"},
 					{Value: "python3.11", Name: "Python3d11"},
 					{Value: "python3.12", Name: "Python3d12"},
-					{Value: "provided", Name: "Custom", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "provided.al2", Name: "CustomAL2"},
-					{Value: "provided.al2023", Name: "CustomAL2023"},
+					{Value: "python3.8", Name: "Python3d8"},
+					{Value: "python3.9", Name: "Python3d9"},
+					{Value: "ruby3.2", Name: "Ruby3d2"},
+
+					depricateRuntime("dotnet5.0", "Dotnet5d0"),
+					depricateRuntime("dotnetcore2.1", "DotnetCore2d1"),
+					depricateRuntime("dotnetcore3.1", "DotnetCore3d1"),
+					depricateRuntime("go1.x", "Go1dx"),
+					depricateRuntime("java8", "Java8"),
+					depricateRuntime("nodejs10.x", "NodeJS10dX"),
+					depricateRuntime("nodejs12.x", "NodeJS12dX"),
+					depricateRuntime("nodejs14.x", "NodeJS14dX"),
+					depricateRuntime("provided", "Custom"),
+					depricateRuntime("python2.7", "Python2d7"),
+					depricateRuntime("python3.6", "Python3d6"),
+					depricateRuntime("python3.7", "Python3d7"),
+					depricateRuntime("ruby2.5", "Ruby2d5"),
+					depricateRuntime("ruby2.7", "Ruby2d7"),
 				},
 			},
 			"aws:rds/EngineMode:EngineMode": {
