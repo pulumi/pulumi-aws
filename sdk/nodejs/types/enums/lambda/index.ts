@@ -3,6 +3,28 @@
 
 
 export const Runtime = {
+    Dotnet6: "dotnet6",
+    Dotnet7: "dotnet7",
+    Dotnet8: "dotnet8",
+    Java11: "java11",
+    Java17: "java17",
+    Java21: "java21",
+    Java8AL2: "java8.al2",
+    NodeJS16dX: "nodejs16.x",
+    NodeJS18dX: "nodejs18.x",
+    NodeJS20dX: "nodejs20.x",
+    CustomAL2: "provided.al2",
+    CustomAL2023: "provided.al2023",
+    Python3d10: "python3.10",
+    Python3d11: "python3.11",
+    Python3d12: "python3.12",
+    Python3d8: "python3.8",
+    Python3d9: "python3.9",
+    Ruby3d2: "ruby3.2",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
+    Dotnet5d0: "dotnet5.0",
     /**
      * @deprecated This runtime is now deprecated
      */
@@ -14,30 +36,11 @@ export const Runtime = {
     /**
      * @deprecated This runtime is now deprecated
      */
-    Dotnet5d0: "dotnet5.0",
-    Dotnet6: "dotnet6",
-    Dotnet7: "dotnet7",
-    /**
-     * @deprecated This runtime is now deprecated
-     */
     Go1dx: "go1.x",
     /**
      * @deprecated This runtime is now deprecated
      */
     Java8: "java8",
-    Java8AL2: "java8.al2",
-    Java11: "java11",
-    Java17: "java17",
-    Java21: "java21",
-    /**
-     * @deprecated This runtime is now deprecated
-     */
-    Ruby2d5: "ruby2.5",
-    /**
-     * @deprecated This runtime is now deprecated
-     */
-    Ruby2d7: "ruby2.7",
-    Ruby3d2: "ruby3.2",
     /**
      * @deprecated This runtime is now deprecated
      */
@@ -50,9 +53,10 @@ export const Runtime = {
      * @deprecated This runtime is now deprecated
      */
     NodeJS14dX: "nodejs14.x",
-    NodeJS16dX: "nodejs16.x",
-    NodeJS18dX: "nodejs18.x",
-    NodeJS20dX: "nodejs20.x",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
+    Custom: "provided",
     /**
      * @deprecated This runtime is now deprecated
      */
@@ -65,17 +69,14 @@ export const Runtime = {
      * @deprecated This runtime is now deprecated
      */
     Python3d7: "python3.7",
-    Python3d8: "python3.8",
-    Python3d9: "python3.9",
-    Python3d10: "python3.10",
-    Python3d11: "python3.11",
-    Python3d12: "python3.12",
     /**
      * @deprecated This runtime is now deprecated
      */
-    Custom: "provided",
-    CustomAL2: "provided.al2",
-    CustomAL2023: "provided.al2023",
+    Ruby2d5: "ruby2.5",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
+    Ruby2d7: "ruby2.7",
 } as const;
 
 /**
