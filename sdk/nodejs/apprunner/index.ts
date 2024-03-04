@@ -25,6 +25,11 @@ export type DefaultAutoScalingConfigurationVersion = import("./defaultAutoScalin
 export const DefaultAutoScalingConfigurationVersion: typeof import("./defaultAutoScalingConfigurationVersion").DefaultAutoScalingConfigurationVersion = null as any;
 utilities.lazyLoad(exports, ["DefaultAutoScalingConfigurationVersion"], () => require("./defaultAutoScalingConfigurationVersion"));
 
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
 export { ObservabilityConfigurationArgs, ObservabilityConfigurationState } from "./observabilityConfiguration";
 export type ObservabilityConfiguration = import("./observabilityConfiguration").ObservabilityConfiguration;
 export const ObservabilityConfiguration: typeof import("./observabilityConfiguration").ObservabilityConfiguration = null as any;
@@ -58,6 +63,8 @@ const _module = {
                 return new CustomDomainAssociation(name, <any>undefined, { urn })
             case "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion":
                 return new DefaultAutoScalingConfigurationVersion(name, <any>undefined, { urn })
+            case "aws:apprunner/deployment:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration":
                 return new ObservabilityConfiguration(name, <any>undefined, { urn })
             case "aws:apprunner/service:Service":
@@ -75,6 +82,7 @@ pulumi.runtime.registerResourceModule("aws", "apprunner/autoScalingConfiguration
 pulumi.runtime.registerResourceModule("aws", "apprunner/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/customDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/defaultAutoScalingConfigurationVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/deployment", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/observabilityConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/service", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/vpcConnector", _module)

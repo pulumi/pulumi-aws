@@ -27,7 +27,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -52,7 +52,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private String hecToken;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
@@ -67,7 +67,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
@@ -88,7 +88,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -123,7 +123,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return this.hecToken;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> processingConfiguration() {
@@ -144,7 +144,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {

@@ -22,10 +22,10 @@ public final class DrtAccessRoleArnAssociationTimeouts {
      */
     private @Nullable String delete;
     /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private @Nullable String read;
+    private @Nullable String update;
 
     private DrtAccessRoleArnAssociationTimeouts() {}
     /**
@@ -43,11 +43,11 @@ public final class DrtAccessRoleArnAssociationTimeouts {
         return Optional.ofNullable(this.delete);
     }
     /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    public Optional<String> read() {
-        return Optional.ofNullable(this.read);
+    public Optional<String> update() {
+        return Optional.ofNullable(this.update);
     }
 
     public static Builder builder() {
@@ -61,13 +61,13 @@ public final class DrtAccessRoleArnAssociationTimeouts {
     public static final class Builder {
         private @Nullable String create;
         private @Nullable String delete;
-        private @Nullable String read;
+        private @Nullable String update;
         public Builder() {}
         public Builder(DrtAccessRoleArnAssociationTimeouts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.create = defaults.create;
     	      this.delete = defaults.delete;
-    	      this.read = defaults.read;
+    	      this.update = defaults.update;
         }
 
         @CustomType.Setter
@@ -83,16 +83,16 @@ public final class DrtAccessRoleArnAssociationTimeouts {
             return this;
         }
         @CustomType.Setter
-        public Builder read(@Nullable String read) {
+        public Builder update(@Nullable String update) {
 
-            this.read = read;
+            this.update = update;
             return this;
         }
         public DrtAccessRoleArnAssociationTimeouts build() {
             final var _resultValue = new DrtAccessRoleArnAssociationTimeouts();
             _resultValue.create = create;
             _resultValue.delete = delete;
-            _resultValue.read = read;
+            _resultValue.update = update;
             return _resultValue;
         }
     }

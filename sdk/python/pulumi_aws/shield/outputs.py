@@ -13,6 +13,7 @@ __all__ = [
     'ApplicationLayerAutomaticResponseTimeouts',
     'DrtAccessLogBucketAssociationTimeouts',
     'DrtAccessRoleArnAssociationTimeouts',
+    'ProactiveEngagementEmergencyContact',
 ]
 
 @pulumi.output_type
@@ -62,19 +63,15 @@ class ApplicationLayerAutomaticResponseTimeouts(dict):
 class DrtAccessLogBucketAssociationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
-                 delete: Optional[str] = None,
-                 read: Optional[str] = None):
+                 delete: Optional[str] = None):
         """
         :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        :param str read: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if read is not None:
-            pulumi.set(__self__, "read", read)
 
     @property
     @pulumi.getter
@@ -91,14 +88,6 @@ class DrtAccessLogBucketAssociationTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
-
-    @property
-    @pulumi.getter
-    def read(self) -> Optional[str]:
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-        """
-        return pulumi.get(self, "read")
 
 
 @pulumi.output_type
@@ -106,18 +95,18 @@ class DrtAccessRoleArnAssociationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
-                 read: Optional[str] = None):
+                 update: Optional[str] = None):
         """
         :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        :param str read: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if read is not None:
-            pulumi.set(__self__, "read", read)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -137,10 +126,73 @@ class DrtAccessRoleArnAssociationTimeouts(dict):
 
     @property
     @pulumi.getter
-    def read(self) -> Optional[str]:
+    def update(self) -> Optional[str]:
         """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
-        return pulumi.get(self, "read")
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class ProactiveEngagementEmergencyContact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "contactNotes":
+            suggest = "contact_notes"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProactiveEngagementEmergencyContact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProactiveEngagementEmergencyContact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProactiveEngagementEmergencyContact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address: str,
+                 contact_notes: Optional[str] = None,
+                 phone_number: Optional[str] = None):
+        """
+        :param str email_address: A valid email address that will be used for this contact.
+        :param str contact_notes: Additional notes regarding the contact.
+        :param str phone_number: A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        if contact_notes is not None:
+            pulumi.set(__self__, "contact_notes", contact_notes)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> str:
+        """
+        A valid email address that will be used for this contact.
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="contactNotes")
+    def contact_notes(self) -> Optional[str]:
+        """
+        Additional notes regarding the contact.
+        """
+        return pulumi.get(self, "contact_notes")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[str]:
+        """
+        A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        """
+        return pulumi.get(self, "phone_number")
 
 

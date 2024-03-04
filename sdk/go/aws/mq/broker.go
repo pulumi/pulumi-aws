@@ -106,6 +106,79 @@ import (
 //	}
 //
 // ```
+// ### Cross-Region Data Replication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mq.NewBroker(ctx, "example_primary", &mq.BrokerArgs{
+//				ApplyImmediately: pulumi.Bool(true),
+//				BrokerName:       pulumi.String("example_primary"),
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.17.6"),
+//				HostInstanceType: pulumi.String("mq.m5.large"),
+//				SecurityGroups: pulumi.StringArray{
+//					examplePrimaryAwsSecurityGroup.Id,
+//				},
+//				DeploymentMode: pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
+//				Users: mq.BrokerUserArray{
+//					&mq.BrokerUserArgs{
+//						Username: pulumi.String("ExampleUser"),
+//						Password: pulumi.String("MindTheGap"),
+//					},
+//					&mq.BrokerUserArgs{
+//						Username:        pulumi.String("ExampleReplicationUser"),
+//						Password:        pulumi.String("Example12345"),
+//						ReplicationUser: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				ApplyImmediately: pulumi.Bool(true),
+//				BrokerName:       pulumi.String("example"),
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.17.6"),
+//				HostInstanceType: pulumi.String("mq.m5.large"),
+//				SecurityGroups: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Id,
+//				},
+//				DeploymentMode:                  pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
+//				DataReplicationMode:             pulumi.String("CRDR"),
+//				DataReplicationPrimaryBrokerArn: pulumi.Any(primary.Arn),
+//				Users: mq.BrokerUserArray{
+//					&mq.BrokerUserArgs{
+//						Username: pulumi.String("ExampleUser"),
+//						Password: pulumi.String("MindTheGap"),
+//					},
+//					&mq.BrokerUserArgs{
+//						Username:        pulumi.String("ExampleReplicationUser"),
+//						Password:        pulumi.String("Example12345"),
+//						ReplicationUser: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
 //
 // ## Import
 //
@@ -131,6 +204,10 @@ type Broker struct {
 	BrokerName pulumi.StringOutput `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationOutput `pulumi:"configuration"`
+	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	DataReplicationMode pulumi.StringOutput `pulumi:"dataReplicationMode"`
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	DataReplicationPrimaryBrokerArn pulumi.StringPtrOutput `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. Detailed below.
@@ -160,6 +237,8 @@ type Broker struct {
 	Logs BrokerLogsPtrOutput `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeOutput `pulumi:"maintenanceWindowStartTime"`
+	// (Optional) The data replication mode that will be applied after reboot.
+	PendingDataReplicationMode pulumi.StringOutput `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// List of security group IDs assigned to the broker.
@@ -234,6 +313,10 @@ type brokerState struct {
 	BrokerName *string `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration *BrokerConfiguration `pulumi:"configuration"`
+	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	DataReplicationMode *string `pulumi:"dataReplicationMode"`
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	DataReplicationPrimaryBrokerArn *string `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode *string `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. Detailed below.
@@ -263,6 +346,8 @@ type brokerState struct {
 	Logs *BrokerLogs `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime *BrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
+	// (Optional) The data replication mode that will be applied after reboot.
+	PendingDataReplicationMode *string `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// List of security group IDs assigned to the broker.
@@ -296,6 +381,10 @@ type BrokerState struct {
 	BrokerName pulumi.StringPtrInput
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationPtrInput
+	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	DataReplicationMode pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	DataReplicationPrimaryBrokerArn pulumi.StringPtrInput
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrInput
 	// Configuration block containing encryption options. Detailed below.
@@ -325,6 +414,8 @@ type BrokerState struct {
 	Logs BrokerLogsPtrInput
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimePtrInput
+	// (Optional) The data replication mode that will be applied after reboot.
+	PendingDataReplicationMode pulumi.StringPtrInput
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// List of security group IDs assigned to the broker.
@@ -360,6 +451,10 @@ type brokerArgs struct {
 	BrokerName *string `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration *BrokerConfiguration `pulumi:"configuration"`
+	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	DataReplicationMode *string `pulumi:"dataReplicationMode"`
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	DataReplicationPrimaryBrokerArn *string `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode *string `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. Detailed below.
@@ -404,6 +499,10 @@ type BrokerArgs struct {
 	BrokerName pulumi.StringPtrInput
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationPtrInput
+	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	DataReplicationMode pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	DataReplicationPrimaryBrokerArn pulumi.StringPtrInput
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrInput
 	// Configuration block containing encryption options. Detailed below.
@@ -553,6 +652,16 @@ func (o BrokerOutput) Configuration() BrokerConfigurationOutput {
 	return o.ApplyT(func(v *Broker) BrokerConfigurationOutput { return v.Configuration }).(BrokerConfigurationOutput)
 }
 
+// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+func (o BrokerOutput) DataReplicationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.DataReplicationMode }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+func (o BrokerOutput) DataReplicationPrimaryBrokerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.DataReplicationPrimaryBrokerArn }).(pulumi.StringPtrOutput)
+}
+
 // Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 func (o BrokerOutput) DeploymentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.DeploymentMode }).(pulumi.StringPtrOutput)
@@ -607,6 +716,11 @@ func (o BrokerOutput) Logs() BrokerLogsPtrOutput {
 // Configuration block for the maintenance window start time. Detailed below.
 func (o BrokerOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowStartTimeOutput {
 	return o.ApplyT(func(v *Broker) BrokerMaintenanceWindowStartTimeOutput { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowStartTimeOutput)
+}
+
+// (Optional) The data replication mode that will be applied after reboot.
+func (o BrokerOutput) PendingDataReplicationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.PendingDataReplicationMode }).(pulumi.StringOutput)
 }
 
 // Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.

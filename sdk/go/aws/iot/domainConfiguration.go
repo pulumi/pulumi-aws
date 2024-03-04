@@ -58,7 +58,7 @@ type DomainConfiguration struct {
 
 	// The ARN of the domain configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// An object that specifies the authorization service for a domain. See below.
+	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
@@ -70,14 +70,15 @@ type DomainConfiguration struct {
 	ServerCertificateArns pulumi.StringArrayOutput `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
 	ServiceType pulumi.StringPtrOutput `pulumi:"serviceType"`
-	Status      pulumi.StringPtrOutput `pulumi:"status"`
+	// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// An object that specifies the TLS configuration for a domain. See below.
+	// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 	TlsConfig DomainConfigurationTlsConfigOutput `pulumi:"tlsConfig"`
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn pulumi.StringPtrOutput `pulumi:"validationCertificateArn"`
@@ -115,7 +116,7 @@ func GetDomainConfiguration(ctx *pulumi.Context,
 type domainConfigurationState struct {
 	// The ARN of the domain configuration.
 	Arn *string `pulumi:"arn"`
-	// An object that specifies the authorization service for a domain. See below.
+	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
 	DomainName *string `pulumi:"domainName"`
@@ -127,14 +128,15 @@ type domainConfigurationState struct {
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
 	ServiceType *string `pulumi:"serviceType"`
-	Status      *string `pulumi:"status"`
+	// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// An object that specifies the TLS configuration for a domain. See below.
+	// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn *string `pulumi:"validationCertificateArn"`
@@ -143,7 +145,7 @@ type domainConfigurationState struct {
 type DomainConfigurationState struct {
 	// The ARN of the domain configuration.
 	Arn pulumi.StringPtrInput
-	// An object that specifies the authorization service for a domain. See below.
+	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
 	DomainName pulumi.StringPtrInput
@@ -155,14 +157,15 @@ type DomainConfigurationState struct {
 	ServerCertificateArns pulumi.StringArrayInput
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
 	ServiceType pulumi.StringPtrInput
-	Status      pulumi.StringPtrInput
+	// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// An object that specifies the TLS configuration for a domain. See below.
+	// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 	TlsConfig DomainConfigurationTlsConfigPtrInput
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn pulumi.StringPtrInput
@@ -173,7 +176,7 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
-	// An object that specifies the authorization service for a domain. See below.
+	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
 	DomainName *string `pulumi:"domainName"`
@@ -183,10 +186,11 @@ type domainConfigurationArgs struct {
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
 	ServiceType *string `pulumi:"serviceType"`
-	Status      *string `pulumi:"status"`
+	// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// An object that specifies the TLS configuration for a domain. See below.
+	// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn *string `pulumi:"validationCertificateArn"`
@@ -194,7 +198,7 @@ type domainConfigurationArgs struct {
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
-	// An object that specifies the authorization service for a domain. See below.
+	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
 	DomainName pulumi.StringPtrInput
@@ -204,10 +208,11 @@ type DomainConfigurationArgs struct {
 	ServerCertificateArns pulumi.StringArrayInput
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
 	ServiceType pulumi.StringPtrInput
-	Status      pulumi.StringPtrInput
+	// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// An object that specifies the TLS configuration for a domain. See below.
+	// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 	TlsConfig DomainConfigurationTlsConfigPtrInput
 	// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
 	ValidationCertificateArn pulumi.StringPtrInput
@@ -305,7 +310,7 @@ func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// An object that specifies the authorization service for a domain. See below.
+// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 func (o DomainConfigurationOutput) AuthorizerConfig() DomainConfigurationAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationAuthorizerConfigPtrOutput { return v.AuthorizerConfig }).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
@@ -335,6 +340,7 @@ func (o DomainConfigurationOutput) ServiceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
+// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -351,7 +357,7 @@ func (o DomainConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// An object that specifies the TLS configuration for a domain. See below.
+// An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
 func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTlsConfigOutput { return v.TlsConfig }).(DomainConfigurationTlsConfigOutput)
 }

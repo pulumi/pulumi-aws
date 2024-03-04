@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class EventSourceMappingSourceAccessConfiguration {
     /**
-     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * @return The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
      * 
      */
     private String type;
@@ -23,7 +23,7 @@ public final class EventSourceMappingSourceAccessConfiguration {
 
     private EventSourceMappingSourceAccessConfiguration() {}
     /**
-     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * @return The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
      * 
      */
     public String type() {

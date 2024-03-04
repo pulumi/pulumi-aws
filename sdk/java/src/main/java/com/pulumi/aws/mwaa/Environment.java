@@ -296,6 +296,12 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> dagS3Path() {
         return this.dagS3Path;
     }
+    @Export(name="endpointManagement", refs={String.class}, tree="[0]")
+    private Output<String> endpointManagement;
+
+    public Output<String> endpointManagement() {
+        return this.endpointManagement;
+    }
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 

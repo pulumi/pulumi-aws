@@ -22,6 +22,7 @@ class EnvironmentArgs:
                  source_bucket_arn: pulumi.Input[str],
                  airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
@@ -71,6 +72,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:
             pulumi.set(__self__, "airflow_version", airflow_version)
+        if endpoint_management is not None:
+            pulumi.set(__self__, "endpoint_management", endpoint_management)
         if environment_class is not None:
             pulumi.set(__self__, "environment_class", environment_class)
         if kms_key is not None:
@@ -175,6 +178,15 @@ class EnvironmentArgs:
     @airflow_version.setter
     def airflow_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "airflow_version", value)
+
+    @property
+    @pulumi.getter(name="endpointManagement")
+    def endpoint_management(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_management")
+
+    @endpoint_management.setter
+    def endpoint_management(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_management", value)
 
     @property
     @pulumi.getter(name="environmentClass")
@@ -377,6 +389,7 @@ class _EnvironmentState:
                  arn: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -443,6 +456,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "created_at", created_at)
         if dag_s3_path is not None:
             pulumi.set(__self__, "dag_s3_path", dag_s3_path)
+        if endpoint_management is not None:
+            pulumi.set(__self__, "endpoint_management", endpoint_management)
         if environment_class is not None:
             pulumi.set(__self__, "environment_class", environment_class)
         if execution_role_arn is not None:
@@ -555,6 +570,15 @@ class _EnvironmentState:
     @dag_s3_path.setter
     def dag_s3_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dag_s3_path", value)
+
+    @property
+    @pulumi.getter(name="endpointManagement")
+    def endpoint_management(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_management")
+
+    @endpoint_management.setter
+    def endpoint_management(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_management", value)
 
     @property
     @pulumi.getter(name="environmentClass")
@@ -853,6 +877,7 @@ class Environment(pulumi.CustomResource):
                  airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -1144,6 +1169,7 @@ class Environment(pulumi.CustomResource):
                  airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -1177,6 +1203,7 @@ class Environment(pulumi.CustomResource):
             if dag_s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 'dag_s3_path'")
             __props__.__dict__["dag_s3_path"] = dag_s3_path
+            __props__.__dict__["endpoint_management"] = endpoint_management
             __props__.__dict__["environment_class"] = environment_class
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
@@ -1226,6 +1253,7 @@ class Environment(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             dag_s3_path: Optional[pulumi.Input[str]] = None,
+            endpoint_management: Optional[pulumi.Input[str]] = None,
             environment_class: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             kms_key: Optional[pulumi.Input[str]] = None,
@@ -1296,6 +1324,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["dag_s3_path"] = dag_s3_path
+        __props__.__dict__["endpoint_management"] = endpoint_management
         __props__.__dict__["environment_class"] = environment_class
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["kms_key"] = kms_key
@@ -1362,6 +1391,11 @@ class Environment(pulumi.CustomResource):
         The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "dag_s3_path")
+
+    @property
+    @pulumi.getter(name="endpointManagement")
+    def endpoint_management(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "endpoint_management")
 
     @property
     @pulumi.getter(name="environmentClass")

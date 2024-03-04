@@ -41,8 +41,18 @@ namespace Pulumi.Aws.RedshiftServerless
     [AwsResourceType("aws:redshiftserverless/namespace:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
+        [Output("adminPasswordSecretArn")]
+        public Output<string> AdminPasswordSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
+        /// </summary>
+        [Output("adminPasswordSecretKmsKeyId")]
+        public Output<string> AdminPasswordSecretKmsKeyId { get; private set; } = null!;
+
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `manage_admin_password`.
         /// </summary>
         [Output("adminUserPassword")]
         public Output<string?> AdminUserPassword { get; private set; } = null!;
@@ -88,6 +98,13 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Output("logExports")]
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
+        /// Conflicts with `admin_user_password`.
+        /// </summary>
+        [Output("manageAdminPassword")]
+        public Output<bool?> ManageAdminPassword { get; private set; } = null!;
 
         /// <summary>
         /// The Redshift Namespace ID.
@@ -164,11 +181,18 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
+        /// </summary>
+        [Input("adminPasswordSecretKmsKeyId")]
+        public Input<string>? AdminPasswordSecretKmsKeyId { get; set; }
+
         [Input("adminUserPassword")]
         private Input<string>? _adminUserPassword;
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `manage_admin_password`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -239,6 +263,13 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
+        /// Conflicts with `admin_user_password`.
+        /// </summary>
+        [Input("manageAdminPassword")]
+        public Input<bool>? ManageAdminPassword { get; set; }
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -264,11 +295,21 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
+        [Input("adminPasswordSecretArn")]
+        public Input<string>? AdminPasswordSecretArn { get; set; }
+
+        /// <summary>
+        /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
+        /// </summary>
+        [Input("adminPasswordSecretKmsKeyId")]
+        public Input<string>? AdminPasswordSecretKmsKeyId { get; set; }
+
         [Input("adminUserPassword")]
         private Input<string>? _adminUserPassword;
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `manage_admin_password`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -343,6 +384,13 @@ namespace Pulumi.Aws.RedshiftServerless
             get => _logExports ?? (_logExports = new InputList<string>());
             set => _logExports = value;
         }
+
+        /// <summary>
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
+        /// Conflicts with `admin_user_password`.
+        /// </summary>
+        [Input("manageAdminPassword")]
+        public Input<bool>? ManageAdminPassword { get; set; }
 
         /// <summary>
         /// The Redshift Namespace ID.

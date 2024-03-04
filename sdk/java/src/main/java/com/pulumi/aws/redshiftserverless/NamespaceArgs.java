@@ -6,6 +6,7 @@ package com.pulumi.aws.redshiftserverless;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,23 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final NamespaceArgs Empty = new NamespaceArgs();
 
     /**
+     * ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+     * 
+     */
+    @Import(name="adminPasswordSecretKmsKeyId")
+    private @Nullable Output<String> adminPasswordSecretKmsKeyId;
+
+    /**
+     * @return ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+     * 
+     */
+    public Optional<Output<String>> adminPasswordSecretKmsKeyId() {
+        return Optional.ofNullable(this.adminPasswordSecretKmsKeyId);
+    }
+
+    /**
      * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manage_admin_password`.
      * 
      */
     @Import(name="adminUserPassword")
@@ -27,6 +44,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manage_admin_password`.
      * 
      */
     public Optional<Output<String>> adminUserPassword() {
@@ -124,6 +142,23 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+     * Conflicts with `admin_user_password`.
+     * 
+     */
+    @Import(name="manageAdminPassword")
+    private @Nullable Output<Boolean> manageAdminPassword;
+
+    /**
+     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+     * Conflicts with `admin_user_password`.
+     * 
+     */
+    public Optional<Output<Boolean>> manageAdminPassword() {
+        return Optional.ofNullable(this.manageAdminPassword);
+    }
+
+    /**
      * The name of the namespace.
      * 
      */
@@ -156,6 +191,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     private NamespaceArgs() {}
 
     private NamespaceArgs(NamespaceArgs $) {
+        this.adminPasswordSecretKmsKeyId = $.adminPasswordSecretKmsKeyId;
         this.adminUserPassword = $.adminUserPassword;
         this.adminUsername = $.adminUsername;
         this.dbName = $.dbName;
@@ -163,6 +199,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         this.iamRoles = $.iamRoles;
         this.kmsKeyId = $.kmsKeyId;
         this.logExports = $.logExports;
+        this.manageAdminPassword = $.manageAdminPassword;
         this.namespaceName = $.namespaceName;
         this.tags = $.tags;
     }
@@ -186,7 +223,29 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param adminPasswordSecretKmsKeyId ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminPasswordSecretKmsKeyId(@Nullable Output<String> adminPasswordSecretKmsKeyId) {
+            $.adminPasswordSecretKmsKeyId = adminPasswordSecretKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param adminPasswordSecretKmsKeyId ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminPasswordSecretKmsKeyId(String adminPasswordSecretKmsKeyId) {
+            return adminPasswordSecretKmsKeyId(Output.of(adminPasswordSecretKmsKeyId));
+        }
+
+        /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
+         * Conflicts with `manage_admin_password`.
          * 
          * @return builder
          * 
@@ -198,6 +257,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
+         * Conflicts with `manage_admin_password`.
          * 
          * @return builder
          * 
@@ -350,6 +410,29 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder logExports(String... logExports) {
             return logExports(List.of(logExports));
+        }
+
+        /**
+         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+         * Conflicts with `admin_user_password`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageAdminPassword(@Nullable Output<Boolean> manageAdminPassword) {
+            $.manageAdminPassword = manageAdminPassword;
+            return this;
+        }
+
+        /**
+         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+         * Conflicts with `admin_user_password`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageAdminPassword(Boolean manageAdminPassword) {
+            return manageAdminPassword(Output.of(manageAdminPassword));
         }
 
         /**

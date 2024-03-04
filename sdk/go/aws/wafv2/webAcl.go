@@ -15,6 +15,8 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
+	// The URL to use in SDK integrations with managed rule groups.
+	ApplicationIntegrationUrl pulumi.StringOutput `pulumi:"applicationIntegrationUrl"`
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
@@ -89,6 +91,8 @@ func GetWebAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAcl resources.
 type webAclState struct {
+	// The URL to use in SDK integrations with managed rule groups.
+	ApplicationIntegrationUrl *string `pulumi:"applicationIntegrationUrl"`
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn *string `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
@@ -125,6 +129,8 @@ type webAclState struct {
 }
 
 type WebAclState struct {
+	// The URL to use in SDK integrations with managed rule groups.
+	ApplicationIntegrationUrl pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringPtrInput
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
@@ -304,6 +310,11 @@ func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
 
 func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return o
+}
+
+// The URL to use in SDK integrations with managed rule groups.
+func (o WebAclOutput) ApplicationIntegrationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.ApplicationIntegrationUrl }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IP Set that this statement references.

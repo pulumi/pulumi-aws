@@ -8,6 +8,7 @@ import com.pulumi.aws.codepipeline.PipelineArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineState;
 import com.pulumi.aws.codepipeline.outputs.PipelineArtifactStore;
 import com.pulumi.aws.codepipeline.outputs.PipelineStage;
+import com.pulumi.aws.codepipeline.outputs.PipelineTrigger;
 import com.pulumi.aws.codepipeline.outputs.PipelineVariable;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -341,6 +342,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    @Export(name="triggers", refs={List.class,PipelineTrigger.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PipelineTrigger>> triggers;
+
+    /**
+     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    public Output<Optional<List<PipelineTrigger>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.

@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TagsAll;
+        /// <summary>
         /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         /// </summary>
         public readonly int? Throughput;
@@ -70,6 +74,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableDictionary<string, string>? tagsAll,
+
             int? throughput,
 
             string? volumeId,
@@ -84,6 +90,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             Tags = tags;
+            TagsAll = tagsAll;
             Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;

@@ -35,14 +35,14 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     @Import(name="authorizerConfig")
     private @Nullable Output<DomainConfigurationAuthorizerConfigArgs> authorizerConfig;
 
     /**
-     * @return An object that specifies the authorization service for a domain. See below.
+     * @return An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     public Optional<Output<DomainConfigurationAuthorizerConfigArgs>> authorizerConfig() {
@@ -124,9 +124,17 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.serviceType);
     }
 
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -170,14 +178,14 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     @Import(name="tlsConfig")
     private @Nullable Output<DomainConfigurationTlsConfigArgs> tlsConfig;
 
     /**
-     * @return An object that specifies the TLS configuration for a domain. See below.
+     * @return An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     public Optional<Output<DomainConfigurationTlsConfigArgs>> tlsConfig() {
@@ -256,7 +264,7 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authorizerConfig An object that specifies the authorization service for a domain. See below.
+         * @param authorizerConfig An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
          * 
          * @return builder
          * 
@@ -267,7 +275,7 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authorizerConfig An object that specifies the authorization service for a domain. See below.
+         * @param authorizerConfig An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
          * 
          * @return builder
          * 
@@ -391,11 +399,23 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
             return serviceType(Output.of(serviceType));
         }
 
+        /**
+         * @param status The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -451,7 +471,7 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tlsConfig An object that specifies the TLS configuration for a domain. See below.
+         * @param tlsConfig An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
          * 
          * @return builder
          * 
@@ -462,7 +482,7 @@ public final class DomainConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tlsConfig An object that specifies the TLS configuration for a domain. See below.
+         * @param tlsConfig An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
          * 
          * @return builder
          * 

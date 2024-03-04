@@ -193,8 +193,6 @@ type DrtAccessLogBucketAssociationTimeouts struct {
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read *string `pulumi:"read"`
 }
 
 // DrtAccessLogBucketAssociationTimeoutsInput is an input type that accepts DrtAccessLogBucketAssociationTimeoutsArgs and DrtAccessLogBucketAssociationTimeoutsOutput values.
@@ -213,8 +211,6 @@ type DrtAccessLogBucketAssociationTimeoutsArgs struct {
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read pulumi.StringPtrInput `pulumi:"read"`
 }
 
 func (DrtAccessLogBucketAssociationTimeoutsArgs) ElementType() reflect.Type {
@@ -304,11 +300,6 @@ func (o DrtAccessLogBucketAssociationTimeoutsOutput) Delete() pulumi.StringPtrOu
 	return o.ApplyT(func(v DrtAccessLogBucketAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o DrtAccessLogBucketAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DrtAccessLogBucketAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
-}
-
 type DrtAccessLogBucketAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
 
 func (DrtAccessLogBucketAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
@@ -353,23 +344,13 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Delete() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DrtAccessLogBucketAssociationTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Read
-	}).(pulumi.StringPtrOutput)
-}
-
 type DrtAccessRoleArnAssociationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read *string `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
 }
 
 // DrtAccessRoleArnAssociationTimeoutsInput is an input type that accepts DrtAccessRoleArnAssociationTimeoutsArgs and DrtAccessRoleArnAssociationTimeoutsOutput values.
@@ -388,8 +369,8 @@ type DrtAccessRoleArnAssociationTimeoutsArgs struct {
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read pulumi.StringPtrInput `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (DrtAccessRoleArnAssociationTimeoutsArgs) ElementType() reflect.Type {
@@ -479,9 +460,9 @@ func (o DrtAccessRoleArnAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutp
 	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o DrtAccessRoleArnAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DrtAccessRoleArnAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
 
 type DrtAccessRoleArnAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
@@ -528,14 +509,129 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociationTimeouts) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Read
+		return v.Update
 	}).(pulumi.StringPtrOutput)
+}
+
+type ProactiveEngagementEmergencyContact struct {
+	// Additional notes regarding the contact.
+	ContactNotes *string `pulumi:"contactNotes"`
+	// A valid email address that will be used for this contact.
+	EmailAddress string `pulumi:"emailAddress"`
+	// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+	PhoneNumber *string `pulumi:"phoneNumber"`
+}
+
+// ProactiveEngagementEmergencyContactInput is an input type that accepts ProactiveEngagementEmergencyContactArgs and ProactiveEngagementEmergencyContactOutput values.
+// You can construct a concrete instance of `ProactiveEngagementEmergencyContactInput` via:
+//
+//	ProactiveEngagementEmergencyContactArgs{...}
+type ProactiveEngagementEmergencyContactInput interface {
+	pulumi.Input
+
+	ToProactiveEngagementEmergencyContactOutput() ProactiveEngagementEmergencyContactOutput
+	ToProactiveEngagementEmergencyContactOutputWithContext(context.Context) ProactiveEngagementEmergencyContactOutput
+}
+
+type ProactiveEngagementEmergencyContactArgs struct {
+	// Additional notes regarding the contact.
+	ContactNotes pulumi.StringPtrInput `pulumi:"contactNotes"`
+	// A valid email address that will be used for this contact.
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+}
+
+func (ProactiveEngagementEmergencyContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProactiveEngagementEmergencyContact)(nil)).Elem()
+}
+
+func (i ProactiveEngagementEmergencyContactArgs) ToProactiveEngagementEmergencyContactOutput() ProactiveEngagementEmergencyContactOutput {
+	return i.ToProactiveEngagementEmergencyContactOutputWithContext(context.Background())
+}
+
+func (i ProactiveEngagementEmergencyContactArgs) ToProactiveEngagementEmergencyContactOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProactiveEngagementEmergencyContactOutput)
+}
+
+// ProactiveEngagementEmergencyContactArrayInput is an input type that accepts ProactiveEngagementEmergencyContactArray and ProactiveEngagementEmergencyContactArrayOutput values.
+// You can construct a concrete instance of `ProactiveEngagementEmergencyContactArrayInput` via:
+//
+//	ProactiveEngagementEmergencyContactArray{ ProactiveEngagementEmergencyContactArgs{...} }
+type ProactiveEngagementEmergencyContactArrayInput interface {
+	pulumi.Input
+
+	ToProactiveEngagementEmergencyContactArrayOutput() ProactiveEngagementEmergencyContactArrayOutput
+	ToProactiveEngagementEmergencyContactArrayOutputWithContext(context.Context) ProactiveEngagementEmergencyContactArrayOutput
+}
+
+type ProactiveEngagementEmergencyContactArray []ProactiveEngagementEmergencyContactInput
+
+func (ProactiveEngagementEmergencyContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProactiveEngagementEmergencyContact)(nil)).Elem()
+}
+
+func (i ProactiveEngagementEmergencyContactArray) ToProactiveEngagementEmergencyContactArrayOutput() ProactiveEngagementEmergencyContactArrayOutput {
+	return i.ToProactiveEngagementEmergencyContactArrayOutputWithContext(context.Background())
+}
+
+func (i ProactiveEngagementEmergencyContactArray) ToProactiveEngagementEmergencyContactArrayOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProactiveEngagementEmergencyContactArrayOutput)
+}
+
+type ProactiveEngagementEmergencyContactOutput struct{ *pulumi.OutputState }
+
+func (ProactiveEngagementEmergencyContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProactiveEngagementEmergencyContact)(nil)).Elem()
+}
+
+func (o ProactiveEngagementEmergencyContactOutput) ToProactiveEngagementEmergencyContactOutput() ProactiveEngagementEmergencyContactOutput {
+	return o
+}
+
+func (o ProactiveEngagementEmergencyContactOutput) ToProactiveEngagementEmergencyContactOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactOutput {
+	return o
+}
+
+// Additional notes regarding the contact.
+func (o ProactiveEngagementEmergencyContactOutput) ContactNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) *string { return v.ContactNotes }).(pulumi.StringPtrOutput)
+}
+
+// A valid email address that will be used for this contact.
+func (o ProactiveEngagementEmergencyContactOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) string { return v.EmailAddress }).(pulumi.StringOutput)
+}
+
+// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+func (o ProactiveEngagementEmergencyContactOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+type ProactiveEngagementEmergencyContactArrayOutput struct{ *pulumi.OutputState }
+
+func (ProactiveEngagementEmergencyContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProactiveEngagementEmergencyContact)(nil)).Elem()
+}
+
+func (o ProactiveEngagementEmergencyContactArrayOutput) ToProactiveEngagementEmergencyContactArrayOutput() ProactiveEngagementEmergencyContactArrayOutput {
+	return o
+}
+
+func (o ProactiveEngagementEmergencyContactArrayOutput) ToProactiveEngagementEmergencyContactArrayOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactArrayOutput {
+	return o
+}
+
+func (o ProactiveEngagementEmergencyContactArrayOutput) Index(i pulumi.IntInput) ProactiveEngagementEmergencyContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProactiveEngagementEmergencyContact {
+		return vs[0].([]ProactiveEngagementEmergencyContact)[vs[1].(int)]
+	}).(ProactiveEngagementEmergencyContactOutput)
 }
 
 func init() {
@@ -545,10 +641,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessLogBucketAssociationTimeoutsPtrInput)(nil)).Elem(), DrtAccessLogBucketAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessRoleArnAssociationTimeoutsInput)(nil)).Elem(), DrtAccessRoleArnAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessRoleArnAssociationTimeoutsPtrInput)(nil)).Elem(), DrtAccessRoleArnAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProactiveEngagementEmergencyContactInput)(nil)).Elem(), ProactiveEngagementEmergencyContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProactiveEngagementEmergencyContactArrayInput)(nil)).Elem(), ProactiveEngagementEmergencyContactArray{})
 	pulumi.RegisterOutputType(ApplicationLayerAutomaticResponseTimeoutsOutput{})
 	pulumi.RegisterOutputType(ApplicationLayerAutomaticResponseTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DrtAccessLogBucketAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(DrtAccessLogBucketAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DrtAccessRoleArnAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(DrtAccessRoleArnAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ProactiveEngagementEmergencyContactOutput{})
+	pulumi.RegisterOutputType(ProactiveEngagementEmergencyContactArrayOutput{})
 }

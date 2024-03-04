@@ -8,6 +8,8 @@ import com.pulumi.aws.redshift.inputs.GetClusterArgs;
 import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
 import com.pulumi.aws.redshift.inputs.GetClusterCredentialsPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetClusterPlainArgs;
+import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+import com.pulumi.aws.redshift.inputs.GetDataSharesPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
 import com.pulumi.aws.redshift.inputs.GetOrderableClusterPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
@@ -16,6 +18,7 @@ import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
 import com.pulumi.aws.redshift.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.redshift.outputs.GetClusterCredentialsResult;
 import com.pulumi.aws.redshift.outputs.GetClusterResult;
+import com.pulumi.aws.redshift.outputs.GetDataSharesResult;
 import com.pulumi.aws.redshift.outputs.GetOrderableClusterResult;
 import com.pulumi.aws.redshift.outputs.GetServiceAccountResult;
 import com.pulumi.aws.redshift.outputs.GetSubnetGroupResult;
@@ -429,6 +432,222 @@ public final class RedshiftFunctions {
      */
     public static CompletableFuture<GetClusterCredentialsResult> getClusterCredentialsPlain(GetClusterCredentialsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataSharesResult> getDataShares() {
+        return getDataShares(GetDataSharesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataSharesResult> getDataSharesPlain() {
+        return getDataSharesPlain(GetDataSharesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args) {
+        return getDataShares(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataSharesResult> getDataSharesPlain(GetDataSharesPlainArgs args) {
+        return getDataSharesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshift/getDataShares:getDataShares", TypeShape.of(GetDataSharesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Redshift Data Shares.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getDataShares();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataSharesResult> getDataSharesPlain(GetDataSharesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:redshift/getDataShares:getDataShares", TypeShape.of(GetDataSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about Redshift Orderable Clusters and valid parameter combinations.

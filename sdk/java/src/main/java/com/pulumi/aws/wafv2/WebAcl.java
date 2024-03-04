@@ -27,6 +27,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/webAcl:WebAcl")
 public class WebAcl extends com.pulumi.resources.CustomResource {
     /**
+     * The URL to use in SDK integrations with managed rule groups.
+     * 
+     */
+    @Export(name="applicationIntegrationUrl", refs={String.class}, tree="[0]")
+    private Output<String> applicationIntegrationUrl;
+
+    /**
+     * @return The URL to use in SDK integrations with managed rule groups.
+     * 
+     */
+    public Output<String> applicationIntegrationUrl() {
+        return this.applicationIntegrationUrl;
+    }
+    /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
      */

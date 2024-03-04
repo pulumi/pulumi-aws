@@ -4489,7 +4489,7 @@ export namespace appflow {
         /**
          * Source fields to which a particular task is applied.
          */
-        sourceFields: pulumi.Input<pulumi.Input<string>[]>;
+        sourceFields?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
          */
@@ -7052,6 +7052,13 @@ export namespace apprunner {
         value?: pulumi.Input<string>;
     }
 
+    export interface DeploymentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
     export interface ObservabilityConfigurationTraceConfiguration {
         /**
          * Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
@@ -9507,7 +9514,7 @@ export namespace backup {
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
         /**
-         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         allocationStrategy?: pulumi.Input<string>;
         /**
@@ -14034,6 +14041,117 @@ export namespace codepipeline {
          * A string that identifies the action type.
          */
         version: pulumi.Input<string>;
+    }
+
+    export interface PipelineTrigger {
+        /**
+         * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
+         */
+        gitConfiguration: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfiguration>;
+        /**
+         * The source provider for the event. Possible value is `CodeStarSourceConnection`.
+         */
+        providerType: pulumi.Input<string>;
+    }
+
+    export interface PipelineTriggerGitConfiguration {
+        /**
+         * The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
+         */
+        pullRequests?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPullRequest>[]>;
+        /**
+         * The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+         */
+        pushes?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPush>[]>;
+        /**
+         * The name of the pipeline source action where the trigger configuration.
+         */
+        sourceActionName: pulumi.Input<string>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPullRequest {
+        /**
+         * The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+         */
+        branches?: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPullRequestBranches>;
+        /**
+         * A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+         */
+        filePaths?: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPullRequestFilePaths>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPullRequestBranches {
+        /**
+         * A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPullRequestFilePaths {
+        /**
+         * A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPush {
+        /**
+         * The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+         */
+        branches?: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPushBranches>;
+        /**
+         * The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+         */
+        filePaths?: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPushFilePaths>;
+        /**
+         * The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+         */
+        tags?: pulumi.Input<inputs.codepipeline.PipelineTriggerGitConfigurationPushTags>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPushBranches {
+        /**
+         * A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPushFilePaths {
+        /**
+         * A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipelineTriggerGitConfigurationPushTags {
+        /**
+         * A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PipelineVariable {
@@ -20705,6 +20823,10 @@ export namespace ec2 {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         */
+        tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
@@ -20886,6 +21008,10 @@ export namespace ec2 {
          * Map of tags to assign to the device.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         */
+        tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
@@ -23069,6 +23195,10 @@ export namespace ec2 {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         */
+        tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
@@ -23217,6 +23347,10 @@ export namespace ec2 {
          * Map of tags to assign to the device.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         */
+        tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
@@ -28308,7 +28442,7 @@ export namespace fsx {
 
     export interface OpenZfsVolumeNfsExports {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
          */
         clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExportsClientConfiguration>[]>;
     }
@@ -28325,7 +28459,13 @@ export namespace fsx {
     }
 
     export interface OpenZfsVolumeOriginSnapshot {
+        /**
+         * Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+         */
         copyStrategy: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the origin snapshot.
+         */
         snapshotArn: pulumi.Input<string>;
     }
 
@@ -33362,7 +33502,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions>;
         /**
@@ -33382,7 +33522,7 @@ export namespace kinesis {
          */
         indexRotationPeriod?: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration>;
         /**
@@ -33398,7 +33538,7 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration>;
         /**
@@ -33406,7 +33546,7 @@ export namespace kinesis {
          */
         typeName?: pulumi.Input<string>;
         /**
-         * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+         * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig>;
     }
@@ -33432,14 +33572,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -33475,7 +33615,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -33546,7 +33686,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -33554,17 +33694,25 @@ export namespace kinesis {
          */
         compressionFormat?: pulumi.Input<string>;
         /**
-         * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+         * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         */
+        customTimeZone?: pulumi.Input<string>;
+        /**
+         * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
          */
         dataFormatConversionConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration>;
         /**
-         * The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+         * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          */
         dynamicPartitioningConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration>;
         /**
          * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          */
         errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * The file extension to override the default file extension (for example, `.json`).
+         */
+        fileExtension?: pulumi.Input<string>;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
@@ -33575,7 +33723,7 @@ export namespace kinesis {
          */
         prefix?: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration>;
         /**
@@ -33613,33 +33761,33 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+         * Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
          */
         inputFormatConfiguration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration>;
         /**
-         * Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+         * Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
          */
         outputFormatConfiguration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration>;
         /**
-         * Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+         * Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
          */
         schemaConfiguration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
         /**
-         * Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+         * Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
          */
         deserializer: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
         /**
-         * Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+         * Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
          */
         hiveJsonSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe>;
         /**
-         * Nested argument that specifies the OpenX SerDe. More details below.
+         * Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
          */
         openXJsonSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe>;
     }
@@ -33668,18 +33816,18 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
         /**
-         * Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
+         * Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
          */
         serializer: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
         /**
-         * Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
+         * Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
          */
         orcSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe>;
         /**
-         * Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
          */
         parquetSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe>;
     }
@@ -33800,14 +33948,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -33843,7 +33991,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
@@ -33898,7 +34046,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions>;
         /**
@@ -33906,11 +34054,11 @@ export namespace kinesis {
          */
         name?: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration>;
         /**
-         * The request configuration.  More details are given below.
+         * The request configuration.  See `requestConfiguration` block below for details.
          */
         requestConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration>;
         /**
@@ -33926,7 +34074,7 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration>;
         /**
@@ -33956,14 +34104,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -33987,7 +34135,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
         /**
-         * Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         * Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
          */
         commonAttributes?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute>[]>;
         /**
@@ -34021,7 +34169,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34075,7 +34223,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamMskSourceConfiguration {
         /**
-         * The authentication configuration of the Amazon MSK cluster. More details are given below.
+         * The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
          */
         authenticationConfiguration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration>;
         /**
@@ -34109,7 +34257,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34117,7 +34265,7 @@ export namespace kinesis {
          */
         clusterEndpoint?: pulumi.Input<string>;
         /**
-         * The method for setting up document ID. More details are given below.
+         * The method for setting up document ID. See [`documentIdOptions` block] below for details.
          */
         documentIdOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions>;
         /**
@@ -34133,7 +34281,7 @@ export namespace kinesis {
          */
         indexRotationPeriod?: pulumi.Input<string>;
         /**
-         * The data processing configuration. More details are given below.
+         * The data processing configuration. See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration>;
         /**
@@ -34149,7 +34297,7 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration>;
         /**
@@ -34157,7 +34305,7 @@ export namespace kinesis {
          */
         typeName?: pulumi.Input<string>;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig>;
     }
@@ -34190,14 +34338,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -34233,7 +34381,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34300,7 +34448,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34312,7 +34460,7 @@ export namespace kinesis {
          */
         indexName: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration>;
         /**
@@ -34328,11 +34476,11 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration>;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+         * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig>;
     }
@@ -34358,14 +34506,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -34401,7 +34549,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34460,7 +34608,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamRedshiftConfiguration {
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34484,7 +34632,7 @@ export namespace kinesis {
          */
         password: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration>;
         /**
@@ -34504,7 +34652,7 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See s3Configuration below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration>;
         /**
@@ -34534,14 +34682,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -34577,7 +34725,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34632,7 +34780,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34680,8 +34828,6 @@ export namespace kinesis {
         enabled?: pulumi.Input<boolean>;
         /**
          * Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
-         *
-         * The `extendedS3Configuration` object supports the same fields from s3Configuration as well as the following:
          */
         keyArn?: pulumi.Input<string>;
         /**
@@ -34700,7 +34846,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions>;
         /**
@@ -34720,7 +34866,7 @@ export namespace kinesis {
          */
         hecToken: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration>;
         /**
@@ -34732,7 +34878,7 @@ export namespace kinesis {
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
-         * The S3 Configuration. See s3Configuration for more details.
+         * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3Configuration>;
     }
@@ -34758,14 +34904,14 @@ export namespace kinesis {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Array of data processors. More details are given below
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
         /**
-         * Array of processor parameters. More details are given below
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
@@ -34801,7 +34947,7 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions>;
         /**
@@ -36029,7 +36175,7 @@ export namespace lambda {
 
     export interface EventSourceMappingSourceAccessConfiguration {
         /**
-         * The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+         * The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
          */
         type: pulumi.Input<string>;
         /**
@@ -59173,6 +59319,36 @@ export namespace redshift {
         subnetId?: pulumi.Input<string>;
     }
 
+    export interface GetDataSharesDataShare {
+        /**
+         * ARN (Amazon Resource Name) of the data share.
+         */
+        dataShareArn?: string;
+        /**
+         * Identifier of a datashare to show its managing entity.
+         */
+        managedBy?: string;
+        /**
+         * ARN (Amazon Resource Name) of the producer.
+         */
+        producerArn?: string;
+    }
+
+    export interface GetDataSharesDataShareArgs {
+        /**
+         * ARN (Amazon Resource Name) of the data share.
+         */
+        dataShareArn?: pulumi.Input<string>;
+        /**
+         * Identifier of a datashare to show its managing entity.
+         */
+        managedBy?: pulumi.Input<string>;
+        /**
+         * ARN (Amazon Resource Name) of the producer.
+         */
+        producerArn?: pulumi.Input<string>;
+    }
+
     export interface ParameterGroupParameter {
         /**
          * The name of the Redshift parameter.
@@ -65498,6 +65674,768 @@ export namespace secretsmanager {
 }
 
 export namespace securityhub {
+    export interface AutomationRuleAction {
+        /**
+         * A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+         */
+        findingFieldsUpdate?: pulumi.Input<inputs.securityhub.AutomationRuleActionFindingFieldsUpdate>;
+        /**
+         * Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleActionFindingFieldsUpdate {
+        /**
+         * The rule action updates the `Confidence` field of a finding.
+         */
+        confidence?: pulumi.Input<number>;
+        /**
+         * The rule action updates the `Criticality` field of a finding.
+         */
+        criticality?: pulumi.Input<number>;
+        /**
+         * A resource block that updates the note. Documented below.
+         */
+        note?: pulumi.Input<inputs.securityhub.AutomationRuleActionFindingFieldsUpdateNote>;
+        /**
+         * A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+         */
+        relatedFindings?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleActionFindingFieldsUpdateRelatedFinding>[]>;
+        /**
+         * A resource block that updates to the severity information for a finding. Documented below.
+         */
+        severity?: pulumi.Input<inputs.securityhub.AutomationRuleActionFindingFieldsUpdateSeverity>;
+        /**
+         * The rule action updates the `Types` field of a finding.
+         */
+        types?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The rule action updates the `UserDefinedFields` field of a finding.
+         */
+        userDefinedFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+         */
+        verificationState?: pulumi.Input<string>;
+        /**
+         * A resource block that is used to update information about the investigation into the finding. Documented below.
+         */
+        workflow?: pulumi.Input<inputs.securityhub.AutomationRuleActionFindingFieldsUpdateWorkflow>;
+    }
+
+    export interface AutomationRuleActionFindingFieldsUpdateNote {
+        /**
+         * The updated note text.
+         */
+        text: pulumi.Input<string>;
+        /**
+         * The principal that updated the note.
+         */
+        updatedBy: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleActionFindingFieldsUpdateRelatedFinding {
+        /**
+         * The product-generated identifier for a related finding.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The ARN of the product that generated a related finding.
+         */
+        productArn: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleActionFindingFieldsUpdateSeverity {
+        /**
+         * The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The native severity as defined by the AWS service or integrated partner product that generated the finding.
+         */
+        product?: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleActionFindingFieldsUpdateWorkflow {
+        /**
+         * The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteria {
+        /**
+         * The AWS account ID in which a finding was generated. Documented below.
+         */
+        awsAccountIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaAwsAccountId>[]>;
+        /**
+         * The name of the AWS account in which a finding was generated. Documented below.
+         */
+        awsAccountNames?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaAwsAccountName>[]>;
+        /**
+         * The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+         */
+        companyNames?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaCompanyName>[]>;
+        /**
+         * The unique identifier of a standard in which a control is enabled. Documented below.
+         */
+        complianceAssociatedStandardsIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaComplianceAssociatedStandardsId>[]>;
+        /**
+         * The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+         */
+        complianceSecurityControlIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaComplianceSecurityControlId>[]>;
+        /**
+         * The result of a security check. This field is only used for findings generated from controls. Documented below.
+         */
+        complianceStatuses?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaComplianceStatus>[]>;
+        /**
+         * The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+         */
+        confidences?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaConfidence>[]>;
+        /**
+         * A timestamp that indicates when this finding record was created. Documented below.
+         */
+        createdAts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaCreatedAt>[]>;
+        /**
+         * The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+         */
+        criticalities?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaCriticality>[]>;
+        /**
+         * A finding's description. Documented below.
+         */
+        descriptions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaDescription>[]>;
+        /**
+         * A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+         */
+        firstObservedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaFirstObservedAt>[]>;
+        /**
+         * The identifier for the solution-specific component that generated a finding. Documented below.
+         */
+        generatorIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaGeneratorId>[]>;
+        /**
+         * The product-specific identifier for a finding. Documented below.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaId>[]>;
+        /**
+         * A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+         */
+        lastObservedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaLastObservedAt>[]>;
+        /**
+         * The text of a user-defined note that's added to a finding. Documented below.
+         */
+        noteTexts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaNoteText>[]>;
+        /**
+         * The timestamp of when the note was updated. Documented below.
+         */
+        noteUpdatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaNoteUpdatedAt>[]>;
+        /**
+         * The principal that created a note. Documented below.
+         */
+        noteUpdatedBies?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaNoteUpdatedBy>[]>;
+        /**
+         * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+         */
+        productArns?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaProductArn>[]>;
+        /**
+         * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+         */
+        productNames?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaProductName>[]>;
+        /**
+         * Provides the current state of a finding. Documented below.
+         */
+        recordStates?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaRecordState>[]>;
+        /**
+         * The product-generated identifier for a related finding.  Documented below.
+         */
+        relatedFindingsIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaRelatedFindingsId>[]>;
+        /**
+         * The ARN for the product that generated a related finding. Documented below.
+         */
+        relatedFindingsProductArns?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaRelatedFindingsProductArn>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+         */
+        resourceApplicationArns?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceApplicationArn>[]>;
+        /**
+         * The name of the application that is related to a finding. Documented below.
+         */
+        resourceApplicationNames?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceApplicationName>[]>;
+        /**
+         * Custom fields and values about the resource that a finding pertains to. Documented below.
+         */
+        resourceDetailsOthers?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceDetailsOther>[]>;
+        /**
+         * The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+         */
+        resourceIds?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceId>[]>;
+        /**
+         * The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+         */
+        resourcePartitions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourcePartition>[]>;
+        /**
+         * The AWS Region where the resource that a finding pertains to is located. Documented below.
+         */
+        resourceRegions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceRegion>[]>;
+        /**
+         * A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+         */
+        resourceTags?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceTag>[]>;
+        /**
+         * The type of resource that the finding pertains to. Documented below.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaResourceType>[]>;
+        /**
+         * The severity value of the finding. Documented below.
+         */
+        severityLabels?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaSeverityLabel>[]>;
+        /**
+         * Provides a URL that links to a page about the current finding in the finding product. Documented below.
+         */
+        sourceUrls?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaSourceUrl>[]>;
+        /**
+         * A finding's title. Documented below.
+         */
+        titles?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaTitle>[]>;
+        /**
+         * One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+         */
+        types?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaType>[]>;
+        /**
+         * A timestamp that indicates when the finding record was most recently updated. Documented below.
+         */
+        updatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaUpdatedAt>[]>;
+        /**
+         * A list of user-defined name and value string pairs added to a finding. Documented below.
+         */
+        userDefinedFields?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaUserDefinedField>[]>;
+        /**
+         * Provides the veracity of a finding. Documented below.
+         */
+        verificationStates?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaVerificationState>[]>;
+        /**
+         * Provides information about the status of the investigation into a finding. Documented below.
+         */
+        workflowStatuses?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleCriteriaWorkflowStatus>[]>;
+    }
+
+    export interface AutomationRuleCriteriaAwsAccountId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaAwsAccountName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaCompanyName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaComplianceAssociatedStandardsId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaComplianceSecurityControlId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaComplianceStatus {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<number>;
+        gt?: pulumi.Input<number>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<number>;
+        lt?: pulumi.Input<number>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaCreatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<number>;
+        gt?: pulumi.Input<number>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<number>;
+        lt?: pulumi.Input<number>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaDescription {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaFirstObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaFirstObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaFirstObservedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaGeneratorId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaLastObservedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaNoteText {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaNoteUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaNoteUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaNoteUpdatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaNoteUpdatedBy {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaProductArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaProductName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaRecordState {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaRelatedFindingsId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaRelatedFindingsProductArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceApplicationArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceApplicationName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceDetailsOther {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourcePartition {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceRegion {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceTag {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaResourceType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaSeverityLabel {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaSourceUrl {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaTitle {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaUpdatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleCriteriaUserDefinedField {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaVerificationState {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCriteriaWorkflowStatus {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface InsightFilters {
         /**
          * AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -67875,10 +68813,6 @@ export namespace shield {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
-        /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-         */
-        read?: pulumi.Input<string>;
     }
 
     export interface DrtAccessRoleArnAssociationTimeouts {
@@ -67891,9 +68825,24 @@ export namespace shield {
          */
         delete?: pulumi.Input<string>;
         /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
-        read?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
+
+    export interface ProactiveEngagementEmergencyContact {
+        /**
+         * Additional notes regarding the contact.
+         */
+        contactNotes?: pulumi.Input<string>;
+        /**
+         * A valid email address that will be used for this contact.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+         */
+        phoneNumber?: pulumi.Input<string>;
     }
 }
 

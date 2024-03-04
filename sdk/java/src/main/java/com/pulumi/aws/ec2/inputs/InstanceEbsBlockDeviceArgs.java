@@ -125,6 +125,21 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -198,6 +213,7 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
         this.kmsKeyId = $.kmsKeyId;
         this.snapshotId = $.snapshotId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.throughput = $.throughput;
         this.volumeId = $.volumeId;
         this.volumeSize = $.volumeSize;
@@ -367,6 +383,27 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

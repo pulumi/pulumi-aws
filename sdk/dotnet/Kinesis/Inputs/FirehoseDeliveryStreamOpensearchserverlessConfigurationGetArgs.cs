@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+        /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }

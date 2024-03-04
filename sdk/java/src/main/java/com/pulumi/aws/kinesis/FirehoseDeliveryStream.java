@@ -905,70 +905,70 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.destinationId;
     }
     /**
-     * Configuration options when `destination` is `elasticsearch`. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
     @Export(name="elasticsearchConfiguration", refs={FirehoseDeliveryStreamElasticsearchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamElasticsearchConfiguration> elasticsearchConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `elasticsearch`. More details are given below.
+     * @return Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamElasticsearchConfiguration>> elasticsearchConfiguration() {
         return Codegen.optional(this.elasticsearchConfiguration);
     }
     /**
-     * Enhanced configuration options for the s3 destination. More details are given below.
+     * Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
     @Export(name="extendedS3Configuration", refs={FirehoseDeliveryStreamExtendedS3Configuration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamExtendedS3Configuration> extendedS3Configuration;
 
     /**
-     * @return Enhanced configuration options for the s3 destination. More details are given below.
+     * @return Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamExtendedS3Configuration>> extendedS3Configuration() {
         return Codegen.optional(this.extendedS3Configuration);
     }
     /**
-     * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+     * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
     @Export(name="httpEndpointConfiguration", refs={FirehoseDeliveryStreamHttpEndpointConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamHttpEndpointConfiguration> httpEndpointConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+     * @return Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamHttpEndpointConfiguration>> httpEndpointConfiguration() {
         return Codegen.optional(this.httpEndpointConfiguration);
     }
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
     @Export(name="kinesisSourceConfiguration", refs={FirehoseDeliveryStreamKinesisSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamKinesisSourceConfiguration> kinesisSourceConfiguration;
 
     /**
-     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamKinesisSourceConfiguration>> kinesisSourceConfiguration() {
         return Codegen.optional(this.kinesisSourceConfiguration);
     }
     /**
-     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
     @Export(name="mskSourceConfiguration", refs={FirehoseDeliveryStreamMskSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamMskSourceConfiguration> mskSourceConfiguration;
 
     /**
-     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamMskSourceConfiguration>> mskSourceConfiguration() {
@@ -989,72 +989,74 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * Configuration options when `destination` is `opensearch`. More details are given below.
+     * Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
     @Export(name="opensearchConfiguration", refs={FirehoseDeliveryStreamOpensearchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamOpensearchConfiguration> opensearchConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `opensearch`. More details are given below.
+     * @return Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamOpensearchConfiguration>> opensearchConfiguration() {
         return Codegen.optional(this.opensearchConfiguration);
     }
     /**
-     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
     @Export(name="opensearchserverlessConfiguration", refs={FirehoseDeliveryStreamOpensearchserverlessConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamOpensearchserverlessConfiguration> opensearchserverlessConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * @return Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamOpensearchserverlessConfiguration>> opensearchserverlessConfiguration() {
         return Codegen.optional(this.opensearchserverlessConfiguration);
     }
     /**
-     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
     @Export(name="redshiftConfiguration", refs={FirehoseDeliveryStreamRedshiftConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamRedshiftConfiguration> redshiftConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamRedshiftConfiguration>> redshiftConfiguration() {
         return Codegen.optional(this.redshiftConfiguration);
     }
     /**
-     * Encrypt at rest options.
-     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * Encrypt at rest options. See `server_side_encryption` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     @Export(name="serverSideEncryption", refs={FirehoseDeliveryStreamServerSideEncryption.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamServerSideEncryption> serverSideEncryption;
 
     /**
-     * @return Encrypt at rest options.
-     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * @return Encrypt at rest options. See `server_side_encryption` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamServerSideEncryption>> serverSideEncryption() {
         return Codegen.optional(this.serverSideEncryption);
     }
     /**
-     * Configuration options when `destination` is `splunk`. More details are given below.
+     * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
     @Export(name="splunkConfiguration", refs={FirehoseDeliveryStreamSplunkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamSplunkConfiguration> splunkConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `splunk`. More details are given below.
+     * @return Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamSplunkConfiguration>> splunkConfiguration() {

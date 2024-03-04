@@ -36,6 +36,10 @@ export class WebAcl extends pulumi.CustomResource {
     }
 
     /**
+     * The URL to use in SDK integrations with managed rule groups.
+     */
+    public /*out*/ readonly applicationIntegrationUrl!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class WebAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
+            resourceInputs["applicationIntegrationUrl"] = state ? state.applicationIntegrationUrl : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["associationConfig"] = state ? state.associationConfig : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
@@ -151,6 +156,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["applicationIntegrationUrl"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["lockToken"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export class WebAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAcl resources.
  */
 export interface WebAclState {
+    /**
+     * The URL to use in SDK integrations with managed rule groups.
+     */
+    applicationIntegrationUrl?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      */

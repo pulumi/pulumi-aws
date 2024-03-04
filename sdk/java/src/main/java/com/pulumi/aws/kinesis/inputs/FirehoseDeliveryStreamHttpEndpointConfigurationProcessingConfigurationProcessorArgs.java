@@ -19,14 +19,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs();
 
     /**
-     * Array of processor parameters. More details are given below
+     * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>> parameters;
 
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>>> parameters() {
@@ -74,7 +74,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 

@@ -65,6 +65,13 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return this.dagS3Path;
     }
 
+    @Import(name="endpointManagement")
+    private @Nullable Output<String> endpointManagement;
+
+    public Optional<Output<String>> endpointManagement() {
+        return Optional.ofNullable(this.endpointManagement);
+    }
+
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
@@ -356,6 +363,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.airflowConfigurationOptions = $.airflowConfigurationOptions;
         this.airflowVersion = $.airflowVersion;
         this.dagS3Path = $.dagS3Path;
+        this.endpointManagement = $.endpointManagement;
         this.environmentClass = $.environmentClass;
         this.executionRoleArn = $.executionRoleArn;
         this.kmsKey = $.kmsKey;
@@ -456,6 +464,15 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dagS3Path(String dagS3Path) {
             return dagS3Path(Output.of(dagS3Path));
+        }
+
+        public Builder endpointManagement(@Nullable Output<String> endpointManagement) {
+            $.endpointManagement = endpointManagement;
+            return this;
+        }
+
+        public Builder endpointManagement(String endpointManagement) {
+            return endpointManagement(Output.of(endpointManagement));
         }
 
         /**

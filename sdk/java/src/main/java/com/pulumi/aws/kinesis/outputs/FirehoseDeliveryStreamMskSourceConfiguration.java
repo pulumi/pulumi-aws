@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class FirehoseDeliveryStreamMskSourceConfiguration {
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
@@ -29,7 +29,7 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
 
     private FirehoseDeliveryStreamMskSourceConfiguration() {}
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration() {

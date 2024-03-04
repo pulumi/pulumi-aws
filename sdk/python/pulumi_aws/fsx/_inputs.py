@@ -1687,7 +1687,7 @@ class OpenZfsVolumeNfsExportsArgs:
     def __init__(__self__, *,
                  client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1695,7 +1695,7 @@ class OpenZfsVolumeNfsExportsArgs:
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]:
         """
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -1746,12 +1746,19 @@ class OpenZfsVolumeOriginSnapshotArgs:
     def __init__(__self__, *,
                  copy_strategy: pulumi.Input[str],
                  snapshot_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] copy_strategy: Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        :param pulumi.Input[str] snapshot_arn: The Amazon Resource Name (ARN) of the origin snapshot.
+        """
         pulumi.set(__self__, "copy_strategy", copy_strategy)
         pulumi.set(__self__, "snapshot_arn", snapshot_arn)
 
     @property
     @pulumi.getter(name="copyStrategy")
     def copy_strategy(self) -> pulumi.Input[str]:
+        """
+        Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        """
         return pulumi.get(self, "copy_strategy")
 
     @copy_strategy.setter
@@ -1761,6 +1768,9 @@ class OpenZfsVolumeOriginSnapshotArgs:
     @property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the origin snapshot.
+        """
         return pulumi.get(self, "snapshot_arn")
 
     @snapshot_arn.setter

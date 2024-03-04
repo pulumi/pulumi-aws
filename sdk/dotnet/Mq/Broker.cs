@@ -96,6 +96,78 @@ namespace Pulumi.Aws.Mq
     /// 
     /// });
     /// ```
+    /// ### Cross-Region Data Replication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePrimary = new Aws.Mq.Broker("example_primary", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         BrokerName = "example_primary",
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
+    ///         HostInstanceType = "mq.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             examplePrimaryAwsSecurityGroup.Id,
+    ///         },
+    ///         DeploymentMode = "ACTIVE_STANDBY_MULTI_AZ",
+    ///         Users = new[]
+    ///         {
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "ExampleUser",
+    ///                 Password = "MindTheGap",
+    ///             },
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "ExampleReplicationUser",
+    ///                 Password = "Example12345",
+    ///                 ReplicationUser = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Mq.Broker("example", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         BrokerName = "example",
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
+    ///         HostInstanceType = "mq.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         DeploymentMode = "ACTIVE_STANDBY_MULTI_AZ",
+    ///         DataReplicationMode = "CRDR",
+    ///         DataReplicationPrimaryBrokerArn = primary.Arn,
+    ///         Users = new[]
+    ///         {
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "ExampleUser",
+    ///                 Password = "MindTheGap",
+    ///             },
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "ExampleReplicationUser",
+    ///                 Password = "Example12345",
+    ///                 ReplicationUser = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
     /// 
     /// ## Import
     /// 
@@ -143,6 +215,18 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.BrokerConfiguration> Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+        /// </summary>
+        [Output("dataReplicationMode")]
+        public Output<string> DataReplicationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+        /// </summary>
+        [Output("dataReplicationPrimaryBrokerArn")]
+        public Output<string?> DataReplicationPrimaryBrokerArn { get; private set; } = null!;
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -208,6 +292,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Output("maintenanceWindowStartTime")]
         public Output<Outputs.BrokerMaintenanceWindowStartTime> MaintenanceWindowStartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional) The data replication mode that will be applied after reboot.
+        /// </summary>
+        [Output("pendingDataReplicationMode")]
+        public Output<string> PendingDataReplicationMode { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
@@ -328,6 +418,18 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+        /// </summary>
+        [Input("dataReplicationMode")]
+        public Input<string>? DataReplicationMode { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+        /// </summary>
+        [Input("dataReplicationPrimaryBrokerArn")]
+        public Input<string>? DataReplicationPrimaryBrokerArn { get; set; }
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -484,6 +586,18 @@ namespace Pulumi.Aws.Mq
         public Input<Inputs.BrokerConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
+        /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+        /// </summary>
+        [Input("dataReplicationMode")]
+        public Input<string>? DataReplicationMode { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+        /// </summary>
+        [Input("dataReplicationPrimaryBrokerArn")]
+        public Input<string>? DataReplicationPrimaryBrokerArn { get; set; }
+
+        /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         /// </summary>
         [Input("deploymentMode")]
@@ -553,6 +667,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("maintenanceWindowStartTime")]
         public Input<Inputs.BrokerMaintenanceWindowStartTimeGetArgs>? MaintenanceWindowStartTime { get; set; }
+
+        /// <summary>
+        /// (Optional) The data replication mode that will be applied after reboot.
+        /// </summary>
+        [Input("pendingDataReplicationMode")]
+        public Input<string>? PendingDataReplicationMode { get; set; }
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.

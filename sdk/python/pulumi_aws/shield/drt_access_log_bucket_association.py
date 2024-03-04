@@ -125,7 +125,8 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
+        Resource for managing an AWS Shield DRT Access Log Bucket Association.
+        Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 
         ## Example Usage
         ### Basic Usage
@@ -140,6 +141,14 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             role_arn_association_id=test.id)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
+
+        ```sh
+         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
@@ -152,7 +161,8 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  args: DrtAccessLogBucketAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
+        Resource for managing an AWS Shield DRT Access Log Bucket Association.
+        Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 
         ## Example Usage
         ### Basic Usage
@@ -165,6 +175,14 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("test",
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
+
+        ```sh
+         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
         ```
 
         :param str resource_name: The name of the resource.

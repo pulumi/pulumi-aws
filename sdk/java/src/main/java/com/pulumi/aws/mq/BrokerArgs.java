@@ -101,6 +101,36 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    @Import(name="dataReplicationMode")
+    private @Nullable Output<String> dataReplicationMode;
+
+    /**
+     * @return Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    public Optional<Output<String>> dataReplicationMode() {
+        return Optional.ofNullable(this.dataReplicationMode);
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    @Import(name="dataReplicationPrimaryBrokerArn")
+    private @Nullable Output<String> dataReplicationPrimaryBrokerArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    public Optional<Output<String>> dataReplicationPrimaryBrokerArn() {
+        return Optional.ofNullable(this.dataReplicationPrimaryBrokerArn);
+    }
+
+    /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      * 
      */
@@ -322,6 +352,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.brokerName = $.brokerName;
         this.configuration = $.configuration;
+        this.dataReplicationMode = $.dataReplicationMode;
+        this.dataReplicationPrimaryBrokerArn = $.dataReplicationPrimaryBrokerArn;
         this.deploymentMode = $.deploymentMode;
         this.encryptionOptions = $.encryptionOptions;
         this.engineType = $.engineType;
@@ -459,6 +491,48 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder configuration(BrokerConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
+        }
+
+        /**
+         * @param dataReplicationMode Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationMode(@Nullable Output<String> dataReplicationMode) {
+            $.dataReplicationMode = dataReplicationMode;
+            return this;
+        }
+
+        /**
+         * @param dataReplicationMode Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationMode(String dataReplicationMode) {
+            return dataReplicationMode(Output.of(dataReplicationMode));
+        }
+
+        /**
+         * @param dataReplicationPrimaryBrokerArn The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationPrimaryBrokerArn(@Nullable Output<String> dataReplicationPrimaryBrokerArn) {
+            $.dataReplicationPrimaryBrokerArn = dataReplicationPrimaryBrokerArn;
+            return this;
+        }
+
+        /**
+         * @param dataReplicationPrimaryBrokerArn The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationPrimaryBrokerArn(String dataReplicationPrimaryBrokerArn) {
+            return dataReplicationPrimaryBrokerArn(Output.of(dataReplicationPrimaryBrokerArn));
         }
 
         /**

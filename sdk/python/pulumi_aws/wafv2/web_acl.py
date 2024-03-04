@@ -213,6 +213,7 @@ class WebAclArgs:
 @pulumi.input_type
 class _WebAclState:
     def __init__(__self__, *,
+                 application_integration_url: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
@@ -231,6 +232,7 @@ class _WebAclState:
                  visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering WebAcl resources.
+        :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
@@ -247,6 +249,8 @@ class _WebAclState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
+        if application_integration_url is not None:
+            pulumi.set(__self__, "application_integration_url", application_integration_url)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if association_config is not None:
@@ -282,6 +286,18 @@ class _WebAclState:
             pulumi.set(__self__, "token_domains", token_domains)
         if visibility_config is not None:
             pulumi.set(__self__, "visibility_config", visibility_config)
+
+    @property
+    @pulumi.getter(name="applicationIntegrationUrl")
+    def application_integration_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to use in SDK integrations with managed rule groups.
+        """
+        return pulumi.get(self, "application_integration_url")
+
+    @application_integration_url.setter
+    def application_integration_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_integration_url", value)
 
     @property
     @pulumi.getter
@@ -573,6 +589,7 @@ class WebAcl(pulumi.CustomResource):
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
+            __props__.__dict__["application_integration_url"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["lock_token"] = None
@@ -587,6 +604,7 @@ class WebAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            application_integration_url: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
@@ -610,6 +628,7 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
@@ -630,6 +649,7 @@ class WebAcl(pulumi.CustomResource):
 
         __props__ = _WebAclState.__new__(_WebAclState)
 
+        __props__.__dict__["application_integration_url"] = application_integration_url
         __props__.__dict__["arn"] = arn
         __props__.__dict__["association_config"] = association_config
         __props__.__dict__["capacity"] = capacity
@@ -647,6 +667,14 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["token_domains"] = token_domains
         __props__.__dict__["visibility_config"] = visibility_config
         return WebAcl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applicationIntegrationUrl")
+    def application_integration_url(self) -> pulumi.Output[str]:
+        """
+        The URL to use in SDK integrations with managed rule groups.
+        """
+        return pulumi.get(self, "application_integration_url")
 
     @property
     @pulumi.getter

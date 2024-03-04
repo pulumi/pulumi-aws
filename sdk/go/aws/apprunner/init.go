@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDomainAssociation{}
 	case "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion":
 		r = &DefaultAutoScalingConfigurationVersion{}
+	case "aws:apprunner/deployment:Deployment":
+		r = &Deployment{}
 	case "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration":
 		r = &ObservabilityConfiguration{}
 	case "aws:apprunner/service:Service":
@@ -68,6 +70,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apprunner/defaultAutoScalingConfigurationVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apprunner/deployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -65,14 +65,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `elasticsearch`. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
     @Import(name="elasticsearchConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationArgs> elasticsearchConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `elasticsearch`. More details are given below.
+     * @return Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationArgs>> elasticsearchConfiguration() {
@@ -80,14 +80,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enhanced configuration options for the s3 destination. More details are given below.
+     * Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
     @Import(name="extendedS3Configuration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationArgs> extendedS3Configuration;
 
     /**
-     * @return Enhanced configuration options for the s3 destination. More details are given below.
+     * @return Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationArgs>> extendedS3Configuration() {
@@ -95,14 +95,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+     * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
     @Import(name="httpEndpointConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs> httpEndpointConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+     * @return Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs>> httpEndpointConfiguration() {
@@ -110,14 +110,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
     @Import(name="kinesisSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs> kinesisSourceConfiguration;
 
     /**
-     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs>> kinesisSourceConfiguration() {
@@ -125,14 +125,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
     @Import(name="mskSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamMskSourceConfigurationArgs> mskSourceConfiguration;
 
     /**
-     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamMskSourceConfigurationArgs>> mskSourceConfiguration() {
@@ -155,14 +155,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `opensearch`. More details are given below.
+     * Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
     @Import(name="opensearchConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `opensearch`. More details are given below.
+     * @return Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationArgs>> opensearchConfiguration() {
@@ -170,14 +170,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
     @Import(name="opensearchserverlessConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> opensearchserverlessConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * @return Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs>> opensearchserverlessConfiguration() {
@@ -185,14 +185,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationArgs> redshiftConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationArgs>> redshiftConfiguration() {
@@ -200,16 +200,18 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Encrypt at rest options.
-     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * Encrypt at rest options. See `server_side_encryption` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<FirehoseDeliveryStreamServerSideEncryptionArgs> serverSideEncryption;
 
     /**
-     * @return Encrypt at rest options.
-     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * @return Encrypt at rest options. See `server_side_encryption` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamServerSideEncryptionArgs>> serverSideEncryption() {
@@ -217,14 +219,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration options when `destination` is `splunk`. More details are given below.
+     * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
     @Import(name="splunkConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
 
     /**
-     * @return Configuration options when `destination` is `splunk`. More details are given below.
+     * @return Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationArgs>> splunkConfiguration() {
@@ -352,7 +354,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. More details are given below.
+         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -363,7 +365,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. More details are given below.
+         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -373,7 +375,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. More details are given below.
+         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -384,7 +386,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. More details are given below.
+         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -394,7 +396,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpEndpointConfiguration Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+         * @param httpEndpointConfiguration Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -405,7 +407,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpEndpointConfiguration Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+         * @param httpEndpointConfiguration Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -415,7 +417,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -426,7 +428,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -436,7 +438,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -447,7 +449,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -478,7 +480,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. More details are given below.
+         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -489,7 +491,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. More details are given below.
+         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -499,7 +501,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. More details are given below.
+         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -510,7 +512,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. More details are given below.
+         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -520,7 +522,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -531,7 +533,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
+         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -541,8 +543,9 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serverSideEncryption Encrypt at rest options.
-         * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
+         * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -553,8 +556,9 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serverSideEncryption Encrypt at rest options.
-         * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
+         * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -564,7 +568,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param splunkConfiguration Configuration options when `destination` is `splunk`. More details are given below.
+         * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -575,7 +579,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param splunkConfiguration Configuration options when `destination` is `splunk`. More details are given below.
+         * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
          * 
          * @return builder
          * 

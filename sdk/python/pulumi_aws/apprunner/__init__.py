@@ -9,6 +9,7 @@ from .auto_scaling_configuration_version import *
 from .connection import *
 from .custom_domain_association import *
 from .default_auto_scaling_configuration_version import *
+from .deployment import *
 from .observability_configuration import *
 from .service import *
 from .vpc_connector import *

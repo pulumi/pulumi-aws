@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline;
 
 import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineTriggerArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -131,6 +132,21 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<List<PipelineTriggerArgs>> triggers;
+
+    /**
+     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    public Optional<Output<List<PipelineTriggerArgs>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
+    /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
      */
@@ -155,6 +171,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.stages = $.stages;
         this.tags = $.tags;
+        this.triggers = $.triggers;
         this.variables = $.variables;
     }
 
@@ -345,6 +362,37 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<List<PipelineTriggerArgs>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(List<PipelineTriggerArgs> triggers) {
+            return triggers(Output.of(triggers));
+        }
+
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(PipelineTriggerArgs... triggers) {
+            return triggers(List.of(triggers));
         }
 
         /**

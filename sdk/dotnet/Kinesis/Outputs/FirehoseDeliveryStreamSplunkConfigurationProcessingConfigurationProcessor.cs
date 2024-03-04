@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor
     {
         /// <summary>
-        /// Array of processor parameters. More details are given below
+        /// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter> Parameters;
         /// <summary>

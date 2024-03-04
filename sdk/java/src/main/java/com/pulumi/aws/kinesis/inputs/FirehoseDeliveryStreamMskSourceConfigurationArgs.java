@@ -16,14 +16,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     public static final FirehoseDeliveryStreamMskSourceConfigurationArgs Empty = new FirehoseDeliveryStreamMskSourceConfigurationArgs();
 
     /**
-     * The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     @Import(name="authenticationConfiguration", required=true)
     private Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration() {
@@ -87,7 +87,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. More details are given below.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. More details are given below.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
          * 
          * @return builder
          * 

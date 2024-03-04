@@ -60,6 +60,11 @@ export const getClusterCredentials: typeof import("./getClusterCredentials").get
 export const getClusterCredentialsOutput: typeof import("./getClusterCredentials").getClusterCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
 
+export { GetDataSharesArgs, GetDataSharesResult, GetDataSharesOutputArgs } from "./getDataShares";
+export const getDataShares: typeof import("./getDataShares").getDataShares = null as any;
+export const getDataSharesOutput: typeof import("./getDataShares").getDataSharesOutput = null as any;
+utilities.lazyLoad(exports, ["getDataShares","getDataSharesOutput"], () => require("./getDataShares"));
+
 export { GetOrderableClusterArgs, GetOrderableClusterResult, GetOrderableClusterOutputArgs } from "./getOrderableCluster";
 export const getOrderableCluster: typeof import("./getOrderableCluster").getOrderableCluster = null as any;
 export const getOrderableClusterOutput: typeof import("./getOrderableCluster").getOrderableClusterOutput = null as any;

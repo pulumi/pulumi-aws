@@ -1252,6 +1252,1202 @@ func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageAc
 	}).(PipelineStageActionOutput)
 }
 
+type PipelineTrigger struct {
+	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
+	GitConfiguration PipelineTriggerGitConfiguration `pulumi:"gitConfiguration"`
+	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
+	ProviderType string `pulumi:"providerType"`
+}
+
+// PipelineTriggerInput is an input type that accepts PipelineTriggerArgs and PipelineTriggerOutput values.
+// You can construct a concrete instance of `PipelineTriggerInput` via:
+//
+//	PipelineTriggerArgs{...}
+type PipelineTriggerInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerOutput() PipelineTriggerOutput
+	ToPipelineTriggerOutputWithContext(context.Context) PipelineTriggerOutput
+}
+
+type PipelineTriggerArgs struct {
+	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
+	GitConfiguration PipelineTriggerGitConfigurationInput `pulumi:"gitConfiguration"`
+	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
+	ProviderType pulumi.StringInput `pulumi:"providerType"`
+}
+
+func (PipelineTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTrigger)(nil)).Elem()
+}
+
+func (i PipelineTriggerArgs) ToPipelineTriggerOutput() PipelineTriggerOutput {
+	return i.ToPipelineTriggerOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerArgs) ToPipelineTriggerOutputWithContext(ctx context.Context) PipelineTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerOutput)
+}
+
+// PipelineTriggerArrayInput is an input type that accepts PipelineTriggerArray and PipelineTriggerArrayOutput values.
+// You can construct a concrete instance of `PipelineTriggerArrayInput` via:
+//
+//	PipelineTriggerArray{ PipelineTriggerArgs{...} }
+type PipelineTriggerArrayInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerArrayOutput() PipelineTriggerArrayOutput
+	ToPipelineTriggerArrayOutputWithContext(context.Context) PipelineTriggerArrayOutput
+}
+
+type PipelineTriggerArray []PipelineTriggerInput
+
+func (PipelineTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTrigger)(nil)).Elem()
+}
+
+func (i PipelineTriggerArray) ToPipelineTriggerArrayOutput() PipelineTriggerArrayOutput {
+	return i.ToPipelineTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerArray) ToPipelineTriggerArrayOutputWithContext(ctx context.Context) PipelineTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerArrayOutput)
+}
+
+type PipelineTriggerOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTrigger)(nil)).Elem()
+}
+
+func (o PipelineTriggerOutput) ToPipelineTriggerOutput() PipelineTriggerOutput {
+	return o
+}
+
+func (o PipelineTriggerOutput) ToPipelineTriggerOutputWithContext(ctx context.Context) PipelineTriggerOutput {
+	return o
+}
+
+// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
+func (o PipelineTriggerOutput) GitConfiguration() PipelineTriggerGitConfigurationOutput {
+	return o.ApplyT(func(v PipelineTrigger) PipelineTriggerGitConfiguration { return v.GitConfiguration }).(PipelineTriggerGitConfigurationOutput)
+}
+
+// The source provider for the event. Possible value is `CodeStarSourceConnection`.
+func (o PipelineTriggerOutput) ProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTrigger) string { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+type PipelineTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTrigger)(nil)).Elem()
+}
+
+func (o PipelineTriggerArrayOutput) ToPipelineTriggerArrayOutput() PipelineTriggerArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerArrayOutput) ToPipelineTriggerArrayOutputWithContext(ctx context.Context) PipelineTriggerArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerArrayOutput) Index(i pulumi.IntInput) PipelineTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTrigger {
+		return vs[0].([]PipelineTrigger)[vs[1].(int)]
+	}).(PipelineTriggerOutput)
+}
+
+type PipelineTriggerGitConfiguration struct {
+	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
+	PullRequests []PipelineTriggerGitConfigurationPullRequest `pulumi:"pullRequests"`
+	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+	Pushes []PipelineTriggerGitConfigurationPush `pulumi:"pushes"`
+	// The name of the pipeline source action where the trigger configuration.
+	SourceActionName string `pulumi:"sourceActionName"`
+}
+
+// PipelineTriggerGitConfigurationInput is an input type that accepts PipelineTriggerGitConfigurationArgs and PipelineTriggerGitConfigurationOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationInput` via:
+//
+//	PipelineTriggerGitConfigurationArgs{...}
+type PipelineTriggerGitConfigurationInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationOutput() PipelineTriggerGitConfigurationOutput
+	ToPipelineTriggerGitConfigurationOutputWithContext(context.Context) PipelineTriggerGitConfigurationOutput
+}
+
+type PipelineTriggerGitConfigurationArgs struct {
+	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
+	PullRequests PipelineTriggerGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
+	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+	Pushes PipelineTriggerGitConfigurationPushArrayInput `pulumi:"pushes"`
+	// The name of the pipeline source action where the trigger configuration.
+	SourceActionName pulumi.StringInput `pulumi:"sourceActionName"`
+}
+
+func (PipelineTriggerGitConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfiguration)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationArgs) ToPipelineTriggerGitConfigurationOutput() PipelineTriggerGitConfigurationOutput {
+	return i.ToPipelineTriggerGitConfigurationOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationArgs) ToPipelineTriggerGitConfigurationOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationOutput)
+}
+
+type PipelineTriggerGitConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfiguration)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationOutput) ToPipelineTriggerGitConfigurationOutput() PipelineTriggerGitConfigurationOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationOutput) ToPipelineTriggerGitConfigurationOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationOutput {
+	return o
+}
+
+// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
+func (o PipelineTriggerGitConfigurationOutput) PullRequests() PipelineTriggerGitConfigurationPullRequestArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfiguration) []PipelineTriggerGitConfigurationPullRequest {
+		return v.PullRequests
+	}).(PipelineTriggerGitConfigurationPullRequestArrayOutput)
+}
+
+// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+func (o PipelineTriggerGitConfigurationOutput) Pushes() PipelineTriggerGitConfigurationPushArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfiguration) []PipelineTriggerGitConfigurationPush { return v.Pushes }).(PipelineTriggerGitConfigurationPushArrayOutput)
+}
+
+// The name of the pipeline source action where the trigger configuration.
+func (o PipelineTriggerGitConfigurationOutput) SourceActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfiguration) string { return v.SourceActionName }).(pulumi.StringOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequest struct {
+	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+	Branches *PipelineTriggerGitConfigurationPullRequestBranches `pulumi:"branches"`
+	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
+	Events []string `pulumi:"events"`
+	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	FilePaths *PipelineTriggerGitConfigurationPullRequestFilePaths `pulumi:"filePaths"`
+}
+
+// PipelineTriggerGitConfigurationPullRequestInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestArgs and PipelineTriggerGitConfigurationPullRequestOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestInput` via:
+//
+//	PipelineTriggerGitConfigurationPullRequestArgs{...}
+type PipelineTriggerGitConfigurationPullRequestInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestOutput() PipelineTriggerGitConfigurationPullRequestOutput
+	ToPipelineTriggerGitConfigurationPullRequestOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestOutput
+}
+
+type PipelineTriggerGitConfigurationPullRequestArgs struct {
+	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+	Branches PipelineTriggerGitConfigurationPullRequestBranchesPtrInput `pulumi:"branches"`
+	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	FilePaths PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput `pulumi:"filePaths"`
+}
+
+func (PipelineTriggerGitConfigurationPullRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequest)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestArgs) ToPipelineTriggerGitConfigurationPullRequestOutput() PipelineTriggerGitConfigurationPullRequestOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestArgs) ToPipelineTriggerGitConfigurationPullRequestOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestOutput)
+}
+
+// PipelineTriggerGitConfigurationPullRequestArrayInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestArray and PipelineTriggerGitConfigurationPullRequestArrayOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestArrayInput` via:
+//
+//	PipelineTriggerGitConfigurationPullRequestArray{ PipelineTriggerGitConfigurationPullRequestArgs{...} }
+type PipelineTriggerGitConfigurationPullRequestArrayInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestArrayOutput() PipelineTriggerGitConfigurationPullRequestArrayOutput
+	ToPipelineTriggerGitConfigurationPullRequestArrayOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestArrayOutput
+}
+
+type PipelineTriggerGitConfigurationPullRequestArray []PipelineTriggerGitConfigurationPullRequestInput
+
+func (PipelineTriggerGitConfigurationPullRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerGitConfigurationPullRequest)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestArray) ToPipelineTriggerGitConfigurationPullRequestArrayOutput() PipelineTriggerGitConfigurationPullRequestArrayOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestArray) ToPipelineTriggerGitConfigurationPullRequestArrayOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequest)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestOutput) ToPipelineTriggerGitConfigurationPullRequestOutput() PipelineTriggerGitConfigurationPullRequestOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestOutput) ToPipelineTriggerGitConfigurationPullRequestOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestOutput {
+	return o
+}
+
+// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+func (o PipelineTriggerGitConfigurationPullRequestOutput) Branches() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) *PipelineTriggerGitConfigurationPullRequestBranches {
+		return v.Branches
+	}).(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput)
+}
+
+// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
+func (o PipelineTriggerGitConfigurationPullRequestOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+func (o PipelineTriggerGitConfigurationPullRequestOutput) FilePaths() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) *PipelineTriggerGitConfigurationPullRequestFilePaths {
+		return v.FilePaths
+	}).(PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerGitConfigurationPullRequest)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestArrayOutput) ToPipelineTriggerGitConfigurationPullRequestArrayOutput() PipelineTriggerGitConfigurationPullRequestArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestArrayOutput) ToPipelineTriggerGitConfigurationPullRequestArrayOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestArrayOutput) Index(i pulumi.IntInput) PipelineTriggerGitConfigurationPullRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTriggerGitConfigurationPullRequest {
+		return vs[0].([]PipelineTriggerGitConfigurationPullRequest)[vs[1].(int)]
+	}).(PipelineTriggerGitConfigurationPullRequestOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestBranches struct {
+	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes []string `pulumi:"excludes"`
+	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineTriggerGitConfigurationPullRequestBranchesInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestBranchesArgs and PipelineTriggerGitConfigurationPullRequestBranchesOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestBranchesInput` via:
+//
+//	PipelineTriggerGitConfigurationPullRequestBranchesArgs{...}
+type PipelineTriggerGitConfigurationPullRequestBranchesInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestBranchesOutput() PipelineTriggerGitConfigurationPullRequestBranchesOutput
+	ToPipelineTriggerGitConfigurationPullRequestBranchesOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestBranchesOutput
+}
+
+type PipelineTriggerGitConfigurationPullRequestBranchesArgs struct {
+	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineTriggerGitConfigurationPullRequestBranchesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestBranches)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestBranchesArgs) ToPipelineTriggerGitConfigurationPullRequestBranchesOutput() PipelineTriggerGitConfigurationPullRequestBranchesOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestBranchesOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestBranchesArgs) ToPipelineTriggerGitConfigurationPullRequestBranchesOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestBranchesOutput)
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestBranchesArgs) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutput() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestBranchesArgs) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestBranchesOutput).ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerGitConfigurationPullRequestBranchesPtrInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestBranchesArgs, PipelineTriggerGitConfigurationPullRequestBranchesPtr and PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestBranchesPtrInput` via:
+//
+//	        PipelineTriggerGitConfigurationPullRequestBranchesArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineTriggerGitConfigurationPullRequestBranchesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutput() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput
+	ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput
+}
+
+type pipelineTriggerGitConfigurationPullRequestBranchesPtrType PipelineTriggerGitConfigurationPullRequestBranchesArgs
+
+func PipelineTriggerGitConfigurationPullRequestBranchesPtr(v *PipelineTriggerGitConfigurationPullRequestBranchesArgs) PipelineTriggerGitConfigurationPullRequestBranchesPtrInput {
+	return (*pipelineTriggerGitConfigurationPullRequestBranchesPtrType)(v)
+}
+
+func (*pipelineTriggerGitConfigurationPullRequestBranchesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPullRequestBranches)(nil)).Elem()
+}
+
+func (i *pipelineTriggerGitConfigurationPullRequestBranchesPtrType) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutput() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerGitConfigurationPullRequestBranchesPtrType) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestBranchesOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestBranchesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestBranches)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesOutput() PipelineTriggerGitConfigurationPullRequestBranchesOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutput() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return o.ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTriggerGitConfigurationPullRequestBranches) *PipelineTriggerGitConfigurationPullRequestBranches {
+		return &v
+	}).(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestBranches) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestBranches) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPullRequestBranches)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutput() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) ToPipelineTriggerGitConfigurationPullRequestBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Elem() PipelineTriggerGitConfigurationPullRequestBranchesOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestBranches) PipelineTriggerGitConfigurationPullRequestBranches {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTriggerGitConfigurationPullRequestBranches
+		return ret
+	}).(PipelineTriggerGitConfigurationPullRequestBranchesOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestBranches) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestBranches) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestFilePaths struct {
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes []string `pulumi:"excludes"`
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineTriggerGitConfigurationPullRequestFilePathsInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestFilePathsArgs and PipelineTriggerGitConfigurationPullRequestFilePathsOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestFilePathsInput` via:
+//
+//	PipelineTriggerGitConfigurationPullRequestFilePathsArgs{...}
+type PipelineTriggerGitConfigurationPullRequestFilePathsInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestFilePathsOutput() PipelineTriggerGitConfigurationPullRequestFilePathsOutput
+	ToPipelineTriggerGitConfigurationPullRequestFilePathsOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsOutput
+}
+
+type PipelineTriggerGitConfigurationPullRequestFilePathsArgs struct {
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineTriggerGitConfigurationPullRequestFilePathsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestFilePaths)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestFilePathsArgs) ToPipelineTriggerGitConfigurationPullRequestFilePathsOutput() PipelineTriggerGitConfigurationPullRequestFilePathsOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestFilePathsOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestFilePathsArgs) ToPipelineTriggerGitConfigurationPullRequestFilePathsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestFilePathsOutput)
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestFilePathsArgs) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPullRequestFilePathsArgs) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestFilePathsOutput).ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput is an input type that accepts PipelineTriggerGitConfigurationPullRequestFilePathsArgs, PipelineTriggerGitConfigurationPullRequestFilePathsPtr and PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput` via:
+//
+//	        PipelineTriggerGitConfigurationPullRequestFilePathsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput
+	ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput
+}
+
+type pipelineTriggerGitConfigurationPullRequestFilePathsPtrType PipelineTriggerGitConfigurationPullRequestFilePathsArgs
+
+func PipelineTriggerGitConfigurationPullRequestFilePathsPtr(v *PipelineTriggerGitConfigurationPullRequestFilePathsArgs) PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput {
+	return (*pipelineTriggerGitConfigurationPullRequestFilePathsPtrType)(v)
+}
+
+func (*pipelineTriggerGitConfigurationPullRequestFilePathsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPullRequestFilePaths)(nil)).Elem()
+}
+
+func (i *pipelineTriggerGitConfigurationPullRequestFilePathsPtrType) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerGitConfigurationPullRequestFilePathsPtrType) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestFilePathsOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestFilePaths)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsOutput() PipelineTriggerGitConfigurationPullRequestFilePathsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return o.ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTriggerGitConfigurationPullRequestFilePaths) *PipelineTriggerGitConfigurationPullRequestFilePaths {
+		return &v
+	}).(PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestFilePaths) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestFilePaths) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPullRequestFilePaths)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) ToPipelineTriggerGitConfigurationPullRequestFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Elem() PipelineTriggerGitConfigurationPullRequestFilePathsOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestFilePaths) PipelineTriggerGitConfigurationPullRequestFilePaths {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTriggerGitConfigurationPullRequestFilePaths
+		return ret
+	}).(PipelineTriggerGitConfigurationPullRequestFilePathsOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestFilePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestFilePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPush struct {
+	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+	Branches *PipelineTriggerGitConfigurationPushBranches `pulumi:"branches"`
+	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	FilePaths *PipelineTriggerGitConfigurationPushFilePaths `pulumi:"filePaths"`
+	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+	Tags *PipelineTriggerGitConfigurationPushTags `pulumi:"tags"`
+}
+
+// PipelineTriggerGitConfigurationPushInput is an input type that accepts PipelineTriggerGitConfigurationPushArgs and PipelineTriggerGitConfigurationPushOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushInput` via:
+//
+//	PipelineTriggerGitConfigurationPushArgs{...}
+type PipelineTriggerGitConfigurationPushInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushOutput() PipelineTriggerGitConfigurationPushOutput
+	ToPipelineTriggerGitConfigurationPushOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushOutput
+}
+
+type PipelineTriggerGitConfigurationPushArgs struct {
+	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+	Branches PipelineTriggerGitConfigurationPushBranchesPtrInput `pulumi:"branches"`
+	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	FilePaths PipelineTriggerGitConfigurationPushFilePathsPtrInput `pulumi:"filePaths"`
+	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+	Tags PipelineTriggerGitConfigurationPushTagsPtrInput `pulumi:"tags"`
+}
+
+func (PipelineTriggerGitConfigurationPushArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPush)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPushArgs) ToPipelineTriggerGitConfigurationPushOutput() PipelineTriggerGitConfigurationPushOutput {
+	return i.ToPipelineTriggerGitConfigurationPushOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushArgs) ToPipelineTriggerGitConfigurationPushOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushOutput)
+}
+
+// PipelineTriggerGitConfigurationPushArrayInput is an input type that accepts PipelineTriggerGitConfigurationPushArray and PipelineTriggerGitConfigurationPushArrayOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushArrayInput` via:
+//
+//	PipelineTriggerGitConfigurationPushArray{ PipelineTriggerGitConfigurationPushArgs{...} }
+type PipelineTriggerGitConfigurationPushArrayInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushArrayOutput() PipelineTriggerGitConfigurationPushArrayOutput
+	ToPipelineTriggerGitConfigurationPushArrayOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushArrayOutput
+}
+
+type PipelineTriggerGitConfigurationPushArray []PipelineTriggerGitConfigurationPushInput
+
+func (PipelineTriggerGitConfigurationPushArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerGitConfigurationPush)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPushArray) ToPipelineTriggerGitConfigurationPushArrayOutput() PipelineTriggerGitConfigurationPushArrayOutput {
+	return i.ToPipelineTriggerGitConfigurationPushArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushArray) ToPipelineTriggerGitConfigurationPushArrayOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPush)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushOutput) ToPipelineTriggerGitConfigurationPushOutput() PipelineTriggerGitConfigurationPushOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushOutput) ToPipelineTriggerGitConfigurationPushOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushOutput {
+	return o
+}
+
+// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+func (o PipelineTriggerGitConfigurationPushOutput) Branches() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushBranches {
+		return v.Branches
+	}).(PipelineTriggerGitConfigurationPushBranchesPtrOutput)
+}
+
+// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+func (o PipelineTriggerGitConfigurationPushOutput) FilePaths() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushFilePaths {
+		return v.FilePaths
+	}).(PipelineTriggerGitConfigurationPushFilePathsPtrOutput)
+}
+
+// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+func (o PipelineTriggerGitConfigurationPushOutput) Tags() PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushTags { return v.Tags }).(PipelineTriggerGitConfigurationPushTagsPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPushArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerGitConfigurationPush)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushArrayOutput) ToPipelineTriggerGitConfigurationPushArrayOutput() PipelineTriggerGitConfigurationPushArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushArrayOutput) ToPipelineTriggerGitConfigurationPushArrayOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushArrayOutput) Index(i pulumi.IntInput) PipelineTriggerGitConfigurationPushOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTriggerGitConfigurationPush {
+		return vs[0].([]PipelineTriggerGitConfigurationPush)[vs[1].(int)]
+	}).(PipelineTriggerGitConfigurationPushOutput)
+}
+
+type PipelineTriggerGitConfigurationPushBranches struct {
+	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes []string `pulumi:"excludes"`
+	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineTriggerGitConfigurationPushBranchesInput is an input type that accepts PipelineTriggerGitConfigurationPushBranchesArgs and PipelineTriggerGitConfigurationPushBranchesOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushBranchesInput` via:
+//
+//	PipelineTriggerGitConfigurationPushBranchesArgs{...}
+type PipelineTriggerGitConfigurationPushBranchesInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushBranchesOutput() PipelineTriggerGitConfigurationPushBranchesOutput
+	ToPipelineTriggerGitConfigurationPushBranchesOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushBranchesOutput
+}
+
+type PipelineTriggerGitConfigurationPushBranchesArgs struct {
+	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineTriggerGitConfigurationPushBranchesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushBranches)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPushBranchesArgs) ToPipelineTriggerGitConfigurationPushBranchesOutput() PipelineTriggerGitConfigurationPushBranchesOutput {
+	return i.ToPipelineTriggerGitConfigurationPushBranchesOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushBranchesArgs) ToPipelineTriggerGitConfigurationPushBranchesOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushBranchesOutput)
+}
+
+func (i PipelineTriggerGitConfigurationPushBranchesArgs) ToPipelineTriggerGitConfigurationPushBranchesPtrOutput() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushBranchesArgs) ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushBranchesOutput).ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerGitConfigurationPushBranchesPtrInput is an input type that accepts PipelineTriggerGitConfigurationPushBranchesArgs, PipelineTriggerGitConfigurationPushBranchesPtr and PipelineTriggerGitConfigurationPushBranchesPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushBranchesPtrInput` via:
+//
+//	        PipelineTriggerGitConfigurationPushBranchesArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineTriggerGitConfigurationPushBranchesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushBranchesPtrOutput() PipelineTriggerGitConfigurationPushBranchesPtrOutput
+	ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushBranchesPtrOutput
+}
+
+type pipelineTriggerGitConfigurationPushBranchesPtrType PipelineTriggerGitConfigurationPushBranchesArgs
+
+func PipelineTriggerGitConfigurationPushBranchesPtr(v *PipelineTriggerGitConfigurationPushBranchesArgs) PipelineTriggerGitConfigurationPushBranchesPtrInput {
+	return (*pipelineTriggerGitConfigurationPushBranchesPtrType)(v)
+}
+
+func (*pipelineTriggerGitConfigurationPushBranchesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushBranches)(nil)).Elem()
+}
+
+func (i *pipelineTriggerGitConfigurationPushBranchesPtrType) ToPipelineTriggerGitConfigurationPushBranchesPtrOutput() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerGitConfigurationPushBranchesPtrType) ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushBranchesPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPushBranchesOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushBranchesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushBranches)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) ToPipelineTriggerGitConfigurationPushBranchesOutput() PipelineTriggerGitConfigurationPushBranchesOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) ToPipelineTriggerGitConfigurationPushBranchesOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) ToPipelineTriggerGitConfigurationPushBranchesPtrOutput() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return o.ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTriggerGitConfigurationPushBranches) *PipelineTriggerGitConfigurationPushBranches {
+		return &v
+	}).(PipelineTriggerGitConfigurationPushBranchesPtrOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushBranches) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushBranchesOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushBranches) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushBranchesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushBranchesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushBranches)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) ToPipelineTriggerGitConfigurationPushBranchesPtrOutput() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) ToPipelineTriggerGitConfigurationPushBranchesPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushBranchesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Elem() PipelineTriggerGitConfigurationPushBranchesOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushBranches) PipelineTriggerGitConfigurationPushBranches {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTriggerGitConfigurationPushBranches
+		return ret
+	}).(PipelineTriggerGitConfigurationPushBranchesOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushBranches) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushBranches) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushFilePaths struct {
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes []string `pulumi:"excludes"`
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineTriggerGitConfigurationPushFilePathsInput is an input type that accepts PipelineTriggerGitConfigurationPushFilePathsArgs and PipelineTriggerGitConfigurationPushFilePathsOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushFilePathsInput` via:
+//
+//	PipelineTriggerGitConfigurationPushFilePathsArgs{...}
+type PipelineTriggerGitConfigurationPushFilePathsInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushFilePathsOutput() PipelineTriggerGitConfigurationPushFilePathsOutput
+	ToPipelineTriggerGitConfigurationPushFilePathsOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushFilePathsOutput
+}
+
+type PipelineTriggerGitConfigurationPushFilePathsArgs struct {
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineTriggerGitConfigurationPushFilePathsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushFilePaths)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPushFilePathsArgs) ToPipelineTriggerGitConfigurationPushFilePathsOutput() PipelineTriggerGitConfigurationPushFilePathsOutput {
+	return i.ToPipelineTriggerGitConfigurationPushFilePathsOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushFilePathsArgs) ToPipelineTriggerGitConfigurationPushFilePathsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushFilePathsOutput)
+}
+
+func (i PipelineTriggerGitConfigurationPushFilePathsArgs) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutput() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushFilePathsArgs) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushFilePathsOutput).ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerGitConfigurationPushFilePathsPtrInput is an input type that accepts PipelineTriggerGitConfigurationPushFilePathsArgs, PipelineTriggerGitConfigurationPushFilePathsPtr and PipelineTriggerGitConfigurationPushFilePathsPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushFilePathsPtrInput` via:
+//
+//	        PipelineTriggerGitConfigurationPushFilePathsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineTriggerGitConfigurationPushFilePathsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushFilePathsPtrOutput() PipelineTriggerGitConfigurationPushFilePathsPtrOutput
+	ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushFilePathsPtrOutput
+}
+
+type pipelineTriggerGitConfigurationPushFilePathsPtrType PipelineTriggerGitConfigurationPushFilePathsArgs
+
+func PipelineTriggerGitConfigurationPushFilePathsPtr(v *PipelineTriggerGitConfigurationPushFilePathsArgs) PipelineTriggerGitConfigurationPushFilePathsPtrInput {
+	return (*pipelineTriggerGitConfigurationPushFilePathsPtrType)(v)
+}
+
+func (*pipelineTriggerGitConfigurationPushFilePathsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushFilePaths)(nil)).Elem()
+}
+
+func (i *pipelineTriggerGitConfigurationPushFilePathsPtrType) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutput() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerGitConfigurationPushFilePathsPtrType) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushFilePathsPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPushFilePathsOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushFilePathsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushFilePaths)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) ToPipelineTriggerGitConfigurationPushFilePathsOutput() PipelineTriggerGitConfigurationPushFilePathsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) ToPipelineTriggerGitConfigurationPushFilePathsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutput() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return o.ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTriggerGitConfigurationPushFilePaths) *PipelineTriggerGitConfigurationPushFilePaths {
+		return &v
+	}).(PipelineTriggerGitConfigurationPushFilePathsPtrOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushFilePaths) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushFilePathsOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushFilePaths) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushFilePathsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushFilePathsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushFilePaths)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutput() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) ToPipelineTriggerGitConfigurationPushFilePathsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Elem() PipelineTriggerGitConfigurationPushFilePathsOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushFilePaths) PipelineTriggerGitConfigurationPushFilePaths {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTriggerGitConfigurationPushFilePaths
+		return ret
+	}).(PipelineTriggerGitConfigurationPushFilePathsOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushFilePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushFilePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushTags struct {
+	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+	Excludes []string `pulumi:"excludes"`
+	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineTriggerGitConfigurationPushTagsInput is an input type that accepts PipelineTriggerGitConfigurationPushTagsArgs and PipelineTriggerGitConfigurationPushTagsOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushTagsInput` via:
+//
+//	PipelineTriggerGitConfigurationPushTagsArgs{...}
+type PipelineTriggerGitConfigurationPushTagsInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushTagsOutput() PipelineTriggerGitConfigurationPushTagsOutput
+	ToPipelineTriggerGitConfigurationPushTagsOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushTagsOutput
+}
+
+type PipelineTriggerGitConfigurationPushTagsArgs struct {
+	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineTriggerGitConfigurationPushTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushTags)(nil)).Elem()
+}
+
+func (i PipelineTriggerGitConfigurationPushTagsArgs) ToPipelineTriggerGitConfigurationPushTagsOutput() PipelineTriggerGitConfigurationPushTagsOutput {
+	return i.ToPipelineTriggerGitConfigurationPushTagsOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushTagsArgs) ToPipelineTriggerGitConfigurationPushTagsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushTagsOutput)
+}
+
+func (i PipelineTriggerGitConfigurationPushTagsArgs) ToPipelineTriggerGitConfigurationPushTagsPtrOutput() PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerGitConfigurationPushTagsArgs) ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushTagsOutput).ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerGitConfigurationPushTagsPtrInput is an input type that accepts PipelineTriggerGitConfigurationPushTagsArgs, PipelineTriggerGitConfigurationPushTagsPtr and PipelineTriggerGitConfigurationPushTagsPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerGitConfigurationPushTagsPtrInput` via:
+//
+//	        PipelineTriggerGitConfigurationPushTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineTriggerGitConfigurationPushTagsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerGitConfigurationPushTagsPtrOutput() PipelineTriggerGitConfigurationPushTagsPtrOutput
+	ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(context.Context) PipelineTriggerGitConfigurationPushTagsPtrOutput
+}
+
+type pipelineTriggerGitConfigurationPushTagsPtrType PipelineTriggerGitConfigurationPushTagsArgs
+
+func PipelineTriggerGitConfigurationPushTagsPtr(v *PipelineTriggerGitConfigurationPushTagsArgs) PipelineTriggerGitConfigurationPushTagsPtrInput {
+	return (*pipelineTriggerGitConfigurationPushTagsPtrType)(v)
+}
+
+func (*pipelineTriggerGitConfigurationPushTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushTags)(nil)).Elem()
+}
+
+func (i *pipelineTriggerGitConfigurationPushTagsPtrType) ToPipelineTriggerGitConfigurationPushTagsPtrOutput() PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return i.ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerGitConfigurationPushTagsPtrType) ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerGitConfigurationPushTagsPtrOutput)
+}
+
+type PipelineTriggerGitConfigurationPushTagsOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerGitConfigurationPushTags)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsOutput) ToPipelineTriggerGitConfigurationPushTagsOutput() PipelineTriggerGitConfigurationPushTagsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsOutput) ToPipelineTriggerGitConfigurationPushTagsOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsOutput) ToPipelineTriggerGitConfigurationPushTagsPtrOutput() PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return o.ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsOutput) ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTriggerGitConfigurationPushTags) *PipelineTriggerGitConfigurationPushTags {
+		return &v
+	}).(PipelineTriggerGitConfigurationPushTagsPtrOutput)
+}
+
+// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushTagsOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushTags) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushTagsOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushTags) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineTriggerGitConfigurationPushTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerGitConfigurationPushTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerGitConfigurationPushTags)(nil)).Elem()
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) ToPipelineTriggerGitConfigurationPushTagsPtrOutput() PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) ToPipelineTriggerGitConfigurationPushTagsPtrOutputWithContext(ctx context.Context) PipelineTriggerGitConfigurationPushTagsPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Elem() PipelineTriggerGitConfigurationPushTagsOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushTags) PipelineTriggerGitConfigurationPushTags {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTriggerGitConfigurationPushTags
+		return ret
+	}).(PipelineTriggerGitConfigurationPushTagsOutput)
+}
+
+// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 type PipelineVariable struct {
 	// The default value of a pipeline-level variable.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -1652,6 +2848,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageArrayInput)(nil)).Elem(), PipelineStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionInput)(nil)).Elem(), PipelineStageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionArrayInput)(nil)).Elem(), PipelineStageActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerInput)(nil)).Elem(), PipelineTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerArrayInput)(nil)).Elem(), PipelineTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationInput)(nil)).Elem(), PipelineTriggerGitConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestArrayInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestBranchesInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestBranchesPtrInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestFilePathsInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestFilePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput)(nil)).Elem(), PipelineTriggerGitConfigurationPullRequestFilePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushArrayInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushBranchesInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushBranchesPtrInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushFilePathsInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushFilePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushFilePathsPtrInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushFilePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushTagsInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationPushTagsPtrInput)(nil)).Elem(), PipelineTriggerGitConfigurationPushTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableInput)(nil)).Elem(), PipelineVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableArrayInput)(nil)).Elem(), PipelineVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
@@ -1674,6 +2887,23 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionArrayOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerArrayOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestArrayOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestBranchesOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestFilePathsOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushArrayOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushBranchesOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushBranchesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushFilePathsOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushFilePathsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushTagsOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationPushTagsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineVariableOutput{})
 	pulumi.RegisterOutputType(PipelineVariableArrayOutput{})
 	pulumi.RegisterOutputType(WebhookAuthenticationConfigurationOutput{})
