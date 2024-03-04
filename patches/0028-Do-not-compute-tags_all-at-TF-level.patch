@@ -5,7 +5,7 @@ Subject: [PATCH 28/46] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/base.go b/internal/framework/base.go
-index 94dbf5e792..494a2effba 100644
+index d1c4c7d1ab..3e51e53f87 100644
 --- a/internal/framework/base.go
 +++ b/internal/framework/base.go
 @@ -70,6 +70,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
@@ -37,7 +37,7 @@ index 963d905424..be3bc32ec2 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index 16549b639d..880ddb5d12 100644
+index e5ca16ef49..e7e2bbc9ba 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
 @@ -105,7 +105,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem

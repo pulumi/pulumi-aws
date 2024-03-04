@@ -5,7 +5,7 @@ Subject: [PATCH 36/46] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 8013c41801..197727c636 100644
+index ec150135d2..4daad4c761 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
 @@ -83,7 +83,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
@@ -18,7 +18,7 @@ index 8013c41801..197727c636 100644
  		Blocks: map[string]schema.Block{
  			"destination": schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index 88557aa20f..4d01c25a06 100644
+index 456bce8a23..aa60b56eef 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
 @@ -137,7 +137,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
@@ -69,8 +69,21 @@ index 11242d1636..ea24792626 100644
  		},
  	}
  
+diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
+index a2ceb7000f..62014cc5c5 100644
+--- a/internal/service/securityhub/automation_rule.go
++++ b/internal/service/securityhub/automation_rule.go
+@@ -74,7 +74,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"actions": schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index 316a385ed2..c7e5a50d45 100644
+index f74c1b2850..3a95d706f4 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -72,7 +72,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -83,7 +96,7 @@ index 316a385ed2..c7e5a50d45 100644
  		Blocks: map[string]schema.Block{
  			"configuration": schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index 876014ee68..f744766c32 100644
+index c34658efc5..86f0437728 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
 @@ -70,7 +70,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe
