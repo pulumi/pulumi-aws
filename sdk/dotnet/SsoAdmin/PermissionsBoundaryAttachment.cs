@@ -15,69 +15,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
     /// 
     /// ## Example Usage
-    /// ### Attaching a customer-managed policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///     });
-    /// 
-    ///     var examplePolicy = new Aws.Iam.Policy("example", new()
-    ///     {
-    ///         Name = "TestPolicy",
-    ///         Description = "My test policy",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["action"] = new[]
-    ///                     {
-    ///                         "ec2:Describe*",
-    ///                     },
-    ///                     ["effect"] = "Allow",
-    ///                     ["resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var examplePermissionsBoundaryAttachment = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
-    ///     {
-    ///         InstanceArn = examplePermissionSet.InstanceArn,
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
-    ///         {
-    ///             CustomerManagedPolicyReference = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs
-    ///             {
-    ///                 Name = examplePolicy.Name,
-    ///                 Path = "/",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Attaching an AWS-managed policy
     /// 
     /// ```csharp

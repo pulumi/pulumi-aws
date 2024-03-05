@@ -15,53 +15,6 @@ import (
 // Manages an Image Builder Component.
 //
 // ## Example Usage
-// ### Inline Data Document
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
-//				Data: notImplemented(`yamlencode({
-//
-// phases=[{
-// name="build"
-// steps=[{
-// action="ExecuteBash"
-// inputs={
-// commands=["echo 'hello world'"]
-// }
-// name="example"
-// onFailure="Continue"
-// }]
-// }]
-// schemaVersion=1.0
-// })`),
-//
-//				Name:     pulumi.String("example"),
-//				Platform: pulumi.String("Linux"),
-//				Version:  pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### URI Document
 //
 // ```go

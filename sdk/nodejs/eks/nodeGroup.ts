@@ -43,30 +43,6 @@ import * as utilities from "../utilities";
  *     desiredSize: 2,
  * }});
  * ```
- * ### Tracking the latest EKS Node Group AMI releases
- *
- * You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const eksAmiReleaseVersion = aws.ssm.getParameter({
- *     name: `/aws/service/eks/optimized-ami/${exampleAwsEksCluster.version}/amazon-linux-2/recommended/release_version`,
- * });
- * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     nodeGroupName: "example",
- *     version: exampleAwsEksCluster.version,
- *     releaseVersion: notImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
- *     nodeRoleArn: exampleAwsIamRole.arn,
- *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- * });
- * ```
  * ### Example IAM Role for EKS Node Group
  *
  * ```typescript

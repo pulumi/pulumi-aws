@@ -18,40 +18,6 @@ namespace Pulumi.Aws.IdentityStore
     /// users using this resource.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.IdentityStore.User("example", new()
-    ///     {
-    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-    ///         DisplayName = "John Doe",
-    ///         UserName = "johndoe",
-    ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
-    ///         {
-    ///             GivenName = "John",
-    ///             FamilyName = "Doe",
-    ///         },
-    ///         Emails = new Aws.IdentityStore.Inputs.UserEmailsArgs
-    ///         {
-    ///             Value = "john@example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

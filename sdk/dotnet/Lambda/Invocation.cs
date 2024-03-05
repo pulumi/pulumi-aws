@@ -17,39 +17,6 @@ namespace Pulumi.Aws.Lambda
     /// &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Invocation("example", new()
-    ///     {
-    ///         FunctionName = lambdaFunctionTest.FunctionName,
-    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["key1"] = "value1",
-    ///             ["key2"] = "value2",
-    ///         }),
-    ///     });
-    /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["resultEntry"] = NotImplemented("jsondecode(aws_lambda_invocation.example.result)").Key1,
-    ///     };
-    /// });
-    /// ```
     /// ### Dynamic Invocation Example Using Triggers
     /// 
     /// ```csharp

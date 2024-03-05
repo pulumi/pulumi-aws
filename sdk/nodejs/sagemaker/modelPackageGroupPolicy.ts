@@ -8,37 +8,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Model Package Group Policy resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const current = aws.getCallerIdentity({});
- * const exampleModelPackageGroup = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
- * const example = pulumi.all([exampleModelPackageGroup.arn, current]).apply(([arn, current]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "AddPermModelPackageGroup",
- *         actions: [
- *             "sagemaker:DescribeModelPackage",
- *             "sagemaker:ListModelPackages",
- *         ],
- *         resources: [arn],
- *         principals: [{
- *             identifiers: [current.accountId],
- *             type: "AWS",
- *         }],
- *     }],
- * }));
- * const exampleModelPackageGroupPolicy = new aws.sagemaker.ModelPackageGroupPolicy("example", {
- *     modelPackageGroupName: exampleModelPackageGroup.modelPackageGroupName,
- *     resourcePolicy: JSON.stringify(notImplemented("jsondecode(data.aws_iam_policy_document.example.json)")),
- * });
- * ```
  *
  * ## Import
  *

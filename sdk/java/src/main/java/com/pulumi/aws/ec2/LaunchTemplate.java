@@ -40,8 +40,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Launch Templates using the `id`. For example:

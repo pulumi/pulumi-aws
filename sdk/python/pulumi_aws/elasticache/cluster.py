@@ -1237,39 +1237,6 @@ class Cluster(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Elasticache Cluster in Outpost
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.outposts.get_outposts()
-        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example_vpc.id,
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "my-subnet",
-            })
-        example_subnet_group = aws.elasticache.SubnetGroup("example",
-            name="my-cache-subnet",
-            subnet_ids=[example_subnet.id])
-        example_cluster = aws.elasticache.Cluster("example",
-            cluster_id="cluster-example",
-            outpost_mode="single-outpost",
-            preferred_outpost_arn=example_get_outpost.arn,
-            engine="memcached",
-            node_type="cache.r5.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211,
-            subnet_group_name=example_subnet_group.name)
-        ```
 
         ## Import
 
@@ -1420,39 +1387,6 @@ class Cluster(pulumi.CustomResource):
                     log_type="engine-log",
                 ),
             ])
-        ```
-        ### Elasticache Cluster in Outpost
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.outposts.get_outposts()
-        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example_vpc.id,
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "my-subnet",
-            })
-        example_subnet_group = aws.elasticache.SubnetGroup("example",
-            name="my-cache-subnet",
-            subnet_ids=[example_subnet.id])
-        example_cluster = aws.elasticache.Cluster("example",
-            cluster_id="cluster-example",
-            outpost_mode="single-outpost",
-            preferred_outpost_arn=example_get_outpost.arn,
-            engine="memcached",
-            node_type="cache.r5.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211,
-            subnet_group_name=example_subnet_group.name)
         ```
 
         ## Import

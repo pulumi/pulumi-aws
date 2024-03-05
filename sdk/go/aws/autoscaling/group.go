@@ -573,35 +573,6 @@ import (
 //	}
 //
 // ```
-// ### Auto Scaling group with Traffic Sources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
-//				TrafficSources:     "TODO: For expression",
-//				VpcZoneIdentifiers: pulumi.Any(testAwsSubnet.Id),
-//				MaxSize:            pulumi.Int(1),
-//				MinSize:            pulumi.Int(1),
-//				ForceDelete:        pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Waiting for Capacity
 //
 // A newly-created ASG is initially empty and begins to scale to `minSize` (or

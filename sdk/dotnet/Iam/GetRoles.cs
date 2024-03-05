@@ -112,53 +112,6 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Role ARNs with paths removed
-        /// 
-        /// For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// 	
-        /// object NotImplemented(string errorMessage) 
-        /// {
-        ///     throw new System.NotImplementedException(errorMessage);
-        /// }
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
-        ///     {
-        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["arns"] = Output.Tuple(roles, Std.Split.Invoke(new()
-        ///         {
-        ///             Separator = "/",
-        ///             Text = arn,
-        ///         })).Apply(values =&gt;
-        ///         {
-        ///             var roles = values.Item1;
-        ///             var invoke = values.Item2;
-        ///             return .Select(arn =&gt; 
-        ///             {
-        ///                 return invoke.Result;
-        ///             }).ToList().Select(parts =&gt; 
-        ///             {
-        ///                 return NotImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))");
-        ///             }).ToList();
-        ///         }),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
@@ -262,53 +215,6 @@ namespace Pulumi.Aws.Iam
         ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
         ///     });
         /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Role ARNs with paths removed
-        /// 
-        /// For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// 	
-        /// object NotImplemented(string errorMessage) 
-        /// {
-        ///     throw new System.NotImplementedException(errorMessage);
-        /// }
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
-        ///     {
-        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["arns"] = Output.Tuple(roles, Std.Split.Invoke(new()
-        ///         {
-        ///             Separator = "/",
-        ///             Text = arn,
-        ///         })).Apply(values =&gt;
-        ///         {
-        ///             var roles = values.Item1;
-        ///             var invoke = values.Item2;
-        ///             return .Select(arn =&gt; 
-        ///             {
-        ///                 return invoke.Result;
-        ///             }).ToList().Select(parts =&gt; 
-        ///             {
-        ///                 return NotImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))");
-        ///             }).ToList();
-        ///         }),
-        ///     };
         /// });
         /// ```
         /// {{% /example %}}

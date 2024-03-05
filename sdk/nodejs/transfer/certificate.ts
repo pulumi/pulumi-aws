@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Certificate resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.transfer.Certificate("example", {
- *     certificate: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.crt`,
- *     }).then(invoke => invoke.result),
- *     certificateChain: std.file({
- *         input: `${notImplemented("path.module")}/example.com/ca.crt`,
- *     }).then(invoke => invoke.result),
- *     privateKey: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.key`,
- *     }).then(invoke => invoke.result),
- *     description: "example",
- *     usage: "SIGNING",
- * });
- * ```
  *
  * ## Import
  *

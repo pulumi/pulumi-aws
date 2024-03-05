@@ -7,46 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Cognito Identity Principal Mapping.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.cognito.UserPool("example", {
- *     name: "user pool",
- *     autoVerifiedAttributes: ["email"],
- * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
- *     name: "client",
- *     userPoolId: example.id,
- *     supportedIdentityProviders: notImplemented(`compact([
- * "COGNITO",
- * ])`),
- * });
- * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {
- *     identityPoolName: "identity pool",
- *     allowUnauthenticatedIdentities: false,
- *     cognitoIdentityProviders: [{
- *         clientId: exampleUserPoolClient.id,
- *         providerName: example.endpoint,
- *         serverSideTokenCheck: false,
- *     }],
- * });
- * const exampleIdentityPoolProviderPrincipalTag = new aws.cognito.IdentityPoolProviderPrincipalTag("example", {
- *     identityPoolId: exampleIdentityPool.id,
- *     identityProviderName: example.endpoint,
- *     useDefaults: false,
- *     principalTags: {
- *         test: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:

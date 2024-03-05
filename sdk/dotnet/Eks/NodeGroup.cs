@@ -64,41 +64,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// ### Tracking the latest EKS Node Group AMI releases
-    /// 
-    /// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var eksAmiReleaseVersion = Aws.Ssm.GetParameter.Invoke(new()
-    ///     {
-    ///         Name = $"/aws/service/eks/optimized-ami/{exampleAwsEksCluster.Version}/amazon-linux-2/recommended/release_version",
-    ///     });
-    /// 
-    ///     var example = new Aws.Eks.NodeGroup("example", new()
-    ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         NodeGroupName = "example",
-    ///         Version = exampleAwsEksCluster.Version,
-    ///         ReleaseVersion = NotImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-    ///         NodeRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Example IAM Role for EKS Node Group
     /// 
     /// ```csharp

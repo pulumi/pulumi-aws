@@ -31,19 +31,6 @@ import * as utilities from "../utilities";
  *     versionStage: "example",
  * });
  * ```
- * ### Handling Key-Value Secret Strings in JSON
- *
- * Reading key-value pairs from JSON back into a native map
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * export const example = notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").key1;
- * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
 
@@ -131,19 +118,6 @@ export interface GetSecretVersionResult {
  *     secretId: example.id,
  *     versionStage: "example",
  * });
- * ```
- * ### Handling Key-Value Secret Strings in JSON
- *
- * Reading key-value pairs from JSON back into a native map
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * export const example = notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").key1;
  * ```
  */
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionResult> {

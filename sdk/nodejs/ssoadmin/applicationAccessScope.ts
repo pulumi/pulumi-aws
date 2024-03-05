@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSO Admin Application Access Scope.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleApplication = new aws.ssoadmin.Application("example", {
- *     name: "example",
- *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * const exampleApplicationAccessScope = new aws.ssoadmin.ApplicationAccessScope("example", {
- *     applicationArn: exampleApplication.applicationArn,
- *     authorizedTargets: ["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
- *     scope: "sso:account:access",
- * });
- * ```
  *
  * ## Import
  *

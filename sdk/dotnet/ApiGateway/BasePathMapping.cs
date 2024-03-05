@@ -14,58 +14,6 @@ namespace Pulumi.Aws.ApiGateway
     /// with a deployed API so that its methods can be called via the
     /// custom domain name.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGateway.Stage("example", new()
-    ///     {
-    ///         Deployment = exampleAwsApiGatewayDeployment.Id,
-    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
-    ///         StageName = "example",
-    ///     });
-    /// 
-    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("example", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///         CertificateName = "example-api",
-    ///         CertificateBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/example.crt",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         CertificateChain = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/ca.crt",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         CertificatePrivateKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/example.key",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("example", new()
-    ///     {
-    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
-    ///         StageName = example.StageName,
-    ///         DomainName = exampleDomainName.Domain,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// For a non-root `base_path`:

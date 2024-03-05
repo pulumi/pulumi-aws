@@ -150,35 +150,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
-    /// ### Redeploy Service On Every Apply
-    /// 
-    /// The key used with `triggers` is arbitrary.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ecs.Service("example", new()
-    ///     {
-    ///         ForceNewDeployment = true,
-    ///         Triggers = 
-    ///         {
-    ///             { "redeployment", NotImplemented("plantimestamp()") },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

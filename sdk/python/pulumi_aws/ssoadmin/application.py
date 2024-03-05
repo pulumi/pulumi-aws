@@ -367,45 +367,6 @@ class Application(pulumi.CustomResource):
         See this issue for additional context.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        ```
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -442,45 +403,6 @@ class Application(pulumi.CustomResource):
         See this issue for additional context.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        ```
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
 
         ## Import
 

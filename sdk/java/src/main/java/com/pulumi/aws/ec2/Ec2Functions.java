@@ -7689,16 +7689,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists() {
         return getManagedPrefixLists(GetManagedPrefixListsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain() {
@@ -7707,16 +7703,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args) {
         return getManagedPrefixLists(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args) {
@@ -7725,16 +7717,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args, InvokeOptions options) {
@@ -8145,16 +8133,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways() {
         return getNatGateways(GetNatGatewaysArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain() {
@@ -8163,16 +8147,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args) {
         return getNatGateways(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args) {
@@ -8181,16 +8161,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args, InvokeOptions options) {
@@ -11807,16 +11783,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables() {
         return getRouteTables(GetRouteTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain() {
@@ -11825,16 +11797,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables(GetRouteTablesArgs args) {
         return getRouteTables(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(GetRouteTablesPlainArgs args) {
@@ -11843,16 +11811,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables(GetRouteTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(GetRouteTablesPlainArgs args, InvokeOptions options) {
@@ -13631,16 +13595,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a set of subnet IDs.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets() {
         return getSubnets(GetSubnetsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a set of subnet IDs.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain() {
@@ -13649,16 +13609,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a set of subnet IDs.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets(GetSubnetsArgs args) {
         return getSubnets(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a set of subnet IDs.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(GetSubnetsPlainArgs args) {
@@ -13667,16 +13623,12 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a set of subnet IDs.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets(GetSubnetsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a set of subnet IDs.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(GetSubnetsPlainArgs args, InvokeOptions options) {
@@ -17895,41 +17847,6 @@ public final class Ec2Functions {
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
-     * 
      */
     public static Output<GetVpcsResult> getVpcs() {
         return getVpcs(GetVpcsArgs.Empty, InvokeOptions.Empty);
@@ -17938,41 +17855,6 @@ public final class Ec2Functions {
      * This resource can be useful for getting back a list of VPC Ids for a region.
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain() {
@@ -17983,41 +17865,6 @@ public final class Ec2Functions {
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
-     * 
      */
     public static Output<GetVpcsResult> getVpcs(GetVpcsArgs args) {
         return getVpcs(args, InvokeOptions.Empty);
@@ -18026,41 +17873,6 @@ public final class Ec2Functions {
      * This resource can be useful for getting back a list of VPC Ids for a region.
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain(GetVpcsPlainArgs args) {
@@ -18071,41 +17883,6 @@ public final class Ec2Functions {
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
-     * 
      */
     public static Output<GetVpcsResult> getVpcs(GetVpcsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
@@ -18114,41 +17891,6 @@ public final class Ec2Functions {
      * This resource can be useful for getting back a list of VPC Ids for a region.
      * 
      * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all VPC Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain(GetVpcsPlainArgs args, InvokeOptions options) {

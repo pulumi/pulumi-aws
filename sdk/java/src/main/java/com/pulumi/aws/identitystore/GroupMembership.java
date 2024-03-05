@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS IdentityStore Group Membership.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:

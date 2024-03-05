@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSO Admin Trusted Token Issuer.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleTrustedTokenIssuer = new aws.ssoadmin.TrustedTokenIssuer("example", {
- *     name: "example",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     trustedTokenIssuerType: "OIDC_JWT",
- *     trustedTokenIssuerConfiguration: {
- *         oidcJwtConfiguration: {
- *             claimAttributePath: "email",
- *             identityStoreAttributePath: "emails.value",
- *             issuerUrl: "https://example.com",
- *             jwksRetrievalOption: "OPEN_ID_DISCOVERY",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

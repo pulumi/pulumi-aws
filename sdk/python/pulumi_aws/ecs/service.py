@@ -1072,24 +1072,6 @@ class Service(pulumi.CustomResource):
                 type="EXTERNAL",
             ))
         ```
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": not_implemented("plantimestamp()"),
-            })
-        ```
 
         ## Import
 
@@ -1220,24 +1202,6 @@ class Service(pulumi.CustomResource):
             deployment_controller=aws.ecs.ServiceDeploymentControllerArgs(
                 type="EXTERNAL",
             ))
-        ```
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": not_implemented("plantimestamp()"),
-            })
         ```
 
         ## Import

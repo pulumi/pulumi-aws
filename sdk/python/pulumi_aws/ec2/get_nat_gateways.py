@@ -92,26 +92,6 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     """
     This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 
-    ## Example Usage
-
-    The following returns all NAT gateways in a specified VPC that are marked as available
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[aws.ec2.GetNatGatewaysFilterArgs(
-            name="state",
-            values=["available"],
-        )])
-    ngw = [aws.ec2.get_nat_gateway(id=not_implemented("tolist(data.aws_nat_gateways.ngws.ids)")[__index]) for __index in range(len(ngws.ids))]
-    ```
-
 
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -143,26 +123,6 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewaysResult]:
     """
     This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following returns all NAT gateways in a specified VPC that are marked as available
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[aws.ec2.GetNatGatewaysFilterArgs(
-            name="state",
-            values=["available"],
-        )])
-    ngw = [aws.ec2.get_nat_gateway(id=not_implemented("tolist(data.aws_nat_gateways.ngws.ids)")[__index]) for __index in range(len(ngws.ids))]
-    ```
 
 
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.

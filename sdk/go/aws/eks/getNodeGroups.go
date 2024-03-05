@@ -12,33 +12,6 @@ import (
 )
 
 // Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := eks.GetNodeGroups(ctx, &eks.GetNodeGroupsArgs{
-//				ClusterName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ := "TODO: For expression"
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.InvokeOption) (*GetNodeGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNodeGroupsResult

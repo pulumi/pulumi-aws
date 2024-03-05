@@ -164,28 +164,6 @@ class Deployment(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             description="Example deployment")
         ```
-        ### Redeployment Triggers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            description="Example deployment",
-            triggers={
-                "redeployment": std.sha1(input=std.join(separator=",",
-                    input=not_implemented(\"\"\"tolist([
-        jsonencode(aws_apigatewayv2_integration.example),
-        jsonencode(aws_apigatewayv2_route.example),
-        ])\"\"\")).result).result,
-            })
-        ```
 
         ## Import
 
@@ -224,28 +202,6 @@ class Deployment(pulumi.CustomResource):
         example = aws.apigatewayv2.Deployment("example",
             api_id=example_aws_apigatewayv2_api["id"],
             description="Example deployment")
-        ```
-        ### Redeployment Triggers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            description="Example deployment",
-            triggers={
-                "redeployment": std.sha1(input=std.join(separator=",",
-                    input=not_implemented(\"\"\"tolist([
-        jsonencode(aws_apigatewayv2_integration.example),
-        jsonencode(aws_apigatewayv2_route.example),
-        ])\"\"\")).result).result,
-            })
         ```
 
         ## Import

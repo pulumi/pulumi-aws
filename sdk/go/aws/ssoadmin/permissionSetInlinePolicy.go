@@ -17,67 +17,6 @@ import (
 // > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
 // Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef("1"),
-//						Actions: []string{
-//							"s3:ListAllMyBuckets",
-//							"s3:GetBucketLocation",
-//						},
-//						Resources: []string{
-//							"arn:aws:s3:::*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewPermissionSetInlinePolicy(ctx, "example", &ssoadmin.PermissionSetInlinePolicyArgs{
-//				InlinePolicy:     *pulumi.String(exampleGetPolicyDocument.Json),
-//				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//				PermissionSetArn: examplePermissionSet.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:

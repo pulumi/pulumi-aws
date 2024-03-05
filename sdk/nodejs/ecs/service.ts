@@ -94,25 +94,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Redeploy Service On Every Apply
- *
- * The key used with `triggers` is arbitrary.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.ecs.Service("example", {
- *     forceNewDeployment: true,
- *     triggers: {
- *         redeployment: notImplemented("plantimestamp()"),
- *     },
- * });
- * ```
  *
  * ## Import
  *

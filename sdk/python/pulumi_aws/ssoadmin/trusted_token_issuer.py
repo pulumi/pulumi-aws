@@ -281,30 +281,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Trusted Token Issuer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -335,30 +311,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Trusted Token Issuer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
 
         ## Import
 
