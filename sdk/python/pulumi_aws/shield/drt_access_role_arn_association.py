@@ -93,7 +93,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None,
                  __props__=None):
         """
-        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
+        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
+        For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
 
         ## Example Usage
         ### Basic Usage
@@ -122,6 +123,14 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
+
+        ```sh
+         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
@@ -133,7 +142,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  args: DrtAccessRoleArnAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
+        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
+        For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
 
         ## Example Usage
         ### Basic Usage
@@ -160,6 +170,14 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             role=test.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
+
+        ```sh
+         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

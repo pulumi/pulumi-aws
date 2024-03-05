@@ -46,18 +46,18 @@ public final class DrtAccessRoleArnAssociationTimeoutsArgs extends com.pulumi.re
     }
 
     /**
-     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    @Import(name="read")
-    private @Nullable Output<String> read;
+    @Import(name="update")
+    private @Nullable Output<String> update;
 
     /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    public Optional<Output<String>> read() {
-        return Optional.ofNullable(this.read);
+    public Optional<Output<String>> update() {
+        return Optional.ofNullable(this.update);
     }
 
     private DrtAccessRoleArnAssociationTimeoutsArgs() {}
@@ -65,7 +65,7 @@ public final class DrtAccessRoleArnAssociationTimeoutsArgs extends com.pulumi.re
     private DrtAccessRoleArnAssociationTimeoutsArgs(DrtAccessRoleArnAssociationTimeoutsArgs $) {
         this.create = $.create;
         this.delete = $.delete;
-        this.read = $.read;
+        this.update = $.update;
     }
 
     public static Builder builder() {
@@ -129,24 +129,24 @@ public final class DrtAccessRoleArnAssociationTimeoutsArgs extends com.pulumi.re
         }
 
         /**
-         * @param read A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         * @param update A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
          * 
          * @return builder
          * 
          */
-        public Builder read(@Nullable Output<String> read) {
-            $.read = read;
+        public Builder update(@Nullable Output<String> update) {
+            $.update = update;
             return this;
         }
 
         /**
-         * @param read A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         * @param update A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
          * 
          * @return builder
          * 
          */
-        public Builder read(String read) {
-            return read(Output.of(read));
+        public Builder update(String update) {
+            return update(Output.of(update));
         }
 
         public DrtAccessRoleArnAssociationTimeoutsArgs build() {

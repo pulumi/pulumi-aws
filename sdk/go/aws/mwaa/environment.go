@@ -200,7 +200,8 @@ type Environment struct {
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path pulumi.StringOutput `pulumi:"dagS3Path"`
+	DagS3Path          pulumi.StringOutput `pulumi:"dagS3Path"`
+	EndpointManagement pulumi.StringOutput `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringOutput `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -311,7 +312,8 @@ type environmentState struct {
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt *string `pulumi:"createdAt"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path *string `pulumi:"dagS3Path"`
+	DagS3Path          *string `pulumi:"dagS3Path"`
+	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -374,7 +376,8 @@ type EnvironmentState struct {
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringPtrInput
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path pulumi.StringPtrInput
+	DagS3Path          pulumi.StringPtrInput
+	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -436,7 +439,8 @@ type environmentArgs struct {
 	// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path string `pulumi:"dagS3Path"`
+	DagS3Path          string  `pulumi:"dagS3Path"`
+	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -484,7 +488,8 @@ type EnvironmentArgs struct {
 	// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
 	AirflowVersion pulumi.StringPtrInput
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path pulumi.StringInput
+	DagS3Path          pulumi.StringInput
+	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -636,6 +641,10 @@ func (o EnvironmentOutput) CreatedAt() pulumi.StringOutput {
 // The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 func (o EnvironmentOutput) DagS3Path() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DagS3Path }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) EndpointManagement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointManagement }).(pulumi.StringOutput)
 }
 
 // Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.

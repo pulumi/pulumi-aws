@@ -5,10 +5,10 @@ Subject: [PATCH 39/46] Restore legacy bucket
 
 
 diff --git a/go.mod b/go.mod
-index 90d01ab6be..8f2f7a39b0 100644
+index 8238e7bf4d..e95b21343a 100644
 --- a/go.mod
 +++ b/go.mod
-@@ -148,6 +148,7 @@ require (
+@@ -150,6 +150,7 @@ require (
  	github.com/gertd/go-pluralize v0.2.1
  	github.com/google/go-cmp v0.6.0
  	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0
@@ -17,7 +17,7 @@ index 90d01ab6be..8f2f7a39b0 100644
  	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.49
  	github.com/hashicorp/awspolicyequivalence v1.6.0
 diff --git a/go.sum b/go.sum
-index 1f972f57b1..16990a6c49 100644
+index fbff7d6716..02abbcc288 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -22,6 +22,7 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew
@@ -25,10 +25,10 @@ index 1f972f57b1..16990a6c49 100644
  github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
  github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.50.23 h1:BB99ohyCmq6O7m5RvjN2yqTt57snL8OhDvfxEvM6ihs=
- github.com/aws/aws-sdk-go v1.50.23/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
- github.com/aws/aws-sdk-go-v2 v1.25.1 h1:P7hU6A5qEdmajGwvae/zDkOq+ULLC9tQBTwqqiwFGpI=
-@@ -365,6 +366,7 @@ github.com/go-logr/logr v1.4.1 h1:pKouT5E8xu9zeFC39JXRDukb6JFQPXM5p5I91188VAQ=
+ github.com/aws/aws-sdk-go v1.50.29 h1:Ol2FYzesF2tsQrgVSnDWRFI60+FsSqKKdt7MLlZKubc=
+ github.com/aws/aws-sdk-go v1.50.29/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
+ github.com/aws/aws-sdk-go-v2 v1.25.2 h1:/uiG1avJRgLGiQM9X3qJM8+Qa6KRGK5rRPuXE0HUM+w=
+@@ -367,6 +368,7 @@ github.com/go-logr/logr v1.4.1 h1:pKouT5E8xu9zeFC39JXRDukb6JFQPXM5p5I91188VAQ=
  github.com/go-logr/logr v1.4.1/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
  github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
  github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
@@ -36,8 +36,8 @@ index 1f972f57b1..16990a6c49 100644
  github.com/go-test/deep v1.1.0 h1:WOcxcdHcvdgThNXjw0t76K42FXTU7HpNQWHpA2HHNlg=
  github.com/go-test/deep v1.1.0/go.mod h1:5C2ZWiW0ErCdrYzpqxLbTX7MG14M9iiw8DgHncVwcsE=
  github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
-@@ -384,6 +386,8 @@ github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
- github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+@@ -386,6 +388,8 @@ github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+ github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0 h1:IUypt/TbXiJBkBbE3926CgnjD8IltAitdn7Yive61DY=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
@@ -45,7 +45,7 @@ index 1f972f57b1..16990a6c49 100644
  github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.48 h1:ZPaCJH4o3BBeOB7w3UvREzjPuV4eBWYFEjD/ASPnnJ8=
  github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.48/go.mod h1:3FrgFmze7QYSCeUytmMUBFL7axlBBJv/GsZOaCiWn8A=
  github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.49 h1:BtuFKfdi40fQwGQPDCd5PhEOF4CEf6nAce9g8EbtQ+U=
-@@ -457,6 +461,7 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
+@@ -459,6 +463,7 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
  github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
  github.com/jhump/protoreflect v1.15.1 h1:HUMERORf3I3ZdX05WaQ6MIpd/NJ434hTp5YiKgfCL6c=
  github.com/jhump/protoreflect v1.15.1/go.mod h1:jD/2GMKKE6OqX8qTjhADU1e6DShO+gavG9e0Q693nKo=
@@ -53,8 +53,8 @@ index 1f972f57b1..16990a6c49 100644
  github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
  github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
  github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
-@@ -574,6 +579,7 @@ golang.org/x/mod v0.14.0 h1:dGoOF9QVLYng8IHTm7BAyWqCqSheQ5pYWGhzW00YJr0=
- golang.org/x/mod v0.14.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
+@@ -573,6 +578,7 @@ golang.org/x/mod v0.15.0 h1:SernR4v+D55NyBH2QiEQrlBAnj1ECL6AGrA5+dPaMY8=
+ golang.org/x/mod v0.15.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
  golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
  golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 +golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=

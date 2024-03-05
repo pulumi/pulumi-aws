@@ -65,7 +65,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
     public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     /**
@@ -88,6 +88,9 @@ export class DomainConfiguration extends pulumi.CustomResource {
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      */
     public readonly serviceType!: pulumi.Output<string | undefined>;
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -100,7 +103,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
     public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig>;
     /**
@@ -162,7 +165,7 @@ export interface DomainConfigurationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfig>;
     /**
@@ -185,6 +188,9 @@ export interface DomainConfigurationState {
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      */
     serviceType?: pulumi.Input<string>;
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     */
     status?: pulumi.Input<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -197,7 +203,7 @@ export interface DomainConfigurationState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
     tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfig>;
     /**
@@ -211,7 +217,7 @@ export interface DomainConfigurationState {
  */
 export interface DomainConfigurationArgs {
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfig>;
     /**
@@ -230,13 +236,16 @@ export interface DomainConfigurationArgs {
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      */
     serviceType?: pulumi.Input<string>;
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     */
     status?: pulumi.Input<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
     tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfig>;
     /**

@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
+ * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
+ * For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
  *
  * ## Example Usage
  * ### Basic Usage
@@ -36,6 +37,14 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
  * });
  * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("test", {roleArn: test.arn});
+ * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
+ *
+ * ```sh
+ *  $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
  * ```
  */
 export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {

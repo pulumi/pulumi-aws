@@ -140,14 +140,14 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxCapacity;
+    private Output</* @Nullable */ Integer> maxCapacity;
 
     /**
      * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
      * 
      */
-    public Output<Integer> maxCapacity() {
-        return this.maxCapacity;
+    public Output<Optional<Integer>> maxCapacity() {
+        return Codegen.optional(this.maxCapacity);
     }
     /**
      * The name of the namespace.

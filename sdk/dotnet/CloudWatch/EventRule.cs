@@ -164,6 +164,8 @@ namespace Pulumi.Aws.CloudWatch
         /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
         /// Defaults to `ENABLED`.
         /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -284,6 +286,8 @@ namespace Pulumi.Aws.CloudWatch
         /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
         /// Defaults to `ENABLED`.
         /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -372,6 +376,8 @@ namespace Pulumi.Aws.CloudWatch
         /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
         /// Defaults to `ENABLED`.
         /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -45,6 +45,11 @@ public final class SpotInstanceRequestRootBlockDevice {
      */
     private @Nullable Map<String,String> tags;
     /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    private @Nullable Map<String,String> tagsAll;
+    /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -107,6 +112,13 @@ public final class SpotInstanceRequestRootBlockDevice {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Map<String,String> tagsAll() {
+        return this.tagsAll == null ? Map.of() : this.tagsAll;
+    }
+    /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -148,6 +160,7 @@ public final class SpotInstanceRequestRootBlockDevice {
         private @Nullable Integer iops;
         private @Nullable String kmsKeyId;
         private @Nullable Map<String,String> tags;
+        private @Nullable Map<String,String> tagsAll;
         private @Nullable Integer throughput;
         private @Nullable String volumeId;
         private @Nullable Integer volumeSize;
@@ -161,6 +174,7 @@ public final class SpotInstanceRequestRootBlockDevice {
     	      this.iops = defaults.iops;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.tags = defaults.tags;
+    	      this.tagsAll = defaults.tagsAll;
     	      this.throughput = defaults.throughput;
     	      this.volumeId = defaults.volumeId;
     	      this.volumeSize = defaults.volumeSize;
@@ -204,6 +218,12 @@ public final class SpotInstanceRequestRootBlockDevice {
             return this;
         }
         @CustomType.Setter
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+
+            this.tagsAll = tagsAll;
+            return this;
+        }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
 
             this.throughput = throughput;
@@ -235,6 +255,7 @@ public final class SpotInstanceRequestRootBlockDevice {
             _resultValue.iops = iops;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
             _resultValue.throughput = throughput;
             _resultValue.volumeId = volumeId;
             _resultValue.volumeSize = volumeSize;

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters;
@@ -26,7 +26,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor() {}
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters() {

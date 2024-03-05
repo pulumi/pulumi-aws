@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamMskSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication configuration of the Amazon MSK cluster. More details are given below.
+        /// The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
         /// </summary>
         [Input("authenticationConfiguration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationGetArgs> AuthenticationConfiguration { get; set; } = null!;

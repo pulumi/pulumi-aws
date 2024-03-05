@@ -1345,6 +1345,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apprunner/deployment",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apprunner/observabilityConfiguration",
   "fqn": "pulumi_aws.apprunner",
   "classes": {
@@ -1917,6 +1925,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/remediationConfiguration:RemediationConfiguration": "RemediationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cfg/retentionConfiguration",
+  "fqn": "pulumi_aws.cfg",
+  "classes": {
+   "aws:cfg/retentionConfiguration:RetentionConfiguration": "RetentionConfiguration"
   }
  },
  {
@@ -9689,6 +9705,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/automationRule",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/automationRule:AutomationRule": "AutomationRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/findingAggregator",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -10197,6 +10221,14 @@ _utilities.register(
   "fqn": "pulumi_aws.shield",
   "classes": {
    "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation": "DrtAccessRoleArnAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/proactiveEngagement",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/proactiveEngagement:ProactiveEngagement": "ProactiveEngagement"
   }
  },
  {

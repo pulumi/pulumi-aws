@@ -109,6 +109,21 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -173,6 +188,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         this.iops = $.iops;
         this.kmsKeyId = $.kmsKeyId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.throughput = $.throughput;
         this.volumeId = $.volumeId;
         this.volumeSize = $.volumeSize;
@@ -321,6 +337,27 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

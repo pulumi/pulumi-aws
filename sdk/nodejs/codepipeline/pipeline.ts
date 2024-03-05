@@ -223,6 +223,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
+    /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
     public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
@@ -249,6 +253,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["stages"] = state ? state.stages : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
@@ -268,6 +273,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -322,6 +328,10 @@ export interface PipelineState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
     variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
@@ -361,6 +371,10 @@ export interface PipelineArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */

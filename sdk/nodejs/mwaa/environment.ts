@@ -171,6 +171,7 @@ export class Environment extends pulumi.CustomResource {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     public readonly dagS3Path!: pulumi.Output<string>;
+    public readonly endpointManagement!: pulumi.Output<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
@@ -285,6 +286,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["dagS3Path"] = state ? state.dagS3Path : undefined;
+            resourceInputs["endpointManagement"] = state ? state.endpointManagement : undefined;
             resourceInputs["environmentClass"] = state ? state.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
@@ -326,6 +328,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["airflowConfigurationOptions"] = args?.airflowConfigurationOptions ? pulumi.secret(args.airflowConfigurationOptions) : undefined;
             resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
+            resourceInputs["endpointManagement"] = args ? args.endpointManagement : undefined;
             resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
@@ -385,6 +388,7 @@ export interface EnvironmentState {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     dagS3Path?: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
@@ -498,6 +502,7 @@ export interface EnvironmentArgs {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     dagS3Path: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */

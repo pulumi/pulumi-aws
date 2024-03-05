@@ -51,14 +51,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -126,14 +126,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -171,14 +171,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -262,7 +262,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 

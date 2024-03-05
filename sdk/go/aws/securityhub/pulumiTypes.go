@@ -13,6 +13,6744 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AutomationRuleAction struct {
+	// A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+	FindingFieldsUpdate *AutomationRuleActionFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
+	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+	Type *string `pulumi:"type"`
+}
+
+// AutomationRuleActionInput is an input type that accepts AutomationRuleActionArgs and AutomationRuleActionOutput values.
+// You can construct a concrete instance of `AutomationRuleActionInput` via:
+//
+//	AutomationRuleActionArgs{...}
+type AutomationRuleActionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionOutput() AutomationRuleActionOutput
+	ToAutomationRuleActionOutputWithContext(context.Context) AutomationRuleActionOutput
+}
+
+type AutomationRuleActionArgs struct {
+	// A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+	FindingFieldsUpdate AutomationRuleActionFindingFieldsUpdatePtrInput `pulumi:"findingFieldsUpdate"`
+	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AutomationRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleAction)(nil)).Elem()
+}
+
+func (i AutomationRuleActionArgs) ToAutomationRuleActionOutput() AutomationRuleActionOutput {
+	return i.ToAutomationRuleActionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionArgs) ToAutomationRuleActionOutputWithContext(ctx context.Context) AutomationRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionOutput)
+}
+
+// AutomationRuleActionArrayInput is an input type that accepts AutomationRuleActionArray and AutomationRuleActionArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleActionArrayInput` via:
+//
+//	AutomationRuleActionArray{ AutomationRuleActionArgs{...} }
+type AutomationRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionArrayOutput() AutomationRuleActionArrayOutput
+	ToAutomationRuleActionArrayOutputWithContext(context.Context) AutomationRuleActionArrayOutput
+}
+
+type AutomationRuleActionArray []AutomationRuleActionInput
+
+func (AutomationRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleAction)(nil)).Elem()
+}
+
+func (i AutomationRuleActionArray) ToAutomationRuleActionArrayOutput() AutomationRuleActionArrayOutput {
+	return i.ToAutomationRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionArray) ToAutomationRuleActionArrayOutputWithContext(ctx context.Context) AutomationRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionArrayOutput)
+}
+
+type AutomationRuleActionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleAction)(nil)).Elem()
+}
+
+func (o AutomationRuleActionOutput) ToAutomationRuleActionOutput() AutomationRuleActionOutput {
+	return o
+}
+
+func (o AutomationRuleActionOutput) ToAutomationRuleActionOutputWithContext(ctx context.Context) AutomationRuleActionOutput {
+	return o
+}
+
+// A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+func (o AutomationRuleActionOutput) FindingFieldsUpdate() AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return o.ApplyT(func(v AutomationRuleAction) *AutomationRuleActionFindingFieldsUpdate { return v.FindingFieldsUpdate }).(AutomationRuleActionFindingFieldsUpdatePtrOutput)
+}
+
+// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+func (o AutomationRuleActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleAction)(nil)).Elem()
+}
+
+func (o AutomationRuleActionArrayOutput) ToAutomationRuleActionArrayOutput() AutomationRuleActionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionArrayOutput) ToAutomationRuleActionArrayOutputWithContext(ctx context.Context) AutomationRuleActionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionArrayOutput) Index(i pulumi.IntInput) AutomationRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleAction {
+		return vs[0].([]AutomationRuleAction)[vs[1].(int)]
+	}).(AutomationRuleActionOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdate struct {
+	// The rule action updates the `Confidence` field of a finding.
+	Confidence *int `pulumi:"confidence"`
+	// The rule action updates the `Criticality` field of a finding.
+	Criticality *int `pulumi:"criticality"`
+	// A resource block that updates the note. Documented below.
+	Note *AutomationRuleActionFindingFieldsUpdateNote `pulumi:"note"`
+	// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+	RelatedFindings []AutomationRuleActionFindingFieldsUpdateRelatedFinding `pulumi:"relatedFindings"`
+	// A resource block that updates to the severity information for a finding. Documented below.
+	Severity *AutomationRuleActionFindingFieldsUpdateSeverity `pulumi:"severity"`
+	// The rule action updates the `Types` field of a finding.
+	Types []string `pulumi:"types"`
+	// The rule action updates the `UserDefinedFields` field of a finding.
+	UserDefinedFields map[string]string `pulumi:"userDefinedFields"`
+	// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+	VerificationState *string `pulumi:"verificationState"`
+	// A resource block that is used to update information about the investigation into the finding. Documented below.
+	Workflow *AutomationRuleActionFindingFieldsUpdateWorkflow `pulumi:"workflow"`
+}
+
+// AutomationRuleActionFindingFieldsUpdateInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateArgs and AutomationRuleActionFindingFieldsUpdateOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateArgs{...}
+type AutomationRuleActionFindingFieldsUpdateInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateOutput() AutomationRuleActionFindingFieldsUpdateOutput
+	ToAutomationRuleActionFindingFieldsUpdateOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateArgs struct {
+	// The rule action updates the `Confidence` field of a finding.
+	Confidence pulumi.IntPtrInput `pulumi:"confidence"`
+	// The rule action updates the `Criticality` field of a finding.
+	Criticality pulumi.IntPtrInput `pulumi:"criticality"`
+	// A resource block that updates the note. Documented below.
+	Note AutomationRuleActionFindingFieldsUpdateNotePtrInput `pulumi:"note"`
+	// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+	RelatedFindings AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayInput `pulumi:"relatedFindings"`
+	// A resource block that updates to the severity information for a finding. Documented below.
+	Severity AutomationRuleActionFindingFieldsUpdateSeverityPtrInput `pulumi:"severity"`
+	// The rule action updates the `Types` field of a finding.
+	Types pulumi.StringArrayInput `pulumi:"types"`
+	// The rule action updates the `UserDefinedFields` field of a finding.
+	UserDefinedFields pulumi.StringMapInput `pulumi:"userDefinedFields"`
+	// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+	VerificationState pulumi.StringPtrInput `pulumi:"verificationState"`
+	// A resource block that is used to update information about the investigation into the finding. Documented below.
+	Workflow AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput `pulumi:"workflow"`
+}
+
+func (AutomationRuleActionFindingFieldsUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateArgs) ToAutomationRuleActionFindingFieldsUpdateOutput() AutomationRuleActionFindingFieldsUpdateOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateArgs) ToAutomationRuleActionFindingFieldsUpdateOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateOutput)
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateArgs) ToAutomationRuleActionFindingFieldsUpdatePtrOutput() AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateArgs) ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateOutput).ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleActionFindingFieldsUpdatePtrInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateArgs, AutomationRuleActionFindingFieldsUpdatePtr and AutomationRuleActionFindingFieldsUpdatePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdatePtrInput` via:
+//
+//	        AutomationRuleActionFindingFieldsUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleActionFindingFieldsUpdatePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdatePtrOutput() AutomationRuleActionFindingFieldsUpdatePtrOutput
+	ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdatePtrOutput
+}
+
+type automationRuleActionFindingFieldsUpdatePtrType AutomationRuleActionFindingFieldsUpdateArgs
+
+func AutomationRuleActionFindingFieldsUpdatePtr(v *AutomationRuleActionFindingFieldsUpdateArgs) AutomationRuleActionFindingFieldsUpdatePtrInput {
+	return (*automationRuleActionFindingFieldsUpdatePtrType)(v)
+}
+
+func (*automationRuleActionFindingFieldsUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (i *automationRuleActionFindingFieldsUpdatePtrType) ToAutomationRuleActionFindingFieldsUpdatePtrOutput() AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleActionFindingFieldsUpdatePtrType) ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdatePtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateOutput) ToAutomationRuleActionFindingFieldsUpdateOutput() AutomationRuleActionFindingFieldsUpdateOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateOutput) ToAutomationRuleActionFindingFieldsUpdateOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateOutput) ToAutomationRuleActionFindingFieldsUpdatePtrOutput() AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return o.ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateOutput) ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdate {
+		return &v
+	}).(AutomationRuleActionFindingFieldsUpdatePtrOutput)
+}
+
+// The rule action updates the `Confidence` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Confidence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *int { return v.Confidence }).(pulumi.IntPtrOutput)
+}
+
+// The rule action updates the `Criticality` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Criticality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *int { return v.Criticality }).(pulumi.IntPtrOutput)
+}
+
+// A resource block that updates the note. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Note() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateNote {
+		return v.Note
+	}).(AutomationRuleActionFindingFieldsUpdateNotePtrOutput)
+}
+
+// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) RelatedFindings() AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) []AutomationRuleActionFindingFieldsUpdateRelatedFinding {
+		return v.RelatedFindings
+	}).(AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput)
+}
+
+// A resource block that updates to the severity information for a finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Severity() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateSeverity {
+		return v.Severity
+	}).(AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput)
+}
+
+// The rule action updates the `Types` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+// The rule action updates the `UserDefinedFields` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) UserDefinedFields() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) map[string]string { return v.UserDefinedFields }).(pulumi.StringMapOutput)
+}
+
+// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) VerificationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *string { return v.VerificationState }).(pulumi.StringPtrOutput)
+}
+
+// A resource block that is used to update information about the investigation into the finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdateOutput) Workflow() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateWorkflow {
+		return v.Workflow
+	}).(AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) ToAutomationRuleActionFindingFieldsUpdatePtrOutput() AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) ToAutomationRuleActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdatePtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Elem() AutomationRuleActionFindingFieldsUpdateOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) AutomationRuleActionFindingFieldsUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleActionFindingFieldsUpdate
+		return ret
+	}).(AutomationRuleActionFindingFieldsUpdateOutput)
+}
+
+// The rule action updates the `Confidence` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Confidence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Confidence
+	}).(pulumi.IntPtrOutput)
+}
+
+// The rule action updates the `Criticality` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Criticality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Criticality
+	}).(pulumi.IntPtrOutput)
+}
+
+// A resource block that updates the note. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Note() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateNote {
+		if v == nil {
+			return nil
+		}
+		return v.Note
+	}).(AutomationRuleActionFindingFieldsUpdateNotePtrOutput)
+}
+
+// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) RelatedFindings() AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) []AutomationRuleActionFindingFieldsUpdateRelatedFinding {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedFindings
+	}).(AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput)
+}
+
+// A resource block that updates to the severity information for a finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Severity() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput)
+}
+
+// The rule action updates the `Types` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(pulumi.StringArrayOutput)
+}
+
+// The rule action updates the `UserDefinedFields` field of a finding.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) UserDefinedFields() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.UserDefinedFields
+	}).(pulumi.StringMapOutput)
+}
+
+// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) VerificationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationState
+	}).(pulumi.StringPtrOutput)
+}
+
+// A resource block that is used to update information about the investigation into the finding. Documented below.
+func (o AutomationRuleActionFindingFieldsUpdatePtrOutput) Workflow() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdate) *AutomationRuleActionFindingFieldsUpdateWorkflow {
+		if v == nil {
+			return nil
+		}
+		return v.Workflow
+	}).(AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateNote struct {
+	// The updated note text.
+	Text string `pulumi:"text"`
+	// The principal that updated the note.
+	UpdatedBy string `pulumi:"updatedBy"`
+}
+
+// AutomationRuleActionFindingFieldsUpdateNoteInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateNoteArgs and AutomationRuleActionFindingFieldsUpdateNoteOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateNoteInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateNoteArgs{...}
+type AutomationRuleActionFindingFieldsUpdateNoteInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateNoteOutput() AutomationRuleActionFindingFieldsUpdateNoteOutput
+	ToAutomationRuleActionFindingFieldsUpdateNoteOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateNoteOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateNoteArgs struct {
+	// The updated note text.
+	Text pulumi.StringInput `pulumi:"text"`
+	// The principal that updated the note.
+	UpdatedBy pulumi.StringInput `pulumi:"updatedBy"`
+}
+
+func (AutomationRuleActionFindingFieldsUpdateNoteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateNote)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateNoteArgs) ToAutomationRuleActionFindingFieldsUpdateNoteOutput() AutomationRuleActionFindingFieldsUpdateNoteOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateNoteOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateNoteArgs) ToAutomationRuleActionFindingFieldsUpdateNoteOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNoteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateNoteOutput)
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateNoteArgs) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutput() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateNoteArgs) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateNoteOutput).ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleActionFindingFieldsUpdateNotePtrInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateNoteArgs, AutomationRuleActionFindingFieldsUpdateNotePtr and AutomationRuleActionFindingFieldsUpdateNotePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateNotePtrInput` via:
+//
+//	        AutomationRuleActionFindingFieldsUpdateNoteArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleActionFindingFieldsUpdateNotePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateNotePtrOutput() AutomationRuleActionFindingFieldsUpdateNotePtrOutput
+	ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateNotePtrOutput
+}
+
+type automationRuleActionFindingFieldsUpdateNotePtrType AutomationRuleActionFindingFieldsUpdateNoteArgs
+
+func AutomationRuleActionFindingFieldsUpdateNotePtr(v *AutomationRuleActionFindingFieldsUpdateNoteArgs) AutomationRuleActionFindingFieldsUpdateNotePtrInput {
+	return (*automationRuleActionFindingFieldsUpdateNotePtrType)(v)
+}
+
+func (*automationRuleActionFindingFieldsUpdateNotePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateNote)(nil)).Elem()
+}
+
+func (i *automationRuleActionFindingFieldsUpdateNotePtrType) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutput() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleActionFindingFieldsUpdateNotePtrType) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateNotePtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateNoteOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateNoteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateNote)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) ToAutomationRuleActionFindingFieldsUpdateNoteOutput() AutomationRuleActionFindingFieldsUpdateNoteOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) ToAutomationRuleActionFindingFieldsUpdateNoteOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNoteOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutput() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o.ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleActionFindingFieldsUpdateNote) *AutomationRuleActionFindingFieldsUpdateNote {
+		return &v
+	}).(AutomationRuleActionFindingFieldsUpdateNotePtrOutput)
+}
+
+// The updated note text.
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateNote) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// The principal that updated the note.
+func (o AutomationRuleActionFindingFieldsUpdateNoteOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateNote) string { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateNotePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateNotePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateNote)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNotePtrOutput) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutput() AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNotePtrOutput) ToAutomationRuleActionFindingFieldsUpdateNotePtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateNotePtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateNotePtrOutput) Elem() AutomationRuleActionFindingFieldsUpdateNoteOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateNote) AutomationRuleActionFindingFieldsUpdateNote {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleActionFindingFieldsUpdateNote
+		return ret
+	}).(AutomationRuleActionFindingFieldsUpdateNoteOutput)
+}
+
+// The updated note text.
+func (o AutomationRuleActionFindingFieldsUpdateNotePtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateNote) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+// The principal that updated the note.
+func (o AutomationRuleActionFindingFieldsUpdateNotePtrOutput) UpdatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateNote) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateRelatedFinding struct {
+	// The product-generated identifier for a related finding.
+	Id string `pulumi:"id"`
+	// The ARN of the product that generated a related finding.
+	ProductArn string `pulumi:"productArn"`
+}
+
+// AutomationRuleActionFindingFieldsUpdateRelatedFindingInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs and AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateRelatedFindingInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs{...}
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput
+	ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs struct {
+	// The product-generated identifier for a related finding.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The ARN of the product that generated a related finding.
+	ProductArn pulumi.StringInput `pulumi:"productArn"`
+}
+
+func (AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateRelatedFinding)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput)
+}
+
+// AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateRelatedFindingArray and AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateRelatedFindingArray{ AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs{...} }
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput
+	ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingArray []AutomationRuleActionFindingFieldsUpdateRelatedFindingInput
+
+func (AutomationRuleActionFindingFieldsUpdateRelatedFindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleActionFindingFieldsUpdateRelatedFinding)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateRelatedFindingArray) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateRelatedFindingArray) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateRelatedFinding)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput {
+	return o
+}
+
+// The product-generated identifier for a related finding.
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateRelatedFinding) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ARN of the product that generated a related finding.
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput) ProductArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateRelatedFinding) string { return v.ProductArn }).(pulumi.StringOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleActionFindingFieldsUpdateRelatedFinding)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput() AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput) ToAutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput) Index(i pulumi.IntInput) AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleActionFindingFieldsUpdateRelatedFinding {
+		return vs[0].([]AutomationRuleActionFindingFieldsUpdateRelatedFinding)[vs[1].(int)]
+	}).(AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateSeverity struct {
+	// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+	Label *string `pulumi:"label"`
+	// The native severity as defined by the AWS service or integrated partner product that generated the finding.
+	Product *float64 `pulumi:"product"`
+}
+
+// AutomationRuleActionFindingFieldsUpdateSeverityInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateSeverityArgs and AutomationRuleActionFindingFieldsUpdateSeverityOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateSeverityInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateSeverityArgs{...}
+type AutomationRuleActionFindingFieldsUpdateSeverityInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateSeverityOutput() AutomationRuleActionFindingFieldsUpdateSeverityOutput
+	ToAutomationRuleActionFindingFieldsUpdateSeverityOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateSeverityOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateSeverityArgs struct {
+	// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The native severity as defined by the AWS service or integrated partner product that generated the finding.
+	Product pulumi.Float64PtrInput `pulumi:"product"`
+}
+
+func (AutomationRuleActionFindingFieldsUpdateSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateSeverity)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateSeverityArgs) ToAutomationRuleActionFindingFieldsUpdateSeverityOutput() AutomationRuleActionFindingFieldsUpdateSeverityOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateSeverityOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateSeverityArgs) ToAutomationRuleActionFindingFieldsUpdateSeverityOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateSeverityOutput)
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateSeverityArgs) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutput() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateSeverityArgs) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateSeverityOutput).ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleActionFindingFieldsUpdateSeverityPtrInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateSeverityArgs, AutomationRuleActionFindingFieldsUpdateSeverityPtr and AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateSeverityPtrInput` via:
+//
+//	        AutomationRuleActionFindingFieldsUpdateSeverityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleActionFindingFieldsUpdateSeverityPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutput() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput
+	ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput
+}
+
+type automationRuleActionFindingFieldsUpdateSeverityPtrType AutomationRuleActionFindingFieldsUpdateSeverityArgs
+
+func AutomationRuleActionFindingFieldsUpdateSeverityPtr(v *AutomationRuleActionFindingFieldsUpdateSeverityArgs) AutomationRuleActionFindingFieldsUpdateSeverityPtrInput {
+	return (*automationRuleActionFindingFieldsUpdateSeverityPtrType)(v)
+}
+
+func (*automationRuleActionFindingFieldsUpdateSeverityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateSeverity)(nil)).Elem()
+}
+
+func (i *automationRuleActionFindingFieldsUpdateSeverityPtrType) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutput() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleActionFindingFieldsUpdateSeverityPtrType) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateSeverityOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateSeverity)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityOutput() AutomationRuleActionFindingFieldsUpdateSeverityOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutput() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o.ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleActionFindingFieldsUpdateSeverity) *AutomationRuleActionFindingFieldsUpdateSeverity {
+		return &v
+	}).(AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput)
+}
+
+// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateSeverity) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The native severity as defined by the AWS service or integrated partner product that generated the finding.
+func (o AutomationRuleActionFindingFieldsUpdateSeverityOutput) Product() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateSeverity) *float64 { return v.Product }).(pulumi.Float64PtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateSeverity)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutput() AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) ToAutomationRuleActionFindingFieldsUpdateSeverityPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) Elem() AutomationRuleActionFindingFieldsUpdateSeverityOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateSeverity) AutomationRuleActionFindingFieldsUpdateSeverity {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleActionFindingFieldsUpdateSeverity
+		return ret
+	}).(AutomationRuleActionFindingFieldsUpdateSeverityOutput)
+}
+
+// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+func (o AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateSeverity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// The native severity as defined by the AWS service or integrated partner product that generated the finding.
+func (o AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput) Product() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateSeverity) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Product
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateWorkflow struct {
+	// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+	Status *string `pulumi:"status"`
+}
+
+// AutomationRuleActionFindingFieldsUpdateWorkflowInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateWorkflowArgs and AutomationRuleActionFindingFieldsUpdateWorkflowOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateWorkflowInput` via:
+//
+//	AutomationRuleActionFindingFieldsUpdateWorkflowArgs{...}
+type AutomationRuleActionFindingFieldsUpdateWorkflowInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateWorkflowOutput() AutomationRuleActionFindingFieldsUpdateWorkflowOutput
+	ToAutomationRuleActionFindingFieldsUpdateWorkflowOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowOutput
+}
+
+type AutomationRuleActionFindingFieldsUpdateWorkflowArgs struct {
+	// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (AutomationRuleActionFindingFieldsUpdateWorkflowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateWorkflow)(nil)).Elem()
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateWorkflowArgs) ToAutomationRuleActionFindingFieldsUpdateWorkflowOutput() AutomationRuleActionFindingFieldsUpdateWorkflowOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateWorkflowOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateWorkflowArgs) ToAutomationRuleActionFindingFieldsUpdateWorkflowOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateWorkflowOutput)
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateWorkflowArgs) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionFindingFieldsUpdateWorkflowArgs) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateWorkflowOutput).ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput is an input type that accepts AutomationRuleActionFindingFieldsUpdateWorkflowArgs, AutomationRuleActionFindingFieldsUpdateWorkflowPtr and AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput` via:
+//
+//	        AutomationRuleActionFindingFieldsUpdateWorkflowArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput
+	ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput
+}
+
+type automationRuleActionFindingFieldsUpdateWorkflowPtrType AutomationRuleActionFindingFieldsUpdateWorkflowArgs
+
+func AutomationRuleActionFindingFieldsUpdateWorkflowPtr(v *AutomationRuleActionFindingFieldsUpdateWorkflowArgs) AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput {
+	return (*automationRuleActionFindingFieldsUpdateWorkflowPtrType)(v)
+}
+
+func (*automationRuleActionFindingFieldsUpdateWorkflowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateWorkflow)(nil)).Elem()
+}
+
+func (i *automationRuleActionFindingFieldsUpdateWorkflowPtrType) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return i.ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleActionFindingFieldsUpdateWorkflowPtrType) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateWorkflowOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateWorkflowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateWorkflow)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowOutput() AutomationRuleActionFindingFieldsUpdateWorkflowOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o.ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleActionFindingFieldsUpdateWorkflow) *AutomationRuleActionFindingFieldsUpdateWorkflow {
+		return &v
+	}).(AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput)
+}
+
+// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionFindingFieldsUpdateWorkflow) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleActionFindingFieldsUpdateWorkflow)(nil)).Elem()
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput() AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput) ToAutomationRuleActionFindingFieldsUpdateWorkflowPtrOutputWithContext(ctx context.Context) AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput {
+	return o
+}
+
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput) Elem() AutomationRuleActionFindingFieldsUpdateWorkflowOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateWorkflow) AutomationRuleActionFindingFieldsUpdateWorkflow {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleActionFindingFieldsUpdateWorkflow
+		return ret
+	}).(AutomationRuleActionFindingFieldsUpdateWorkflowOutput)
+}
+
+// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+func (o AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleActionFindingFieldsUpdateWorkflow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteria struct {
+	// The AWS account ID in which a finding was generated. Documented below.
+	AwsAccountIds []AutomationRuleCriteriaAwsAccountId `pulumi:"awsAccountIds"`
+	// The name of the AWS account in which a finding was generated. Documented below.
+	AwsAccountNames []AutomationRuleCriteriaAwsAccountName `pulumi:"awsAccountNames"`
+	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+	CompanyNames []AutomationRuleCriteriaCompanyName `pulumi:"companyNames"`
+	// The unique identifier of a standard in which a control is enabled. Documented below.
+	ComplianceAssociatedStandardsIds []AutomationRuleCriteriaComplianceAssociatedStandardsId `pulumi:"complianceAssociatedStandardsIds"`
+	// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+	ComplianceSecurityControlIds []AutomationRuleCriteriaComplianceSecurityControlId `pulumi:"complianceSecurityControlIds"`
+	// The result of a security check. This field is only used for findings generated from controls. Documented below.
+	ComplianceStatuses []AutomationRuleCriteriaComplianceStatus `pulumi:"complianceStatuses"`
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+	Confidences []AutomationRuleCriteriaConfidence `pulumi:"confidences"`
+	// A timestamp that indicates when this finding record was created. Documented below.
+	CreatedAts []AutomationRuleCriteriaCreatedAt `pulumi:"createdAts"`
+	// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+	Criticalities []AutomationRuleCriteriaCriticality `pulumi:"criticalities"`
+	// A finding's description. Documented below.
+	Descriptions []AutomationRuleCriteriaDescription `pulumi:"descriptions"`
+	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+	FirstObservedAts []AutomationRuleCriteriaFirstObservedAt `pulumi:"firstObservedAts"`
+	// The identifier for the solution-specific component that generated a finding. Documented below.
+	GeneratorIds []AutomationRuleCriteriaGeneratorId `pulumi:"generatorIds"`
+	// The product-specific identifier for a finding. Documented below.
+	Ids []AutomationRuleCriteriaId `pulumi:"ids"`
+	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+	LastObservedAts []AutomationRuleCriteriaLastObservedAt `pulumi:"lastObservedAts"`
+	// The text of a user-defined note that's added to a finding. Documented below.
+	NoteTexts []AutomationRuleCriteriaNoteText `pulumi:"noteTexts"`
+	// The timestamp of when the note was updated. Documented below.
+	NoteUpdatedAts []AutomationRuleCriteriaNoteUpdatedAt `pulumi:"noteUpdatedAts"`
+	// The principal that created a note. Documented below.
+	NoteUpdatedBies []AutomationRuleCriteriaNoteUpdatedBy `pulumi:"noteUpdatedBies"`
+	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+	ProductArns []AutomationRuleCriteriaProductArn `pulumi:"productArns"`
+	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+	ProductNames []AutomationRuleCriteriaProductName `pulumi:"productNames"`
+	// Provides the current state of a finding. Documented below.
+	RecordStates []AutomationRuleCriteriaRecordState `pulumi:"recordStates"`
+	// The product-generated identifier for a related finding.  Documented below.
+	RelatedFindingsIds []AutomationRuleCriteriaRelatedFindingsId `pulumi:"relatedFindingsIds"`
+	// The ARN for the product that generated a related finding. Documented below.
+	RelatedFindingsProductArns []AutomationRuleCriteriaRelatedFindingsProductArn `pulumi:"relatedFindingsProductArns"`
+	// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+	ResourceApplicationArns []AutomationRuleCriteriaResourceApplicationArn `pulumi:"resourceApplicationArns"`
+	// The name of the application that is related to a finding. Documented below.
+	ResourceApplicationNames []AutomationRuleCriteriaResourceApplicationName `pulumi:"resourceApplicationNames"`
+	// Custom fields and values about the resource that a finding pertains to. Documented below.
+	ResourceDetailsOthers []AutomationRuleCriteriaResourceDetailsOther `pulumi:"resourceDetailsOthers"`
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+	ResourceIds []AutomationRuleCriteriaResourceId `pulumi:"resourceIds"`
+	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+	ResourcePartitions []AutomationRuleCriteriaResourcePartition `pulumi:"resourcePartitions"`
+	// The AWS Region where the resource that a finding pertains to is located. Documented below.
+	ResourceRegions []AutomationRuleCriteriaResourceRegion `pulumi:"resourceRegions"`
+	// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+	ResourceTags []AutomationRuleCriteriaResourceTag `pulumi:"resourceTags"`
+	// The type of resource that the finding pertains to. Documented below.
+	ResourceTypes []AutomationRuleCriteriaResourceType `pulumi:"resourceTypes"`
+	// The severity value of the finding. Documented below.
+	SeverityLabels []AutomationRuleCriteriaSeverityLabel `pulumi:"severityLabels"`
+	// Provides a URL that links to a page about the current finding in the finding product. Documented below.
+	SourceUrls []AutomationRuleCriteriaSourceUrl `pulumi:"sourceUrls"`
+	// A finding's title. Documented below.
+	Titles []AutomationRuleCriteriaTitle `pulumi:"titles"`
+	// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+	Types []AutomationRuleCriteriaType `pulumi:"types"`
+	// A timestamp that indicates when the finding record was most recently updated. Documented below.
+	UpdatedAts []AutomationRuleCriteriaUpdatedAt `pulumi:"updatedAts"`
+	// A list of user-defined name and value string pairs added to a finding. Documented below.
+	UserDefinedFields []AutomationRuleCriteriaUserDefinedField `pulumi:"userDefinedFields"`
+	// Provides the veracity of a finding. Documented below.
+	VerificationStates []AutomationRuleCriteriaVerificationState `pulumi:"verificationStates"`
+	// Provides information about the status of the investigation into a finding. Documented below.
+	WorkflowStatuses []AutomationRuleCriteriaWorkflowStatus `pulumi:"workflowStatuses"`
+}
+
+// AutomationRuleCriteriaInput is an input type that accepts AutomationRuleCriteriaArgs and AutomationRuleCriteriaOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaInput` via:
+//
+//	AutomationRuleCriteriaArgs{...}
+type AutomationRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaOutput() AutomationRuleCriteriaOutput
+	ToAutomationRuleCriteriaOutputWithContext(context.Context) AutomationRuleCriteriaOutput
+}
+
+type AutomationRuleCriteriaArgs struct {
+	// The AWS account ID in which a finding was generated. Documented below.
+	AwsAccountIds AutomationRuleCriteriaAwsAccountIdArrayInput `pulumi:"awsAccountIds"`
+	// The name of the AWS account in which a finding was generated. Documented below.
+	AwsAccountNames AutomationRuleCriteriaAwsAccountNameArrayInput `pulumi:"awsAccountNames"`
+	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+	CompanyNames AutomationRuleCriteriaCompanyNameArrayInput `pulumi:"companyNames"`
+	// The unique identifier of a standard in which a control is enabled. Documented below.
+	ComplianceAssociatedStandardsIds AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayInput `pulumi:"complianceAssociatedStandardsIds"`
+	// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+	ComplianceSecurityControlIds AutomationRuleCriteriaComplianceSecurityControlIdArrayInput `pulumi:"complianceSecurityControlIds"`
+	// The result of a security check. This field is only used for findings generated from controls. Documented below.
+	ComplianceStatuses AutomationRuleCriteriaComplianceStatusArrayInput `pulumi:"complianceStatuses"`
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+	Confidences AutomationRuleCriteriaConfidenceArrayInput `pulumi:"confidences"`
+	// A timestamp that indicates when this finding record was created. Documented below.
+	CreatedAts AutomationRuleCriteriaCreatedAtArrayInput `pulumi:"createdAts"`
+	// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+	Criticalities AutomationRuleCriteriaCriticalityArrayInput `pulumi:"criticalities"`
+	// A finding's description. Documented below.
+	Descriptions AutomationRuleCriteriaDescriptionArrayInput `pulumi:"descriptions"`
+	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+	FirstObservedAts AutomationRuleCriteriaFirstObservedAtArrayInput `pulumi:"firstObservedAts"`
+	// The identifier for the solution-specific component that generated a finding. Documented below.
+	GeneratorIds AutomationRuleCriteriaGeneratorIdArrayInput `pulumi:"generatorIds"`
+	// The product-specific identifier for a finding. Documented below.
+	Ids AutomationRuleCriteriaIdArrayInput `pulumi:"ids"`
+	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+	LastObservedAts AutomationRuleCriteriaLastObservedAtArrayInput `pulumi:"lastObservedAts"`
+	// The text of a user-defined note that's added to a finding. Documented below.
+	NoteTexts AutomationRuleCriteriaNoteTextArrayInput `pulumi:"noteTexts"`
+	// The timestamp of when the note was updated. Documented below.
+	NoteUpdatedAts AutomationRuleCriteriaNoteUpdatedAtArrayInput `pulumi:"noteUpdatedAts"`
+	// The principal that created a note. Documented below.
+	NoteUpdatedBies AutomationRuleCriteriaNoteUpdatedByArrayInput `pulumi:"noteUpdatedBies"`
+	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+	ProductArns AutomationRuleCriteriaProductArnArrayInput `pulumi:"productArns"`
+	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+	ProductNames AutomationRuleCriteriaProductNameArrayInput `pulumi:"productNames"`
+	// Provides the current state of a finding. Documented below.
+	RecordStates AutomationRuleCriteriaRecordStateArrayInput `pulumi:"recordStates"`
+	// The product-generated identifier for a related finding.  Documented below.
+	RelatedFindingsIds AutomationRuleCriteriaRelatedFindingsIdArrayInput `pulumi:"relatedFindingsIds"`
+	// The ARN for the product that generated a related finding. Documented below.
+	RelatedFindingsProductArns AutomationRuleCriteriaRelatedFindingsProductArnArrayInput `pulumi:"relatedFindingsProductArns"`
+	// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+	ResourceApplicationArns AutomationRuleCriteriaResourceApplicationArnArrayInput `pulumi:"resourceApplicationArns"`
+	// The name of the application that is related to a finding. Documented below.
+	ResourceApplicationNames AutomationRuleCriteriaResourceApplicationNameArrayInput `pulumi:"resourceApplicationNames"`
+	// Custom fields and values about the resource that a finding pertains to. Documented below.
+	ResourceDetailsOthers AutomationRuleCriteriaResourceDetailsOtherArrayInput `pulumi:"resourceDetailsOthers"`
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+	ResourceIds AutomationRuleCriteriaResourceIdArrayInput `pulumi:"resourceIds"`
+	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+	ResourcePartitions AutomationRuleCriteriaResourcePartitionArrayInput `pulumi:"resourcePartitions"`
+	// The AWS Region where the resource that a finding pertains to is located. Documented below.
+	ResourceRegions AutomationRuleCriteriaResourceRegionArrayInput `pulumi:"resourceRegions"`
+	// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+	ResourceTags AutomationRuleCriteriaResourceTagArrayInput `pulumi:"resourceTags"`
+	// The type of resource that the finding pertains to. Documented below.
+	ResourceTypes AutomationRuleCriteriaResourceTypeArrayInput `pulumi:"resourceTypes"`
+	// The severity value of the finding. Documented below.
+	SeverityLabels AutomationRuleCriteriaSeverityLabelArrayInput `pulumi:"severityLabels"`
+	// Provides a URL that links to a page about the current finding in the finding product. Documented below.
+	SourceUrls AutomationRuleCriteriaSourceUrlArrayInput `pulumi:"sourceUrls"`
+	// A finding's title. Documented below.
+	Titles AutomationRuleCriteriaTitleArrayInput `pulumi:"titles"`
+	// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+	Types AutomationRuleCriteriaTypeArrayInput `pulumi:"types"`
+	// A timestamp that indicates when the finding record was most recently updated. Documented below.
+	UpdatedAts AutomationRuleCriteriaUpdatedAtArrayInput `pulumi:"updatedAts"`
+	// A list of user-defined name and value string pairs added to a finding. Documented below.
+	UserDefinedFields AutomationRuleCriteriaUserDefinedFieldArrayInput `pulumi:"userDefinedFields"`
+	// Provides the veracity of a finding. Documented below.
+	VerificationStates AutomationRuleCriteriaVerificationStateArrayInput `pulumi:"verificationStates"`
+	// Provides information about the status of the investigation into a finding. Documented below.
+	WorkflowStatuses AutomationRuleCriteriaWorkflowStatusArrayInput `pulumi:"workflowStatuses"`
+}
+
+func (AutomationRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteria)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaArgs) ToAutomationRuleCriteriaOutput() AutomationRuleCriteriaOutput {
+	return i.ToAutomationRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaArgs) ToAutomationRuleCriteriaOutputWithContext(ctx context.Context) AutomationRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaOutput)
+}
+
+func (i AutomationRuleCriteriaArgs) ToAutomationRuleCriteriaPtrOutput() AutomationRuleCriteriaPtrOutput {
+	return i.ToAutomationRuleCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaArgs) ToAutomationRuleCriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaOutput).ToAutomationRuleCriteriaPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaPtrInput is an input type that accepts AutomationRuleCriteriaArgs, AutomationRuleCriteriaPtr and AutomationRuleCriteriaPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaPtrInput` via:
+//
+//	        AutomationRuleCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaPtrOutput() AutomationRuleCriteriaPtrOutput
+	ToAutomationRuleCriteriaPtrOutputWithContext(context.Context) AutomationRuleCriteriaPtrOutput
+}
+
+type automationRuleCriteriaPtrType AutomationRuleCriteriaArgs
+
+func AutomationRuleCriteriaPtr(v *AutomationRuleCriteriaArgs) AutomationRuleCriteriaPtrInput {
+	return (*automationRuleCriteriaPtrType)(v)
+}
+
+func (*automationRuleCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteria)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaPtrType) ToAutomationRuleCriteriaPtrOutput() AutomationRuleCriteriaPtrOutput {
+	return i.ToAutomationRuleCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaPtrType) ToAutomationRuleCriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaPtrOutput)
+}
+
+type AutomationRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteria)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaOutput) ToAutomationRuleCriteriaOutput() AutomationRuleCriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaOutput) ToAutomationRuleCriteriaOutputWithContext(ctx context.Context) AutomationRuleCriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaOutput) ToAutomationRuleCriteriaPtrOutput() AutomationRuleCriteriaPtrOutput {
+	return o.ToAutomationRuleCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaOutput) ToAutomationRuleCriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteria) *AutomationRuleCriteria {
+		return &v
+	}).(AutomationRuleCriteriaPtrOutput)
+}
+
+// The AWS account ID in which a finding was generated. Documented below.
+func (o AutomationRuleCriteriaOutput) AwsAccountIds() AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaAwsAccountId { return v.AwsAccountIds }).(AutomationRuleCriteriaAwsAccountIdArrayOutput)
+}
+
+// The name of the AWS account in which a finding was generated. Documented below.
+func (o AutomationRuleCriteriaOutput) AwsAccountNames() AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaAwsAccountName { return v.AwsAccountNames }).(AutomationRuleCriteriaAwsAccountNameArrayOutput)
+}
+
+// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+func (o AutomationRuleCriteriaOutput) CompanyNames() AutomationRuleCriteriaCompanyNameArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaCompanyName { return v.CompanyNames }).(AutomationRuleCriteriaCompanyNameArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled. Documented below.
+func (o AutomationRuleCriteriaOutput) ComplianceAssociatedStandardsIds() AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaComplianceAssociatedStandardsId {
+		return v.ComplianceAssociatedStandardsIds
+	}).(AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput)
+}
+
+// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+func (o AutomationRuleCriteriaOutput) ComplianceSecurityControlIds() AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaComplianceSecurityControlId {
+		return v.ComplianceSecurityControlIds
+	}).(AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput)
+}
+
+// The result of a security check. This field is only used for findings generated from controls. Documented below.
+func (o AutomationRuleCriteriaOutput) ComplianceStatuses() AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaComplianceStatus { return v.ComplianceStatuses }).(AutomationRuleCriteriaComplianceStatusArrayOutput)
+}
+
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+func (o AutomationRuleCriteriaOutput) Confidences() AutomationRuleCriteriaConfidenceArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaConfidence { return v.Confidences }).(AutomationRuleCriteriaConfidenceArrayOutput)
+}
+
+// A timestamp that indicates when this finding record was created. Documented below.
+func (o AutomationRuleCriteriaOutput) CreatedAts() AutomationRuleCriteriaCreatedAtArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaCreatedAt { return v.CreatedAts }).(AutomationRuleCriteriaCreatedAtArrayOutput)
+}
+
+// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) Criticalities() AutomationRuleCriteriaCriticalityArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaCriticality { return v.Criticalities }).(AutomationRuleCriteriaCriticalityArrayOutput)
+}
+
+// A finding's description. Documented below.
+func (o AutomationRuleCriteriaOutput) Descriptions() AutomationRuleCriteriaDescriptionArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaDescription { return v.Descriptions }).(AutomationRuleCriteriaDescriptionArrayOutput)
+}
+
+// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+func (o AutomationRuleCriteriaOutput) FirstObservedAts() AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaFirstObservedAt { return v.FirstObservedAts }).(AutomationRuleCriteriaFirstObservedAtArrayOutput)
+}
+
+// The identifier for the solution-specific component that generated a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) GeneratorIds() AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaGeneratorId { return v.GeneratorIds }).(AutomationRuleCriteriaGeneratorIdArrayOutput)
+}
+
+// The product-specific identifier for a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) Ids() AutomationRuleCriteriaIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaId { return v.Ids }).(AutomationRuleCriteriaIdArrayOutput)
+}
+
+// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+func (o AutomationRuleCriteriaOutput) LastObservedAts() AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaLastObservedAt { return v.LastObservedAts }).(AutomationRuleCriteriaLastObservedAtArrayOutput)
+}
+
+// The text of a user-defined note that's added to a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) NoteTexts() AutomationRuleCriteriaNoteTextArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaNoteText { return v.NoteTexts }).(AutomationRuleCriteriaNoteTextArrayOutput)
+}
+
+// The timestamp of when the note was updated. Documented below.
+func (o AutomationRuleCriteriaOutput) NoteUpdatedAts() AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaNoteUpdatedAt { return v.NoteUpdatedAts }).(AutomationRuleCriteriaNoteUpdatedAtArrayOutput)
+}
+
+// The principal that created a note. Documented below.
+func (o AutomationRuleCriteriaOutput) NoteUpdatedBies() AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaNoteUpdatedBy { return v.NoteUpdatedBies }).(AutomationRuleCriteriaNoteUpdatedByArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+func (o AutomationRuleCriteriaOutput) ProductArns() AutomationRuleCriteriaProductArnArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaProductArn { return v.ProductArns }).(AutomationRuleCriteriaProductArnArrayOutput)
+}
+
+// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+func (o AutomationRuleCriteriaOutput) ProductNames() AutomationRuleCriteriaProductNameArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaProductName { return v.ProductNames }).(AutomationRuleCriteriaProductNameArrayOutput)
+}
+
+// Provides the current state of a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) RecordStates() AutomationRuleCriteriaRecordStateArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaRecordState { return v.RecordStates }).(AutomationRuleCriteriaRecordStateArrayOutput)
+}
+
+// The product-generated identifier for a related finding.  Documented below.
+func (o AutomationRuleCriteriaOutput) RelatedFindingsIds() AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaRelatedFindingsId { return v.RelatedFindingsIds }).(AutomationRuleCriteriaRelatedFindingsIdArrayOutput)
+}
+
+// The ARN for the product that generated a related finding. Documented below.
+func (o AutomationRuleCriteriaOutput) RelatedFindingsProductArns() AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaRelatedFindingsProductArn {
+		return v.RelatedFindingsProductArns
+	}).(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceApplicationArns() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationArn {
+		return v.ResourceApplicationArns
+	}).(AutomationRuleCriteriaResourceApplicationArnArrayOutput)
+}
+
+// The name of the application that is related to a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceApplicationNames() AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationName {
+		return v.ResourceApplicationNames
+	}).(AutomationRuleCriteriaResourceApplicationNameArrayOutput)
+}
+
+// Custom fields and values about the resource that a finding pertains to. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceDetailsOthers() AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceDetailsOther {
+		return v.ResourceDetailsOthers
+	}).(AutomationRuleCriteriaResourceDetailsOtherArrayOutput)
+}
+
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceIds() AutomationRuleCriteriaResourceIdArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceId { return v.ResourceIds }).(AutomationRuleCriteriaResourceIdArrayOutput)
+}
+
+// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourcePartitions() AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourcePartition { return v.ResourcePartitions }).(AutomationRuleCriteriaResourcePartitionArrayOutput)
+}
+
+// The AWS Region where the resource that a finding pertains to is located. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceRegions() AutomationRuleCriteriaResourceRegionArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceRegion { return v.ResourceRegions }).(AutomationRuleCriteriaResourceRegionArrayOutput)
+}
+
+// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceTags() AutomationRuleCriteriaResourceTagArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceTag { return v.ResourceTags }).(AutomationRuleCriteriaResourceTagArrayOutput)
+}
+
+// The type of resource that the finding pertains to. Documented below.
+func (o AutomationRuleCriteriaOutput) ResourceTypes() AutomationRuleCriteriaResourceTypeArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceType { return v.ResourceTypes }).(AutomationRuleCriteriaResourceTypeArrayOutput)
+}
+
+// The severity value of the finding. Documented below.
+func (o AutomationRuleCriteriaOutput) SeverityLabels() AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaSeverityLabel { return v.SeverityLabels }).(AutomationRuleCriteriaSeverityLabelArrayOutput)
+}
+
+// Provides a URL that links to a page about the current finding in the finding product. Documented below.
+func (o AutomationRuleCriteriaOutput) SourceUrls() AutomationRuleCriteriaSourceUrlArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaSourceUrl { return v.SourceUrls }).(AutomationRuleCriteriaSourceUrlArrayOutput)
+}
+
+// A finding's title. Documented below.
+func (o AutomationRuleCriteriaOutput) Titles() AutomationRuleCriteriaTitleArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaTitle { return v.Titles }).(AutomationRuleCriteriaTitleArrayOutput)
+}
+
+// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) Types() AutomationRuleCriteriaTypeArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaType { return v.Types }).(AutomationRuleCriteriaTypeArrayOutput)
+}
+
+// A timestamp that indicates when the finding record was most recently updated. Documented below.
+func (o AutomationRuleCriteriaOutput) UpdatedAts() AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaUpdatedAt { return v.UpdatedAts }).(AutomationRuleCriteriaUpdatedAtArrayOutput)
+}
+
+// A list of user-defined name and value string pairs added to a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) UserDefinedFields() AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaUserDefinedField { return v.UserDefinedFields }).(AutomationRuleCriteriaUserDefinedFieldArrayOutput)
+}
+
+// Provides the veracity of a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) VerificationStates() AutomationRuleCriteriaVerificationStateArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaVerificationState { return v.VerificationStates }).(AutomationRuleCriteriaVerificationStateArrayOutput)
+}
+
+// Provides information about the status of the investigation into a finding. Documented below.
+func (o AutomationRuleCriteriaOutput) WorkflowStatuses() AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaWorkflowStatus { return v.WorkflowStatuses }).(AutomationRuleCriteriaWorkflowStatusArrayOutput)
+}
+
+type AutomationRuleCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteria)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaPtrOutput) ToAutomationRuleCriteriaPtrOutput() AutomationRuleCriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaPtrOutput) ToAutomationRuleCriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaPtrOutput) Elem() AutomationRuleCriteriaOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) AutomationRuleCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteria
+		return ret
+	}).(AutomationRuleCriteriaOutput)
+}
+
+// The AWS account ID in which a finding was generated. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) AwsAccountIds() AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaAwsAccountId {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountIds
+	}).(AutomationRuleCriteriaAwsAccountIdArrayOutput)
+}
+
+// The name of the AWS account in which a finding was generated. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) AwsAccountNames() AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaAwsAccountName {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountNames
+	}).(AutomationRuleCriteriaAwsAccountNameArrayOutput)
+}
+
+// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) CompanyNames() AutomationRuleCriteriaCompanyNameArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaCompanyName {
+		if v == nil {
+			return nil
+		}
+		return v.CompanyNames
+	}).(AutomationRuleCriteriaCompanyNameArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ComplianceAssociatedStandardsIds() AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaComplianceAssociatedStandardsId {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceAssociatedStandardsIds
+	}).(AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput)
+}
+
+// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ComplianceSecurityControlIds() AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaComplianceSecurityControlId {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlIds
+	}).(AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput)
+}
+
+// The result of a security check. This field is only used for findings generated from controls. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ComplianceStatuses() AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaComplianceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceStatuses
+	}).(AutomationRuleCriteriaComplianceStatusArrayOutput)
+}
+
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Confidences() AutomationRuleCriteriaConfidenceArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaConfidence {
+		if v == nil {
+			return nil
+		}
+		return v.Confidences
+	}).(AutomationRuleCriteriaConfidenceArrayOutput)
+}
+
+// A timestamp that indicates when this finding record was created. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) CreatedAts() AutomationRuleCriteriaCreatedAtArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaCreatedAt {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAts
+	}).(AutomationRuleCriteriaCreatedAtArrayOutput)
+}
+
+// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Criticalities() AutomationRuleCriteriaCriticalityArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaCriticality {
+		if v == nil {
+			return nil
+		}
+		return v.Criticalities
+	}).(AutomationRuleCriteriaCriticalityArrayOutput)
+}
+
+// A finding's description. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Descriptions() AutomationRuleCriteriaDescriptionArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Descriptions
+	}).(AutomationRuleCriteriaDescriptionArrayOutput)
+}
+
+// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) FirstObservedAts() AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaFirstObservedAt {
+		if v == nil {
+			return nil
+		}
+		return v.FirstObservedAts
+	}).(AutomationRuleCriteriaFirstObservedAtArrayOutput)
+}
+
+// The identifier for the solution-specific component that generated a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) GeneratorIds() AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaGeneratorId {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratorIds
+	}).(AutomationRuleCriteriaGeneratorIdArrayOutput)
+}
+
+// The product-specific identifier for a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Ids() AutomationRuleCriteriaIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(AutomationRuleCriteriaIdArrayOutput)
+}
+
+// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) LastObservedAts() AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaLastObservedAt {
+		if v == nil {
+			return nil
+		}
+		return v.LastObservedAts
+	}).(AutomationRuleCriteriaLastObservedAtArrayOutput)
+}
+
+// The text of a user-defined note that's added to a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) NoteTexts() AutomationRuleCriteriaNoteTextArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaNoteText {
+		if v == nil {
+			return nil
+		}
+		return v.NoteTexts
+	}).(AutomationRuleCriteriaNoteTextArrayOutput)
+}
+
+// The timestamp of when the note was updated. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) NoteUpdatedAts() AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaNoteUpdatedAt {
+		if v == nil {
+			return nil
+		}
+		return v.NoteUpdatedAts
+	}).(AutomationRuleCriteriaNoteUpdatedAtArrayOutput)
+}
+
+// The principal that created a note. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) NoteUpdatedBies() AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaNoteUpdatedBy {
+		if v == nil {
+			return nil
+		}
+		return v.NoteUpdatedBies
+	}).(AutomationRuleCriteriaNoteUpdatedByArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ProductArns() AutomationRuleCriteriaProductArnArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaProductArn {
+		if v == nil {
+			return nil
+		}
+		return v.ProductArns
+	}).(AutomationRuleCriteriaProductArnArrayOutput)
+}
+
+// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ProductNames() AutomationRuleCriteriaProductNameArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaProductName {
+		if v == nil {
+			return nil
+		}
+		return v.ProductNames
+	}).(AutomationRuleCriteriaProductNameArrayOutput)
+}
+
+// Provides the current state of a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) RecordStates() AutomationRuleCriteriaRecordStateArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaRecordState {
+		if v == nil {
+			return nil
+		}
+		return v.RecordStates
+	}).(AutomationRuleCriteriaRecordStateArrayOutput)
+}
+
+// The product-generated identifier for a related finding.  Documented below.
+func (o AutomationRuleCriteriaPtrOutput) RelatedFindingsIds() AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaRelatedFindingsId {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedFindingsIds
+	}).(AutomationRuleCriteriaRelatedFindingsIdArrayOutput)
+}
+
+// The ARN for the product that generated a related finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) RelatedFindingsProductArns() AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaRelatedFindingsProductArn {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedFindingsProductArns
+	}).(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceApplicationArns() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationArn {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceApplicationArns
+	}).(AutomationRuleCriteriaResourceApplicationArnArrayOutput)
+}
+
+// The name of the application that is related to a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceApplicationNames() AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationName {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceApplicationNames
+	}).(AutomationRuleCriteriaResourceApplicationNameArrayOutput)
+}
+
+// Custom fields and values about the resource that a finding pertains to. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceDetailsOthers() AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceDetailsOther {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceDetailsOthers
+	}).(AutomationRuleCriteriaResourceDetailsOtherArrayOutput)
+}
+
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceIds() AutomationRuleCriteriaResourceIdArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceId {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIds
+	}).(AutomationRuleCriteriaResourceIdArrayOutput)
+}
+
+// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourcePartitions() AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourcePartition {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePartitions
+	}).(AutomationRuleCriteriaResourcePartitionArrayOutput)
+}
+
+// The AWS Region where the resource that a finding pertains to is located. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceRegions() AutomationRuleCriteriaResourceRegionArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceRegion {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceRegions
+	}).(AutomationRuleCriteriaResourceRegionArrayOutput)
+}
+
+// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceTags() AutomationRuleCriteriaResourceTagArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceTag {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTags
+	}).(AutomationRuleCriteriaResourceTagArrayOutput)
+}
+
+// The type of resource that the finding pertains to. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) ResourceTypes() AutomationRuleCriteriaResourceTypeArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(AutomationRuleCriteriaResourceTypeArrayOutput)
+}
+
+// The severity value of the finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) SeverityLabels() AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaSeverityLabel {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityLabels
+	}).(AutomationRuleCriteriaSeverityLabelArrayOutput)
+}
+
+// Provides a URL that links to a page about the current finding in the finding product. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) SourceUrls() AutomationRuleCriteriaSourceUrlArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaSourceUrl {
+		if v == nil {
+			return nil
+		}
+		return v.SourceUrls
+	}).(AutomationRuleCriteriaSourceUrlArrayOutput)
+}
+
+// A finding's title. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Titles() AutomationRuleCriteriaTitleArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaTitle {
+		if v == nil {
+			return nil
+		}
+		return v.Titles
+	}).(AutomationRuleCriteriaTitleArrayOutput)
+}
+
+// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) Types() AutomationRuleCriteriaTypeArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaType {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(AutomationRuleCriteriaTypeArrayOutput)
+}
+
+// A timestamp that indicates when the finding record was most recently updated. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) UpdatedAts() AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaUpdatedAt {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedAts
+	}).(AutomationRuleCriteriaUpdatedAtArrayOutput)
+}
+
+// A list of user-defined name and value string pairs added to a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) UserDefinedFields() AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaUserDefinedField {
+		if v == nil {
+			return nil
+		}
+		return v.UserDefinedFields
+	}).(AutomationRuleCriteriaUserDefinedFieldArrayOutput)
+}
+
+// Provides the veracity of a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) VerificationStates() AutomationRuleCriteriaVerificationStateArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaVerificationState {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationStates
+	}).(AutomationRuleCriteriaVerificationStateArrayOutput)
+}
+
+// Provides information about the status of the investigation into a finding. Documented below.
+func (o AutomationRuleCriteriaPtrOutput) WorkflowStatuses() AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaWorkflowStatus {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowStatuses
+	}).(AutomationRuleCriteriaWorkflowStatusArrayOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaAwsAccountIdInput is an input type that accepts AutomationRuleCriteriaAwsAccountIdArgs and AutomationRuleCriteriaAwsAccountIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaAwsAccountIdInput` via:
+//
+//	AutomationRuleCriteriaAwsAccountIdArgs{...}
+type AutomationRuleCriteriaAwsAccountIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaAwsAccountIdOutput() AutomationRuleCriteriaAwsAccountIdOutput
+	ToAutomationRuleCriteriaAwsAccountIdOutputWithContext(context.Context) AutomationRuleCriteriaAwsAccountIdOutput
+}
+
+type AutomationRuleCriteriaAwsAccountIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaAwsAccountIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaAwsAccountId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaAwsAccountIdArgs) ToAutomationRuleCriteriaAwsAccountIdOutput() AutomationRuleCriteriaAwsAccountIdOutput {
+	return i.ToAutomationRuleCriteriaAwsAccountIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaAwsAccountIdArgs) ToAutomationRuleCriteriaAwsAccountIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaAwsAccountIdOutput)
+}
+
+// AutomationRuleCriteriaAwsAccountIdArrayInput is an input type that accepts AutomationRuleCriteriaAwsAccountIdArray and AutomationRuleCriteriaAwsAccountIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaAwsAccountIdArrayInput` via:
+//
+//	AutomationRuleCriteriaAwsAccountIdArray{ AutomationRuleCriteriaAwsAccountIdArgs{...} }
+type AutomationRuleCriteriaAwsAccountIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaAwsAccountIdArrayOutput() AutomationRuleCriteriaAwsAccountIdArrayOutput
+	ToAutomationRuleCriteriaAwsAccountIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaAwsAccountIdArrayOutput
+}
+
+type AutomationRuleCriteriaAwsAccountIdArray []AutomationRuleCriteriaAwsAccountIdInput
+
+func (AutomationRuleCriteriaAwsAccountIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaAwsAccountId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaAwsAccountIdArray) ToAutomationRuleCriteriaAwsAccountIdArrayOutput() AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return i.ToAutomationRuleCriteriaAwsAccountIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaAwsAccountIdArray) ToAutomationRuleCriteriaAwsAccountIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaAwsAccountIdArrayOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaAwsAccountIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaAwsAccountId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaAwsAccountIdOutput) ToAutomationRuleCriteriaAwsAccountIdOutput() AutomationRuleCriteriaAwsAccountIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountIdOutput) ToAutomationRuleCriteriaAwsAccountIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaAwsAccountIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaAwsAccountId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaAwsAccountIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaAwsAccountId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaAwsAccountIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaAwsAccountId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaAwsAccountIdArrayOutput) ToAutomationRuleCriteriaAwsAccountIdArrayOutput() AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountIdArrayOutput) ToAutomationRuleCriteriaAwsAccountIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaAwsAccountIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaAwsAccountId {
+		return vs[0].([]AutomationRuleCriteriaAwsAccountId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaAwsAccountIdOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountName struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaAwsAccountNameInput is an input type that accepts AutomationRuleCriteriaAwsAccountNameArgs and AutomationRuleCriteriaAwsAccountNameOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaAwsAccountNameInput` via:
+//
+//	AutomationRuleCriteriaAwsAccountNameArgs{...}
+type AutomationRuleCriteriaAwsAccountNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaAwsAccountNameOutput() AutomationRuleCriteriaAwsAccountNameOutput
+	ToAutomationRuleCriteriaAwsAccountNameOutputWithContext(context.Context) AutomationRuleCriteriaAwsAccountNameOutput
+}
+
+type AutomationRuleCriteriaAwsAccountNameArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaAwsAccountNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaAwsAccountName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaAwsAccountNameArgs) ToAutomationRuleCriteriaAwsAccountNameOutput() AutomationRuleCriteriaAwsAccountNameOutput {
+	return i.ToAutomationRuleCriteriaAwsAccountNameOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaAwsAccountNameArgs) ToAutomationRuleCriteriaAwsAccountNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaAwsAccountNameOutput)
+}
+
+// AutomationRuleCriteriaAwsAccountNameArrayInput is an input type that accepts AutomationRuleCriteriaAwsAccountNameArray and AutomationRuleCriteriaAwsAccountNameArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaAwsAccountNameArrayInput` via:
+//
+//	AutomationRuleCriteriaAwsAccountNameArray{ AutomationRuleCriteriaAwsAccountNameArgs{...} }
+type AutomationRuleCriteriaAwsAccountNameArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaAwsAccountNameArrayOutput() AutomationRuleCriteriaAwsAccountNameArrayOutput
+	ToAutomationRuleCriteriaAwsAccountNameArrayOutputWithContext(context.Context) AutomationRuleCriteriaAwsAccountNameArrayOutput
+}
+
+type AutomationRuleCriteriaAwsAccountNameArray []AutomationRuleCriteriaAwsAccountNameInput
+
+func (AutomationRuleCriteriaAwsAccountNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaAwsAccountName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaAwsAccountNameArray) ToAutomationRuleCriteriaAwsAccountNameArrayOutput() AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return i.ToAutomationRuleCriteriaAwsAccountNameArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaAwsAccountNameArray) ToAutomationRuleCriteriaAwsAccountNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaAwsAccountNameArrayOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaAwsAccountNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaAwsAccountName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaAwsAccountNameOutput) ToAutomationRuleCriteriaAwsAccountNameOutput() AutomationRuleCriteriaAwsAccountNameOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountNameOutput) ToAutomationRuleCriteriaAwsAccountNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountNameOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaAwsAccountNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaAwsAccountName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaAwsAccountNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaAwsAccountName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaAwsAccountNameArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaAwsAccountNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaAwsAccountName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaAwsAccountNameArrayOutput) ToAutomationRuleCriteriaAwsAccountNameArrayOutput() AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountNameArrayOutput) ToAutomationRuleCriteriaAwsAccountNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaAwsAccountNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaAwsAccountNameArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaAwsAccountNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaAwsAccountName {
+		return vs[0].([]AutomationRuleCriteriaAwsAccountName)[vs[1].(int)]
+	}).(AutomationRuleCriteriaAwsAccountNameOutput)
+}
+
+type AutomationRuleCriteriaCompanyName struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaCompanyNameInput is an input type that accepts AutomationRuleCriteriaCompanyNameArgs and AutomationRuleCriteriaCompanyNameOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCompanyNameInput` via:
+//
+//	AutomationRuleCriteriaCompanyNameArgs{...}
+type AutomationRuleCriteriaCompanyNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCompanyNameOutput() AutomationRuleCriteriaCompanyNameOutput
+	ToAutomationRuleCriteriaCompanyNameOutputWithContext(context.Context) AutomationRuleCriteriaCompanyNameOutput
+}
+
+type AutomationRuleCriteriaCompanyNameArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaCompanyNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCompanyName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCompanyNameArgs) ToAutomationRuleCriteriaCompanyNameOutput() AutomationRuleCriteriaCompanyNameOutput {
+	return i.ToAutomationRuleCriteriaCompanyNameOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCompanyNameArgs) ToAutomationRuleCriteriaCompanyNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaCompanyNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCompanyNameOutput)
+}
+
+// AutomationRuleCriteriaCompanyNameArrayInput is an input type that accepts AutomationRuleCriteriaCompanyNameArray and AutomationRuleCriteriaCompanyNameArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCompanyNameArrayInput` via:
+//
+//	AutomationRuleCriteriaCompanyNameArray{ AutomationRuleCriteriaCompanyNameArgs{...} }
+type AutomationRuleCriteriaCompanyNameArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCompanyNameArrayOutput() AutomationRuleCriteriaCompanyNameArrayOutput
+	ToAutomationRuleCriteriaCompanyNameArrayOutputWithContext(context.Context) AutomationRuleCriteriaCompanyNameArrayOutput
+}
+
+type AutomationRuleCriteriaCompanyNameArray []AutomationRuleCriteriaCompanyNameInput
+
+func (AutomationRuleCriteriaCompanyNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCompanyName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCompanyNameArray) ToAutomationRuleCriteriaCompanyNameArrayOutput() AutomationRuleCriteriaCompanyNameArrayOutput {
+	return i.ToAutomationRuleCriteriaCompanyNameArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCompanyNameArray) ToAutomationRuleCriteriaCompanyNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCompanyNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCompanyNameArrayOutput)
+}
+
+type AutomationRuleCriteriaCompanyNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCompanyNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCompanyName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCompanyNameOutput) ToAutomationRuleCriteriaCompanyNameOutput() AutomationRuleCriteriaCompanyNameOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCompanyNameOutput) ToAutomationRuleCriteriaCompanyNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaCompanyNameOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaCompanyNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCompanyName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaCompanyNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCompanyName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaCompanyNameArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCompanyNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCompanyName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCompanyNameArrayOutput) ToAutomationRuleCriteriaCompanyNameArrayOutput() AutomationRuleCriteriaCompanyNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCompanyNameArrayOutput) ToAutomationRuleCriteriaCompanyNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCompanyNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCompanyNameArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaCompanyNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaCompanyName {
+		return vs[0].([]AutomationRuleCriteriaCompanyName)[vs[1].(int)]
+	}).(AutomationRuleCriteriaCompanyNameOutput)
+}
+
+type AutomationRuleCriteriaComplianceAssociatedStandardsId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaComplianceAssociatedStandardsIdInput is an input type that accepts AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs and AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceAssociatedStandardsIdInput` via:
+//
+//	AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs{...}
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput
+	ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutputWithContext(context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput
+}
+
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput {
+	return i.ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput)
+}
+
+// AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayInput is an input type that accepts AutomationRuleCriteriaComplianceAssociatedStandardsIdArray and AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayInput` via:
+//
+//	AutomationRuleCriteriaComplianceAssociatedStandardsIdArray{ AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs{...} }
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput
+	ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput
+}
+
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdArray []AutomationRuleCriteriaComplianceAssociatedStandardsIdInput
+
+func (AutomationRuleCriteriaComplianceAssociatedStandardsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceAssociatedStandardsIdArray) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return i.ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceAssociatedStandardsIdArray) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput)
+}
+
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceAssociatedStandardsId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceAssociatedStandardsId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput() AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput) ToAutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaComplianceAssociatedStandardsId {
+		return vs[0].([]AutomationRuleCriteriaComplianceAssociatedStandardsId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput)
+}
+
+type AutomationRuleCriteriaComplianceSecurityControlId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaComplianceSecurityControlIdInput is an input type that accepts AutomationRuleCriteriaComplianceSecurityControlIdArgs and AutomationRuleCriteriaComplianceSecurityControlIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceSecurityControlIdInput` via:
+//
+//	AutomationRuleCriteriaComplianceSecurityControlIdArgs{...}
+type AutomationRuleCriteriaComplianceSecurityControlIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceSecurityControlIdOutput() AutomationRuleCriteriaComplianceSecurityControlIdOutput
+	ToAutomationRuleCriteriaComplianceSecurityControlIdOutputWithContext(context.Context) AutomationRuleCriteriaComplianceSecurityControlIdOutput
+}
+
+type AutomationRuleCriteriaComplianceSecurityControlIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaComplianceSecurityControlIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceSecurityControlIdArgs) ToAutomationRuleCriteriaComplianceSecurityControlIdOutput() AutomationRuleCriteriaComplianceSecurityControlIdOutput {
+	return i.ToAutomationRuleCriteriaComplianceSecurityControlIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceSecurityControlIdArgs) ToAutomationRuleCriteriaComplianceSecurityControlIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceSecurityControlIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceSecurityControlIdOutput)
+}
+
+// AutomationRuleCriteriaComplianceSecurityControlIdArrayInput is an input type that accepts AutomationRuleCriteriaComplianceSecurityControlIdArray and AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceSecurityControlIdArrayInput` via:
+//
+//	AutomationRuleCriteriaComplianceSecurityControlIdArray{ AutomationRuleCriteriaComplianceSecurityControlIdArgs{...} }
+type AutomationRuleCriteriaComplianceSecurityControlIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutput() AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput
+	ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput
+}
+
+type AutomationRuleCriteriaComplianceSecurityControlIdArray []AutomationRuleCriteriaComplianceSecurityControlIdInput
+
+func (AutomationRuleCriteriaComplianceSecurityControlIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceSecurityControlIdArray) ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutput() AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return i.ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceSecurityControlIdArray) ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput)
+}
+
+type AutomationRuleCriteriaComplianceSecurityControlIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceSecurityControlIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceSecurityControlIdOutput) ToAutomationRuleCriteriaComplianceSecurityControlIdOutput() AutomationRuleCriteriaComplianceSecurityControlIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceSecurityControlIdOutput) ToAutomationRuleCriteriaComplianceSecurityControlIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceSecurityControlIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaComplianceSecurityControlIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceSecurityControlId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaComplianceSecurityControlIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceSecurityControlId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput) ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutput() AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput) ToAutomationRuleCriteriaComplianceSecurityControlIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaComplianceSecurityControlIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaComplianceSecurityControlId {
+		return vs[0].([]AutomationRuleCriteriaComplianceSecurityControlId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaComplianceSecurityControlIdOutput)
+}
+
+type AutomationRuleCriteriaComplianceStatus struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaComplianceStatusInput is an input type that accepts AutomationRuleCriteriaComplianceStatusArgs and AutomationRuleCriteriaComplianceStatusOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceStatusInput` via:
+//
+//	AutomationRuleCriteriaComplianceStatusArgs{...}
+type AutomationRuleCriteriaComplianceStatusInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceStatusOutput() AutomationRuleCriteriaComplianceStatusOutput
+	ToAutomationRuleCriteriaComplianceStatusOutputWithContext(context.Context) AutomationRuleCriteriaComplianceStatusOutput
+}
+
+type AutomationRuleCriteriaComplianceStatusArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaComplianceStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceStatus)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceStatusArgs) ToAutomationRuleCriteriaComplianceStatusOutput() AutomationRuleCriteriaComplianceStatusOutput {
+	return i.ToAutomationRuleCriteriaComplianceStatusOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceStatusArgs) ToAutomationRuleCriteriaComplianceStatusOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceStatusOutput)
+}
+
+// AutomationRuleCriteriaComplianceStatusArrayInput is an input type that accepts AutomationRuleCriteriaComplianceStatusArray and AutomationRuleCriteriaComplianceStatusArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaComplianceStatusArrayInput` via:
+//
+//	AutomationRuleCriteriaComplianceStatusArray{ AutomationRuleCriteriaComplianceStatusArgs{...} }
+type AutomationRuleCriteriaComplianceStatusArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaComplianceStatusArrayOutput() AutomationRuleCriteriaComplianceStatusArrayOutput
+	ToAutomationRuleCriteriaComplianceStatusArrayOutputWithContext(context.Context) AutomationRuleCriteriaComplianceStatusArrayOutput
+}
+
+type AutomationRuleCriteriaComplianceStatusArray []AutomationRuleCriteriaComplianceStatusInput
+
+func (AutomationRuleCriteriaComplianceStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceStatus)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaComplianceStatusArray) ToAutomationRuleCriteriaComplianceStatusArrayOutput() AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return i.ToAutomationRuleCriteriaComplianceStatusArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaComplianceStatusArray) ToAutomationRuleCriteriaComplianceStatusArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaComplianceStatusArrayOutput)
+}
+
+type AutomationRuleCriteriaComplianceStatusOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaComplianceStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceStatusOutput) ToAutomationRuleCriteriaComplianceStatusOutput() AutomationRuleCriteriaComplianceStatusOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceStatusOutput) ToAutomationRuleCriteriaComplianceStatusOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceStatusOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaComplianceStatusOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceStatus) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaComplianceStatusOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaComplianceStatus) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaComplianceStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaComplianceStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaComplianceStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaComplianceStatusArrayOutput) ToAutomationRuleCriteriaComplianceStatusArrayOutput() AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceStatusArrayOutput) ToAutomationRuleCriteriaComplianceStatusArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaComplianceStatusArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaComplianceStatusArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaComplianceStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaComplianceStatus {
+		return vs[0].([]AutomationRuleCriteriaComplianceStatus)[vs[1].(int)]
+	}).(AutomationRuleCriteriaComplianceStatusOutput)
+}
+
+type AutomationRuleCriteriaConfidence struct {
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *float64 `pulumi:"eq"`
+	Gt *float64 `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Gte *float64 `pulumi:"gte"`
+	Lt  *float64 `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Lte *float64 `pulumi:"lte"`
+}
+
+// AutomationRuleCriteriaConfidenceInput is an input type that accepts AutomationRuleCriteriaConfidenceArgs and AutomationRuleCriteriaConfidenceOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaConfidenceInput` via:
+//
+//	AutomationRuleCriteriaConfidenceArgs{...}
+type AutomationRuleCriteriaConfidenceInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaConfidenceOutput() AutomationRuleCriteriaConfidenceOutput
+	ToAutomationRuleCriteriaConfidenceOutputWithContext(context.Context) AutomationRuleCriteriaConfidenceOutput
+}
+
+type AutomationRuleCriteriaConfidenceArgs struct {
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	Gt pulumi.Float64PtrInput `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Gte pulumi.Float64PtrInput `pulumi:"gte"`
+	Lt  pulumi.Float64PtrInput `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Lte pulumi.Float64PtrInput `pulumi:"lte"`
+}
+
+func (AutomationRuleCriteriaConfidenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaConfidence)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaConfidenceArgs) ToAutomationRuleCriteriaConfidenceOutput() AutomationRuleCriteriaConfidenceOutput {
+	return i.ToAutomationRuleCriteriaConfidenceOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaConfidenceArgs) ToAutomationRuleCriteriaConfidenceOutputWithContext(ctx context.Context) AutomationRuleCriteriaConfidenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaConfidenceOutput)
+}
+
+// AutomationRuleCriteriaConfidenceArrayInput is an input type that accepts AutomationRuleCriteriaConfidenceArray and AutomationRuleCriteriaConfidenceArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaConfidenceArrayInput` via:
+//
+//	AutomationRuleCriteriaConfidenceArray{ AutomationRuleCriteriaConfidenceArgs{...} }
+type AutomationRuleCriteriaConfidenceArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaConfidenceArrayOutput() AutomationRuleCriteriaConfidenceArrayOutput
+	ToAutomationRuleCriteriaConfidenceArrayOutputWithContext(context.Context) AutomationRuleCriteriaConfidenceArrayOutput
+}
+
+type AutomationRuleCriteriaConfidenceArray []AutomationRuleCriteriaConfidenceInput
+
+func (AutomationRuleCriteriaConfidenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaConfidence)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaConfidenceArray) ToAutomationRuleCriteriaConfidenceArrayOutput() AutomationRuleCriteriaConfidenceArrayOutput {
+	return i.ToAutomationRuleCriteriaConfidenceArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaConfidenceArray) ToAutomationRuleCriteriaConfidenceArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaConfidenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaConfidenceArrayOutput)
+}
+
+type AutomationRuleCriteriaConfidenceOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaConfidenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaConfidence)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaConfidenceOutput) ToAutomationRuleCriteriaConfidenceOutput() AutomationRuleCriteriaConfidenceOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaConfidenceOutput) ToAutomationRuleCriteriaConfidenceOutputWithContext(ctx context.Context) AutomationRuleCriteriaConfidenceOutput {
+	return o
+}
+
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaConfidenceOutput) Eq() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
+}
+
+func (o AutomationRuleCriteriaConfidenceOutput) Gt() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Gt }).(pulumi.Float64PtrOutput)
+}
+
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaConfidenceOutput) Gte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
+}
+
+func (o AutomationRuleCriteriaConfidenceOutput) Lt() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Lt }).(pulumi.Float64PtrOutput)
+}
+
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaConfidenceOutput) Lte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
+}
+
+type AutomationRuleCriteriaConfidenceArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaConfidenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaConfidence)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaConfidenceArrayOutput) ToAutomationRuleCriteriaConfidenceArrayOutput() AutomationRuleCriteriaConfidenceArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaConfidenceArrayOutput) ToAutomationRuleCriteriaConfidenceArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaConfidenceArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaConfidenceArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaConfidenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaConfidence {
+		return vs[0].([]AutomationRuleCriteriaConfidence)[vs[1].(int)]
+	}).(AutomationRuleCriteriaConfidenceOutput)
+}
+
+type AutomationRuleCriteriaCreatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange *AutomationRuleCriteriaCreatedAtDateRange `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
+}
+
+// AutomationRuleCriteriaCreatedAtInput is an input type that accepts AutomationRuleCriteriaCreatedAtArgs and AutomationRuleCriteriaCreatedAtOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCreatedAtInput` via:
+//
+//	AutomationRuleCriteriaCreatedAtArgs{...}
+type AutomationRuleCriteriaCreatedAtInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCreatedAtOutput() AutomationRuleCriteriaCreatedAtOutput
+	ToAutomationRuleCriteriaCreatedAtOutputWithContext(context.Context) AutomationRuleCriteriaCreatedAtOutput
+}
+
+type AutomationRuleCriteriaCreatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange AutomationRuleCriteriaCreatedAtDateRangePtrInput `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AutomationRuleCriteriaCreatedAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCreatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCreatedAtArgs) ToAutomationRuleCriteriaCreatedAtOutput() AutomationRuleCriteriaCreatedAtOutput {
+	return i.ToAutomationRuleCriteriaCreatedAtOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCreatedAtArgs) ToAutomationRuleCriteriaCreatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCreatedAtOutput)
+}
+
+// AutomationRuleCriteriaCreatedAtArrayInput is an input type that accepts AutomationRuleCriteriaCreatedAtArray and AutomationRuleCriteriaCreatedAtArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCreatedAtArrayInput` via:
+//
+//	AutomationRuleCriteriaCreatedAtArray{ AutomationRuleCriteriaCreatedAtArgs{...} }
+type AutomationRuleCriteriaCreatedAtArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCreatedAtArrayOutput() AutomationRuleCriteriaCreatedAtArrayOutput
+	ToAutomationRuleCriteriaCreatedAtArrayOutputWithContext(context.Context) AutomationRuleCriteriaCreatedAtArrayOutput
+}
+
+type AutomationRuleCriteriaCreatedAtArray []AutomationRuleCriteriaCreatedAtInput
+
+func (AutomationRuleCriteriaCreatedAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCreatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCreatedAtArray) ToAutomationRuleCriteriaCreatedAtArrayOutput() AutomationRuleCriteriaCreatedAtArrayOutput {
+	return i.ToAutomationRuleCriteriaCreatedAtArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCreatedAtArray) ToAutomationRuleCriteriaCreatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCreatedAtArrayOutput)
+}
+
+type AutomationRuleCriteriaCreatedAtOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCreatedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCreatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCreatedAtOutput) ToAutomationRuleCriteriaCreatedAtOutput() AutomationRuleCriteriaCreatedAtOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtOutput) ToAutomationRuleCriteriaCreatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtOutput {
+	return o
+}
+
+// A configuration block of the date range for the date filter. See dateRange below for more details.
+func (o AutomationRuleCriteriaCreatedAtOutput) DateRange() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *AutomationRuleCriteriaCreatedAtDateRange { return v.DateRange }).(AutomationRuleCriteriaCreatedAtDateRangePtrOutput)
+}
+
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaCreatedAtOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaCreatedAtOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteriaCreatedAtArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCreatedAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCreatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCreatedAtArrayOutput) ToAutomationRuleCriteriaCreatedAtArrayOutput() AutomationRuleCriteriaCreatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtArrayOutput) ToAutomationRuleCriteriaCreatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaCreatedAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaCreatedAt {
+		return vs[0].([]AutomationRuleCriteriaCreatedAt)[vs[1].(int)]
+	}).(AutomationRuleCriteriaCreatedAtOutput)
+}
+
+type AutomationRuleCriteriaCreatedAtDateRange struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit string `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value int `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaCreatedAtDateRangeInput is an input type that accepts AutomationRuleCriteriaCreatedAtDateRangeArgs and AutomationRuleCriteriaCreatedAtDateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCreatedAtDateRangeInput` via:
+//
+//	AutomationRuleCriteriaCreatedAtDateRangeArgs{...}
+type AutomationRuleCriteriaCreatedAtDateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCreatedAtDateRangeOutput() AutomationRuleCriteriaCreatedAtDateRangeOutput
+	ToAutomationRuleCriteriaCreatedAtDateRangeOutputWithContext(context.Context) AutomationRuleCriteriaCreatedAtDateRangeOutput
+}
+
+type AutomationRuleCriteriaCreatedAtDateRangeArgs struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaCreatedAtDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCreatedAtDateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCreatedAtDateRangeArgs) ToAutomationRuleCriteriaCreatedAtDateRangeOutput() AutomationRuleCriteriaCreatedAtDateRangeOutput {
+	return i.ToAutomationRuleCriteriaCreatedAtDateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCreatedAtDateRangeArgs) ToAutomationRuleCriteriaCreatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCreatedAtDateRangeOutput)
+}
+
+func (i AutomationRuleCriteriaCreatedAtDateRangeArgs) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutput() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCreatedAtDateRangeArgs) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCreatedAtDateRangeOutput).ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaCreatedAtDateRangePtrInput is an input type that accepts AutomationRuleCriteriaCreatedAtDateRangeArgs, AutomationRuleCriteriaCreatedAtDateRangePtr and AutomationRuleCriteriaCreatedAtDateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCreatedAtDateRangePtrInput` via:
+//
+//	        AutomationRuleCriteriaCreatedAtDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaCreatedAtDateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCreatedAtDateRangePtrOutput() AutomationRuleCriteriaCreatedAtDateRangePtrOutput
+	ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(context.Context) AutomationRuleCriteriaCreatedAtDateRangePtrOutput
+}
+
+type automationRuleCriteriaCreatedAtDateRangePtrType AutomationRuleCriteriaCreatedAtDateRangeArgs
+
+func AutomationRuleCriteriaCreatedAtDateRangePtr(v *AutomationRuleCriteriaCreatedAtDateRangeArgs) AutomationRuleCriteriaCreatedAtDateRangePtrInput {
+	return (*automationRuleCriteriaCreatedAtDateRangePtrType)(v)
+}
+
+func (*automationRuleCriteriaCreatedAtDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaCreatedAtDateRange)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaCreatedAtDateRangePtrType) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutput() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaCreatedAtDateRangePtrType) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCreatedAtDateRangePtrOutput)
+}
+
+type AutomationRuleCriteriaCreatedAtDateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCreatedAtDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCreatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) ToAutomationRuleCriteriaCreatedAtDateRangeOutput() AutomationRuleCriteriaCreatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) ToAutomationRuleCriteriaCreatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutput() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return o.ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteriaCreatedAtDateRange) *AutomationRuleCriteriaCreatedAtDateRange {
+		return &v
+	}).(AutomationRuleCriteriaCreatedAtDateRangePtrOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaCreatedAtDateRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAtDateRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AutomationRuleCriteriaCreatedAtDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCreatedAtDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaCreatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutput() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) ToAutomationRuleCriteriaCreatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) Elem() AutomationRuleCriteriaCreatedAtDateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaCreatedAtDateRange) AutomationRuleCriteriaCreatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteriaCreatedAtDateRange
+		return ret
+	}).(AutomationRuleCriteriaCreatedAtDateRangeOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaCreatedAtDateRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaCreatedAtDateRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleCriteriaCriticality struct {
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *float64 `pulumi:"eq"`
+	Gt *float64 `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Gte *float64 `pulumi:"gte"`
+	Lt  *float64 `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Lte *float64 `pulumi:"lte"`
+}
+
+// AutomationRuleCriteriaCriticalityInput is an input type that accepts AutomationRuleCriteriaCriticalityArgs and AutomationRuleCriteriaCriticalityOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCriticalityInput` via:
+//
+//	AutomationRuleCriteriaCriticalityArgs{...}
+type AutomationRuleCriteriaCriticalityInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCriticalityOutput() AutomationRuleCriteriaCriticalityOutput
+	ToAutomationRuleCriteriaCriticalityOutputWithContext(context.Context) AutomationRuleCriteriaCriticalityOutput
+}
+
+type AutomationRuleCriteriaCriticalityArgs struct {
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	Gt pulumi.Float64PtrInput `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Gte pulumi.Float64PtrInput `pulumi:"gte"`
+	Lt  pulumi.Float64PtrInput `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+	Lte pulumi.Float64PtrInput `pulumi:"lte"`
+}
+
+func (AutomationRuleCriteriaCriticalityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCriticality)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCriticalityArgs) ToAutomationRuleCriteriaCriticalityOutput() AutomationRuleCriteriaCriticalityOutput {
+	return i.ToAutomationRuleCriteriaCriticalityOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCriticalityArgs) ToAutomationRuleCriteriaCriticalityOutputWithContext(ctx context.Context) AutomationRuleCriteriaCriticalityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCriticalityOutput)
+}
+
+// AutomationRuleCriteriaCriticalityArrayInput is an input type that accepts AutomationRuleCriteriaCriticalityArray and AutomationRuleCriteriaCriticalityArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaCriticalityArrayInput` via:
+//
+//	AutomationRuleCriteriaCriticalityArray{ AutomationRuleCriteriaCriticalityArgs{...} }
+type AutomationRuleCriteriaCriticalityArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaCriticalityArrayOutput() AutomationRuleCriteriaCriticalityArrayOutput
+	ToAutomationRuleCriteriaCriticalityArrayOutputWithContext(context.Context) AutomationRuleCriteriaCriticalityArrayOutput
+}
+
+type AutomationRuleCriteriaCriticalityArray []AutomationRuleCriteriaCriticalityInput
+
+func (AutomationRuleCriteriaCriticalityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCriticality)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaCriticalityArray) ToAutomationRuleCriteriaCriticalityArrayOutput() AutomationRuleCriteriaCriticalityArrayOutput {
+	return i.ToAutomationRuleCriteriaCriticalityArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaCriticalityArray) ToAutomationRuleCriteriaCriticalityArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCriticalityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaCriticalityArrayOutput)
+}
+
+type AutomationRuleCriteriaCriticalityOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCriticalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaCriticality)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCriticalityOutput) ToAutomationRuleCriteriaCriticalityOutput() AutomationRuleCriteriaCriticalityOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCriticalityOutput) ToAutomationRuleCriteriaCriticalityOutputWithContext(ctx context.Context) AutomationRuleCriteriaCriticalityOutput {
+	return o
+}
+
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaCriticalityOutput) Eq() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
+}
+
+func (o AutomationRuleCriteriaCriticalityOutput) Gt() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Gt }).(pulumi.Float64PtrOutput)
+}
+
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaCriticalityOutput) Gte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
+}
+
+func (o AutomationRuleCriteriaCriticalityOutput) Lt() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Lt }).(pulumi.Float64PtrOutput)
+}
+
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+func (o AutomationRuleCriteriaCriticalityOutput) Lte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
+}
+
+type AutomationRuleCriteriaCriticalityArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaCriticalityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaCriticality)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaCriticalityArrayOutput) ToAutomationRuleCriteriaCriticalityArrayOutput() AutomationRuleCriteriaCriticalityArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCriticalityArrayOutput) ToAutomationRuleCriteriaCriticalityArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaCriticalityArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaCriticalityArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaCriticalityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaCriticality {
+		return vs[0].([]AutomationRuleCriteriaCriticality)[vs[1].(int)]
+	}).(AutomationRuleCriteriaCriticalityOutput)
+}
+
+type AutomationRuleCriteriaDescription struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaDescriptionInput is an input type that accepts AutomationRuleCriteriaDescriptionArgs and AutomationRuleCriteriaDescriptionOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaDescriptionInput` via:
+//
+//	AutomationRuleCriteriaDescriptionArgs{...}
+type AutomationRuleCriteriaDescriptionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaDescriptionOutput() AutomationRuleCriteriaDescriptionOutput
+	ToAutomationRuleCriteriaDescriptionOutputWithContext(context.Context) AutomationRuleCriteriaDescriptionOutput
+}
+
+type AutomationRuleCriteriaDescriptionArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaDescription)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaDescriptionArgs) ToAutomationRuleCriteriaDescriptionOutput() AutomationRuleCriteriaDescriptionOutput {
+	return i.ToAutomationRuleCriteriaDescriptionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaDescriptionArgs) ToAutomationRuleCriteriaDescriptionOutputWithContext(ctx context.Context) AutomationRuleCriteriaDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaDescriptionOutput)
+}
+
+// AutomationRuleCriteriaDescriptionArrayInput is an input type that accepts AutomationRuleCriteriaDescriptionArray and AutomationRuleCriteriaDescriptionArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaDescriptionArrayInput` via:
+//
+//	AutomationRuleCriteriaDescriptionArray{ AutomationRuleCriteriaDescriptionArgs{...} }
+type AutomationRuleCriteriaDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaDescriptionArrayOutput() AutomationRuleCriteriaDescriptionArrayOutput
+	ToAutomationRuleCriteriaDescriptionArrayOutputWithContext(context.Context) AutomationRuleCriteriaDescriptionArrayOutput
+}
+
+type AutomationRuleCriteriaDescriptionArray []AutomationRuleCriteriaDescriptionInput
+
+func (AutomationRuleCriteriaDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaDescription)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaDescriptionArray) ToAutomationRuleCriteriaDescriptionArrayOutput() AutomationRuleCriteriaDescriptionArrayOutput {
+	return i.ToAutomationRuleCriteriaDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaDescriptionArray) ToAutomationRuleCriteriaDescriptionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaDescriptionArrayOutput)
+}
+
+type AutomationRuleCriteriaDescriptionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaDescription)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaDescriptionOutput) ToAutomationRuleCriteriaDescriptionOutput() AutomationRuleCriteriaDescriptionOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaDescriptionOutput) ToAutomationRuleCriteriaDescriptionOutputWithContext(ctx context.Context) AutomationRuleCriteriaDescriptionOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaDescriptionOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaDescription) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaDescriptionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaDescription) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaDescription)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaDescriptionArrayOutput) ToAutomationRuleCriteriaDescriptionArrayOutput() AutomationRuleCriteriaDescriptionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaDescriptionArrayOutput) ToAutomationRuleCriteriaDescriptionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaDescriptionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaDescriptionArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaDescription {
+		return vs[0].([]AutomationRuleCriteriaDescription)[vs[1].(int)]
+	}).(AutomationRuleCriteriaDescriptionOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange *AutomationRuleCriteriaFirstObservedAtDateRange `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
+}
+
+// AutomationRuleCriteriaFirstObservedAtInput is an input type that accepts AutomationRuleCriteriaFirstObservedAtArgs and AutomationRuleCriteriaFirstObservedAtOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaFirstObservedAtInput` via:
+//
+//	AutomationRuleCriteriaFirstObservedAtArgs{...}
+type AutomationRuleCriteriaFirstObservedAtInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaFirstObservedAtOutput() AutomationRuleCriteriaFirstObservedAtOutput
+	ToAutomationRuleCriteriaFirstObservedAtOutputWithContext(context.Context) AutomationRuleCriteriaFirstObservedAtOutput
+}
+
+type AutomationRuleCriteriaFirstObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange AutomationRuleCriteriaFirstObservedAtDateRangePtrInput `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AutomationRuleCriteriaFirstObservedAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtArgs) ToAutomationRuleCriteriaFirstObservedAtOutput() AutomationRuleCriteriaFirstObservedAtOutput {
+	return i.ToAutomationRuleCriteriaFirstObservedAtOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtArgs) ToAutomationRuleCriteriaFirstObservedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaFirstObservedAtOutput)
+}
+
+// AutomationRuleCriteriaFirstObservedAtArrayInput is an input type that accepts AutomationRuleCriteriaFirstObservedAtArray and AutomationRuleCriteriaFirstObservedAtArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaFirstObservedAtArrayInput` via:
+//
+//	AutomationRuleCriteriaFirstObservedAtArray{ AutomationRuleCriteriaFirstObservedAtArgs{...} }
+type AutomationRuleCriteriaFirstObservedAtArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaFirstObservedAtArrayOutput() AutomationRuleCriteriaFirstObservedAtArrayOutput
+	ToAutomationRuleCriteriaFirstObservedAtArrayOutputWithContext(context.Context) AutomationRuleCriteriaFirstObservedAtArrayOutput
+}
+
+type AutomationRuleCriteriaFirstObservedAtArray []AutomationRuleCriteriaFirstObservedAtInput
+
+func (AutomationRuleCriteriaFirstObservedAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaFirstObservedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtArray) ToAutomationRuleCriteriaFirstObservedAtArrayOutput() AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return i.ToAutomationRuleCriteriaFirstObservedAtArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtArray) ToAutomationRuleCriteriaFirstObservedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaFirstObservedAtArrayOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAtOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaFirstObservedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtOutput) ToAutomationRuleCriteriaFirstObservedAtOutput() AutomationRuleCriteriaFirstObservedAtOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtOutput) ToAutomationRuleCriteriaFirstObservedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtOutput {
+	return o
+}
+
+// A configuration block of the date range for the date filter. See dateRange below for more details.
+func (o AutomationRuleCriteriaFirstObservedAtOutput) DateRange() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *AutomationRuleCriteriaFirstObservedAtDateRange {
+		return v.DateRange
+	}).(AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput)
+}
+
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaFirstObservedAtOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaFirstObservedAtOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAtArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaFirstObservedAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaFirstObservedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtArrayOutput) ToAutomationRuleCriteriaFirstObservedAtArrayOutput() AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtArrayOutput) ToAutomationRuleCriteriaFirstObservedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaFirstObservedAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaFirstObservedAt {
+		return vs[0].([]AutomationRuleCriteriaFirstObservedAt)[vs[1].(int)]
+	}).(AutomationRuleCriteriaFirstObservedAtOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAtDateRange struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit string `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value int `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaFirstObservedAtDateRangeInput is an input type that accepts AutomationRuleCriteriaFirstObservedAtDateRangeArgs and AutomationRuleCriteriaFirstObservedAtDateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaFirstObservedAtDateRangeInput` via:
+//
+//	AutomationRuleCriteriaFirstObservedAtDateRangeArgs{...}
+type AutomationRuleCriteriaFirstObservedAtDateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaFirstObservedAtDateRangeOutput() AutomationRuleCriteriaFirstObservedAtDateRangeOutput
+	ToAutomationRuleCriteriaFirstObservedAtDateRangeOutputWithContext(context.Context) AutomationRuleCriteriaFirstObservedAtDateRangeOutput
+}
+
+type AutomationRuleCriteriaFirstObservedAtDateRangeArgs struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaFirstObservedAtDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtDateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtDateRangeArgs) ToAutomationRuleCriteriaFirstObservedAtDateRangeOutput() AutomationRuleCriteriaFirstObservedAtDateRangeOutput {
+	return i.ToAutomationRuleCriteriaFirstObservedAtDateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtDateRangeArgs) ToAutomationRuleCriteriaFirstObservedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaFirstObservedAtDateRangeOutput)
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtDateRangeArgs) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutput() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaFirstObservedAtDateRangeArgs) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaFirstObservedAtDateRangeOutput).ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaFirstObservedAtDateRangePtrInput is an input type that accepts AutomationRuleCriteriaFirstObservedAtDateRangeArgs, AutomationRuleCriteriaFirstObservedAtDateRangePtr and AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaFirstObservedAtDateRangePtrInput` via:
+//
+//	        AutomationRuleCriteriaFirstObservedAtDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaFirstObservedAtDateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutput() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput
+	ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(context.Context) AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput
+}
+
+type automationRuleCriteriaFirstObservedAtDateRangePtrType AutomationRuleCriteriaFirstObservedAtDateRangeArgs
+
+func AutomationRuleCriteriaFirstObservedAtDateRangePtr(v *AutomationRuleCriteriaFirstObservedAtDateRangeArgs) AutomationRuleCriteriaFirstObservedAtDateRangePtrInput {
+	return (*automationRuleCriteriaFirstObservedAtDateRangePtrType)(v)
+}
+
+func (*automationRuleCriteriaFirstObservedAtDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaFirstObservedAtDateRange)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaFirstObservedAtDateRangePtrType) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutput() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaFirstObservedAtDateRangePtrType) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAtDateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaFirstObservedAtDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangeOutput() AutomationRuleCriteriaFirstObservedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutput() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return o.ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteriaFirstObservedAtDateRange) *AutomationRuleCriteriaFirstObservedAtDateRange {
+		return &v
+	}).(AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaFirstObservedAtDateRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAtDateRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaFirstObservedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutput() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) ToAutomationRuleCriteriaFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) Elem() AutomationRuleCriteriaFirstObservedAtDateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaFirstObservedAtDateRange) AutomationRuleCriteriaFirstObservedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteriaFirstObservedAtDateRange
+		return ret
+	}).(AutomationRuleCriteriaFirstObservedAtDateRangeOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaFirstObservedAtDateRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaFirstObservedAtDateRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleCriteriaGeneratorId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaGeneratorIdInput is an input type that accepts AutomationRuleCriteriaGeneratorIdArgs and AutomationRuleCriteriaGeneratorIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaGeneratorIdInput` via:
+//
+//	AutomationRuleCriteriaGeneratorIdArgs{...}
+type AutomationRuleCriteriaGeneratorIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaGeneratorIdOutput() AutomationRuleCriteriaGeneratorIdOutput
+	ToAutomationRuleCriteriaGeneratorIdOutputWithContext(context.Context) AutomationRuleCriteriaGeneratorIdOutput
+}
+
+type AutomationRuleCriteriaGeneratorIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaGeneratorIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaGeneratorId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaGeneratorIdArgs) ToAutomationRuleCriteriaGeneratorIdOutput() AutomationRuleCriteriaGeneratorIdOutput {
+	return i.ToAutomationRuleCriteriaGeneratorIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaGeneratorIdArgs) ToAutomationRuleCriteriaGeneratorIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaGeneratorIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaGeneratorIdOutput)
+}
+
+// AutomationRuleCriteriaGeneratorIdArrayInput is an input type that accepts AutomationRuleCriteriaGeneratorIdArray and AutomationRuleCriteriaGeneratorIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaGeneratorIdArrayInput` via:
+//
+//	AutomationRuleCriteriaGeneratorIdArray{ AutomationRuleCriteriaGeneratorIdArgs{...} }
+type AutomationRuleCriteriaGeneratorIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaGeneratorIdArrayOutput() AutomationRuleCriteriaGeneratorIdArrayOutput
+	ToAutomationRuleCriteriaGeneratorIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaGeneratorIdArrayOutput
+}
+
+type AutomationRuleCriteriaGeneratorIdArray []AutomationRuleCriteriaGeneratorIdInput
+
+func (AutomationRuleCriteriaGeneratorIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaGeneratorId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaGeneratorIdArray) ToAutomationRuleCriteriaGeneratorIdArrayOutput() AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return i.ToAutomationRuleCriteriaGeneratorIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaGeneratorIdArray) ToAutomationRuleCriteriaGeneratorIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaGeneratorIdArrayOutput)
+}
+
+type AutomationRuleCriteriaGeneratorIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaGeneratorIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaGeneratorId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaGeneratorIdOutput) ToAutomationRuleCriteriaGeneratorIdOutput() AutomationRuleCriteriaGeneratorIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaGeneratorIdOutput) ToAutomationRuleCriteriaGeneratorIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaGeneratorIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaGeneratorIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaGeneratorId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaGeneratorIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaGeneratorId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaGeneratorIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaGeneratorIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaGeneratorId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaGeneratorIdArrayOutput) ToAutomationRuleCriteriaGeneratorIdArrayOutput() AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaGeneratorIdArrayOutput) ToAutomationRuleCriteriaGeneratorIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaGeneratorIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaGeneratorIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaGeneratorIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaGeneratorId {
+		return vs[0].([]AutomationRuleCriteriaGeneratorId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaGeneratorIdOutput)
+}
+
+type AutomationRuleCriteriaId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaIdInput is an input type that accepts AutomationRuleCriteriaIdArgs and AutomationRuleCriteriaIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaIdInput` via:
+//
+//	AutomationRuleCriteriaIdArgs{...}
+type AutomationRuleCriteriaIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaIdOutput() AutomationRuleCriteriaIdOutput
+	ToAutomationRuleCriteriaIdOutputWithContext(context.Context) AutomationRuleCriteriaIdOutput
+}
+
+type AutomationRuleCriteriaIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaIdArgs) ToAutomationRuleCriteriaIdOutput() AutomationRuleCriteriaIdOutput {
+	return i.ToAutomationRuleCriteriaIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaIdArgs) ToAutomationRuleCriteriaIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaIdOutput)
+}
+
+// AutomationRuleCriteriaIdArrayInput is an input type that accepts AutomationRuleCriteriaIdArray and AutomationRuleCriteriaIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaIdArrayInput` via:
+//
+//	AutomationRuleCriteriaIdArray{ AutomationRuleCriteriaIdArgs{...} }
+type AutomationRuleCriteriaIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaIdArrayOutput() AutomationRuleCriteriaIdArrayOutput
+	ToAutomationRuleCriteriaIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaIdArrayOutput
+}
+
+type AutomationRuleCriteriaIdArray []AutomationRuleCriteriaIdInput
+
+func (AutomationRuleCriteriaIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaIdArray) ToAutomationRuleCriteriaIdArrayOutput() AutomationRuleCriteriaIdArrayOutput {
+	return i.ToAutomationRuleCriteriaIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaIdArray) ToAutomationRuleCriteriaIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaIdArrayOutput)
+}
+
+type AutomationRuleCriteriaIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaIdOutput) ToAutomationRuleCriteriaIdOutput() AutomationRuleCriteriaIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaIdOutput) ToAutomationRuleCriteriaIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaIdArrayOutput) ToAutomationRuleCriteriaIdArrayOutput() AutomationRuleCriteriaIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaIdArrayOutput) ToAutomationRuleCriteriaIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaId {
+		return vs[0].([]AutomationRuleCriteriaId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaIdOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange *AutomationRuleCriteriaLastObservedAtDateRange `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
+}
+
+// AutomationRuleCriteriaLastObservedAtInput is an input type that accepts AutomationRuleCriteriaLastObservedAtArgs and AutomationRuleCriteriaLastObservedAtOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaLastObservedAtInput` via:
+//
+//	AutomationRuleCriteriaLastObservedAtArgs{...}
+type AutomationRuleCriteriaLastObservedAtInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaLastObservedAtOutput() AutomationRuleCriteriaLastObservedAtOutput
+	ToAutomationRuleCriteriaLastObservedAtOutputWithContext(context.Context) AutomationRuleCriteriaLastObservedAtOutput
+}
+
+type AutomationRuleCriteriaLastObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange AutomationRuleCriteriaLastObservedAtDateRangePtrInput `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AutomationRuleCriteriaLastObservedAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaLastObservedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaLastObservedAtArgs) ToAutomationRuleCriteriaLastObservedAtOutput() AutomationRuleCriteriaLastObservedAtOutput {
+	return i.ToAutomationRuleCriteriaLastObservedAtOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaLastObservedAtArgs) ToAutomationRuleCriteriaLastObservedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaLastObservedAtOutput)
+}
+
+// AutomationRuleCriteriaLastObservedAtArrayInput is an input type that accepts AutomationRuleCriteriaLastObservedAtArray and AutomationRuleCriteriaLastObservedAtArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaLastObservedAtArrayInput` via:
+//
+//	AutomationRuleCriteriaLastObservedAtArray{ AutomationRuleCriteriaLastObservedAtArgs{...} }
+type AutomationRuleCriteriaLastObservedAtArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaLastObservedAtArrayOutput() AutomationRuleCriteriaLastObservedAtArrayOutput
+	ToAutomationRuleCriteriaLastObservedAtArrayOutputWithContext(context.Context) AutomationRuleCriteriaLastObservedAtArrayOutput
+}
+
+type AutomationRuleCriteriaLastObservedAtArray []AutomationRuleCriteriaLastObservedAtInput
+
+func (AutomationRuleCriteriaLastObservedAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaLastObservedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaLastObservedAtArray) ToAutomationRuleCriteriaLastObservedAtArrayOutput() AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return i.ToAutomationRuleCriteriaLastObservedAtArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaLastObservedAtArray) ToAutomationRuleCriteriaLastObservedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaLastObservedAtArrayOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAtOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaLastObservedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaLastObservedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaLastObservedAtOutput) ToAutomationRuleCriteriaLastObservedAtOutput() AutomationRuleCriteriaLastObservedAtOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtOutput) ToAutomationRuleCriteriaLastObservedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtOutput {
+	return o
+}
+
+// A configuration block of the date range for the date filter. See dateRange below for more details.
+func (o AutomationRuleCriteriaLastObservedAtOutput) DateRange() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *AutomationRuleCriteriaLastObservedAtDateRange {
+		return v.DateRange
+	}).(AutomationRuleCriteriaLastObservedAtDateRangePtrOutput)
+}
+
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaLastObservedAtOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaLastObservedAtOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAtArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaLastObservedAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaLastObservedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaLastObservedAtArrayOutput) ToAutomationRuleCriteriaLastObservedAtArrayOutput() AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtArrayOutput) ToAutomationRuleCriteriaLastObservedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaLastObservedAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaLastObservedAt {
+		return vs[0].([]AutomationRuleCriteriaLastObservedAt)[vs[1].(int)]
+	}).(AutomationRuleCriteriaLastObservedAtOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAtDateRange struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit string `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value int `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaLastObservedAtDateRangeInput is an input type that accepts AutomationRuleCriteriaLastObservedAtDateRangeArgs and AutomationRuleCriteriaLastObservedAtDateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaLastObservedAtDateRangeInput` via:
+//
+//	AutomationRuleCriteriaLastObservedAtDateRangeArgs{...}
+type AutomationRuleCriteriaLastObservedAtDateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaLastObservedAtDateRangeOutput() AutomationRuleCriteriaLastObservedAtDateRangeOutput
+	ToAutomationRuleCriteriaLastObservedAtDateRangeOutputWithContext(context.Context) AutomationRuleCriteriaLastObservedAtDateRangeOutput
+}
+
+type AutomationRuleCriteriaLastObservedAtDateRangeArgs struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaLastObservedAtDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtDateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaLastObservedAtDateRangeArgs) ToAutomationRuleCriteriaLastObservedAtDateRangeOutput() AutomationRuleCriteriaLastObservedAtDateRangeOutput {
+	return i.ToAutomationRuleCriteriaLastObservedAtDateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaLastObservedAtDateRangeArgs) ToAutomationRuleCriteriaLastObservedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaLastObservedAtDateRangeOutput)
+}
+
+func (i AutomationRuleCriteriaLastObservedAtDateRangeArgs) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutput() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaLastObservedAtDateRangeArgs) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaLastObservedAtDateRangeOutput).ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaLastObservedAtDateRangePtrInput is an input type that accepts AutomationRuleCriteriaLastObservedAtDateRangeArgs, AutomationRuleCriteriaLastObservedAtDateRangePtr and AutomationRuleCriteriaLastObservedAtDateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaLastObservedAtDateRangePtrInput` via:
+//
+//	        AutomationRuleCriteriaLastObservedAtDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaLastObservedAtDateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutput() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput
+	ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(context.Context) AutomationRuleCriteriaLastObservedAtDateRangePtrOutput
+}
+
+type automationRuleCriteriaLastObservedAtDateRangePtrType AutomationRuleCriteriaLastObservedAtDateRangeArgs
+
+func AutomationRuleCriteriaLastObservedAtDateRangePtr(v *AutomationRuleCriteriaLastObservedAtDateRangeArgs) AutomationRuleCriteriaLastObservedAtDateRangePtrInput {
+	return (*automationRuleCriteriaLastObservedAtDateRangePtrType)(v)
+}
+
+func (*automationRuleCriteriaLastObservedAtDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaLastObservedAtDateRange)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaLastObservedAtDateRangePtrType) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutput() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaLastObservedAtDateRangePtrType) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaLastObservedAtDateRangePtrOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAtDateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaLastObservedAtDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) ToAutomationRuleCriteriaLastObservedAtDateRangeOutput() AutomationRuleCriteriaLastObservedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) ToAutomationRuleCriteriaLastObservedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutput() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return o.ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteriaLastObservedAtDateRange) *AutomationRuleCriteriaLastObservedAtDateRange {
+		return &v
+	}).(AutomationRuleCriteriaLastObservedAtDateRangePtrOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaLastObservedAtDateRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAtDateRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AutomationRuleCriteriaLastObservedAtDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaLastObservedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutput() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) ToAutomationRuleCriteriaLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) Elem() AutomationRuleCriteriaLastObservedAtDateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaLastObservedAtDateRange) AutomationRuleCriteriaLastObservedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteriaLastObservedAtDateRange
+		return ret
+	}).(AutomationRuleCriteriaLastObservedAtDateRangeOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaLastObservedAtDateRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaLastObservedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaLastObservedAtDateRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleCriteriaNoteText struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaNoteTextInput is an input type that accepts AutomationRuleCriteriaNoteTextArgs and AutomationRuleCriteriaNoteTextOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteTextInput` via:
+//
+//	AutomationRuleCriteriaNoteTextArgs{...}
+type AutomationRuleCriteriaNoteTextInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteTextOutput() AutomationRuleCriteriaNoteTextOutput
+	ToAutomationRuleCriteriaNoteTextOutputWithContext(context.Context) AutomationRuleCriteriaNoteTextOutput
+}
+
+type AutomationRuleCriteriaNoteTextArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaNoteTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteText)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteTextArgs) ToAutomationRuleCriteriaNoteTextOutput() AutomationRuleCriteriaNoteTextOutput {
+	return i.ToAutomationRuleCriteriaNoteTextOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteTextArgs) ToAutomationRuleCriteriaNoteTextOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteTextOutput)
+}
+
+// AutomationRuleCriteriaNoteTextArrayInput is an input type that accepts AutomationRuleCriteriaNoteTextArray and AutomationRuleCriteriaNoteTextArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteTextArrayInput` via:
+//
+//	AutomationRuleCriteriaNoteTextArray{ AutomationRuleCriteriaNoteTextArgs{...} }
+type AutomationRuleCriteriaNoteTextArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteTextArrayOutput() AutomationRuleCriteriaNoteTextArrayOutput
+	ToAutomationRuleCriteriaNoteTextArrayOutputWithContext(context.Context) AutomationRuleCriteriaNoteTextArrayOutput
+}
+
+type AutomationRuleCriteriaNoteTextArray []AutomationRuleCriteriaNoteTextInput
+
+func (AutomationRuleCriteriaNoteTextArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteText)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteTextArray) ToAutomationRuleCriteriaNoteTextArrayOutput() AutomationRuleCriteriaNoteTextArrayOutput {
+	return i.ToAutomationRuleCriteriaNoteTextArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteTextArray) ToAutomationRuleCriteriaNoteTextArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteTextArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteTextArrayOutput)
+}
+
+type AutomationRuleCriteriaNoteTextOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteText)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteTextOutput) ToAutomationRuleCriteriaNoteTextOutput() AutomationRuleCriteriaNoteTextOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteTextOutput) ToAutomationRuleCriteriaNoteTextOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteTextOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaNoteTextOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteText) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaNoteTextOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteText) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaNoteTextArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteTextArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteText)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteTextArrayOutput) ToAutomationRuleCriteriaNoteTextArrayOutput() AutomationRuleCriteriaNoteTextArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteTextArrayOutput) ToAutomationRuleCriteriaNoteTextArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteTextArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteTextArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaNoteTextOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaNoteText {
+		return vs[0].([]AutomationRuleCriteriaNoteText)[vs[1].(int)]
+	}).(AutomationRuleCriteriaNoteTextOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange *AutomationRuleCriteriaNoteUpdatedAtDateRange `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
+}
+
+// AutomationRuleCriteriaNoteUpdatedAtInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedAtArgs and AutomationRuleCriteriaNoteUpdatedAtOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedAtInput` via:
+//
+//	AutomationRuleCriteriaNoteUpdatedAtArgs{...}
+type AutomationRuleCriteriaNoteUpdatedAtInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedAtOutput() AutomationRuleCriteriaNoteUpdatedAtOutput
+	ToAutomationRuleCriteriaNoteUpdatedAtOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedAtOutput
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AutomationRuleCriteriaNoteUpdatedAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtArgs) ToAutomationRuleCriteriaNoteUpdatedAtOutput() AutomationRuleCriteriaNoteUpdatedAtOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedAtOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtArgs) ToAutomationRuleCriteriaNoteUpdatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedAtOutput)
+}
+
+// AutomationRuleCriteriaNoteUpdatedAtArrayInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedAtArray and AutomationRuleCriteriaNoteUpdatedAtArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedAtArrayInput` via:
+//
+//	AutomationRuleCriteriaNoteUpdatedAtArray{ AutomationRuleCriteriaNoteUpdatedAtArgs{...} }
+type AutomationRuleCriteriaNoteUpdatedAtArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedAtArrayOutput() AutomationRuleCriteriaNoteUpdatedAtArrayOutput
+	ToAutomationRuleCriteriaNoteUpdatedAtArrayOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedAtArrayOutput
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtArray []AutomationRuleCriteriaNoteUpdatedAtInput
+
+func (AutomationRuleCriteriaNoteUpdatedAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteUpdatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtArray) ToAutomationRuleCriteriaNoteUpdatedAtArrayOutput() AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedAtArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtArray) ToAutomationRuleCriteriaNoteUpdatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedAtArrayOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtOutput) ToAutomationRuleCriteriaNoteUpdatedAtOutput() AutomationRuleCriteriaNoteUpdatedAtOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtOutput) ToAutomationRuleCriteriaNoteUpdatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtOutput {
+	return o
+}
+
+// A configuration block of the date range for the date filter. See dateRange below for more details.
+func (o AutomationRuleCriteriaNoteUpdatedAtOutput) DateRange() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *AutomationRuleCriteriaNoteUpdatedAtDateRange {
+		return v.DateRange
+	}).(AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput)
+}
+
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaNoteUpdatedAtOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaNoteUpdatedAtOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteUpdatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtArrayOutput) ToAutomationRuleCriteriaNoteUpdatedAtArrayOutput() AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtArrayOutput) ToAutomationRuleCriteriaNoteUpdatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaNoteUpdatedAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaNoteUpdatedAt {
+		return vs[0].([]AutomationRuleCriteriaNoteUpdatedAt)[vs[1].(int)]
+	}).(AutomationRuleCriteriaNoteUpdatedAtOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtDateRange struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit string `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value int `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaNoteUpdatedAtDateRangeInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs and AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedAtDateRangeInput` via:
+//
+//	AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs{...}
+type AutomationRuleCriteriaNoteUpdatedAtDateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput
+	ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput)
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput).ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs, AutomationRuleCriteriaNoteUpdatedAtDateRangePtr and AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput` via:
+//
+//	        AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput
+	ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput
+}
+
+type automationRuleCriteriaNoteUpdatedAtDateRangePtrType AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs
+
+func AutomationRuleCriteriaNoteUpdatedAtDateRangePtr(v *AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput {
+	return (*automationRuleCriteriaNoteUpdatedAtDateRangePtrType)(v)
+}
+
+func (*automationRuleCriteriaNoteUpdatedAtDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaNoteUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaNoteUpdatedAtDateRangePtrType) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaNoteUpdatedAtDateRangePtrType) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return o.ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteriaNoteUpdatedAtDateRange) *AutomationRuleCriteriaNoteUpdatedAtDateRange {
+		return &v
+	}).(AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAtDateRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaNoteUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) ToAutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) Elem() AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaNoteUpdatedAtDateRange) AutomationRuleCriteriaNoteUpdatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteriaNoteUpdatedAtDateRange
+		return ret
+	}).(AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaNoteUpdatedAtDateRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaNoteUpdatedAtDateRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedBy struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaNoteUpdatedByInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedByArgs and AutomationRuleCriteriaNoteUpdatedByOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedByInput` via:
+//
+//	AutomationRuleCriteriaNoteUpdatedByArgs{...}
+type AutomationRuleCriteriaNoteUpdatedByInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedByOutput() AutomationRuleCriteriaNoteUpdatedByOutput
+	ToAutomationRuleCriteriaNoteUpdatedByOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedByOutput
+}
+
+type AutomationRuleCriteriaNoteUpdatedByArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaNoteUpdatedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedBy)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedByArgs) ToAutomationRuleCriteriaNoteUpdatedByOutput() AutomationRuleCriteriaNoteUpdatedByOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedByOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedByArgs) ToAutomationRuleCriteriaNoteUpdatedByOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedByOutput)
+}
+
+// AutomationRuleCriteriaNoteUpdatedByArrayInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedByArray and AutomationRuleCriteriaNoteUpdatedByArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaNoteUpdatedByArrayInput` via:
+//
+//	AutomationRuleCriteriaNoteUpdatedByArray{ AutomationRuleCriteriaNoteUpdatedByArgs{...} }
+type AutomationRuleCriteriaNoteUpdatedByArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaNoteUpdatedByArrayOutput() AutomationRuleCriteriaNoteUpdatedByArrayOutput
+	ToAutomationRuleCriteriaNoteUpdatedByArrayOutputWithContext(context.Context) AutomationRuleCriteriaNoteUpdatedByArrayOutput
+}
+
+type AutomationRuleCriteriaNoteUpdatedByArray []AutomationRuleCriteriaNoteUpdatedByInput
+
+func (AutomationRuleCriteriaNoteUpdatedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteUpdatedBy)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedByArray) ToAutomationRuleCriteriaNoteUpdatedByArrayOutput() AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return i.ToAutomationRuleCriteriaNoteUpdatedByArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaNoteUpdatedByArray) ToAutomationRuleCriteriaNoteUpdatedByArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaNoteUpdatedByArrayOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedByOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedBy)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedByOutput) ToAutomationRuleCriteriaNoteUpdatedByOutput() AutomationRuleCriteriaNoteUpdatedByOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedByOutput) ToAutomationRuleCriteriaNoteUpdatedByOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedByOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaNoteUpdatedByOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedBy) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaNoteUpdatedByOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedBy) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaNoteUpdatedByArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaNoteUpdatedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaNoteUpdatedBy)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedByArrayOutput) ToAutomationRuleCriteriaNoteUpdatedByArrayOutput() AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedByArrayOutput) ToAutomationRuleCriteriaNoteUpdatedByArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaNoteUpdatedByArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaNoteUpdatedByArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaNoteUpdatedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaNoteUpdatedBy {
+		return vs[0].([]AutomationRuleCriteriaNoteUpdatedBy)[vs[1].(int)]
+	}).(AutomationRuleCriteriaNoteUpdatedByOutput)
+}
+
+type AutomationRuleCriteriaProductArn struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaProductArnInput is an input type that accepts AutomationRuleCriteriaProductArnArgs and AutomationRuleCriteriaProductArnOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaProductArnInput` via:
+//
+//	AutomationRuleCriteriaProductArnArgs{...}
+type AutomationRuleCriteriaProductArnInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaProductArnOutput() AutomationRuleCriteriaProductArnOutput
+	ToAutomationRuleCriteriaProductArnOutputWithContext(context.Context) AutomationRuleCriteriaProductArnOutput
+}
+
+type AutomationRuleCriteriaProductArnArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaProductArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaProductArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaProductArnArgs) ToAutomationRuleCriteriaProductArnOutput() AutomationRuleCriteriaProductArnOutput {
+	return i.ToAutomationRuleCriteriaProductArnOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaProductArnArgs) ToAutomationRuleCriteriaProductArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaProductArnOutput)
+}
+
+// AutomationRuleCriteriaProductArnArrayInput is an input type that accepts AutomationRuleCriteriaProductArnArray and AutomationRuleCriteriaProductArnArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaProductArnArrayInput` via:
+//
+//	AutomationRuleCriteriaProductArnArray{ AutomationRuleCriteriaProductArnArgs{...} }
+type AutomationRuleCriteriaProductArnArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaProductArnArrayOutput() AutomationRuleCriteriaProductArnArrayOutput
+	ToAutomationRuleCriteriaProductArnArrayOutputWithContext(context.Context) AutomationRuleCriteriaProductArnArrayOutput
+}
+
+type AutomationRuleCriteriaProductArnArray []AutomationRuleCriteriaProductArnInput
+
+func (AutomationRuleCriteriaProductArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaProductArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaProductArnArray) ToAutomationRuleCriteriaProductArnArrayOutput() AutomationRuleCriteriaProductArnArrayOutput {
+	return i.ToAutomationRuleCriteriaProductArnArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaProductArnArray) ToAutomationRuleCriteriaProductArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaProductArnArrayOutput)
+}
+
+type AutomationRuleCriteriaProductArnOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaProductArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaProductArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaProductArnOutput) ToAutomationRuleCriteriaProductArnOutput() AutomationRuleCriteriaProductArnOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductArnOutput) ToAutomationRuleCriteriaProductArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductArnOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaProductArnOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaProductArn) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaProductArnOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaProductArn) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaProductArnArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaProductArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaProductArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaProductArnArrayOutput) ToAutomationRuleCriteriaProductArnArrayOutput() AutomationRuleCriteriaProductArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductArnArrayOutput) ToAutomationRuleCriteriaProductArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductArnArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaProductArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaProductArn {
+		return vs[0].([]AutomationRuleCriteriaProductArn)[vs[1].(int)]
+	}).(AutomationRuleCriteriaProductArnOutput)
+}
+
+type AutomationRuleCriteriaProductName struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaProductNameInput is an input type that accepts AutomationRuleCriteriaProductNameArgs and AutomationRuleCriteriaProductNameOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaProductNameInput` via:
+//
+//	AutomationRuleCriteriaProductNameArgs{...}
+type AutomationRuleCriteriaProductNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaProductNameOutput() AutomationRuleCriteriaProductNameOutput
+	ToAutomationRuleCriteriaProductNameOutputWithContext(context.Context) AutomationRuleCriteriaProductNameOutput
+}
+
+type AutomationRuleCriteriaProductNameArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaProductNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaProductName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaProductNameArgs) ToAutomationRuleCriteriaProductNameOutput() AutomationRuleCriteriaProductNameOutput {
+	return i.ToAutomationRuleCriteriaProductNameOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaProductNameArgs) ToAutomationRuleCriteriaProductNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaProductNameOutput)
+}
+
+// AutomationRuleCriteriaProductNameArrayInput is an input type that accepts AutomationRuleCriteriaProductNameArray and AutomationRuleCriteriaProductNameArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaProductNameArrayInput` via:
+//
+//	AutomationRuleCriteriaProductNameArray{ AutomationRuleCriteriaProductNameArgs{...} }
+type AutomationRuleCriteriaProductNameArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaProductNameArrayOutput() AutomationRuleCriteriaProductNameArrayOutput
+	ToAutomationRuleCriteriaProductNameArrayOutputWithContext(context.Context) AutomationRuleCriteriaProductNameArrayOutput
+}
+
+type AutomationRuleCriteriaProductNameArray []AutomationRuleCriteriaProductNameInput
+
+func (AutomationRuleCriteriaProductNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaProductName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaProductNameArray) ToAutomationRuleCriteriaProductNameArrayOutput() AutomationRuleCriteriaProductNameArrayOutput {
+	return i.ToAutomationRuleCriteriaProductNameArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaProductNameArray) ToAutomationRuleCriteriaProductNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaProductNameArrayOutput)
+}
+
+type AutomationRuleCriteriaProductNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaProductNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaProductName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaProductNameOutput) ToAutomationRuleCriteriaProductNameOutput() AutomationRuleCriteriaProductNameOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductNameOutput) ToAutomationRuleCriteriaProductNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductNameOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaProductNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaProductName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaProductNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaProductName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaProductNameArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaProductNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaProductName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaProductNameArrayOutput) ToAutomationRuleCriteriaProductNameArrayOutput() AutomationRuleCriteriaProductNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductNameArrayOutput) ToAutomationRuleCriteriaProductNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaProductNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaProductNameArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaProductNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaProductName {
+		return vs[0].([]AutomationRuleCriteriaProductName)[vs[1].(int)]
+	}).(AutomationRuleCriteriaProductNameOutput)
+}
+
+type AutomationRuleCriteriaRecordState struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaRecordStateInput is an input type that accepts AutomationRuleCriteriaRecordStateArgs and AutomationRuleCriteriaRecordStateOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRecordStateInput` via:
+//
+//	AutomationRuleCriteriaRecordStateArgs{...}
+type AutomationRuleCriteriaRecordStateInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRecordStateOutput() AutomationRuleCriteriaRecordStateOutput
+	ToAutomationRuleCriteriaRecordStateOutputWithContext(context.Context) AutomationRuleCriteriaRecordStateOutput
+}
+
+type AutomationRuleCriteriaRecordStateArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaRecordStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRecordState)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRecordStateArgs) ToAutomationRuleCriteriaRecordStateOutput() AutomationRuleCriteriaRecordStateOutput {
+	return i.ToAutomationRuleCriteriaRecordStateOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRecordStateArgs) ToAutomationRuleCriteriaRecordStateOutputWithContext(ctx context.Context) AutomationRuleCriteriaRecordStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRecordStateOutput)
+}
+
+// AutomationRuleCriteriaRecordStateArrayInput is an input type that accepts AutomationRuleCriteriaRecordStateArray and AutomationRuleCriteriaRecordStateArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRecordStateArrayInput` via:
+//
+//	AutomationRuleCriteriaRecordStateArray{ AutomationRuleCriteriaRecordStateArgs{...} }
+type AutomationRuleCriteriaRecordStateArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRecordStateArrayOutput() AutomationRuleCriteriaRecordStateArrayOutput
+	ToAutomationRuleCriteriaRecordStateArrayOutputWithContext(context.Context) AutomationRuleCriteriaRecordStateArrayOutput
+}
+
+type AutomationRuleCriteriaRecordStateArray []AutomationRuleCriteriaRecordStateInput
+
+func (AutomationRuleCriteriaRecordStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRecordState)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRecordStateArray) ToAutomationRuleCriteriaRecordStateArrayOutput() AutomationRuleCriteriaRecordStateArrayOutput {
+	return i.ToAutomationRuleCriteriaRecordStateArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRecordStateArray) ToAutomationRuleCriteriaRecordStateArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRecordStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRecordStateArrayOutput)
+}
+
+type AutomationRuleCriteriaRecordStateOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRecordStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRecordState)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRecordStateOutput) ToAutomationRuleCriteriaRecordStateOutput() AutomationRuleCriteriaRecordStateOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRecordStateOutput) ToAutomationRuleCriteriaRecordStateOutputWithContext(ctx context.Context) AutomationRuleCriteriaRecordStateOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaRecordStateOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRecordState) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaRecordStateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRecordState) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaRecordStateArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRecordStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRecordState)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRecordStateArrayOutput) ToAutomationRuleCriteriaRecordStateArrayOutput() AutomationRuleCriteriaRecordStateArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRecordStateArrayOutput) ToAutomationRuleCriteriaRecordStateArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRecordStateArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRecordStateArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaRecordStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaRecordState {
+		return vs[0].([]AutomationRuleCriteriaRecordState)[vs[1].(int)]
+	}).(AutomationRuleCriteriaRecordStateOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaRelatedFindingsIdInput is an input type that accepts AutomationRuleCriteriaRelatedFindingsIdArgs and AutomationRuleCriteriaRelatedFindingsIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRelatedFindingsIdInput` via:
+//
+//	AutomationRuleCriteriaRelatedFindingsIdArgs{...}
+type AutomationRuleCriteriaRelatedFindingsIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRelatedFindingsIdOutput() AutomationRuleCriteriaRelatedFindingsIdOutput
+	ToAutomationRuleCriteriaRelatedFindingsIdOutputWithContext(context.Context) AutomationRuleCriteriaRelatedFindingsIdOutput
+}
+
+type AutomationRuleCriteriaRelatedFindingsIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaRelatedFindingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsIdArgs) ToAutomationRuleCriteriaRelatedFindingsIdOutput() AutomationRuleCriteriaRelatedFindingsIdOutput {
+	return i.ToAutomationRuleCriteriaRelatedFindingsIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsIdArgs) ToAutomationRuleCriteriaRelatedFindingsIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRelatedFindingsIdOutput)
+}
+
+// AutomationRuleCriteriaRelatedFindingsIdArrayInput is an input type that accepts AutomationRuleCriteriaRelatedFindingsIdArray and AutomationRuleCriteriaRelatedFindingsIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRelatedFindingsIdArrayInput` via:
+//
+//	AutomationRuleCriteriaRelatedFindingsIdArray{ AutomationRuleCriteriaRelatedFindingsIdArgs{...} }
+type AutomationRuleCriteriaRelatedFindingsIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRelatedFindingsIdArrayOutput() AutomationRuleCriteriaRelatedFindingsIdArrayOutput
+	ToAutomationRuleCriteriaRelatedFindingsIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaRelatedFindingsIdArrayOutput
+}
+
+type AutomationRuleCriteriaRelatedFindingsIdArray []AutomationRuleCriteriaRelatedFindingsIdInput
+
+func (AutomationRuleCriteriaRelatedFindingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRelatedFindingsId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsIdArray) ToAutomationRuleCriteriaRelatedFindingsIdArrayOutput() AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return i.ToAutomationRuleCriteriaRelatedFindingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsIdArray) ToAutomationRuleCriteriaRelatedFindingsIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRelatedFindingsIdArrayOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRelatedFindingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsIdOutput) ToAutomationRuleCriteriaRelatedFindingsIdOutput() AutomationRuleCriteriaRelatedFindingsIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsIdOutput) ToAutomationRuleCriteriaRelatedFindingsIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaRelatedFindingsIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRelatedFindingsId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaRelatedFindingsIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRelatedFindingsId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRelatedFindingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRelatedFindingsId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsIdArrayOutput) ToAutomationRuleCriteriaRelatedFindingsIdArrayOutput() AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsIdArrayOutput) ToAutomationRuleCriteriaRelatedFindingsIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaRelatedFindingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaRelatedFindingsId {
+		return vs[0].([]AutomationRuleCriteriaRelatedFindingsId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaRelatedFindingsIdOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsProductArn struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaRelatedFindingsProductArnInput is an input type that accepts AutomationRuleCriteriaRelatedFindingsProductArnArgs and AutomationRuleCriteriaRelatedFindingsProductArnOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRelatedFindingsProductArnInput` via:
+//
+//	AutomationRuleCriteriaRelatedFindingsProductArnArgs{...}
+type AutomationRuleCriteriaRelatedFindingsProductArnInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRelatedFindingsProductArnOutput() AutomationRuleCriteriaRelatedFindingsProductArnOutput
+	ToAutomationRuleCriteriaRelatedFindingsProductArnOutputWithContext(context.Context) AutomationRuleCriteriaRelatedFindingsProductArnOutput
+}
+
+type AutomationRuleCriteriaRelatedFindingsProductArnArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaRelatedFindingsProductArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsProductArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsProductArnArgs) ToAutomationRuleCriteriaRelatedFindingsProductArnOutput() AutomationRuleCriteriaRelatedFindingsProductArnOutput {
+	return i.ToAutomationRuleCriteriaRelatedFindingsProductArnOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsProductArnArgs) ToAutomationRuleCriteriaRelatedFindingsProductArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsProductArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRelatedFindingsProductArnOutput)
+}
+
+// AutomationRuleCriteriaRelatedFindingsProductArnArrayInput is an input type that accepts AutomationRuleCriteriaRelatedFindingsProductArnArray and AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaRelatedFindingsProductArnArrayInput` via:
+//
+//	AutomationRuleCriteriaRelatedFindingsProductArnArray{ AutomationRuleCriteriaRelatedFindingsProductArnArgs{...} }
+type AutomationRuleCriteriaRelatedFindingsProductArnArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutput() AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput
+	ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutputWithContext(context.Context) AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput
+}
+
+type AutomationRuleCriteriaRelatedFindingsProductArnArray []AutomationRuleCriteriaRelatedFindingsProductArnInput
+
+func (AutomationRuleCriteriaRelatedFindingsProductArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRelatedFindingsProductArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsProductArnArray) ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutput() AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return i.ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaRelatedFindingsProductArnArray) ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsProductArnOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRelatedFindingsProductArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsProductArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsProductArnOutput) ToAutomationRuleCriteriaRelatedFindingsProductArnOutput() AutomationRuleCriteriaRelatedFindingsProductArnOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsProductArnOutput) ToAutomationRuleCriteriaRelatedFindingsProductArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsProductArnOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaRelatedFindingsProductArnOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRelatedFindingsProductArn) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaRelatedFindingsProductArnOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaRelatedFindingsProductArn) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaRelatedFindingsProductArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput) ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutput() AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput) ToAutomationRuleCriteriaRelatedFindingsProductArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaRelatedFindingsProductArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaRelatedFindingsProductArn {
+		return vs[0].([]AutomationRuleCriteriaRelatedFindingsProductArn)[vs[1].(int)]
+	}).(AutomationRuleCriteriaRelatedFindingsProductArnOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationArn struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceApplicationArnInput is an input type that accepts AutomationRuleCriteriaResourceApplicationArnArgs and AutomationRuleCriteriaResourceApplicationArnOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceApplicationArnInput` via:
+//
+//	AutomationRuleCriteriaResourceApplicationArnArgs{...}
+type AutomationRuleCriteriaResourceApplicationArnInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceApplicationArnOutput() AutomationRuleCriteriaResourceApplicationArnOutput
+	ToAutomationRuleCriteriaResourceApplicationArnOutputWithContext(context.Context) AutomationRuleCriteriaResourceApplicationArnOutput
+}
+
+type AutomationRuleCriteriaResourceApplicationArnArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceApplicationArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceApplicationArnArgs) ToAutomationRuleCriteriaResourceApplicationArnOutput() AutomationRuleCriteriaResourceApplicationArnOutput {
+	return i.ToAutomationRuleCriteriaResourceApplicationArnOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceApplicationArnArgs) ToAutomationRuleCriteriaResourceApplicationArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceApplicationArnOutput)
+}
+
+// AutomationRuleCriteriaResourceApplicationArnArrayInput is an input type that accepts AutomationRuleCriteriaResourceApplicationArnArray and AutomationRuleCriteriaResourceApplicationArnArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceApplicationArnArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceApplicationArnArray{ AutomationRuleCriteriaResourceApplicationArnArgs{...} }
+type AutomationRuleCriteriaResourceApplicationArnArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceApplicationArnArrayOutput() AutomationRuleCriteriaResourceApplicationArnArrayOutput
+	ToAutomationRuleCriteriaResourceApplicationArnArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceApplicationArnArrayOutput
+}
+
+type AutomationRuleCriteriaResourceApplicationArnArray []AutomationRuleCriteriaResourceApplicationArnInput
+
+func (AutomationRuleCriteriaResourceApplicationArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceApplicationArn)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceApplicationArnArray) ToAutomationRuleCriteriaResourceApplicationArnArrayOutput() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceApplicationArnArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceApplicationArnArray) ToAutomationRuleCriteriaResourceApplicationArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceApplicationArnArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationArnOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceApplicationArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceApplicationArnOutput) ToAutomationRuleCriteriaResourceApplicationArnOutput() AutomationRuleCriteriaResourceApplicationArnOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationArnOutput) ToAutomationRuleCriteriaResourceApplicationArnOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationArnOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceApplicationArnOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceApplicationArn) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceApplicationArnOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceApplicationArn) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationArnArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceApplicationArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceApplicationArn)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceApplicationArnArrayOutput) ToAutomationRuleCriteriaResourceApplicationArnArrayOutput() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationArnArrayOutput) ToAutomationRuleCriteriaResourceApplicationArnArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationArnArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationArnArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceApplicationArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceApplicationArn {
+		return vs[0].([]AutomationRuleCriteriaResourceApplicationArn)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceApplicationArnOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationName struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceApplicationNameInput is an input type that accepts AutomationRuleCriteriaResourceApplicationNameArgs and AutomationRuleCriteriaResourceApplicationNameOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceApplicationNameInput` via:
+//
+//	AutomationRuleCriteriaResourceApplicationNameArgs{...}
+type AutomationRuleCriteriaResourceApplicationNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceApplicationNameOutput() AutomationRuleCriteriaResourceApplicationNameOutput
+	ToAutomationRuleCriteriaResourceApplicationNameOutputWithContext(context.Context) AutomationRuleCriteriaResourceApplicationNameOutput
+}
+
+type AutomationRuleCriteriaResourceApplicationNameArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceApplicationNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceApplicationNameArgs) ToAutomationRuleCriteriaResourceApplicationNameOutput() AutomationRuleCriteriaResourceApplicationNameOutput {
+	return i.ToAutomationRuleCriteriaResourceApplicationNameOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceApplicationNameArgs) ToAutomationRuleCriteriaResourceApplicationNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceApplicationNameOutput)
+}
+
+// AutomationRuleCriteriaResourceApplicationNameArrayInput is an input type that accepts AutomationRuleCriteriaResourceApplicationNameArray and AutomationRuleCriteriaResourceApplicationNameArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceApplicationNameArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceApplicationNameArray{ AutomationRuleCriteriaResourceApplicationNameArgs{...} }
+type AutomationRuleCriteriaResourceApplicationNameArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceApplicationNameArrayOutput() AutomationRuleCriteriaResourceApplicationNameArrayOutput
+	ToAutomationRuleCriteriaResourceApplicationNameArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceApplicationNameArrayOutput
+}
+
+type AutomationRuleCriteriaResourceApplicationNameArray []AutomationRuleCriteriaResourceApplicationNameInput
+
+func (AutomationRuleCriteriaResourceApplicationNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceApplicationName)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceApplicationNameArray) ToAutomationRuleCriteriaResourceApplicationNameArrayOutput() AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceApplicationNameArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceApplicationNameArray) ToAutomationRuleCriteriaResourceApplicationNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceApplicationNameArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceApplicationNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceApplicationNameOutput) ToAutomationRuleCriteriaResourceApplicationNameOutput() AutomationRuleCriteriaResourceApplicationNameOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationNameOutput) ToAutomationRuleCriteriaResourceApplicationNameOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationNameOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceApplicationNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceApplicationName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceApplicationNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceApplicationName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceApplicationNameArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceApplicationNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceApplicationName)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceApplicationNameArrayOutput) ToAutomationRuleCriteriaResourceApplicationNameArrayOutput() AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationNameArrayOutput) ToAutomationRuleCriteriaResourceApplicationNameArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceApplicationNameArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceApplicationNameArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceApplicationNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceApplicationName {
+		return vs[0].([]AutomationRuleCriteriaResourceApplicationName)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceApplicationNameOutput)
+}
+
+type AutomationRuleCriteriaResourceDetailsOther struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// The key of the map filter.
+	Key string `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceDetailsOtherInput is an input type that accepts AutomationRuleCriteriaResourceDetailsOtherArgs and AutomationRuleCriteriaResourceDetailsOtherOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceDetailsOtherInput` via:
+//
+//	AutomationRuleCriteriaResourceDetailsOtherArgs{...}
+type AutomationRuleCriteriaResourceDetailsOtherInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceDetailsOtherOutput() AutomationRuleCriteriaResourceDetailsOtherOutput
+	ToAutomationRuleCriteriaResourceDetailsOtherOutputWithContext(context.Context) AutomationRuleCriteriaResourceDetailsOtherOutput
+}
+
+type AutomationRuleCriteriaResourceDetailsOtherArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// The key of the map filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceDetailsOtherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceDetailsOther)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceDetailsOtherArgs) ToAutomationRuleCriteriaResourceDetailsOtherOutput() AutomationRuleCriteriaResourceDetailsOtherOutput {
+	return i.ToAutomationRuleCriteriaResourceDetailsOtherOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceDetailsOtherArgs) ToAutomationRuleCriteriaResourceDetailsOtherOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceDetailsOtherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceDetailsOtherOutput)
+}
+
+// AutomationRuleCriteriaResourceDetailsOtherArrayInput is an input type that accepts AutomationRuleCriteriaResourceDetailsOtherArray and AutomationRuleCriteriaResourceDetailsOtherArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceDetailsOtherArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceDetailsOtherArray{ AutomationRuleCriteriaResourceDetailsOtherArgs{...} }
+type AutomationRuleCriteriaResourceDetailsOtherArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceDetailsOtherArrayOutput() AutomationRuleCriteriaResourceDetailsOtherArrayOutput
+	ToAutomationRuleCriteriaResourceDetailsOtherArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceDetailsOtherArrayOutput
+}
+
+type AutomationRuleCriteriaResourceDetailsOtherArray []AutomationRuleCriteriaResourceDetailsOtherInput
+
+func (AutomationRuleCriteriaResourceDetailsOtherArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceDetailsOther)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceDetailsOtherArray) ToAutomationRuleCriteriaResourceDetailsOtherArrayOutput() AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceDetailsOtherArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceDetailsOtherArray) ToAutomationRuleCriteriaResourceDetailsOtherArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceDetailsOtherArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceDetailsOtherOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceDetailsOtherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceDetailsOther)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceDetailsOtherOutput) ToAutomationRuleCriteriaResourceDetailsOtherOutput() AutomationRuleCriteriaResourceDetailsOtherOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceDetailsOtherOutput) ToAutomationRuleCriteriaResourceDetailsOtherOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceDetailsOtherOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceDetailsOtherOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceDetailsOther) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// The key of the map filter.
+func (o AutomationRuleCriteriaResourceDetailsOtherOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceDetailsOther) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceDetailsOtherOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceDetailsOther) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceDetailsOtherArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceDetailsOtherArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceDetailsOther)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceDetailsOtherArrayOutput) ToAutomationRuleCriteriaResourceDetailsOtherArrayOutput() AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceDetailsOtherArrayOutput) ToAutomationRuleCriteriaResourceDetailsOtherArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceDetailsOtherArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceDetailsOtherArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceDetailsOtherOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceDetailsOther {
+		return vs[0].([]AutomationRuleCriteriaResourceDetailsOther)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceDetailsOtherOutput)
+}
+
+type AutomationRuleCriteriaResourceId struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceIdInput is an input type that accepts AutomationRuleCriteriaResourceIdArgs and AutomationRuleCriteriaResourceIdOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceIdInput` via:
+//
+//	AutomationRuleCriteriaResourceIdArgs{...}
+type AutomationRuleCriteriaResourceIdInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceIdOutput() AutomationRuleCriteriaResourceIdOutput
+	ToAutomationRuleCriteriaResourceIdOutputWithContext(context.Context) AutomationRuleCriteriaResourceIdOutput
+}
+
+type AutomationRuleCriteriaResourceIdArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceIdArgs) ToAutomationRuleCriteriaResourceIdOutput() AutomationRuleCriteriaResourceIdOutput {
+	return i.ToAutomationRuleCriteriaResourceIdOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceIdArgs) ToAutomationRuleCriteriaResourceIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceIdOutput)
+}
+
+// AutomationRuleCriteriaResourceIdArrayInput is an input type that accepts AutomationRuleCriteriaResourceIdArray and AutomationRuleCriteriaResourceIdArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceIdArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceIdArray{ AutomationRuleCriteriaResourceIdArgs{...} }
+type AutomationRuleCriteriaResourceIdArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceIdArrayOutput() AutomationRuleCriteriaResourceIdArrayOutput
+	ToAutomationRuleCriteriaResourceIdArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceIdArrayOutput
+}
+
+type AutomationRuleCriteriaResourceIdArray []AutomationRuleCriteriaResourceIdInput
+
+func (AutomationRuleCriteriaResourceIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceId)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceIdArray) ToAutomationRuleCriteriaResourceIdArrayOutput() AutomationRuleCriteriaResourceIdArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceIdArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceIdArray) ToAutomationRuleCriteriaResourceIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceIdArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceIdOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceIdOutput) ToAutomationRuleCriteriaResourceIdOutput() AutomationRuleCriteriaResourceIdOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceIdOutput) ToAutomationRuleCriteriaResourceIdOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceIdOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceIdArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceId)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceIdArrayOutput) ToAutomationRuleCriteriaResourceIdArrayOutput() AutomationRuleCriteriaResourceIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceIdArrayOutput) ToAutomationRuleCriteriaResourceIdArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceIdArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceIdArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceId {
+		return vs[0].([]AutomationRuleCriteriaResourceId)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceIdOutput)
+}
+
+type AutomationRuleCriteriaResourcePartition struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourcePartitionInput is an input type that accepts AutomationRuleCriteriaResourcePartitionArgs and AutomationRuleCriteriaResourcePartitionOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourcePartitionInput` via:
+//
+//	AutomationRuleCriteriaResourcePartitionArgs{...}
+type AutomationRuleCriteriaResourcePartitionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourcePartitionOutput() AutomationRuleCriteriaResourcePartitionOutput
+	ToAutomationRuleCriteriaResourcePartitionOutputWithContext(context.Context) AutomationRuleCriteriaResourcePartitionOutput
+}
+
+type AutomationRuleCriteriaResourcePartitionArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourcePartitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourcePartition)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourcePartitionArgs) ToAutomationRuleCriteriaResourcePartitionOutput() AutomationRuleCriteriaResourcePartitionOutput {
+	return i.ToAutomationRuleCriteriaResourcePartitionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourcePartitionArgs) ToAutomationRuleCriteriaResourcePartitionOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourcePartitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourcePartitionOutput)
+}
+
+// AutomationRuleCriteriaResourcePartitionArrayInput is an input type that accepts AutomationRuleCriteriaResourcePartitionArray and AutomationRuleCriteriaResourcePartitionArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourcePartitionArrayInput` via:
+//
+//	AutomationRuleCriteriaResourcePartitionArray{ AutomationRuleCriteriaResourcePartitionArgs{...} }
+type AutomationRuleCriteriaResourcePartitionArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourcePartitionArrayOutput() AutomationRuleCriteriaResourcePartitionArrayOutput
+	ToAutomationRuleCriteriaResourcePartitionArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourcePartitionArrayOutput
+}
+
+type AutomationRuleCriteriaResourcePartitionArray []AutomationRuleCriteriaResourcePartitionInput
+
+func (AutomationRuleCriteriaResourcePartitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourcePartition)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourcePartitionArray) ToAutomationRuleCriteriaResourcePartitionArrayOutput() AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return i.ToAutomationRuleCriteriaResourcePartitionArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourcePartitionArray) ToAutomationRuleCriteriaResourcePartitionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourcePartitionArrayOutput)
+}
+
+type AutomationRuleCriteriaResourcePartitionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourcePartitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourcePartition)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourcePartitionOutput) ToAutomationRuleCriteriaResourcePartitionOutput() AutomationRuleCriteriaResourcePartitionOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourcePartitionOutput) ToAutomationRuleCriteriaResourcePartitionOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourcePartitionOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourcePartitionOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourcePartition) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourcePartitionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourcePartition) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourcePartitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourcePartitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourcePartition)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourcePartitionArrayOutput) ToAutomationRuleCriteriaResourcePartitionArrayOutput() AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourcePartitionArrayOutput) ToAutomationRuleCriteriaResourcePartitionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourcePartitionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourcePartitionArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourcePartitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourcePartition {
+		return vs[0].([]AutomationRuleCriteriaResourcePartition)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourcePartitionOutput)
+}
+
+type AutomationRuleCriteriaResourceRegion struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceRegionInput is an input type that accepts AutomationRuleCriteriaResourceRegionArgs and AutomationRuleCriteriaResourceRegionOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceRegionInput` via:
+//
+//	AutomationRuleCriteriaResourceRegionArgs{...}
+type AutomationRuleCriteriaResourceRegionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceRegionOutput() AutomationRuleCriteriaResourceRegionOutput
+	ToAutomationRuleCriteriaResourceRegionOutputWithContext(context.Context) AutomationRuleCriteriaResourceRegionOutput
+}
+
+type AutomationRuleCriteriaResourceRegionArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceRegion)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceRegionArgs) ToAutomationRuleCriteriaResourceRegionOutput() AutomationRuleCriteriaResourceRegionOutput {
+	return i.ToAutomationRuleCriteriaResourceRegionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceRegionArgs) ToAutomationRuleCriteriaResourceRegionOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceRegionOutput)
+}
+
+// AutomationRuleCriteriaResourceRegionArrayInput is an input type that accepts AutomationRuleCriteriaResourceRegionArray and AutomationRuleCriteriaResourceRegionArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceRegionArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceRegionArray{ AutomationRuleCriteriaResourceRegionArgs{...} }
+type AutomationRuleCriteriaResourceRegionArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceRegionArrayOutput() AutomationRuleCriteriaResourceRegionArrayOutput
+	ToAutomationRuleCriteriaResourceRegionArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceRegionArrayOutput
+}
+
+type AutomationRuleCriteriaResourceRegionArray []AutomationRuleCriteriaResourceRegionInput
+
+func (AutomationRuleCriteriaResourceRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceRegion)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceRegionArray) ToAutomationRuleCriteriaResourceRegionArrayOutput() AutomationRuleCriteriaResourceRegionArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceRegionArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceRegionArray) ToAutomationRuleCriteriaResourceRegionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceRegionArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceRegionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceRegion)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceRegionOutput) ToAutomationRuleCriteriaResourceRegionOutput() AutomationRuleCriteriaResourceRegionOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceRegionOutput) ToAutomationRuleCriteriaResourceRegionOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceRegionOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceRegionOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceRegion) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceRegionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceRegion) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceRegion)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceRegionArrayOutput) ToAutomationRuleCriteriaResourceRegionArrayOutput() AutomationRuleCriteriaResourceRegionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceRegionArrayOutput) ToAutomationRuleCriteriaResourceRegionArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceRegionArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceRegionArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceRegion {
+		return vs[0].([]AutomationRuleCriteriaResourceRegion)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceRegionOutput)
+}
+
+type AutomationRuleCriteriaResourceTag struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// The key of the map filter.
+	Key string `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceTagInput is an input type that accepts AutomationRuleCriteriaResourceTagArgs and AutomationRuleCriteriaResourceTagOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceTagInput` via:
+//
+//	AutomationRuleCriteriaResourceTagArgs{...}
+type AutomationRuleCriteriaResourceTagInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceTagOutput() AutomationRuleCriteriaResourceTagOutput
+	ToAutomationRuleCriteriaResourceTagOutputWithContext(context.Context) AutomationRuleCriteriaResourceTagOutput
+}
+
+type AutomationRuleCriteriaResourceTagArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// The key of the map filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceTag)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceTagArgs) ToAutomationRuleCriteriaResourceTagOutput() AutomationRuleCriteriaResourceTagOutput {
+	return i.ToAutomationRuleCriteriaResourceTagOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceTagArgs) ToAutomationRuleCriteriaResourceTagOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceTagOutput)
+}
+
+// AutomationRuleCriteriaResourceTagArrayInput is an input type that accepts AutomationRuleCriteriaResourceTagArray and AutomationRuleCriteriaResourceTagArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceTagArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceTagArray{ AutomationRuleCriteriaResourceTagArgs{...} }
+type AutomationRuleCriteriaResourceTagArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceTagArrayOutput() AutomationRuleCriteriaResourceTagArrayOutput
+	ToAutomationRuleCriteriaResourceTagArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceTagArrayOutput
+}
+
+type AutomationRuleCriteriaResourceTagArray []AutomationRuleCriteriaResourceTagInput
+
+func (AutomationRuleCriteriaResourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceTag)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceTagArray) ToAutomationRuleCriteriaResourceTagArrayOutput() AutomationRuleCriteriaResourceTagArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceTagArray) ToAutomationRuleCriteriaResourceTagArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceTagArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceTagOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceTag)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceTagOutput) ToAutomationRuleCriteriaResourceTagOutput() AutomationRuleCriteriaResourceTagOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTagOutput) ToAutomationRuleCriteriaResourceTagOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTagOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceTagOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceTag) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// The key of the map filter.
+func (o AutomationRuleCriteriaResourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceTag)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceTagArrayOutput) ToAutomationRuleCriteriaResourceTagArrayOutput() AutomationRuleCriteriaResourceTagArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTagArrayOutput) ToAutomationRuleCriteriaResourceTagArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTagArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTagArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceTag {
+		return vs[0].([]AutomationRuleCriteriaResourceTag)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceTagOutput)
+}
+
+type AutomationRuleCriteriaResourceType struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaResourceTypeInput is an input type that accepts AutomationRuleCriteriaResourceTypeArgs and AutomationRuleCriteriaResourceTypeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceTypeInput` via:
+//
+//	AutomationRuleCriteriaResourceTypeArgs{...}
+type AutomationRuleCriteriaResourceTypeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceTypeOutput() AutomationRuleCriteriaResourceTypeOutput
+	ToAutomationRuleCriteriaResourceTypeOutputWithContext(context.Context) AutomationRuleCriteriaResourceTypeOutput
+}
+
+type AutomationRuleCriteriaResourceTypeArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceType)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceTypeArgs) ToAutomationRuleCriteriaResourceTypeOutput() AutomationRuleCriteriaResourceTypeOutput {
+	return i.ToAutomationRuleCriteriaResourceTypeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceTypeArgs) ToAutomationRuleCriteriaResourceTypeOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceTypeOutput)
+}
+
+// AutomationRuleCriteriaResourceTypeArrayInput is an input type that accepts AutomationRuleCriteriaResourceTypeArray and AutomationRuleCriteriaResourceTypeArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaResourceTypeArrayInput` via:
+//
+//	AutomationRuleCriteriaResourceTypeArray{ AutomationRuleCriteriaResourceTypeArgs{...} }
+type AutomationRuleCriteriaResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaResourceTypeArrayOutput() AutomationRuleCriteriaResourceTypeArrayOutput
+	ToAutomationRuleCriteriaResourceTypeArrayOutputWithContext(context.Context) AutomationRuleCriteriaResourceTypeArrayOutput
+}
+
+type AutomationRuleCriteriaResourceTypeArray []AutomationRuleCriteriaResourceTypeInput
+
+func (AutomationRuleCriteriaResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceType)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaResourceTypeArray) ToAutomationRuleCriteriaResourceTypeArrayOutput() AutomationRuleCriteriaResourceTypeArrayOutput {
+	return i.ToAutomationRuleCriteriaResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaResourceTypeArray) ToAutomationRuleCriteriaResourceTypeArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaResourceTypeArrayOutput)
+}
+
+type AutomationRuleCriteriaResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaResourceType)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceTypeOutput) ToAutomationRuleCriteriaResourceTypeOutput() AutomationRuleCriteriaResourceTypeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTypeOutput) ToAutomationRuleCriteriaResourceTypeOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTypeOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaResourceTypeOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceType) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaResourceTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaResourceType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaResourceType)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaResourceTypeArrayOutput) ToAutomationRuleCriteriaResourceTypeArrayOutput() AutomationRuleCriteriaResourceTypeArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTypeArrayOutput) ToAutomationRuleCriteriaResourceTypeArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaResourceTypeArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaResourceTypeArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaResourceType {
+		return vs[0].([]AutomationRuleCriteriaResourceType)[vs[1].(int)]
+	}).(AutomationRuleCriteriaResourceTypeOutput)
+}
+
+type AutomationRuleCriteriaSeverityLabel struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaSeverityLabelInput is an input type that accepts AutomationRuleCriteriaSeverityLabelArgs and AutomationRuleCriteriaSeverityLabelOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaSeverityLabelInput` via:
+//
+//	AutomationRuleCriteriaSeverityLabelArgs{...}
+type AutomationRuleCriteriaSeverityLabelInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaSeverityLabelOutput() AutomationRuleCriteriaSeverityLabelOutput
+	ToAutomationRuleCriteriaSeverityLabelOutputWithContext(context.Context) AutomationRuleCriteriaSeverityLabelOutput
+}
+
+type AutomationRuleCriteriaSeverityLabelArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaSeverityLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaSeverityLabel)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaSeverityLabelArgs) ToAutomationRuleCriteriaSeverityLabelOutput() AutomationRuleCriteriaSeverityLabelOutput {
+	return i.ToAutomationRuleCriteriaSeverityLabelOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaSeverityLabelArgs) ToAutomationRuleCriteriaSeverityLabelOutputWithContext(ctx context.Context) AutomationRuleCriteriaSeverityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaSeverityLabelOutput)
+}
+
+// AutomationRuleCriteriaSeverityLabelArrayInput is an input type that accepts AutomationRuleCriteriaSeverityLabelArray and AutomationRuleCriteriaSeverityLabelArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaSeverityLabelArrayInput` via:
+//
+//	AutomationRuleCriteriaSeverityLabelArray{ AutomationRuleCriteriaSeverityLabelArgs{...} }
+type AutomationRuleCriteriaSeverityLabelArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaSeverityLabelArrayOutput() AutomationRuleCriteriaSeverityLabelArrayOutput
+	ToAutomationRuleCriteriaSeverityLabelArrayOutputWithContext(context.Context) AutomationRuleCriteriaSeverityLabelArrayOutput
+}
+
+type AutomationRuleCriteriaSeverityLabelArray []AutomationRuleCriteriaSeverityLabelInput
+
+func (AutomationRuleCriteriaSeverityLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaSeverityLabel)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaSeverityLabelArray) ToAutomationRuleCriteriaSeverityLabelArrayOutput() AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return i.ToAutomationRuleCriteriaSeverityLabelArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaSeverityLabelArray) ToAutomationRuleCriteriaSeverityLabelArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaSeverityLabelArrayOutput)
+}
+
+type AutomationRuleCriteriaSeverityLabelOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaSeverityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaSeverityLabel)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaSeverityLabelOutput) ToAutomationRuleCriteriaSeverityLabelOutput() AutomationRuleCriteriaSeverityLabelOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSeverityLabelOutput) ToAutomationRuleCriteriaSeverityLabelOutputWithContext(ctx context.Context) AutomationRuleCriteriaSeverityLabelOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaSeverityLabelOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaSeverityLabel) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaSeverityLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaSeverityLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaSeverityLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaSeverityLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaSeverityLabel)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaSeverityLabelArrayOutput) ToAutomationRuleCriteriaSeverityLabelArrayOutput() AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSeverityLabelArrayOutput) ToAutomationRuleCriteriaSeverityLabelArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaSeverityLabelArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSeverityLabelArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaSeverityLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaSeverityLabel {
+		return vs[0].([]AutomationRuleCriteriaSeverityLabel)[vs[1].(int)]
+	}).(AutomationRuleCriteriaSeverityLabelOutput)
+}
+
+type AutomationRuleCriteriaSourceUrl struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaSourceUrlInput is an input type that accepts AutomationRuleCriteriaSourceUrlArgs and AutomationRuleCriteriaSourceUrlOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaSourceUrlInput` via:
+//
+//	AutomationRuleCriteriaSourceUrlArgs{...}
+type AutomationRuleCriteriaSourceUrlInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaSourceUrlOutput() AutomationRuleCriteriaSourceUrlOutput
+	ToAutomationRuleCriteriaSourceUrlOutputWithContext(context.Context) AutomationRuleCriteriaSourceUrlOutput
+}
+
+type AutomationRuleCriteriaSourceUrlArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaSourceUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaSourceUrl)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaSourceUrlArgs) ToAutomationRuleCriteriaSourceUrlOutput() AutomationRuleCriteriaSourceUrlOutput {
+	return i.ToAutomationRuleCriteriaSourceUrlOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaSourceUrlArgs) ToAutomationRuleCriteriaSourceUrlOutputWithContext(ctx context.Context) AutomationRuleCriteriaSourceUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaSourceUrlOutput)
+}
+
+// AutomationRuleCriteriaSourceUrlArrayInput is an input type that accepts AutomationRuleCriteriaSourceUrlArray and AutomationRuleCriteriaSourceUrlArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaSourceUrlArrayInput` via:
+//
+//	AutomationRuleCriteriaSourceUrlArray{ AutomationRuleCriteriaSourceUrlArgs{...} }
+type AutomationRuleCriteriaSourceUrlArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaSourceUrlArrayOutput() AutomationRuleCriteriaSourceUrlArrayOutput
+	ToAutomationRuleCriteriaSourceUrlArrayOutputWithContext(context.Context) AutomationRuleCriteriaSourceUrlArrayOutput
+}
+
+type AutomationRuleCriteriaSourceUrlArray []AutomationRuleCriteriaSourceUrlInput
+
+func (AutomationRuleCriteriaSourceUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaSourceUrl)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaSourceUrlArray) ToAutomationRuleCriteriaSourceUrlArrayOutput() AutomationRuleCriteriaSourceUrlArrayOutput {
+	return i.ToAutomationRuleCriteriaSourceUrlArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaSourceUrlArray) ToAutomationRuleCriteriaSourceUrlArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaSourceUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaSourceUrlArrayOutput)
+}
+
+type AutomationRuleCriteriaSourceUrlOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaSourceUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaSourceUrl)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaSourceUrlOutput) ToAutomationRuleCriteriaSourceUrlOutput() AutomationRuleCriteriaSourceUrlOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSourceUrlOutput) ToAutomationRuleCriteriaSourceUrlOutputWithContext(ctx context.Context) AutomationRuleCriteriaSourceUrlOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaSourceUrlOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaSourceUrl) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaSourceUrlOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaSourceUrl) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaSourceUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaSourceUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaSourceUrl)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaSourceUrlArrayOutput) ToAutomationRuleCriteriaSourceUrlArrayOutput() AutomationRuleCriteriaSourceUrlArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSourceUrlArrayOutput) ToAutomationRuleCriteriaSourceUrlArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaSourceUrlArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaSourceUrlArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaSourceUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaSourceUrl {
+		return vs[0].([]AutomationRuleCriteriaSourceUrl)[vs[1].(int)]
+	}).(AutomationRuleCriteriaSourceUrlOutput)
+}
+
+type AutomationRuleCriteriaTitle struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaTitleInput is an input type that accepts AutomationRuleCriteriaTitleArgs and AutomationRuleCriteriaTitleOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaTitleInput` via:
+//
+//	AutomationRuleCriteriaTitleArgs{...}
+type AutomationRuleCriteriaTitleInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaTitleOutput() AutomationRuleCriteriaTitleOutput
+	ToAutomationRuleCriteriaTitleOutputWithContext(context.Context) AutomationRuleCriteriaTitleOutput
+}
+
+type AutomationRuleCriteriaTitleArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaTitleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaTitle)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaTitleArgs) ToAutomationRuleCriteriaTitleOutput() AutomationRuleCriteriaTitleOutput {
+	return i.ToAutomationRuleCriteriaTitleOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaTitleArgs) ToAutomationRuleCriteriaTitleOutputWithContext(ctx context.Context) AutomationRuleCriteriaTitleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaTitleOutput)
+}
+
+// AutomationRuleCriteriaTitleArrayInput is an input type that accepts AutomationRuleCriteriaTitleArray and AutomationRuleCriteriaTitleArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaTitleArrayInput` via:
+//
+//	AutomationRuleCriteriaTitleArray{ AutomationRuleCriteriaTitleArgs{...} }
+type AutomationRuleCriteriaTitleArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaTitleArrayOutput() AutomationRuleCriteriaTitleArrayOutput
+	ToAutomationRuleCriteriaTitleArrayOutputWithContext(context.Context) AutomationRuleCriteriaTitleArrayOutput
+}
+
+type AutomationRuleCriteriaTitleArray []AutomationRuleCriteriaTitleInput
+
+func (AutomationRuleCriteriaTitleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaTitle)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaTitleArray) ToAutomationRuleCriteriaTitleArrayOutput() AutomationRuleCriteriaTitleArrayOutput {
+	return i.ToAutomationRuleCriteriaTitleArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaTitleArray) ToAutomationRuleCriteriaTitleArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaTitleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaTitleArrayOutput)
+}
+
+type AutomationRuleCriteriaTitleOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaTitleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaTitle)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaTitleOutput) ToAutomationRuleCriteriaTitleOutput() AutomationRuleCriteriaTitleOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTitleOutput) ToAutomationRuleCriteriaTitleOutputWithContext(ctx context.Context) AutomationRuleCriteriaTitleOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaTitleOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaTitle) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaTitleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaTitle) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaTitleArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaTitleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaTitle)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaTitleArrayOutput) ToAutomationRuleCriteriaTitleArrayOutput() AutomationRuleCriteriaTitleArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTitleArrayOutput) ToAutomationRuleCriteriaTitleArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaTitleArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTitleArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaTitleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaTitle {
+		return vs[0].([]AutomationRuleCriteriaTitle)[vs[1].(int)]
+	}).(AutomationRuleCriteriaTitleOutput)
+}
+
+type AutomationRuleCriteriaType struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaTypeInput is an input type that accepts AutomationRuleCriteriaTypeArgs and AutomationRuleCriteriaTypeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaTypeInput` via:
+//
+//	AutomationRuleCriteriaTypeArgs{...}
+type AutomationRuleCriteriaTypeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaTypeOutput() AutomationRuleCriteriaTypeOutput
+	ToAutomationRuleCriteriaTypeOutputWithContext(context.Context) AutomationRuleCriteriaTypeOutput
+}
+
+type AutomationRuleCriteriaTypeArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaType)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaTypeArgs) ToAutomationRuleCriteriaTypeOutput() AutomationRuleCriteriaTypeOutput {
+	return i.ToAutomationRuleCriteriaTypeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaTypeArgs) ToAutomationRuleCriteriaTypeOutputWithContext(ctx context.Context) AutomationRuleCriteriaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaTypeOutput)
+}
+
+// AutomationRuleCriteriaTypeArrayInput is an input type that accepts AutomationRuleCriteriaTypeArray and AutomationRuleCriteriaTypeArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaTypeArrayInput` via:
+//
+//	AutomationRuleCriteriaTypeArray{ AutomationRuleCriteriaTypeArgs{...} }
+type AutomationRuleCriteriaTypeArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaTypeArrayOutput() AutomationRuleCriteriaTypeArrayOutput
+	ToAutomationRuleCriteriaTypeArrayOutputWithContext(context.Context) AutomationRuleCriteriaTypeArrayOutput
+}
+
+type AutomationRuleCriteriaTypeArray []AutomationRuleCriteriaTypeInput
+
+func (AutomationRuleCriteriaTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaType)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaTypeArray) ToAutomationRuleCriteriaTypeArrayOutput() AutomationRuleCriteriaTypeArrayOutput {
+	return i.ToAutomationRuleCriteriaTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaTypeArray) ToAutomationRuleCriteriaTypeArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaTypeArrayOutput)
+}
+
+type AutomationRuleCriteriaTypeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaType)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaTypeOutput) ToAutomationRuleCriteriaTypeOutput() AutomationRuleCriteriaTypeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTypeOutput) ToAutomationRuleCriteriaTypeOutputWithContext(ctx context.Context) AutomationRuleCriteriaTypeOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaTypeOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaType) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaType)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaTypeArrayOutput) ToAutomationRuleCriteriaTypeArrayOutput() AutomationRuleCriteriaTypeArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTypeArrayOutput) ToAutomationRuleCriteriaTypeArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaTypeArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaTypeArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaType {
+		return vs[0].([]AutomationRuleCriteriaType)[vs[1].(int)]
+	}).(AutomationRuleCriteriaTypeOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange *AutomationRuleCriteriaUpdatedAtDateRange `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
+}
+
+// AutomationRuleCriteriaUpdatedAtInput is an input type that accepts AutomationRuleCriteriaUpdatedAtArgs and AutomationRuleCriteriaUpdatedAtOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUpdatedAtInput` via:
+//
+//	AutomationRuleCriteriaUpdatedAtArgs{...}
+type AutomationRuleCriteriaUpdatedAtInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUpdatedAtOutput() AutomationRuleCriteriaUpdatedAtOutput
+	ToAutomationRuleCriteriaUpdatedAtOutputWithContext(context.Context) AutomationRuleCriteriaUpdatedAtOutput
+}
+
+type AutomationRuleCriteriaUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
+	DateRange AutomationRuleCriteriaUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AutomationRuleCriteriaUpdatedAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUpdatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaUpdatedAtArgs) ToAutomationRuleCriteriaUpdatedAtOutput() AutomationRuleCriteriaUpdatedAtOutput {
+	return i.ToAutomationRuleCriteriaUpdatedAtOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUpdatedAtArgs) ToAutomationRuleCriteriaUpdatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUpdatedAtOutput)
+}
+
+// AutomationRuleCriteriaUpdatedAtArrayInput is an input type that accepts AutomationRuleCriteriaUpdatedAtArray and AutomationRuleCriteriaUpdatedAtArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUpdatedAtArrayInput` via:
+//
+//	AutomationRuleCriteriaUpdatedAtArray{ AutomationRuleCriteriaUpdatedAtArgs{...} }
+type AutomationRuleCriteriaUpdatedAtArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUpdatedAtArrayOutput() AutomationRuleCriteriaUpdatedAtArrayOutput
+	ToAutomationRuleCriteriaUpdatedAtArrayOutputWithContext(context.Context) AutomationRuleCriteriaUpdatedAtArrayOutput
+}
+
+type AutomationRuleCriteriaUpdatedAtArray []AutomationRuleCriteriaUpdatedAtInput
+
+func (AutomationRuleCriteriaUpdatedAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaUpdatedAt)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaUpdatedAtArray) ToAutomationRuleCriteriaUpdatedAtArrayOutput() AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return i.ToAutomationRuleCriteriaUpdatedAtArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUpdatedAtArray) ToAutomationRuleCriteriaUpdatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUpdatedAtArrayOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAtOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUpdatedAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUpdatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUpdatedAtOutput) ToAutomationRuleCriteriaUpdatedAtOutput() AutomationRuleCriteriaUpdatedAtOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtOutput) ToAutomationRuleCriteriaUpdatedAtOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtOutput {
+	return o
+}
+
+// A configuration block of the date range for the date filter. See dateRange below for more details.
+func (o AutomationRuleCriteriaUpdatedAtOutput) DateRange() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *AutomationRuleCriteriaUpdatedAtDateRange { return v.DateRange }).(AutomationRuleCriteriaUpdatedAtDateRangePtrOutput)
+}
+
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaUpdatedAtOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+func (o AutomationRuleCriteriaUpdatedAtOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAtArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUpdatedAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaUpdatedAt)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUpdatedAtArrayOutput) ToAutomationRuleCriteriaUpdatedAtArrayOutput() AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtArrayOutput) ToAutomationRuleCriteriaUpdatedAtArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaUpdatedAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaUpdatedAt {
+		return vs[0].([]AutomationRuleCriteriaUpdatedAt)[vs[1].(int)]
+	}).(AutomationRuleCriteriaUpdatedAtOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAtDateRange struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit string `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value int `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaUpdatedAtDateRangeInput is an input type that accepts AutomationRuleCriteriaUpdatedAtDateRangeArgs and AutomationRuleCriteriaUpdatedAtDateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUpdatedAtDateRangeInput` via:
+//
+//	AutomationRuleCriteriaUpdatedAtDateRangeArgs{...}
+type AutomationRuleCriteriaUpdatedAtDateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUpdatedAtDateRangeOutput() AutomationRuleCriteriaUpdatedAtDateRangeOutput
+	ToAutomationRuleCriteriaUpdatedAtDateRangeOutputWithContext(context.Context) AutomationRuleCriteriaUpdatedAtDateRangeOutput
+}
+
+type AutomationRuleCriteriaUpdatedAtDateRangeArgs struct {
+	// A date range unit for the date filter. Valid values: `DAYS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaUpdatedAtDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaUpdatedAtDateRangeOutput() AutomationRuleCriteriaUpdatedAtDateRangeOutput {
+	return i.ToAutomationRuleCriteriaUpdatedAtDateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaUpdatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUpdatedAtDateRangeOutput)
+}
+
+func (i AutomationRuleCriteriaUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUpdatedAtDateRangeArgs) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUpdatedAtDateRangeOutput).ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleCriteriaUpdatedAtDateRangePtrInput is an input type that accepts AutomationRuleCriteriaUpdatedAtDateRangeArgs, AutomationRuleCriteriaUpdatedAtDateRangePtr and AutomationRuleCriteriaUpdatedAtDateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUpdatedAtDateRangePtrInput` via:
+//
+//	        AutomationRuleCriteriaUpdatedAtDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleCriteriaUpdatedAtDateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput
+	ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(context.Context) AutomationRuleCriteriaUpdatedAtDateRangePtrOutput
+}
+
+type automationRuleCriteriaUpdatedAtDateRangePtrType AutomationRuleCriteriaUpdatedAtDateRangeArgs
+
+func AutomationRuleCriteriaUpdatedAtDateRangePtr(v *AutomationRuleCriteriaUpdatedAtDateRangeArgs) AutomationRuleCriteriaUpdatedAtDateRangePtrInput {
+	return (*automationRuleCriteriaUpdatedAtDateRangePtrType)(v)
+}
+
+func (*automationRuleCriteriaUpdatedAtDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (i *automationRuleCriteriaUpdatedAtDateRangePtrType) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return i.ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleCriteriaUpdatedAtDateRangePtrType) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUpdatedAtDateRangePtrOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAtDateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUpdatedAtDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaUpdatedAtDateRangeOutput() AutomationRuleCriteriaUpdatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaUpdatedAtDateRangeOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return o.ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleCriteriaUpdatedAtDateRange) *AutomationRuleCriteriaUpdatedAtDateRange {
+		return &v
+	}).(AutomationRuleCriteriaUpdatedAtDateRangePtrOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaUpdatedAtDateRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAtDateRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AutomationRuleCriteriaUpdatedAtDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleCriteriaUpdatedAtDateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutput() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) ToAutomationRuleCriteriaUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) Elem() AutomationRuleCriteriaUpdatedAtDateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaUpdatedAtDateRange) AutomationRuleCriteriaUpdatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleCriteriaUpdatedAtDateRange
+		return ret
+	}).(AutomationRuleCriteriaUpdatedAtDateRangeOutput)
+}
+
+// A date range unit for the date filter. Valid values: `DAYS`.
+func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaUpdatedAtDateRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleCriteriaUpdatedAtDateRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleCriteriaUserDefinedField struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// The key of the map filter.
+	Key string `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaUserDefinedFieldInput is an input type that accepts AutomationRuleCriteriaUserDefinedFieldArgs and AutomationRuleCriteriaUserDefinedFieldOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUserDefinedFieldInput` via:
+//
+//	AutomationRuleCriteriaUserDefinedFieldArgs{...}
+type AutomationRuleCriteriaUserDefinedFieldInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUserDefinedFieldOutput() AutomationRuleCriteriaUserDefinedFieldOutput
+	ToAutomationRuleCriteriaUserDefinedFieldOutputWithContext(context.Context) AutomationRuleCriteriaUserDefinedFieldOutput
+}
+
+type AutomationRuleCriteriaUserDefinedFieldArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// The key of the map filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaUserDefinedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUserDefinedField)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaUserDefinedFieldArgs) ToAutomationRuleCriteriaUserDefinedFieldOutput() AutomationRuleCriteriaUserDefinedFieldOutput {
+	return i.ToAutomationRuleCriteriaUserDefinedFieldOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUserDefinedFieldArgs) ToAutomationRuleCriteriaUserDefinedFieldOutputWithContext(ctx context.Context) AutomationRuleCriteriaUserDefinedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUserDefinedFieldOutput)
+}
+
+// AutomationRuleCriteriaUserDefinedFieldArrayInput is an input type that accepts AutomationRuleCriteriaUserDefinedFieldArray and AutomationRuleCriteriaUserDefinedFieldArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaUserDefinedFieldArrayInput` via:
+//
+//	AutomationRuleCriteriaUserDefinedFieldArray{ AutomationRuleCriteriaUserDefinedFieldArgs{...} }
+type AutomationRuleCriteriaUserDefinedFieldArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaUserDefinedFieldArrayOutput() AutomationRuleCriteriaUserDefinedFieldArrayOutput
+	ToAutomationRuleCriteriaUserDefinedFieldArrayOutputWithContext(context.Context) AutomationRuleCriteriaUserDefinedFieldArrayOutput
+}
+
+type AutomationRuleCriteriaUserDefinedFieldArray []AutomationRuleCriteriaUserDefinedFieldInput
+
+func (AutomationRuleCriteriaUserDefinedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaUserDefinedField)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaUserDefinedFieldArray) ToAutomationRuleCriteriaUserDefinedFieldArrayOutput() AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return i.ToAutomationRuleCriteriaUserDefinedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaUserDefinedFieldArray) ToAutomationRuleCriteriaUserDefinedFieldArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaUserDefinedFieldArrayOutput)
+}
+
+type AutomationRuleCriteriaUserDefinedFieldOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUserDefinedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaUserDefinedField)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUserDefinedFieldOutput) ToAutomationRuleCriteriaUserDefinedFieldOutput() AutomationRuleCriteriaUserDefinedFieldOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUserDefinedFieldOutput) ToAutomationRuleCriteriaUserDefinedFieldOutputWithContext(ctx context.Context) AutomationRuleCriteriaUserDefinedFieldOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaUserDefinedFieldOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUserDefinedField) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// The key of the map filter.
+func (o AutomationRuleCriteriaUserDefinedFieldOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUserDefinedField) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaUserDefinedFieldOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaUserDefinedField) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaUserDefinedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaUserDefinedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaUserDefinedField)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaUserDefinedFieldArrayOutput) ToAutomationRuleCriteriaUserDefinedFieldArrayOutput() AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUserDefinedFieldArrayOutput) ToAutomationRuleCriteriaUserDefinedFieldArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaUserDefinedFieldArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaUserDefinedFieldArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaUserDefinedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaUserDefinedField {
+		return vs[0].([]AutomationRuleCriteriaUserDefinedField)[vs[1].(int)]
+	}).(AutomationRuleCriteriaUserDefinedFieldOutput)
+}
+
+type AutomationRuleCriteriaVerificationState struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaVerificationStateInput is an input type that accepts AutomationRuleCriteriaVerificationStateArgs and AutomationRuleCriteriaVerificationStateOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaVerificationStateInput` via:
+//
+//	AutomationRuleCriteriaVerificationStateArgs{...}
+type AutomationRuleCriteriaVerificationStateInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaVerificationStateOutput() AutomationRuleCriteriaVerificationStateOutput
+	ToAutomationRuleCriteriaVerificationStateOutputWithContext(context.Context) AutomationRuleCriteriaVerificationStateOutput
+}
+
+type AutomationRuleCriteriaVerificationStateArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaVerificationStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaVerificationState)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaVerificationStateArgs) ToAutomationRuleCriteriaVerificationStateOutput() AutomationRuleCriteriaVerificationStateOutput {
+	return i.ToAutomationRuleCriteriaVerificationStateOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaVerificationStateArgs) ToAutomationRuleCriteriaVerificationStateOutputWithContext(ctx context.Context) AutomationRuleCriteriaVerificationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaVerificationStateOutput)
+}
+
+// AutomationRuleCriteriaVerificationStateArrayInput is an input type that accepts AutomationRuleCriteriaVerificationStateArray and AutomationRuleCriteriaVerificationStateArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaVerificationStateArrayInput` via:
+//
+//	AutomationRuleCriteriaVerificationStateArray{ AutomationRuleCriteriaVerificationStateArgs{...} }
+type AutomationRuleCriteriaVerificationStateArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaVerificationStateArrayOutput() AutomationRuleCriteriaVerificationStateArrayOutput
+	ToAutomationRuleCriteriaVerificationStateArrayOutputWithContext(context.Context) AutomationRuleCriteriaVerificationStateArrayOutput
+}
+
+type AutomationRuleCriteriaVerificationStateArray []AutomationRuleCriteriaVerificationStateInput
+
+func (AutomationRuleCriteriaVerificationStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaVerificationState)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaVerificationStateArray) ToAutomationRuleCriteriaVerificationStateArrayOutput() AutomationRuleCriteriaVerificationStateArrayOutput {
+	return i.ToAutomationRuleCriteriaVerificationStateArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaVerificationStateArray) ToAutomationRuleCriteriaVerificationStateArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaVerificationStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaVerificationStateArrayOutput)
+}
+
+type AutomationRuleCriteriaVerificationStateOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaVerificationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaVerificationState)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaVerificationStateOutput) ToAutomationRuleCriteriaVerificationStateOutput() AutomationRuleCriteriaVerificationStateOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaVerificationStateOutput) ToAutomationRuleCriteriaVerificationStateOutputWithContext(ctx context.Context) AutomationRuleCriteriaVerificationStateOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaVerificationStateOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaVerificationState) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaVerificationStateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaVerificationState) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaVerificationStateArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaVerificationStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaVerificationState)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaVerificationStateArrayOutput) ToAutomationRuleCriteriaVerificationStateArrayOutput() AutomationRuleCriteriaVerificationStateArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaVerificationStateArrayOutput) ToAutomationRuleCriteriaVerificationStateArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaVerificationStateArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaVerificationStateArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaVerificationStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaVerificationState {
+		return vs[0].([]AutomationRuleCriteriaVerificationState)[vs[1].(int)]
+	}).(AutomationRuleCriteriaVerificationStateOutput)
+}
+
+type AutomationRuleCriteriaWorkflowStatus struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleCriteriaWorkflowStatusInput is an input type that accepts AutomationRuleCriteriaWorkflowStatusArgs and AutomationRuleCriteriaWorkflowStatusOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaWorkflowStatusInput` via:
+//
+//	AutomationRuleCriteriaWorkflowStatusArgs{...}
+type AutomationRuleCriteriaWorkflowStatusInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaWorkflowStatusOutput() AutomationRuleCriteriaWorkflowStatusOutput
+	ToAutomationRuleCriteriaWorkflowStatusOutputWithContext(context.Context) AutomationRuleCriteriaWorkflowStatusOutput
+}
+
+type AutomationRuleCriteriaWorkflowStatusArgs struct {
+	// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// A date range value for the date filter, provided as an Integer.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleCriteriaWorkflowStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatus)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaWorkflowStatusArgs) ToAutomationRuleCriteriaWorkflowStatusOutput() AutomationRuleCriteriaWorkflowStatusOutput {
+	return i.ToAutomationRuleCriteriaWorkflowStatusOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaWorkflowStatusArgs) ToAutomationRuleCriteriaWorkflowStatusOutputWithContext(ctx context.Context) AutomationRuleCriteriaWorkflowStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaWorkflowStatusOutput)
+}
+
+// AutomationRuleCriteriaWorkflowStatusArrayInput is an input type that accepts AutomationRuleCriteriaWorkflowStatusArray and AutomationRuleCriteriaWorkflowStatusArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleCriteriaWorkflowStatusArrayInput` via:
+//
+//	AutomationRuleCriteriaWorkflowStatusArray{ AutomationRuleCriteriaWorkflowStatusArgs{...} }
+type AutomationRuleCriteriaWorkflowStatusArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleCriteriaWorkflowStatusArrayOutput() AutomationRuleCriteriaWorkflowStatusArrayOutput
+	ToAutomationRuleCriteriaWorkflowStatusArrayOutputWithContext(context.Context) AutomationRuleCriteriaWorkflowStatusArrayOutput
+}
+
+type AutomationRuleCriteriaWorkflowStatusArray []AutomationRuleCriteriaWorkflowStatusInput
+
+func (AutomationRuleCriteriaWorkflowStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaWorkflowStatus)(nil)).Elem()
+}
+
+func (i AutomationRuleCriteriaWorkflowStatusArray) ToAutomationRuleCriteriaWorkflowStatusArrayOutput() AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return i.ToAutomationRuleCriteriaWorkflowStatusArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleCriteriaWorkflowStatusArray) ToAutomationRuleCriteriaWorkflowStatusArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleCriteriaWorkflowStatusArrayOutput)
+}
+
+type AutomationRuleCriteriaWorkflowStatusOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaWorkflowStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaWorkflowStatusOutput) ToAutomationRuleCriteriaWorkflowStatusOutput() AutomationRuleCriteriaWorkflowStatusOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaWorkflowStatusOutput) ToAutomationRuleCriteriaWorkflowStatusOutputWithContext(ctx context.Context) AutomationRuleCriteriaWorkflowStatusOutput {
+	return o
+}
+
+// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+func (o AutomationRuleCriteriaWorkflowStatusOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaWorkflowStatus) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// A date range value for the date filter, provided as an Integer.
+func (o AutomationRuleCriteriaWorkflowStatusOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleCriteriaWorkflowStatus) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomationRuleCriteriaWorkflowStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleCriteriaWorkflowStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleCriteriaWorkflowStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) ToAutomationRuleCriteriaWorkflowStatusArrayOutput() AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) ToAutomationRuleCriteriaWorkflowStatusArrayOutputWithContext(ctx context.Context) AutomationRuleCriteriaWorkflowStatusArrayOutput {
+	return o
+}
+
+func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) Index(i pulumi.IntInput) AutomationRuleCriteriaWorkflowStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleCriteriaWorkflowStatus {
+		return vs[0].([]AutomationRuleCriteriaWorkflowStatus)[vs[1].(int)]
+	}).(AutomationRuleCriteriaWorkflowStatusOutput)
+}
+
 type InsightFilters struct {
 	// AWS account ID that a finding is generated in. See String_Filter below for more details.
 	AwsAccountIds []InsightFiltersAwsAccountId `pulumi:"awsAccountIds"`
@@ -13054,6 +19792,106 @@ func (o InsightFiltersWorkflowStatusArrayOutput) Index(i pulumi.IntInput) Insigh
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionInput)(nil)).Elem(), AutomationRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionArrayInput)(nil)).Elem(), AutomationRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdatePtrInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateNoteInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateNoteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateNotePtrInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateNoteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateRelatedFindingInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateRelatedFindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateSeverityInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateSeverityPtrInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateWorkflowInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateWorkflowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionFindingFieldsUpdateWorkflowPtrInput)(nil)).Elem(), AutomationRuleActionFindingFieldsUpdateWorkflowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaInput)(nil)).Elem(), AutomationRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaPtrInput)(nil)).Elem(), AutomationRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaAwsAccountIdInput)(nil)).Elem(), AutomationRuleCriteriaAwsAccountIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaAwsAccountIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaAwsAccountIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaAwsAccountNameInput)(nil)).Elem(), AutomationRuleCriteriaAwsAccountNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaAwsAccountNameArrayInput)(nil)).Elem(), AutomationRuleCriteriaAwsAccountNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCompanyNameInput)(nil)).Elem(), AutomationRuleCriteriaCompanyNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCompanyNameArrayInput)(nil)).Elem(), AutomationRuleCriteriaCompanyNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceAssociatedStandardsIdInput)(nil)).Elem(), AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaComplianceAssociatedStandardsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceSecurityControlIdInput)(nil)).Elem(), AutomationRuleCriteriaComplianceSecurityControlIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceSecurityControlIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaComplianceSecurityControlIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceStatusInput)(nil)).Elem(), AutomationRuleCriteriaComplianceStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaComplianceStatusArrayInput)(nil)).Elem(), AutomationRuleCriteriaComplianceStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaConfidenceInput)(nil)).Elem(), AutomationRuleCriteriaConfidenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaConfidenceArrayInput)(nil)).Elem(), AutomationRuleCriteriaConfidenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCreatedAtInput)(nil)).Elem(), AutomationRuleCriteriaCreatedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCreatedAtArrayInput)(nil)).Elem(), AutomationRuleCriteriaCreatedAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCreatedAtDateRangeInput)(nil)).Elem(), AutomationRuleCriteriaCreatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCreatedAtDateRangePtrInput)(nil)).Elem(), AutomationRuleCriteriaCreatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCriticalityInput)(nil)).Elem(), AutomationRuleCriteriaCriticalityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaCriticalityArrayInput)(nil)).Elem(), AutomationRuleCriteriaCriticalityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaDescriptionInput)(nil)).Elem(), AutomationRuleCriteriaDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaDescriptionArrayInput)(nil)).Elem(), AutomationRuleCriteriaDescriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtInput)(nil)).Elem(), AutomationRuleCriteriaFirstObservedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtArrayInput)(nil)).Elem(), AutomationRuleCriteriaFirstObservedAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtDateRangeInput)(nil)).Elem(), AutomationRuleCriteriaFirstObservedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaFirstObservedAtDateRangePtrInput)(nil)).Elem(), AutomationRuleCriteriaFirstObservedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaGeneratorIdInput)(nil)).Elem(), AutomationRuleCriteriaGeneratorIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaGeneratorIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaGeneratorIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaIdInput)(nil)).Elem(), AutomationRuleCriteriaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtInput)(nil)).Elem(), AutomationRuleCriteriaLastObservedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtArrayInput)(nil)).Elem(), AutomationRuleCriteriaLastObservedAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtDateRangeInput)(nil)).Elem(), AutomationRuleCriteriaLastObservedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaLastObservedAtDateRangePtrInput)(nil)).Elem(), AutomationRuleCriteriaLastObservedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteTextInput)(nil)).Elem(), AutomationRuleCriteriaNoteTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteTextArrayInput)(nil)).Elem(), AutomationRuleCriteriaNoteTextArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtArrayInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtDateRangeInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedByInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaNoteUpdatedByArrayInput)(nil)).Elem(), AutomationRuleCriteriaNoteUpdatedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaProductArnInput)(nil)).Elem(), AutomationRuleCriteriaProductArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaProductArnArrayInput)(nil)).Elem(), AutomationRuleCriteriaProductArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaProductNameInput)(nil)).Elem(), AutomationRuleCriteriaProductNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaProductNameArrayInput)(nil)).Elem(), AutomationRuleCriteriaProductNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRecordStateInput)(nil)).Elem(), AutomationRuleCriteriaRecordStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRecordStateArrayInput)(nil)).Elem(), AutomationRuleCriteriaRecordStateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsIdInput)(nil)).Elem(), AutomationRuleCriteriaRelatedFindingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaRelatedFindingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsProductArnInput)(nil)).Elem(), AutomationRuleCriteriaRelatedFindingsProductArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaRelatedFindingsProductArnArrayInput)(nil)).Elem(), AutomationRuleCriteriaRelatedFindingsProductArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationArnInput)(nil)).Elem(), AutomationRuleCriteriaResourceApplicationArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationArnArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceApplicationArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationNameInput)(nil)).Elem(), AutomationRuleCriteriaResourceApplicationNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceApplicationNameArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceApplicationNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceDetailsOtherInput)(nil)).Elem(), AutomationRuleCriteriaResourceDetailsOtherArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceDetailsOtherArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceDetailsOtherArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceIdInput)(nil)).Elem(), AutomationRuleCriteriaResourceIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceIdArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourcePartitionInput)(nil)).Elem(), AutomationRuleCriteriaResourcePartitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourcePartitionArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourcePartitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceRegionInput)(nil)).Elem(), AutomationRuleCriteriaResourceRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceRegionArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceTagInput)(nil)).Elem(), AutomationRuleCriteriaResourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceTagArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceTypeInput)(nil)).Elem(), AutomationRuleCriteriaResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaResourceTypeArrayInput)(nil)).Elem(), AutomationRuleCriteriaResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaSeverityLabelInput)(nil)).Elem(), AutomationRuleCriteriaSeverityLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaSeverityLabelArrayInput)(nil)).Elem(), AutomationRuleCriteriaSeverityLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaSourceUrlInput)(nil)).Elem(), AutomationRuleCriteriaSourceUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaSourceUrlArrayInput)(nil)).Elem(), AutomationRuleCriteriaSourceUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaTitleInput)(nil)).Elem(), AutomationRuleCriteriaTitleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaTitleArrayInput)(nil)).Elem(), AutomationRuleCriteriaTitleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaTypeInput)(nil)).Elem(), AutomationRuleCriteriaTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaTypeArrayInput)(nil)).Elem(), AutomationRuleCriteriaTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtInput)(nil)).Elem(), AutomationRuleCriteriaUpdatedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtArrayInput)(nil)).Elem(), AutomationRuleCriteriaUpdatedAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtDateRangeInput)(nil)).Elem(), AutomationRuleCriteriaUpdatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUpdatedAtDateRangePtrInput)(nil)).Elem(), AutomationRuleCriteriaUpdatedAtDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUserDefinedFieldInput)(nil)).Elem(), AutomationRuleCriteriaUserDefinedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaUserDefinedFieldArrayInput)(nil)).Elem(), AutomationRuleCriteriaUserDefinedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaVerificationStateInput)(nil)).Elem(), AutomationRuleCriteriaVerificationStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaVerificationStateArrayInput)(nil)).Elem(), AutomationRuleCriteriaVerificationStateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusArrayInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersPtrInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountIdInput)(nil)).Elem(), InsightFiltersAwsAccountIdArgs{})
@@ -13254,6 +20092,106 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersVerificationStateArrayInput)(nil)).Elem(), InsightFiltersVerificationStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusInput)(nil)).Elem(), InsightFiltersWorkflowStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusArrayInput)(nil)).Elem(), InsightFiltersWorkflowStatusArray{})
+	pulumi.RegisterOutputType(AutomationRuleActionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdatePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateNoteOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateNotePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateRelatedFindingOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateRelatedFindingArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateSeverityOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateSeverityPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateWorkflowOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateWorkflowPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaAwsAccountIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaAwsAccountIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaAwsAccountNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaAwsAccountNameArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCompanyNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCompanyNameArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceAssociatedStandardsIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceAssociatedStandardsIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceSecurityControlIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceSecurityControlIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceStatusOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaComplianceStatusArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaConfidenceOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaConfidenceArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCreatedAtOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCreatedAtArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCreatedAtDateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCreatedAtDateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCriticalityOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaCriticalityArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaDescriptionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaFirstObservedAtOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaFirstObservedAtArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaFirstObservedAtDateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaGeneratorIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaGeneratorIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaLastObservedAtOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaLastObservedAtArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaLastObservedAtDateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaLastObservedAtDateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteTextOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteTextArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedAtOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedAtArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedAtDateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedByOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaNoteUpdatedByArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaProductArnOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaProductArnArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaProductNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaProductNameArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRecordStateOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRecordStateArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRelatedFindingsIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRelatedFindingsIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRelatedFindingsProductArnOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceApplicationArnOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceApplicationArnArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceApplicationNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceApplicationNameArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceDetailsOtherOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceDetailsOtherArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceIdOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceIdArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourcePartitionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourcePartitionArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceRegionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceRegionArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceTagOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceTagArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceTypeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaSeverityLabelOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaSeverityLabelArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaSourceUrlOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaSourceUrlArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaTitleOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaTitleArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaTypeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaTypeArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUpdatedAtOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUpdatedAtArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUpdatedAtDateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUpdatedAtDateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUserDefinedFieldOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaUserDefinedFieldArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaVerificationStateOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaVerificationStateArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusOutput{})
+	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersOutput{})
 	pulumi.RegisterOutputType(InsightFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightFiltersAwsAccountIdOutput{})

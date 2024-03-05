@@ -26,6 +26,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     public static final WebAclState Empty = new WebAclState();
 
     /**
+     * The URL to use in SDK integrations with managed rule groups.
+     * 
+     */
+    @Import(name="applicationIntegrationUrl")
+    private @Nullable Output<String> applicationIntegrationUrl;
+
+    /**
+     * @return The URL to use in SDK integrations with managed rule groups.
+     * 
+     */
+    public Optional<Output<String>> applicationIntegrationUrl() {
+        return Optional.ofNullable(this.applicationIntegrationUrl);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
      */
@@ -268,6 +283,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     private WebAclState() {}
 
     private WebAclState(WebAclState $) {
+        this.applicationIntegrationUrl = $.applicationIntegrationUrl;
         this.arn = $.arn;
         this.associationConfig = $.associationConfig;
         this.capacity = $.capacity;
@@ -302,6 +318,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(WebAclState defaults) {
             $ = new WebAclState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param applicationIntegrationUrl The URL to use in SDK integrations with managed rule groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationIntegrationUrl(@Nullable Output<String> applicationIntegrationUrl) {
+            $.applicationIntegrationUrl = applicationIntegrationUrl;
+            return this;
+        }
+
+        /**
+         * @param applicationIntegrationUrl The URL to use in SDK integrations with managed rule groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationIntegrationUrl(String applicationIntegrationUrl) {
+            return applicationIntegrationUrl(Output.of(applicationIntegrationUrl));
         }
 
         /**

@@ -28,7 +28,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -43,7 +43,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private String indexName;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration processingConfiguration;
@@ -63,12 +63,12 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration;
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig vpcConfig;
@@ -89,7 +89,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -110,7 +110,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return this.indexName;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration> processingConfiguration() {
@@ -138,14 +138,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig> vpcConfig() {

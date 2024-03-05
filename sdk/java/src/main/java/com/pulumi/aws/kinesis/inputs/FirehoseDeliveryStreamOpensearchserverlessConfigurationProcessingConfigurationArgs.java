@@ -33,14 +33,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
     }
 
     /**
-     * Array of data processors. More details are given below
+     * Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     @Import(name="processors")
     private @Nullable Output<List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs>> processors;
 
     /**
-     * @return Array of data processors. More details are given below
+     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs>>> processors() {
@@ -94,7 +94,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param processors Array of data processors. More details are given below
+         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param processors Array of data processors. More details are given below
+         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param processors Array of data processors. More details are given below
+         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 

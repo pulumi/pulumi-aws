@@ -16,6 +16,7 @@ from .organization_managed_rule import *
 from .recorder import *
 from .recorder_status import *
 from .remediation_configuration import *
+from .retention_configuration import *
 from .rule import *
 from ._inputs import *
 from . import outputs

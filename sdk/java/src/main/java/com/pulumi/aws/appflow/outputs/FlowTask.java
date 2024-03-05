@@ -29,7 +29,7 @@ public final class FlowTask {
      * @return Source fields to which a particular task is applied.
      * 
      */
-    private List<String> sourceFields;
+    private @Nullable List<String> sourceFields;
     /**
      * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
      * 
@@ -61,7 +61,7 @@ public final class FlowTask {
      * 
      */
     public List<String> sourceFields() {
-        return this.sourceFields;
+        return this.sourceFields == null ? List.of() : this.sourceFields;
     }
     /**
      * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
@@ -89,7 +89,7 @@ public final class FlowTask {
     public static final class Builder {
         private @Nullable List<FlowTaskConnectorOperator> connectorOperators;
         private @Nullable String destinationField;
-        private List<String> sourceFields;
+        private @Nullable List<String> sourceFields;
         private @Nullable Map<String,String> taskProperties;
         private String taskType;
         public Builder() {}
@@ -118,10 +118,8 @@ public final class FlowTask {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceFields(List<String> sourceFields) {
-            if (sourceFields == null) {
-              throw new MissingRequiredPropertyException("FlowTask", "sourceFields");
-            }
+        public Builder sourceFields(@Nullable List<String> sourceFields) {
+
             this.sourceFields = sourceFields;
             return this;
         }

@@ -6194,14 +6194,14 @@ class FlowTask(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceFields":
-            suggest = "source_fields"
-        elif key == "taskType":
+        if key == "taskType":
             suggest = "task_type"
         elif key == "connectorOperators":
             suggest = "connector_operators"
         elif key == "destinationField":
             suggest = "destination_field"
+        elif key == "sourceFields":
+            suggest = "source_fields"
         elif key == "taskProperties":
             suggest = "task_properties"
 
@@ -6217,34 +6217,27 @@ class FlowTask(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_fields: Sequence[str],
                  task_type: str,
                  connector_operators: Optional[Sequence['outputs.FlowTaskConnectorOperator']] = None,
                  destination_field: Optional[str] = None,
+                 source_fields: Optional[Sequence[str]] = None,
                  task_properties: Optional[Mapping[str, str]] = None):
         """
-        :param Sequence[str] source_fields: Source fields to which a particular task is applied.
         :param str task_type: Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
         :param Sequence['FlowTaskConnectorOperatorArgs'] connector_operators: Operation to be performed on the provided source fields. See Connector Operator for details.
         :param str destination_field: Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        :param Sequence[str] source_fields: Source fields to which a particular task is applied.
         :param Mapping[str, str] task_properties: Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         """
-        pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
         if connector_operators is not None:
             pulumi.set(__self__, "connector_operators", connector_operators)
         if destination_field is not None:
             pulumi.set(__self__, "destination_field", destination_field)
+        if source_fields is not None:
+            pulumi.set(__self__, "source_fields", source_fields)
         if task_properties is not None:
             pulumi.set(__self__, "task_properties", task_properties)
-
-    @property
-    @pulumi.getter(name="sourceFields")
-    def source_fields(self) -> Sequence[str]:
-        """
-        Source fields to which a particular task is applied.
-        """
-        return pulumi.get(self, "source_fields")
 
     @property
     @pulumi.getter(name="taskType")
@@ -6269,6 +6262,14 @@ class FlowTask(dict):
         Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         """
         return pulumi.get(self, "destination_field")
+
+    @property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> Optional[Sequence[str]]:
+        """
+        Source fields to which a particular task is applied.
+        """
+        return pulumi.get(self, "source_fields")
 
     @property
     @pulumi.getter(name="taskProperties")

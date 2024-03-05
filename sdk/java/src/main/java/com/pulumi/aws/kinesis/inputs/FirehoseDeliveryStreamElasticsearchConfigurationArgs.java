@@ -52,14 +52,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -127,14 +127,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -187,14 +187,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -217,14 +217,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs>> vpcConfig() {
@@ -311,7 +311,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 

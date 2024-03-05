@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? IndexRotationPeriod;
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration S3Configuration;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? TypeName;
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig? VpcConfig;
 

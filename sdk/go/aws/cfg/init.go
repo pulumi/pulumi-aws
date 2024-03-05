@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RecorderStatus{}
 	case "aws:cfg/remediationConfiguration:RemediationConfiguration":
 		r = &RemediationConfiguration{}
+	case "aws:cfg/retentionConfiguration:RetentionConfiguration":
+		r = &RetentionConfiguration{}
 	case "aws:cfg/rule:Rule":
 		r = &Rule{}
 	default:
@@ -111,6 +113,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cfg/remediationConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cfg/retentionConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

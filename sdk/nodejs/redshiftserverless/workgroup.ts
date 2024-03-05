@@ -81,7 +81,7 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
     /**
      * The name of the namespace.
      */

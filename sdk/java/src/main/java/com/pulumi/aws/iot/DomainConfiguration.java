@@ -80,14 +80,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     @Export(name="authorizerConfig", refs={DomainConfigurationAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ DomainConfigurationAuthorizerConfig> authorizerConfig;
 
     /**
-     * @return An object that specifies the authorization service for a domain. See below.
+     * @return An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     public Output<Optional<DomainConfigurationAuthorizerConfig>> authorizerConfig() {
@@ -163,9 +163,17 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> serviceType() {
         return Codegen.optional(this.serviceType);
     }
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
@@ -202,14 +210,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     @Export(name="tlsConfig", refs={DomainConfigurationTlsConfig.class}, tree="[0]")
     private Output<DomainConfigurationTlsConfig> tlsConfig;
 
     /**
-     * @return An object that specifies the TLS configuration for a domain. See below.
+     * @return An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     public Output<DomainConfigurationTlsConfig> tlsConfig() {

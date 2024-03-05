@@ -53,15 +53,15 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
      * Source fields to which a particular task is applied.
      * 
      */
-    @Import(name="sourceFields", required=true)
-    private Output<List<String>> sourceFields;
+    @Import(name="sourceFields")
+    private @Nullable Output<List<String>> sourceFields;
 
     /**
      * @return Source fields to which a particular task is applied.
      * 
      */
-    public Output<List<String>> sourceFields() {
-        return this.sourceFields;
+    public Optional<Output<List<String>>> sourceFields() {
+        return Optional.ofNullable(this.sourceFields);
     }
 
     /**
@@ -180,7 +180,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder sourceFields(Output<List<String>> sourceFields) {
+        public Builder sourceFields(@Nullable Output<List<String>> sourceFields) {
             $.sourceFields = sourceFields;
             return this;
         }
@@ -248,9 +248,6 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FlowTaskArgs build() {
-            if ($.sourceFields == null) {
-                throw new MissingRequiredPropertyException("FlowTaskArgs", "sourceFields");
-            }
             if ($.taskType == null) {
                 throw new MissingRequiredPropertyException("FlowTaskArgs", "taskType");
             }

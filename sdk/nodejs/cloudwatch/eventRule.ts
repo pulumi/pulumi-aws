@@ -129,6 +129,8 @@ export class EventRule extends pulumi.CustomResource {
      * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
      * Defaults to `ENABLED`.
      * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
@@ -239,6 +241,8 @@ export interface EventRuleState {
      * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
      * Defaults to `ENABLED`.
      * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     state?: pulumi.Input<string>;
     /**
@@ -301,6 +305,8 @@ export interface EventRuleArgs {
      * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
      * Defaults to `ENABLED`.
      * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     state?: pulumi.Input<string>;
     /**

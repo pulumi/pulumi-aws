@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DrtAccessLogBucketAssociation{}
 	case "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation":
 		r = &DrtAccessRoleArnAssociation{}
+	case "aws:shield/proactiveEngagement:ProactiveEngagement":
+		r = &ProactiveEngagement{}
 	case "aws:shield/protection:Protection":
 		r = &Protection{}
 	case "aws:shield/protectionGroup:ProtectionGroup":
@@ -59,6 +61,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"shield/drtAccessRoleArnAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"shield/proactiveEngagement",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

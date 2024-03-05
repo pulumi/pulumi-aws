@@ -21,11 +21,6 @@ public final class DrtAccessLogBucketAssociationTimeouts {
      * 
      */
     private @Nullable String delete;
-    /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-     * 
-     */
-    private @Nullable String read;
 
     private DrtAccessLogBucketAssociationTimeouts() {}
     /**
@@ -42,13 +37,6 @@ public final class DrtAccessLogBucketAssociationTimeouts {
     public Optional<String> delete() {
         return Optional.ofNullable(this.delete);
     }
-    /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-     * 
-     */
-    public Optional<String> read() {
-        return Optional.ofNullable(this.read);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,13 +49,11 @@ public final class DrtAccessLogBucketAssociationTimeouts {
     public static final class Builder {
         private @Nullable String create;
         private @Nullable String delete;
-        private @Nullable String read;
         public Builder() {}
         public Builder(DrtAccessLogBucketAssociationTimeouts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.create = defaults.create;
     	      this.delete = defaults.delete;
-    	      this.read = defaults.read;
         }
 
         @CustomType.Setter
@@ -82,17 +68,10 @@ public final class DrtAccessLogBucketAssociationTimeouts {
             this.delete = delete;
             return this;
         }
-        @CustomType.Setter
-        public Builder read(@Nullable String read) {
-
-            this.read = read;
-            return this;
-        }
         public DrtAccessLogBucketAssociationTimeouts build() {
             final var _resultValue = new DrtAccessLogBucketAssociationTimeouts();
             _resultValue.create = create;
             _resultValue.delete = delete;
-            _resultValue.read = read;
             return _resultValue;
         }
     }

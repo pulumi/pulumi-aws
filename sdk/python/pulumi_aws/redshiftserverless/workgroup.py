@@ -707,7 +707,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> pulumi.Output[int]:
+    def max_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         """

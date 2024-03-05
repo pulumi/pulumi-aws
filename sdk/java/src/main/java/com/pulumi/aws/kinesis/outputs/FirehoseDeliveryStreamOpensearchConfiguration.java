@@ -29,7 +29,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -39,7 +39,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String clusterEndpoint;
     /**
-     * @return The method for setting up document ID. More details are given below.
+     * @return The method for setting up document ID. See [`document_id_options` block] below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions documentIdOptions;
@@ -59,7 +59,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration. More details are given below.
+     * @return The data processing configuration. See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration processingConfiguration;
@@ -79,7 +79,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamOpensearchConfigurationS3Configuration s3Configuration;
@@ -89,7 +89,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationVpcConfig vpcConfig;
@@ -110,7 +110,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -124,7 +124,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.clusterEndpoint);
     }
     /**
-     * @return The method for setting up document ID. More details are given below.
+     * @return The method for setting up document ID. See [`document_id_options` block] below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions> documentIdOptions() {
@@ -152,7 +152,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration. More details are given below.
+     * @return The data processing configuration. See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -180,7 +180,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamOpensearchConfigurationS3Configuration s3Configuration() {
@@ -194,7 +194,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationVpcConfig> vpcConfig() {

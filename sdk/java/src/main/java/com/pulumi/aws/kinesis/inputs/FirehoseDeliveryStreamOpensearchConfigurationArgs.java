@@ -53,14 +53,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -83,14 +83,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The method for setting up document ID. More details are given below.
+     * The method for setting up document ID. See [`document_id_options` block] below for details.
      * 
      */
     @Import(name="documentIdOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs> documentIdOptions;
 
     /**
-     * @return The method for setting up document ID. More details are given below.
+     * @return The method for setting up document ID. See [`document_id_options` block] below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs>> documentIdOptions() {
@@ -143,14 +143,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The data processing configuration. More details are given below.
+     * The data processing configuration. See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration. More details are given below.
+     * @return The data processing configuration. See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -203,14 +203,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -233,14 +233,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+     * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs>> vpcConfig() {
@@ -328,7 +328,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param documentIdOptions The method for setting up document ID. More details are given below.
+         * @param documentIdOptions The method for setting up document ID. See [`document_id_options` block] below for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param documentIdOptions The method for setting up document ID. More details are given below.
+         * @param documentIdOptions The method for setting up document ID. See [`document_id_options` block] below for details.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration. More details are given below.
+         * @param processingConfiguration The data processing configuration. See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration. More details are given below.
+         * @param processingConfiguration The data processing configuration. See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 

@@ -307,6 +307,12 @@ namespace Pulumi.Aws.CodePipeline
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableArray<Outputs.PipelineTrigger>> Triggers { get; private set; } = null!;
+
+        /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         /// </summary>
         [Output("variables")]
@@ -420,6 +426,18 @@ namespace Pulumi.Aws.CodePipeline
             set => _tags = value;
         }
 
+        [Input("triggers")]
+        private InputList<Inputs.PipelineTriggerArgs>? _triggers;
+
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineTriggerArgs> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputList<Inputs.PipelineTriggerArgs>());
+            set => _triggers = value;
+        }
+
         [Input("variables")]
         private InputList<Inputs.PipelineVariableArgs>? _variables;
 
@@ -519,6 +537,18 @@ namespace Pulumi.Aws.CodePipeline
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("triggers")]
+        private InputList<Inputs.PipelineTriggerGetArgs>? _triggers;
+
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineTriggerGetArgs> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputList<Inputs.PipelineTriggerGetArgs>());
+            set => _triggers = value;
         }
 
         [Input("variables")]

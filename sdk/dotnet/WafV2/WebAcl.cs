@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL to use in SDK integrations with managed rule groups.
+        /// </summary>
+        [Output("applicationIntegrationUrl")]
+        public Output<string> ApplicationIntegrationUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
         [Output("arn")]
@@ -255,6 +261,12 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to use in SDK integrations with managed rule groups.
+        /// </summary>
+        [Input("applicationIntegrationUrl")]
+        public Input<string>? ApplicationIntegrationUrl { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>

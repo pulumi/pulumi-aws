@@ -16,7 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
+ * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
+ * For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -73,6 +74,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
+ * 
+ * ```sh
+ *  $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
  * ```
  * 
  */

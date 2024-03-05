@@ -262,6 +262,8 @@ type Pipeline struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+	Triggers PipelineTriggerArrayOutput `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
 	Variables PipelineVariableArrayOutput `pulumi:"variables"`
 }
@@ -327,6 +329,8 @@ type pipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
@@ -354,6 +358,8 @@ type PipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
 	Variables PipelineVariableArrayInput
 }
@@ -379,6 +385,8 @@ type pipelineArgs struct {
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
@@ -401,6 +409,8 @@ type PipelineArgs struct {
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
 	Variables PipelineVariableArrayInput
 }
@@ -539,6 +549,11 @@ func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o PipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+func (o PipelineOutput) Triggers() PipelineTriggerArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTriggerArrayOutput { return v.Triggers }).(PipelineTriggerArrayOutput)
 }
 
 // A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.

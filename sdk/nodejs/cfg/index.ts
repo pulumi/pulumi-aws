@@ -60,6 +60,11 @@ export type RemediationConfiguration = import("./remediationConfiguration").Reme
 export const RemediationConfiguration: typeof import("./remediationConfiguration").RemediationConfiguration = null as any;
 utilities.lazyLoad(exports, ["RemediationConfiguration"], () => require("./remediationConfiguration"));
 
+export { RetentionConfigurationArgs, RetentionConfigurationState } from "./retentionConfiguration";
+export type RetentionConfiguration = import("./retentionConfiguration").RetentionConfiguration;
+export const RetentionConfiguration: typeof import("./retentionConfiguration").RetentionConfiguration = null as any;
+utilities.lazyLoad(exports, ["RetentionConfiguration"], () => require("./retentionConfiguration"));
+
 export { RuleArgs, RuleState } from "./rule";
 export type Rule = import("./rule").Rule;
 export const Rule: typeof import("./rule").Rule = null as any;
@@ -92,6 +97,8 @@ const _module = {
                 return new RecorderStatus(name, <any>undefined, { urn })
             case "aws:cfg/remediationConfiguration:RemediationConfiguration":
                 return new RemediationConfiguration(name, <any>undefined, { urn })
+            case "aws:cfg/retentionConfiguration:RetentionConfiguration":
+                return new RetentionConfiguration(name, <any>undefined, { urn })
             case "aws:cfg/rule:Rule":
                 return new Rule(name, <any>undefined, { urn })
             default:
@@ -110,4 +117,5 @@ pulumi.runtime.registerResourceModule("aws", "cfg/organizationManagedRule", _mod
 pulumi.runtime.registerResourceModule("aws", "cfg/recorder", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/recorderStatus", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/remediationConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "cfg/retentionConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/rule", _module)

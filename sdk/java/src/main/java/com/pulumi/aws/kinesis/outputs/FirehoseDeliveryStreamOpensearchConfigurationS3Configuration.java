@@ -30,7 +30,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3Configuration 
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -84,7 +84,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3Configuration 
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {

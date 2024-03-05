@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs>? _processors;
 
         /// <summary>
-        /// Array of data processors. More details are given below
+        /// Specifies the data processors as multiple blocks. See `processors` block below for details.
         /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs> Processors
         {

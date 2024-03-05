@@ -3401,6 +3401,8 @@ class InstanceEbsBlockDevice(dict):
             suggest = "kms_key_id"
         elif key == "snapshotId":
             suggest = "snapshot_id"
+        elif key == "tagsAll":
+            suggest = "tags_all"
         elif key == "volumeId":
             suggest = "volume_id"
         elif key == "volumeSize":
@@ -3427,6 +3429,7 @@ class InstanceEbsBlockDevice(dict):
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
@@ -3439,6 +3442,7 @@ class InstanceEbsBlockDevice(dict):
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: Snapshot ID to mount.
         :param Mapping[str, str] tags: Map of tags to assign to the device.
+        :param Mapping[str, str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
@@ -3459,6 +3463,8 @@ class InstanceEbsBlockDevice(dict):
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -3523,6 +3529,14 @@ class InstanceEbsBlockDevice(dict):
         Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
@@ -4103,6 +4117,8 @@ class InstanceRootBlockDevice(dict):
             suggest = "device_name"
         elif key == "kmsKeyId":
             suggest = "kms_key_id"
+        elif key == "tagsAll":
+            suggest = "tags_all"
         elif key == "volumeId":
             suggest = "volume_id"
         elif key == "volumeSize":
@@ -4128,6 +4144,7 @@ class InstanceRootBlockDevice(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
@@ -4139,6 +4156,7 @@ class InstanceRootBlockDevice(dict):
         :param int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param Mapping[str, str] tags: Map of tags to assign to the device.
+        :param Mapping[str, str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
@@ -4158,6 +4176,8 @@ class InstanceRootBlockDevice(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -4214,6 +4234,14 @@ class InstanceRootBlockDevice(dict):
         Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
@@ -13668,6 +13696,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
             suggest = "kms_key_id"
         elif key == "snapshotId":
             suggest = "snapshot_id"
+        elif key == "tagsAll":
+            suggest = "tags_all"
         elif key == "volumeId":
             suggest = "volume_id"
         elif key == "volumeSize":
@@ -13694,6 +13724,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
@@ -13706,6 +13737,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: Snapshot ID to mount.
         :param Mapping[str, str] tags: Map of tags to assign to the device.
+        :param Mapping[str, str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
@@ -13725,6 +13757,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -13789,6 +13823,14 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
@@ -14238,6 +14280,8 @@ class SpotInstanceRequestRootBlockDevice(dict):
             suggest = "device_name"
         elif key == "kmsKeyId":
             suggest = "kms_key_id"
+        elif key == "tagsAll":
+            suggest = "tags_all"
         elif key == "volumeId":
             suggest = "volume_id"
         elif key == "volumeSize":
@@ -14263,6 +14307,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
@@ -14274,6 +14319,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param Mapping[str, str] tags: Map of tags to assign to the device.
+        :param Mapping[str, str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
@@ -14292,6 +14338,8 @@ class SpotInstanceRequestRootBlockDevice(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -14348,6 +14396,14 @@ class SpotInstanceRequestRootBlockDevice(dict):
         Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter

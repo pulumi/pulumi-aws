@@ -210,6 +210,9 @@ namespace Pulumi.Aws.Mwaa
         [Output("dagS3Path")]
         public Output<string> DagS3Path { get; private set; } = null!;
 
+        [Output("endpointManagement")]
+        public Output<string> EndpointManagement { get; private set; } = null!;
+
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
@@ -429,6 +432,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("dagS3Path", required: true)]
         public Input<string> DagS3Path { get; set; } = null!;
 
+        [Input("endpointManagement")]
+        public Input<string>? EndpointManagement { get; set; }
+
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
@@ -597,6 +603,9 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("dagS3Path")]
         public Input<string>? DagS3Path { get; set; }
+
+        [Input("endpointManagement")]
+        public Input<string>? EndpointManagement { get; set; }
 
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.

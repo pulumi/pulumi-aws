@@ -137,6 +137,143 @@ func (o CustomDomainAssociationCertificateValidationRecordArrayOutput) Index(i p
 	}).(CustomDomainAssociationCertificateValidationRecordOutput)
 }
 
+type DeploymentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// DeploymentTimeoutsInput is an input type that accepts DeploymentTimeoutsArgs and DeploymentTimeoutsOutput values.
+// You can construct a concrete instance of `DeploymentTimeoutsInput` via:
+//
+//	DeploymentTimeoutsArgs{...}
+type DeploymentTimeoutsInput interface {
+	pulumi.Input
+
+	ToDeploymentTimeoutsOutput() DeploymentTimeoutsOutput
+	ToDeploymentTimeoutsOutputWithContext(context.Context) DeploymentTimeoutsOutput
+}
+
+type DeploymentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (DeploymentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentTimeouts)(nil)).Elem()
+}
+
+func (i DeploymentTimeoutsArgs) ToDeploymentTimeoutsOutput() DeploymentTimeoutsOutput {
+	return i.ToDeploymentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DeploymentTimeoutsArgs) ToDeploymentTimeoutsOutputWithContext(ctx context.Context) DeploymentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTimeoutsOutput)
+}
+
+func (i DeploymentTimeoutsArgs) ToDeploymentTimeoutsPtrOutput() DeploymentTimeoutsPtrOutput {
+	return i.ToDeploymentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentTimeoutsArgs) ToDeploymentTimeoutsPtrOutputWithContext(ctx context.Context) DeploymentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTimeoutsOutput).ToDeploymentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DeploymentTimeoutsPtrInput is an input type that accepts DeploymentTimeoutsArgs, DeploymentTimeoutsPtr and DeploymentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DeploymentTimeoutsPtrInput` via:
+//
+//	        DeploymentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentTimeoutsPtrOutput() DeploymentTimeoutsPtrOutput
+	ToDeploymentTimeoutsPtrOutputWithContext(context.Context) DeploymentTimeoutsPtrOutput
+}
+
+type deploymentTimeoutsPtrType DeploymentTimeoutsArgs
+
+func DeploymentTimeoutsPtr(v *DeploymentTimeoutsArgs) DeploymentTimeoutsPtrInput {
+	return (*deploymentTimeoutsPtrType)(v)
+}
+
+func (*deploymentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentTimeouts)(nil)).Elem()
+}
+
+func (i *deploymentTimeoutsPtrType) ToDeploymentTimeoutsPtrOutput() DeploymentTimeoutsPtrOutput {
+	return i.ToDeploymentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentTimeoutsPtrType) ToDeploymentTimeoutsPtrOutputWithContext(ctx context.Context) DeploymentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTimeoutsPtrOutput)
+}
+
+type DeploymentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentTimeouts)(nil)).Elem()
+}
+
+func (o DeploymentTimeoutsOutput) ToDeploymentTimeoutsOutput() DeploymentTimeoutsOutput {
+	return o
+}
+
+func (o DeploymentTimeoutsOutput) ToDeploymentTimeoutsOutputWithContext(ctx context.Context) DeploymentTimeoutsOutput {
+	return o
+}
+
+func (o DeploymentTimeoutsOutput) ToDeploymentTimeoutsPtrOutput() DeploymentTimeoutsPtrOutput {
+	return o.ToDeploymentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentTimeoutsOutput) ToDeploymentTimeoutsPtrOutputWithContext(ctx context.Context) DeploymentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentTimeouts) *DeploymentTimeouts {
+		return &v
+	}).(DeploymentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DeploymentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentTimeouts)(nil)).Elem()
+}
+
+func (o DeploymentTimeoutsPtrOutput) ToDeploymentTimeoutsPtrOutput() DeploymentTimeoutsPtrOutput {
+	return o
+}
+
+func (o DeploymentTimeoutsPtrOutput) ToDeploymentTimeoutsPtrOutputWithContext(ctx context.Context) DeploymentTimeoutsPtrOutput {
+	return o
+}
+
+func (o DeploymentTimeoutsPtrOutput) Elem() DeploymentTimeoutsOutput {
+	return o.ApplyT(func(v *DeploymentTimeouts) DeploymentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentTimeouts
+		return ret
+	}).(DeploymentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DeploymentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObservabilityConfigurationTraceConfiguration struct {
 	// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
 	Vendor *string `pulumi:"vendor"`
@@ -3094,6 +3231,8 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcId() pulumi.Str
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordArrayInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTimeoutsInput)(nil)).Elem(), DeploymentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTimeoutsPtrInput)(nil)).Elem(), DeploymentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationPtrInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
@@ -3130,6 +3269,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionIngressVpcConfigurationPtrInput)(nil)).Elem(), VpcIngressConnectionIngressVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentTimeoutsOutput{})
+	pulumi.RegisterOutputType(DeploymentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEncryptionConfigurationOutput{})

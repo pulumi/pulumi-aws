@@ -34,7 +34,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -44,12 +44,17 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable String compressionFormat;
     /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+     * @return The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * 
+     */
+    private @Nullable String customTimeZone;
+    /**
+     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration dataFormatConversionConfiguration;
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration dynamicPartitioningConfiguration;
@@ -58,6 +63,11 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      * 
      */
     private @Nullable String errorOutputPrefix;
+    /**
+     * @return The file extension to override the default file extension (for example, `.json`).
+     * 
+     */
+    private @Nullable String fileExtension;
     /**
      * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
      * be used.
@@ -70,7 +80,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable String prefix;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration processingConfiguration;
@@ -113,7 +123,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -127,14 +137,21 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.compressionFormat);
     }
     /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+     * @return The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * 
+     */
+    public Optional<String> customTimeZone() {
+        return Optional.ofNullable(this.customTimeZone);
+    }
+    /**
+     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration> dataFormatConversionConfiguration() {
         return Optional.ofNullable(this.dataFormatConversionConfiguration);
     }
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration> dynamicPartitioningConfiguration() {
@@ -146,6 +163,13 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     public Optional<String> errorOutputPrefix() {
         return Optional.ofNullable(this.errorOutputPrefix);
+    }
+    /**
+     * @return The file extension to override the default file extension (for example, `.json`).
+     * 
+     */
+    public Optional<String> fileExtension() {
+        return Optional.ofNullable(this.fileExtension);
     }
     /**
      * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
@@ -163,7 +187,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration> processingConfiguration() {
@@ -205,9 +229,11 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         private @Nullable Integer bufferingSize;
         private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable String compressionFormat;
+        private @Nullable String customTimeZone;
         private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration dataFormatConversionConfiguration;
         private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration dynamicPartitioningConfiguration;
         private @Nullable String errorOutputPrefix;
+        private @Nullable String fileExtension;
         private @Nullable String kmsKeyArn;
         private @Nullable String prefix;
         private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration processingConfiguration;
@@ -222,9 +248,11 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
     	      this.bufferingSize = defaults.bufferingSize;
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
     	      this.compressionFormat = defaults.compressionFormat;
+    	      this.customTimeZone = defaults.customTimeZone;
     	      this.dataFormatConversionConfiguration = defaults.dataFormatConversionConfiguration;
     	      this.dynamicPartitioningConfiguration = defaults.dynamicPartitioningConfiguration;
     	      this.errorOutputPrefix = defaults.errorOutputPrefix;
+    	      this.fileExtension = defaults.fileExtension;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.prefix = defaults.prefix;
     	      this.processingConfiguration = defaults.processingConfiguration;
@@ -266,6 +294,12 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
             return this;
         }
         @CustomType.Setter
+        public Builder customTimeZone(@Nullable String customTimeZone) {
+
+            this.customTimeZone = customTimeZone;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dataFormatConversionConfiguration(@Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration dataFormatConversionConfiguration) {
 
             this.dataFormatConversionConfiguration = dataFormatConversionConfiguration;
@@ -281,6 +315,12 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         public Builder errorOutputPrefix(@Nullable String errorOutputPrefix) {
 
             this.errorOutputPrefix = errorOutputPrefix;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fileExtension(@Nullable String fileExtension) {
+
+            this.fileExtension = fileExtension;
             return this;
         }
         @CustomType.Setter
@@ -328,9 +368,11 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
             _resultValue.bufferingSize = bufferingSize;
             _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             _resultValue.compressionFormat = compressionFormat;
+            _resultValue.customTimeZone = customTimeZone;
             _resultValue.dataFormatConversionConfiguration = dataFormatConversionConfiguration;
             _resultValue.dynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             _resultValue.errorOutputPrefix = errorOutputPrefix;
+            _resultValue.fileExtension = fileExtension;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.prefix = prefix;
             _resultValue.processingConfiguration = processingConfiguration;

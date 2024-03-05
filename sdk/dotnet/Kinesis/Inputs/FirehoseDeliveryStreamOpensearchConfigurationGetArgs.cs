@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// The method for setting up document ID. More details are given below.
+        /// The method for setting up document ID. See [`document_id_options` block] below for details.
         /// </summary>
         [Input("documentIdOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsGetArgs>? DocumentIdOptions { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The data processing configuration. More details are given below.
+        /// The data processing configuration. See `processing_configuration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
+        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }

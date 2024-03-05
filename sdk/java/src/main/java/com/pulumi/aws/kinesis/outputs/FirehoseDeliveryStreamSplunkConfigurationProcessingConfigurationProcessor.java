@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter> parameters;
@@ -26,7 +26,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
 
     private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor() {}
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter> parameters() {

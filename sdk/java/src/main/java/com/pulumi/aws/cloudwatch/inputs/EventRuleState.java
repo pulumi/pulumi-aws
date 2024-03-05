@@ -174,6 +174,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
      * Defaults to `ENABLED`.
      * Conflicts with `is_enabled`.
      * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
@@ -185,6 +187,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
      * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
      * Defaults to `ENABLED`.
      * Conflicts with `is_enabled`.
+     * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
      * 
      */
     public Optional<Output<String>> state() {
@@ -475,6 +479,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
          * Defaults to `ENABLED`.
          * Conflicts with `is_enabled`.
          * 
+         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * 
          * @return builder
          * 
          */
@@ -490,6 +496,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
          * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
          * Defaults to `ENABLED`.
          * Conflicts with `is_enabled`.
+         * 
+         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
          * 
          * @return builder
          * 

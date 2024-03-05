@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -43,13 +43,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? CompressionFormat { get; set; }
 
         /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+        /// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+        /// </summary>
+        [Input("customTimeZone")]
+        public Input<string>? CustomTimeZone { get; set; }
+
+        /// <summary>
+        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         /// </summary>
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs>? DataFormatConversionConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
         /// </summary>
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs>? DynamicPartitioningConfiguration { get; set; }
@@ -59,6 +65,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         /// </summary>
         [Input("errorOutputPrefix")]
         public Input<string>? ErrorOutputPrefix { get; set; }
+
+        /// <summary>
+        /// The file extension to override the default file extension (for example, `.json`).
+        /// </summary>
+        [Input("fileExtension")]
+        public Input<string>? FileExtension { get; set; }
 
         /// <summary>
         /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
@@ -74,7 +86,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }

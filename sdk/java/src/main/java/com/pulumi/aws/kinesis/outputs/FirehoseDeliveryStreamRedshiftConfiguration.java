@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfiguration {
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -48,7 +48,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private String password;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
@@ -73,7 +73,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See s3_configuration below for details.
      * 
      */
     private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
@@ -85,7 +85,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
 
     private FirehoseDeliveryStreamRedshiftConfiguration() {}
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -127,7 +127,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return this.password;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration> processingConfiguration() {
@@ -162,7 +162,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See s3_configuration below for details.
      * 
      */
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {

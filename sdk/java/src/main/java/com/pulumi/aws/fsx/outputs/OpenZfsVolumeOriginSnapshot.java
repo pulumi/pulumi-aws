@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class OpenZfsVolumeOriginSnapshot {
+    /**
+     * @return Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     private String copyStrategy;
+    /**
+     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     private String snapshotArn;
 
     private OpenZfsVolumeOriginSnapshot() {}
+    /**
+     * @return Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     public String copyStrategy() {
         return this.copyStrategy;
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     public String snapshotArn() {
         return this.snapshotArn;
     }

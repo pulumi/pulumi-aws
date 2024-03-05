@@ -6177,6 +6177,8 @@ type InstanceEbsBlockDevice struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -6215,6 +6217,8 @@ type InstanceEbsBlockDeviceArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -6311,6 +6315,11 @@ func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 // Map of tags to assign to the device.
 func (o InstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceEbsBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
@@ -7816,6 +7825,8 @@ type InstanceRootBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -7852,6 +7863,8 @@ type InstanceRootBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -7971,6 +7984,11 @@ func (o InstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceRootBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o InstanceRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
@@ -8074,6 +8092,16 @@ func (o InstanceRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 			return nil
 		}
 		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceRootBlockDevicePtrOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TagsAll
 	}).(pulumi.StringMapOutput)
 }
 
@@ -29309,6 +29337,8 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
@@ -29346,6 +29376,8 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
@@ -29441,6 +29473,11 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOu
 // Map of tags to assign to the device.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestEbsBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
@@ -30595,6 +30632,8 @@ type SpotInstanceRequestRootBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
@@ -30630,6 +30669,8 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
@@ -30748,6 +30789,11 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestRootBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
@@ -30850,6 +30896,16 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutp
 			return nil
 		}
 		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TagsAll
 	}).(pulumi.StringMapOutput)
 }
 

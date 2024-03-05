@@ -67,14 +67,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -97,14 +97,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -112,14 +112,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The request configuration.  More details are given below.
+     * The request configuration.  See `request_configuration` block below for details.
      * 
      */
     @Import(name="requestConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs> requestConfiguration;
 
     /**
-     * @return The request configuration.  More details are given below.
+     * @return The request configuration.  See `request_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs>> requestConfiguration() {
@@ -172,14 +172,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -300,7 +300,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param requestConfiguration The request configuration.  More details are given below.
+         * @param requestConfiguration The request configuration.  See `request_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param requestConfiguration The request configuration.  More details are given below.
+         * @param requestConfiguration The request configuration.  See `request_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 

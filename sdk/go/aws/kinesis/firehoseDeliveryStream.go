@@ -873,28 +873,29 @@ type FirehoseDeliveryStream struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	Destination   pulumi.StringOutput `pulumi:"destination"`
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
-	// Configuration options when `destination` is `elasticsearch`. More details are given below.
+	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput `pulumi:"elasticsearchConfiguration"`
-	// Enhanced configuration options for the s3 destination. More details are given below.
+	// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 	ExtendedS3Configuration FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput `pulumi:"extendedS3Configuration"`
-	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput `pulumi:"httpEndpointConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput `pulumi:"kinesisSourceConfiguration"`
-	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrOutput `pulumi:"mskSourceConfiguration"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration options when `destination` is `opensearch`. More details are given below.
+	// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 	OpensearchConfiguration FirehoseDeliveryStreamOpensearchConfigurationPtrOutput `pulumi:"opensearchConfiguration"`
-	// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+	// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput `pulumi:"opensearchserverlessConfiguration"`
-	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrOutput `pulumi:"redshiftConfiguration"`
-	// Encrypt at rest options.
-	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	// Encrypt at rest options. See `serverSideEncryption` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
-	// Configuration options when `destination` is `splunk`. More details are given below.
+	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -944,28 +945,29 @@ type firehoseDeliveryStreamState struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	Destination   *string `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
-	// Configuration options when `destination` is `elasticsearch`. More details are given below.
+	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 	ElasticsearchConfiguration *FirehoseDeliveryStreamElasticsearchConfiguration `pulumi:"elasticsearchConfiguration"`
-	// Enhanced configuration options for the s3 destination. More details are given below.
+	// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 	ExtendedS3Configuration *FirehoseDeliveryStreamExtendedS3Configuration `pulumi:"extendedS3Configuration"`
-	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
-	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration *FirehoseDeliveryStreamMskSourceConfiguration `pulumi:"mskSourceConfiguration"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name *string `pulumi:"name"`
-	// Configuration options when `destination` is `opensearch`. More details are given below.
+	// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 	OpensearchConfiguration *FirehoseDeliveryStreamOpensearchConfiguration `pulumi:"opensearchConfiguration"`
-	// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+	// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 	OpensearchserverlessConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfiguration `pulumi:"opensearchserverlessConfiguration"`
-	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// Encrypt at rest options.
-	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	// Encrypt at rest options. See `serverSideEncryption` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
-	// Configuration options when `destination` is `splunk`. More details are given below.
+	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -983,28 +985,29 @@ type FirehoseDeliveryStreamState struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	Destination   pulumi.StringPtrInput
 	DestinationId pulumi.StringPtrInput
-	// Configuration options when `destination` is `elasticsearch`. More details are given below.
+	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrInput
-	// Enhanced configuration options for the s3 destination. More details are given below.
+	// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 	ExtendedS3Configuration FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput
-	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
-	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringPtrInput
-	// Configuration options when `destination` is `opensearch`. More details are given below.
+	// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 	OpensearchConfiguration FirehoseDeliveryStreamOpensearchConfigurationPtrInput
-	// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+	// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput
-	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// Encrypt at rest options.
-	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	// Encrypt at rest options. See `serverSideEncryption` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
-	// Configuration options when `destination` is `splunk`. More details are given below.
+	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1026,28 +1029,29 @@ type firehoseDeliveryStreamArgs struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	Destination   string  `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
-	// Configuration options when `destination` is `elasticsearch`. More details are given below.
+	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 	ElasticsearchConfiguration *FirehoseDeliveryStreamElasticsearchConfiguration `pulumi:"elasticsearchConfiguration"`
-	// Enhanced configuration options for the s3 destination. More details are given below.
+	// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 	ExtendedS3Configuration *FirehoseDeliveryStreamExtendedS3Configuration `pulumi:"extendedS3Configuration"`
-	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
-	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration *FirehoseDeliveryStreamMskSourceConfiguration `pulumi:"mskSourceConfiguration"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name *string `pulumi:"name"`
-	// Configuration options when `destination` is `opensearch`. More details are given below.
+	// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 	OpensearchConfiguration *FirehoseDeliveryStreamOpensearchConfiguration `pulumi:"opensearchConfiguration"`
-	// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+	// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 	OpensearchserverlessConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfiguration `pulumi:"opensearchserverlessConfiguration"`
-	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// Encrypt at rest options.
-	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	// Encrypt at rest options. See `serverSideEncryption` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
-	// Configuration options when `destination` is `splunk`. More details are given below.
+	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1062,28 +1066,29 @@ type FirehoseDeliveryStreamArgs struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
 	Destination   pulumi.StringInput
 	DestinationId pulumi.StringPtrInput
-	// Configuration options when `destination` is `elasticsearch`. More details are given below.
+	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrInput
-	// Enhanced configuration options for the s3 destination. More details are given below.
+	// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 	ExtendedS3Configuration FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput
-	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+	// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
-	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringPtrInput
-	// Configuration options when `destination` is `opensearch`. More details are given below.
+	// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 	OpensearchConfiguration FirehoseDeliveryStreamOpensearchConfigurationPtrInput
-	// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+	// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput
-	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// Encrypt at rest options.
-	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	// Encrypt at rest options. See `serverSideEncryption` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
-	// Configuration options when `destination` is `splunk`. More details are given below.
+	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1192,35 +1197,35 @@ func (o FirehoseDeliveryStreamOutput) DestinationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.DestinationId }).(pulumi.StringOutput)
 }
 
-// Configuration options when `destination` is `elasticsearch`. More details are given below.
+// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) ElasticsearchConfiguration() FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput {
 		return v.ElasticsearchConfiguration
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput)
 }
 
-// Enhanced configuration options for the s3 destination. More details are given below.
+// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
 func (o FirehoseDeliveryStreamOutput) ExtendedS3Configuration() FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput {
 		return v.ExtendedS3Configuration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput)
 }
 
-// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
+// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) HttpEndpointConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
 		return v.HttpEndpointConfiguration
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
 
-// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) KinesisSourceConfiguration() FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 		return v.KinesisSourceConfiguration
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
 
-// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) MskSourceConfiguration() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
 		return v.MskSourceConfiguration
@@ -1232,36 +1237,37 @@ func (o FirehoseDeliveryStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration options when `destination` is `opensearch`. More details are given below.
+// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) OpensearchConfiguration() FirehoseDeliveryStreamOpensearchConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamOpensearchConfigurationPtrOutput {
 		return v.OpensearchConfiguration
 	}).(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput)
 }
 
-// Configuration options when `destination` is `opensearchserverless`. More details are given below.
+// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) OpensearchserverlessConfiguration() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
 		return v.OpensearchserverlessConfiguration
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput)
 }
 
-// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
+// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) RedshiftConfiguration() FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
 		return v.RedshiftConfiguration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
 }
 
-// Encrypt at rest options.
-// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+// Encrypt at rest options. See `serverSideEncryption` block below for details.
+//
+// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamOutput) ServerSideEncryption() FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 		return v.ServerSideEncryption
 	}).(FirehoseDeliveryStreamServerSideEncryptionPtrOutput)
 }
 
-// Configuration options when `destination` is `splunk`. More details are given below.
+// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) SplunkConfiguration() FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 		return v.SplunkConfiguration

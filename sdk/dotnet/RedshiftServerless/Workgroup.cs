@@ -76,7 +76,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         /// </summary>
         [Output("maxCapacity")]
-        public Output<int> MaxCapacity { get; private set; } = null!;
+        public Output<int?> MaxCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The name of the namespace.

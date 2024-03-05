@@ -138,28 +138,28 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
      * 
      */
     @Export(name="nfsExports", refs={OpenZfsVolumeNfsExports.class}, tree="[0]")
     private Output</* @Nullable */ OpenZfsVolumeNfsExports> nfsExports;
 
     /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
      * 
      */
     public Output<Optional<OpenZfsVolumeNfsExports>> nfsExports() {
         return Codegen.optional(this.nfsExports);
     }
     /**
-     * The ARN of the source snapshot to create the volume from.
+     * Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
      * 
      */
     @Export(name="originSnapshot", refs={OpenZfsVolumeOriginSnapshot.class}, tree="[0]")
     private Output</* @Nullable */ OpenZfsVolumeOriginSnapshot> originSnapshot;
 
     /**
-     * @return The ARN of the source snapshot to create the volume from.
+     * @return Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
      * 
      */
     public Output<Optional<OpenZfsVolumeOriginSnapshot>> originSnapshot() {
@@ -268,14 +268,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
      * 
      */
     @Export(name="userAndGroupQuotas", refs={List.class,OpenZfsVolumeUserAndGroupQuota.class}, tree="[0,1]")
     private Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
      * 
      */
     public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {

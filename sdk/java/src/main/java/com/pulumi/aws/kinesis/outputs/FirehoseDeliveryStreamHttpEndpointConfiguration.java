@@ -33,7 +33,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -43,12 +43,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String name;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
     /**
-     * @return The request configuration.  More details are given below.
+     * @return The request configuration.  See `request_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
@@ -68,7 +68,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
@@ -101,7 +101,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -115,14 +115,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
     /**
-     * @return The request configuration.  More details are given below.
+     * @return The request configuration.  See `request_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration() {
@@ -150,7 +150,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {

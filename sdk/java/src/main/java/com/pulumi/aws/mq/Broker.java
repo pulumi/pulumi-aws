@@ -123,6 +123,76 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Cross-Region Data Replication
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.mq.Broker;
+ * import com.pulumi.aws.mq.BrokerArgs;
+ * import com.pulumi.aws.mq.inputs.BrokerUserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplePrimary = new Broker(&#34;examplePrimary&#34;, BrokerArgs.builder()        
+ *             .applyImmediately(true)
+ *             .brokerName(&#34;example_primary&#34;)
+ *             .engineType(&#34;ActiveMQ&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
+ *             .hostInstanceType(&#34;mq.m5.large&#34;)
+ *             .securityGroups(examplePrimaryAwsSecurityGroup.id())
+ *             .deploymentMode(&#34;ACTIVE_STANDBY_MULTI_AZ&#34;)
+ *             .users(            
+ *                 BrokerUserArgs.builder()
+ *                     .username(&#34;ExampleUser&#34;)
+ *                     .password(&#34;MindTheGap&#34;)
+ *                     .build(),
+ *                 BrokerUserArgs.builder()
+ *                     .username(&#34;ExampleReplicationUser&#34;)
+ *                     .password(&#34;Example12345&#34;)
+ *                     .replicationUser(true)
+ *                     .build())
+ *             .build());
+ * 
+ *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
+ *             .applyImmediately(true)
+ *             .brokerName(&#34;example&#34;)
+ *             .engineType(&#34;ActiveMQ&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
+ *             .hostInstanceType(&#34;mq.m5.large&#34;)
+ *             .securityGroups(exampleAwsSecurityGroup.id())
+ *             .deploymentMode(&#34;ACTIVE_STANDBY_MULTI_AZ&#34;)
+ *             .dataReplicationMode(&#34;CRDR&#34;)
+ *             .dataReplicationPrimaryBrokerArn(primary.arn())
+ *             .users(            
+ *                 BrokerUserArgs.builder()
+ *                     .username(&#34;ExampleUser&#34;)
+ *                     .password(&#34;MindTheGap&#34;)
+ *                     .build(),
+ *                 BrokerUserArgs.builder()
+ *                     .username(&#34;ExampleReplicationUser&#34;)
+ *                     .password(&#34;Example12345&#34;)
+ *                     .replicationUser(true)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
  * 
  * ## Import
  * 
@@ -218,6 +288,34 @@ public class Broker extends com.pulumi.resources.CustomResource {
      */
     public Output<BrokerConfiguration> configuration() {
         return this.configuration;
+    }
+    /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    @Export(name="dataReplicationMode", refs={String.class}, tree="[0]")
+    private Output<String> dataReplicationMode;
+
+    /**
+     * @return Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    public Output<String> dataReplicationMode() {
+        return this.dataReplicationMode;
+    }
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    @Export(name="dataReplicationPrimaryBrokerArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dataReplicationPrimaryBrokerArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    public Output<Optional<String>> dataReplicationPrimaryBrokerArn() {
+        return Codegen.optional(this.dataReplicationPrimaryBrokerArn);
     }
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -366,6 +464,20 @@ public class Broker extends com.pulumi.resources.CustomResource {
      */
     public Output<BrokerMaintenanceWindowStartTime> maintenanceWindowStartTime() {
         return this.maintenanceWindowStartTime;
+    }
+    /**
+     * (Optional) The data replication mode that will be applied after reboot.
+     * 
+     */
+    @Export(name="pendingDataReplicationMode", refs={String.class}, tree="[0]")
+    private Output<String> pendingDataReplicationMode;
+
+    /**
+     * @return (Optional) The data replication mode that will be applied after reboot.
+     * 
+     */
+    public Output<String> pendingDataReplicationMode() {
+        return this.pendingDataReplicationMode;
     }
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.

@@ -64,6 +64,57 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Cross-Region Data Replication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplePrimary = new aws.mq.Broker("example_primary", {
+ *     applyImmediately: true,
+ *     brokerName: "example_primary",
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.17.6",
+ *     hostInstanceType: "mq.m5.large",
+ *     securityGroups: [examplePrimaryAwsSecurityGroup.id],
+ *     deploymentMode: "ACTIVE_STANDBY_MULTI_AZ",
+ *     users: [
+ *         {
+ *             username: "ExampleUser",
+ *             password: "MindTheGap",
+ *         },
+ *         {
+ *             username: "ExampleReplicationUser",
+ *             password: "Example12345",
+ *             replicationUser: true,
+ *         },
+ *     ],
+ * });
+ * const example = new aws.mq.Broker("example", {
+ *     applyImmediately: true,
+ *     brokerName: "example",
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.17.6",
+ *     hostInstanceType: "mq.m5.large",
+ *     securityGroups: [exampleAwsSecurityGroup.id],
+ *     deploymentMode: "ACTIVE_STANDBY_MULTI_AZ",
+ *     dataReplicationMode: "CRDR",
+ *     dataReplicationPrimaryBrokerArn: primary.arn,
+ *     users: [
+ *         {
+ *             username: "ExampleUser",
+ *             password: "MindTheGap",
+ *         },
+ *         {
+ *             username: "ExampleReplicationUser",
+ *             password: "Example12345",
+ *             replicationUser: true,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
  *
  * ## Import
  *
@@ -126,6 +177,14 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration>;
     /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     */
+    public readonly dataReplicationMode!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+     */
+    public readonly dataReplicationPrimaryBrokerArn!: pulumi.Output<string | undefined>;
+    /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
     public readonly deploymentMode!: pulumi.Output<string | undefined>;
@@ -172,6 +231,10 @@ export class Broker extends pulumi.CustomResource {
      * Configuration block for the maintenance window start time. Detailed below.
      */
     public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
+    /**
+     * (Optional) The data replication mode that will be applied after reboot.
+     */
+    public /*out*/ readonly pendingDataReplicationMode!: pulumi.Output<string>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -224,6 +287,8 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["brokerName"] = state ? state.brokerName : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["dataReplicationMode"] = state ? state.dataReplicationMode : undefined;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = state ? state.dataReplicationPrimaryBrokerArn : undefined;
             resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
             resourceInputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
             resourceInputs["engineType"] = state ? state.engineType : undefined;
@@ -233,6 +298,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["ldapServerMetadata"] = state ? state.ldapServerMetadata : undefined;
             resourceInputs["logs"] = state ? state.logs : undefined;
             resourceInputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
+            resourceInputs["pendingDataReplicationMode"] = state ? state.pendingDataReplicationMode : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
@@ -259,6 +325,8 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["brokerName"] = args ? args.brokerName : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["dataReplicationMode"] = args ? args.dataReplicationMode : undefined;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = args ? args.dataReplicationPrimaryBrokerArn : undefined;
             resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
             resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
             resourceInputs["engineType"] = args ? args.engineType : undefined;
@@ -275,6 +343,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["pendingDataReplicationMode"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -310,6 +379,14 @@ export interface BrokerState {
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
     configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
+    /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     */
+    dataReplicationMode?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+     */
+    dataReplicationPrimaryBrokerArn?: pulumi.Input<string>;
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
@@ -357,6 +434,10 @@ export interface BrokerState {
      * Configuration block for the maintenance window start time. Detailed below.
      */
     maintenanceWindowStartTime?: pulumi.Input<inputs.mq.BrokerMaintenanceWindowStartTime>;
+    /**
+     * (Optional) The data replication mode that will be applied after reboot.
+     */
+    pendingDataReplicationMode?: pulumi.Input<string>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -415,6 +496,14 @@ export interface BrokerArgs {
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
     configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
+    /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     */
+    dataReplicationMode?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+     */
+    dataReplicationPrimaryBrokerArn?: pulumi.Input<string>;
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
