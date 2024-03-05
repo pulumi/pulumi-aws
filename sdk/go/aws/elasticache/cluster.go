@@ -223,7 +223,7 @@ import (
 //			_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
 //				ClusterId:           pulumi.String("cluster-example"),
 //				OutpostMode:         pulumi.String("single-outpost"),
-//				PreferredOutpostArn: *pulumi.String(exampleGetOutpost.Arn),
+//				PreferredOutpostArn: pulumi.String(exampleGetOutpost.Arn),
 //				Engine:              pulumi.String("memcached"),
 //				NodeType:            pulumi.String("cache.r5.large"),
 //				NumCacheNodes:       pulumi.Int(2),

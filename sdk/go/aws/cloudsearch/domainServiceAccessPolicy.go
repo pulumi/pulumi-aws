@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "example", &cloudsearch.DomainServiceAccessPolicyArgs{
 //				DomainName:   exampleDomain.ID(),
-//				AccessPolicy: *pulumi.String(example.Json),
+//				AccessPolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

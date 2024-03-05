@@ -157,7 +157,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: *pulumi.String(example.Json),
+//				PolicyDocument: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -238,14 +238,14 @@ import (
 // es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
 // Name: pulumi.String(fmt.Sprintf("%v-elasticsearch-%v", vpc, domain)),
 // Description: pulumi.String("Managed by Pulumi"),
-// VpcId: *pulumi.String(selected.Id),
+// VpcId: pulumi.String(selected.Id),
 // Ingress: ec2.SecurityGroupIngressArray{
 // &ec2.SecurityGroupIngressArgs{
 // FromPort: pulumi.Int(443),
 // ToPort: pulumi.Int(443),
 // Protocol: pulumi.String("tcp"),
 // CidrBlocks: pulumi.StringArray{
-// *pulumi.String(selected.CidrBlock),
+// pulumi.String(selected.CidrBlock),
 // },
 // },
 // },
@@ -268,8 +268,8 @@ import (
 // },
 // VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 // SubnetIds: pulumi.StringArray{
-// *pulumi.String(selectedGetSubnets.Ids[0]),
-// *pulumi.String(selectedGetSubnets.Ids[1]),
+// pulumi.String(selectedGetSubnets.Ids[0]),
+// pulumi.String(selectedGetSubnets.Ids[1]),
 // },
 // SecurityGroupIds: pulumi.StringArray{
 // es.ID(),

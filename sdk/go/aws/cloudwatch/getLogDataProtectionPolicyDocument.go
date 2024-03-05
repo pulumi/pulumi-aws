@@ -73,7 +73,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "example", &cloudwatch.LogDataProtectionPolicyArgs{
 //				LogGroupName:   pulumi.Any(exampleAwsCloudwatchLogGroup.Name),
-//				PolicyDocument: *pulumi.String(example.Json),
+//				PolicyDocument: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

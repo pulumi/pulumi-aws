@@ -145,7 +145,7 @@ import (
 //			}
 //			workspacesDefault, err := iam.NewRole(ctx, "workspaces_default", &iam.RoleArgs{
 //				Name:             pulumi.String("workspaces_DefaultRole"),
-//				AssumeRolePolicy: *pulumi.String(workspaces.Json),
+//				AssumeRolePolicy: pulumi.String(workspaces.Json),
 //			})
 //			if err != nil {
 //				return err

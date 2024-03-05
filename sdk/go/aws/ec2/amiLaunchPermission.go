@@ -88,7 +88,7 @@ import (
 //			}
 //			_, err = ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
 //				ImageId:         pulumi.String("ami-12345678"),
-//				OrganizationArn: *pulumi.String(current.Arn),
+//				OrganizationArn: pulumi.String(current.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -328,7 +328,7 @@ import (
 //				Engine:             pulumi.String("aurora"),
 //				EngineVersion:      pulumi.String("5.6.mysql_aurora.1.22.4"),
 //				ClusterIdentifier:  pulumi.String("example"),
-//				SnapshotIdentifier: *pulumi.String(example.Id),
+//				SnapshotIdentifier: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

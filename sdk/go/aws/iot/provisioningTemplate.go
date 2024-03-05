@@ -54,7 +54,7 @@ import (
 //			iotFleetProvisioning, err := iam.NewRole(ctx, "iot_fleet_provisioning", &iam.RoleArgs{
 //				Name:             pulumi.String("IoTProvisioningServiceRole"),
 //				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: *pulumi.String(iotAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +83,7 @@ import (
 //			}
 //			devicePolicyPolicy, err := iot.NewPolicy(ctx, "device_policy", &iot.PolicyArgs{
 //				Name:   pulumi.String("DevicePolicy"),
-//				Policy: *pulumi.String(devicePolicy.Json),
+//				Policy: pulumi.String(devicePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

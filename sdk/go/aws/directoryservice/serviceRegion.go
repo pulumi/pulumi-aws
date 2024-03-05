@@ -149,7 +149,7 @@ import (
 // }
 // _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
 // DirectoryId: exampleDirectory.ID(),
-// RegionName: *pulumi.String(example.Name),
+// RegionName: pulumi.String(example.Name),
 // VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
 // VpcId: example_secondary.ID(),
 // SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46),

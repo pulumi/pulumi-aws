@@ -153,7 +153,7 @@ import (
 //					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
 //						&s3.BucketAclV2AccessControlPolicyGrantArgs{
 //							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
-//								Id:   *pulumi.String(current.Id),
+//								Id:   pulumi.String(current.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("READ"),
@@ -167,7 +167,7 @@ import (
 //						},
 //					},
 //					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
-//						Id: *pulumi.String(current.Id),
+//						Id: pulumi.String(current.Id),
 //					},
 //				},
 //			})

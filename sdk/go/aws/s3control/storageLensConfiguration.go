@@ -52,7 +52,7 @@ import (
 //							Enabled: pulumi.Bool(true),
 //						},
 //						S3BucketDestination: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{
-//							AccountId:           *pulumi.String(current.AccountId),
+//							AccountId:           pulumi.String(current.AccountId),
 //							Arn:                 pulumi.Any(target.Arn),
 //							Format:              pulumi.String("CSV"),
 //							OutputSchemaVersion: pulumi.String("V_1"),

@@ -41,7 +41,7 @@ import (
 //			// a new dev database.
 //			aurora, err := rds.NewCluster(ctx, "aurora", &rds.ClusterArgs{
 //				ClusterIdentifier:  pulumi.String("development_cluster"),
-//				SnapshotIdentifier: *pulumi.String(developmentFinalSnapshot.Id),
+//				SnapshotIdentifier: pulumi.String(developmentFinalSnapshot.Id),
 //				DbSubnetGroupName:  pulumi.String("my_db_subnet_group"),
 //			})
 //			if err != nil {

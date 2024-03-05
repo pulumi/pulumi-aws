@@ -244,7 +244,7 @@ import (
 //			}
 //			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecs_task_execution_role", &iam.RoleArgs{
 //				Name:             pulumi.String("my_test_batch_exec_role"),
-//				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

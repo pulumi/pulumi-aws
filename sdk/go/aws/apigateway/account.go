@@ -53,7 +53,7 @@ import (
 //			}
 //			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatch", &iam.RoleArgs{
 //				Name:             pulumi.String("api_gateway_cloudwatch_global"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "cloudwatch", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("default"),
 //				Role:   cloudwatchRole.ID(),
-//				Policy: *pulumi.String(cloudwatch.Json),
+//				Policy: pulumi.String(cloudwatch.Json),
 //			})
 //			if err != nil {
 //				return err
