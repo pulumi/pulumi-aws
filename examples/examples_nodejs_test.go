@@ -10,6 +10,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"regexp"
 	"testing"
 	"time"
 
@@ -353,7 +354,8 @@ func TestAccIgnoreChanges(t *testing.T) {
 						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
 					},
 				},
-			}})
+			},
+		})
 
 	integration.ProgramTest(t, &test)
 }
@@ -543,9 +545,9 @@ func TestRegress2555(t *testing.T) {
 func TestRegress3421(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-				Dir: "regress-3421",
-				SkipRefresh: true,
-			},
+			Dir:         "regress-3421",
+			SkipRefresh: true,
+		},
 		)
 	// Disable envRegion mangling
 	test.Config = nil
@@ -581,7 +583,7 @@ func getAwsSession(t *testing.T) *session.Session {
 }
 
 func TestUpdateImportedLambda(t *testing.T) {
-	test := pulumitest.NewPulumiTest(t, "lambda-import-ts", 
+	test := pulumitest.NewPulumiTest(t, "lambda-import-ts",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
 
@@ -604,10 +606,37 @@ func TestUpdateImportedLambda(t *testing.T) {
 }
 
 func TestNoCodeLambda(t *testing.T) {
-	test := pulumitest.NewPulumiTest(t, "no-code-lambda", 
+	test := pulumitest.NewPulumiTest(t, "no-code-lambda",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
 	_, err := test.CurrentStack().Up(test.Context())
 	require.Error(t, err)
 	require.Contains(t, err.Error(), "ValidationException")
+}
+
+type InlinePolicy struct {
+	Name   string `json:"name"`
+	Policy string `json:"policy"`
+}
+
+func TestRoleInlinePolicyAutoName(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "role-inline-policy-auto-name",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	res, err := test.CurrentStack().Up(test.Context())
+	require.NoError(t, err)
+
+	policy := res.Outputs["inline_policy"]
+	value, err := json.Marshal(policy.Value)
+	require.NoError(t, err)
+
+	var inlinePolicy InlinePolicy
+	err = json.Unmarshal(value, &inlinePolicy)
+	require.NoError(t, err)
+
+	policyEmpty := res.Outputs["inline_policy_empty"]
+
+	require.Equal(t, policyEmpty.Value, []interface{}{})
+	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
+	require.Equal(t, "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"s3:GetObject\",\n      \"Resource\": \"*\"\n    }\n  ]\n}", inlinePolicy.Policy)
 }
