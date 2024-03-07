@@ -14,37 +14,6 @@ import (
 // Data source for viewing AWS SSO Admin Principal Application Assignments.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetPrincipalApplicationAssignments(ctx, &ssoadmin.GetPrincipalApplicationAssignmentsArgs{
-//				InstanceArn:   notImplemented("tolist(data.aws_ssoadmin_instances.test.arns)")[0],
-//				PrincipalId:   testAwsIdentitystoreUser.UserId,
-//				PrincipalType: "USER",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPrincipalApplicationAssignments(ctx *pulumi.Context, args *GetPrincipalApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetPrincipalApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrincipalApplicationAssignmentsResult

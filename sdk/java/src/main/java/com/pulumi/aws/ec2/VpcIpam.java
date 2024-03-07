@@ -22,49 +22,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IPAM resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var main = new VpcIpam(&#34;main&#34;, VpcIpamArgs.builder()        
- *             .description(&#34;My IPAM&#34;)
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .build())
- *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Shared with multiple operating_regions:
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:

@@ -10,63 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
- * ### With Account Assignment
- *
- * > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.sso_instance.identity_store_ids)")[0],
- *     displayName: "Admin",
- *     description: "Admin Group",
- * });
- * const accountAssignment = new aws.ssoadmin.AccountAssignment("account_assignment", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     permissionSetArn: examplePermissionSet.arn,
- *     principalId: exampleGroup.groupId,
- *     principalType: "GROUP",
- *     targetId: "123456789012",
- *     targetType: "AWS_ACCOUNT",
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
  *
  * ## Import
  *

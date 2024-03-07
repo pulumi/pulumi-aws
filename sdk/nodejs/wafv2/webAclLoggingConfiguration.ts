@@ -70,55 +70,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "aws-waf-logs-some-uniq-suffix"});
- * const exampleWebAclLoggingConfiguration = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleLogGroup.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
- * });
- * const current = aws.getRegion({});
- * const currentGetCallerIdentity = aws.getCallerIdentity({});
- * const example = pulumi.all([exampleLogGroup.arn, current, currentGetCallerIdentity]).apply(([arn, current, currentGetCallerIdentity]) => aws.iam.getPolicyDocumentOutput({
- *     version: "2012-10-17",
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: ["delivery.logs.amazonaws.com"],
- *             type: "Service",
- *         }],
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: [`${arn}:*`],
- *         conditions: [
- *             {
- *                 test: "ArnLike",
- *                 values: [`arn:aws:logs:${current.name}:${currentGetCallerIdentity.accountId}:*`],
- *                 variable: "aws:SourceArn",
- *             },
- *             {
- *                 test: "StringEquals",
- *                 values: [notImplemented("tostring(data.aws_caller_identity.current.account_id)")],
- *                 variable: "aws:SourceAccount",
- *             },
- *         ],
- *     }],
- * }));
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: example.apply(example => example.json),
- *     policyName: "webacl-policy-uniq-name",
- * });
- * ```
  *
  * ## Import
  *

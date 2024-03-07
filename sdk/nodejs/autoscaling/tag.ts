@@ -14,37 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: "example",
- *     nodeGroupName: "example",
- * });
- * const exampleTag: aws.autoscaling.Tag[] = [];
- * for (const range = {value: 0}; range.value < notImplemented(`toset(
- * [forasginflatten(
- * [forresourcesinaws_eks_node_group.example.resources:resources.autoscaling_groups]
- * ):asg.name]
- * )`); range.value++) {
- *     exampleTag.push(new aws.autoscaling.Tag(`example-${range.value}`, {
- *         autoscalingGroupName: range.value,
- *         tag: {
- *             key: "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
- *             value: "SPOT",
- *             propagateAtLaunch: false,
- *         },
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:

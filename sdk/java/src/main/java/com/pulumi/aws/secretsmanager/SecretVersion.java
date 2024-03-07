@@ -51,44 +51,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Key-Value Pairs
- * 
- * Secrets Manager also accepts key-value pairs in JSON.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.SecretVersion;
- * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var example = config.get(&#34;example&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .secretString(serializeJson(
- *                 example))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Reading key-value pairs from JSON back into a native map
  * 
  * ## Import
  * 

@@ -543,28 +543,6 @@ class User(pulumi.CustomResource):
         users using this resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.identitystore.User("example",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
 
         ## Import
 
@@ -608,28 +586,6 @@ class User(pulumi.CustomResource):
         users using this resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.identitystore.User("example",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
 
         ## Import
 

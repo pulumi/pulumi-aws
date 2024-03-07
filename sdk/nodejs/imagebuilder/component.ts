@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
  * Manages an Image Builder Component.
  *
  * ## Example Usage
- * ### Inline Data Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.imagebuilder.Component("example", {
- *     data: notImplemented(`yamlencode({
- * phases=[{
- * name="build"
- * steps=[{
- * action="ExecuteBash"
- * inputs={
- * commands=["echo 'hello world'"]
- * }
- * name="example"
- * onFailure="Continue"
- * }]
- * }]
- * schemaVersion=1.0
- * })`),
- *     name: "example",
- *     platform: "Linux",
- *     version: "1.0.0",
- * });
- * ```
  * ### URI Document
  *
  * ```typescript

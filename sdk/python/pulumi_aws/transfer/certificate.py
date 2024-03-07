@@ -315,24 +315,6 @@ class Certificate(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Certificate resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.transfer.Certificate("example",
-            certificate=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
-            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
-            private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
-            description="example",
-            usage="SIGNING")
-        ```
 
         ## Import
 
@@ -361,24 +343,6 @@ class Certificate(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Certificate resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.transfer.Certificate("example",
-            certificate=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
-            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
-            private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result,
-            description="example",
-            usage="SIGNING")
-        ```
 
         ## Import
 

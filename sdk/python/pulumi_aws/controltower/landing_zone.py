@@ -206,22 +206,6 @@ class LandingZone(pulumi.CustomResource):
         Creates a new landing zone using Control Tower. For more information on usage, please see the
         [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.controltower.LandingZone("example",
-            manifest_json=std.file(input=f"{not_implemented('path.module')}/LandingZoneManifest.json").result,
-            version="3.2")
-        ```
-
         ## Import
 
         Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
@@ -245,22 +229,6 @@ class LandingZone(pulumi.CustomResource):
         """
         Creates a new landing zone using Control Tower. For more information on usage, please see the
         [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.controltower.LandingZone("example",
-            manifest_json=std.file(input=f"{not_implemented('path.module')}/LandingZoneManifest.json").result,
-            version="3.2")
-        ```
 
         ## Import
 

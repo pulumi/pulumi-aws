@@ -158,19 +158,6 @@ def get_secret_version(secret_id: Optional[str] = None,
     by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
     ```
-    ### Handling Key-Value Secret Strings in JSON
-
-    Reading key-value pairs from JSON back into a native map
-
-    ```python
-    import pulumi
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    pulumi.export("example", not_implemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)")["key1"])
-    ```
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -223,19 +210,6 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
 
     by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
-    ```
-    ### Handling Key-Value Secret Strings in JSON
-
-    Reading key-value pairs from JSON back into a native map
-
-    ```python
-    import pulumi
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    pulumi.export("example", not_implemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)")["key1"])
     ```
 
 

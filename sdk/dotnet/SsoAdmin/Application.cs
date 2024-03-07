@@ -17,69 +17,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// See this issue for additional context.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Portal Options
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///         PortalOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsArgs
-    ///         {
-    ///             Visibility = "ENABLED",
-    ///             SignInOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsSignInOptionsArgs
-    ///             {
-    ///                 ApplicationUrl = "http://example.com",
-    ///                 Origin = "APPLICATION",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

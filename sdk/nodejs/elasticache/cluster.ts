@@ -102,44 +102,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ### Elasticache Cluster in Outpost
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.outposts.getOutposts({});
- * const exampleGetOutpost = aws.outposts.getOutpost({
- *     id: notImplemented("tolist(data.aws_outposts_outposts.example.ids)")[0],
- * });
- * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("example", {
- *     vpcId: exampleVpc.id,
- *     cidrBlock: "10.0.1.0/24",
- *     tags: {
- *         Name: "my-subnet",
- *     },
- * });
- * const exampleSubnetGroup = new aws.elasticache.SubnetGroup("example", {
- *     name: "my-cache-subnet",
- *     subnetIds: [exampleSubnet.id],
- * });
- * const exampleCluster = new aws.elasticache.Cluster("example", {
- *     clusterId: "cluster-example",
- *     outpostMode: "single-outpost",
- *     preferredOutpostArn: exampleGetOutpost.then(exampleGetOutpost => exampleGetOutpost.arn),
- *     engine: "memcached",
- *     nodeType: "cache.r5.large",
- *     numCacheNodes: 2,
- *     parameterGroupName: "default.memcached1.4",
- *     port: 11211,
- *     subnetGroupName: exampleSubnetGroup.name,
- * });
- * ```
  *
  * ## Import
  *

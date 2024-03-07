@@ -19,8 +19,6 @@ import javax.annotation.Nullable;
  * with a deployed API so that its methods can be called via the
  * custom domain name.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * For a non-root `base_path`:

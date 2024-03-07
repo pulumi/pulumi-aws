@@ -139,23 +139,6 @@ def get_roles(name_regex: Optional[str] = None,
     roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
         path_prefix="/aws-reserved/sso.amazonaws.com/")
     ```
-    ### Role ARNs with paths removed
-
-    For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
-    pulumi.export("arns", [not_implemented("format(\\"%s/%s\\",parts[0],element(parts,length(parts)-1))") for parts in [std.split(separator="/",
-        text=arn).result for arn in roles.arns]])
-    ```
 
 
     :param str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -228,23 +211,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
 
     roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
         path_prefix="/aws-reserved/sso.amazonaws.com/")
-    ```
-    ### Role ARNs with paths removed
-
-    For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
-    pulumi.export("arns", [not_implemented("format(\\"%s/%s\\",parts[0],element(parts,length(parts)-1))") for parts in [std.split(separator="/",
-        text=arn).result for arn in roles.arns]])
     ```
 
 

@@ -182,40 +182,6 @@ import (
 //	}
 //
 // ```
-// ### Redeploy Service On Every Apply
-//
-// The key used with `triggers` is arbitrary.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				ForceNewDeployment: pulumi.Bool(true),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": notImplemented("plantimestamp()"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

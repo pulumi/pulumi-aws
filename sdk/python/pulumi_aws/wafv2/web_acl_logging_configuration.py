@@ -226,51 +226,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ],
             ))
         ```
-        ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="aws-waf-logs-some-uniq-suffix")
-        example_web_acl_logging_configuration = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_log_group.arn],
-            resource_arn=example_aws_wafv2_web_acl["arn"])
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(version="2012-10-17",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    identifiers=["delivery.logs.amazonaws.com"],
-                    type="Service",
-                )],
-                actions=[
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents",
-                ],
-                resources=[f"{arn}:*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="ArnLike",
-                        values=[f"arn:aws:logs:{current.name}:{current_get_caller_identity.account_id}:*"],
-                        variable="aws:SourceArn",
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        values=[not_implemented("tostring(data.aws_caller_identity.current.account_id)")],
-                        variable="aws:SourceAccount",
-                    ),
-                ],
-            )]))
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_document=example.json,
-            policy_name="webacl-policy-uniq-name")
-        ```
 
         ## Import
 
@@ -353,51 +308,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                     ),
                 ],
             ))
-        ```
-        ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="aws-waf-logs-some-uniq-suffix")
-        example_web_acl_logging_configuration = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_log_group.arn],
-            resource_arn=example_aws_wafv2_web_acl["arn"])
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(version="2012-10-17",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    identifiers=["delivery.logs.amazonaws.com"],
-                    type="Service",
-                )],
-                actions=[
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents",
-                ],
-                resources=[f"{arn}:*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="ArnLike",
-                        values=[f"arn:aws:logs:{current.name}:{current_get_caller_identity.account_id}:*"],
-                        variable="aws:SourceArn",
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        values=[not_implemented("tostring(data.aws_caller_identity.current.account_id)")],
-                        variable="aws:SourceAccount",
-                    ),
-                ],
-            )]))
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_document=example.json,
-            policy_name="webacl-policy-uniq-name")
         ```
 
         ## Import

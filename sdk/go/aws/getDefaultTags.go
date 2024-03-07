@@ -39,36 +39,6 @@ import (
 //	}
 //
 // ```
-// ### Dynamically Apply Default Tags to Auto Scaling Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := aws.GetDefaultTags(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
-//				Tags: "TODO: For expression",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulumi.InvokeOption) (*GetDefaultTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultTagsResult

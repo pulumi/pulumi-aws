@@ -913,16 +913,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters() {
         return getClusters(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
@@ -931,16 +927,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters(InvokeArgs args) {
         return getClusters(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args) {
@@ -949,16 +941,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {

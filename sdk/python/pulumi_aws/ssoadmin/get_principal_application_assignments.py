@@ -97,20 +97,6 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
     Data source for viewing AWS SSO Admin Principal Application Assignments.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.test.arns)")[0],
-        principal_id=test_aws_identitystore_user["userId"],
-        principal_type="USER")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
@@ -144,20 +130,6 @@ def get_principal_application_assignments_output(application_assignments: Option
     Data source for viewing AWS SSO Admin Principal Application Assignments.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.test.arns)")[0],
-        principal_id=test_aws_identitystore_user["userId"],
-        principal_type="USER")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.

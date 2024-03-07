@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
  * invocation type.
  *
  * > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.lambda.getInvocation({
- *     functionName: lambdaFunctionTest.functionName,
- *     input: `{
- *   "key1": "value1",
- *   "key2": "value2"
- * }
- * `,
- * });
- * export const resultEntry = notImplemented("jsondecode(data.aws_lambda_invocation.example.result)").key1;
- * ```
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
 
@@ -83,27 +62,6 @@ export interface GetInvocationResult {
  * invocation type.
  *
  * > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.lambda.getInvocation({
- *     functionName: lambdaFunctionTest.functionName,
- *     input: `{
- *   "key1": "value1",
- *   "key2": "value2"
- * }
- * `,
- * });
- * export const resultEntry = notImplemented("jsondecode(data.aws_lambda_invocation.example.result)").key1;
- * ```
  */
 export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvocationResult> {
     return pulumi.output(args).apply((a: any) => getInvocation(a, opts))

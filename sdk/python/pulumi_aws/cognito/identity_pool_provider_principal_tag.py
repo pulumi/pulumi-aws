@@ -166,42 +166,6 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         """
         Provides an AWS Cognito Identity Principal Mapping.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.cognito.UserPool("example",
-            name="user pool",
-            auto_verified_attributes=["email"])
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="client",
-            user_pool_id=example.id,
-            supported_identity_providers=not_implemented(\"\"\"compact([
-        "COGNITO",
-        ])\"\"\"))
-        example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            cognito_identity_providers=[aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                client_id=example_user_pool_client.id,
-                provider_name=example.endpoint,
-                server_side_token_check=False,
-            )])
-        example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
-            identity_pool_id=example_identity_pool.id,
-            identity_provider_name=example.endpoint,
-            use_defaults=False,
-            principal_tags={
-                "test": "value",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
@@ -225,42 +189,6 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Cognito Identity Principal Mapping.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.cognito.UserPool("example",
-            name="user pool",
-            auto_verified_attributes=["email"])
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="client",
-            user_pool_id=example.id,
-            supported_identity_providers=not_implemented(\"\"\"compact([
-        "COGNITO",
-        ])\"\"\"))
-        example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            cognito_identity_providers=[aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                client_id=example_user_pool_client.id,
-                provider_name=example.endpoint,
-                server_side_token_check=False,
-            )])
-        example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
-            identity_pool_id=example_identity_pool.id,
-            identity_provider_name=example.endpoint,
-            use_defaults=False,
-            principal_tags={
-                "test": "value",
-            })
-        ```
 
         ## Import
 

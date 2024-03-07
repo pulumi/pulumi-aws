@@ -771,27 +771,6 @@ class NodeGroup(pulumi.CustomResource):
             desired_size=2,
         ))
         ```
-        ### Tracking the latest EKS Node Group AMI releases
-
-        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            version=example_aws_eks_cluster["version"],
-            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet])
-        ```
         ### Example IAM Role for EKS Node Group
 
         ```python
@@ -911,27 +890,6 @@ class NodeGroup(pulumi.CustomResource):
         example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArgs(
             desired_size=2,
         ))
-        ```
-        ### Tracking the latest EKS Node Group AMI releases
-
-        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            version=example_aws_eks_cluster["version"],
-            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
         ### Example IAM Role for EKS Node Group
 
