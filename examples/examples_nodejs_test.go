@@ -626,7 +626,7 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 	res, err := test.CurrentStack().Up(test.Context())
 	require.NoError(t, err)
 
-	policy := res.Outputs["inline_policy"]
+	policy := res.Outputs["inlinePolicy"]
 	value, err := json.Marshal(policy.Value)
 	require.NoError(t, err)
 
@@ -634,9 +634,9 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 	err = json.Unmarshal(value, &inlinePolicy)
 	require.NoError(t, err)
 
-	policyEmpty := res.Outputs["inline_policy_empty"]
+	policyEmpty := res.Outputs["inlinePolicyEmpty"]
 
 	require.Equal(t, policyEmpty.Value, []interface{}{})
 	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
-	require.Equal(t, "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"s3:GetObject\",\n      \"Resource\": \"*\"\n    }\n  ]\n}", inlinePolicy.Policy)
+	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
 }

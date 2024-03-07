@@ -59,5 +59,5 @@ const role2 = new aws.iam.Role('testrole-with-empty-inline', {
   inlinePolicies: [{}],
 });
 
-export const inline_policy = role.inlinePolicies[0];
-export const inline_policy_empty = role2.inlinePolicies;
+export const inlinePolicy = role.inlinePolicies[0];
+export const inlinePolicyEmpty = role2.inlinePolicies;

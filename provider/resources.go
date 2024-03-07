@@ -2470,7 +2470,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Transform: tfbridge.TransformJSONDocument,
 					},
 					"inline_policy": {
-						// inline_policy is an array of policy objects. It is allowed to provided an empty list
+						// inline_policy is an array of policy objects. The user is allowed to provided an empty list
 						//   inlinePolicies: []
 						// or a list with empty objects
 						//   inlinePolicies: [{}]
